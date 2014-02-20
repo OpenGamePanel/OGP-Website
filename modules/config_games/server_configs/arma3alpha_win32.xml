@@ -1,0 +1,21 @@
+<game_config>
+<game_key>arma3alpha_win32</game_key>
+<protocol>lgsl</protocol>
+<lgsl_query_name>arma3alpha</lgsl_query_name>
+<game_name>Arma 3 Aplha</game_name>
+<server_exec_name>arma3.exe</server_exec_name>
+  <cli_template>%PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="PORT" cli_string="-server -netlog -profiles=profile -cfg=profile\arma3.cfg -config=server.cfg -maxMem=2047 -cpuCount=8 -port=" />
+    <cli_param id="PLAYERS" cli_string="-maxplayers=" />
+  </cli_params>
+<console_log>profile/server_console.log</console_log>
+<max_user_amount>64</max_user_amount>
+<control_protocol>rcon2</control_protocol>
+<mods>
+ <mod key='arma3alpha'>
+  <name>none</name>
+  <installer_name>arma3alpha</installer_name>
+ </mod>
+</mods>  
+</game_config>

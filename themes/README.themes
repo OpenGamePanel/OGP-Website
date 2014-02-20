@@ -1,0 +1,10 @@
+Theme requires that you have layout.html file present. No other requirements.
+
+It is recommended though to have separate style.css file that does all the
+styling for your theme. The Revolution theme is the reference that is maintained
+by the OGP admins.
+
+It is also recommended to validate the layout with followign command:
+$ tidy -i -m layout.html
+
+

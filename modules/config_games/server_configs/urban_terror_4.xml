@@ -1,0 +1,44 @@
+<game_config>
+  <game_key>ioUrT_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>urbanterror</lgsl_query_name>
+  <game_name>Urban Terror 4</game_name>
+  <server_exec_name>ioUrTded.i386</server_exec_name>
+  <cli_template>server +set dedicated 2 %GAME_TYPE% %MAP% %IP% %PORT% %PLAYERS% %HOSTNAME%</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="+set g_gametype" options="s" />
+    <cli_param id="HOSTNAME" cli_string="+set sv_hostname" options="sq" />
+  </cli_params>
+  <maps_location>q3ut4</maps_location>
+  <map_list>/q3ut4/mapcycle.txt</map_list>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
+  <mods>
+    <mod key="0">
+      <name>Free For All</name>
+    </mod>
+    <mod key="3">
+      <name>Team Death Match</name>
+    </mod>
+    <mod key="4">
+      <name>Team Survivor</name>
+    </mod>
+    <mod key="5">
+      <name>Follow the leader</name>
+    </mod>
+    <mod key="6">
+      <name>Capture and Hold</name>
+    </mod>
+    <mod key="7">
+      <name>Capture the Flag</name>
+    </mod>
+    <mod key="8">
+      <name>Bomb Mode</name>
+    </mod>
+  </mods>
+</game_config>

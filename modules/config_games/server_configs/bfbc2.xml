@@ -1,0 +1,51 @@
+<game_config>
+  <game_key>bfbc2_win32</game_key> <!-- Works for Linux too if you have Wine installed and configured so we don't need a xml config for Linux. -->
+  <protocol>gameq</protocol>
+  <gameq_query_name>bfbc2</gameq_query_name>
+  <game_name>Battlefield Bad Company 2</game_name>
+  <server_exec_name>Frost.Game.Main_Win32_Final.exe</server_exec_name>
+  <query_port type="add">29321</query_port>
+  <cli_template>-serverInstancePath "Instance/" -mapPack2Enabled 1 %PORT% %QUERY_PORT% %PLAYERS% -region EU -runtimeLog 0 -displayErrors 0 -displayAsserts 0 -crashDumpAsserts 0 -serverAdminLogs 1 -plasmaServerLog 1 -revisionLevel 8 -revisionKey 7C0A303E-F4D2-985E-763D-E7C41B1E06A3 %GAMEMODEID%</cli_template>
+  <cli_params>
+    <cli_param options="s" cli_string="-port" id="PORT"/>
+    <cli_param options="s" cli_string="-numGameClientSlots" id="PLAYERS"/>
+    <cli_param options="s" cli_string="-remoteAdminPort" id="QUERY_PORT"/>
+  </cli_params>
+  <console_log>Instance/AdminLogs/ServerAdminLog.log</console_log>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="bfbc2">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>vars.serverName.*</default>
+      <var>vars.serverName</var>
+      <filepath>Instance/AdminScripts/Startup.txt</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>vars.adminPassword.*</default>
+      <var>vars.adminPassword</var>
+      <filepath>Instance/AdminScripts/Startup.txt</filepath>
+      <options>sq</options>
+    </text>
+  </replace_texts>
+  <server_params>
+   <param key="-GameModID" type="select" id="GAMEMODEID">
+     <option value="BC2">BC2</option>
+     <option value="VIETNAM">Vietnam</option>
+      <caption>Game Mode</caption>
+      <desc>Select a Game Mode.</desc>
+    </param>
+    <param key="-ranked 1" type="checkbox_key_value">
+      <caption>Enable Ranking</caption>
+      <desc>Server is ranked if checked. Startup.txt overwrite this checkbox.</desc>
+    </param>
+    <param key="-punkBuster 1" type="checkbox_key_value">
+      <caption>Enable PunkBuster</caption>
+      <desc>PunkBuster is auto-enabled in ranked mode. Startup.txt overwrite this checkbox.</desc>
+    </param>
+  </server_params>
+</game_config>

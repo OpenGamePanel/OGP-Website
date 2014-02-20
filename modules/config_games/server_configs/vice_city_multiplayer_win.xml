@@ -1,0 +1,13 @@
+<game_config>
+  <game_key>vcmp_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>vcmp</lgsl_query_name>
+  <game_name>Vice City Multiplayer</game_name>
+  <server_exec_name>vcmp-svr.exe</server_exec_name>
+  <max_user_amount>1000</max_user_amount>
+  <mods>
+    <mod key="vcmp">
+      <name>none</name>
+    </mod>
+  </mods>
+</game_config>

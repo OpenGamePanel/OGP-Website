@@ -1,0 +1,19 @@
+<game_config>
+<game_key>vbox_linux32</game_key>
+<protocol>lgsl</protocol>
+<lgsl_query_name>vbox</lgsl_query_name>
+<game_name>VirtualBox</game_name>
+<server_exec_name>VBoxHeadless</server_exec_name><!-- http://opengamepanel.org/forum/viewthread.php?thread_id=2094&pid=9487#post_9487 -->
+<cli_template>%MAP% %IP% %PORT%</cli_template>
+<cli_params>
+ <cli_param id='IP' cli_string='-e TCP/Address=' options='q'/>
+ <cli_param id='PORT' cli_string='-e TCP/Ports=' options='q'/>
+ <cli_param id='MAP' cli_string='--startvm' options='s'/>
+</cli_params>
+<map_list>vmslist.txt</map_list>
+<mods>
+ <mod key='vbox'>
+  <name>none</name>
+ </mod>
+</mods>
+</game_config>

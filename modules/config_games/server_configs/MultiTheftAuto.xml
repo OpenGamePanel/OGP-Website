@@ -1,0 +1,34 @@
+<game_config>
+  <game_key>MultiTheftAuto_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>mta</lgsl_query_name>
+  <game_name>MultiTheftAuto</game_name>
+  <server_exec_name>mta-server</server_exec_name>
+  <query_port type="add">123</query_port>
+  <cli_template>%IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="--ip" options="s" />
+    <cli_param id="PORT" cli_string="--port" options="s" />
+    <cli_param id="PLAYERS" cli_string="--maxplayers" options="s" />
+  </cli_params>
+  <console_log>mods/deathmatch/logs/server.log</console_log>
+  <max_user_amount>1024</max_user_amount>
+  <control_protocol>lcon</control_protocol>
+  <mods>
+    <mod key="mta">
+      <name>none</name>
+      <installer_name>MultiTheftAuto</installer_name>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="--novoice" type="checkbox_key_value">
+      <caption>--novoice</caption>
+      <desc>Disable Voice Communication</desc>
+    </param>
+    <param key="--httpport" type="text">
+      <default>22005</default>
+      <caption>--httpport</caption>
+      <desc>Port for administration web server</desc>
+    </param>
+  </server_params>
+</game_config>

@@ -1,0 +1,48 @@
+<game_config>
+  <game_key>sms_linux32</game_key>
+  <game_name>ShootMania Storm</game_name>
+  <server_exec_name>ManiaPlanetServer</server_exec_name>
+  <cli_template> /dedicated_cfg=dedicated_cfg.txt %MAP%.txt %IP%%PORT% %PLAYERS% /nodaemon</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="/bindip=" />
+    <cli_param id="PORT" cli_string=":" />
+    <cli_param id="PLAYERS" cli_string="/max_player=" />
+    <cli_param id="MAP" cli_string="/game_settings=MatchSettings/" />
+  </cli_params>
+  <maps_location>UserData/Maps/MatchSettings/</maps_location>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="sms">
+      <name>none</name>
+    </mod>
+  </mods>
+  <server_params>
+   <param key="/login=" type="text">
+     <option>ns</option>
+     <caption>Login User Name</caption>
+     <desc>Get your master server login at 'http://player.maniaplanet.com/advanced/dedicated-servers' .</desc>
+   </param>
+   <param key="/password=" type="text">
+     <option>ns</option>
+     <caption>Login Password</caption>
+     <desc>Master Server Login Password.</desc>
+   </param>
+   <param key="/validation_key=" type="text">
+     <option>ns</option>
+     <caption>Validation Key</caption>
+     <desc>Your SM Storm master server validation key.</desc>
+   </param>
+   <param key="/serverpassword=" type="text">
+     <caption>Server Password</caption>
+     <desc>Private server password.</desc>
+    </param>
+    <param key="/forceip=LAN" type="checkbox_key_value">
+     <caption>LAN</caption>
+     <desc>Local Area Network server with internet connection.</desc>
+    </param>
+    <param key="/lan" type="checkbox_key_value">
+     <caption>LAN without internet</caption>
+     <desc>Local Area Network server without internet connection.</desc>
+    </param>
+  </server_params>
+</game_config>

@@ -1,0 +1,35 @@
+<game_config>
+<game_key>arma2co_linux</game_key>
+<protocol>lgsl</protocol>
+<lgsl_query_name>arma2co</lgsl_query_name>
+<game_name>Arma 2 Combined Operations</game_name>
+<server_exec_name>server</server_exec_name><!-- arma2arrowhead -->
+  <cli_template>%PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="PORT" cli_string="-netlog -maxMem=2047 -cpuCount=8 -port=" />
+    <cli_param id="PLAYERS" cli_string="-maxplayers=" />
+  </cli_params>
+<max_user_amount>64</max_user_amount>
+<control_protocol>lcon</control_protocol>
+<mods>
+ <mod key='arma2co'>
+  <name>none</name>
+  <installer_name>arma2co</installer_name>
+ </mod>
+</mods>
+  <server_params>
+    <param key="-name=" type="select">
+	  <option value="public-no-mods -cfg=public-no-mods/arma2.cfg -config=public-no-mods/server.cfg">Public Server Without Mods</option>
+      <option value="public-ace -cfg=public-ace/arma2.cfg -config=public-ace/server.cfg -mod=@ACE\;@CBA">Public Server ACE</option>
+      <option value="public-ace-acre -cfg=public-ace-acre/arma2.cfg -config=public-ace-acre/server.cfg -mod=@ACE\;@ACRE\;@CBA">Public Server ACE+ACRE</option>
+	  <option value="public-official-mods -cfg=public-official-mods/arma2.cfg -config=public-official-mods/server.cfg -mod=@ACE\;@ACRE\;@CBA\;@CiaEagleIslas\;@CiaEagleMods\;@CiaEagleUnits">Public Server Official Mods</option>
+	  <option value="private-no-mods -cfg=private-no-mods/arma2.cfg -config=private-no-mods/server.cfg">Private Server Without Mods</option>
+	  <option value="private-ace -cfg=private-ace/arma2.cfg -config=private-ace/server.cfg -mod=@ACE\;@CBA">Private Server ACE</option>
+      <option value="private-ace-acre -cfg=private-ace-acre/arma2.cfg -config=private-ace-acre/server.cfg -mod=@ACE\;@ACRE\;@CBA">Private Server ACE+ACRE</option>
+	  <option value="private-official-mods -cfg=private-official-mods/arma2.cfg -config=private-official-mods/server.cfg -mod=@ACE\;@ACRE\;@CBA\;@CiaEagleIslas\;@CiaEagleMods\;@CiaEagleUnits">Private Server Official Mods</option>
+      <caption>Server Role</caption>
+      <desc>Starts the server with the selected role.</desc>
+      <options>ns</options>
+    </param>
+  </server_params>
+</game_config>

@@ -1,0 +1,26 @@
+<game_config>
+  <game_key>bloodfrontier_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>cube</lgsl_query_name>
+  <game_name>Blood Frontier</game_name>
+  <server_exec_name>bfserver_linux</server_exec_name>
+  <query_port type="add">1</query_port>
+  <!-- -sm127.0.0.1 is used because the game has been discontinued
+  and the normal authentication server is not online anymore. -->
+  <cli_template>-ss3 %MAP% %IP% %PORT% %QUERY_PORT% %PLAYERS% -sm127.0.0.1</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="-sl" />
+    <cli_param id="IP" cli_string="-si" />
+    <cli_param id="PORT" cli_string="-sp" />
+    <cli_param id="QUERY_PORT" cli_string="-sq" />
+    <cli_param id="PLAYERS" cli_string="-sc" />
+  </cli_params>
+  <maps_location>data/maps</maps_location>
+  <exe_location>bin</exe_location>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="1">
+      <name>none</name>
+    </mod>
+  </mods>
+</game_config>

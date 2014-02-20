@@ -1,0 +1,4 @@
+<navigation>
+  <page key="form" file="register.php" access="guest" />
+  <page key="exec" file="register-exec.php" access="guest" />
+</navigation>

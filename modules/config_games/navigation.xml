@@ -1,0 +1,8 @@
+<navigation>
+  <page key="default" file="config_servers.php" access="admin" />
+  <page key="xml_config_creator" file="xml_config_creator.php" access="admin" />
+  <page key="create" file="create.php" access="admin" />
+  <page key="set_params" file="set_params.php" access="admin" />
+  <page key="set_mods" file="set_mods.php" access="admin" />
+  <page key="cli-params" file="cli-params.php" access="admin" />
+</navigation>

@@ -1,0 +1,55 @@
+<game_config>
+  <game_key>pvkii_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>source</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Pirates, Vikings and Knights II</game_name>
+  <server_exec_name>srcds_run</server_exec_name>
+  <cli_template>%GAME_TYPE% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="+ip" options="s" />
+    <cli_param id="PORT" cli_string="+port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxplayers" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
+  </cli_params>
+  <maps_location>pvkii/maps/</maps_location>
+  <map_list>pvkii/mapcycle.txt</map_list>
+  <max_user_amount>64</max_user_amount>
+  <control_protocol>rcon2</control_protocol>
+  <mods>
+    <mod key="pvkii">
+      <name>none</name>
+	  <installer_name>17575</installer_name>
+	  <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="-insecure" type="checkbox_key_value">
+      <caption>Disable Valve Anti-Cheat</caption>
+      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+    </param>
+    <param key="-nohltv" type="checkbox_key_value">
+      <caption>Disable Half-Life TV</caption>
+      <desc>Disables SourceTV and closes its port (usually 27020).</desc>
+    </param>
+    <param key="-restart" type="checkbox_key_value">
+      <caption>Restart</caption>
+      <desc>The server restarts when it crashes.</desc>
+    </param>
+    <param key="-nomaster" type="checkbox_key_value">
+      <desc>Disable master server communication</desc>
+    </param>
+    <param key="-debug" type="checkbox_key_value">
+      <caption>Debug mode</caption>
+    </param>
+    <param key="-nobots" type="checkbox">
+      <caption>Disable bots</caption>
+    </param>
+    <param key="-norestart" type="checkbox">
+      <caption>No restart</caption>
+      <desc>Do not attempt to restart failed servers.</desc>
+    </param>
+  </server_params>
+</game_config>

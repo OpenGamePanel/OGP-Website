@@ -1,0 +1,23 @@
+<game_config>
+  <game_key>soldatserver_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>soldat</lgsl_query_name>
+  <game_name>Soldat</game_name>
+  <server_exec_name>soldatserver</server_exec_name>
+  <query_port type="add">123</query_port>
+  <cli_template>%PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
+    <cli_param id="PORT" cli_string="-p" options="s" />
+    <cli_param id="PLAYERS" cli_string="-l" options="s" />
+  </cli_params>
+  <maps_location>maps/</maps_location>
+  <map_list>mapslist.txt</map_list>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <mods>
+    <mod key="default">
+      <name>none</name>
+    </mod>
+  </mods>
+</game_config>

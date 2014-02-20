@@ -1,0 +1,36 @@
+<game_config>
+  <game_key>jediknight2_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>jediknight2</lgsl_query_name>
+  <game_name>Jedi Knight 2</game_name>
+  <server_exec_name>jk2ded</server_exec_name>
+  <cli_template>+set dedicated 2 +exec server.cfg %GAME_TYPE% %MAP% %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="+set fs_game" options="s" />
+  </cli_params>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="base">
+      <name>BaseJK2</name>
+    </mod>
+    <mod key="DS-Online">
+      <name>DS-Online</name>
+    </mod>
+    <mod key="Movie_Battles">
+      <name>Movie_Battles</name>
+    </mod>
+    <mod key="Forcemod_2">
+      <name>Forcemod_2</name>
+    </mod>
+    <mod key="Jedi Enhancers">
+      <name>Jedi Enhancers</name>
+    </mod>
+    <mod key="JediMod">
+      <name>JediMod</name>
+    </mod>
+  </mods>
+</game_config>

@@ -1,0 +1,64 @@
+<game_config>
+  <game_key>ut2004_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>ut2004</lgsl_query_name>
+  <game_name>Unreal Tournament 2004</game_name>
+  <server_exec_name>ucc-bin</server_exec_name>
+  <cli_template>server %MAP%%GAME_TYPE%%PLAYERS%%MUTATOR% %IP% %PORT% -log=../ut2004.log -nohomedir</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="-multihome=" />
+    <cli_param id="PORT" cli_string="-port=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+    <cli_param id="GAME_TYPE" cli_string="?Game=" />
+  </cli_params>
+  <maps_location>Maps</maps_location>
+  <exe_location>System</exe_location>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="UT2k4Assault.ASGameInfo">
+      <name>Assault</name>
+    </mod>
+    <mod key="XGame.xCTFGame">
+      <name>Capture The Flag</name>
+    </mod>
+    <mod key="XGame.xBombingRun">
+      <name>Bombing Run</name>
+    </mod>
+    <mod key="xGame.xDoubleDom">
+      <name>Double Domination</name>
+    </mod>
+    <mod key="XGame.xDeathMatch">
+      <name>Death Match</name>
+    </mod>
+    <mod key="SkaarjPack.Invasion">
+      <name>Invasion</name>
+    </mod>
+    <mod key="BonusPack.xLastManStandingGame">
+      <name>Last Man Standing</name>
+    </mod>
+    <mod key="BonusPack.xMutantGame">
+      <name>Mutant</name>
+    </mod>
+    <mod key="Onslaught.ONSOnslaughtGame">
+      <name>Onslaught</name>
+    </mod>
+    <mod key="XGame.xTeamGame">
+      <name>Team Death Match</name>
+    </mod>
+    <mod key="XGame.xVehicleCTFGame">
+      <name>Vehicle CTF</name>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="+lanplay" type="checkbox_key_value">
+      <caption>LAN Play</caption>
+      <desc>Starts the server in LAN mode.</desc>
+    </param>
+    <param id="MUTATOR" key="?Mutator=" type="text">
+      <option>ns</option>
+      <caption>Mutator</caption>
+      <desc>Please set any game Mutators.</desc>
+    </param>
+  </server_params>
+</game_config>

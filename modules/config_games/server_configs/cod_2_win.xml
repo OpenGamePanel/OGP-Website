@@ -1,0 +1,56 @@
+<game_config>
+  <game_key>cod2_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>callofduty2</lgsl_query_name>
+  <game_name>Call of Duty 2</game_name>
+  <server_exec_name>CoD2MP_s.exe</server_exec_name>
+  <cli_template>+set dedicated 2 %IP% %PORT% %BASE_PATH% %HOME_PATH% %OUTPUT_PATH% %USER_PATH% %FS_GAME% %PB% %EXEC% %RCON% %PLAYERS% %GAME_MODE% +map_rotate</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="BASE_PATH" cli_string="+set fs_basepath" options="s" />
+    <cli_param id="HOME_PATH" cli_string="+set fs_homepath" options="s" />
+    <cli_param id="OUTPUT_PATH" cli_string="+set fs_outputpath" options="s" />
+    <cli_param id="USER_PATH" cli_string="+set fs_userpath" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+  </cli_params>
+  <max_user_amount>64</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="+set fs_game" type="text" id="FS_GAME">
+      <default></default>
+      <caption></caption>
+      <desc>Set the server to run a mod. For example: mods/my_mod</desc>
+    </param>
+    <param key="+set sv_punkbuster" type="text" id="PB">
+      <default>1</default>
+      <caption></caption>
+      <desc>Set your PunkBuster Server Enabled or Disabled.</desc>
+    </param>
+    <param key="+exec" type="text" id="EXEC">
+      <default>server.cfg</default>
+      <caption></caption>
+      <desc>Set the name of your server configuration file.</desc>
+    </param>
+    <param key="+set rcon_password" type="text" id="RCON">
+      <default>MyPassword</default>
+      <caption></caption>
+      <desc>Set your Remote Console password.</desc>
+    </param>
+	<param id="GAME_MODE" key="+set sv_mapRotation" type="select">
+      <option value="gametype tdm map mp_breakout gametype tdm map mp_brecourt gametype tdm map mp_burgundy gametype tdm map mp_carentan gametype tdm map mp_dawnville gametype tdm map mp_decoy gametype tdm map mp_downtown gametype tdm map mp_farmhouse gametype tdm map mp_leningrad gametype tdm map mp_matmata gametype tdm map mp_railyard gametype tdm map mp_toujane gametype tdm map mp_trainstation">Team Dead Match</option>
+      <option value="gametype ctf map mp_breakout gametype ctf map mp_brecourt gametype ctf map mp_burgundy gametype ctf map mp_carentan gametype ctf map mp_dawnville gametype ctf map mp_decoy gametype ctf map mp_downtown gametype ctf map mp_farmhouse gametype ctf map mp_leningrad gametype ctf map mp_matmata gametype ctf map mp_railyard gametype ctf map mp_toujane gametype ctf map mp_trainstation">Capture The Flag</option>
+      <option value="gametype dm map mp_breakout gametype dm map mp_brecourt gametype dm map mp_burgundy gametype dm map mp_carentan gametype dm map mp_dawnville gametype dm map mp_decoy gametype dm map mp_downtown gametype dm map mp_farmhouse gametype dm map mp_leningrad gametype dm map mp_matmata gametype dm map mp_railyard gametype dm map mp_toujane gametype dm map mp_trainstation">Death Match</option>
+	  <option value="gametype hq map mp_breakout gametype hq map mp_brecourt gametype hq map mp_burgundy gametype hq map mp_carentan gametype hq map mp_dawnville gametype hq map mp_decoy gametype hq map mp_downtown gametype hq map mp_farmhouse gametype hq map mp_leningrad gametype hq map mp_matmata gametype hq map mp_railyard gametype hq map mp_toujane gametype hq map mp_trainstation">Head Quarters</option>
+	  <option value="gametype sd map mp_breakout gametype sd map mp_brecourt gametype sd map mp_burgundy gametype sd map mp_carentan gametype sd map mp_dawnville gametype sd map mp_decoy gametype sd map mp_downtown gametype sd map mp_farmhouse gametype sd map mp_leningrad gametype sd map mp_matmata gametype sd map mp_railyard gametype sd map mp_toujane gametype sd map mp_trainstation">Search and Destroy</option>
+      <caption>Game Mode</caption>
+      <desc>Select a Game Mode.</desc>
+    </param>
+  </server_params>
+</game_config>

@@ -1,0 +1,18 @@
+<game_config>
+  <game_key>halo_ce_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>halo</lgsl_query_name>
+  <game_name>Halo CE</game_name>
+  <server_exec_name>haloceded.exe</server_exec_name>
+  <cli_template>-exec init.txt -path settings %IP% %PORT%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="-ip" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+  </cli_params>
+  <console_log>settings/haloserver.log</console_log><!-- Enable logging in init.txt: sv_log_enabled 1 sv_log_echo_chat 1 -->
+  <mods>
+    <mod key="halo_ce">
+      <name>none</name>
+    </mod>
+  </mods>
+</game_config>

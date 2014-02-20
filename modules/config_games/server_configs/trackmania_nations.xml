@@ -1,0 +1,12 @@
+<game_config>
+  <game_key>tm_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <game_name>Trackmania Nations</game_name>
+  <server_exec_name>RunTrackmaniaNations.sh</server_exec_name>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>none</name>
+    </mod>
+  </mods>
+</game_config>

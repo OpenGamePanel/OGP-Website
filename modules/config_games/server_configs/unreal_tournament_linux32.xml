@@ -1,0 +1,37 @@
+<game_config>
+  <game_key>unreal_tournament_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>ut</lgsl_query_name>
+  <game_name>Unreal Tournament</game_name>
+  <server_exec_name>ucc-bin</server_exec_name>
+  <cli_template>server %MAP%%GAME%%PLAYERS%%MUTATOR% %IP% %PORT% -log=../ut.log -nohomedir</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="-multihome=" />
+    <cli_param id="PORT" cli_string="-port=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+  </cli_params>
+  <maps_location>Maps</maps_location>
+  <exe_location>System</exe_location>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="ut">
+      <name>none</name>
+    </mod>
+  </mods>
+  <server_params>
+	<param id="GAME" key="?Game=" type="select">
+	  <option value="Botpack.CTFGame">Capture The Flag</option>
+	  <option value="Botpack.Domination">Domination</option>
+	  <option value="Botpack.DeathMatchPlus">Death Match Plus</option>
+	  <option value="Botpack.TeamGamePlus">Team Game Plus</option>
+      <caption>Game type</caption>
+      <desc>Please set a game type.</desc>
+    </param>
+    <param id="MUTATOR" key="?Mutator=" type="text">
+      <option>ns</option>
+      <caption>Mutator</caption>
+      <desc>Set any game mutators you want.</desc>
+    </param>
+  </server_params>
+</game_config>

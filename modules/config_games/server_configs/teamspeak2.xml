@@ -1,0 +1,12 @@
+<game_config>
+  <game_key>teamspeak2_linux32</game_key>
+  <game_name>TeamSpeak 2</game_name>
+  <server_exec_name>server_linux</server_exec_name>
+  <exe_location>tss2_rc2</exe_location>
+  <max_user_amount>1</max_user_amount>
+  <mods>
+    <mod key="ts2">
+      <name>none</name>
+    </mod>
+  </mods>
+</game_config>
