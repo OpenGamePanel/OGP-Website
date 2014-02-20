@@ -1,0 +1,130 @@
+<game_config>
+  <game_key>ut3_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>ut3</lgsl_query_name>
+  <game_name>Unreal Tournament 3</game_name>
+  <server_exec_name>ut3-bin</server_exec_name>
+  <cli_template>server %MAP%%GAME_TYPE%%PLAYERS%?mutator=%MUTATOR1%%MUTATOR2%%MUTATOR3%%MUTATOR4%%MUTATOR5%%MUTATOR6%%MUTATOR7%%MUTATOR8%%MUTATOR9%%MUTATOR10%%MUTATOR11%%MUTATOR12%%LAN%%DEDICATED%%ADMINPASS%%SVRPASS% %IP% %PORT% %QUERY_PORT%  -log=../ut3.log -nohomedir %LOGIN% %PASSWORD% -unattended</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="-multihome=" />
+    <cli_param id="PORT" cli_string="-Port=" />
+	<cli_param id="QUERY_PORT" cli_string="-QueryPort=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+    <cli_param id="GAME_TYPE" cli_string="?Game=" />
+  </cli_params>
+  <maps_location>UTGame/CookedPC/Maps</maps_location>
+  <exe_location>Binaries</exe_location>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+	<mod key="UTGame.UTDeathmatch">
+      <name>DeathMatch</name>
+    </mod>
+    <mod key="UTGameContent.UTCTFGame_Content">
+      <name>Capture the Flag</name>
+    </mod>
+    <mod key="UTGameContent.UTOnslaughtGame_Content">
+      <name>Warfare</name>
+    </mod>
+    <mod key="UTGameContent.UTVehicleCTFGame_Content">
+      <name>Vehicle Capture The Flag</name>
+    </mod>
+    <mod key="UTGame.UTTeamGame">
+      <name>Team DeatMatch</name>
+    </mod>
+	<mod key="UTGame.UTDuelGame ">
+      <name>Duel</name>
+    </mod>
+  </mods>
+  <server_params>
+	<param id="LOGIN" key="-login=" type="text">
+      <option>ns</option>
+      <caption>Login</caption>
+      <desc>This login has to be created via the client "Create Profile". You can create multiple profiles under the same email address but you must use the same password for each if you do so.</desc>
+    </param>
+	<param id="PASSWORD" key="-password=" type="text">
+      <option>ns</option>
+      <caption>Password</caption>
+      <desc>Profile Password.</desc>
+    </param>
+    <param id="MUTATOR1" key="UTGame.UTMutator_Instagib" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Instagib</caption>
+      <desc>Enable Instagib Mutator.</desc>
+    </param>
+    <param id="MUTATOR2" key=",UTGame.UTMutator_BigHead" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>BigHead</caption>
+      <desc>Enable BigHead Mutator.</desc>
+    </param>
+    <param id="MUTATOR3" key=",UTGame.UTMutator_LowGrav" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Low Gravity</caption>
+      <desc>Enable Low Gravity Mutator.</desc>
+    </param>
+    <param id="MUTATOR4" key=",UTGame.UTMutator_SuperBerserk" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Super Berserk</caption>
+      <desc>Enable Super Berserk Mutator.</desc>
+    </param>
+    <param id="MUTATOR5" key=",UTGame.UTMutator_FriendlyFire" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Friendly Fire</caption>
+      <desc>Enable Friendly Fire Mutator.</desc>
+    </param>
+    <param id="MUTATOR6" key=",UTGame.UTMutator_NoTranslocator" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>No Translocator</caption>
+      <desc>Enable No Translocator Mutator.</desc>
+    </param>
+    <param id="MUTATOR7" key=",UTGame.UTMutator_SpeedFreak" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Speed Freak</caption>
+      <desc>Enable Speed Freak Mutator.</desc>
+    </param>
+    <param id="MUTATOR8" key=",UTGame.UTMutator_Handicap" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Handicap</caption>
+      <desc>Enable Handicap Mutator.</desc>
+    </param>
+    <param id="MUTATOR9" key=",UTGame.UTMutator_NoPowerups" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>No Powerups</caption>
+      <desc>Enable No Powerups Mutator.</desc>
+    </param>
+    <param id="MUTATOR10" key=",UTGame.UTMutator_Slomo" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Slomo</caption>
+      <desc>Enable Slomo Mutator.</desc>
+    </param>
+    <param id="MUTATOR11" key=",UTGame.UTMutator_WeaponReplacement" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Weapon Replacement</caption>
+      <desc>Enable Weapon Replacement Mutator.</desc>
+    </param>
+    <param id="MUTATOR12" key=",UTGame.UTMutator_WeaponsRespawn" type="checkbox_key_value">
+      <option>ns</option>
+      <caption>Weapon Respawn</caption>
+      <desc>Enable Weapon Respawn Mutator.</desc>
+    </param>
+    <param id="LAN" key="?bIsLanMatch=True" type="checkbox_key_value">
+      <caption>LAN Play</caption>
+      <desc>Starts the server in LAN mode.</desc>
+    </param>
+	<param id="DEDICATED" key="?bIsDedicated=True" type="checkbox_key_value">
+	  <default>checkbox</default>
+      <caption>Dedicated</caption>
+      <desc>Dedicated Server mode.</desc>
+    </param>
+	<param id="ADMINPASS" key="?AdminPassword=" type="text">
+      <option>ns</option>
+      <caption>Admin Password</caption>
+      <desc>In-game Admin Password.</desc>
+    </param>
+	<param id="SVRPASS" key="?GamePassword=" type="text">
+      <option>ns</option>
+      <caption>Server Password</caption>
+      <desc>Players must know this password to connect.</desc>
+    </param>
+  </server_params>
+</game_config>

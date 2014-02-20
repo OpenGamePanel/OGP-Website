@@ -1,0 +1,6 @@
+<navigation>
+  <page key="add" file="add_subuser.php" access="user" />
+  <page key="del" file="del_subuser.php" access="user" />
+  <page key="adduser" file="add_subuser-exec.php" access="user" />
+  <page key="submanage" file="submanage.php" access="user" />
+</navigation>

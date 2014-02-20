@@ -1,0 +1,42 @@
+<game_config>
+  <game_key>rorserver_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>ror</lgsl_query_name>
+  <game_name>Rigs of Rods</game_name>
+  <server_exec_name>rorserver</server_exec_name>
+  <cli_template>-config server.cfg %MAP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="-terrain" options="s" />
+    <cli_param id="IP" cli_string="-ip" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="PLAYERS" cli_string="-maxclients" options="s" />
+  </cli_params>
+  <!-- List of terrains which should be available on your server. One terrain per line. -->
+  <map_list>terrainlist.txt</map_list>
+  <!-- Change the max_user_amount to your needs. -->
+  <max_user_amount>10</max_user_amount>
+  <mods>
+    <mod key="ror">
+      <name>None</name>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="-password" type="text">
+      <caption>Password</caption>
+      <desc>Leave empty for no password</desc>
+    </param>
+    <param key="-name" type="text">
+      <caption>Servername</caption>
+      <desc>name of the server (replace spaces with underscore)</desc>
+    </param>
+	<param key="-vehiclelimit" type="select">
+	  <!-- You can simply add more options if you need. -->
+	  <option value="1">1</option>
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+	  <default>3</default>
+      <caption>Vehiclelimit</caption>
+      <desc>Maximum number of vehicles per player</desc>
+    </param>
+  </server_params>
+</game_config>

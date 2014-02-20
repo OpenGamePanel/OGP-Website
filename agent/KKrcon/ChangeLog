@@ -1,0 +1,21 @@
+KKrcon ChangeLog
+=================
+
+
+2.11 (released 2001-04-09)
+*) Fixed module bug: Negative frags now parsed correctly. (S. Garner)
+*) Fixed module bug: No error would be returned if you try to Rcon to a working
+   IP on an incorrect port. This can only be caught for type="new", and gives
+   error "No challenge response". (S. Garner)
+
+
+
+2.10 (released 2001-03-24)
+*) Rewrote KKrcon as a Perl module, which can be reused in other applications.
+   A new version kkrcon.pl is included which is just a wrapper around the module
+   and allows use of GNU getopts-style command line arguments. (S. Garner)
+
+
+
+2.00 (released 2001-03-16)
+*) KKrcon now supports the new Rcon protocol in HL v1106. (R. May)

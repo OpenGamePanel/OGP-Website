@@ -1,0 +1,47 @@
+<game_config>
+  <game_key>shoutcast_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>shoutcast</lgsl_query_name>
+  <game_name>Shoutcast server</game_name>
+  <server_exec_name>sc_serv</server_exec_name>
+  <cli_template>sc_serv_ogp.conf</cli_template>
+  <max_user_amount>1000</max_user_amount>
+  <control_protocol>lcon</control_protocol>
+  <mods>
+    <mod key="default">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+	<text key="true">
+	  <default>include=.*</default>
+	  <var>include=sc_serv_basic.conf</var>
+	  <filepath>sc_serv_ogp.conf</filepath>
+	</text>
+	<text key="true">
+	  <default>publicserver=.*</default>
+	  <var>publicserver=always</var>
+	  <filepath>sc_serv_ogp.conf</filepath>
+	</text>
+	<text key="control_password">
+	  <default>password=.*</default>
+	  <var>password=</var>
+	  <filepath>sc_serv_ogp.conf</filepath>
+	</text>
+	<text key="control_password">
+	  <default>adminpassword=.*</default>
+	  <var>adminpassword=admin</var>
+	  <filepath>sc_serv_ogp.conf</filepath>
+	</text>
+	<text key="port">
+	  <default>portbase=.*</default>
+	  <var>portbase=</var>
+	  <filepath>sc_serv_ogp.conf</filepath>
+	</text>
+	<text key="max_players">
+	  <default>maxuser=.*</default>
+	  <var>maxuser=</var>
+	  <filepath>sc_serv_ogp.conf</filepath>
+	</text>
+  </replace_texts>
+</game_config>

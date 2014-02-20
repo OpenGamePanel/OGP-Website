@@ -1,0 +1,53 @@
+KKrcon - Text-mode Rcon client for Half-Life and Quake 1/2/3 game servers.
+--------------------------------------------------------------------------
+
+This package includes the KKrcon Perl Module, KKrcon.pm, which developers can
+reuse in other Perl applications, and a wrapper script, kkrcon.pl, which allows
+execution of rcon commands on the command-line or interactively, from any
+text-mode terminal.
+
+
+kkrcon.pl
+---------
+
+Usage:
+  ./kkrcon.pl [OPTIONS] password [rcon_command [arg]...]
+
+Example:
+  ./kkrcon.pl -a 12.34.56.78 leethaxor
+
+Run kkrcon.pl with -h or --help for details of all available command line
+arguments.
+
+If no rcon_command is given on the command line, the user will be interactively
+prompted for commands to execute.
+
+
+Troubleshooting:
+
+If you get 'Command not found' errors make sure that perl is installed
+and that the first line of kkrcon.pl points to where your perl lives.
+
+If you get 'Can't find KKrcon.pm in @INC' errors make sure that KKrcon.pm is
+either in the same directory as kkrcon.pl, or in a system Perl module dir.
+
+
+KKrcon.pm
+---------
+
+This is a module which can be re-used in other Perl applications to provide Rcon
+support.
+
+Synopsis:
+
+  use KKrcon;
+  $rcon = new KKrcon(Password=>PASSWORD, [Host=>HOST], [Port=>PORT], [Type=>"new"|"old"]);
+  $result  = $rcon->execute(COMMAND);
+  %players = $rcon->getPlayers();
+  $player  = $rcon->getPlayer(USERID);
+
+Refer to kkrcon.pl for example usage.
+
+
+http://kkrcon.sourceforge.net/
+http://sourceforge.net/projects/kkrcon/

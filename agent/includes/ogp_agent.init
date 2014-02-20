@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Generic Init script if we can't find what kind of Linux we're on
+
+agent_dir=OGP_AGENT_DIR
+agent_user=OGP_USER
+
+# Start function.
+start() {
+    echo "Starting OGP Agent..."
+    cd $agent_dir
+    su -c "screen -d -m -t ogp_agent -c ogp_screenrc -S ogp_agent ./ogp_agent_run -pidfile ogp_agent_run.pid" $agent_user &> $agent_dir/ogp_agent.svc &
+    echo
+}
+
+# Stop function.
+stop() {
+    echo "Stopping OGP Agent..."
+    kill `cat $agent_dir/ogp_agent_run.pid`
+}
+
+restart() {
+    stop
+    start
+}
+
+case $1 in
+    start)
+    start
+    ;;
+    stop)
+    stop
+    ;;
+    restart)
+    restart
+    ;;
+    *)
+    echo "Usage: ogp_agent {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0;

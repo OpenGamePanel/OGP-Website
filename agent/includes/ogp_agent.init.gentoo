@@ -1,0 +1,25 @@
+#!/sbin/runscript
+
+# Distributed under the terms of the GNU General Public License v2
+
+# GF: Config is in $agent_dir/Cfg/Config.pm
+
+agent_dir=OGP_AGENT_DIR
+agent_user=OGP_USER
+
+depend() {
+	need net
+}
+
+start() {
+	ebegin "Starting OGP Agent"
+        start-stop-daemon --verbose --chdir $agent_dir --start --background --user $agent_user -e PWD="$agent_dir" --exec screen -d -m -t ogp_agent -c ogp_screenrc -S ogp_agent ./ogp_agent_run -pidfile ogp_agent_run.pid
+        eend $? "Failed to start OGP Agent"
+}
+
+stop() {
+	ebegin "Stopping OGP Agent"
+	start-stop-daemon --stop --quiet --pidfile $agent_dir/ogp_agent_run.pid
+	eend $? "Failed to stop OGP Agent"
+}
+

@@ -1,0 +1,122 @@
+<game_config>
+  <game_key>GarrysMod_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>source</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Garrys Mod</game_name>
+  <server_exec_name>srcds.exe</server_exec_name>
+  <cli_template>-console %GAME_TYPE% %HOSTNAME% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS% -condebug</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="-ip" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxplayers" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
+	<cli_param id="HOSTNAME" cli_string="+hostname" options="sq" />
+  </cli_params>
+  <maps_location>mod/maps/</maps_location>
+  <console_log>garrysmod/console.log</console_log>
+  <max_user_amount>128</max_user_amount>
+  <control_protocol>rcon2</control_protocol>
+  <mods>
+    <mod key="garrysmod">
+      <name>none</name>
+      <installer_name>4020</installer_name>
+	  <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="control_password">
+      <default>rcon_password.*</default>
+      <var>rcon_password</var>
+      <filepath>garrysmod/cfg/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>hostname.*</default>
+      <var>hostname</var>
+      <filepath>garrysmod/cfg/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="+gamemode" type="text">
+      <caption>Gamemode</caption>
+      <desc>Set the gamemode the server will use.</desc>
+    </param>
+    <param key="-insecure" type="checkbox_key_value">
+      <caption>Disable Valve Anti-Cheat</caption>
+      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+    </param>
+   <param key="+host_workshop_collection" type="text">
+      <caption>Workshop Collection</caption>
+      <desc>Set the Workshop collection id. For help, go to http://wiki.garrysmod.com/page/Workshop_for_Dedicated_Servers </desc>
+    </param>
+   <param key="-authkey" type="text">
+      <caption>Steam API Key</caption>
+      <desc>Set the Steam API key for workshop usage, you can get one by going to: http://steamcommunity.com/dev/apikey</desc>
+    </param>
+    <param key="-nohltv" type="checkbox_key_value">
+      <caption>No SourceTV</caption>
+      <desc>Disables SourceTV and closes its port.</desc>
+    </param>
+	<param key="-norestart" type="checkbox_key_value">
+      <caption>No Restart</caption>
+      <desc>Won't attempt to restart failed servers.</desc>
+    </param>
+    <param key="-nomaster" type="checkbox_key_value">
+      <caption>Disable master server communication</caption>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="sv_maxrate" type="text">
+      <default>sv_maxrate.*</default>
+      <default_value>0</default_value>
+      <var>sv_maxrate</var>
+      <filepath>garrysmod/cfg/server.cfg</filepath>
+      <options>s</options>
+      <desc>Max bandwidth rate allowed on server ( bytes per second ), 0 == unlimited.</desc>
+    </field>
+	<field key="sv_minrate" type="text">
+      <default>sv_minrate.*</default>
+      <default_value>5000</default_value>
+      <var>sv_minrate</var>
+      <filepath>garrysmod/cfg/server.cfg</filepath>
+      <options>s</options>
+      <desc>Min bandwidth rate allowed on server ( bytes per second ), 0 == unlimited.</desc>
+    </field>
+    <field key="sv_maxcmdrate" type="text">
+      <default>sv_maxcmdrate.*</default>
+      <default_value>66</default_value>
+      <var>sv_maxcmdrate</var>
+      <filepath>garrysmod/cfg/server.cfg</filepath>
+      <options>s</options>
+      <desc>If sv_mincmdrate is > 0, this sets the maximum value for cl_cmdrate.</desc>
+    </field>
+    <field key="sv_mincmdrate" type="text">
+      <default>sv_mincmdrate.*</default>
+      <default_value>67</default_value>
+      <var>sv_mincmdrate</var>
+      <filepath>garrysmod/cfg/server.cfg</filepath>
+      <options>s</options>
+      <desc>This sets the minimum value for cl_cmdrate. 0 == unlimited.</desc>
+    </field>
+    <field key="sv_maxupdaterate" type="text">
+      <default>sv_maxupdaterate.*</default>
+      <default_value>66</default_value>
+      <var>sv_maxupdaterate</var>
+      <filepath>garrysmod/cfg/server.cfg</filepath>
+      <options>s</options>
+      <desc>Maximum updates per second that the server will allow.</desc>
+    </field>
+    <field key="sv_minupdaterate" type="text">
+      <default>sv_minupdaterate.*</default>
+      <default_value>67</default_value>
+      <var>sv_minupdaterate</var>
+      <filepath>garrysmod/cfg/server.cfg</filepath>
+      <options>s</options>
+      <desc>Minimum updates per second that the server will allow.</desc>
+    </field>
+  </custom_fields>
+</game_config>

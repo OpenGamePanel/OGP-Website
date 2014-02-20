@@ -1,0 +1,47 @@
+<game_config>
+<game_key>wolfrtcw_1.4_linux32</game_key>
+<protocol>lgsl</protocol>
+<lgsl_query_name>wolfrtcw</lgsl_query_name>
+<game_name>Wolfenstein: Return To Castle Wolfenstein 1.4</game_name>
+<server_exec_name>wolfded.x86</server_exec_name>
+<cli_template>+set dedicated 2 %GAME_TYPE% %IP% %PORT% %PLAYERS%</cli_template>
+<cli_params>
+ <cli_param id="IP" cli_string="+set net_ip" options="s"/>
+ <cli_param id="PORT" cli_string="+set net_port" options="s"/>
+ <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s"/>
+ <cli_param id="GAME_TYPE" cli_string="+set fs_game" options="s"/>
+</cli_params>
+<max_user_amount>64</max_user_amount>
+<mods>
+ <mod key="osp">
+  <name>osp</name>
+ </mod>
+</mods>
+<server_params>
+ <param key="+set sv_punkbuster 1" type="checkbox_key_value">
+  <default>0</default>
+  <caption>Enable PunkBuster(r)</caption>
+  <desc>Will start the server with PunkBuster(r) Anti-Cheat technology.</desc>
+ </param>
+ <param key="+set sv_punkbuster 0" type="checkbox_key_value">
+  <default>1</default>
+  <caption>Disable PunkBuster(r)</caption>
+  <desc>Will start the server without PunkBuster(r) Anti-Cheat technology.</desc>
+ </param>
+ <param key="+set vm_game 0" type="checkbox_key_value">
+  <default>1</default>
+  <caption>No virtual environment</caption>
+  <desc>The server starts without a virtual environment.</desc>
+ </param>
+ <param key="+set ttycon 0" type="checkbox_key_value">
+  <default>0</default>
+  <caption>No tty console</caption>
+  <desc>The server starts without tty console.</desc>
+ </param>
+ <param key="+exec" type="text">
+  <default>server.cfg</default>
+  <caption>Server config</caption>
+  <desc>Exec server.cfg on start.</desc>
+ </param>
+</server_params>
+</game_config>

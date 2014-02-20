@@ -1,0 +1,10 @@
+*.swp
+agent/Cfg
+agent/ogp_agent.pid
+agent/ogp_agent.log*
+agent/startups
+agent/steamc
+upload/includes/config.inc.php
+agent/ogp_agent.pl.bak
+agent/ogp_agent.pl.tdy
+*/screenlog.0

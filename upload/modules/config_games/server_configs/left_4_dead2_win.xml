@@ -1,0 +1,45 @@
+<game_config>
+  <game_key>left4dead2_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>source</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Left 4 Dead 2</game_name>
+  <server_exec_name>srcds.exe</server_exec_name>
+  <cli_template>-console %GAME_TYPE% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS% -condebug</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="+ip" options="s" />
+    <cli_param id="PORT" cli_string="+hostport" options="s" />
+    <cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
+  </cli_params>
+  <maps_location>left4dead2/maps</maps_location>
+  <map_list>left4dead2/maplist.txt</map_list>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon2</control_protocol>
+  <mods>
+    <mod key="left4dead2">
+      <name>none</name>
+	  <installer_name>222860</installer_name>
+	  <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+	<param key="-insecure" type="checkbox_key_value">
+      <caption>Disable Valve Anti-Cheat</caption>
+      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+    </param>
+	<param key="-nohltv" type="checkbox_key_value">
+      <caption>No SourceTV</caption>
+      <desc>Disables SourceTV and closes its port.</desc>
+    </param>
+    <param key="-norestart" type="checkbox_key_value">
+      <caption>No Restart</caption>
+      <desc>Won't attempt to restart failed servers.</desc>
+    </param>
+    <param key="-nomaster" type="checkbox_key_value">
+      <caption>Disable master server communication</caption>
+    </param>
+  </server_params>
+</game_config>

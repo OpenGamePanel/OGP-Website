@@ -1,0 +1,46 @@
+<game_config>
+  <game_key>gearbox_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>halflife</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Gearbox</game_name>
+  <server_exec_name>hlds_run</server_exec_name>
+  <cli_template>%GAME_TYPE% %HOSTNAME% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="+ip" options="s" />
+    <cli_param id="PORT" cli_string="+port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxplayers" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
+    <cli_param id="HOSTNAME" cli_string="+hostname" options="sq" />
+  </cli_params>
+  <maps_location>mod/maps/</maps_location>
+  <map_list>mod/mapcycle.txt</map_list>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <mods>
+    <mod key="gearbox">
+      <name>none</name>
+	  <installer_name>90</installer_name>
+	  <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="-insecure" type="checkbox_key_value">
+      <caption>Disable Valve Anti-Cheat</caption>
+      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+    </param>
+    <param key="-nohltv" type="checkbox_key_value">
+      <caption>Half-life TV</caption>
+      <desc>Will start the server without Half-life TV.</desc>
+    </param>
+    <param key="-restart" type="checkbox_key_value">
+      <caption>Restart</caption>
+      <desc>The server restarts when it crashes.</desc>
+    </param>
+    <param key="-nomaster" type="checkbox_key_value">
+      <caption>Disable master server communication</caption>
+    </param>
+  </server_params>
+</game_config>

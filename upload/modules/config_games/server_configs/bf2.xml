@@ -1,0 +1,83 @@
+<game_config>
+  <game_key>bf2_linux32</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>bf2</gameq_query_name>
+  <game_name>Battlefield 2</game_name>
+  <server_exec_name>start.sh</server_exec_name>
+  <query_port type="add">13333</query_port>
+    <cli_template>+dedicated %GAME_TYPE% %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+serverIP" options="s" />
+    <cli_param id="PORT" cli_string="+serverPort" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxPlayers" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="+modPath mods/" />
+  </cli_params>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="bf2">
+      <name>Battlefield 2</name>
+    </mod>
+	<mod key="xpack">
+      <name>Special Forces</name>
+	</mod>
+	<mod key="fh2">
+      <name>Forgotten Hope 2</name>
+    </mod>
+  </mods>
+   <replace_texts>
+	<text key="true">
+	  <default>sv.internet .*</default>
+	  <var>sv.internet 1</var>
+	  <filepath>mods/bf2/settings/serversettings.con</filepath>
+	  <options></options>
+	</text>
+	<text key="query_port">
+	  <default>sv.gameSpyPort .*</default>
+	  <var>sv.gameSpyPort</var>
+	  <filepath>mods/bf2/settings/serversettings.con</filepath>
+	  <options>s</options>
+	</text>
+	<text key="home_name">
+	  <default>sv.serverName .*</default>
+	  <var>sv.serverName</var>
+	  <filepath>mods/bf2/settings/serversettings.con</filepath>
+	  <options>sq</options>
+	</text>
+	<text key="true">
+	  <default>sv.internet .*</default>
+	  <var>sv.internet 1</var>
+	  <filepath>mods/xpack/settings/serversettings.con</filepath>
+	  <options></options>
+	</text>
+	<text key="query_port">
+	  <default>sv.gameSpyPort .*</default>
+	  <var>sv.gameSpyPort</var>
+	  <filepath>mods/xpack/settings/serversettings.con</filepath>
+	  <options>s</options>
+	</text>
+	<text key="home_name">
+	  <default>sv.serverName .*</default>
+	  <var>sv.serverName</var>
+	  <filepath>mods/xpack/settings/serversettings.con</filepath>
+	  <options>sq</options>
+	</text>
+		<text key="true">
+	  <default>sv.internet .*</default>
+	  <var>sv.internet 1</var>
+	  <filepath>mods/fh2/settings/serversettings.con</filepath>
+	  <options></options>
+	</text>
+	<text key="query_port">
+	  <default>sv.gameSpyPort .*</default>
+	  <var>sv.gameSpyPort</var>
+	  <filepath>mods/fh2/settings/serversettings.con</filepath>
+	  <options>s</options>
+	</text>
+	<text key="home_name">
+	  <default>sv.serverName .*</default>
+	  <var>sv.serverName</var>
+	  <filepath>mods/fh2/settings/serversettings.con</filepath>
+	  <options>sq</options>
+	</text>
+  </replace_texts>
+</game_config>

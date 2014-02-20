@@ -1,0 +1,14 @@
+<game_config>
+  <game_key>ventrilo_linux32</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>ventrilo</gameq_query_name>
+  <game_name>Ventrilo (i386)</game_name>
+  <server_exec_name>ventrilo_srv</server_exec_name>
+  <exe_location>ventsrv</exe_location>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="ventrilo">
+      <name>none</name>
+    </mod>
+  </mods>
+</game_config>

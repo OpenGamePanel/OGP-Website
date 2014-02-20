@@ -1,0 +1,34 @@
+<game_config>
+  <game_key>smokinguns_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>quake3</lgsl_query_name>
+  <game_name>Smokin Guns</game_name>
+  <server_exec_name>smokinguns_dedicated.i386</server_exec_name>
+  <cli_template>server +set dedicated 2 +exec server.cfg +set ttycon 0 %GAME_TYPE% %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="+set g_gametype" options="s" />
+  </cli_params>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
+  <mods>
+    <mod key="0">
+      <name>Death Match</name>
+    </mod>
+    <mod key="1">
+      <name>Deul</name>
+    </mod>
+    <mod key="3">
+      <name>Team Death Match</name>
+    </mod>
+    <mod key="4">
+      <name>Round Teamplay</name>
+    </mod>
+    <mod key="5">
+      <name>Bank Robbery</name>
+    </mod>
+  </mods>
+</game_config>

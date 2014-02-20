@@ -1,0 +1,29 @@
+<game_config>
+  <game_key>mohsp_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>mohaa</lgsl_query_name>
+  <game_name>Medal Of Honor: Spearhead (Windows)</game_name>
+  <server_exec_name>moh_spearhead_server.exe</server_exec_name>
+  <query_port type="add">97</query_port>
+  <cli_template>+set dedicated 1 +set net_noipx 1 +exec server.cfg %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+  </cli_params>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="1">
+      <name>Free-For-All</name>
+    </mod>
+    <mod key="2">
+      <name>Team Death Match</name>
+    </mod>
+    <mod key="3">
+      <name>Round Based Match</name>
+    </mod>
+    <mod key="4">
+      <name>Objective</name>
+    </mod>
+  </mods>
+</game_config>

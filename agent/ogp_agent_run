@@ -1,0 +1,227 @@
+#!/bin/bash
+#
+#
+#	A wrapper script for the OGP agent perl script.
+#	Performs auto-restarting of the agent on crash. You can
+#	extend this to log crashes and more.
+#
+# The ogp_agent_run script should be at the top level of the agent tree
+# Make sure we are in that directory since the script assumes this is the case
+AGENTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+AUTO_UPDATE_CONF="$AGENTDIR/Cfg/bash_prefs.cfg" 
+
+if test `id -u` -eq 0; then
+	echo
+	echo
+	echo "************** WARNING ***************"
+	echo "Running the OGP agent as root  "
+	echo "is highly discouraged. It is generally"
+	echo "unnecessary to use root privileges to "
+	echo "execute a dedicated server.         "
+	echo "**************************************"
+	echo
+	echo
+	timeout=10
+	while test $timeout -gt 0; do
+		echo -n "The agent will continue to launch in $timeout seconds\r"
+		timeout=`expr $timeout - 1`
+		sleep 1
+	done
+fi
+
+init() {
+	RESTART="yes"
+	AGENT="$AGENTDIR/ogp_agent.pl"
+	TIMEOUT=10 # time to wait after a crash (in seconds)
+	PID_FILE=""
+	
+	# Should we perform an automatic update?
+	if [ -e $AUTO_UPDATE_CONF ]
+	then
+		source "$AUTO_UPDATE_CONF"
+		
+		if [ "$agent_auto_update" -eq "1" ]
+		then
+			AUTO_UPDATE="yes"
+		fi
+		
+		if [ -z "$sf_update_mirror" ]
+		then
+			MIRROR="master"
+		else
+			MIRROR=$sf_update_mirror
+		fi
+	else
+		AUTO_UPDATE="yes"
+		MIRROR="master"
+	fi
+	
+	while test $# -gt 0; do
+		case "$1" in
+		"-pidfile")
+			PID_FILE="$2"
+			PID_FILE_SET=1
+			echo $$ > $PID_FILE
+			shift ;;
+		esac
+		shift
+	done
+
+	if test ! -f "$AGENT"; then
+		echo "ERROR: '$AGENT' not found, exiting"
+		quit 1
+	elif test ! -x "$AGENT"; then
+		# Could try chmod but dont know what we will be
+		# chmoding so just fail.
+		echo "ERROR: '$AGENT' not executable, exiting"
+		quit 1
+	fi
+
+	CMD="perl $AGENT"
+}
+
+syntax () {
+	# Prints script syntax
+
+	echo "Syntax:"
+	echo "$0"
+}
+
+checkDepends() {
+	CURL=`which curl 2>/dev/null`
+	if test "$?" -gt 0; then
+		echo "WARNING: Failed to locate curl binary."
+	else
+		echo "INFO: Located curl: $CURL"
+	fi
+	UNZIP=`which unzip 2>/dev/null`
+	if test "$?" -gt 0; then
+		echo "WARNING: Failed to locate unzip binary."
+	else
+		echo "INFO: Located unzip: $UNZIP"
+	fi
+}
+
+update() {
+	# Run the update
+	if test -n "$AUTO_UPDATE"; then
+		if [ -z "$CURL" -o -z "$UNZIP" ]; then
+			checkDepends
+		fi
+		if [ -f "$CURL" -a -x "$CURL" ] && [ -f "$UNZIP" -a -x "$UNZIP" ]; then
+			CURRENT=$(cat $AGENTDIR/Cfg/Config.pm | grep version | grep -oh [0-9]*)
+			REVISION=$(curl -s http://svn.code.sf.net/p/hldstart/code/trunk/ | grep "<h2>" | awk '{print $4}' | tr -d [:punct:])
+			if [ "$CURRENT" == "$REVISION" ]; then
+				echo "The agent is up to date."
+			else
+				URL=http://${MIRROR}.dl.sourceforge.net/project/ogpextras/Alternative-Snapshot/linux-agent-${REVISION}.zip
+				HEAD=$(curl -Os --head -w "%{http_code}" "$URL")
+				if [ "$HEAD" == "200" ]; then
+					echo "Updating server using curl."
+					curl -Os $URL
+					unzip -q linux-agent-${REVISION}.zip
+					sed -i "s/version.*/version => 'v${REVISION}',/" $AGENTDIR/Cfg/Config.pm
+					if test $? -ne 0; then
+						echo "`date`: Wget update failed, ignoring."
+						return 0
+					fi
+					cd linux-agent-${REVISION}
+					cp -avf Crypt File Frontier KKrcon ogp_agent.pl ogp_screenrc ogp_agent_run $AGENTDIR &> /dev/null
+					if test ! -e "$AGENTDIR/IspConfig"; then
+						cp -avf IspConfig $AGENTDIR &> /dev/null
+					else
+						cp -avf IspConfig/sites_ftp_user_* $AGENTDIR/IspConfig &> /dev/null
+					fi
+					if test ! -e "$AGENTDIR/Cfg/Preferences.pm"; then
+						cd Cfg
+						cp -avf Preferences.pm $AGENTDIR/Cfg &> /dev/null
+						cd ..
+					fi
+					cd ..
+					rm -Rf linux-agent-${REVISION} &> /dev/null
+					chmod +x $AGENTDIR/ogp_agent.pl &> /dev/null
+					chmod +x $AGENTDIR/ogp_agent_run &> /dev/null
+				else
+					echo "There is a update available (${REVISION}) but the download source is not ready.";
+					echo "Try again later."
+				fi
+			fi
+		else
+			if [ !-f "$CURL" ]; then
+				echo "WARNING: Could not locate curl binary: ${CURL}."
+			fi
+			if [ !-f "$UNZIP" ]; then
+				echo "WARNING: Could not locate unzip binary: ${UNZIP}."
+			fi
+			echo "Update failed."
+		fi
+	fi
+	
+	return 0
+}
+	
+run() {
+	# Runs the subversion update and server
+	if test -n "$RESTART" ; then
+		echo "Server will auto-restart if there is a crash."
+
+		#loop forever
+		while true
+		do
+			# Update
+			update
+			# Run
+			$CMD
+			retval=$?
+			if test $retval -eq 0 && test -z "$AUTO_UPDATE"; then
+				break; # if 0 is returned then just quit
+			fi
+			echo "`date`: Server restart in $TIMEOUT seconds"
+			# don't thrash the hard disk if the server dies, wait a little
+			sleep $TIMEOUT
+		done # while true
+	else
+		update
+		$CMD
+	fi
+}
+
+quit() {
+	# Exits with the give error code, 1
+	# if none specified.
+	# exit code 2 also prints syntax
+	exitcode="$1"
+
+	# default to failure
+	if test -z "$exitcode"; then
+		exitcode=1
+	fi
+
+	case "$exitcode" in
+	0)
+		echo "`date`: OGP Agent Quit" ;;
+	2)
+		syntax ;;
+	*)
+		echo "`date`: OGP Agent Failed" ;;
+	esac
+
+	# Remove pid file
+	if test -n "$PID_FILE" && test -f "$PID_FILE" ; then
+		# The specified pid file
+		rm -f $PID_FILE
+	fi
+
+	# reset SIGINT and then kill ourselves properly
+	trap - 2
+	kill -2 $$
+}
+
+# Initialise
+init $*
+
+# Run
+run
+
+# Quit normally
+quit 0

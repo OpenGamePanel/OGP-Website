@@ -1,0 +1,146 @@
+#!/bin/sh
+
+#
+#   Startup/shutdown script for the OGP Agent.
+#
+#   Linux chkconfig stuff:
+#
+#   chkconfig: 2345 88 10
+#   description: Startup/shutdown script for the OGP Agent
+
+agent_dir=OGP_AGENT_DIR
+agent_user=OGP_USER
+service=ogp_agent
+
+# Source function library.
+if [ -f /etc/rc.d/init.d/functions ] ; then
+    . /etc/rc.d/init.d/functions
+elif [ -f /etc/init.d/functions ] ; then
+    . /etc/init.d/functions
+fi
+
+if [ "$( whoami )" != "root" ]
+then
+	if [ -f "/usr/bin/sudo" ] && [ "$( groups $agent_user | grep "\bsudo\b" )" != "" ]
+	then
+		sudo /etc/init.d/ogp_agent ${1:-''}
+		exit
+	else
+		echo "Permission denied."
+		exit
+	fi
+fi
+
+start() {
+	# Lets the agent user to use sudo to enable FTP accounts and use renice and taskset.
+	if [ "$( cat /etc/group | grep "^sudo" )" == "" ]
+	then
+		groupadd sudo &> /dev/null
+	fi
+	
+	if [ "$( cat /etc/sudoers | grep "^%sudo" )" == "" ]
+	then
+		echo '%sudo        ALL=(ALL)       ALL' >> /etc/sudoers
+	fi
+	
+	if [ "$( groups $agent_user | grep "\bsudo\b" )" == "" ]
+	then
+		usermod -a -G sudo $agent_user &> /dev/null
+	fi
+	
+	group=`groups $agent_user | awk '{ print $3 }'`; 
+	chown -Rf $agent_user:$group $agent_dir &> /dev/null
+	
+	# Lets the agent user to attach screens.
+	if [ "$( groups $agent_user | grep "\btty\b" )" == "" ]
+	then
+		usermod -a -G tty $agent_user &> /dev/null
+	fi
+	chmod g+rw /dev/pts/* &> /dev/null
+	chmod g+rw /dev/tty* &> /dev/null
+	
+	# Give access for ifconfig to the user of the agent
+	if [ ! -f /usr/bin/ifconfig ]
+	then
+		ln -s /sbin/ifconfig /usr/bin/ifconfig
+	fi
+	
+	# Check the FTP status
+	if [ -f "/etc/init.d/pure-ftpd" ]
+    then
+		if [ "$( service pure-ftpd status | grep "* pure-ftpd is not running" )" == "" ]
+		then
+			service pure-ftpd stop &> /dev/null
+		fi
+		
+		if [ "$( cat /etc/pure-ftpd/pure-ftpd.conf | grep "^PureDB" )" == "" ]
+		then
+			sed -i 's|# PureDB                        /etc/pure-ftpd/pureftpd.pdb|PureDB                        /etc/pure-ftpd/pureftpd.pdb|' /etc/pure-ftpd/pure-ftpd.conf
+			sed -i 's|BrokenClientsCompatibility  no|BrokenClientsCompatibility  yes|' /etc/pure-ftpd/pure-ftpd.conf
+			sed -i 's|NoAnonymous                 no|NoAnonymous                 yes|' /etc/pure-ftpd/pure-ftpd.conf
+			sed -i 's|PAMAuthentication             yes|PAMAuthentication             no|' /etc/pure-ftpd/pure-ftpd.conf
+			sed -i 's|#CreateHomeDir               yes|CreateHomeDir               yes|' /etc/pure-ftpd/pure-ftpd.conf
+			pure-pw mkdb &> /dev/null
+			service pure-ftpd start &> /dev/null
+		fi
+	fi
+	
+    echo -n "Starting OGP Agent: "
+    cd $agent_dir
+    su -c "screen -d -m -t ogp_agent -c ogp_screenrc -S ogp_agent ./ogp_agent_run -pidfile ogp_agent_run.pid" $agent_user &> $agent_dir/ogp_agent.svc &
+	RETVAL=$?
+    if [ $RETVAL -eq 0 ]; then
+       success
+    else
+       failure
+    fi
+	echo
+    return $RETVAL
+}
+
+stop() {
+	# Stop daemon
+    echo -n "Stopping OGP Agent: "
+    if [ -f $agent_dir/ogp_agent_run.pid ]
+    then
+        PID=`cat $agent_dir/ogp_agent_run.pid`
+        if kill -0 $PID > /dev/null 2>&1
+        then
+            kill $PID
+            RETVAL=$?
+            if [ $RETVAL -eq 0 ]
+            then
+                success
+            else
+                failure
+            fi
+        else
+	    echo -n "Not running."
+        fi
+    else
+	echo -n "Not running."
+    fi
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+    start
+    ;;
+    stop)
+    stop
+	echo
+    ;;
+    restart)
+    stop
+	${!}
+	echo
+    start
+    ;;
+    *)
+    echo "Usage: service ogp_agent start|stop|restart"
+    RETVAL=1
+    ;;
+esac
+
+exit $RETVAL

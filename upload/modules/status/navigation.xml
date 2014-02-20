@@ -1,0 +1,3 @@
+<navigation>
+  <page key="default" file="status.php" access="admin" />
+</navigation>

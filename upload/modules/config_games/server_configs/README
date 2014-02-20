@@ -1,0 +1,8 @@
+The XML files should be formatted with the following command:
+$ tidy -q -i -xml -m -w *.xml
+
+Ubuntu/Debian: apt-get install tidy libxml2-utils
+
+The files can be validated with the following command:
+$ xmllint --schema ../schema_server_config.xml --noout *.xml
+

@@ -1,0 +1,8 @@
+startup_message off
+hardstatus on
+hardstatus alwayslastline '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}[%{W}%n%f %t%?(%u)%?%{=b kR}]%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %D %m/%d %C%a ]%{W}'
+# Default scroll back 100
+defscrollback 100
+deflog on
+logfile $PWD/screenlogs/screenlog.%t
+

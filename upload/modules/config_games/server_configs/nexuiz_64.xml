@@ -1,0 +1,42 @@
+<game_config>
+  <game_key>nexuiz_linux64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>nexuiz</lgsl_query_name>
+  <game_name>Nexuiz</game_name>
+  <server_exec_name>nexuiz-linux-x86_64-dedicated</server_exec_name>
+  <cli_template>server +set dedicated 2 %GAME_TYPE% %MAP% %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="+set net_address" options="s" />
+    <cli_param id="PORT" cli_string="+set port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set maxplayers" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="+set g_gametype" options="s" />
+  </cli_params>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="g_dm 1">
+      <name>Death Match</name>
+    </mod>
+    <mod key="g_tdm 1">
+      <name>Team Death Match</name>
+    </mod>
+    <mod key="g_ctf 1">
+      <name>Capture the Flag</name>
+    </mod>
+    <mod key="g_domination 1">
+      <name>Domination</name>
+    </mod>
+    <mod key="g_runematch 1">
+      <name>Rune Match</name>
+    </mod>
+    <mod key="g_lms 1">
+      <name>Last Man Standing</name>
+    </mod>
+    <mod key="g_arena 1">
+      <name>Arena</name>
+    </mod>
+    <mod key="g_keyhunt 1">
+      <name>Key Hunt</name>
+    </mod>
+  </mods>
+</game_config>

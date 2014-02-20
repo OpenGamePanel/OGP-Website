@@ -1,0 +1,46 @@
+<game_config>
+  <game_key>nucleardawn_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>source</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Nuclear Dawn</game_name>
+  <server_exec_name>ndsrv.exe</server_exec_name>
+  <cli_template>-console %GAME_TYPE% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS% -condebug</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="-ip" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
+  </cli_params>
+  <maps_location>nucleardawn/maps</maps_location>
+  <map_list>nucleardawn/maplist.txt</map_list>
+  <console_log>nucleardawn/console.log</console_log>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon2</control_protocol>
+  <mods>
+    <mod key="nucleardawn">
+      <name>none</name>
+      <installer_name>111710</installer_name>
+	  <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="-insecure" type="checkbox_key_value">
+      <caption>Disable Valve Anti-Cheat</caption>
+      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+    </param>
+	<param key="-nohltv" type="checkbox_key_value">
+      <caption>No SourceTV</caption>
+      <desc>Disables SourceTV and closes its port.</desc>
+    </param>
+    <param key="-norestart" type="checkbox_key_value">
+      <caption>No Restart</caption>
+      <desc>Won't attempt to restart failed servers.</desc>
+    </param>
+    <param key="-nomaster" type="checkbox_key_value">
+      <caption>Disable master server communication</caption>
+    </param>
+  </server_params>
+</game_config>

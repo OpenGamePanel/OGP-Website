@@ -1,0 +1,19 @@
+<game_config>
+  <game_key>xonotic_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>xonotic</lgsl_query_name>
+  <game_name>Xonotic (Linux 32)</game_name>
+  <server_exec_name>xonotic-linux32-dedicated</server_exec_name>
+  <cli_template>+serverconfig server.cfg %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_address" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set maxplayers" options="s" />
+  </cli_params>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="0">
+      <name>Default</name>
+    </mod>
+  </mods>
+</game_config>

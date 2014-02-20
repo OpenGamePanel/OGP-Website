@@ -1,0 +1,43 @@
+<game_config>
+  <game_key>serioussamhdse_win32</game_key>
+  <installer>steamcmd</installer>
+  <game_name>Serious Sam HD The Second Encounter</game_name>
+  <server_exec_name>SamHD_TSE_DedicatedServer.exe</server_exec_name>
+  <cli_template>%IP% %PORT% %PLAYERS% +logfile DedicatedServer</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+ip" options="s" />
+    <cli_param id="PORT" cli_string="+port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxplayers" options="s" />
+  </cli_params>
+  <console_log>Log/DedicatedServer.log</console_log>
+  <exe_location>Bin</exe_location>
+  <max_user_amount>16</max_user_amount>
+  <mods>
+    <mod key="serioussamhdse">
+      <name>none</name>
+	  <installer_name>41015</installer_name>
+    </mod>
+  </mods>
+  <server_params>
+	<param key="+game_mode" type="select">
+	  <option value="Cooperative">Cooperative</option>
+	  <option value="CooperativeCoinOp">Cooperative Coin Op</option>
+	  <option value="TeamSurvival">Team Survival</option>
+	  <option value="BeastHunt">Beast Hunt</option>
+	  <option value="CaptureTheFlag">Capture The Flag</option>
+	  <option value="Deathmatch">Deathmatch</option>
+	  <option value="InstantKill">Instant Kill</option>
+	  <option value="LastManStanding">Last Man Standing</option>
+	  <option value="LastTeamStanding">Last Team Standing</option>
+	  <option value="MyBurden">My Burden</option>
+	  <option value="TeamBeastHunt">Team Beast Hunt</option>
+	  <option value="TeamDeathmatch">Team Deathmatch</option>
+      <caption>Game Mode</caption>
+      <desc>Select a Game Mode.</desc>
+    </param>
+    <param key="+rconpass" type="text">
+      <caption>Telnet Password</caption>
+      <desc>Password used to connect to the server via Telnet (telnet ip port).</desc>
+    </param>
+  </server_params>
+</game_config>
