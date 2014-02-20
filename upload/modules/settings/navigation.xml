@@ -1,4 +1,0 @@
-<navigation>
-  <page key="default" file="settings.php" access="admin" />
-  <page key="themes" file="themes.php" access="admin" />
-</navigation>

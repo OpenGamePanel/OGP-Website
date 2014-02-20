@@ -1,5 +1,0 @@
-cfg
-txt
-gam
-properties
-conf

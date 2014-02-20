@@ -1,7 +1,0 @@
-<navigation>
-  <page key="add" file="add_server.php" access="admin" />
-  <page key="edit" file="edit_server.php" access="admin" />
-  <page key="default" file="servers.php" access="admin" />
-  <page key="log" file="view_log.php" access="admin" />
-  <page key="arrange_ports" file="arrange_ports.php" access="admin" />
-</navigation>
