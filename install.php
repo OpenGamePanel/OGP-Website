@@ -520,6 +520,7 @@ function install() {
             $contents = file($file);
             $nversion = implode($contents);
             $nversion2 = substr($nversion ,60);
+			$nversion2 = trim($nversion2);
             
             $site_settings = array("title"=>"Open Game Panel",
             "slogan" => "".get_lang('slogan')."",
