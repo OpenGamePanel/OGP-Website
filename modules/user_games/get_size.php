@@ -26,7 +26,10 @@ function exec_ogp_module()
 		{
 			$du = $remote->exec("du -sb ".$game_home['home_path']);
 			list($size, $path) = explode("\t", $du);
-			echo numbersFormatting($size);
+			if(isset($_GET['bytes']))
+				echo $size;
+			else
+				echo numbersFormatting($size);
 		}
 		else
 		{

@@ -157,12 +157,11 @@ function exec_ogp_module()
 			<script type="text/javascript">
 			$(document).ready(function() 
 			{
-				var refreshId = setInterval(function()
-				{
-					$.get( "home.php?m=user_games&type=cleared&p=get_size&home_id=<?php echo $clone_home_id;?>", function( dest_data ) {
-						var dest_size = parseInt(dest_data,10);
-						$.get( "home.php?m=user_games&type=cleared&p=get_size&home_id=<?php echo $home_id;?>", function( orig_data ) {
-							var orig_size = parseInt(orig_data,10);
+				$.get( "home.php?m=user_games&type=cleared&p=get_size&home_id=<?php echo $home_id;?>&bytes", function( orig_data ) {
+					var orig_size = parseInt(orig_data,10);
+					var refreshId = setInterval(function() {
+						$.get( "home.php?m=user_games&type=cleared&p=get_size&home_id=<?php echo $clone_home_id;?>&bytes", function( dest_data ) {
+							var dest_size = parseInt(dest_data,10);
 							var progress = parseInt(dest_size * 100 / orig_size);
 							$('#progressbar').val(progress);
 							$('.progress-value').html(progress + '%');
@@ -171,8 +170,8 @@ function exec_ogp_module()
 								clearInterval(refreshId);
 							}
 						});
-					});
-				}, 2000);
+					}, 2000);
+				});
 			});
 			</script>
 			<?php
