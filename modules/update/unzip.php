@@ -23,8 +23,8 @@
  *
  */
 
-function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist, $whitelist =array() )
-{   
+function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = '', $whitelist = '' )
+{
 	if($zipFile == '' or $extract_path == '')
 		return false;
 	if( ! file_exists( $zipFile ) )
@@ -32,33 +32,33 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist, $wh
 	$zip = zip_open($zipFile);
 	$remove_path = addcslashes($remove_path,"/");
 	
-    if (is_resource($zip))
-    {
-        $i=0;
+	if (is_resource($zip))
+	{
+		$i=0;
 		$extracted_files = array();
 		while ($zip_entry = zip_read($zip))
-        {
+		{
 			$filename = zip_entry_name( $zip_entry );
 			$file_path = preg_replace( "/$remove_path/", "", $filename  );
 			$dir_path = preg_replace( "/$remove_path/", "", dirname( $filename ) );
 			
 			if( isset( $blacklist ) and is_array( $blacklist ) and in_array( $file_path , $blacklist  ) )
 				continue;
-				
+			
 			if( isset( $whitelist ) and is_array( $whitelist ) and !in_array( $filename , $whitelist  ) )
 				continue;
-				
+			
 			$completePath = $extract_path . $dir_path;
-            $completeName = $extract_path . $file_path;
-           
-            // Walk through path to create non existing directories
-            // This won't apply to empty directories ! They are created further below
-            if(!file_exists($completePath) && preg_match( '/^' . $remove_path .'/', dirname(zip_entry_name($zip_entry)) ) )
-            {
+			$completeName = $extract_path . $file_path;
+			
+			// Walk through path to create non existing directories
+			// This won't apply to empty directories ! They are created further below
+			if(!file_exists($completePath) && preg_match( '/^' . $remove_path .'/', dirname(zip_entry_name($zip_entry)) ) )
+			{
 				$tmp = PHP_OS == "WINNT" ? "" : DIRECTORY_SEPARATOR;
-                foreach(explode('/',$completePath) AS $k)
-                {
-                    if( $k != "" )
+				foreach(explode('/',$completePath) AS $k)
+				{
+					if( $k != "" )
 					{
 						$tmp .= $k.DIRECTORY_SEPARATOR;
 						if( ! file_exists($tmp) )
@@ -66,13 +66,13 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist, $wh
 							mkdir($tmp, 0777);
 						}
 					}
-                }
-            }
-           
-            if (zip_entry_open($zip, $zip_entry, "r"))
-            {
-                if( preg_match( '/^' . $remove_path .'/', dirname(zip_entry_name($zip_entry)) ) )
-                {
+				}
+			}
+			
+			if (zip_entry_open($zip, $zip_entry, "r"))
+			{
+				if( preg_match( '/^' . $remove_path .'/', dirname(zip_entry_name($zip_entry)) ) )
+				{
 					if ( ! preg_match( "/\/$/", $completeName) )
 					{
 						if ( $fd = fopen($completeName, 'w+'))
@@ -83,16 +83,14 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist, $wh
 							$i++;
 						}
 					}
-                }
+				}
 				zip_entry_close($zip_entry);
-            }
-        }
-        zip_close($zip);
-	
+			}
+		}
+		zip_close($zip);
 		return $extracted_files;
-
-    }
-    return false;
+	}
+	return false;
 }
 
 ?>
