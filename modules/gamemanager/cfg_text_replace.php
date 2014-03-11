@@ -174,6 +174,11 @@ foreach($file_replacements as $filepath => $replacements)
 				$file_content = preg_replace("/$default/m", "$var $info_param,", $file_content, 1);
 			elseif ($options == "sqc")//separated & quoted & ending with a comma
 				$file_content = preg_replace("/$default/m", "$var \"$info_param\",", $file_content, 1);
+			elseif ($options == "key-regex")//replace %key% in <var> and use a regular expression
+			{
+				$var = str_replace("%key%", $info_param, $var);
+				$file_content = preg_replace("/$default/m", "$var", $file_content, 1);
+			}
 			else
 				$file_content = preg_replace("/$default/m", "$var$info_param", $file_content, 1);
 		}
