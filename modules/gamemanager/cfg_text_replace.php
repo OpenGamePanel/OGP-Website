@@ -125,7 +125,7 @@ foreach($file_replacements as $filepath => $replacements)
 		if($param_enc != $file_enc)
 			$file_content = mb_convert_encoding($file_content, $param_enc, $file_enc);
 			
-		if( !in_array( $options, array("tags","tagValueByName","sc","sqc") ) )
+		if( !in_array( $options, array("tags","tagValueByName","sc","sqc","key-regex") ) )
 		{
 			$match_found = preg_match("/$default/m", $file_content);
 			if($var == "")

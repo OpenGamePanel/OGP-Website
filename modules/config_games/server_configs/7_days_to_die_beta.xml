@@ -12,9 +12,9 @@
   <mods>
     <mod key="7daystodie-alpha">
       <name>none</name>
-	  <installer_name>251570</installer_name>
-	  <betaname>alpha_6</betaname>
-	  <betapwd></betapwd>
+      <installer_name>251570</installer_name>
+      <betaname>alpha_6</betaname>
+      <betapwd></betapwd>
     </mod>
   </mods>
   <replace_texts>
@@ -24,12 +24,12 @@
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
     </text>
-	<text key="max_players">
-	  <default>property</default>
-	  <var>ServerMaxPlayerCount</var>
-	  <filepath>serverconfig.xml</filepath>
-	  <options>tagValueByName</options>
-	</text>
+    <text key="max_players">
+      <default>property</default>
+      <var>ServerMaxPlayerCount</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+    </text>
     <text key="control_password">
       <default>property</default>
       <var>ControlPanelPassword</var>
@@ -48,13 +48,13 @@
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
     </text>
-	<text key="map">
+    <text key="map">
       <default>property</default>
       <var>GameWorld</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
     </text>
-	<text key="query_port">
+    <text key="query_port">
       <default>property</default>
       <var>TelnetPort</var>
       <filepath>serverconfig.xml</filepath>
@@ -64,7 +64,7 @@
   <custom_fields>
     <field key="ControlPanelEnabled" type="select">
       <option value="true">Yes</option>
-	  <option value="false">No</option>
+      <option value="false">No</option>
       <default>property</default>
       <default_value>false</default_value>
       <var>ControlPanelEnabled</var>
@@ -74,7 +74,7 @@
     </field>
     <field key="TelnetEnabled" type="select">
       <option value="true">Yes</option>
-	  <option value="false">No</option>
+      <option value="false">No</option>
       <default>property</default>
       <default_value>true</default_value>
       <var>TelnetEnabled</var>

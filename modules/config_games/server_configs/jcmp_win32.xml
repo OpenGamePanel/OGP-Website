@@ -22,25 +22,25 @@
   <replace_texts>
 	<text key="max_players">
 	  <default>(MaxPlayers\s*=)(.*)</default>
-	  <var>\1</var>
+	  <var>${1}</var>
 	  <filepath>config.lua</filepath>
 	  <options>sc</options>
 	</text>
     <text key="home_name">
       <default>(Name\s*=)(.*)</default>
-      <var>\1</var>
+      <var>${1}</var>
       <filepath>config.lua</filepath>
       <options>sqc</options>
     </text>
     <text key="ip">
       <default>(BindIP\s*=)(.*)</default>
-      <var>\1</var>
+      <var>${1}</var>
       <filepath>config.lua</filepath>
       <options>sqc</options>
     </text>
     <text key="port">
       <default>(BindPort\s*=)(.*)</default>
-      <var>\1</var>
+      <var>${1}</var>
       <filepath>config.lua</filepath>
       <options>sc</options>
     </text>
