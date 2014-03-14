@@ -40,5 +40,11 @@ $lang['where'] = "Où";
 $lang['what'] = "Quoi";
 $lang['search'] = "Recherche";
 $lang['empty_logger'] = "Logger vide";
-
+// Ban list
+$lang['ban_list'] = "Ban list";
+$lang['no_banned_ips'] = "There are no banned IPs";
+$lang['unban'] = "Unban IP";
+$lang['client_ip'] = "Client IP";
+$lang['banned_until'] = "Banned until";
+$lang['unban_selected_ips'] = "Unban selected IPs";
 ?>

@@ -116,7 +116,10 @@ function exec_ogp_module()
 			echo "</tr><tr class='administration-buttons-vmargin' ><td></td></tr><tr>\n";
 			$td = 0;
 		}
-	}					
+	}
+	echo "<td><a class='administration-buttons' href='?m=administration&p=banlist' />".
+		 "<div><img src='modules/administration/images/banlist.png' /><br>".get_lang('ban_list')."</div></a></td>".
+		 "<td class='administration-buttons-hmargin' ></td>\n";
 	echo "</tr>\n";
 	echo "</table>\n";
 	### END MAIN ICONS

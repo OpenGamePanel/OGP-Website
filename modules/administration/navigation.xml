@@ -3,4 +3,5 @@
   <page key="iframe" file="iframe.php" access="admin" />
   <page key="backupdwl" file="backupdwl.php" access="admin" />
   <page key="watch_logger" file="watch_logger.php" access="admin" />
+  <page key="banlist" file="banlist.php" access="admin" />
 </navigation>
