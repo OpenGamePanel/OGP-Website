@@ -144,6 +144,35 @@ function renderParam($param, $param_access_enabled, $home_id)
 	echo "</label></td></tr>\n";
 }
 
+function get_sync_name($server_xml)
+{
+	if( isset($server_xml->lgsl_query_name) )
+	{
+		$sync_name = $server_xml->lgsl_query_name;
+		if($sync_name == "quake3")
+		{
+			if($server_xml->game_name == "Quake 3")
+				$sync_name = "q3";
+		}
+	}
+	elseif( isset($server_xml->gameq_query_name) )
+	{
+		$sync_name = $server_xml->gameq_query_name;
+		if($sync_name == "minecraft")
+		{
+			if($server_xml->game_name == "Minecraft Tekkit")
+				$sync_name = "tekkit";
+			elseif($server_xml->game_name == "Minecraft Bukkit")
+				$sync_name = "bukkit";
+		}
+	}
+	elseif( isset($server_xml->protocol) )
+		$sync_name = $server_xml->protocol;
+	else
+		$sync_name = $server_xml->mods->mod['key'];
+	return $sync_name;
+}
+
 foreach($_POST as $key => $value)
 {
 	if( preg_match( "/^action/", $key ) )
@@ -170,16 +199,16 @@ function exec_ogp_module() {
 		$server_homes = $db->getIpPortsForUser($_SESSION['user_id']);
 	
 	if( $server_homes === FALSE )
-    {
-        // If there are no games, then there can not be any mods either.
-        print_failure(get_lang('no_game_homes_assigned'));
-        if ( $isAdmin )
-        {
-            echo "<p><a href='?m=user_games&amp;p=assign&amp;user_id=$_SESSION[user_id]'>".
-                get_lang('assign_game_homes')."</a></p>";
-        }
-        return;
-    }
+	{
+		// If there are no games, then there can not be any mods either.
+		print_failure(get_lang('no_game_homes_assigned'));
+		if ( $isAdmin )
+		{
+			echo "<p><a href='?m=user_games&amp;p=assign&amp;user_id=$_SESSION[user_id]'>".
+				get_lang('assign_game_homes')."</a></p>";
+		}
+		return;
+	}
 	if ( empty( $_GET['home_id-mod_id-ip-port'] ) )
 		unset( $_GET['home_id-mod_id-ip-port'] );
 	if ( empty( $_GET['home_id'] ) )
@@ -307,8 +336,8 @@ function exec_ogp_module() {
 				$mod_name = " ( ".$server_home['mod_name']." )";
 						
 			$get_size = "<table align='left' class='monitorbutton' ><tr>".
-					    "<td align='middle' class='size' id='".$server_home["home_id"]."'>".
-					    "<img style='border:0;height:40px;vertical-align:middle;' src='images/file_size.png' title='".
+						"<td align='middle' class='size' id='".$server_home["home_id"]."'>".
+						"<img style='border:0;height:40px;vertical-align:middle;' src='images/file_size.png' title='".
 						get_lang('get_size')."'/>\n<br /><span style='font-weight:bold;'>".get_lang('get_size')."</span></td></tr></table>";
 						
 			$manager = "<a href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>\n".
@@ -394,7 +423,7 @@ function exec_ogp_module() {
 						{
 							$manager .= "<form name='steam_master_".$server_home['home_id']."_".$server_home['mod_id'].
 										"_".str_replace(".","",$server_home['ip'])."_".$server_home['port']."' action='?m=gamemanager&amp;p=update&amp;home_id=".
-									    $server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update' method='POST' >\n".
+										$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update' method='POST' >\n".
 										"<table align='left' class='monitorbutton' >\n".
 										"<tr><td align='middle' onclick='document.steam_master_".$server_home['home_id']."_".
 										$server_home['mod_id']."_".str_replace(".","",$server_home['ip'])."_".$server_home['port'].
@@ -422,11 +451,17 @@ function exec_ogp_module() {
 									"<img style='border:0;height:40px;vertical-align:middle;' src='images/install.png' title='".
 									get_lang('install_update_manual')."'/>\n<br>".get_lang('install_update_manual')."\n</td></td></table></a>";
 						
-						$manager .= "<a href='?m=gamemanager&amp;p=rsync_install&amp;home_id=".$server_home['home_id'].
-									"&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>\n".
-									"<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-									"<img style='border:0;height:40px;vertical-align:middle;' src='images/rsync.png' title='".
-									get_lang('rsync_install')."'/>\n<br />".get_lang('rsync_install')."\n</td></td></table></a>";
+						$sync_name = get_sync_name($server_xml);
+						$sync_list = @file("modules/gamemanager/rsync.list", FILE_IGNORE_NEW_LINES);
+						$master_server_home_id = $db->getMasterServer( $server_home['remote_server_id'], $server_home['home_cfg_id'] );
+						if ( in_array($sync_name, $sync_list) OR ($master_server_home_id != FALSE and $master_server_home_id != $server_home['home_id']) )
+						{
+							$manager .= "<a href='?m=gamemanager&amp;p=rsync_install&amp;home_id=".$server_home['home_id'].
+										"&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>\n".
+										"<table align='left' class='monitorbutton' ><tr><td align='middle' >".
+										"<img style='border:0;height:40px;vertical-align:middle;' src='images/rsync.png' title='".
+										get_lang('rsync_install')."'/>\n<br />".get_lang('rsync_install')."\n</td></td></table></a>";
+						}
 					}
 				}
 			}
