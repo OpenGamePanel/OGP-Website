@@ -26,9 +26,9 @@ require_once("modules/config_games/server_config_parser.php");
 
 function exec_ogp_module()
 {
-    global $db;
+	global $db;
 	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
-    $submit = isset($_REQUEST['submit']) ? $_REQUEST['submit'] : "";
+	$submit = isset($_REQUEST['submit']) ? $_REQUEST['submit'] : "";
 		
 	$home_id = $_GET['home_id'];
 	$enabled_mods = $db->getHomeMods($home_id);
@@ -72,28 +72,28 @@ function exec_ogp_module()
 	}
 	echo "<h2>".get_lang('editing_home_called')." \"".$home_info['home_name']."\"</h2>";
 	
-    if( isset($_REQUEST['change_name']) )
-    {
-        $server_name = $_POST['server_name'];
-        if ( $db->changeHomeName($home_id, $server_name) === TRUE )
+	if( isset($_REQUEST['change_name']) )
+	{
+		$server_name = $_POST['server_name'];
+		if ( $db->changeHomeName($home_id, $server_name) === TRUE )
 		{
-            print_success(get_lang('successfully_changed_game_server'));
+			print_success(get_lang('successfully_changed_game_server'));
 			$db->logger(get_lang('successfully_changed_game_server')." HOME ID:$home_id - ".get_lang('game_server_name').":$server_name");
 		}
-        else
-            print_failure("Name update failed.");
-    }
-    elseif ( isset($_REQUEST['change_control_password']) )
-    {
-        $control_password = $_POST['control_password'];
-        if ( $db->changeHomeControlPassword($home_id, $control_password) === TRUE )
+		else
+			print_failure("Name update failed.");
+	}
+	elseif ( isset($_REQUEST['change_control_password']) )
+	{
+		$control_password = $_POST['control_password'];
+		if ( $db->changeHomeControlPassword($home_id, $control_password) === TRUE )
 		{
-            print_success(get_lang('control_password_updated_successfully'));
+			print_success(get_lang('control_password_updated_successfully'));
 			$db->logger(get_lang('control_password_updated_successfully')." HOME ID:$home_id - ".get_lang('game_control_password').":$control_password");
 		}
-        else
-            print_failure(get_lang('control_password_update_failed'));
-    }
+		else
+			print_failure(get_lang('control_password_update_failed'));
+	}
 	elseif( isset( $_REQUEST['change_ftp_login']) && preg_match("/t/",$game_home['access_rights']) > 0 )
 	{
 		// Is FTP Module Installed?
@@ -152,7 +152,7 @@ function exec_ogp_module()
 				}
 			}
 		}
-    }
+	}
 	elseif( isset( $_REQUEST['change_ftp_password']) && preg_match("/t/",$game_home['access_rights']) > 0 )
 	{
 		// Is FTP Module Installed?
@@ -176,7 +176,7 @@ function exec_ogp_module()
 				}
 			}
 		}
-    }
+	}
 	elseif (isset($_POST["force_mod_id"]))
 	{
 		$force_mod_id = $_POST['force_mod_id'];
@@ -505,23 +505,23 @@ function exec_ogp_module()
 		echo "<tr><td colspan='2' class='info'>".get_lang('change_home_info')."</td></tr>";
 	}
 
-    // Form to edit game name
-    echo "<tr><td class='right'>".get_lang('game_server_name').":</td><td class='left'>";
-    echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
-    echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
-    echo "<input type='text' size='30' name='server_name' value='".$home_info['home_name']."' />";
-    echo "<input type=submit name='change_name' value='".get_lang('change_name')."' />";
-    echo "</form></td></tr>";
-    echo "<tr><td colspan='2' class='info'>".get_lang('change_name_info')."</td></tr>";
+	// Form to edit game name
+	echo "<tr><td class='right'>".get_lang('game_server_name').":</td><td class='left'>";
+	echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
+	echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
+	echo "<input type='text' size='30' name='server_name' value='".$home_info['home_name']."' />";
+	echo "<input type=submit name='change_name' value='".get_lang('change_name')."' />";
+	echo "</form></td></tr>";
+	echo "<tr><td colspan='2' class='info'>".get_lang('change_name_info')."</td></tr>";
 
-    // Form to edit control password
-    echo "<tr><td class='right'>".get_lang('game_control_password').":</td><td class='left'>";
-    echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
-    echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
-    echo "<input type='text' size='30' name='control_password' value='".$home_info['control_password']."' />";
-    echo "<input type='submit' name='change_control_password' value='".get_lang('change_control_password')."' />";
-    echo "</form></td></tr>";
-    echo "<tr><td colspan='2' class='info'>".get_lang('change_control_password_info')."</td></tr>";
+	// Form to edit control password
+	echo "<tr><td class='right'>".get_lang('game_control_password').":</td><td class='left'>";
+	echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
+	echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
+	echo "<input type='text' size='30' name='control_password' value='".$home_info['control_password']."' />";
+	echo "<input type='submit' name='change_control_password' value='".get_lang('change_control_password')."' />";
+	echo "</form></td></tr>";
+	echo "<tr><td colspan='2' class='info'>".get_lang('change_control_password_info')."</td></tr>";
 	if ( preg_match("/t/",$game_home['access_rights']) > 0 && $ftp_installed && $db->IsFtpEnabled($home_id) )
 	{
 		// Form to edit control ftp login
@@ -580,7 +580,7 @@ function exec_ogp_module()
 			 " (".get_lang_f( 'only_available_for', $server_xml->game_name, $home_info['remote_server_name']).")</td></tr>";
 	}
 	
-    echo "</table>";
+	echo "</table>";
 	
 	if ( $isAdmin )
 	{
@@ -733,8 +733,10 @@ function exec_ogp_module()
 			if (isset($mod_cfg_id))
 			{
 				$db->addModToGameHome($home_id,$mod_cfg_id);
-				unset($mod_cfg_id);
+				$maxplayers = $server_xml->max_user_amount ? $server_xml->max_user_amount : 0;
+				$db->updateGameModParams($maxplayers,'','NA','0',$home_id,$mod_cfg_id);
 				echo "<meta http-equiv='refresh' content='0'>";
+				return;
 			}
 			else
 			{
@@ -775,7 +777,7 @@ function exec_ogp_module()
 			foreach ( $enabled_mods as $enabled_rows ) {
 				echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'><tr><td>\n".
 					 "<input type='hidden' name='home_id' value=\"$home_id\" />\n".
-				     "<input type='hidden' name='mod_cfg_id' value=\"".$enabled_rows['mod_cfg_id']."\" />\n".
+					 "<input type='hidden' name='mod_cfg_id' value=\"".$enabled_rows['mod_cfg_id']."\" />\n".
 					 "<a href='?m=user_games&amp;p=edit&amp;mod_id=".$enabled_rows['mod_id'].
 					 "&amp;home_id=$home_id&amp;submit=delete_mod'>[ ".get_lang('remove_mod')." ]</a><br>".
 					 "<a href='?m=user_games&p=install_cmds&home_id=$home_id&mod_id=".$enabled_rows['mod_id'].
@@ -826,7 +828,7 @@ function exec_ogp_module()
 				echo "</form>";
 			}
 		}
-    }
+	}
 	else
 	{
 		$assigned = $db->getHomeIpPorts($home_id);

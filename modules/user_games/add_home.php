@@ -23,56 +23,56 @@
  */
 function create_selection($selection,$flag)
 {
-    return "<tr><td align='right'><label for='".clean_id_string($selection)."'>".get_lang($selection).":</label></td>
-        <td align='left'><input id='".clean_id_string($selection)."' type='checkbox' name='".$selection."' value='1' checked='checked' /></td></tr><tr>
+	return "<tr><td align='right'><label for='".clean_id_string($selection)."'>".get_lang($selection).":</label></td>
+		<td align='left'><input id='".clean_id_string($selection)."' type='checkbox' name='".$selection."' value='1' checked='checked' /></td></tr><tr>
 		<td align='left' class='info' colspan='2'>".get_lang($selection.'_info')."</td></tr>";
 }
 function exec_ogp_module()
 {
-    global $db;
-    global $view;
+	global $db;
+	global $view;
 	echo "<h2>".get_lang('add_new_game_home')."</h2>";
-    echo "<p><a href='?m=user_games'>&lt;&lt; ".get_lang('back_to_game_servers')."</a></p>";
+	echo "<p><a href='?m=user_games'>&lt;&lt; ".get_lang('back_to_game_servers')."</a></p>";
 
-    $remote_servers = $db->getRemoteServers();
-    if( $remote_servers === FALSE )
-    {
+	$remote_servers = $db->getRemoteServers();
+	if( $remote_servers === FALSE )
+	{
 		echo "<p class='note'>".get_lang('no_remote_servers_configured')."</p>
-              <p><a href='?m=server'>".get_lang('add_remote_server')."</a></p>";
+			  <p><a href='?m=server'>".get_lang('add_remote_server')."</a></p>";
 
-        return;
-    }
+		return;
+	}
 
-    $game_cfgs = $db->getGameCfgs();
+	$game_cfgs = $db->getGameCfgs();
 	$users = $db->getUserList();
 
-    if ( $game_cfgs === FALSE )
-    {
-        echo "<p class='note'>".get_lang('no_game_configurations_found')." <a href='?m=config_games'>".get_lang('game_configurations')."</a></p>";
-        return;
-    }
+	if ( $game_cfgs === FALSE )
+	{
+		echo "<p class='note'>".get_lang('no_game_configurations_found')." <a href='?m=config_games'>".get_lang('game_configurations')."</a></p>";
+		return;
+	}
 
-    echo "<p> <span class='note'>".get_lang('note').":</span> ".get_lang('add_mods_note')."</p>";
+	echo "<p> <span class='note'>".get_lang('note').":</span> ".get_lang('add_mods_note')."</p>";
 	
-    $selections = array( "allow_updates" => "u",
-        "allow_file_management" => "f",
-        "allow_parameter_usage" => "p",
-        "allow_extra_params" => "e",
+	$selections = array( "allow_updates" => "u",
+		"allow_file_management" => "f",
+		"allow_parameter_usage" => "p",
+		"allow_extra_params" => "e",
 		"allow_ftp" => "t",
 		"allow_custom_fields" => "c");
 	
-    if ( isset($_REQUEST['add_game_home']) )
-    {
-        $rserver_id = $_POST['rserver_id'];
-        $home_cfg_id = $_POST['home_cfg_id'];
-        $web_user_id = trim($_POST['web_user_id']);
-        $control_password = "";
+	if ( isset($_REQUEST['add_game_home']) )
+	{
+		$rserver_id = $_POST['rserver_id'];
+		$home_cfg_id = $_POST['home_cfg_id'];
+		$web_user_id = trim($_POST['web_user_id']);
+		$control_password = genRandomString(8);
 		$access_rights = "";
 		
 		$ftp = FALSE;
-        foreach ($selections as $selection => $flag)
-        {
-            if (isset($_REQUEST[$selection]))
+		foreach ($selections as $selection => $flag)
+		{
+			if (isset($_REQUEST[$selection]))
 			{
 				$access_rights .= $flag;
 				if ($flag == "t")
@@ -80,14 +80,14 @@ function exec_ogp_module()
 					$ftp = TRUE;
 				}
 			}
-        }
+		}
 		
-        if ( empty( $web_user_id ) )
-        {
-            print_failure(get_lang('game_path_empty'));
-        }
-        else
-        {
+		if ( empty( $web_user_id ) )
+		{
+			print_failure(get_lang('game_path_empty'));
+		}
+		else
+		{
 			foreach ( $game_cfgs as $row )
 			{
 				if($row['home_cfg_id'] == $home_cfg_id) $server_name = $row['game_name'];
@@ -102,9 +102,9 @@ function exec_ogp_module()
 			}
 			$ftppassword = genRandomString(8);
 			$game_path = "/home/".$ogp_user."/OGP_User_Files/";
-            if ( ( $new_home_id = $db->addGameHome($rserver_id,$web_user_id,$home_cfg_id,
-                clean_path($game_path),$server_name,$control_password,$ftppassword) )!== FALSE )
-            {
+			if ( ( $new_home_id = $db->addGameHome($rserver_id,$web_user_id,$home_cfg_id,
+				clean_path($game_path),$server_name,$control_password,$ftppassword) )!== FALSE )
+			{
 				$db->assignHomeTo("user",$web_user_id,$new_home_id,$access_rights);
 				if($ftp)
 				{
@@ -116,18 +116,18 @@ function exec_ogp_module()
 						$remote->ftp_mgr("useradd", $home_info['home_id'], $home_info['ftp_password'], $home_info['home_path']);
 					$db->changeFtpStatus('enabled',$new_home_id);
 				}
-                print_success(get_lang('game_home_added'));
+				print_success(get_lang('game_home_added'));
 				$db->logger(get_lang('game_home_added')." ($server_name)");
-                $view->refresh("?m=user_games&amp;p=edit&amp;home_id=$new_home_id");
-            }
-            else
-            {
-                print_failure(get_lang_f("failed_to_add_home_to_db",$db->getError()));
-            }
-        }
-    }
+				$view->refresh("?m=user_games&amp;p=edit&amp;home_id=$new_home_id");
+			}
+			else
+			{
+				print_failure(get_lang_f("failed_to_add_home_to_db",$db->getError()));
+			}
+		}
+	}
 
-    // View form to add more servers.
+	// View form to add more servers.
 	if( !isset($_POST['rserver_id']) )
 	{
 		echo "<form action='?m=user_games&amp;p=add' method='post'>";
@@ -260,9 +260,9 @@ function exec_ogp_module()
 		echo "<tr><td class='right'>".get_lang('access_rights').":</td>
 			<td class='left'>";
 		foreach ( $selections as $selection => $flag)
-        {
-            echo create_selection($selection,$flag);
-        }
+		{
+			echo create_selection($selection,$flag);
+		}
 		echo "</td></tr>";
 		// Assign home
 		echo "<tr><td align='center' colspan='2'>
