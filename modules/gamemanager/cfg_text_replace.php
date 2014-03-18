@@ -125,7 +125,7 @@ foreach($file_replacements as $filepath => $replacements)
 		if($param_enc != $file_enc)
 			$file_content = mb_convert_encoding($file_content, $param_enc, $file_enc);
 			
-		if( !in_array( $options, array("tags","tagValueByName","sc","sqc","key-regex") ) )
+		if( !in_array( $options, array("tags","tagValueByName","sc","sqc") ) )
 		{
 			$match_found = preg_match("/$default/m", $file_content);
 			if($var == "")
@@ -155,6 +155,11 @@ foreach($file_replacements as $filepath => $replacements)
 				$file_content .= "\n$var\"$info_param\"";
 			elseif ($options == "sq")//separated & quoted
 				$file_content .= "\n$var \"$info_param\"";
+			elseif ($options == "key-regex")
+			{
+				$var = str_replace("%key%", $info_param, $var);
+				$file_content .= "\n$var";
+			}
 			elseif ($options == "")
 				$file_content .= "\n$var$info_param";
 		}
