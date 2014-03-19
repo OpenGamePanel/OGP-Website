@@ -205,12 +205,7 @@ function exec_ogp_module()
 					{
 						$OnlineServers .= "<tr><td><div $id class='name' ><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id-mod_id-ip-port=" . $server_home['home_id'] . "-" . $server_home['mod_id'] . "-" . $server_home['ip'] . "-" . $server_home['port'] . "' ><img style='border:0;height:12px;' src='images/magnifglass.png'/>" . $server_home['home_name'] . "</a></div>";
 						$OnlineServers .= "<div><div style='font-size:8pt;' >[".$players.'/'.$playersmax."]</div> ".$map.'</div>';
-						if($server_xml->protocol == "lgsl" OR $server_xml->protocol == "teamspeak3") 
-							$OnlineServers .= "<div id='gamelink' >$address</div>";
-						elseif( $server_xml->protocol == "gameq" AND $server_xml->installer == "steam")
-							$OnlineServers .= "<div><a href='steam://connect/$ip:$port'>$ip:$port</a></div>"; 
-						elseif( $server_xml->protocol == "gameq" OR ! isset( $server_xml->protocol ) )
-							$OnlineServers .= "<div id='gamelink' >$ip:$port</div>"; 
+						$OnlineServers .= "<div id='gamelink' >$address</div>";
 						$OnlineServers .= "</td></tr>";
 						if ( $players >= 1 )
 							$onlinePlayers .= print_player_list($playersList,$players,$playersmax,$server_home['game_name']);

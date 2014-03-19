@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Ffe extends GameQ_Protocols_Sources
+class GameQ_Protocols_Ffe extends GameQ_Protocols_Source
 {
 	protected $name = "ffe";
 	protected $name_long = "Fortress Forever";

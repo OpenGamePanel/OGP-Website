@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Hl2dm extends GameQ_Protocols_Sources
+class GameQ_Protocols_Hl2dm extends GameQ_Protocols_Source
 {
 	protected $name = "hl2dm";
 	protected $name_long = "Half Life 2: Deathmatch";

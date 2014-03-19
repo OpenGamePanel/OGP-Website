@@ -75,8 +75,10 @@ if($num_of_servers < $numberservers_to_skip_query)
 
 		if ( $results['server']['gq_numplayers'] > 0 )
 			$player_list = print_player_list_gameq($results['server']['players'],$players,$playersmax);
-		if($server_xml->installer == 'steam')
+		if($server_xml->installer == 'steamcmd')
 			$address = "<a href='steam://connect/$ip:$port'>$ip:$port</a>";
+		else
+			$address = "$ip:$port";
 		$playersList = $results['server']['players'];
 		$maplocation = get_map_path($query_name,$mod,$map);
 	}

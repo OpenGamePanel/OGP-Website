@@ -568,9 +568,9 @@ function exec_ogp_module() {
 						$address = "<a href='" . lgsl_software_link($query_name, $query_ip, $c_port, $q_port, $s_port) . "'>".$query_ip.":".$server_home['port']."</a>";
 					}
 					if ($server_xml->protocol == "teamspeak3")
-					{
 						$address = "<a href='ts3server://" . $query_ip . ":" . $server_home['port'] . "'>".$query_ip.":".$server_home['port']."</a>";
-					}
+					if($server_xml->protocol == "gameq" and $server_xml->installer == 'steamcmd')
+						$address = "<a href='steam://connect/" . $query_ip . ":" . $server_home['port'] . "'>" . $query_ip . ":" . $server_home['port'] . "</a>";
 					$pos = $refresh->add("home.php?m=gamemanager&p=ref_servermonitor&type=cleared&server_home=". $server_home['home_id'] . "&ip=" . $server_home['ip'] . "&port=" . $server_home['port']);
 					if ($server_xml->protocol == "teamspeak3")
 					{

@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Cs16 extends GameQ_Protocols_Sources
+class GameQ_Protocols_Cs16 extends GameQ_Protocols_Source
 {
 	protected $name = "cs16";
 	protected $name_long = "Counter-Strike 1.6";
@@ -29,7 +29,7 @@ class GameQ_Protocols_Cs16 extends GameQ_Protocols_Sources
 	/**
 	 * We have to overload this function to cheat the rules processing because of some wierdness, old ass game!
 	 *
-	 * @see GameQ_Protocols_Sources::preProcess_rules()
+	 * @see GameQ_Protocols_Source::preProcess_rules()
 	 */
 	protected function preProcess_rules($packets)
 	{

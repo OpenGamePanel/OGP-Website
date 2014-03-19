@@ -34,28 +34,29 @@ class GameQ_Protocols_Teamspeak3 extends GameQ_Protocols
 	 *
 	 * @var array
 	 */
-	protected $normalize = array(
-		// General
-		'general' => array(
-			'dedicated' => array('dedicated'),
-			'hostname' => array('virtualservername'),
-			'password' => array('virtualserverflag_password'),
-			'numplayers' => array('virtualserverclientsonline'),
-			'maxplayers' => array('virtualservermaxclients'),
-	        'players' => array('players'),
-			'teams' => array('teams'),
-		),
+    protected $normalize = array(
+        // General
+        'general' => array(
+            'dedicated' => array('dedicated'),
+            'hostname' => array('virtualservername'),
+            'password' => array('virtualserverflagpassword'),
+            //'numplayers' => array('virtualserverclientsonline'),
+            'maxplayers' => array('virtualservermaxclients'),
+            'players' => array('players'),
+            'teams' => array('teams'),
+        ),
 
-		// Player
-		'player' => array(
-	        //'score' => array('score'),
-		),
+        // Player
+        'player' => array(
+            'name' => array('clientnickname'),
+            'team' => array('clid'),
+        ),
 
-		// Team
-		'team' => array(
-			//'score' => array('tickets'),
-		),
-	);
+        // Team
+        'team' => array(
+            'name' => array('channelname'),
+        ),
+    );
 
 	/**
 	 * Array of packets we want to look up.
@@ -122,6 +123,8 @@ class GameQ_Protocols_Teamspeak3 extends GameQ_Protocols
 	 */
 	protected $name_long = "Teamspeak 3";
 
+	protected $join_link = "ts3server://%s?port=%d";
+
 	/**
 	 * Define the items being replaced to fix the return
 	 *
@@ -140,6 +143,26 @@ class GameQ_Protocols_Teamspeak3 extends GameQ_Protocols
       "\\r" => "\r",
       "\\t" => "\t"
     );
+
+	/**
+	 * Overload so we can check for some special options
+	 *
+	 * @param string $ip
+	 * @param int $port
+	 * @param array $options
+	 */
+	public function __construct($ip = FALSE, $port = FALSE, $options = array())
+	{
+	    // Got to do this first
+	    parent::__construct($ip, $port, $options);
+
+	    // Check for override in master server port (query)
+	    if(isset($this->options['master_server_port']) && !empty($this->options['master_server_port']))
+	    {
+	        // Override the master server port
+            $this->master_server_port = (int) $this->options['master_server_port'];
+	    }
+	}
 
 	/**
 	 * We need to affect the packets we are sending before they are sent
@@ -192,7 +215,10 @@ class GameQ_Protocols_Teamspeak3 extends GameQ_Protocols
 		$buffer = $this->preProcess($this->packets_response[self::PACKET_DETAILS]);
 
 		// Process the buffer response
-		$data = array_shift($this->parse_response($buffer));
+		$data = $this->parse_response($buffer);
+
+		// Shift off the first item
+		$data = array_shift($data);
 
 		// Set the result to a new result instance
 		$result = new GameQ_Result();
@@ -205,6 +231,9 @@ class GameQ_Protocols_Teamspeak3 extends GameQ_Protocols
 		{
 			$result->add($key, $value);
 		}
+
+		// Do correction for virtual clients
+		$result->add('numplayers', ($data['virtualserver_clientsonline'] - $data['virtualserver_queryclientsonline']));
 
 		unset($data, $buffer, $key, $value);
 
@@ -233,6 +262,7 @@ class GameQ_Protocols_Teamspeak3 extends GameQ_Protocols
 
 		foreach ($data AS $channel)
 		{
+			$channel['channel_name'] = htmlentities($channel['channel_name'], ENT_QUOTES, "UTF-8");
 			foreach ($channel AS $key => $value)
 			{
 				$result->addTeam($key, $value);
@@ -269,6 +299,7 @@ class GameQ_Protocols_Teamspeak3 extends GameQ_Protocols
 	        	continue;
 			}
 
+		$player['client_nickname'] = htmlentities($player['client_nickname'], ENT_QUOTES, "UTF-8");
 	      	foreach ($player AS $key => $value)
 	      	{
 	        	$result->addPlayer($key, $value);
@@ -351,7 +382,8 @@ class GameQ_Protocols_Teamspeak3 extends GameQ_Protocols
 
 			foreach ($variables as $variable)
 			{
-				list($key, $value) = explode('=', $variable, 2);
+				// Explode and make sure we always have 2 items in the array
+				list($key, $value) = array_pad(explode('=', $variable, 2), 2, '');
 
 				$info[$key] = str_replace(array_keys($this->string_replace), array_values($this->string_replace), $value);
 			}

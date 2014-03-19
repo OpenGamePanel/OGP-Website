@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Tfc extends GameQ_Protocols_Sources
+class GameQ_Protocols_Tfc extends GameQ_Protocols_Source
 {
 	protected $name = "tfc";
 	protected $name_long = "Team Fortress Classic";

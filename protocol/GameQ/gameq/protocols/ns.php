@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Ns extends GameQ_Protocols_Sources
+class GameQ_Protocols_Ns extends GameQ_Protocols_Source
 {
 	protected $name = "ns";
 	protected $name_long = "Natural Selection";

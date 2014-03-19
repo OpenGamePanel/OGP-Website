@@ -134,6 +134,7 @@ $lang["deaths"] = "смертей";
 $lang["pid"] = "pid";
 $lang["skill"] = "скилл";
 $lang["AIBot"] = "AIBot";
+$lang["steamid"] = "Steam ID";
 $lang["player"] = "игрок";
 $lang['update_from_local_master_server'] = "Обовить с локального мастер сервера.";
 

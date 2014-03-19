@@ -103,6 +103,14 @@ abstract class GameQ_Protocols_Core
 	protected $port = NULL;
 
 	/**
+	 * The port the client can connect on, usually the same as self::$port
+	 * but not always.
+	 *
+	 * @var integer
+	 */
+	protected $port_client = NULL;
+
+	/**
 	 * The trasport method to use to actually send the data
 	 * Default is UDP
 	 *
@@ -197,6 +205,13 @@ abstract class GameQ_Protocols_Core
 	protected $normalize = FALSE;
 
 	/**
+	 * Quick join link for specific games
+	 *
+	 * @var string
+	 */
+	protected $join_link = NULL;
+
+	/**
 	 * Create the instance.
 	 *
 	 * @param string $ip
@@ -205,18 +220,34 @@ abstract class GameQ_Protocols_Core
 	 */
 	public function __construct($ip = FALSE, $port = FALSE, $options = array())
 	{
+	    // Set the ip
 		$this->ip($ip);
 
 		// We have a specific port set so let's set it.
 		if($port !== FALSE)
 		{
+		    // Set the port
 			$this->port($port);
+
+			/*
+			 * By default we set the client port = to the query port.  Note that
+			 * this is not always the case
+			 */
+			$this->port_client($port);
 		}
 
 		// We have passed options so let's set them
 		if(!empty($options))
 		{
+		    // Set the passed options
 			$this->options($options);
+
+			// We have an option passed for client connect port
+			if(isset($options['client_connect_port']) && !empty($options['client_connect_port']))
+			{
+			    // Overwrite the default connect port
+			    $this->port_client($options['client_connect_port']);
+			}
 		}
 	}
 
@@ -326,6 +357,22 @@ abstract class GameQ_Protocols_Core
 		}
 
 		return $this->port;
+	}
+
+	/**
+	 * Get/set the client port of the server
+	 *
+	 * @param integer $port
+	 */
+	public function port_client($port = FALSE)
+	{
+	    // Act as setter
+	    if($port !== FALSE)
+	    {
+	        $this->port_client = $port;
+	    }
+
+	    return $this->port_client;
 	}
 
 	/**
@@ -570,6 +617,12 @@ abstract class GameQ_Protocols_Core
 		$results['gq_type'] = (string) $this;
 		$results['gq_transport'] = $this->transport;
 
+		// Process the join link
+		if(!isset($results['gq_joinlink']) || empty($results['gq_joinlink']))
+		{
+		    $results['gq_joinlink'] = $this->getJoinLink();
+		}
+
 		// Return the raw results
 		return $results;
 	}
@@ -633,5 +686,23 @@ abstract class GameQ_Protocols_Core
 		}
 
 		return FALSE;
+	}
+
+	/**
+	 * Create a server join link based on the server information
+	 *
+	 * @return string
+	 */
+	protected function getJoinLink()
+	{
+	    $link = '';
+
+	    // We have a join_link defined
+	    if(!empty($this->join_link))
+	    {
+	        $link = sprintf($this->join_link, $this->ip, $this->port_client);
+	    }
+
+	    return $link;
 	}
 }

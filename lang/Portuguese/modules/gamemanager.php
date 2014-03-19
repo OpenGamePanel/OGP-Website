@@ -156,4 +156,13 @@ $lang['dest_filename'] = "Destination Filename";
 $lang['dest_filename_info'] = "The filename for the destination file.";
 $lang['update_server'] = "Update server";
 $lang['unavailable'] = "Unavailable";
+
+$lang['ping'] = "Ping";
+$lang['team'] = "Team";
+$lang['deaths'] = "Deaths";
+$lang['pid'] = "PID";
+$lang['skill'] = "Skill";
+$lang["AIBot"] = "AIBot";
+$lang["steamid"] = "Steam ID";
+$lang['player'] = "Player";
 ?>

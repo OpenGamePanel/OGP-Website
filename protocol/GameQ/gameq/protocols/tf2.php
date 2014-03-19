@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Tf2 extends GameQ_Protocols_Sources
+class GameQ_Protocols_Tf2 extends GameQ_Protocols_Source
 {
 	protected $name = "tf2";
 	protected $name_long = "Team Fortress 2";

@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Zombiemaster extends GameQ_Protocols_Sources
+class GameQ_Protocols_Zombiemaster extends GameQ_Protocols_Source
 {
 	protected $name = "zombiemaster";
 	protected $name_long = "Zombie Master";

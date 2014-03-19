@@ -96,7 +96,8 @@ class GameQ
 		}
 		catch (Exception $e)
 		{
-			throw new GameQException($e->getMessage(), $e->getMessage(), $e);
+			throw new GameQException($e->getMessage(), $e->getCode(), $e);
+			die;
 		}
 	}
 
@@ -132,6 +133,10 @@ class GameQ
 		'debug' => FALSE,
 		'timeout' => 3, // Seconds
 		'filters' => array(),
+
+        // Advanced settings
+	    'stream_timeout' => 200000, // See http://www.php.net/manual/en/function.stream-select.php for more info
+	    'write_wait' => 500, // How long (in micro-seconds) to pause between writting to server sockets, helps cpu usage
 	);
 
 	/**
@@ -157,20 +162,6 @@ class GameQ
 	public function __construct()
 	{
 		// @todo: Add PHP version check?
-
-		// Check for Bzip2
-		if(!function_exists('bzdecompress'))
-		{
-			/* throw new GameQException('Bzip2 is not installed.  See http://www.php.net/manual/en/book.bzip2.php for more info.', 0); */
-			return FALSE;
-		}
-
-		// Check for Zlib
-		if(!function_exists('gzuncompress'))
-		{
-			throw new GameQException('Zlib is not installed.  See http://www.php.net/manual/en/book.zlib.php for more info.', 0);
-			return FALSE;
-		}
 	}
 
 	/**
@@ -224,8 +215,17 @@ class GameQ
 		// Create the proper filter class name
 		$filter_class = 'GameQ_Filters_'.$name;
 
-		// Pass any parameters and make the class
-		$this->options['filters'][$name] = new $filter_class($params);
+		try
+		{
+		    // Pass any parameters and make the class
+		    $this->options['filters'][$name] = new $filter_class($params);
+		}
+		catch (GameQ_FiltersException $e)
+		{
+		    // We catch the exception here, thus the filter is not applied
+		    // but we issue a warning
+		    error_log($e->getMessage(), E_USER_WARNING);
+		}
 
 		return $this; // Make chainable
 	}
@@ -291,43 +291,77 @@ class GameQ
 			|| !is_array($server_info[self::SERVER_OPTIONS])
 			|| empty($server_info[self::SERVER_OPTIONS]))
 		{
-			// Make an id so each server has an id when returned
+			// Default the options to an empty array
 			$server_info[self::SERVER_OPTIONS] = array();
 		}
 
 		// Define these
 		$server_id = $server_info[self::SERVER_ID];
-		$server_addr = '127.0.0.1';
+		$server_ip = '127.0.0.1';
 		$server_port = FALSE;
 
-		// Pull out the information
-		if(strstr($server_info[self::SERVER_HOST], ':')) // We have a port defined
+		// We have an IPv6 address (and maybe a port)
+		if(substr_count($server_info[self::SERVER_HOST], ':') > 1)
 		{
-			list($server_addr, $server_port) = explode(':', $server_info[self::SERVER_HOST]);
+		    // See if we have a port, input should be in the format [::1]:27015 or similar
+		    if(strstr($server_info[self::SERVER_HOST], ']:'))
+		    {
+		        // Explode to get port
+		        $server_addr = explode(':', $server_info[self::SERVER_HOST]);
+
+		        // Port is the last item in the array, remove it and save
+		        $server_port = array_pop($server_addr);
+
+		        // The rest is the address, recombine
+		        $server_ip = implode(':', $server_addr);
+
+		        unset($server_addr);
+		    }
+
+		    // Just the IPv6 address, no port defined
+		    else
+		    {
+		        $server_ip = $server_info[self::SERVER_HOST];
+		    }
+
+		    // Now let's validate the IPv6 value sent, remove the square brackets ([]) first
+		    if(!filter_var(trim($server_ip, '[]'), FILTER_VALIDATE_IP, array(
+    			'flags' => FILTER_FLAG_IPV6,
+    		)))
+		    {
+		        throw new GameQException("The IPv6 address '{$server_ip}' is invalid.");
+		        return FALSE;
+		    }
 		}
-		else // No port, will use the default port defined by the protocol class
+
+		// IPv4
+		else
 		{
-			$server_addr = $server_info[self::SERVER_HOST];
-		}
+		    // We have a port defined
+		    if(strstr($server_info[self::SERVER_HOST], ':'))
+		    {
+		        list($server_ip, $server_port) = explode(':', $server_info[self::SERVER_HOST]);
+		    }
 
-		// Set the ip to the address by default
-		$server_ip = $server_addr;
+		    // No port, just IPv4
+		    else
+		    {
+		        $server_ip = $server_info[self::SERVER_HOST];
+		    }
 
-		// Now lets validate the server address, see if it is a hostname
-		if(!filter_var($server_addr, FILTER_VALIDATE_IP, array(
-			'flags' => FILTER_FLAG_IPV4,
-		))) // Is not valid ip so assume hostname
-		{
-			// Try to resolve to ipv4 address, slow
-			$server_ip = gethostbyname($server_addr);
-
-			// When gethostbyname fails it returns the original string
-			// so if ip and address are equal this failed.
-			if($server_ip === $server_addr)
-			{
-				throw new GameQException("Unable to lookup ip for hostname '{$server_addr}'");
-				return FALSE;
-			}
+		    // Validate the IPv4 value, if FALSE is not a valid IP, maybe a hostname.  Try to resolve
+		    if(!filter_var($server_ip, FILTER_VALIDATE_IP, array(
+		            'flags' => FILTER_FLAG_IPV4,
+		    )))
+		    {
+		        // When gethostbyname() fails it returns the original string
+		        // so if ip and the result from gethostbyname() are equal this failed.
+		        if($server_ip === gethostbyname($server_ip))
+		        {
+		            throw new GameQException("The host '{$server_ip}' is unresolvable to an IP address.");
+		            return FALSE;
+		        }
+		    }
 		}
 
 		// Create the class so we can reference it properly later
@@ -591,7 +625,7 @@ class GameQ
 			);
 
 			// Let's sleep shortly so we are not hammering out calls rapid fire style hogging cpu
-			usleep(200000);
+			usleep($this->write_wait);
 		}
 
 		// Now we need to listen for challenge response(s)
@@ -657,7 +691,7 @@ class GameQ
 				);
 
 				// Let's sleep shortly so we are not hammering out calls raipd fire style
-				usleep(50000);
+				usleep($this->write_wait);
 			}
 		}
 
@@ -748,7 +782,7 @@ class GameQ
 		// To store the sockets
 		$sockets = array();
 
-		// Loop and pull out all the actual sockets
+		// Loop and pull out all the actual sockets we need to listen on
 		foreach($this->sockets AS $socket_id => $socket_data)
 		{
 			// Append the actual socket we are listening to
@@ -757,6 +791,14 @@ class GameQ
 
 		// Init some variables
 		$read = $sockets;
+		$write = NULL;
+		$except = NULL;
+
+		// Check to see if $read is empty, if so stream_select() will throw a warning
+		if(empty($read))
+		{
+		    return $responses;
+		}
 
 		// This is when it should stop
 		$time_stop = microtime(TRUE) + $this->timeout;
@@ -765,11 +807,12 @@ class GameQ
 		while ($loop_active && microtime(TRUE) < $time_stop)
 		{
 			// Now lets listen for some streams, but do not cross the streams!
-			$streams = stream_select($read, $write = NULL, $except = NULL, 0, 800000);
+			$streams = stream_select($read, $write, $except, 0, $this->stream_timeout);
 
-			// We had error or no streams left
+			// We had error or no streams left, kill the loop
 			if($streams === FALSE || ($streams <= 0))
 			{
+			    $loop_active = FALSE;
 				break;
 			}
 
@@ -802,7 +845,7 @@ class GameQ
 		}
 
 		// Free up some memory
-		unset($streams, $read, $sockets, $time_stop);
+		unset($streams, $read, $write, $except, $sockets, $time_stop, $response);
 
 		return $responses;
 	}

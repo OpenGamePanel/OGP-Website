@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Codmw3 extends GameQ_Protocols_Sources
+class GameQ_Protocols_Codmw3 extends GameQ_Protocols_Source
 {
 	protected $name = "codmw3";
 	protected $name_long = "Call of Duty: Modern Warfare 3";

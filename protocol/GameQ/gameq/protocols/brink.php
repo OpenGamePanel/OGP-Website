@@ -21,7 +21,7 @@
  *
  * @author Austin Bischoff <austin@codebeard.com>
  */
-class GameQ_Protocols_Brink extends GameQ_Protocols_Sources
+class GameQ_Protocols_Brink extends GameQ_Protocols_Source
 {
 	protected $name = "brink";
 	protected $name_long = "Brink";
