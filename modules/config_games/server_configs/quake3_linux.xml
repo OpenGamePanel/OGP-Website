@@ -1,0 +1,19 @@
+<game_config>
+ <game_key>quake3_linux32</game_key>
+ <protocol>lgsl</protocol>
+ <lgsl_query_name>quake3</lgsl_query_name>
+ <game_name>Quake 3</game_name>
+ <server_exec_name>q3ded</server_exec_name>
+ <cli_template>%PUNKBUSTER% %BASE_PATH% %MASTER% %FSGAME% %IP% %PORT% %PLAYERS% %EXEC%</cli_template>
+ <cli_params>
+  <cli_param id="IP" cli_string="+set net_ip" options="s" />  <cli_param id="PORT" cli_string="+set net_port" options="s" />  <cli_param id="BASE_PATH" cli_string="+set fs_basepath" options="s" />  <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+ </cli_params>
+ <max_user_amount>32</max_user_amount>
+ <control_protocol>rcon</control_protocol> <control_protocol_type>old</control_protocol_type>
+ <mods>
+  <mod key="quake3">
+   <name>none</name>
+  </mod>
+ </mods> <server_params>  <param id="EXEC" key="+exec" type="text">    <default>server.cfg</default>    <caption></caption>    <desc>Set the name of your server configuration file.</desc>  </param>  <param id="PUNKBUSTER" key="+set sv_punkbuster" type="select">	<option value="1">Enabled</option>	<option value="0">Disabled</option>    <caption></caption>    <desc>Set your PunkBuster Server Enabled or Disabled.</desc>  </param>  <param id="MASTER" key="+set dedicated" type="select">
+    <option value="2">Yes</option>	<option value="1">No</option>    <caption></caption>    <desc>Show server on Gamespy.</desc>  </param>  <param id="FSGAME" key="+set fs_game" type="text">    <default></default>    <caption></caption>    <desc>Mod folder (if any).</desc>  </param> </server_params>
+</game_config>

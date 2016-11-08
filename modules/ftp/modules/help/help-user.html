@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "XHTML 1.0 Transitional" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" dir="ltr">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=iso-8859-1" />
+<meta name="keywords" content="net2ftp, web, ftp, based, web-based, xftp, client, PHP, SSL, SSH, SSH2, password, server, free, gnu, gpl, gnu/gpl, net, net to ftp, netftp, connect, user, gui, interface, web2ftp, edit, editor, online, code, php, upload, download, copy, move, delete, zip, tar, unzip, untar, recursive, rename, chmod, syntax, highlighting, host, hosting, ISP, webserver, plan, bandwidth" />
+<meta name="description" content="net2ftp is a web based FTP client. It is mainly aimed at managing websites using a browser. Edit code, upload/download files, copy/move/delete directories recursively, rename files and directories -- without installing any software." />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" href="favicon.png"/>
+<title>net2ftp - a web based FTP client</title>
+<script type="text/javascript" src="../../skins/shinra/js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/jquery-ui-1.8.13.custom.min.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/easing.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/jquery.scrollTo-1.4.2-min.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/custom.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/DD_belatedPNG.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/superfish-1.4.8/js/hoverIntent.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/superfish-1.4.8/js/superfish.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/superfish-1.4.8/js/supersubs.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/poshytip-1.0/src/jquery.poshytip.min.js"></script>
+<script type="text/javascript" src="../../skins/shinra/js/html5.js"></script>
+<link rel="stylesheet" href="../../skins/shinra/css/main.css.php?ltr=ltr&amp;image_url=skins%2Fshinra%2Fimages" type="text/css" />
+<link rel="stylesheet" href="../../skins/shinra/css/style.css.php?show_ads=no" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../skins/shinra/css/social-icons.css"   type="text/css" media="screen" />
+<link rel="stylesheet" href="../../skins/shinra/css/ie8-hacks.css"      type="text/css" media="screen" />
+<link rel="stylesheet" href="../../skins/shinra/css/superfish.css"      type="text/css"  media="screen" /> 
+<link rel="stylesheet" href="../../skins/shinra/css/superfish-left.css" type="text/css"  media="screen" /> 
+<link rel="stylesheet" href="../../skins/shinra/skins/glossy/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../skins/shinra/js/poshytip-1.0/src/tip-twitter/tip-twitter.css" type="text/css" />
+<link rel="stylesheet" href="../../skins/shinra/js/poshytip-1.0/src/tip-yellowsimple/tip-yellowsimple.css" type="text/css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu" type="text/css">
+</head>
+<body onload="">
+
+	<!-- WRAPPER -->
+	<div id="wrapper">
+			
+		<!-- HEADER -->
+		<div id="header" style="height: 100px;">
+			<img id="logo" src="../../skins/shinra/img/logo.png" alt="net2ftp" />
+		</div>
+		<!-- ENDS HEADER -->
+			
+		<!-- MAIN -->
+		<div id="main">
+
+			<!-- content -->
+			<div id="content">
+				
+				<!-- title -->
+				<div id="page-title">
+					<span class="title">Help for users</span>
+					<span class="subtitle"></span>
+				</div>
+				<!-- ENDS title -->
+				
+				<!-- Posts -->
+				<div id="posts" class="single">
+				
+					<!-- post -->
+					<div class="post">
+						<h1><a id="ftp">What is FTP?</a></h1>
+						<div>
+							<p>
+You want to build a website, so you start creating web pages on your computer.<br /><br />
+
+Next, you need to publish them: you need to put those pages on a web server so that everyone would be able to view them.<br /><br />
+
+To transfer the files from your computer to that web server, a special protocol (transfer method) is used: FTP - the File Transfer Protocol.
+This protocol was designed to be able to handle big files; it can for example resume a transfer if it was interrupted in the middle.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="net2ftp">What is net2ftp?</a></h1>
+						<div>
+							<p>
+The normal way to connect to your FTP server is to use an FTP client and to communicate via the FTP protocol. This is however not always possible:
+<div class="lists-star">
+<ul>
+<li>you may be behind a corporate firewall at work, which may block the FTP communications;</li>
+<li>you may be on holiday and connecting to the internet via a CyberCafe, where you may not be allowed to install an FTP client.</li>
+</ul>
+</div>
+When you use net2ftp these problems are solved: you connect to net2ftp using a regular web browser, and net2ftp translates your requests and takes care of the FTP communication.<br /><br />
+net2ftp also provides additional features, on top of the regular FTP features: the possibility to edit code using your web browser, to view the code with syntax highlighting, to upload-and-unzip archives, and to search for words on the FTP server.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="icons">Icons used</a></h1>
+						<div>
+							<p>
+net2ftp uses the beautiful icons made by <a href="http://www.icon-king.com">David Vignoni</a> for <a href="http://www.kde.org">KDE</a>.<br /><br />
+
+Their meaning should be pretty straight-forward, but just in case, here are the conventions used:<br /><br />
+
+<img src="../../skins/shinra/images/actions/back.png" alt="Icon" /> Cancel and go back<br />
+<img src="../../skins/shinra/images/actions/button_ok.png" alt="Icon" /> Execute the action<br />
+<img src="../../skins/shinra/images/actions/filesave.png" alt="Icon" /> Save the file<br />
+<img src="../../skins/shinra/images/actions/bookmark.png" alt="Icon" /> Bookmark the page<br />
+<img src="../../skins/shinra/images/actions/reload.png" alt="Icon" /> Refresh the page<br />
+<img src="../../skins/shinra/images/actions/exit.png" alt="Icon" /> Logout<br /><br />
+
+All icons will also display a tooltip with additional information if you keep your mouse pointer on the button for a second, without clicking on it.<br />
+Try with this icon: <img src="../../skins/shinra/images/actions/bookmark.png" alt="Bookmark this page" />
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="login">Logging in</a></h1>
+						<div>
+							<p>
+Enter your FTP server, username and password.
+The FTP server name can be "ftp.my-domain.com" if you have your own domain name.
+If you don't have your own domain name, then it depends on your web hosting company.
+It can be for example "ftp.geocities.com" or "ftp-www.earthlink.net".
+
+<br /><br />
+
+If you don't know your FTP server, username or password, then check out the support pages of your hosting company or contact their helpdesk.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="browse">Browsing the FTP server</a></h1>
+						<div>
+							<p>
+The first time you log in, you will see the contents of the root directory "/".
+To go to a subdirectory, simply click on the subdirectory's name.
+To go up to the parent directory, click on the top row with the label Up.
+
+<br /><br />
+
+If you know the name of the subdirectory you want to go to, you can also enter that name directly in the textbox on top of the page, and press ENTER.<br />
+If you don't know the name exactly, click on <img src="../../skins/shinra/images/actions/view_tree.png" alt="Icon" />.
+A window will pop up, which allows you to browse the FTP server and choose a directory.
+Double-click on a subdirectory to go to that subdirectory. To go up, double-click on "..". 
+Once you are in the subdirectory you wanted to find, click on Choose. 
+The subdirectory name will be copied from the popup to the main window.
+
+<br /><br />
+
+It can happen that the FTP server returns the list of directories and files in an uncommon format.
+In that case net2ftp shows you the lines bottom of the screen, under the heading "FTP server's output which is not recognized is shown below".
+
+<br /><br />
+
+If you want this fixed please contact the net2ftp developers.
+They will analyse the output of your FTP server and improve the way net2ftp scans it.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="upload">Upload files, upload-and-unzip archives</a></h1>
+						<div>
+							<p>
+On the Browse Screen, click on the Upload button to go to the Upload Screen.<br /><br />
+There is one column on the left to upload files, and there can also be a right column to upload-and-unzip archives.<br /><br />
+Click on the Browse button to specify which file on your computer you want to upload or upload-and-unzip to the FTP server.<br /><br />
+
+Once you are ready to start the upload, click on <img src="../../skins/shinra/images/actions/button_ok.png" alt="Icon" />.<br /><br />
+
+The result screen will tell you if the upload was successful or not.<br />
+To upload a file, you need write permissions on that directory of the FTP server. <br />
+The file should also not be too big, as on most web servers the execution time of a script may be limited to 30 seconds.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="jupload">Upload files using a Java applet (JUpload)</a></h1>
+						<div>
+							<p>
+On the Browse Screen, click on the Java Upload button.<br /><br />
+
+Click on the Add button to add directories and files to the upload queue (top left).<br />
+When you select a directory, all the files inside will be transferred, and subdirectories will be created automatically.<br /><br />
+
+Once you are ready to start the upload, click on the Upload button.<br /><br />
+
+The results of the upload are printed just below the upload queue (bottom left).<br />
+Two upload progress bars are displayed on the right: one indicating the progress of the current file, and the other indicating the total progress.<br /><br />
+
+As for the normal upload, the maximum filesize and maximum execution time is limited; by default this is 2 MB and 30 seconds.<br />
+If the total size of the files in the upload queue is larger than a certain limit, the Java Applet will split the request in several smaller parts.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="download">Downloading and zipping</a></h1>
+						<div>
+							<p>
+To download a file, simply click on its filename.<br /><br />
+
+To zip-and-download files and directories, select them on the Browse Screen and click on Download.<br />
+The directories and their contents will be retrieved and zipped.<br />
+A popup window will ask you where you would like to save the Zip file on your computer.<br /><br />
+
+Note that if the files inside are too big, the script will timeout and you won't be able to download anything.<br />
+If this happens, try again with less directories and omit those which contain big files.<br /><br />
+
+You can also zip files and email them in attachment, or save them on the FTP server.<br />
+On the Browse Screen, select the directories and files and click on Zip.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="view">View code with syntax highlighting</a></h1>
+						<div>
+							<p>
+On the Browse Screen, click on the View link on the same line as the filename.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="edit">Edit text</a></h1>
+						<div>
+							<p>
+On the Browse Screen, click on the Edit link on the same line as the filename.<br />
+Edit the text and press <img src="../../skins/shinra/images/actions/filesave.png" alt="Icon" /> to save the changes (you'll need write permissions for that). <br /><br />
+
+Depending on the type of file you're editing, alternative textareas can be used:<br />
+
+<div class="lists-star">
+<ul>
+<li> For HTML files, there are 2 WYSIWYG (What-You-See-Is-What-You-Get) textareas: <a href="http://www.fckeditor.net">FCKEditor</a> and <a href="http://tinymce.moxiecode.com/">TinyMCE</a>. </li>
+<li> To edit code with syntax highlighting use Ace; it can highlight PHP, Javascript, Java and HTML code. </li>
+</ul>
+</div>
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="copy">Copy, move, delete</a></h1>
+						<div>
+							<p>
+Select some files or directories and click on the Copy, Move or Delete button.<br /><br />
+
+If you copy or move, then choose the target directory. 
+This can be different for each directory or file that you selected.
+To set all target directories to the same value, enter the target directory in the top textbox and click on the button "Set all targetdirectories".<br /><br />
+
+If you don't know the exact name of the target directory, click on <img src="../../skins/shinra/images/actions/view_tree.png" alt="Icon" />. A window will pop up, which allows you to browse the FTP server and choose a directory. Double-click on a subdirectory to go to that subdirectory. To go up, double-click on "..". Once you are in the subdirectory you wanted to find, click on Choose. The subdirectory name will be copied from the popup to the main window.<br />
+
+To copy or move files to a second FTP server, enter the FTP server name, username and password on top.<br />
+You need write permissions to be able to copy or move files to a directory.<br /><br />
+
+Once you are ready, click on <img src="../../skins/shinra/images/actions/button_ok.png" alt="Icon" />.<br /><br />
+
+The result screen will tell you if the action was successful or not.
+If the files were too big, the script will run until the timeout is reached.
+On most web servers the execution time of a script is limited to 30 seconds.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="rename">Rename</a></h1>
+						<div>
+							<p>
+Select directories or files and click on Rename on the Browse Screen.<br />
+The next screen will ask for the new names.<br />
+Fill these in and click on <img src="../../skins/shinra/images/actions/button_ok.png" alt="Icon" />.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="chmod">Chmod</a></h1>
+						<div>
+							<p>
+Select directories or files and click on Chmod on the Browse Screen.<br />
+The next screen show the current permissions; select or unselect the checkboxes which represent a permission.<br />
+Click on <img src="../../skins/shinra/images/actions/button_ok.png" alt="Icon" />.<br /><br />
+
+Note that for the moment directories are not chmodded recursively -- subdirectories and files will remain unaffected. In the future, recursive chmodding will be added to net2ftp.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="access">Access keys</a></h1>
+						<div>
+							<p>
+Since version 0.81, most actions can be executed with the keyboard.<br />
+On Windows, use ALT + a letter. On Apple computers, use CTRL + a letter.<br />
+On Internet Explorer, ALT + a letter will only focus on the page element; press ENTER to execute the action.<br /><br />
+
+Which letter can be used is shown in the tooltip.<br />
+For example: to go back, the tooltip is "Back (accesskey b)".<br />
+To display a tooltip, leave your mouse cursor for a few seconds over an icon or link without clicking it.<br /><br />
+
+Internet Explorer, Netscape and Mozilla browsers support Access Keys, but Opera doesn't.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+					<!-- post -->
+					<div class="post">
+						<h1><a id="daily">Daily consumption limit</a></h1>
+						<div>
+							<p>
+Since version 0.81, the Administrator can choose to restrict each user's daily data transfer volume and script execution time.<br />
+By default the data transfer volume is set to 50 MB per day and the script execution time to 2500 seconds per day - but this may be changed by the Administrator.<br />
+Both figures are logged per IP address, and per FTP server.<br /><br />
+
+Once the daily consumption limit is reached, you will still be able to browse FTP servers, but the transfer of data to/from the server will be blocked.<br />
+If you need unrestricted access to net2ftp, contact your net2ftp Administrator or install net2ftp on your own web server.
+							</p>
+						</div>
+					</div>
+					<!-- ENDS post -->
+
+				</div>
+				<!-- ENDS Posts -->	
+
+				<!-- sidebar -->
+				<ul id="sidebar">
+					<!-- init sidebar -->
+					<li>
+						<h6>Jump to:</h6>		
+						<ul>
+							<li class="cat-item"><a href="#ftp">What is FTP?</a></li>
+							<li class="cat-item"><a href="#net2ftp">What is net2ftp?</a></li>
+							<li class="cat-item"><a href="#icons">Icons used</a></li>
+							<li class="cat-item"><a href="#login">Logging in</a></li>
+							<li class="cat-item"><a href="#browse">Browsing the FTP server</a></li>
+							<li class="cat-item"><a href="#upload">Upload files, upload-and-unzip archives</a></li>
+							<li class="cat-item"><a href="#jupload">Upload files using a Java applet (JUpload)</a></li>
+							<li class="cat-item"><a href="#download">Downloading and zipping</a></li>
+							<li class="cat-item"><a href="#view">View code with syntax highlighting</a></li>
+							<li class="cat-item"><a href="#edit">Edit text</a></li>
+							<li class="cat-item"><a href="#copy">Copy, move, delete</a></li>
+							<li class="cat-item"><a href="#rename">Rename</a></li>
+							<li class="cat-item"><a href="#chmod">Chmod</a></li>
+							<li class="cat-item"><a href="#access">Access keys</a></li>
+							<li class="cat-item"><a href="#daily">Daily consumption limit</a></li>
+						</ul>
+					</li>
+					<!-- ENDS init sidebar -->
+				</ul>
+				<!-- ENDS sidebar -->
+											
+
+			</div>
+			<!-- ENDS content -->
+			
+		</div>
+		<!-- ENDS MAIN -->
+		
+		<!-- FOOTER -->
+		<div id="footer">
+			
+			<!-- Bottom -->
+			<div id="bottom">
+				Powered by <a href="http://www.net2ftp.com">net2ftp</a> on a template designed by <a href="http://www.luiszuno.com">Luiszuno</a>
+				
+				<div id="to-top" class="poshytip" title="To top"></div>
+					
+			</div>
+			<!-- ENDS Bottom -->
+
+		</div>
+		<!-- ENDS FOOTER -->
+		
+	</div>
+	<!-- ENDS WRAPPER -->
+	
+</body>
+	
+</html>

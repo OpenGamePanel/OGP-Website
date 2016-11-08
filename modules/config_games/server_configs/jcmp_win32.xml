@@ -1,0 +1,48 @@
+<game_config>
+  <game_key>jcmp_win32</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>Jc2</gameq_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Just Cause 2 Multiplayer (Windows)</game_name>
+  <server_exec_name>JcmpServer.exe</server_exec_name>
+  <cli_template>%IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="BindIP" options="s" />
+    <cli_param id="PORT" cli_string="BindPort" options="s" />
+    <cli_param id="PLAYERS" cli_string="MaxPlayers" options="s" />
+  </cli_params>
+  <max_user_amount>5000</max_user_amount>
+  <mods>
+    <mod key="jcmp">
+      <name>none</name>
+	  <installer_name>261140</installer_name>
+	  <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+	<text key="max_players">
+	  <default>(MaxPlayers\s*=)(.*)</default>
+	  <var>${1}</var>
+	  <filepath>config.lua</filepath>
+	  <options>sc</options>
+	</text>
+    <text key="home_name">
+      <default>(Name\s*=)(.*)</default>
+      <var>${1}</var>
+      <filepath>config.lua</filepath>
+      <options>sqc</options>
+    </text>
+    <text key="ip">
+      <default>(BindIP\s*=)(.*)</default>
+      <var>${1}</var>
+      <filepath>config.lua</filepath>
+      <options>sqc</options>
+    </text>
+    <text key="port">
+      <default>(BindPort\s*=)(.*)</default>
+      <var>${1}</var>
+      <filepath>config.lua</filepath>
+      <options>sc</options>
+    </text>
+  </replace_texts>
+</game_config>

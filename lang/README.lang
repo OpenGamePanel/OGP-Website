@@ -1,0 +1,17 @@
+If you want to add new language to the OGP this can be done by creating
+new directory with the language name. This directory then contains the 
+language files like shown below:
+
+lang/<NEW_LANG>/
+lang/<NEW_LANG>/global.php
+lang/<NEW_LANG>/modules/
+lang/<NEW_LANG>/modules/<MODULE_NAME>.php
+
+All .php files that are in the main directory of language are loaded 
+on every page load. The files under modules directory are loaded only
+when the specific module is loaded. Check module names from modules/ 
+directory.
+
+If you want to check which translations are missing from your language
+check the lang/lang-check.php with your browser.
+

@@ -1,0 +1,42 @@
+/* Made for Revolution Based Themes */
+.main-content {
+	background:transparent;
+	border:none;
+	padding:0;
+	border-radius:0px;
+	-moz-border-radius:0px;
+}
+#column2 #ref.online_servers div{
+	float:left;
+	text-align:left;
+	width:35%;
+	height:15px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	-moz-binding: url('assets/xml/ellipsis.xml#ellipsis');
+}
+#column2 #ref.online_servers div#gamelink{
+	width:36%;
+	float:right;
+	text-align:right;
+}
+#column2 #ref.online_servers div.name{
+	width:29%;
+	height:18px;
+	white-space:nowrap;
+}
+#column2 #noref.online_servers div#gamelink{
+	float:right;
+	text-align:right;
+	width:40%;
+	height:18px;
+	overflow: hidden;
+}
+#column2 #noref.online_servers div.name{
+	float:left;
+	text-align:left;
+	width:57%;
+	height:18px;
+	overflow: hidden;
+}

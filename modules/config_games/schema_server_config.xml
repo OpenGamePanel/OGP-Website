@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="game_config" type="server_config_type" />
+  <xs:simpleType name="nonEmptyString">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!-- If game has different query port than the game port
+  with this you can specify the difference to the game port. -->
+  <xs:simpleType name="query_port_type_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="add" />
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="query_port_type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="type" type="query_port_type_type" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+    
+  <xs:simpleType name="cli_param_id_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GAME_TYPE" />
+      <xs:enumeration value="HOSTNAME" />
+      <xs:enumeration value="IP" />
+      <xs:enumeration value="MAP" />
+      <xs:enumeration value="PID_FILE" />
+      <xs:enumeration value="PLAYERS" />
+      <xs:enumeration value="PORT" />
+      <xs:enumeration value="QUERY_PORT" />
+      <xs:enumeration value="BASE_PATH" />
+      <xs:enumeration value="HOME_PATH" />
+      <xs:enumeration value="SAVE_PATH" />
+      <xs:enumeration value="OUTPUT_PATH" />
+      <xs:enumeration value="USER_PATH" />
+      <xs:enumeration value="CONTROL_PASSWORD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="cli_param_type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="id" type="cli_param_id_type" />
+        <xs:attribute name="cli_string" type="xs:string" />
+        <xs:attribute name="options" type="nonEmptyString" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="cli_params_type">
+    <xs:sequence>
+      <xs:element name="cli_param" type="cli_param_type" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <!-- Type for server control protocol --> 
+  <xs:simpleType name="control_protocol_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rcon" /><!-- HL, Q1/2/3 -->
+      <xs:enumeration value="rcon2" /><!-- HL2(source) -->
+      <xs:enumeration value="lcon" /><!-- legacy console -->
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+    <xs:simpleType name="control_protocol_type_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="new" /><!-- Half-Life version 1.1.0.6 or newer -->
+      <xs:enumeration value="old" /><!-- Quake 1/2/3 or old Half-Life -->
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+
+  <!-- Type for mods, each server must have at least one mod called, e.g., Default. -->
+  <xs:complexType name="mod_type">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string" />
+      <!-- Installer name overrides the key attribute if present. -->
+      <xs:element name="installer_name" type="xs:string" minOccurs="0" />
+      <xs:element name="installer_login" type="xs:string" minOccurs="0" />
+      <xs:element name="betaname" type="xs:string" minOccurs="0" />
+      <xs:element name="betapwd" type="xs:string" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="key" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="mods_type">
+    <xs:sequence>
+      <xs:element name="mod" type="mod_type" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="simple_key_type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="option_type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="value" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+
+<!-- Type for server cfg params replace --> 
+  <xs:complexType name="replace_text_type">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="default" type="xs:string" minOccurs="0" />
+      <xs:element name="var" type="xs:string" />
+      <xs:element name="filepath" type="xs:string" />
+      <xs:element name="options" type="xs:string" />
+    </xs:choice>
+    <xs:attribute name="key" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="alltext_type">
+     <xs:sequence>
+       <xs:element name="text" type="replace_text_type" maxOccurs="unbounded" />
+     </xs:sequence>
+     <xs:attribute name="key" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="replace_texts_type">
+   <xs:choice minOccurs="0" maxOccurs="unbounded" >
+      <xs:element name="alltext" type="alltext_type" />
+      <xs:element name="text" type="replace_text_type" />
+    </xs:choice>
+  </xs:complexType>
+
+
+  <!-- Type for server cli params -->
+  <xs:complexType name="server_param_type">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="option" type="option_type" />
+      <xs:element name="attribute" type="simple_key_type" />
+      <xs:element name="default" type="simple_key_type" maxOccurs="1" />
+      <xs:element name="caption" type="xs:string" maxOccurs="1" />
+      <xs:element name="desc" type="xs:string" maxOccurs="1" />
+      <xs:element name="options" type="xs:string" />
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="key" type="xs:string" />
+    <xs:attribute name="type" type="xs:string" default="text" />
+  </xs:complexType>
+  
+  <xs:complexType name="group_type">
+     <xs:sequence>
+       <xs:element name="param" type="server_param_type" maxOccurs="unbounded" />
+     </xs:sequence>
+     <xs:attribute name="key" type="xs:string" />
+     <xs:attribute name="name" type="xs:string" />
+  </xs:complexType>
+  
+  <xs:complexType name="server_params_type">
+    <xs:choice minOccurs="0" maxOccurs="unbounded" >
+      <xs:element name="group" type="group_type" />
+      <xs:element name="param" type="server_param_type" />
+    </xs:choice>
+  </xs:complexType>
+
+
+  <!-- Type for reserve ports --> 
+  <xs:simpleType name="port_type_type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="add" />
+      <xs:enumeration value="subtract" />
+      <xs:minLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="port_type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="type" type="port_type_type" />
+        <xs:attribute name="id" type="xs:string" />
+        <xs:attribute name="cli_string" type="xs:string" />
+        <xs:attribute name="options" type="nonEmptyString" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:complexType name="reserve_ports_type">
+    <xs:sequence>
+      <xs:element name="port" type="port_type" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+
+  <!-- Type for server cfg custom fields --> 
+  <xs:complexType name="custom_field_type">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="option" type="option_type" />
+      <xs:element name="default" type="xs:string" minOccurs="0" />
+      <xs:element name="default_value" type="xs:string" minOccurs="0" />
+      <xs:element name="var" type="xs:string" />
+      <xs:element name="filepath" type="xs:string" />
+      <xs:element name="options" type="xs:string" />
+      <xs:element name="desc" type="xs:string" maxOccurs="1" />
+    </xs:choice>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="key" type="xs:string" />
+    <xs:attribute name="type" type="xs:string" default="text" />
+  </xs:complexType>
+    
+  <xs:complexType name="custom_fields_type">
+   <xs:choice minOccurs="0" maxOccurs="unbounded" >
+      <xs:element name="field" type="custom_field_type" />
+    </xs:choice>
+  </xs:complexType>
+  
+  <!-- Type for player_info --> 
+  <xs:complexType name="index_type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="key" type="xs:string" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+    
+  <xs:complexType name="player_info_type">
+   <xs:choice minOccurs="0" maxOccurs="unbounded" >
+      <xs:element name="index" type="index_type" />
+    </xs:choice>
+  </xs:complexType>
+  
+  <!-- Type for server player_commands --> 
+  <xs:complexType name="command_type">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="option" type="option_type" />
+      <xs:element name="default" type="xs:string" maxOccurs="1" />
+      <xs:element name="string" type="xs:string" />
+    </xs:choice>
+    <xs:attribute name="key" type="xs:string" />
+    <xs:attribute name="type" type="xs:string" default="text" />
+  </xs:complexType>
+    
+  <xs:complexType name="player_commands_type">
+   <xs:choice minOccurs="0" maxOccurs="unbounded" >
+      <xs:element name="command" type="command_type" />
+    </xs:choice>
+  </xs:complexType>
+  
+  <!-- The main of the template -->
+  <xs:complexType name="server_config_type">
+    <xs:sequence>
+      <xs:element name="game_key" type="nonEmptyString" />
+      <xs:element name="protocol" type="nonEmptyString" minOccurs="0"/>
+      <xs:element name="lgsl_query_name" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="gameq_query_name" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="installer" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="game_name" type="nonEmptyString" />
+      <xs:element name="server_exec_name" type="nonEmptyString" />
+      <xs:element name="query_port" type="query_port_type" minOccurs="0" />
+      <xs:element name="cli_template" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="cli_params" type="cli_params_type" minOccurs="0" />
+      <xs:element name="reserve_ports" type="reserve_ports_type" minOccurs="0" />
+      <xs:element name="cli_allow_chars" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="maps_location" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="map_list" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="console_log" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="exe_location" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="max_user_amount" type="xs:positiveInteger" minOccurs="0" />
+      <xs:element name="control_protocol" type="control_protocol_type" minOccurs="0" />
+      <xs:element name="control_protocol_type" type="control_protocol_type_type" minOccurs="0" />
+      <xs:element name="mods" type="mods_type" />
+      <xs:element name="replace_texts" type="replace_texts_type" minOccurs="0" />
+      <xs:element name="server_params" type="server_params_type" minOccurs="0" />
+      <xs:element name="custom_fields" type="custom_fields_type" minOccurs="0" />
+      <xs:element name="list_players_command" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="player_info_regex" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="player_info" type="player_info_type" minOccurs="0" />
+      <xs:element name="player_commands" type="player_commands_type" minOccurs="0" />
+      <xs:element name="pre_install" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="post_install" type="nonEmptyString" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

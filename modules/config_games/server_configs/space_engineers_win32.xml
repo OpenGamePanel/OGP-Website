@@ -1,0 +1,44 @@
+<game_config>
+<game_key>space_engineers_win32</game_key>
+<protocol>lgsl</protocol>
+<lgsl_query_name>source</lgsl_query_name>
+<installer>steamcmd</installer>
+<game_name>Space Engineers</game_name>
+<server_exec_name>SpaceEngineersDedicated.exe</server_exec_name>
+<cli_template>-console %BASE_PATH% -ignorelastsession</cli_template>
+<cli_params>  
+ <cli_param id="BASE_PATH" cli_string="-path" options="sq" />
+</cli_params>
+<console_log>SpaceEngineersDedicated.log</console_log>
+<exe_location>DedicatedServer</exe_location>
+<max_user_amount>32</max_user_amount>
+<mods>
+ <mod key='space_engineers'>
+  <name>none</name>
+  <installer_name>244850</installer_name>
+ </mod>
+</mods>
+<replace_texts>
+ <text key="home_name">
+  <default>ServerName</default>
+  <filepath>SpaceEngineers-Dedicated.cfg</filepath>
+  <options>tags</options>
+ </text>
+ <text key="ip">
+  <default>IP</default>
+  <filepath>SpaceEngineers-Dedicated.cfg</filepath>
+  <options>tags</options>
+ </text>
+ <text key="port">
+  <default>ServerPort</default>
+  <filepath>SpaceEngineers-Dedicated.cfg</filepath>
+  <options>tags</options>
+ </text>
+ <text key="max_players">
+  <default>MaxPlayers</default>
+  <filepath>SpaceEngineers-Dedicated.cfg</filepath>
+  <options>tags</options>
+ </text>
+</replace_texts>
+</game_config>
+	

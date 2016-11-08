@@ -1,0 +1,6 @@
+<navigation>
+  <page key="mysql_admin" file="servers.php" access="admin" />
+  <page key="edit" file="edit_server.php" access="admin" />
+  <page key="user_db" file="user_db.php" access="admin,user,subuser" />
+  <page key="get_dump" file="get_dump.php" access="admin,user,subuser" />
+</navigation>

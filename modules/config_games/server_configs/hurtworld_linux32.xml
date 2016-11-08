@@ -1,0 +1,28 @@
+<game_config>
+  <game_key>hurtworld_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>hurtworld</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Hurtworld</game_name>
+  <server_exec_name>Hurtworld.x86</server_exec_name>
+  <cli_template>-batchmode -nographics -exec "%PORT% %MAP%;%QUERY_PORT%;%PLAYERS%;%HOSTNAME%" -logfile output.txt</cli_template>
+  <cli_params>
+    <cli_param id="PORT" cli_string="host " />
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="PLAYERS" cli_string="maxplayers " />
+    <cli_param id="HOSTNAME" cli_string="servername " />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="queryport ">10</port>
+  </reserve_ports>
+  <maps_location>Hurtworld_Data/maps</maps_location>
+  <console_log>output.txt</console_log>
+  <max_user_amount>60</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>none</name>
+      <installer_name>405100</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+</game_config>

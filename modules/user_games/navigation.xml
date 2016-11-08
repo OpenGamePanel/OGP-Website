@@ -1,0 +1,14 @@
+<navigation>
+  <page key="assign" file="assign_home.php" access="admin,user" />
+  <page key="add" file="add_home.php" access="admin" />
+  <page key="mods" file="home_mods.php" access="admin" />
+  <page key="edit" file="edit_home.php" access="admin,user,subuser" />
+  <page key="del" file="del_home.php" access="admin" />
+  <page key="clone" file="clone_home.php" access="admin" />
+  <page key="default" file="show_homes.php" access="admin" />
+  <page key="install_cmds" file="install_cmds.php" access="admin" />
+  <page key="get_size" file="get_size.php" access="admin,user,subuser" />
+  <page key="custom_fields" file="custom_fields.php" access="admin,user,subuser" />
+  <page key="browser" file="browser.php" access="admin,user,subuser" />
+  <page key="check_expire" file="check_expire.php" access="admin,user,subuser,guest" />
+</navigation>

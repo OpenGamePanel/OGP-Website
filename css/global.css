@@ -1,0 +1,19 @@
+/* 
+ * These are global CSS styles that should apply to all themes 
+ * Overrides go here... some styles may need !important to override inline styles applied by libraries
+ * This CSS file will be loaded last in the chain, so use !important carefully
+*/
+
+#dialog
+{
+	height: auto !important;
+}
+
+#dialog p{
+	text-align: left;
+	text-align: initial;
+}
+/* Fixes date/time picker off screen issue */
+.bootstrap-datetimepicker-widget > ul{
+	padding: 0px;
+}

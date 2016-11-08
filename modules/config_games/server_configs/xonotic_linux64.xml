@@ -1,0 +1,86 @@
+<game_config>
+  <game_key>xonotic_linux64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>xonotic</lgsl_query_name>
+  <game_name>Xonotic</game_name>
+  <server_exec_name>xonotic-linux64-dedicated</server_exec_name>
+  <cli_template>%IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_address" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set maxplayers" options="s" />
+  </cli_params>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
+  <mods> 
+    <mod key="xonotic">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="control_password">
+      <default>\/?\/?rcon_password\s+".*"</default>
+      <var>rcon_password</var>
+      <filepath>data/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>\/?\/?hostname\s+".*"</default>
+      <var>hostname</var>
+      <filepath>data/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+	<text key="true">
+      <default>\/?\/?rcon_secure\s+\d+</default>
+      <var>rcon_secure 0</var>
+      <filepath>data/server.cfg</filepath>
+      <options></options>
+    </text>
+	<text key="max_players">
+      <default>\/?\/?maxplayers\s+\d+</default>
+      <var>maxplayers</var>
+      <filepath>data/server.cfg</filepath>
+      <options>s</options>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="+set g_" type="select">
+      <option value="dm 1">Death Match</option>
+      <option value="tdm 1">Team Death Match</option>
+      <option value="ctf 1">Capture the Flag</option>
+      <option value="domination 1">Domination</option>
+	  <!-- <option value="runematch 1">Rune Match</option> -->
+      <option value="lms 1">Last Man Standing</option>
+	  <option value="arena 1">Arena</option>
+      <option value="keyhunt 1">Key Hunt</option>
+	  <option value="assault 1">Assault</option>
+	  <option value="onslaught 1">Onslaught</option>
+	  <option value="race 1">Race</option>
+	  <option value="nexball 1">Nexball</option>
+      <caption>Game Type</caption>
+      <desc>Select a Game Type.</desc>
+	  <options>ns</options>
+    </param>
+  </server_params>
+  <list_players_command>status</list_players_command>
+  <player_info_regex>#\#(\d+)\s+(.+)\s+-?\d+\s+\d+:\d+:\d+#</player_info_regex>
+  <player_info>
+    <index key="1">userid</index>
+    <index key="2">Name</index>
+  </player_info>
+  <player_commands>
+    <command key="Kick" type="hidden">
+	  <string>kick # %userid%</string>
+	</command>
+    <command key="Ban" type="select">
+	  <option value="900">15m</option>
+	  <option value="1800">30m</option>
+      <option value="3600">1h</option>
+	  <option value="86400">1D</option>
+	  <option value="604800">1W</option>
+	  <option value="2592000">30D</option>
+	  <string>sv_cmd kickban # %userid% %input% 4 Banned</string>
+	</command>
+  </player_commands>
+</game_config>

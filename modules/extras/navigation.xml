@@ -1,0 +1,3 @@
+<navigation>
+  <page key="default" file="extras.php" access="admin" />
+</navigation>

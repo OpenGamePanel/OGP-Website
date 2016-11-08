@@ -1,0 +1,46 @@
+<game_config>
+  <game_key>ns2_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>ns2</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Natural Selection 2</game_name>
+  <server_exec_name>server_linux32</server_exec_name>
+  <query_port type="add">1</query_port>
+  <cli_template>%GAME_TYPE% %IP% %PORT% %MAP% %PLAYERS% %HOSTNAME% %HOME_PATH% %BASE_PATH%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="-ip" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
+    <cli_param id="MAP" cli_string="-map" options="s" />
+	<cli_param id="HOSTNAME" cli_string="-name" options="sq" />
+	<cli_param id="PLAYERS" cli_string="-limit" options="s" />
+	<cli_param id="BASE_PATH" cli_string="-logdir" options="sq" />
+	<cli_param id="HOME_PATH" cli_string="-config_path" options="sq" />
+  </cli_params>
+  <maps_location>ns2/maps/</maps_location>
+  <max_user_amount>24</max_user_amount>
+  <mods>
+    <mod key="ns2">
+      <name>none</name>
+     <installer_name>4940</installer_name>
+    </mod>
+  </mods>
+ <server_params>
+    <param key="-name" type="text">
+      <caption>Server name</caption>
+	  <desc>Will override the server name configured in the panel, leave it blank to use the default name.</desc>
+    </param>
+	<param key="-password" type="text">
+      <caption>Server Password</caption>
+	  <desc>Specifies a password for clients connecting to the server, leave it blank to remove password protection.</desc>
+    </param>
+	<param key="-mods" type="text">
+      <caption>Mods</caption>
+	  <desc>This should be a list of space separated mod ids that are active on this server, leave it blank for no mods.</desc>
+    </param>
+	<param key="-insecure" type="checkbox_key_value">
+      <caption>Disable Valve Anti-Cheat</caption>
+      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+    </param>
+  </server_params>
+</game_config>

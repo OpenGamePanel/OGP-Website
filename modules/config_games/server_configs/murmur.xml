@@ -1,0 +1,118 @@
+<game_config>
+  <game_key>mumble_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>murmur</lgsl_query_name>
+  <game_name>Murmur [Mumble server]</game_name>
+  <server_exec_name>murmur.sh</server_exec_name>
+  <cli_template>-fg -v</cli_template>
+  <max_user_amount>1000</max_user_amount>
+  <mods>
+    <mod key="murmur">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+      <default>^#*(\s|\t)*host=.*$</default>
+      <var>host=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="port">
+      <default>^#*(\s|\t)*port=.*$</default>
+      <var>port=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="max_players">
+      <default>^#*(\s|\t)*users=.*$</default>
+      <var>users=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="control_password">
+      <default>^#*(\s|\t)*icesecretwrite=.*$</default>
+      <var>icesecretwrite=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="control_password">
+      <default>^#*(\s|\t)*gtmurmur_icesecret=.*$</default>
+      <var>gtmurmur_icesecret=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="home_name">
+      <default>^#*(\s|\t)*registerName=.*$</default>
+      <var>registerName=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="ip">
+      <default>^#*(\s|\t)*gtmurmur_ip=.*$</default>
+      <var>gtmurmur_ip=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="query_port">
+      <default>^#*(\s|\t)*gtmurmur_port=.*$</default>
+      <var>gtmurmur_port=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="incremental">
+      <default>^#*(\s|\t)*ice=\"tcp -h 127\.0\.0\.1 -p 6[0-9]*</default>
+      <var>ice="tcp -h 127.0.0.1 -p 6</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="true">
+      <default>^#*(\s|\t)*logfile=.*$</default>
+      <var>logfile=murmur.log</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+  </replace_texts>
+  <post_install>rm -f murmur-static_x86*.tar.bz2
+for entry in `ls -1`; do 
+    if test -d $entry; then 
+        if test -e &quot;$entry&quot;/murmur.x86; then
+            cp -Rf &quot;$entry&quot;/* .
+            rm -Rf &quot;$entry&quot;
+        fi
+    fi
+done
+echo &apos;#!/bin/bash
+CLIP=$*
+if test -e murmur.x86; then
+    chmod +x murmur.x86
+    ./murmur.x86 $CLIP &amp;
+    echo $! &gt; murmur.pid
+    trap bashtrap EXIT
+    clear
+    bashtrap()
+    {
+        kill $(cat murmur.pid)
+    }
+    if test -e gtmurmur-static; then
+        chmod +x gtmurmur-static
+        ./gtmurmur-static
+    else
+        echo &quot;gtmurmur-static: file not found.&quot;
+        echo &quot;Unable to query the server, to enable queries:&quot;
+        echo &quot;- Download GTmurmur Plugin from:&quot;
+        echo &quot;https://www.gametracker.com/downloads/gtmurmurplugin.php&quot;
+        echo &quot;- Extract gtmurmur-static in the base folder of this server and restart it.&quot;
+        wait $(cat murmur.pid)
+    fi
+else
+    echo &quot;murmur.x86: file not found.&quot;
+    echo &quot;ERROR: The server binary does not exists, please install it:&quot;
+    echo &quot;- Visit http://sourceforge.net/projects/mumble/files/Mumble/ and change to the folder of the latest version.&quot;
+    echo &quot;- Get the download URL for murmur-static_x86-x.x.x.tar.bz2, where x.x.x is the version of the package.&quot;
+    echo &quot;- Go to Game Monitor and click on [Install / Update manually], paste the package URL there, and click [Update server], &quot;
+    echo &quot;  once the installation finishes, run the server again.&quot;
+fi&apos; &gt; murmur.sh
+chmod +x murmur.sh
+  </post_install>
+</game_config>

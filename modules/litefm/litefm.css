@@ -1,0 +1,169 @@
+span.chattrLock{
+	padding-left: 20px;
+	background: url(../../images/locked.png) no-repeat left center;
+	color: black; 
+	font-size: 12px; 
+	height: 16px;
+}
+
+span.chattrUnlock{
+	padding-left: 20px;
+	background: url(../../images/unlocked.png) no-repeat left center;
+	color: black; 
+	font-size: 12px; 
+	height: 16px;
+}
+
+div.chattrButton{
+	color: white;
+	font-size: 12px; 
+	height: 16px;
+	text-align: center;
+	vertical-align: middle;
+	padding-right: 16px;
+	cursor:pointer;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	padding-bottom:2px;
+	width: 150px;
+}
+
+/* UNLOCKED */
+div.chattrButton.unlocked i{
+	background: url(../../images/unlocked.png) no-repeat left center;
+	height:16px;
+	width:16px;
+	display: inline-block;
+	float:left;
+}
+
+div.chattrButton.unlocked{
+	border-bottom:2px solid #1e5799;
+	border-right:2px solid #1e5799;
+	border-top:2px solid #7db9e8;
+	border-left:2px solid #7db9e8;
+	background: #7db9e8; /* Old browsers */
+	background: -moz-linear-gradient(top,  #7db9e8 0%, #207cca 49%, #2989d8 50%, #1e5799 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7db9e8), color-stop(49%,#207cca), color-stop(50%,#2989d8), color-stop(100%,#1e5799)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #7db9e8 0%,#207cca 49%,#2989d8 50%,#1e5799 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #7db9e8 0%,#207cca 49%,#2989d8 50%,#1e5799 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #7db9e8 0%,#207cca 49%,#2989d8 50%,#1e5799 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #7db9e8 0%,#207cca 49%,#2989d8 50%,#1e5799 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+div.chattrButton.unlocked:active{
+	border-top:2px solid #1e5799;
+	border-left:2px solid #1e5799;
+	border-bottom:2px solid #7db9e8;
+	border-right:2px solid #7db9e8;
+	background: #1e5799; /* Old browsers */
+	background: -moz-linear-gradient(top,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+}
+
+/* LOCKED */
+div.chattrButton.locked i{
+	background: url(../../images/locked.png) no-repeat left center;
+	height:16px;
+	width:16px;
+	display: inline-block;
+	float:left;
+}
+
+div.chattrButton.locked{
+	border-bottom:2px solid #e73827;
+	border-right:2px solid #e73827;
+	border-top:2px solid #f85032;
+	border-left:2px solid #f85032;
+	background: #f85032; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f85032), color-stop(50%,#f16f5c), color-stop(51%,#f6290c), color-stop(71%,#f02f17), color-stop(100%,#e73827)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f85032 0%,#f16f5c 50%,#f6290c 51%,#f02f17 71%,#e73827 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827',GradientType=0 ); /* IE6-9 */
+}
+
+div.chattrButton.locked:active{
+	border-top:2px solid #e73827;
+	border-left:2px solid #e73827;
+	border-bottom:2px solid #f85032;
+	border-right:2px solid #f85032;
+	background: #e73827; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e73827 0%, #f02f17 29%, #f6290c 49%, #f16f5c 50%, #f85032 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e73827), color-stop(29%,#f02f17), color-stop(49%,#f6290c), color-stop(50%,#f16f5c), color-stop(100%,#f85032)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e73827 0%,#f02f17 29%,#f6290c 49%,#f16f5c 50%,#f85032 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e73827 0%,#f02f17 29%,#f6290c 49%,#f16f5c 50%,#f85032 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e73827 0%,#f02f17 29%,#f6290c 49%,#f16f5c 50%,#f85032 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e73827 0%,#f02f17 29%,#f6290c 49%,#f16f5c 50%,#f85032 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e73827', endColorstr='#f85032',GradientType=0 ); /* IE6-9 */
+}
+
+.viewitem{
+	height:16px;
+}
+
+/* File Operations */
+.file-operations{
+	height:36px;
+}
+
+.operations-button{
+	border-bottom:1px solid black;
+	border-right:1px solid black;
+	border-top:1px solid gray;
+	border-left:1px solid gray;
+	display:block;
+	float:left;
+	padding:5px 5px 2px 5px;
+	vertical-align:middle;
+	-webkit-border-radius: 9px;
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	cursor:pointer;
+	margin-left:5px;
+	margin-bottom:5px;
+	background:#DEDEDE;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	width:17.5%;
+}
+
+.operations-button:active{
+	background:#EFEFEF;
+	border-top:1px solid black;
+	border-left:1px solid black;
+	border-bottom:1px solid gray;
+	border-right:1px solid gray;
+}
+
+.operations-button > div{
+	display:block;
+	float:left;
+	position:relative;
+	bottom:2px;
+}
+
+.operations-button img{
+	display:block;
+	float:left;
+	width:16px;
+	height:16px;
+}
+
+progress:indeterminate::-moz-progress-bar {
+	background-color: gray;
+}
+
+.levelup, .folder, #addfolder {
+	cursor:pointer;
+}

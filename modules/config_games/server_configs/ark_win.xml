@@ -1,0 +1,61 @@
+<game_config>
+  <game_key>arkse_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>arkse</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>ARK Survival Evolved Windows</game_name>
+  <server_exec_name>ShootergameServer</server_exec_name>
+  <cli_template>%MAP%%PLAYERS%%PORT%%DO%%SP%?RCONEnabled=True%RCONP%?Listen %QPORT2% -nosteamclient %GAME_TYPE% -server -log=/logs.log</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="TheIsland" />
+	<cli_param id="PORT" cli_string="?QueryPort=" options="q" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" options="q" />
+	<cli_param id="HOSTNAME" cli_string="?SessionName=" options="q" />
+	<cli_param id="GAME_TYPE" cli_string="-game" />
+  </cli_params>
+  <exe_location>ShooterGame/Binaries/Win64/</exe_location>
+  <max_user_amount>127</max_user_amount>
+  <mods>
+    <mod key="arkse">
+      <name>none</name>
+	  <installer_name>376030</installer_name>
+	  <installer_login>anonymous</installer_login>
+	</mod>
+  </mods>
+  <replace_texts>
+  <text key="control_password">
+	<default>ServerAdminPassword=.*</default>
+	<var>ServerAdminPassword=</var>
+	<filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
+	<options>sq</options>
+  </text>
+  <text key="home_name">
+	<default>SessionName=.*</default>
+	<var>SessionName=</var>
+	<filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
+	<options>sq</options>
+  </text>
+  </replace_texts>
+  <server_params>
+	<param id="RCONP" key="?RCONPort=" type="text">
+      <option>ns</option>
+      <caption>Standard Rcon Port is 32330</caption>
+      <desc>Change this Port, if you have more then 1 server.</desc>
+    </param>
+  	<param id="QPORT2" key="-port=" type="text">
+      <option>ns</option>
+      <caption>7777 Port</caption>
+      <desc>Change this Port, if you have more then 1 server.</desc>
+    </param>
+	<param id="DO" key="?DifficultyOffset=" type="text">
+      <option>ns</option>
+      <caption>Difficulty Offset</caption>
+      <desc>Changes the difficulty on the server, choose 0 or 1</desc>
+    </param>
+	<param id="SP" key="?ServerPassword=" type="text">
+      <option>ns</option>
+      <caption>Server Password</caption>
+      <desc>Players must know this password to connect.</desc>
+    </param>
+	</server_params>
+</game_config>

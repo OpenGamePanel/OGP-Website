@@ -1,0 +1,68 @@
+<game_config>
+  <game_key>smokinguns_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>quake3</lgsl_query_name>
+  <game_name>Smokin Guns</game_name>
+  <server_exec_name>smokinguns_dedicated.i386</server_exec_name>
+  <cli_template>server +set dedicated 2 +exec server.cfg +set ttycon 0 %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+  </cli_params>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
+  <mods>
+    <mod key="smokingguns">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="control_password">
+      <default>\/?\/?set rconpassword\s+".*"</default>
+      <var>set rconpassword</var>
+      <filepath>smokinguns/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>\/?\/?set sv_hostname\s+".*"</default>
+      <var>set sv_hostname</var>
+      <filepath>smokinguns/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+	<text key="max_players">
+      <default>\/?\/?set sv_maxclients\s+\d+</default>
+      <var>set sv_maxclients</var>
+      <filepath>smokinguns/server.cfg</filepath>
+      <options>s</options>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="+set g_" type="select">
+      <option value="gametype 0 +exec server_deathmatch.cfg">Death Match</option>
+      <option value="gametype 1 +exec server_duel.cfg">Duel</option>
+      <option value="gametype 3 +exec server_deathmatch.cfg">Team Death Match</option>
+      <option value="gametype 4 +exec server_mixed.cfg">Round Teamplay</option>
+	  <option value="gametype 5 +exec server_bank_robbery.cfg">Bank Robbery</option>
+      <caption>Game Type</caption>
+      <desc>Select a Game Type.</desc>
+	  <options>ns</options>
+    </param>
+  </server_params>
+  <list_players_command>status</list_players_command>
+  <player_info_regex>#\s+(\d+)\s+\d+\s+\d+\s+(.+)\^7\s+\d+\s+(bot|\d+\.\d+\.\d+\.\d+)\s+\d+\s+\d+#</player_info_regex>
+  <player_info>
+    <index key="1">userid</index>
+    <index key="2">Name</index>
+  </player_info>
+  <player_commands>
+    <command key="Kick" type="hidden">
+	  <string>kick "%Name%"</string>
+	</command>
+    <command key="Ban" type="hidden">
+	  <string>banaddr %userid%</string>
+	  <string>kick "%Name%"</string>
+	</command>
+  </player_commands>
+</game_config>

@@ -1,0 +1,11 @@
+<navigation>
+  <page key="edit_user" file="edit_user.php" access="admin,user,subuser" />
+  <page key="add" file="add_user.php" access="admin" />
+  <page key="del" file="del_user.php" access="admin" />
+  <page key="add_to_group" file="add_to_group.php" access="admin,user" />
+  <page key="del_from_group" file="del_from_group.php" access="admin,user" />
+  <page key="add_group" file="add_group.php" access="admin,user" />
+  <page key="del_group" file="del_group.php" access="admin,user" />
+  <page key="show_groups" file="show_groups.php" access="admin,user" />
+  <page key="default" file="show_users.php" access="admin" />
+</navigation>

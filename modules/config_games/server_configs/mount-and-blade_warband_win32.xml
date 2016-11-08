@@ -1,0 +1,44 @@
+<game_config>
+  <game_key>mab_warband_win32</game_key>
+  <installer>steamcmd</installer>
+  <game_name>Mount and Blade Warband</game_name>
+  <server_exec_name>mb_warband_dedicated.exe</server_exec_name>
+  <cli_template>-r Default.txt %MAP%</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="-m" options="s" />
+  </cli_params>
+  <maps_location>Modules/</maps_location>
+  <max_user_amount>200</max_user_amount>
+  <mods>
+    <mod key="mab_warband">
+      <name>none</name>
+     <installer_name>48700</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="control_password">
+      <default>set_pass_admin.*</default>
+      <var>set_pass_admin</var>
+      <filepath>Default.txt</filepath>
+      <options>s</options>
+    </text>
+    <text key="home_name">
+      <default>set_server_name.*</default>
+      <var>set_server_name</var>
+      <filepath>Default.txt</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>set_port.*</default>
+      <var>set_port</var>
+      <filepath>Default.txt</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>(set_max_players[\s|\t]+)([0-9]+)([\s|\t]+)([0-9]+)</default>
+      <var>set_max_players %key% %key%</var>
+      <filepath>Default.txt</filepath>
+      <options>key-regex</options>
+    </text>
+  </replace_texts>
+</game_config>

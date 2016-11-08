@@ -1,0 +1,56 @@
+<game_config>
+  <game_key>hltv_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>halflife</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>HLTV</game_name>
+  <server_exec_name>hltv_run</server_exec_name>
+  <cli_template>%IP% %PORT% %CONNECT% %PLAYERS% %PID_FILE% +hostname "%HOSTNAME%" +name "%HOSTNAME%"</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
+    <cli_param id="IP" cli_string="-ip" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxclients" options="s" />
+    <cli_param id="HOSTNAME" cli_string="" />
+  </cli_params>
+  <max_user_amount>128</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <mods>
+    <mod key="valve">
+      <name>none</name>
+	  <installer_name>90</installer_name>
+	  <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+   <param id="CONNECT" key="+connect" type="text">
+     <caption>Address</caption>
+     <desc>Specify the IP:Port for the game server.</desc>
+   </param>
+   <param key="+serverpassword" type="text">
+     <caption>Password</caption>
+     <desc>Game server password, just for private servers.</desc>
+   </param>
+   <param key="+delay" type="text">
+     <caption>Delay</caption>
+     <desc>In seconds, delay between game server and TV.</desc>
+   </param>
+   <param key="+adminpassword" type="text">
+     <caption>RCON password</caption>
+     <desc>Password to access the HLTV console remotely.</desc>
+   </param>
+ </server_params>
+ <post_install>echo &apos;#!/bin/bash
+export LD_LIBRARY_PATH=&quot;.:$LD_LIBRARY_PATH&quot;
+if test -e &quot;hltv&quot;; then
+	if test -x &quot;hltv&quot;; then
+		./hltv $@
+	else
+		echo &quot;hltv: binary not executable.&quot;
+	fi
+else
+	echo &quot;hltv: file not found.&quot;
+fi&apos; &gt; hltv_run
+chmod +x hltv_run
+ </post_install>
+</game_config>

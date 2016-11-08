@@ -1,0 +1,4 @@
+If you want to get map images to the pages you can download
+the lgsl map files from:
+ http://www.greycube.com/help/readme/lgsl/map_images/
+

@@ -1,0 +1,7 @@
+<navigation>
+  <page key="write_file" file="fm_write.php" access="user,admin,subuser" />
+  <page key="read_file" file="fm_read.php" access="user,admin,subuser" />
+  <page key="default" file="fm_dir.php" access="user,admin,subuser" />
+  <page key="litefm_settings" file="settings.php" access="admin" />
+  <page key="get" file="get_file.php" access="user,admin,subuser" />
+</navigation>

@@ -1,0 +1,160 @@
+.clear {
+	clear: both;
+}
+
+a, a:link, a:hover, a:active, a:visited {
+	color: #666666;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+fieldset {
+	border: 1px solid #AAAAAA;
+	margin: 40px 10px 10px 10px;
+	padding: 12px;
+}
+
+legend {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+	letter-spacing: 1px;
+	padding: 0px 6px 0px 0px;
+	margin: -20px 4px 0px 4px;
+	border-bottom: 1px solid #AAAAAA;
+}
+
+.edit {
+	float: right;
+}
+
+.propHeadline {
+	font-size: 15px;
+	color: #4575A3;
+	border-bottom: 1px solid #CDDFED;
+	margin: 5px 0px 2px 0px;
+	padding: 0px 0px 0px 10px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h1, h2, h3, h4 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#serverstatus {
+	font-weight: bold;
+}
+
+.online {
+	color: #82B41A;
+}
+
+.offline {
+	color: #D20039;
+}
+
+td {
+	padding: 3px 3px 3px 3px;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.small {
+	font-size: 11px;
+}
+
+input, textarea, select {
+	outline: 1px solid #AFAFAF;
+	border: 1px solid #F5F5F5;
+	background-color: #F5F5F5;
+	padding: 3px 7px;
+	margin: 0px 0px 5px 0px;
+	font-family: Calibri, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+}
+
+input:hover, textarea:hover, select:hover {
+	border: 1px solid #D5D5D5;
+	background-color: #F1F1F1;
+}
+
+input:focus, textarea:focus, select:focus {
+	border: 1px solid #D5D5D5;
+	background-color: #F1F1F1;
+}
+
+* html input, * html textarea, * html select {
+	border: 1px solid #999999;
+}
+
+*:first-child+html input, *:first-child+html textarea, *:first-child+html select {
+	border: 1px solid #999999;
+}
+
+input[type="file"] {
+	outline: none !important;
+	font-size: 14px;
+}
+
+input[type="radio"] {
+	outline: none !important;
+	border: none !important;
+}
+
+select {
+	padding: 4px;
+	vertical-align: middle;
+}
+
+option {
+	padding: 3px 5px 3px 5px;
+	vertical-align: middle;
+}
+
+input.warning {
+	background-color: #ffe2e5;
+    border: 1px solid #ffe2e5;
+	outline: 1px solid #C78E92;
+    color: #d20039;
+}
+
+input.warning:hover {
+    border: 1px solid #FAC4C4 !important;
+}
+
+.table0 {
+	background-color: #EAEAEA;
+	border-bottom: 1px solid #AAAAAA;
+}
+
+.table1 {
+	background-color: #F2F2F2;
+}
+
+.table2 {
+	background-color: #FFFFFF;
+}
+
+td {
+	padding: 5px;
+}
+
+#serverview {
+	line-height: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+#serverview div {
+	margin: 0px;
+	padding: 0px;
+}
+
+img.viewer {
+	margin: 3px 0px -3px 0px;
+}

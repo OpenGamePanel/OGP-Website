@@ -1,0 +1,109 @@
+<game_config>
+  <game_key>tfc_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>halflife</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Team Fortress Classic</game_name>
+  <server_exec_name>hlds_run</server_exec_name>
+  <cli_template>%GAME_TYPE% %HOSTNAME% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="+ip" options="s" />
+    <cli_param id="PORT" cli_string="+port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxplayers" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
+    <cli_param id="HOSTNAME" cli_string="+hostname" options="sq" />
+  </cli_params>
+  <maps_location>mod/maps/</maps_location>
+  <map_list>mod/mapcycle.txt</map_list>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <mods>
+    <mod key="tfc">
+      <name>none</name>
+	  <installer_name>90</installer_name>
+	  <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="-autoupdate -steam_dir {OGP_STEAM_CMD_DIR} -steamcmd_script {STEAMCMD_INSTALL_FILE}" type="checkbox_key_value">
+      <caption>Auto-Update</caption>
+      <desc>The server will automatically download official updates as they are released.</desc>
+    </param>
+    <param key="-insecure" type="checkbox_key_value">
+      <caption>Disable Valve Anti-Cheat</caption>
+      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+    </param>
+    <param key="-nohltv" type="checkbox_key_value">
+      <caption>Half-life TV</caption>
+      <desc>Will start the server without Half-life TV.</desc>
+    </param>
+    <param key="-norestart" type="checkbox_key_value">
+      <caption>No Restart</caption>
+      <desc>Won't attempt to restart failed servers.</desc>
+    </param>
+    <param key="-nomaster" type="checkbox_key_value">
+      <caption>Disable master server communication</caption>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="sv_maxrate" type="text">
+      <default>sv_maxrate.*</default>
+      <default_value>0</default_value>
+      <var>sv_maxrate</var>
+      <filepath>tfc/server.cfg</filepath>
+      <options>s</options>
+      <desc>Max bandwidth rate allowed on server ( bytes per second ), 0 == unlimited.</desc>
+    </field>
+	<field key="sv_minrate" type="text">
+      <default>sv_minrate.*</default>
+      <default_value>0</default_value>
+      <var>sv_minrate</var>
+      <filepath>tfc/server.cfg</filepath>
+      <options>s</options>
+      <desc>Min bandwidth rate allowed on server ( bytes per second ), 0 == unlimited.</desc>
+    </field>
+    <field key="sv_maxupdaterate" type="text">
+      <default>sv_maxupdaterate.*</default>
+      <default_value>30</default_value>
+      <var>sv_maxupdaterate</var>
+      <filepath>tfc/server.cfg</filepath>
+      <options>s</options>
+      <desc>Maximum updates per second that the server will allow.</desc>
+    </field>
+    <field key="sv_minupdaterate" type="text">
+      <default>sv_minupdaterate.*</default>
+      <default_value>10</default_value>
+      <var>sv_minupdaterate</var>
+      <filepath>tfc/server.cfg</filepath>
+      <options>s</options>
+      <desc>Minimum updates per second that the server will allow.</desc>
+    </field>
+  </custom_fields>
+  <list_players_command>status</list_players_command>
+  <player_info_regex>#\#\s*\d*\s*\"(.*)\"\s*(\d*)\s*.*#</player_info_regex>
+  <player_info>
+    <index key="1">Name</index>
+    <index key="2">userid</index>
+  </player_info>
+  <player_commands>
+    <command key="Kick" type="hidden">
+	  <string>kick #%userid%</string>
+	</command>
+    <command key="Ban" type="select">
+	  <option value="0">Permanent</option>
+	  <option value="15">15m</option>
+	  <option value="30">30m</option>
+      <option value="60">1h</option>
+	  <option value="1440">1D</option>
+	  <option value="10080">1W</option>
+	  <option value="43200">30D</option>
+	  <string>banid %input% #%userid% kick</string>
+	</command>
+	<command key="Change Nick" type="text">
+	  <default>new nick</default>
+	  <string>amx_nick "%Name%" "%input%"</string>
+	</command>
+  </player_commands>
+</game_config>

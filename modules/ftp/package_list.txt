@@ -1,0 +1,70 @@
+<option value="" style="font-weight: bold; text-decoration: underline;">Blogs</option>
+<option value="http://downloads.sourceforge.net/project/evocms/b2evolution/b2evo%204.1.4-stable/b2evolution-4.1.4-stable-2012-04-03.zip?r=&ts=1342768182&use_mirror=netcologne">b2evolution 4.1.4</option>
+<option value="http://downloads.sourceforge.net/project/nucleuscms/1.%20Nucleus%20Core/Nucleus%20v3.64/nucleus3.64.zip?r=&ts=1342768260&use_mirror=kent">Nucleus 3.64 English</option>
+<option value="http://wordpress.org/latest.zip">WordPress (latest version)</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Content management</option>
+<option value="http://ftp.drupal.org/files/projects/drupal-7.14.tar.gz">Drupal 7.14</option>
+<option value="http://share.ez.no/content/download/129487/701286/version/1/file/ezpublish_community_project-2012.6-with_ezc.tar.gz">eZ Publish 2012.6</option>
+<option value="http://www.geeklog.net/filemgmt/visit.php/1071">Geeklog 1.8.1</option>
+<option value="http://joomlacode.org/gf/download/frsrelease/17173/74758/Joomla_2.5.6-Stable-Full_Package.zip">Joomla 2.5.6</option>
+<option value="http://mambo-code.org/gf/download/frsrelease/388/791/MamboV4.6.5.zip">Mambo 4.6.5</option>
+<option value="http://download.moodle.org/download.php/stable23/moodle-latest-23.tgz">Moodle 2.3.1</option>
+<option value="http://phpwcms.googlecode.com/files/phpwcms-1.5.4.1.zip">phpWCMS 1.5.4.1</option>
+<option value="http://downloads.sourceforge.net/project/phpwebsite/phpWebSite%201.x%20%28stable%29/phpwebsite_1_7_2.tar.gz?r=&ts=1342771981&use_mirror=heanet">phpWebSite 1.7.2</option>
+<option value="http://downloads.sourceforge.net/project/typo3/TYPO3%20Source%20and%20Dummy/TYPO3%204.7.2/typo3_src-4.7.2.zip?r=&ts=1342772207&use_mirror=freefr">TYPO3 4.7.2 source</option>
+<option value="http://downloads.sourceforge.net/project/typo3/TYPO3%20Source%20and%20Dummy/TYPO3%204.7.2/dummy-4.7.2.zip?r=&ts=1342772143&use_mirror=kentz">TYPO3 4.7.2 dummy</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Customer relationship</option>
+<option value="http://www.craftysyntax.com/craftysyntax3.3.6.zip">Crafty Syntax Live Help 3.3.6</option>
+<option value="http://www.helpcenterlive.com/downloads/hcl-2.1.7.zip">Help Center Live 2.1.7</option>
+<option value="http://osticket.com/dl/osticket_1.6.0.tar.gz">OS Ticket 1.6.0</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Development</option>
+<option value="http://www.net2ftp.com/download/net2ftp_v1.0.zip">net2ftp 1.0 full version</option>
+<option value="http://www.net2ftp.com/download/net2ftp_v1.0_light.zip">net2ftp 1.0 light version</option>
+<option value="http://downloads.sourceforge.net/project/phpmyadmin/phpMyAdmin/3.5.2/phpMyAdmin-3.5.2-english.zip?r=&ts=1342708242&use_mirror=dfn">phpMyAdmin 3.5.2</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Discussion boards</option>
+<option value="http://www.phpbb.com/files/release/phpBB-3.0.10.zip">phpBB 3.0.10</option>
+<option value="http://punbb.informer.com/download/punbb-1.4.2.zip">punBB 1.4.2</option>
+<option value="http://download.simplemachines.org/index.php?thanks;filename=smf_2-0-2_install.zip">Simple Machines Forum 2.0.2</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">E-Commerce</option>
+<option value="http://www.oscommerce.com/get/10">OS Commerce 2.3.2</option>
+<option value="http://downloads.sourceforge.net/project/zencart/CURRENT%20-%20Zen%20Cart%201.5.x%20Series/zen-cart-v150-full-release-12302011.zip?r=&ts=1342772444&use_mirror=dfn">Zen Cart 1.5.0</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">FAQ</option>
+<option value="http://www.lethalpenguin.net/design/faqmasterflex.php?download=true">FAQMasterFlex 1.2</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Hosting billing</option>
+<option value="https://www.phpcoin.com/coin_modules/downloads/dload.php?id=185">phpCOIN 1.6.5</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Image galleries</option>
+<option value="http://downloads.sourceforge.net/project/eenemeenemuu.u/cpg1.5.20.zip?r=&ts=1342773320&use_mirror=freefr">Coppermine Photo Gallery 1.5.20</option>
+<option value="http://downloads.sourceforge.net/project/gallery/gallery3/3.0.4/gallery-3.0.4.zip?r=&ts=1342773363&use_mirror=freefr">Gallery 3.0.4</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Mailing lists</option>
+<option value="http://downloads.sourceforge.net/project/phplist/phplist/2.10.18/phplist-2.10.18.zip?r=&ts=1342773405&use_mirror=garr">PHPlist 2.10.18</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Polls and surveys</option>
+<option value="http://downloads.sourceforge.net/project/phpesp/phpesp/2.1.4/phpESP-2.1.4.tgz?r=&ts=1342773452&use_mirror=garr">phpESP 2.1.4</option>
+<option value="http://www.limesurvey.org/en/stable-release/finish/25-latest-stable-release/505-limesurvey192plus-build120718zip">LimeSurvey 1.92+</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Project management</option>
+<option value="http://www.phprojekt.com/download.php?version=latest">PHProjekt 6.1.3</option>
+<option value="http://downloads.sourceforge.net/project/tutos/php/1.8.20111223/TUTOS-php-1.8.20111223.zip?r=&ts=1342773623&use_mirror=ignum">Tutos 1.8.20111223</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Webmail</option>
+<option value="http://pear.horde.org/get/Horde_Core-1.9.2.tgz">Horde Core 1.9.2</option>
+<option value="http://pear.horde.org/get/groupware-4.0.8.tgz">Horde Groupware 4.0.8 (requires Horde Core)</option>
+<option value="http://pear.horde.org/get/imp-5.0.22.tgz">Horde IMP Webmail 5.0.22 (requires Horde Core)</option>
+<option value="http://downloads.sourceforge.net/project/squirrelmail/stable/1.4.22/squirrelmail-webmail-1.4.22.tar.gz?r=&ts=1342775456&use_mirror=switch">Squirrelmail 1.4.22</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Wiki</option>
+<option value="http://downloads.sourceforge.net/project/phpwiki/PhpWiki%201.4%20%28current%29/phpwiki-1.4.0rc1.zip?r=&ts=1342775566&use_mirror=netcologne">PhpWiki 1.4.0RC1</option>
+<option value="http://downloads.sourceforge.net/project/tikiwiki/Tiki_9.x_Herbig_Haro/9.0/tiki-9.0.zip?r=&ts=1342775648&use_mirror=switch">TikiWiki 9.0</option>
+
+<option value="" style="font-weight: bold; text-decoration: underline;">Other scripts</option>
+<option value="http://www.open-realty.org/release/open-realty2.5.8.zip">Open-Realty 2.5.8</option>
+<option value="http://downloads.sourceforge.net/project/webcalendar/webcalendar%201.2/1.2.5/WebCalendar-1.2.5.zip?r=&ts=1342775874&use_mirror=dfn">WebCalendar 1.2.5</option>

@@ -1,0 +1,33 @@
+.database{
+	margin:5%;
+	width:90%;
+	float:middle;
+}
+.database td{
+	width:50%;
+	vertical-align:top;
+}
+.database pre{
+	width:100%;
+	height:100%;
+	float:left;
+}
+.bloc{
+	cursor:default;
+}
+.bloc h4{
+	cursor:default;
+	position:relative;
+	top:-3px;
+}
+.database_info{
+	width:100%;
+	margin:30px;
+}
+.database_info td{
+	border:1px solid transparent;
+}
+
+.database xmp{
+	text-align:left;
+}

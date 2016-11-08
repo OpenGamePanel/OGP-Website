@@ -1,0 +1,65 @@
+<game_config>
+  <game_key>feedthebeast_linux32</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>minecraft</gameq_query_name>
+  <game_name>Feed The Beast Server</game_name>
+  <server_exec_name>ServerStart.sh</server_exec_name>
+  <console_log>logs/latest.log</console_log>
+  <max_user_amount>32</max_user_amount>
+  <!-- <control_protocol>lcon</control_protocol> Enables legacy console, the output will be shown in the log file-->
+  <mods>
+    <mod key="feedthebeast">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+	  <default>server-ip=.*</default>
+	  <var>server-ip=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="port">
+	  <default>server-port=.*</default>
+	  <var>server-port=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="max_players">
+	  <default>max-players=.*</default>
+	  <var>max-players=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="true">
+	  <default>enable-query=.*</default>
+	  <var>enable-query=true</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="port">
+	  <default>query.port=.*</default>
+	  <var>query.port=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="true">
+	  <default>enable-rcon=.*</default>
+	  <var>enable-rcon=true</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="control_password">
+	  <default>rcon.password=.*</default>
+	  <var>rcon.password=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="home_name">
+	  <default>motd=.*</default>
+	  <var>motd=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+  </replace_texts>
+</game_config>

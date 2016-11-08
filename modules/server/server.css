@@ -1,0 +1,8 @@
+.ui-tooltip {
+	border: 1px solid white !important;
+	max-width: 451px !important;
+	padding: 0 !important;
+	border-radius: 20px;
+	box-shadow: 0 0 7px black !important;
+	overflow:hidden;
+}

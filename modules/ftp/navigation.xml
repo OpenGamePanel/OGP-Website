@@ -1,0 +1,4 @@
+<navigation>
+  <page key="default" file="ftp.php" access="user,admin,subuser" />
+  <page key="ftp_admin" file="ftp_admin.php" access="admin" />
+</navigation>

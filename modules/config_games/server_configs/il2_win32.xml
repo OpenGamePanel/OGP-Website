@@ -1,0 +1,39 @@
+<game_config>
+  <game_key>il2_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>il2</lgsl_query_name>
+  <game_name>IL-2 Sturmovik</game_name>
+  <server_exec_name>il2server.exe</server_exec_name>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="none">
+      <name>None</name>
+    </mod>
+  </mods>
+   <replace_texts>
+	<text key="max_players">
+	  <default>serverChannels=.*</default>
+	  <var>serverChannels=</var>
+	  <filepath>confs.ini</filepath>
+	  <options></options>
+	</text>
+	<text key="port">
+	  <default>localPort=.*</default>
+	  <var>localPort=</var>
+	  <filepath>confs.ini</filepath>
+	  <options></options>
+	</text>
+	<text key="home_name">
+	  <default>serverName=.*</default>
+	  <var>serverName=</var>
+	  <filepath>confs.ini</filepath>
+	  <options></options>
+	</text>
+	<text key="ip">
+	  <default>localHost=.*</default>
+	  <var>localHost=</var>
+	  <filepath>confs.ini</filepath>
+	  <options></options>
+	</text>
+  </replace_texts>
+</game_config>

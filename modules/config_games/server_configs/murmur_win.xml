@@ -1,0 +1,101 @@
+<game_config>
+  <game_key>mumble_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>murmur</lgsl_query_name>
+  <game_name>Murmur [Mumble server]</game_name>
+  <server_exec_name>murmur.bat</server_exec_name>
+  <console_log>murmur.log</console_log>
+  <max_user_amount>1000</max_user_amount>
+  <mods>
+    <mod key="murmur">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+      <default>^#*(\s|\t)*host=.*$</default>
+      <var>host=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="port">
+      <default>^#*(\s|\t)*port=.*$</default>
+      <var>port=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="max_players">
+      <default>^#*(\s|\t)*users=.*$</default>
+      <var>users=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="control_password">
+      <default>^#*(\s|\t)*icesecretwrite=.*$</default>
+      <var>icesecretwrite=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="control_password">
+      <default>^#*(\s|\t)*gtmurmur_icesecret=.*$</default>
+      <var>gtmurmur_icesecret=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="home_name">
+      <default>^#*(\s|\t)*registerName=.*$</default>
+      <var>registerName=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="ip">
+      <default>^#*(\s|\t)*gtmurmur_ip=.*$</default>
+      <var>gtmurmur_ip=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="query_port">
+      <default>^#*(\s|\t)*gtmurmur_port=.*$</default>
+      <var>gtmurmur_port=</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="incremental">
+      <default>^#*(\s|\t)*ice=\"tcp -h 127\.0\.0\.1 -p 6[0-9]*</default>
+      <var>ice="tcp -h 127.0.0.1 -p 6</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+    <text key="true">
+      <default>^#*(\s|\t)*logfile=.*$</default>
+      <var>logfile=murmur.log</var>
+      <filepath>murmur.ini</filepath>
+      <options></options>
+    </text>
+  </replace_texts>
+  <post_install>
+REM;cmd &lt;&lt;EOF
+echo @echo off>murmur.bat
+echo IF EXIST gtmurmur-static.exe (>>murmur.bat
+echo START /B cmd /Q /C gtmurmur-static.exe>>murmur.bat
+echo ) else (>>murmur.bat
+echo echo gtmurmur-static.exe: file not found.^>^>murmur.log>>murmur.bat
+echo echo Unable to query the server, to enable queries:^>^>murmur.log>>murmur.bat
+echo echo - Download GTmurmur Plugin from:^>^>murmur.log>>murmur.bat
+echo echo https://www.gametracker.com/downloads/gtmurmurplugin.php^>^>murmur.log>>murmur.bat
+echo echo - Extract it, and copy gtmurmur-static.exe in the base folder of this server and restart.^>^>murmur.log>>murmur.bat
+echo )>>murmur.bat
+echo IF EXIST murmur.exe (>>murmur.bat
+echo cmd /Q /C murmur.exe -fg -v>>murmur.bat
+echo ) else (>>murmur.bat
+echo echo murmur.exe: file not found.^>^>murmur.log>>murmur.bat
+echo echo - Download latest mumble MSI installer from:^>^>murmur.log>>murmur.bat
+echo echo http://sourceforge.net/projects/mumble/files/Mumble/^>^>murmur.log>>murmur.bat
+echo echo - Run the installer, select server files only.^>^>murmur.log>>murmur.bat
+echo echo Once the installation is complete copy all files from^>^>murmur.log>>murmur.bat
+echo echo C:\Program Files\Mumble\ to the base folder of this server.^>^>murmur.log>>murmur.bat
+echo )>>murmur.bat
+exit
+EOF
+  </post_install>
+</game_config>

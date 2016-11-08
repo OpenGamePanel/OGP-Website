@@ -1,0 +1,154 @@
+<game_config>
+  <game_key>jediknightja_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>jediknightja</lgsl_query_name>
+  <game_name>Jedi Knight: Jedi Academy</game_name>
+  <server_exec_name>linuxjampded</server_exec_name>
+  <cli_template>+set dedicated 2 %GAME_TYPE% %IP% %PORT% %PLAYERS% %SVPURE% +exec server.cfg</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+    <cli_param id="GAME_TYPE" cli_string="+set fs_game" options="s" />
+  </cli_params>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="base">
+      <name>BaseJK3</name>
+    </mod>
+    <mod key="MBII">
+      <name>MovieBattles II</name>
+    </mod>
+    <mod key="lugormod">
+      <name>Lugormod</name>
+    </mod>
+    <mod key="forcemod">
+      <name>Force Mod</name>
+    </mod>
+    <mod key="ojpenhanced">
+      <name>OJP Enhanced</name>
+    </mod>
+    <mod key="ojpbasic">
+      <name>OJP Basic</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="max_players">
+      <default>seta sv_maxclients.*</default>
+      <var>seta sv_maxclients</var>
+      <filepath>base/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>rconpassword.*</default>
+      <var>rconpassword</var>
+      <filepath>base/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>seta sv_hostname.*</default>
+      <var>seta sv_hostname</var>
+      <filepath>base/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="max_players">
+      <default>seta sv_maxclients.*</default>
+      <var>seta sv_maxclients</var>
+      <filepath>forcemod/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>rconpassword.*</default>
+      <var>rconpassword</var>
+      <filepath>forcemod/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>seta sv_hostname.*</default>
+      <var>seta sv_hostname</var>
+      <filepath>forcemod/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="max_players">
+      <default>seta sv_maxclients.*</default>
+      <var>seta sv_maxclients</var>
+      <filepath>lugormod/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>rconpassword.*</default>
+      <var>rconpassword</var>
+      <filepath>lugormod/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>seta sv_hostname.*</default>
+      <var>seta sv_hostname</var>
+      <filepath>lugormod/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="max_players">
+      <default>seta sv_maxclients.*</default>
+      <var>seta sv_maxclients</var>
+      <filepath>MBII/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>rconpassword.*</default>
+      <var>rconpassword</var>
+      <filepath>MBII/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>seta sv_hostname.*</default>
+      <var>seta sv_hostname</var>
+      <filepath>MBII/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="max_players">
+      <default>seta sv_maxclients.*</default>
+      <var>seta sv_maxclients</var>
+      <filepath>ojpbasic/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>rconpassword.*</default>
+      <var>rconpassword</var>
+      <filepath>ojpbasic/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>seta sv_hostname.*</default>
+      <var>seta sv_hostname</var>
+      <filepath>ojpbasic/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="max_players">
+      <default>seta sv_maxclients.*</default>
+      <var>seta sv_maxclients</var>
+      <filepath>ojpenhanced/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>rconpassword.*</default>
+      <var>rconpassword</var>
+      <filepath>ojpenhanced/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>seta sv_hostname.*</default>
+      <var>seta sv_hostname</var>
+      <filepath>ojpenhanced/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param id="SVPURE" key="+sv_pure" type="select">
+	  <option value="0">All client files accepted</option>
+	  <option value="1">pure_server_whitelist.txt</option>
+	  <option value="2">All forced to be default</option>
+      <caption>Pure Server</caption>
+      <desc>Forces all clients on the server to use content that matches what is on the server.</desc>
+    </param>
+  </server_params>
+</game_config>

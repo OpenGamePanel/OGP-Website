@@ -1,0 +1,19 @@
+Module directory consists of following files:
+
+* module.php (REQUIRED):
+
+Contains the information for the module, such as:
+- version
+- name
+- menu entries
+- sql installation queries
+
+* navigation.xml (OPTIONAL):
+
+Contains the navigation for the module. This file is optional and if not used,
+the default page called <module_name>.php is loaded.
+
+* Additional files:
+
+In addition to the files above module can have as many extra files as you want.
+

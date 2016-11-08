@@ -1,0 +1,31 @@
+<game_config>
+  <game_key>teamspeak3_linux32</game_key>
+  <protocol>teamspeak3</protocol>
+  <game_name>TeamSpeak 3</game_name>
+  <server_exec_name>ts3server_minimal_runscript.sh</server_exec_name>
+  <cli_template>voice_ip=%IP% %PORT% query_ip=%IP% %QUERY_PORT_TS3% filetransfer_ip=%IP% %FILETRANS_PORT_TS3% %CONTROL_PASSWORD% logappend=1</cli_template>
+  <cli_params>
+	<cli_param id="IP" cli_string="" />
+    <cli_param id="PORT" cli_string="default_voice_port=" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="serveradmin_password=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT_TS3" cli_string="query_port=">24</port>
+    <port type="add" id="FILETRANS_PORT_TS3" cli_string="filetransfer_port=">124</port>
+  </reserve_ports>
+  <console_log>teamspeak3-server_linux_x86/logs/ts3server_0.log</console_log>
+  <exe_location>teamspeak3-server_linux_x86</exe_location>
+  <mods>
+    <mod key="ts3">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="webhost_ip">
+      <default></default>
+      <var></var>
+      <filepath>teamspeak3-server_linux_x86/query_ip_whitelist.txt</filepath>
+      <options></options>
+    </text>
+  </replace_texts>
+</game_config>

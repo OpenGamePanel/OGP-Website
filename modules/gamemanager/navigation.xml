@@ -1,0 +1,14 @@
+<navigation>
+  <page key="game_monitor" file="server_monitor.php" access="admin,user,subuser" />
+  <page key="start" file="start_server.php" access="admin,user,subuser" />
+  <page key="stop" file="stop_server.php" access="admin,user,subuser" />
+  <page key="restart" file="restart_server.php" access="admin,user,subuser" />
+  <page key="update" file="update_server.php" access="admin,user,subuser" />
+  <page key="update_manual" file="update_server_manual.php" access="admin,user,subuser" />
+  <page key="rsync_install" file="rsync_install.php" access="admin,user,subuser" />
+  <page key="log" file="view_server_log.php" access="admin,user,subuser" />
+  <page key="rcon_presets" file="rcon_presets.php" access="admin" />
+  <page key="upload_map_image" file="upload_map_image.php" access="admin" />
+  <!-- Refreshed PHP Files -->
+  <page key="ref_servermonitor" file="ref_servermonitor.php" access="admin,user,subuser" />
+</navigation>

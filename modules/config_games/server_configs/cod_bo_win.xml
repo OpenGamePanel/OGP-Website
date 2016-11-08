@@ -1,0 +1,34 @@
+<game_config>
+  <game_key>cod_blackops_win32</game_key>
+  <game_name>CoD: Black Ops</game_name>
+  <server_exec_name>BlackOpsMP.exe</server_exec_name>
+  <cli_template>+set dedicated 1 %IP% %PORT% %PLAYERS% +set sv_maprotation "map mp_drivein map mp_area51 map mp_array map mp_cracked map mp_crisis map mp_firingrange map mp_duga map mp_hanoi map mp_kowloon map mp_discovery map mp_berlinwall2 map mp_zoo map mp_outskirts map mp_hotel map mp_gridlock map mp_silo map mp_golfcourse map mp_cairo map mp_havoc map mp_cosmodrome map mp_nuked map mp_radiation map mp_mountain map mp_villa map mp_russianbase"</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+  </cli_params>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>none</name>
+    </mod>
+  </mods>
+  <server_params>
+	<param key="+set g_gametype" type="text">
+      <default>tdm</default>
+      <caption>+set g_gametype</caption>
+      <desc>"tdm" Team deathmatch|"dm" Free-for-all|"sab" Sabotage|"dem" Demolition|"ctf" Capture the flag|"sd" Search and destroy|"dom" Domination|"koth" Headquarters</desc>
+	</param>
+	<param key="+set xblive_wagermatch" type="text">
+      <default>0</default>
+      <caption>+set xblive_wagermatch</caption>
+      <desc>set to 1 on  the following gametypes: "hlnd" Stick and Stones*|"gun" Gun mode*"shrp" Sharpshooter*|"oic" One in the Chamber* </desc>
+    </param>
+    <param key="+exec" type="text">
+      <default>server.cfg</default>
+      <caption>Server config</caption>
+      <desc>Exec server.cfg on start.</desc>
+    </param>
+  </server_params>
+</game_config>

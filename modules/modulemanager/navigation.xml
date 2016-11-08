@@ -1,0 +1,6 @@
+<navigation>
+  <page key="add" file="add_module.php" access="admin" />
+  <page key="del" file="delete_module.php" access="admin" />
+  <page key="update" file="update_modules.php" access="admin" />
+  <page key="default" file="modulemanager.php" access="admin" />
+</navigation>

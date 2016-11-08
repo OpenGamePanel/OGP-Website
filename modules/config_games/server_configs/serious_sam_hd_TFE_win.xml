@@ -1,0 +1,33 @@
+<game_config>
+  <game_key>serioussamhdfe_win32</game_key>
+  <installer>steamcmd</installer>
+  <game_name>Serious Sam HD The First Encounter</game_name>
+  <server_exec_name>SamHD_DedicatedServer.exe</server_exec_name>
+  <cli_template>%IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+ip" options="s" />
+    <cli_param id="PORT" cli_string="+port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxplayers" options="s" />
+  </cli_params>
+  <console_log>Log/DedicatedServer.log</console_log>
+  <exe_location>Bin</exe_location>
+  <max_user_amount>16</max_user_amount>
+  <mods>
+    <mod key="serioussamhdfe">
+      <name>none</name>
+      <installer_name>41005</installer_name>
+    </mod>
+  </mods>
+  <server_params>
+	<param key="+game_mode" type="select">
+	  <option value="Cooperative">Cooperative</option>
+	  <option value="Deathmatch">Deathmatch</option>
+      <caption>Game Mode</caption>
+      <desc>Select a Game Mode.</desc>
+    </param>
+    <param key="+rconpass" type="text">
+      <caption>Remote Control Password</caption>
+      <desc>Password used to connect to the server via Telnet (telnet ip port).</desc>
+    </param>
+  </server_params>
+</game_config>

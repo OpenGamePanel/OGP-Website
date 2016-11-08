@@ -1,0 +1,5 @@
+<navigation>
+  <page key="dashboard" file="dashboard.php" access="admin,user,subuser" />
+  <page key="updateWidgets" file="updateWidgets.php" access="admin,user" />
+  <page key="query_ref" file="query_ref.php" access="admin,user,subuser" />
+</navigation>

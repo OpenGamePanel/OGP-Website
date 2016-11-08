@@ -1,0 +1,47 @@
+<game_config>
+ <game_key>dayz_arma2co_win32</game_key>
+ <protocol>lgsl</protocol>
+ <lgsl_query_name>dayz_arma2co</lgsl_query_name>
+ <game_name>DayZ</game_name>
+ <server_exec_name>Expansion\beta\arma2oaserver.exe</server_exec_name>
+ <cli_template>-mod=Expansion\beta;Expansion\beta\expansion;ca;@hive;@dayz -name=cfgdayz -config=cfgdayz\server.cfg -cfg=cfgdayz\arma2.cfg -profiles=cfgdayz %MEMORY% %PORT%</cli_template>
+ <cli_params>
+  <cli_param id="PORT" cli_string="-port=" />
+ </cli_params>
+ <console_log>cfgdayz/arma2oaserver.RPT</console_log>
+ <control_protocol>rcon2</control_protocol>
+ <mods>
+  <mod key='dayz'>
+   <name>none</name>
+   <installer_name>dayz</installer_name>
+  </mod>
+ </mods>
+ <replace_texts>
+  <text key="home_name">
+   <default>(hostname\s*=\s*")(.*)(";)</default>
+   <var>hostname = "%key%";</var>
+   <filepath>cfgdayz/server.cfg</filepath>
+   <options>key-regex</options>
+  </text>
+  <text key="max_players">
+   <default>(maxPlayers\s*=\s*)(.*)(;)</default>
+   <var>maxPlayers = %key%;</var>
+   <filepath>cfgdayz/server.cfg</filepath>
+   <options>key-regex</options>
+  </text>
+  <text key="control_password">
+   <default>(passwordAdmin\s*=\s*")(.*)(";)</default>
+   <var>passwordAdmin = "%key%";</var>
+   <filepath>cfgdayz/server.cfg</filepath>
+   <options>key-regex</options>
+  </text>
+ </replace_texts>
+ <server_params>
+  <param id="MEMORY" key="-maxMem=" type="text">
+   <option>ns</option>
+   <default>2047</default>
+   <caption>Max RAM allocated</caption>
+   <desc>Maximum usable memory in MB, for example: 1024</desc>
+  </param>
+ </server_params>
+</game_config>

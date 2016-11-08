@@ -1,0 +1,79 @@
+<game_config>
+  <game_key>warsow_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>warsow</lgsl_query_name>
+  <game_name>Warsow</game_name>
+  <server_exec_name>wsw_server_x64.exe</server_exec_name>
+  <cli_template>%IP% %PORT% %PLAYERS% +set fs_usehomedir 0 %BASE_PATH%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set sv_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set sv_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+	<cli_param id="BASE_PATH" cli_string="+set fs_basepath" options="s" />
+  </cli_params>
+  <console_log>basewsw/wswconsole.log</console_log>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
+  <mods>
+    <mod key="warsow">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="control_password">
+      <default>set rcon_password.*</default>
+      <var>set rcon_password</var>
+      <filepath>basewsw/dedicated_autoexec.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>set sv_hostname.*</default>
+      <var>set sv_hostname</var>
+      <filepath>basewsw/dedicated_autoexec.cfg</filepath>
+      <options>sq</options>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="+set g_" type="select">
+	  <option value="gametype bomb +map wbomb1">Bomb and Defuse</option>
+	  <option value="gametype ca +map wca1">Clan Arena</option>
+	  <option value="gametype ctf +map wctf1">Capture The Flag</option>
+	  <option value="gametype ctftactics +map wctf1">Capture The Flag: Tactics</option>
+	  <option value="gametype da +map wda1">Duel Arena</option>
+	  <option value="gametype dm +map wdm1">Death Match</option>
+	  <option value="gametype duel +map wdm1">Duel</option>
+	  <option value="gametype ffa +map wdm1">Free For All</option>
+	  <option value="gametype headhunt +map wdm1">Headhunt Deathmatch</option>
+	  <option value="gametype race +map wdm1">Race</option>
+	  <option value="gametype tdm +map wdm1">Team Death Match</option>
+	  <option value="gametype tdo +map wca1">Team Domination</option>
+      <caption>Game Type</caption>
+      <desc>Select a Game Type.</desc>
+	  <options>ns</options>
+    </param>
+  </server_params>
+  <list_players_command>status</list_players_command>
+  <player_info_regex>#\s*(\d+)\s+-?\d+\s+\d+\s+(.+)\s+\d+\s+(\d+\.\d+\.\d+\.\d+):.+#</player_info_regex>
+  <player_info>
+    <index key="1">id</index>
+    <index key="2">Name</index>
+	<index key="3">IP</index>
+  </player_info>
+  <player_commands>
+    <command key="Kick" type="hidden">
+	  <string>kick %id%</string>
+	</command>
+    <command key="Ban" type="select">
+	  <option value=" ">Permanent</option>
+	  <option value="15">15m</option>
+	  <option value="30">30m</option>
+      <option value="60">1h</option>
+	  <option value="1440">1D</option>
+	  <option value="10080">1W</option>
+	  <option value="43200">30D</option>
+	  <string>addip %IP% %input%</string>
+	  <string>kick %id%</string>
+	</command>
+  </player_commands>
+</game_config>

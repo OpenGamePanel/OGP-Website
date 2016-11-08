@@ -1,0 +1,39 @@
+<game_config>
+  <game_key>rust_legacy_win32</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>source</gameq_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Rust</game_name>
+  <server_exec_name>RustDedicated.exe</server_exec_name>
+  <query_port type="add">1</query_port>
+  <cli_template>-batchmode %HOSTNAME% %IP% %PORT% %PLAYERS% -datadir "serverdata/"</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="-ip" options="s" />
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
+    <cli_param id="HOSTNAME" cli_string="-hostname" options="sq" />
+  </cli_params>
+  <console_log>RustDedicated_Data/output_log.txt</console_log>
+  <max_user_amount>500</max_user_amount>
+  <mods>
+    <mod key="rust">
+      <name>none</name>
+      <installer_name>258550</installer_name>
+      <installer_login>anonymous</installer_login>
+     <betaname>experimental</betaname>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="cfg" type="text">
+      <default>cfg/server.cfg</default>
+      <caption>Server config</caption>
+      <desc>Executes a custom server configuration file on start.</desc>
+    </param>
+   <param key="-map" type="text">
+      <default>rust_island_2013</default>
+      <caption>Map</caption>
+      <desc>The map to load.</desc>
+    </param>
+  </server_params>
+</game_config>
+ 

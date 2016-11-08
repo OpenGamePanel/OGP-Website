@@ -1,0 +1,47 @@
+<game_config>
+  <game_key>killingfloor_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>killingfloor</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Killing Floor</game_name>
+  <server_exec_name>ucc-bin</server_exec_name>
+  <query_port type="add">1</query_port>
+  <cli_template>server %MAP%.rom%GAME_TYPE%%PLAYERS%%IP%%PORT%%VAC% %INI% log=server.log -nohomedir</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="?multihome=" />
+    <cli_param id="PORT" cli_string="?port=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+    <cli_param id="GAME_TYPE" cli_string="?game=" />
+  </cli_params>
+  <maps_location>Maps</maps_location>
+  <exe_location>System</exe_location>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="KFmod.KFGameType">
+      <name>none</name>
+      <installer_name>215360</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+	<text key="true">
+	  <default>bRestartServerOnPortSwap=.*</default>
+	  <var>bRestartServerOnPortSwap=false</var>
+	  <filepath>System/KillingFloor.ini</filepath>
+	  <options></options>
+	</text>
+  </replace_texts>
+  <server_params>
+    <param id="VAC" key="?VACSecured=" type="checkbox">
+      <default>true</default>
+      <caption>VAC Secure enabled</caption>
+	  <options>ns</options>
+    </param>
+	<param id="INI" key="ini=" type="text">
+      <default>Server.ini</default>
+      <caption></caption>
+      <desc>Copy System/Default.ini with other file name, add your settings in the new file and put the name of your custom ini file here.</desc>
+	  <options>ns</options>
+    </param>
+  </server_params>
+</game_config>

@@ -1,0 +1,75 @@
+<game_config> 
+  <game_key>killingfloor2_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>redorchestra2</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Killing Floor 2</game_name>
+  <server_exec_name>KFServer.exe</server_exec_name>
+  <cli_template>%MAP%%GAMEMODE%%DIFFICULTY%%GAMELENGTH%%PLAYERS% %PORT% %IP% %WEB_ADMIN_PORT%</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="-MultiHome=" />
+    <cli_param id="PORT" cli_string="-Port=" />
+	<cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="WEB_ADMIN_PORT" cli_string="-WebAdminPort=">10</port>
+  </reserve_ports>
+  <map_list>maplist.txt</map_list>
+  <console_log>KFGame/Logs/Launch.log</console_log>
+  <exe_location>Binaries/Win64</exe_location>
+  <max_user_amount>12</max_user_amount>
+  <mods>
+    <mod key="killingfloor2">
+      <name>none</name>
+      <installer_name>232130</installer_name> 
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param id="DIFFICULTY" key="?Difficulty=" type="select">
+      <option value=""></option>
+      <option value="0">Normal</option>
+      <option value="1">Hard</option>
+      <option value="2">Suicidal</option>
+      <option value="3">Hell on Earth</option>
+      <options>ns</options>
+      <caption>Difficulty</caption>
+      <desc>This sets the server difficulty. Leave empty to configure this parameter in the config files or webadmin</desc>
+    </param>
+    <param id="GAMELENGTH" key="?GameLength=" type="select">
+      <option value=""></option>
+      <option value="0">Short</option>
+      <option value="1">Medium</option>
+      <option value="2">Long</option>
+      <options>ns</options>
+      <caption>Game Length</caption>
+      <desc>This sets the game length. Leave empty to configure this parameter in the config files or webadmin</desc>
+     </param>
+    <param id="GAMEMODE" key="?Game=" type="text">
+      <option>ns</option>
+      <caption>Game Mode</caption>
+      <desc>Leave empty to run the normal game mode.&lt;br&gt;To run your server with official Versus Survival mode use this:&lt;br&gt;&lt;br&gt;KFGameContent.KFGameInfo_VersusSurvival&lt;br&gt;&lt;br&gt;You can use any other gametype if you installed any other mod from Steam Workshop</desc>
+    </param>
+  </server_params>
+  <post_install>
+		maplist="maplist.txt"
+		if [ -s "$maplist" ]
+		then
+		echo "File $maplist found. OK!"
+		else
+		echo "File $maplist not found"
+		echo "Generating new maplist file in $maplist"
+		touch maplist.txt
+		echo KF-BioticsLab > maplist.txt
+		echo KF-BlackForest >> maplist.txt
+		echo KF-BurningParis >> maplist.txt
+		echo KF-Catacombs >> maplist.txt
+		echo KF-EvacuationPoint >> maplist.txt
+		echo KF-Farmhouse >> maplist.txt
+		echo KF-VolterManor >> maplist.txt
+		echo KF-Outpost >> maplist.txt
+		echo KF-Prison >> maplist.txt
+		fi
+	</post_install>
+</game_config>
