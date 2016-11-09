@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+ 
 function rmdir_recurse($path) {
     $path = rtrim($path, '/').'/';
     $handle = opendir($path);
@@ -36,12 +37,7 @@ function rmdir_recurse($path) {
 
 function exec_ogp_module()
 {
-	if( !function_exists("curl_init") )
-	{
-		print_failure( curl_needed );
-		return;
-	}
-
+	define('REPONAME', 'OGP-Website');
 	if($_SESSION['users_group'] != "admin")
 	{
 		print_failure( no_access );
@@ -51,8 +47,7 @@ function exec_ogp_module()
 	global $db;
 	global $view;
 	
-	$version = $_GET['version'];
-	$vtype = "SVN";
+	$vtype = "HubGit";
 
 	echo "<h4>" . dwl_update . "</h4>\n";
 
@@ -62,7 +57,7 @@ function exec_ogp_module()
 	error_reporting(E_ALL);
 	ini_set('display_errors',true);
 
-	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . "update","",dirname(__FILE__) );
+	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . $_GET['m'],"",dirname(__FILE__) );
 
 	if( !is_writable( $baseDir ) )
 	{
@@ -78,37 +73,17 @@ function exec_ogp_module()
 	if( is_writable( $temp ) )
 	{
 		// Download file to temporary folder
-		if(isset($_POST['mirror']) && !empty($_POST['mirror'])){
-			$mirror = $_POST['mirror'];
-		}else{
-			if( ini_get('open_basedir') or get_true_boolean(ini_get('safe_mode')) )
-				$mirror = "master";
-			else
-				$mirror = "autoselect";
+		$temp_dwl = $temp . DIRECTORY_SEPARATOR . $_GET['version'] . '.zip';
+		$dwl = 'https://github.com/OpenGamePanel/'.REPONAME.'/archive/'.$_GET['version'].'.zip';
+		$zip_raw_data = file_get_contents($dwl);
+		if(! $zip_raw_data)
+		{
+			print_failure( get_lang_f( 'dwl_failed', $url ) ); 
+			return;
 		}
-		$temp_dwl = $temp . DIRECTORY_SEPARATOR . 'svn.tar.gz';
-		$fp = fopen ($temp_dwl, 'w+'); //This is the download destination
-		$date = new DateTime();
-		$expires = gmdate('D, d-M-Y H:i:s \G\M\T', $date->getTimestamp() + 31536000000);
-		if($mirror == "autoselect")
-			$url = "https://sourceforge.net/projects/ogpextras/files/Alternative-Snapshot/hldstart-code-${version}.zip/download";
-		else
-			$url = "http://".$mirror.".dl.sourceforge.net/project/ogpextras/Alternative-Snapshot/hldstart-code-${version}.zip";
-		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($ch, CURLOPT_HEADER, false); 
-		curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURLOPT_COOKIE, "FreedomCookie=true;path=/;expires=".$expires);
-		curl_setopt($ch, CURLOPT_TIMEOUT, 1000);
-		curl_setopt($ch, CURLOPT_FILE, $fp);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_exec($ch);
-		curl_close($ch);
-		fclose($fp);
-		
+
+		file_put_contents($temp_dwl, $zip_raw_data);
+
 		// Check if the file exists and the size is bigger than a 404 error page from sf.net
 		if( file_exists( $temp_dwl ) )
 		{
@@ -142,7 +117,7 @@ function exec_ogp_module()
 		$overwritten_files = "";
 		$new_files = "";
 		
-		$unwanted_path = "hldstart-code-${version}/trunk/upload";
+		$unwanted_path = REPONAME . "-" . $_GET['version'];
 		$extract_path = $temp . DIRECTORY_SEPARATOR . "OGP_update";
 		if( !file_exists($extract_path) )
 			mkdir($extract_path, 0775);
@@ -262,12 +237,12 @@ function exec_ogp_module()
 				
 				// update version info in db
 								
-				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$version'	WHERE setting = 'ogp_version'");
-				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$vtype'	WHERE setting = 'version_type'");
+				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$_GET[version]' WHERE setting = 'ogp_version'");
+				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$vtype' WHERE setting = 'version_type'");
 
 				// Remove the downloaded package
 				if( file_exists( $temp_dwl ) )
-					unlink( $temp_dwl );
+					//unlink( $temp_dwl );
 				
 				// Remove files that are not related to the panel
 				if( file_exists( $baseDir . DIRECTORY_SEPARATOR . "hldstart-code-${version}" ) )

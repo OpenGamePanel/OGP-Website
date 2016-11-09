@@ -24,25 +24,10 @@
  
  // todo, make checking and updating functions for updateing on the background.
  // todo, more specified updates in smaller packages
-function check_file($local_path, $remote_url, $cookie)
+function check_file($local_path, $remote_url)
 {
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $remote_url);
-	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Accept-Language: es-es,en"));
-	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-	if(curl_errno($ch))
-	{
-		print_failure('Can\'t check updater status. Error:' . curl_error($ch));
-		curl_close($ch);
-		return False;
-	}
 	// Load remote file contents in to variable
-	$remote_file = curl_exec($ch);
-	curl_close($ch);
+	$remote_file = file_get_contents($remote_url);
 	// Load local file contents in to variable
 	$local_file = file_get_contents($local_path);
 	if( $remote_file != $local_file and preg_match("/exec_ogp_module/", $remote_file) )
@@ -71,186 +56,80 @@ function exec_ogp_module()
 
 	global $db,$settings;
 	
-	$date = new DateTime();
-	$expires = gmdate('D, d-M-Y H:i:s \G\M\T', $date->getTimestamp() + 31536000000);
-	$cookie = "FreedomCookie=true;path=/;expires=".$expires;
-	
-	/// Checking for changes in the main update files:
-	$main_update_files = array( 'modules/update/update.php' => 'http://svn.code.sf.net/p/hldstart/svn/trunk/upload/modules/update/update.php',
-								'modules/update/updating.php' => 'http://svn.code.sf.net/p/hldstart/svn/trunk/upload/modules/update/updating.php' );
-	$refresh = False;
-	foreach($main_update_files as $local_path => $remote_url)
+	define('REPONAME', 'OGP-Website');
+	define('RSS_REMOTE_PATH', 'https://github.com/OpenGamePanel/'.REPONAME.'/commits/master.atom');
+	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
+	define('RSS_LOCAL_PATH', MODULE_PATH.'master.atom');
+		
+	if( is_writable(MODULE_PATH) )
 	{
-		$result = check_file($local_path, $remote_url, $cookie);
-		if ($result === 'nochange')
+		if( ! file_put_contents(RSS_LOCAL_PATH, file_get_contents(RSS_REMOTE_PATH)))
 		{
-			continue;
-		}
-		elseif($result)
-		{
-			$refresh = True;
-		}
-		else
-		{
-			return;
-		}
+			print_failure('Unable to download : ' . RSS_REMOTE_PATH);
+		}	
 	}
 	
-	if($refresh)
+	if( file_exists(RSS_LOCAL_PATH) )
 	{
-		header("Refresh:0");
+		$feedXml = new SimpleXMLElement(file_get_contents(RSS_LOCAL_PATH), LIBXML_NOCDATA);
+		$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
+		unlink(RSS_LOCAL_PATH);
+	}
+	else
+	{
+		print_failure('Unable to read : ' . RSS_LOCAL_PATH);
 		return;
 	}
-	/////////////////
 	
-	echo "<h2>".get_lang('update')."</h2>";
-
-	$pversion = $settings['ogp_version'];
-	
-	echo '<a href="?m=update&p=blacklist" >'.get_lang('blacklist_files')."</a>&nbsp;".get_lang('blacklist_files_info')."</br></br>";
-	echo get_lang('panel_version').": ".$pversion."</br></br>";
-	
-	//Get SVN rev.
-	$serverlist_url = "https://sourceforge.net/projects/ogpextras/rss?path=/Alternative-Snapshot&limit=3";
-
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $serverlist_url);
-	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array("Accept-Language: es-es,en"));
-	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
-	
-	// Source forge moved this link in the past to https, so allow redirects to happen.
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-	
-	//Save Page
-	$result = curl_exec($ch);
-	curl_close($ch);
-
-	//Parse the result to get the last version.
-	preg_match_all("(/Alternative-Snapshot/hldstart-code-(.*)\.zip)siU", $result, $matches);
-	$last_svn_version = $matches[1][0];
-	
-	if( isset( $last_svn_version ) and $last_svn_version != "" )
+	if(isset($seed))
 	{
-		echo get_lang('latest_version').": $last_svn_version</br></br>";
-				
-		//Check snapshot file exists.
-		$ch = curl_init("http://master.dl.sourceforge.net/project/ogpextras/Alternative-Snapshot/hldstart-code-${last_svn_version}.zip");
-		curl_setopt($ch, CURLOPT_NOBODY, true);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-		curl_exec($ch);
-		$retcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		curl_close($ch);
-
-		// Run the snapshot creation if it does not exists yet.
-		if( $retcode == '404' )
+		/// Checking for changes in the main update files:
+		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/OpenGamePanel/'.REPONAME.'/'.$seed.'/modules/update/update.php',
+									'modules/update/updating.php' => 'https://raw.githubusercontent.com/OpenGamePanel/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
+		$refresh = False;
+		foreach($main_update_files as $local_path => $remote_url)
 		{
-			print_failure("The snapshot of the current version has not been created yet.");
-			print_failure("Try again in 5 minutes.");
-		}
-		else
-		{
-			if ( $last_svn_version != $pversion )
+			$result = check_file($local_path, $remote_url);
+			if ($result === 'nochange')
 			{
-				if(isset($_GET['view_changes']))
-				{
-					echo "<div style=\"text-align:left;width:80%;margin:0 auto;padding: 10px 5px;".
-						 "border: 1px solid rgb(170, 170, 170);border-radius: 4px;background-color: rgb(189, 229, 248);\" >\n".
-						 "<a href='http://sourceforge.net/p/hldstart/svn/commit_browser' target='_blank' ><b>[ All commits ]</b></a><br><br>\n";
-
-					$serverlist_url = "http://sourceforge.net/p/hldstart/svn/feed";
-					$ch = curl_init();
-					curl_setopt($ch, CURLOPT_URL, $serverlist_url);
-					curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
-					curl_setopt($ch, CURLOPT_HTTPHEADER, array("Accept-Language: es-es,en"));
-					curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-					curl_setopt($ch, CURLOPT_COOKIE, $cookie);
-					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-					curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-					curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-					
-					// Save Page
-					$result = curl_exec($ch);
-					curl_close($ch);
-					
-					$xml = simplexml_load_string($result);
-					$json = json_encode($xml);
-					$feed_info = json_decode($json,TRUE);
-					
-					$items = array_reverse($feed_info['channel']['item']);
-					foreach($items as $item)
-					{
-						$link_arr = explode("/", $item['link']);
-						$revision = $link_arr[6];
-						if($pversion >= $revision)
-							continue;
-						$description = strip_tags(preg_replace("#<br />(.*)</a>#", "", $item['description']));
-						echo "<b>Revision $revision changes</b>&nbsp;".
-							 "<a href='$item[guid]' target='_blank' ><b>[ More details ]</b></a>:\n $description<br><br>";
-						if($last_svn_version == $revision)
-							break;
-					}
-					echo "</div>";
-				}
-				else
-				{
-					echo "<form action='' method='get'>\n".
-						 "<input type='hidden' name='m' value='update' />\n".
-						 "<input type='hidden' name='view_changes' value='true' />\n".
-						 "<input type='submit' value='".get_lang('view_changes')." (Max 10)' /></form>\n";
-				}
-				
-				echo "<br>\n";
-				
-				$url = "http://sourceforge.net/settings/mirror_choices?projectname=ogpextras".
-					   "&filename=Alternative-Snapshot/hldstart-code-$last_svn_version.zip";
-				
-				$ch = curl_init();
-				curl_setopt($ch, CURLOPT_URL, $url);
-				curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
-				curl_setopt($ch, CURLOPT_HTTPHEADER, array("Accept-Language: es-es,en"));
-				curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-				curl_setopt($ch, CURLOPT_COOKIE, $cookie);
-				curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-				
-				// Save Page
-				$res = curl_exec($ch);
-				curl_close($ch);
-				
-				preg_match_all("(<li id=\"(.*)\">.*<label for=\".*\">(.*)</label> (.*)</li>)siU", $res, $matching);
-				
-				$sf_mirrors = array();
-				$qty = count($matching[0]);
-				for( $i = 0; $i < $qty; $i++ )
-				{
-					if ( $matching[1][$i] == 'autoselect' AND ( ini_get('open_basedir') or get_true_boolean(ini_get('safe_mode')) ) )
-						continue;
-					$sf_mirrors[$matching[1][$i]] = $matching[2][$i] . " " . $matching[3][$i];
-				}
-				echo "<form action='?m=update&amp;p=updating&amp;version=".$last_svn_version."' method='post'>\n".
-					 get_lang('select_mirror').": ".create_drop_box_from_array($sf_mirrors, "mirror", 'autoselect', false).
-					 "\n<br><br>\n<input type='submit' value='".get_lang('update_now')."' /></form><br><br>\n";
+				continue;
+			}
+			elseif($result)
+			{
+				$refresh = True;
 			}
 			else
 			{
-				print_failure(get_lang('the_panel_is_up_to_date'));
+				return;
 			}
 		}
+		
+		if($refresh)
+		{
+			header("Refresh:0");
+			return;
+		}
+		
+		echo "<h2>".get_lang('update')."</h2>";
+		$pversion = $settings['ogp_version'];
+		echo '<a href="?m='.$_GET['m'].'&p=blacklist" >'.get_lang('blacklist_files')."</a>&nbsp;".get_lang('blacklist_files_info')."</br></br>";
+		echo get_lang('panel_version').": ".$pversion."</br></br>";
+		echo get_lang('latest_version').": $seed</br></br>";
+		
+		if ( $seed != $pversion )
+		{	
+			$dwl = 'https://github.com/OpenGamePanel/'.REPONAME.'/archive/'.$seed.'.zip';
+			$dwlHeaders = get_headers($dwl);
+			if($dwlHeaders[0] != 'HTTP/1.1 302 Found')
+				print_failure('The generated URL for the download returned a bad response code: ' . $dwlHeaders[0]);
+			else
+				echo "<form action='?m=".$_GET['m']."&amp;p=updating&amp;version=".$seed."' method='post'>\n".
+					 "<input type='submit' value='".get_lang('update_now')."' /></form><br><br>\n";
+		}
+		else
+		{
+			print_success(get_lang('the_panel_is_up_to_date'));
+		}
 	}
-	else	
-	{
-		print_failure('sourceforge.net is down or not responding.');
-	}
-	echo "</div>\n";
 }
 ?>

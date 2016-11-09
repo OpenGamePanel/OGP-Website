@@ -28,7 +28,7 @@ function show_back()
     if( isset($_SESSION['fm_cwd']) && preg_match("/^\/*$/",$_SESSION['fm_cwd']) == 0 )
         return "<tr>\n".
 			   "<td align=left colspan='2' >\n".
-			   "<a href=\"?m=update&amp;p=blacklist&amp;back\" style='padding-left:5px;' > ..&nbsp;&nbsp;".get_lang("level_up")."</a>\n".
+			   "<a href=\"?m=".$_GET['m']."&amp;p=blacklist&amp;back\" style='padding-left:5px;' > ..&nbsp;&nbsp;".get_lang("level_up")."</a>\n".
 			   "</td>\n".
 			   "</tr>\n";
 }
@@ -114,7 +114,7 @@ function exec_ogp_module()
 	echo get_lang('blacklist_files');
 	echo "</h2>";
 
-	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . "update","",dirname(__FILE__) );
+	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . $_GET['m'],"",dirname(__FILE__) );
 	$path = clean_path($baseDir."/".@$_SESSION['fm_cwd']);
 	if (!file_exists($path))
 	{
@@ -142,7 +142,7 @@ function exec_ogp_module()
 		if($dirlist === -1)
 		{
 			if ( $path != $baseDir . "/" )
-				$view->refresh('?m=update&amp;p=blacklist',0);
+				$view->refresh('?m='.$_GET['m'].'&amp;p=blacklist',0);
 			else
 				print_failure('The path is too long or there is a file with a very long name inside of your game server\'s home folder.');
 		}
@@ -162,7 +162,7 @@ function exec_ogp_module()
 				}
 				
 				$_SESSION['fm_cwd'] = str_replace( "\\", "", dirname( $_SESSION['fm_cwd'] ) );
-				$view->refresh('?m=update&amp;p=blacklist'.'&amp;path='.$filename,0);
+				$view->refresh('?m='.$_GET['m'].'&amp;p=blacklist'.'&amp;path='.$filename,0);
 			}
 			else
 			{
@@ -224,7 +224,7 @@ function exec_ogp_module()
 				 "</td>".
 				 "<td align=left>".
 				 "<img class=\"viewitem\" src=\"images/folder.png\" alt=\"Directory\" /> ".
-				 "<a href=\"?m=update&amp;p=blacklist&amp;path=" . $directory['filename'] . "\">". 
+				 "<a href=\"?m=".$_GET['m']."&amp;p=blacklist&amp;path=" . $directory['filename'] . "\">". 
 				 $directory['filename'] . "</a></td></tr>\n";
 		}
 		$i = 0;
@@ -249,6 +249,6 @@ function exec_ogp_module()
 			 "</form>\n";
 		
 	}
-	echo create_back_button('update');
+	echo create_back_button($_GET['m']);
 }
 ?>

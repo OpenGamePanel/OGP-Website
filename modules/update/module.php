@@ -25,8 +25,8 @@
 
 // Module general information
 $module_title = "Update";
-$module_version = "1.0";
-$db_version = 1;
+$module_version = "1.1";
+$db_version = 0; // avoid 'duplicate table' error message.
 $module_required = TRUE;
 $module_menus = array(
     array( 'subpage' => '', 'name'=>'Update', 'group'=>'admin' )
