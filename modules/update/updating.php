@@ -245,9 +245,9 @@ function exec_ogp_module()
 					//unlink( $temp_dwl );
 				
 				// Remove files that are not related to the panel
-				if( file_exists( $baseDir . DIRECTORY_SEPARATOR . "hldstart-code-${version}" ) )
+				if( file_exists( $baseDir . DIRECTORY_SEPARATOR . $unwanted_path ) )
 				{
-					rmdir_recurse( $baseDir . DIRECTORY_SEPARATOR . "hldstart-code-${version}" );
+					rmdir_recurse( $baseDir . DIRECTORY_SEPARATOR . $unwanted_path );
 				}
 
 				echo "<br>\n<h4>" . updating_modules ."</h4>\n";
