@@ -376,5 +376,4 @@ function ogpHome()
 	%bottom%
 <?php
 }
-// Testing Git
 ?>
