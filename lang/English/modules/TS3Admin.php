@@ -21,12 +21,8 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
-define('error', "error");
+define('error', "Error");
 define('title', "TeamSpeak 3 Web Interface");
 define('update_available', '<h3>Attention: A new version (v%1) of this software is available under <a href="%2" target="_blank">%2</a>.</h3>');
 define('head_logout', "Logout");

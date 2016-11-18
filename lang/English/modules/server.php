@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
 define('add_new_remote_host', "Add New Remote Host");
 define('configured_remote_hosts', "Configured Remote Host");

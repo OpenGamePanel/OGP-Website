@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
 define('maintenance_mode', "Maintenance");
 define('maintenance_mode_info', "The message that is dispayed to normal users during maintenance.");

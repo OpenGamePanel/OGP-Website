@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
 define('your_profile', "Your profile");
 define('new_password', "New password");
@@ -104,6 +100,6 @@ define('could_not_delete_server_from_group', "Could not delete server %s from gr
 define('successfully_removed_server_from_group', "Successfully removed server %s from group <em>%s</em>.");
 define('group_with_id_does_not_exist', "User with ID %s does not exist.");
 define('are_you_sure_you_want_to_delete_group', "Are you sure you want to delete group <em>%s</em>?");
-define('unable_to_delete_group', "Unable to delete user %s.");
+define('unable_to_delete_group', "Unable to delete %s group.");
 define('successfully_deleted_group', "Successfully deleted group <b>%s</b>.");
 ?>

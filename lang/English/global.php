@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
 define('lang_charset', "ISO");
 define('already_logged_in_redirecting_to_dashboard', "You are already logged in, redirecting to Dashboard.");
@@ -40,7 +36,7 @@ define('password', "Password");
 define('login', "Username");
 define('login_button', "Login");
 define('solve_captcha', "Human Check");
-define('lost_passwd', "Lost your password?");
+define('lost_passwd', "Forgot your password?");
 define('no_db_connection', "Could not connect to the database.");
 define('bad_login', "Invalid username or password.");
 define('not_logged_in', "You are not currently logged in.");
