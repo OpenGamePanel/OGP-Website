@@ -39,5 +39,5 @@ define('online_servers', "Online Servers");
 define('add_games_in', "If you want to add games you can do it in %s");
 define('currently_online', "Currently Online");
 define('game_servers', "Game Servers");
-define("select_remote_server", "Select remote server");
+define('select_remote_server', "Select remote server");
 ?>

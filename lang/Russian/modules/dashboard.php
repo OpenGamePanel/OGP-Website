@@ -39,4 +39,5 @@ define('add_games_in', "Добавить новые сервера можно з
 define('currently_online', "Пользователей online");
 define("dashboard_addons_manager_text", "Менеджер аддонов от DieFeM");
 define("game_servers", "игровые серверы");
+define('select_remote_server', "Select remote server");
 ?>
