@@ -39,4 +39,5 @@ define('add_games_in', "Sí desea añadir servidores vaya a %s");
 define("any_server_is_online", "Ningun servidor esta en marcha,");
 define("currently_online", "Ahora En Linea");
 define("game_servers", "Servidores De Juegos");
+define('select_remote_server', "Select remote server");
 ?>

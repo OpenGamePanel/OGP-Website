@@ -21,16 +21,12 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
 define('login_name', "User name");
 define('users_fname', "First name");
 define('users_lname', "Last name");
 define('users_passwd', "Password");
-define('users_cpasswd', "Verify Password");
+define('users_cpasswd', "Verify password");
 define('passwd_len', "Password must be longer than 6 characters");
 define('err_password', "Password cannot be empty");
 define('err_confirm_password', "Verify password field cannot be empty");

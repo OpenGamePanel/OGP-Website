@@ -21,11 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
-
+ 
 define('dashboard_ftp_text', "The FTP client can compress files and send them via email, can uncompress too, edit text files, and much more.");
 define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 70 servers supplied directly by OGP.");
 define('dashboard_game_monitor_text', "Watch and monitor your traffic & logs quickly. You can see what servers are up and down.");
@@ -43,4 +39,5 @@ define('online_servers', "Online Servers");
 define('add_games_in', "If you want to add games you can do it in %s");
 define('currently_online', "Currently Online");
 define('game_servers', "Game Servers");
+define('select_remote_server', "Select remote server");
 ?>

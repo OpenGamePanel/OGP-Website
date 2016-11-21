@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
 define('pure-ftpd_accounts_for_remote_server_named', "FTP accounts for remote server named %s");
 define('ftp_address', "FTP address: %s:%s");

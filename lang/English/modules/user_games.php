@@ -21,16 +21,12 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
 define('add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
 define('game_servers', "Game Servers");
 define('game_path', "Game Path");
 define('game_path_info', "An absolute server path. Example: /home/ogp/my_server/");
-define('game_server_name_info', "Server name helps users to indentify their servers.");
+define('game_server_name_info', "Server name helps users identify their servers.");
 define('control_password', "Control password");
 define('control_password_info', "This password is used for server control, such as RCON password. If the password is empty then other means are used.");
 define('add_game_home', "Add game server");
@@ -47,7 +43,7 @@ define('wine_games', "Wine Games");
 define('home_path', "Home path");
 define('change_home_info', "The location of the installed game server. Example: /home/ogp/my_server/");
 define('game_server_name', "Game server name");
-define('change_name_info', "The name of the server to help users to identify it.");
+define('change_name_info', "The name of the server to help users identify it.");
 define('game_control_password', "Game control password");
 define('change_control_password_info', "Control password is for example rcon password.");
 define('available_mods', "Available mods");
@@ -184,7 +180,7 @@ define('game_server_copy_was_successful', "Game server copy was successful");
 define('game_server_copy_failed_with_return_code', "Game server copy failed with return code %s");
 define('clone_mods', "Clone Mods");
 define('game_server_owner', "Game server owner");
-define('the_name_of_the_server_to_help_users_to_identify_it', "The name of the server to help users to identify it.");
+define('the_name_of_the_server_to_help_users_to_identify_it', "The name of the server to help users identify it.");
 define('ips_and_ports_used_in_this_home', "IPs and Ports used in this home");
 define('note_ips_and_ports_are_not_cloned', "Note - IPs and Ports are not cloned");
 define('mods_and_settings_for_this_game_server', "Mods and settings for this game server");

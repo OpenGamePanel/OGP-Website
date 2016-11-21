@@ -228,12 +228,12 @@ function exec_ogp_module()
 	}
 	if( $isAdmin AND $db->isModuleInstalled('status') )
 	{
-		echo "<h0>Server Status</h0><br>";
+		echo "<h0>".get_lang('server_status')."</h0><br>";
 		$servers = $db->getRemoteServers();
 		
 		echo "<div id='column4' style='float:left;width:40%;' >
 			   <div class='bloc rounded' >
-			   <h4>Select remote server</h4>
+			   <h4>".get_lang('select_remote_server')."</h4>
 				<div>
 				<br>
 				<center>

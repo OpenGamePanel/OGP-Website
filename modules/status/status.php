@@ -58,29 +58,29 @@ function exec_ogp_module()
 	
 	if ($modulesystemuptime == "1") 
 	{
-		echo '<div id="column4" style="font-size:12pt;width:59%;float:left;margin-left:1%;" >
-			   <div class="dragbox bloc rounded" >
-			   <h4>System Uptime</h4>
-			    <div class="dragbox-content">
+		echo "<div id=\"column4\" style=\"font-size:12pt;width:59%;float:left;margin-left:1%;\" >
+			   <div class=\"dragbox bloc rounded\" >
+			   <h4>".get_lang('system_uptime')."</h4>
+			    <div class=\"dragbox-content\">
 				<center>
-				<b>Up&nbsp;Time&nbsp;&nbsp;: ' . @$indexuptime . '<br>
-			    Up&nbsp;Since&nbsp;: ' . @$indexuptimesince . '
+				<b>".get_lang('system_up_time').": " . @$indexuptime . "<br>
+			    ".get_lang('system_up_since').": " . @$indexuptimesince . "
 				</b></center>
 			    </div>
 			   </div>
-			  </div>';
+			  </div>";
 	}
 	if ($modulecpu == "1" and $nocpushow != "1") 
 	{
-		echo '<div id="column4" style="width:49.5%;float:right;margin-top:1%;" >
-			   <div class="dragbox bloc rounded">
-			   <h4>CPU Usage</h4>
-			   <div class="dragbox-content">';
+		echo "<div id=\"column4\" style=\"width:49.5%;float:right;margin-top:1%;\" >
+			   <div class=\"dragbox bloc rounded\">
+			   <h4>".get_lang('cpu_usage')."</h4>
+			   <div class=\"dragbox-content\">";
 		ksort($cores);
 		foreach($cores as $cpu => $percent)
 		{		 
-			echo '<b>CPU' . $cpu . ' Load: ' . $percent . ' %</b><br>
-				  <img src="modules/status/include/bar.php?rating=' . $percent . '" style="width:100%;border:1px solid tranparent;" />';
+			echo "<b>CPU" . $cpu . " ".get_lang('cpu_load').": " . $percent . " %</b><br>
+				  <img src=\"modules/status/include/bar.php?rating=" . $percent . "\" style=\"width:100%;border:1px solid tranparent;\" />";
 		}
 	
 		echo '</div>
@@ -88,34 +88,34 @@ function exec_ogp_module()
 			 </div>';
 	}
 	if ($modulememory == "1") {
-		echo '<div id="column4" style="width:49.5%;float:left;margin-top:1%;" >
-		    <div class="dragbox bloc rounded" >
-		    <h4>RAM Usage</h4>
-		     <div class="dragbox-content">
-		     <b>Memory Used: ' . $ramusage . '<br></b>
-		     <img src="modules/status/include/bar.php?rating=' . $rampercent . '" style="width:100%;border:1px solid tranparent;">
+		echo "<div id=\"column4\" style=\"width:49.5%;float:left;margin-top:1%;\" >
+		    <div class=\"dragbox bloc rounded\" >
+		    <h4>".get_lang('ram_usage')."</h4>
+		     <div class=\"dragbox-content\">
+		     <b>".get_lang('ram_used').": " . $ramusage . "<br></b>
+		     <img src=\"modules/status/include/bar.php?rating=" . $rampercent . "\" style=\"width:100%;border:1px solid tranparent;\">
 		     </div>
-		    </div></div>';
+		    </div></div>";
 	}
 	if ($modulestorage == "1") 
 	{
-		echo '<div id="column4" style="width:100%;float:left;margin-top:1%;" >
-			   <div class="dragbox bloc rounded" >
-			   <h4>Storage Space</h4>
-			    <div class="dragbox-content">
-			    <b>Disk Space: ' . $diskspace . '<br>
-			    In Use: ' . $diskinuse . '<br>
-			    <img src="modules/status/include/bar.php?rating=' . $hddbarusage . '" style="width:100%;border:1px solid tranparent;"><br>
-			    Free Space: ' . $hddfreespace . '</b>
+		echo "<div id=\"column4\" style=\"width:100%;float:left;margin-top:1%;\" >
+			   <div class=\"dragbox bloc rounded\" >
+			   <h4>".get_lang('storage_space')."</h4>
+			    <div class=\"dragbox-content\">
+			    <b>".get_lang('storage_total').": " . $diskspace . "<br>
+			    ".get_lang('storage_used').": " . $diskinuse . "<br>
+			    <img src= \"modules/status/include/bar.php?rating=" . $hddbarusage . "\" style=\"width:100%;border:1px solid tranparent;\"><br>
+			    ".get_lang('storage_free').": " . $hddfreespace . "</b>
 			    </div>
 			   </div>
-			  </div>';
+			  </div>";
 	}
 	if($modulesystemtasks == "1"){
-		echo '<div id="column4" style="width:100%;float:left;margin-top:1%;" >
-				<div class="dragbox bloc rounded" >
-					<h4>Process Monitor</h4>
-					<div class="dragbox-content">';
+		echo "<div id=\"column4\" style=\"width:100%;float:left;margin-top:1%;\" >
+				<div class=\"dragbox bloc rounded\" >
+					<h4>".get_lang('process_monitor')."</h4>
+					<div class=\"dragbox-content\">";
 		if(isset($taskoutput) && is_array($taskoutput) && isset($taskoutput["task"]) && !empty($taskoutput["task"])){
 			echo "<pre>" . $taskoutput["task"] . "</pre>";
 		}

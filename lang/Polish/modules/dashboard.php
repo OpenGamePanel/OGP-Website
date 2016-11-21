@@ -37,4 +37,5 @@ define('add_games_in', "Jeśli chcesz dodać gry można to zrobić w %s");
 define('any_server_is_online', 'Wszystkie serwery są ONLINE');
 define('currently_online', 'Aktualnie ONLINE');
 define('game_servers', 'Serwery gier');
+define('select_remote_server', "Select remote server");
 ?>

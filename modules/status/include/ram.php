@@ -35,7 +35,7 @@ if ($os == "windows") {
 		$belegtq = $total - $free;
 		$percentage_used = 100 * $belegtq / $total;
 
-		$ramusage = numbersFormatting($belegtq) . " of " . numbersFormatting($total);
+		$ramusage = numbersFormatting($belegtq) . " ".get_lang('ram_of')." " . numbersFormatting($total);
 		$rampercent = round($percentage_used, "2");
 	}
 	else
@@ -51,7 +51,7 @@ elseif ($os == "linux" or $os == "cygwin") {
 		$remote_server = $db->getRemoteServer($rhost_id);
 		$remote = new OGPRemoteLibrary($remote_server['agent_ip'], $remote_server['agent_port'], $remote_server['encryption_key'], $remote_server['timeout']);
 		$ramstatus = $remote->shell_action('get_ram_usage' , 'status');
-		$ramusage = numbersFormatting($ramstatus['used']) . " of " . numbersFormatting($ramstatus['total']);
+		$ramusage = numbersFormatting($ramstatus['used']) . " ".get_lang('ram_of')." " . numbersFormatting($ramstatus['total']);
 		$rampercent = $ramstatus['percent'];
 	}
 	else 
@@ -93,7 +93,7 @@ elseif ($os == "linux" or $os == "cygwin") {
 			
 			$Used = $total - $free - @$cached - @$buffers; // Added at(@) to avoid errors on some virtual machines that are not using pagefile or using the host OS pagefile.
 			$percentage_used = 100 * $Used / $total;
-			$ramusage = numbersFormatting($Used*1024) . " of " . numbersFormatting($total*1024);
+			$ramusage = numbersFormatting($Used*1024) . " ".get_lang('ram_of')." " . numbersFormatting($total*1024);
 			$rampercent = round($percentage_used, "2");
 		}
 	}

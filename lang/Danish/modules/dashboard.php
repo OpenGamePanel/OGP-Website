@@ -39,4 +39,5 @@ define('online_servers', "Online Servers");
 define('add_games_in', "Hvis du vil tilføje et spil, så ka du gøre deet ved %s");
 define('currently_online', "Nuværrende Online");
 define('game_servers', "Spil Servers");
+define('select_remote_server', "Select remote server");
 ?>

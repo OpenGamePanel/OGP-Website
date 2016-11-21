@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
 define('game_manager', "Game Manager");
 define('no_games_to_monitor', "You do not have any games configured to you that can be monitored.");
