@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,22 +22,22 @@
  *
  */
 
-define('resetting_configs', "Remettre à zéro toutes les configurations");
-define('updating_configs', "Mise à jour des anciennes configuration.");
-define('configs_updated_ok', "Configurations mises à jour avec succès.");
-define('reset_old_configs', "Remettre à zéro les anciennes configurations");
-define('update_configs', "Mise à jour des configurations");
+define('resetting_configs', "Remettre Ã  zÃ©ro toutes les configurations");
+define('updating_configs', "Mise Ã  jour des anciennes configuration.");
+define('configs_updated_ok', "Configurations mises Ã  jour avec succÃ¨s.");
+define('reset_old_configs', "Remettre Ã  zÃ©ro les anciennes configurations");
+define('update_configs', "Mise Ã  jour des configurations");
 define('game_config_setup', "Installation des configurations des jeux");
-define('config_reset_warning', "Quand vous effacez les anciennes configurations, il peut y avoir des problèmes avec les serveurs de jeux assignés car le numéro d'identification peut ne plus correspondre avec la nouvelle configuration.");
-define('modify_configs_info', "Si vous voulez modifier la configuration du jeu, vous pouvez modifier les fichiers situés dans %s.");
-define('updating_config_from_file', "Mise à jour de la configuration à partir le fichier %s.");
+define('config_reset_warning', "Quand vous effacez les anciennes configurations, il peut y avoir des problÃ¨mes avec les serveurs de jeux assignÃ©s car le numÃ©ro d'identification peut ne plus correspondre avec la nouvelle configuration.");
+define('modify_configs_info', "Si vous voulez modifier la configuration du jeu, vous pouvez modifier les fichiers situÃ©s dans %s.");
+define('updating_config_from_file', "Mise Ã  jour de la configuration Ã  partir du fichier %s.");
 define('error_when_handling_file', "Erreur lors du traitement du fichier %s.");
-define('error_while_adding_cfg_to_db', "Erreur lors de l'ajout de la donnée %s à la base de données.");
-define('no_configs_found', "Aucune configuration trouvée de %s.");
-define('select_game', "Selectionner le jeu");
-define('create_xml_configs', "Créer la configuration XML");
-define('failed_to_delete_config_from_db', "Échec de la suppression de la config pour %s de la base de données");
-define('failed_removing_file', "Échec de la suppression de %s.");
-define('removed_game_cfg_from_disk_and_datbase', "Suppression de la config pour %s du disque et de la base de données.");
-define('delete_game_config_for', "Supprimer la configuration pour le jeu %s du disque et de la base de données.");
+define('error_while_adding_cfg_to_db', "Erreur lors de l'ajout de la donnÃ©e %s Ã  la base de donnÃ©es.");
+define('no_configs_found', "Aucune configuration trouvÃ©e de %s.");
+define('select_game', "SÃ©lectionner le jeu");
+define('create_xml_configs', "CrÃ©er la configuration XML");
+define('failed_to_delete_config_from_db', "Ã‰chec de la suppression de la config pour %s de la base de donnÃ©es");
+define('failed_removing_file', "Ã‰chec de la suppression du fichier %s.");
+define('removed_game_cfg_from_disk_and_datbase', "Suppression de la config pour %s du disque et de la base de donnÃ©es.");
+define('delete_game_config_for', "Supprimer la configuration pour le jeu %s du disque et de la base de donnÃ©es.");
 ?>

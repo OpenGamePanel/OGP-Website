@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -22,49 +22,35 @@
  *
  */
 
-define('login_name', "User name");
-define('first_name', "First name");
-define('last_name', "Last name");
-define('phone_number', "Phone number");
+define('login_name', "Felhasználónév");
+define('first_name', "Keresztnév");
+define('last_name', "Vezetéknév");
+define('phone_number', "Telefonszám");
 define('email_address', "Email");
-define('register_a_new_user', "Register a new user");
-define('password_mismatch', "Passwords mismatch.");
-define('confirm_password', "Confirm password");
+define('register_a_new_user', "Új felhasználó regisztrálása");
+define('password_mismatch', "Hibás jelszó.");
+define('confirm_password', "Jelszó megerősítése");
 define('subuser_password', "Sub-User Password");
 define('subuser_man', "Sub-User Management");
-define('successfull', "Successfull");
-define('click_here', "Click here");
-define('to_login', "to login.");
-define('registered_on', "Registered on");
-define('register_message', "Hello,
-
-		 Az Open Game Panel fiókod elkészült.
-
-		 Felhasználónév: %s
-		 Jelszó: %s
-		 
-		 A jelszavad megváltoztatható a panelban.
-
-		 Köszönöm!
-		 A rendszergazda.
-
-		 Ez az email automnatikusan generált. Kérlek ne válaszolj erre az üzenetre.");
-
-//Errors feedback
-define('err_password', "Password cannot be empty");
-define('err_confirm_password', "Verify password field cannot be empty");
-define('err_password_mismatch', "Passwords do not match");
-define('err_captcha', "Captcha does not match.");
-define('err_login_name', "User name is empty or in use.");
-define('err_first_name', "Enter your name.");
-define('err_last_name', "Last Name not entered.");
-define('err_phone_number', "Phone number is empty.");
-define('err_email_address', "Empty or incorrect email address.");
+define('successfull', "Sikeres");
+define('click_here', "Kattints ide");
+define('to_login', "a belépéshez");
+define('registered_on', "Regisztrálás a :: %s");
+define('register_message', "Az Open Game Panel hozzáférésed elkészült és az alábbi adatokkal tudsz bejelentkezni:<br><br>Felhasználónév: %s<br>Jelszó: %s<br><br>~<br>Köszönöm!<br>Open Game Panel Adminisztrátor");
+define('err_password', "A jelszó nem lehet üres");
+define('err_confirm_password', "A jelszó ismét mező nem lehet üres");
+define('err_password_mismatch', "A jelszavak nem egyeznek");
+define('err_captcha', "Captcha nem egyezik.");
+define('err_login_name', "A felhasználónév üres vagy már foglalt.");
+define('err_first_name', "Add meg a neved.");
+define('err_last_name', "Vezetéknév nincs megadva.");
+define('err_phone_number', "A telefonszám üres.");
+define('err_email_address', "Üres vagy érvénytelen email cím.");
 define('err_users_parent', "Sub-user accounts may not create other users.");
 define('err_parent_user', "The parent user ID must reference a valid pre-existing user.");
-define('err_email_address_already_in_use_by', "Email address already in use by <b>%s</b>.");
-define('user_registration', "User Registration");
-define('your_account_details_has_been_sent_by_email_to', "Your account details has been sent by email to <b>%s</b>.");
+define('err_email_address_already_in_use_by', "Az email cím már használatban van <b>%s</b> által.");
+define('user_registration', "Felhasználó regisztrálása");
+define('your_account_details_has_been_sent_by_email_to', "A hozzáférési adataid elküldve az alábbi email címre: <b>%s</b>.");
 define('subject', "Hello %s, welcome to %s.");
 define('sub_user', "Sub Users");
 define('create_sub_user', "Add Sub User");

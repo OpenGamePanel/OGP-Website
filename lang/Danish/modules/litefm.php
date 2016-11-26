@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,11 +22,12 @@
  *
  */
 
+define('dir_not_found', "Mappen '%s' blev ikke fundet.");
 define('filename', "Filnavn");
 define('filesize', "Filstørrelse");
 define('bytes', "Bytes");
 define('owner', "Ejer");
-define('group', "Grupper");
+define('group', "Gruppe");
 define('empty_directory', "Mappen er tom.");
 define('currently_viewing', "Nuværrende mappe fremvisning '%s'");
 define('wrote_changes', "Skrev ændringerne succesfuldt.");
@@ -46,13 +47,12 @@ define('upload_file', "Upload fil");
 define('uncompress', "Udpakning");
 define('create_folder', "Oprette mappe");
 define('create', "Opret");
-define('dir_not_found', "Mappen '%s' blev ikke fundet.");
-define("delete_item", "Slet %s?");
+define('delete_item', "Slet %s?");
 define('upload_in_progress', "Upload bliver bearbejdet...");
 define('upload_complete', "Upload Færdig.");
 define('chattr_yes', "Lock File");
 define('chattr_no', "Unlock File");
-define("secure_item", "Secure/Unsecure %s?");
+define('secure_item', "Secure/Unsecure %s?");
 define('filesecure', "File Security");
 define('chattr_locked', "File Locked");
 define('chattr_unlocked', "File Unlocked");

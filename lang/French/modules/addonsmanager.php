@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,48 +22,45 @@
  *
  */
 
-// Addons
-define('install_plugin', "Installer le pugin");
-define('install_mappack', "Installer le pack de maps");
-define('install_config', "Installer la configuration");
-define('game_name', "Nom du jeu");
-define('directory', "Chemin du répertoire");
-define('remote_server', "Serveur distant");
-define('select_addon', "Selectionner addon");
+define('install_plugin', "Installer les Plugins");
+define('install_mappack', "Installer les Cartes");
+define('install_config', "Installer la Configuration");
+define('game_name', "Nom du Jeu");
+define('directory', "Chemin du RÃ©pertoire");
+define('remote_server', "Serveur Distant");
+define('select_addon', "SÃ©lectionner l'Addon");
 define('install', "Installer");
-define('failed_to_start_file_download', "Impossible de démarrer le téléchargement.");
-define('no_games_servers_available', "Il n'y a pas de serveur disponible sur votre compte.");
-define('addon_installed_successfully', "Addon installé avec succès.");
+define('failed_to_start_file_download', "Impossible de dÃ©marrer le tÃ©lÃ©chargement.");
+define('no_games_servers_available', "Il n'y a pas de serveur de jeu disponible sur votre compte.");
+define('addon_installed_successfully', "Addon installÃ© avec succÃ¨s.");
 define('path', "Chemin");
-define('wait_while_decompressing', "Attendez que le fichier %s soit décompressé.");
-
-// Admin Addons
-define('addon_name', "Nom de l'addon");
+define('wait_while_decompressing', "Attendez que le fichier %s soit dÃ©compressÃ©.");
+define('addon_name', "Nom de l'Addon");
 define('url', "URL");
-define('select_game_type', "Sélectionner le jeu");
+define('select_game_type', "SÃ©lectionner le Type de Jeu");
 define('plugin', "Plugin");
-define('mappack', "Pack de maps");
+define('mappack', "Pack de Cartes");
 define('config', "Configuration");
-define('type', "Type d'addon");
+define('type', "Type d'Addon");
 define('game', "Jeu");
-define('show_all_addons', "Voir tous les addons");
-define('show_addons_for_selected_type', "Voir les addons pour le type sélectionné");
-define('show_addons_for_selected_game', "Voir les addons pour le jeu sélectionné");
-define('linux_games', "Jeux Linux :");
-define('windows_games', "Jeux Windows :");
-define('create_addon', "Créer un addon");
-define('addons_db', "Base de données des addons");
-define('addon_has_been_created', "L'addon %s a été créé.");
-define('remove_addon', "Supprimer addon");
-define('fill_the_url_address_to_a_compressed_file', "Veuillez entrer une URL d'un fichier compressé.");
-define('fill_the_addon_name', "Veuillez entrer un nom à l'addon.");
-define('select_an_addon_type', "Veuillez choisir un type pour l'addon.");
-define('select_a_game_type', "Veuillez choisir un jeu.");
-define('edit_addon', "Editer addon");
+define('show_all_addons', "Voir tous les Addons");
+define('show_addons_for_selected_type', "Voir les Addons pour le type sÃ©lectionnÃ©");
+define('show_addons_for_selected_game', "Voir les Addons pour le jeu sÃ©lectionnÃ©");
+define('linux_games', "Jeux Linux:");
+define('windows_games', "Jeux Windows:");
+define('create_addon', "CrÃ©er un Addon");
+define('addons_db', "Base de donnÃ©es des Addons");
+define('addon_has_been_created', "L'Addon %s a Ã©tÃ© crÃ©Ã©.");
+define('remove_addon', "Supprimer l'Addon");
+define('fill_the_url_address_to_a_compressed_file', "Veuillez entrer une URL d'un fichier compressÃ©.");
+define('fill_the_addon_name', "Veuillez entrer un nom Ã  l'Addon.");
+define('select_an_addon_type', "Veuillez choisir un type pour l'Addon.");
+define('select_a_game_type', "Veuillez choisir un Type de Jeu.");
+define('edit_addon', "Editer l'Addon");
 define('post-script', "Script de post-installation (bash)");
-define('replacements', "Remplacements :");
-define('addon_name_info', "Saisissez un nom pour votre addon, ce sera le nom visible par les utilisateurs.");
-define('url_info', "Saisissez l'adresse internet (URL) hébergeant les fichiers à télécharger, si les fichiers sont compressés en zip ou en tar.gz, il seront automatiquement décompressés dans le répertoire root du serveur ou dans le répertoire indiqué dans la rubrique 'Chemin'.");
-define('path_info', "Le répertoire doit être relatif au répertoire du serveur et ne contenir aucun slashes ('/') ni début ni à la fin, example: 'cstrike/cfg'. Si le champ reste vide, le chemin par défaut sera le répertoire root du serveur.");
-define('post-script_info', "Saisissez votre code en langage Bash, il sera exécuté comme un script, vous pouvez utiliser les variables de remplacement pour personnaliser l'installation. Le script s'exécutera depuis le répertoire root du serveur ou depuis le répertoire indiqué dans la rubrique 'Chemin'.");
+define('replacements', "Remplacements:");
+define('addon_name_info', "Saisissez un nom pour votre Addon, ce sera le nom visible par les utilisateurs.");
+define('url_info', "Saisissez l'adresse internet (URL) hÃ©bergeant les fichiers Ã  tÃ©lÃ©charger, si les fichiers sont compressÃ©s en zip ou en tar.gz, il seront automatiquement dÃ©compressÃ©s dans le rÃ©pertoire racine du serveur ou dans le rÃ©pertoire indiquÃ© dans la rubrique 'Chemin'.");
+define('path_info', "Le rÃ©pertoire doit Ãªtre relatif au rÃ©pertoire du serveur et ne contenir aucun slashes ('/') ni au dÃ©but ni Ã  la fin, exemple: 'cstrike/cfg'. Si le champ reste vide, le chemin par dÃ©faut sera le rÃ©pertoire racine du serveur.");
+define('post-script_info', "Saisissez votre code en langage Bash, il sera exÃ©cutÃ© comme un script, vous pouvez utiliser les variables de remplacement pour personnaliser l'installation, elles seront remplacÃ©es par les donnÃ©es du serveur pour lequel l'Addon est installÃ©. Le script s'exÃ©cutera depuis le rÃ©pertoire racine du serveur ou depuis le rÃ©pertoire indiquÃ© dans la rubrique 'Chemin'.");
 ?>

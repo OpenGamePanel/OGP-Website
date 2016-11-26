@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// settings.php
 define('maintenance_mode', "Vedligeholdelse");
 define('maintenance_mode_info', "Beskeden der bliver vist, til almindelige brugere under vedligeholdelse.");
 define('maintenance_title', "Vedligeholdes Title");
@@ -30,7 +29,7 @@ define('maintenance_title_info', "Denne title bliver vist, til normale brugere, 
 define('maintenance_message', "Vedligeholde Besked");
 define('maintenance_message_info', "Denne besked bliver vist til almindelige brugere imens vedligeholde fortages.");
 define('update_settings', "Opdatere Indstillinger");
-define('settings_updated', "Indstillinger succesfuldt opdateret");
+define('settings_updated', "Indstillinger opdateret");
 define('panel_language', "Panel Sprog");
 define('panel_language_info', "Dette sprog er standard sprog for panel. Brugere ka det, til deres eget sprog, fra redigere profil.");
 define('page_auto_refresh', "Siden genopfrisker automatisk");
@@ -96,8 +95,6 @@ define('check_expiry_by', "Check expiration using");
 define('check_expiry_by_info', "If set to once_logged_in, the user's game server assignments will be automatically deleted if past the expiration date. If set to cron_job, you will need to create a cron task using the cron module to check for the expiration date at a configured interval.");
 define('once_logged_in', "Once Logged In");
 define('cron_job', "Cron Job");
-
-// Theme settings
 define('theme_settings', "Tema Indstillinger");
 define('theme', "Tema");
 define('theme_info', "Dette tema, ville være det standarde tema for alle brugere. Brugere kan ændre deres tema, fra profil siden.");

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,126 +22,115 @@
  *
  */
 
-// servers.php
-define('add_new_remote_host', "Ajouter un nouveau hôte distant");
-define('configured_remote_hosts', "Hôte distant configuré");
-define('remote_host', "Hôte distant");
-define('remote_host_info', "L'hôte distant doit avoir un nom d'hôte (hostname) pingable !");
-define('remote_host_port', "Port de l'hôte distant");
-define('remote_host_port_info', "Le port depuis lequel l'Agent OGP écoute sur l'hôte distant. Défaut: 12679.");
-define('remote_host_name', "Nom de l'hôte distant");
-define('remote_host_name_info', "Le nom de l'hôte distant sera utiliser pour faciliter sa reconnaissance dans tout le panneau.");
-define('add_remote_host', "Ajouter un hôte distant");
-define('remote_encryption_key', "Clé de chiffrement distante");
-define('remote_encryption_key_info', "La clé de chiffrement distante est utilisé pour crypter les données entre le panneau et l'hôte distant.<br>Cette clé doit être la même sur les deux machines.");
+define('add_new_remote_host', "Ajouter un nouveau hÃ´te distant");
+define('configured_remote_hosts', "HÃ´tes distants configurÃ©s");
+define('remote_host', "HÃ´te distant");
+define('remote_host_info', "L&apos;hÃ´te distant doit avoir un nom d&apos;hÃ´te (hostname) pingable!");
+define('remote_host_port', "Port de l'hÃ´te distant");
+define('remote_host_port_info', "Le port depuis lequel l&apos;Agent OGP Ã©coute sur l&apos;hÃ´te distant. DÃ©faut: 12679.");
+define('remote_host_name', "Nom de l'hÃ´te distant");
+define('remote_host_name_info', "Le nom de l&apos;hÃ´te distant sera utilisÃ© pour faciliter sa reconnaissance dans tout le Panneau.");
+define('add_remote_host', "Ajouter un hÃ´te distant");
+define('remote_encryption_key', "ClÃ© de chiffrement distante");
+define('remote_encryption_key_info', "La clÃ© de chiffrement distante est utilisÃ© pour crypter les donnÃ©es entre le Panneau et l&apos;hÃ´te distant (l&apos;Agent).<br>Cette clÃ© doit Ãªtre la mÃªme sur les deux machines.");
 define('server_name', "Nom du serveur");
 define('agent_ip_port', "IP:Port de l'Agent");
 define('agent_status', "Statut de l'Agent");
 define('ips', "IPs");
-define('add_more_ips', "Si vous voulez entrer plus d'IPs, cliquez sur 'Définir IPs' quand tous les champs sont remplis et un champ vide apparaîtra.");
-define('encryption_key_mismatch', "La clé de chiffrement ne correspond pas à celle de l'Agent. Vérifiez vos fichiers de configuration.");
-define('no_ip_for_remote_host', "Vous devez ajouter au moins une (1) adresse IP pour chaque hôte distant.");
-define('note_remote_host', "Un hôte distant est un serveur où l'Agent OGP tourne. Chaque hôte peut avoir plusieurs adresses IPs que les utilisateurs utiliserons pour leurs serveurs de jeux");
-define('ip_administration', "Serveur &amp; IP Administration :: Open Game Panel");
-define('unknown_error', "Erreur inconnue - status_chk a retourné");
+define('add_more_ips', "Si vous voulez entrer plus d'IPs, cliquez sur 'DÃ©finir IPs' quand tous les champs sont remplis et un champ vide apparaÃ®tra.");
+define('encryption_key_mismatch', "La clÃ© de chiffrement ne correspond pas Ã  celle de l'Agent. VÃ©rifiez vos fichiers de configuration.");
+define('no_ip_for_remote_host', "Vous devez ajouter au moins une (1) adresse IP pour chaque hÃ´te distant.");
+define('note_remote_host', "Un hÃ´te distant est un serveur oÃ¹ l'Agent OGP tourne. Chaque hÃ´te peut avoir plusieurs adresses IPs que les utilisateurs utiliseront pour leurs serveurs de jeux");
+define('ip_administration', "Administration IP &amp; Serveur :: Open Game Panel");
+define('unknown_error', "Erreur inconnue - status_chk a retournÃ©");
 define('remote_host_user_name', "Utilisateur UNIX");
-define('remote_host_user_name_info', "Utilisateur qui fait tourner l'Agent. Exemple: Jonhy");
-define('ogp_user', remote_host_user_name);
-define('ogp_user_info', remote_host_user_name_info);
+define('remote_host_user_name_info', "Utilisateur qui fait tourner l'Agent. Exemple: ogp_agent");
 define('remote_host_ftp_ip', "IP FTP");
-define('remote_host_ftp_ip_info', "Le <b>IP</b> du serveur FTP pour cet Agent.");
+define('remote_host_ftp_ip_info', "L&apos;adresse <b>IP</b> du serveur FTP pour cet Agent.");
 define('remote_host_ftp_port', "Port FTP");
 define('remote_host_ftp_port_info', "Le <b>port</b> du serveur FTP pour cet Agent.");
 define('view_log', "Voir le log");
 define('status', "Statut");
-define('stop_firewall', "Arrêter le Firewall (pare-feu)");
-define('start_firewall', "Démarrer le Firewall (pare-feu)");
+define('stop_firewall', "ArrÃªter le Firewall (pare-feu)");
+define('start_firewall', "DÃ©marrer le Firewall (pare-feu)");
 define('seconds', "Secondes");
-define('reboot', "Redémarrer le Serveur Distant");
-define('restart', "Redémarrer l'Agent");
-define('confirm_reboot', "Etes-vous sûr de vouloir redémarrer physiquement la machine distante nommée '%s'?");
-define('confirm_restart', "Etes-vous sûr de vouloir redémarrer l'Agent nommé '%s'?");
-define('restarting', "Redémarrage de l'Agent... Veuillez patienter.");
-define('restarted', "Agent redémarré avec succès.");
-define('reboot_success', "Le serveur nommé '%s' a été redémarré avec succès. Vous ne pourrez pas accéder au serveur tant qu'il n'est pas complètement redémarré.");
-
-// edit_server.php
-define('invalid_remote_host_id', "ID '%s' de l'hôte distant invalide.");
-define('remote_host_removed', "Hôte distant '%s' supprimé avec succès.");
-define('editing_remote_server', "Edition de l'hôte distant '%s'");
-define('remote_server_settings_changed', "Changement des paramètres pour le serveur distant '%s' effectué avec succès.");
-define('save_settings', "Sauvegarder les paramètres");
-define('set_ips', "Définir IPs");
+define('reboot', "RedÃ©marrer le Serveur Distant");
+define('restart', "RedÃ©marrer l'Agent");
+define('confirm_reboot', "Etes-vous sÃ»r de vouloir redÃ©marrer physiquement la machine distante nommÃ©e '%s'?");
+define('confirm_restart', "Etes-vous sÃ»r de vouloir redÃ©marrer l'Agent nommÃ© '%s'?");
+define('restarting', "RedÃ©marrage de l'Agent... Veuillez patienter.");
+define('restarted', "Agent redÃ©marrÃ© avec succÃ¨s.");
+define('reboot_success', "Le serveur nommÃ© '%s' a Ã©tÃ© redÃ©marrÃ© avec succÃ¨s. Vous ne pourrez pas accÃ©der au serveur tant qu'il n'est pas complÃ¨tement redÃ©marrÃ©.");
+define('invalid_remote_host_id', "ID '%s' de l'hÃ´te distant invalide.");
+define('remote_host_removed', "HÃ´te distant '%s' supprimÃ© avec succÃ¨s.");
+define('editing_remote_server', "Edition de l'hÃ´te distant nommÃ© '%s'");
+define('remote_server_settings_changed', "Changement des paramÃ¨tres pour le serveur distant '%s' effectuÃ© avec succÃ¨s.");
+define('save_settings', "Sauvegarder les paramÃ¨tres");
+define('set_ips', "DÃ©finir IPs");
 define('remote_ip', "IP distante");
 define('remote_ips_for', "IPs distantes pour le serveur '%s'");
-define('ips_set_for_server', "IPs pour le serveur '%s' définies avec succès.");
-define('could_not_remove_ip', "Impossible de supprimer l'IP de la base de données.");
-define('could_add_ip', "Peut ajouter l'IP du serveur distant à la base de données.");
-define('areyousure_removeagent', "Etes-vous sûr de vouloir supprimer l'Agent");
-define('areyousure_removeagent2', "et tous les serveurs qui lui sont reliés dans la base de données OGP ?");
-define('error_while_remove', "Erreur lors de la suppresion du serveur distant.");
+define('ips_set_for_server', "IPs pour le serveur nommÃ© '%s' dÃ©finies avec succÃ¨s.");
+define('could_not_remove_ip', "Impossible de supprimer l'IP de la base de donnÃ©es.");
+define('could_add_ip', "Peut ajouter l'IP du serveur distant Ã  la base de donnÃ©es.");
+define('areyousure_removeagent', "Etes-vous sÃ»r de vouloir supprimer l'Agent nommÃ©");
+define('areyousure_removeagent2', "et tous les serveurs qui lui sont reliÃ©s dans la base de donnÃ©es OGP?");
+define('error_while_remove', "Erreur lors de la suppression du serveur distant.");
 define('add_ip', "Ajouer IP");
 define('remove_ip', "Supprimer IP");
 define('edit_ip', "Editer IP");
-define('wrote_changes', "Changement effectué avec succès.");
-define('there_are_servers_running_on_this_ip', "Il y a des serveurs démarrés avec cette adresse IP.");
-
-// add_server.php
-define('enter_ip_host', "Vous devez entrer une IP pour l'hôte distant.");
-define('enter_valid_ip', "Vous devez entrer un port valide pour l'hôte distant. La valeur du port peut être comprise entre 0 et 65535, cependant les valeurs recommandées sont celles comprises entre 1024 et 65535.");
+define('wrote_changes', "Changements effectuÃ©s avec succÃ¨s.");
+define('there_are_servers_running_on_this_ip', "Il y a des serveurs dÃ©marrÃ©s avec cette adresse IP.");
+define('enter_ip_host', "Vous devez entrer une IP pour l'hÃ´te distant.");
+define('enter_valid_ip', "Vous devez entrer un port valide pour l'hÃ´te distant. La valeur du port peut Ãªtre comprise entre 0 et 65535, cependant les valeurs recommandÃ©es sont celles comprises entre 1024 et 65535.");
 define('could_not_add_server', "Impossible d'ajouter le serveur");
-define('to_db', "à la base de données.");
-define('added_server', "Serveur ajouté");
+define('to_db', "Ã  la base de donnÃ©es.");
+define('added_server', "Serveur ajoutÃ©");
 define('with_port', "avec le port");
-define('to_db_succesfully', "dans la base de données avec succès.");
-define('unable_discover', "Impossible de découvrir automatiquement les IPs sur");
+define('to_db_succesfully', "dans la base de donnÃ©es avec succÃ¨s.");
+define('unable_discover', "Impossible de dÃ©couvrir automatiquement les IPs sur");
 define('set_ip_manually', "Vous devez les entrer manuellement.");
-define('found_ips', "IPs trouvés");
+define('found_ips', "IPs trouvÃ©s");
 define('for_remote_server', "pour le serveur distant.");
 define('failed_add_ip', "Impossible d'ajouter l'IP");
 define('timeout', "Time Out");
-define('timeout_info', "Secondes. La limite de temps pour avoir une réponse de l'Agent.");
+define('timeout_info', "En secondes. La limite de temps pour avoir une rÃ©ponse de l&apos;Agent.");
 define('use_nat', "Utiliser le NAT");
-define('use_nat_info', "Activez le si votre serveur distant utlise les règles NAT.");
-
-// arrange_servers.php
+define('use_nat_info', "Activez le si votre serveur distant utlise les rÃ¨gles NAT.");
 define('arrange_ports', "Arranger les ports");
 define('assign_new_ports_range_for_ip', "Assigner nouvelle plage de ports pour l'IP %s");
-define('assigned_port_ranges_for_ip', "Plages de ports assignées pour l'IP %s");
-define('assigned_ports_for_ip', "Ports assignés pour l'IP %s");
-define('unspecified_game_types', "Types de jeu non spécifié");
-define('start_port', "Port de début:");
+define('assigned_port_ranges_for_ip', "Plages de ports assignÃ©es pour l'IP %s");
+define('assigned_ports_for_ip', "Ports assignÃ©s pour l'IP %s");
+define('unspecified_game_types', "Types de jeu non spÃ©cifiÃ©");
+define('start_port', "Port de dÃ©but:");
 define('end_port', "Port de fin:");
-define('port_increment', "Incrément de Port:");
+define('port_increment', "IncrÃ©ment de Port:");
 define('total_assignable_ports', "Ports assignables au Total:");
 define('available_range_ports', "Plage de ports disponible:");
 define('assign_range', "Assigner plage");
 define('edit_range', "Editer plage");
 define('delete_range', "Supprimer plage");
-define('home_id', "Home ID");
-define('home_path', "Chemin Home");
-define('game_type', "Type de jeu");
+define('home_id', "ID Serveur");
+define('home_path', "Chemin du serveur");
+define('game_type', "Type de Jeu");
 define('port', "Port");
 define('invalid_values', "Valeurs invalides.");
-define('ports_in_range_already_arranged', "Ports dans la Plage déjà arrangés.");
-define('ports_range_already_configured_for', "Plage de ports déjà configurée pour %s.");
-define('ports_range_added_successfull_for', "Plage de ports ajoutée avec succès pour %s.");
-define('ports_range_deleted_successfull', "Suppression de la Plage de ports avec succès.");
-define('ports_range_edited_successfull_for', "Plage de ports éditée avec succès pour %s.");
-
-// Firewall
-define('editing_firewall_for_remote_server', 'Editer le Firewall pour le serveur distant nommé "%s"');
-define('default_allowed', 'Autorisé par défaut');
+define('ports_in_range_already_arranged', "Ports dans la Plage dÃ©jÃ  arrangÃ©s.");
+define('ports_range_already_configured_for', "Plage de ports dÃ©jÃ  configurÃ©e pour %s.");
+define('ports_range_added_successfull_for', "Plage de ports ajoutÃ©e avec succÃ¨s pour %s.");
+define('ports_range_deleted_successfull', "Suppression de la Plage de ports avec succÃ¨s.");
+define('ports_range_edited_successfull_for', "Plage de ports Ã©ditÃ©e avec succÃ¨s pour %s.");
+define('editing_firewall_for_remote_server', "Editer le Firewall pour le serveur distant nommÃ© '%s'");
+define('default_allowed', "AutorisÃ© par dÃ©faut");
 define('allow_port_command', "Commande d'autorisation port");
-define('deny_port_command', 'Commande de blocage port');
+define('deny_port_command', "Commande de blocage port");
 define('allow_ip_port_command', "Commande d'autorisation IP:port");
-define('deny_ip_port_command', 'Commande de blocage IP:port');
-define('enable_firewall_command', 'Commande pour activer le Firewall');
-define('disable_firewall_command', 'Commande pour désactiver le Firewall');
-define('get_firewall_status_command', 'Commande pour le statut du Firewall');
-define('reset_firewall_command', 'Commande pour le Reset du Firewall');
-define('firewall_status', 'Statut du Firewall');
-define('save_firewall_settings', 'Enregistrer les paramètres du Firewall');
-define('reset_firewall', 'Reset du Firewall');
-define('firewall_settings', 'Paramètres du Firewall');
+define('deny_ip_port_command', "Commande de blocage IP:port");
+define('enable_firewall_command', "Commande pour activer le Firewall");
+define('disable_firewall_command', "Commande pour dÃ©sactiver le Firewall");
+define('get_firewall_status_command', "Commande pour le statut du Firewall");
+define('reset_firewall_command', "Commande pour le Reset du Firewall");
+define('firewall_status', "Statut du Firewall");
+define('save_firewall_settings', "Enregistrer les paramÃ¨tres du Firewall");
+define('reset_firewall', "Reset du Firewall");
+define('firewall_settings', "ParamÃ¨tres du Firewall");
 ?>

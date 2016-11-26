@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2010 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,35 +23,33 @@
  */
 
 define('login_name', "Nom d'utilisateur");
-define('users_fname', "Prénom");
+define('users_fname', "PrÃ©nom");
 define('users_lname', "Nom");
 define('users_passwd', "Mot de passe");
-define('users_cpasswd', "Vérification mot de passe");
-define('passwd_len', "Le mot de passe doit faire plus de 6 caractères");
-define('err_password', "Le mot de passe ne peut pas être vide");
-define('err_confirm_password', "La vérification mot de passe ne peut pas être vide");
+define('users_cpasswd', "VÃ©rification mot de passe");
+define('passwd_len', "Le mot de passe doit faire plus de 6 caractÃ¨res");
+define('err_password', "Le mot de passe ne peut pas Ãªtre vide");
+define('err_confirm_password', "La vÃ©rification mot de passe ne peut pas Ãªtre vide");
 define('err_password_mismatch', "Les mots de passe ne correspondent pas");
-define('phone_number', "Numéro de téléphone");
+define('phone_number', "NumÃ©ro de tÃ©lÃ©phone");
 define('users_email', "E-mail");
-define('register_a_new_user', "Enregistrer un nouveau utilisateur");
+define('register_a_new_user', "Enregistrer un nouvel utilisateur");
 define('password_mismatch', "Les mots de passe ne correspondent pas");
 define('confirm_password', "Confirmez le mot de passe");
-define('successfull', "Succès");
+define('successfull', "SuccÃ¨s");
 define('click_here', "Cliquez ici");
 define('to_login', "pour vous connecter");
-define('registered_on', "Enregistré le :: %s");
-define('register_message', "Votre compte Open Game Panel a été créé et vous pouvez utiliser les informations suivantes pour vous connecter :<br><br>Nom d'utilisateur: %s<br>Mot de passe : %s<br><br>~<br>Merci,<br>Administrateur Open Game Panel");
-
-//Errors feedback
+define('registered_on', "EnregistrÃ© le :: %s");
+define('register_message', "Bonjour,<br><br>Votre compte Open Game Panel a Ã©tÃ© crÃ©Ã© et vous pouvez utiliser les informations suivantes pour vous connecter:<br><br>Nom d'utilisateur: %s<br>Mot de passe: %s<br><br>Pensez Ã  changer rÃ©guliÃ¨rement votre mot de passe, et lors de votre premiÃ¨re connexion.<br><br>Ceci est un message automatisÃ©, n'y rÃ©pondez pas !<br><br>______________________________<br>Merci, l'Administrateur");
 define('err_captcha', "Captcha incorrect.");
-define('err_login_name', "Nom d'utilisateur vide ou déjà utilisé.");
-define('err_first_name', "Vous n'avez pas saisi votre prénom.");
+define('err_login_name', "Nom d'utilisateur vide ou dÃ©jÃ  utilisÃ©.");
+define('err_first_name', "Vous n'avez pas saisi votre prÃ©nom.");
 define('err_last_name', "Vous n'avez pas saisi votre nom.");
-define('err_phone_number', "Vous n'avez pas saisi votre numéro de téléphone.");
+define('err_phone_number', "Vous n'avez pas saisi votre numÃ©ro de tÃ©lÃ©phone.");
 define('err_email_address', "Vous n'avez pas saisi votre e-mail.");
-define('err_email_address_already_in_use_by', "L'adresse e-mail est déjà utilisée par <b>%s</b>.");
+define('err_email_address_already_in_use_by', "L'adresse e-mail est dÃ©jÃ  utilisÃ©e par <b>%s</b>.");
 define('user_registration', "Enregistrement utilisateur");
-define('your_account_details_has_been_sent_by_email_to', "Les détails de votre compte ont été envoyés par e-mail à <b>%s</b>.");
-define('account_created', "Votre compte a été créé.");
+define('your_account_details_has_been_sent_by_email_to', "Les dÃ©tails de votre compte ont Ã©tÃ© envoyÃ©s par e-mail Ã  <b>%s</b>.");
+define('account_created', "Votre compte a Ã©tÃ© crÃ©Ã©.");
 define('subject', "%s :: Informations sur le compte");
 ?>

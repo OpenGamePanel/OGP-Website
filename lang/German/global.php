@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,14 +21,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# English language variables
-#
-#####################################################################
 
-define('lang_charset', "ISO");
+define('lang_charset', "UTF-8");
 define('already_logged_in_redirecting_to_dashboard', "Du bist bereits angemeldet, Weiterleitung zum Dashboard");
-define('logging_in', "Anmeldung läuft");
+define('logging_in', "Anmeldung lÃ¤uft");
 define('redirecting_in', "Weiterleitung in");
 define('refresh_page', "Seite aktuallisieren");
 define('no_rights', "Du hast keine Rechte auf diese Seite zuzugreifen.");
@@ -42,29 +38,29 @@ define('login_button', "Anmelden");
 define('solve_captcha', "Human Check");
 define('lost_passwd', "Passwort vergessen?");
 define('no_db_connection', "Konnte keine Verbindung zur Datenbank aufbauen.");
-define('bad_login', "Ungültiger Benutzername oder Passwort.");
+define('bad_login', "UngÃ¼ltiger Benutzername oder Passwort.");
 define('not_logged_in', "Du bist im Moment nicht angemeldet.");
-define('remove_install', "Bitte lösche install.php aus Sicherheitsgründen.");
+define('remove_install', "Bitte lÃ¶sche install.php aus SicherheitsgrÃ¼nden.");
 define('agent_offline', "Der Agent auf diesem Server ist offline.");
 define('logged_in', "Du bist angemeldet als");
-define('delete', "Löschen");
+define('delete', "LÃ¶schen");
 define('edit', "Bearbeiten");
 define('actions', "Aktionen");
-define('invalid_subpage', "Ungültige Unterseite");
-define('invalid_home_id', "Ungültige Home ID.");
+define('invalid_subpage', "UngÃ¼ltige Unterseite");
+define('invalid_home_id', "UngÃ¼ltige Home ID.");
 define('note', "NOTIZ");
 define('hint', "HINWEIS");
 define('yes', "Ja");
 define('no', "Nein");
 define('on', "An");
 define('off', "Aus");
-define('db_error_invalid_host', "Ungültiger Datenbank-Host.");
-define('db_error_invalid_user_and_pass', "Ungültiger Datenbank Benutzername und/oder Passwort.");
-define('db_error_invalid_database', "Ungültige Datenbank.");
+define('db_error_invalid_host', "UngÃ¼ltiger Datenbank-Host.");
+define('db_error_invalid_user_and_pass', "UngÃ¼ltiger Datenbank Benutzername und/oder Passwort.");
+define('db_error_invalid_database', "UngÃ¼ltige Datenbank.");
 define('db_unknown_error', "Unbekannter Datenbankfehler: %s");
-define('db_error_module_missing', "Benötigtes PHP Datenbankmodul fehlt.");
-define('db_error_invalid_db_type', "Üngültiger Datenbanktyp in der Konfigurationsdatei.");
-define('invalid_login_information', "Ungültige Anmeldedaten eingegeben.");
+define('db_error_module_missing', "BenÃ¶tigtes PHP Datenbankmodul fehlt.");
+define('db_error_invalid_db_type', "ÃœngÃ¼ltiger Datenbanktyp in der Konfigurationsdatei.");
+define('invalid_login_information', "UngÃ¼ltige Anmeldedaten eingegeben.");
 define('failed_to_read_config', "Konfigurationsdatei konnte nicht gelesen werden.");
 define('account_expired', "Dein Benutzerkonto ist abgelaufen.");
 define('contact_admin_to_enable_account', "Kontaktiere den Administrator um dein Benutzerkonto reaktivieren zu lassen.");
@@ -74,10 +70,10 @@ define('invalid_redirect', "Weiterleiten");
 define('login_title', "Control Panel Anmeldung");
 define('module_not_installed', "Modul ist nicht installiert.");
 define('no_access_to_home', "Du hast keinen Zugang auf dieses Home.");
-define('not_available', "Nicht verfügbar");
+define('not_available', "Nicht verfÃ¼gbar");
 define('offline', "Offline");
 define('online', "Online");
-define('invalid_url', "Ungültige URL");
+define('invalid_url', "UngÃ¼ltige URL");
 define('xml_file_not_valid', "XML Datei '%s' konnte nicht mit dem Schema '%s' validiert werden.");
 define('unable_to_load_xml', "Konnte XML Datei '%s' nicht laden. Rechte Problem?");
 define('gamemanager', "Game Manager");
@@ -89,14 +85,14 @@ define('shop', "Shop");
 define('TS3Admin', "TS3 Admin");
 define('administration', "Administration");
 define('config_games', "Game/Mod Konfiguration");
-define('modulemanager', "Module");
-define('server', "Server");
+define('modulemanager', "Modules");
+define('server', "Servers");
 define('settings', "Panel Einstellungen");
 define('themes', "Theme Einstellungen");
 define('user_admin', "Benutzer");
 define('sub_users', "Sub Users");
 define('show_groups', "Gruppen");
-define('user_games', "Game Server");
+define('user_games', "Game Servers");
 define('addons_manager', "Addons Manager");
 define('ftp_admin', "FTP Benutzer");
 define('orders', "Bestellungen");
@@ -109,18 +105,18 @@ define('show_all', "Zeige alle Server");
 define('cur_theme', "%s Theme");
 define('copyright', "Copyright");
 define('all_rights_reserved', "Alle Rechte vorbehalten");
-define('queries_executed', "Abfragen durchgeführt");
+define('queries_executed', "Abfragen durchgefÃ¼hrt");
 define('lang', "Sprache");
 define('get_size', "Get size");
 define('total_size', "Total size");
-define('lgsl', 'Lgsl');
-define('lgsl_admin', 'Lgsl admin');
-define('rcon', 'Rcon');
+define('lgsl', "LGSL");
+define('lgsl_admin', "LGSL Admin");
+define('rcon', "RCON");
 define('watch_logger', "Watch Logger");
 define('litefm_settings', "LiteFM Settings");
-define('assign_expiration_date', 'Assign expiration date');
-define('assign_expiration_date_info', 'Once it expires the server is unassigned but not removed.');
-define('server_expiration_date', 'Server expiration date');
-define('server_expiration_date_info', 'Once it expires the server is removed (database and files).');
-define('set_expiration_date', 'Set expiration date');
+define('assign_expiration_date', "Assign expiration date");
+define('assign_expiration_date_info', "Once it expires the server is unassigned but not removed.");
+define('server_expiration_date', "Server expiration date");
+define('server_expiration_date_info', "Once it expires the server is removed (database and files).");
+define('set_expiration_date', "Set expiration date");
 ?>

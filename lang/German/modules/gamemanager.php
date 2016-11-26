@@ -23,10 +23,8 @@
  */
 
 define('game_manager', "Game Manager");
-define('no_games_to_monitor', "You do not have any games configured to you that can be monitored.");
+define('no_games_to_monitor', "Es gibt derzeit keine Gameserver die online/offline sind");
 define('status', "Status");
-
-// server_manager.php
 define('fail_no_mods', "No mods enabled for this game! You need to ask your OGP admin to add mod(s) for the game assigned for you.");
 define('no_game_homes_assigned', "No game servers assigned for you. You need to ask your OGP admin to assign games for you.");
 define('select_game_home_to_configure', "Select a game server that you want to configure");
@@ -38,17 +36,15 @@ define('assign_game_homes', "Assign game servers");
 define('user', "Benutzer");
 define('group', "Gruppe");
 define('start', "Start");
-
-// start_game.php
 define('ogp_agent_ip', "OGP Agent IP");
 define('max_players', "Max Spieler");
 define('max', "Max");
 define('ip_and_port', "IP und Port");
-define('available_maps', "Verf¸gbare Maps");
+define('available_maps', "Verf√ºgbare Maps");
 define('map_path', "Map Pfad");
-define('available_parameters', "Verf¸gbare Parameter");
+define('available_parameters', "Verf√ºgbare Parameter");
 define('start_server', "Server starten");
-define('start_wait_note', "Das Starten des Servers kann einige Zeit dauern. Bitte warte und schlieﬂe deinen Browser w‰hrend dessen nicht.");
+define('start_wait_note', "Das Starten des Servers kann einige Zeit dauern. Bitte warte und schlie√üe deinen Browser w√§hrend dessen nicht.");
 define('game_type', "Game Typ");
 define('map', "Map");
 define('starting_server', "Starte Server, bitte warten...");
@@ -59,7 +55,7 @@ define('startup_nice', "Nice value of the server");
 define('game_home', "game server");
 define('server_started', "Server erfolgreich gestartet.");
 define('no_parameter_access', "You do not have access to parameters.");
-define('extra_parameters', "Zus‰tzliche Parameter");
+define('extra_parameters', "Zus√§tzliche Parameter");
 define('no_extra_param_access', "You do not have access to extra parameters.");
 define('extra_parameters_info', "These parameters are put to the end of the command line when the game is started.");
 define('game_exec_not_found', "The game executable %s was not found from the remote server.");
@@ -71,26 +67,23 @@ define('server_not_running_log_found', "Server is not running, but log is found.
 define('ip_port_pair_not_owned', "IP:PORT pair not owned.");
 define('unsuitable_maxplayers_value_maximum_reachable_number_of_slots_has_been_set', "Unsuitable maxplayers value, maximum reachable number of slots has been set.");
 define('server_running_not_responding', "Server is running, but its not responding,<br>there might be a some kind of problem and you might want to ");
-
-// update_game.php
 define('update_started', "Update started, please wait...");
 define('failed_to_start_steam_update', "Failed to start Steam update. See agent log.");
 define('failed_to_start_rsync_update', "Failed to start Rsync update. See agent log.");
 define('update_completed', "Update completed successfully.");
 define('update_in_progress', "Update in progress, please wait...");
 define('refresh_steam_status', "Refresh steam status");
+define('refresh_rsync_status', "Refresh rsync status");
 define('server_running_cant_update', "Server running so update is not possible. Stop the server before update.");
 define('xml_steam_error', "Selected server type does not support steam install/update.");
 define('mod_key_not_found_from_xml', "Mod key '%s' not found from the XML file.");
 define('stop_update', "Stop update");
-
-// game_monitor.php
 define('statistics', "Statistik");
-define('servers', "Server");
+define('servers', "Servers");
 define('players', "Spieler");
 define('current_map', "Aktuelle Map");
 define('stop_server', "Server stoppen");
-define('server_ip_port', "Server IP:Port");
+define('server_ip_port', "Server-IP: Port");
 define('server_name', "Server Name");
 define('player_name', "Player Name");
 define('score', "Punkte");
@@ -108,14 +101,13 @@ define('assigned_to', "Assigned to:");
 define('restart_server', "Server neustarten");
 define('restarting_server', "Server wird neugestartet, bitte warten...");
 define('server_restarted', "Server '%s' wurde neugestartet.");
-define('server_not_running', "Der Server l‰uft nicht.");
+define('server_not_running', "Der Server l√§uft nicht.");
 define('address', "Adresse");
 define('owner', "Besitzer");
 define('operations', "Aktionen");
 define('search', "Suche");
 define('maps_read_from', "Maps read from ");
 define('file', "file");
-define('directory', 'Directory');
 define('folder', "folder");
 define('unable_retrieve_mod_info', "Unable to retrieve mod information from database.");
 define('unexpected_result_libremote', "Unexpected result from libremote, please inform developers.");
@@ -138,8 +130,17 @@ define('error_occured_remote_host', "Error occurred on the remote host");
 define('follow_server_status', "You can follow the server status from");
 define('addons', "Addons");
 define('hostname', "Hostname");
-define('rsync_install', "[Rsync Installation]");
+define('rsync_install', "[Rsync Install]");
+define('ping', "Ping");
+define('team', "Team");
+define('deaths', "Deaths");
+define('pid', "PID");
+define('skill', "Skill");
+define('AIBot', "AIBot");
+define('steamid', "Steam ID");
+define('player', "Player");
 define('port', "Port");
+define('rcon_presets', "RCON presets");
 define('update_from_local_master_server', "Update from local master server");
 define('update_from_selected_rsync_server', "Update from selected rsync server");
 define('execute_selected_server_operations', "Execute selected server operations");
@@ -149,8 +150,6 @@ define('mysql_databases', "MySQL Databases");
 define('failed_querying_server', "* Failed querying the server.");
 define('query_protocol_not_supported', "* There is no query protocol in OGP that can support this server.");
 define('queries_disabled_by_setting_disable_queries_after', "Queries disabled by setting: Disable queries after: %s, since you have %s servers.<br>");
-
-// rcon_presets.php
 define('presets_for_game_and_mod', "RCON presets for %s and mod %s");
 define('name', "Name");
 define('command', "RCON&nbsp;Command");
@@ -158,40 +157,21 @@ define('add_preset', "Add preset");
 define('edit_presets', "Edit presets");
 define('del_preset', "Delete");
 define('change_preset', "Change");
-define("send_command", "Send command");
-define('rcon_presets', 'Rcon presets');
-
-//rsync_install.php
+define('send_command', "Send command");
 define('starting_copy_with_master_server_named', "Starting copy with master server named '%s'...");
 define('starting_sync_with', "Starting sync with %s...");
 define('refresh_interval', "Log refreshing interval");
-define('refresh_rsync_status', 'Refresh rsync status');
-
-
-//update_server_manual.php
 define('finished_manual_update', "Finished manual update.");
-define('failed_to_start_file_download', "Failed to start file download");
+define('failed_to_start_file_download', "Konnte Datei-Download nicht starten.");
 define('game_name', "Game name");
 define('dest_dir', "Destination directory");
 define('remote_server', "Remote Server");
 define('file_url', "File URL");
 define('file_url_info', "The URL of the file that is uploaded and uncompressed to the directory.");
-
 define('dest_filename', "Destination Filename");
 define('dest_filename_info', "The filename for the destination file.");
 define('update_server', "Update server");
 define('unavailable', "Unavailable");
-
-define('ping', "Ping");
-define('team', "Team");
-define('deaths', "Deaths");
-define('pid', "PID");
-define('skill', "Skill");
-define("AIBot", "AIBot");
-define("steamid", "Steam ID");
-define('player', "Player");
-
-//map image upload
 define('upload_map_image', "Upload map image");
 define('upload_image', "Upload image");
 define('jpg_gif_png_less_than_1mb', "The image must be jpg, gif or png and less than 1 MB.");
@@ -201,9 +181,8 @@ define('cant_create_folder', "Can't create folder:<br><b>%s</b>");
 define('cant_write_file', "Can't write file:<br><b>%s</b>");
 define('exceeded_php_directive', "Exceeded PHP directive.<br><b>%s</b>.");
 define('unknown_errors', "Unknown errors.");
-
-// RCON
-define('view_player_commands',"View Player Commands");
-define('hide_player_commands',"Hide Player Commands");
-define('no_online_players',"There are no online players.");
+define('directory', "Ordner-Pfad");
+define('view_player_commands', "View Player Commands");
+define('hide_player_commands', "Hide Player Commands");
+define('no_online_players', "There are no online players.");
 ?>

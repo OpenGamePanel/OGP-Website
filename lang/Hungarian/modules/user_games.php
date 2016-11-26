@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -22,7 +22,6 @@
  *
  */
 
-// add_game_home.php
 define('add_mods_note', "Hozzáadás után mod-ot is hozzá kell adni a szerverhez. Ez a szerver szerkesztésével lehetséges.");
 define('game_servers', "Játék szerverek");
 define('game_path', "Elérési útvonal");
@@ -41,8 +40,6 @@ define('no_game_configurations_found', "No game configuration found. You need to
 define('game_configurations', ">game configuration page");
 define('add_remote_server', "Add a server.");
 define('wine_games', "Wine Games");
-
-// edit_games.php
 define('home_path', "Elérési útvonal");
 define('change_home_info', "Az installált szerver elérési útvonala. Például: /home/ogp/szervered/");
 define('game_server_name', "Játék szerver neve");
@@ -126,8 +123,6 @@ define('successfully_assigned_mod_to_address', "Successfully assigned mod to add
 define('switch_mods', "Switch mods");
 define('switch_mod_for_address', "Switch mod for address %s");
 define('invalid_path', "Invalid Path");
-
-// show_games.php
 define('add_new_game_home', "Játék szerver hozzáadása");
 define('no_game_homes_found', "Nincs játék szerver");
 define('available_game_homes', "Elérheto játék szerverek");
@@ -137,8 +132,6 @@ define('game_type', "Játék típus");
 define('game_home', "Játék helye");
 define('game_home_name', "Játék szerver neve");
 define('clone', "Klónozás");
-
-// assign_games.php
 define('unassign', "Eltávolít");
 define('access_rights', "Hozzáférési jogok");
 define('assigned_homes', "Társított játék szerverek");
@@ -168,8 +161,6 @@ define('no_more_homes_available_that_can_be_assigned_for_this_user', "No more ho
 define('no_more_homes_available_that_can_be_assigned_for_this_group', "No more homes available that can be assigned for this group");
 define('you_can_add_a_new_game_server_from', "You can add a new game server from %s.");
 define('no_remote_servers_available_please_add_at_least_one', "There are no remote servers available, please add at least one!");
-
-// clone_home.php
 define('cloning_of_home_failed', "Cloning of home with id '%s' failed.");
 define('no_mods_to_clone', "No enabled mod(s) for this game yet. None will be cloned.");
 define('failed_to_add_mod', "Failed to add mod with id '%s' to home with id '%s'.");
@@ -193,8 +184,6 @@ define('the_name_of_the_server_to_help_users_to_identify_it', "The name of the s
 define('ips_and_ports_used_in_this_home', "IPs and Ports used in this home");
 define('note_ips_and_ports_are_not_cloned', "Note - IPs and Ports are not cloned");
 define('mods_and_settings_for_this_game_server', "Mods and settings for this game server");
-
-// del_home.php
 define('sure_to_delete_serverid_from_remoteip_and_directory', "Are you sure you want to delete game server (ID: %s) from server %s and is in directory %s");
 define('yes_and_delete_the_files', "Yes and Delete the files");
 define('failed_to_remove_gamehome_from_database', "Failed to remove gamehome from database.");
@@ -204,17 +193,11 @@ define('remove_it_anyway', "Would you like to remove it anyway?");
 define('sucessfully_deleted', "Sucessfully deleted %s");
 define('the_agent_had_a_problem_deleting', "The agent had a problem deleting %s, check the agent log");
 define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems reaching the agent");
-
-// get_size.php
 define('does_not_exist_yet', "Does not exist yet.");
-
-// Custom fields
 define('go_to_custom_fields', "Go to Custom Fields");
 define('back_to_edit_server', "Back to edit server");
 define('update_settings', "Update settings");
 define('settings_updated', "Settings updated.");
-
-// Home path browser
 define('selected_path_already_in_use', "The selected path is already in use.");
 define('browse', "Browse");
 define('cancel', "Cancel");

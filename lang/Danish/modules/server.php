@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// servers.php
 define('add_new_remote_host', "Tilføj Ny Fjernvært");
 define('configured_remote_hosts', "Konfigurer Fjernvært");
 define('remote_host', "Fjernvært");
@@ -46,8 +45,6 @@ define('ip_administration', "Server &amp; IP Administration :: Open Game Panel")
 define('unknown_error', "Ukendt fejl - status_chk retueret");
 define('remote_host_user_name', "UNIX bruger");
 define('remote_host_user_name_info', "Brugernavn, hvor agenten kører fra. Eksempel: Jonhy");
-define('ogp_user', remote_host_user_name);
-define('ogp_user_info', remote_host_user_name_info);
 define('remote_host_ftp_ip', "FTP IP");
 define('remote_host_ftp_ip_info', "FTP serveren <b>IP</b> for den nuværrende agent.");
 define('remote_host_ftp_port', "FTP port");
@@ -64,8 +61,6 @@ define('confirm_restart', "Are you sure you want to restart the agent named '%s'
 define('restarting', "Restarting agent... Please wait.");
 define('restarted', "Agent successfully restarted.");
 define('reboot_success', "Server named '%s' was successfully rebooted. You will not be able to access the server until it has successfully booted.");
-
-// edit_server.php
 define('invalid_remote_host_id', "Ugyldig fjernvært id '%s' givet.");
 define('remote_host_removed', "Fjernværten kaldet '%s' fjernet succesfuldt.");
 define('editing_remote_server', "Regidere fjern server kaldet '%s'");
@@ -83,10 +78,8 @@ define('error_while_remove', "Fejl opstod, ved fjernelse af fjern server.");
 define('add_ip', "Tilføj IP");
 define('remove_ip', "Fjern IP");
 define('edit_ip', "Redigere IP");
-define('wrote_changes', "Skrev ændringer succesfuldt.");
+define('wrote_changes', "Skrev ændringerne succesfuldt.");
 define('there_are_servers_running_on_this_ip', "Der er servere der kører på denne IP addresse.");
-
-// add_server.php
 define('enter_ip_host', "Du må skrive IP til fjernværten.");
 define('enter_valid_ip', "Du må indtaste en aktiv port til fjernværten. Portens værdi, skal være mellem 0 og 65535, dog anbefales det, at sætte den mellem 1024 og 65535.");
 define('could_not_add_server', "Kunne ikke filføje server");
@@ -103,8 +96,6 @@ define('timeout', "Tiden Udløb");
 define('timeout_info', "Sekunder. Tids grænse for at få svar fra denne agent.");
 define('use_nat', "Brug NAT");
 define('use_nat_info', "Aktivere hvis din fjernserver bruger NAT regler.");
-
-// arrange_servers.php
 define('arrange_ports', "Arrange ports");
 define('assign_new_ports_range_for_ip', "Assign new ports range for IP %s");
 define('assigned_port_ranges_for_ip', "Assigned port ranges for IP %s");
@@ -118,9 +109,9 @@ define('available_range_ports', "Available range ports:");
 define('assign_range', "Assign range");
 define('edit_range', "Edit range");
 define('delete_range', "Delete range");
-define('home_id', "Home ID");
-define('home_path', "Home path");
-define('game_type', "Game type");
+define('home_id', "Hjemme ID");
+define('home_path', "Hjemme sti");
+define('game_type', "Spil Type");
 define('port', "Port");
 define('invalid_values', "Invalid values.");
 define('ports_in_range_already_arranged', "Ports in range already arranged.");
@@ -128,20 +119,18 @@ define('ports_range_already_configured_for', "Ports range already configured for
 define('ports_range_added_successfull_for', "Ports range added successfull for %s.");
 define('ports_range_deleted_successfull', "Ports range deleted successfull.");
 define('ports_range_edited_successfull_for', "Ports range edited successfull for %s.");
-
-// Firewall
-define('editing_firewall_for_remote_server', 'Editing Firewall for remote server named "%s"');
-define('default_allowed', 'Default allowed');
-define('allow_port_command', 'Allow port command');
-define('deny_port_command', 'Deny port command');
-define('allow_ip_port_command', 'Allow IP:port command');
-define('deny_ip_port_command', 'Deny IP:port command');
-define('enable_firewall_command', 'Enable firewall command');
-define('disable_firewall_command', 'Disable firewall command');
-define('get_firewall_status_command', 'Get firewall status command');
-define('reset_firewall_command', 'Reset firewall command');
-define('firewall_status', 'Firewall status');
-define('save_firewall_settings', 'Save firewall settings');
-define('reset_firewall', 'Reset Firewall');
-define('firewall_settings', 'Firewall Settings');
+define('editing_firewall_for_remote_server', "Editing Firewall for remote server named '%s'");
+define('default_allowed', "Default allowed");
+define('allow_port_command', "Allow port command");
+define('deny_port_command', "Deny port command");
+define('allow_ip_port_command', "Allow IP:port command");
+define('deny_ip_port_command', "Deny IP:port command");
+define('enable_firewall_command', "Enable firewall command");
+define('disable_firewall_command', "Disable firewall command");
+define('get_firewall_status_command', "Get firewall status command");
+define('reset_firewall_command', "Reset firewall command");
+define('firewall_status', "Firewall status");
+define('save_firewall_settings', "Save firewall settings");
+define('reset_firewall', "Reset Firewall");
+define('firewall_settings', "Firewall Settings");
 ?>

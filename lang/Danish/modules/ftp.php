@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,7 @@
  *
  */
 
-define('pure-ftpd_accounts_for_remote_server_named', "Pure-FTPd kontos til fjernservers navn %s");
+define('pure-ftpd_accounts_for_remote_server_named', "FTP kontos til fjernservers navn %s");
 define('ftp_address', "FTP addresse: %s:%s");
 define('change_account_details', "Skift Konto detaljer");
 define('remove_account', "Fjern konto");

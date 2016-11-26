@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -24,7 +24,7 @@
 
 define('dir_not_found', "Directory '%s' not found from the server.");
 define('filename', "Dateiname");
-define('filesize', "Dateigröße");
+define('filesize', "DateigrÃ¶ÃŸe");
 define('bytes', "Bytes");
 define('owner', "Besitzer");
 define('group', "Gruppe");
@@ -34,7 +34,7 @@ define('wrote_changes', "Wrote changes successfully.");
 define('failed_write', "Failed to write file to remote server.");
 define('failed_read', "Failed to read file from the remote server.");
 define('failed_list', "Failed to retrieve directory list.");
-define('level_up', "^Eine Ebene hinauf^");
+define('level_up', "Eine Ebene hinauf");
 define('unallowed_char', "Unallowed characters found from the path.");
 define('button_edit', "[Bearbeiten]");
 define('save', "Save");
@@ -47,12 +47,12 @@ define('upload_file', "Upload file");
 define('uncompress', "Uncompress");
 define('create_folder', "Create folder");
 define('create', "Create");
-define("delete_item", "Delete %s?");
+define('delete_item', "Delete %s?");
 define('upload_in_progress', "Upload in progress...");
 define('upload_complete', "Upload complete.");
 define('chattr_yes', "Lock File");
 define('chattr_no', "Unlock File");
-define("secure_item", "Secure/Unsecure %s?");
+define('secure_item', "Secure/Unsecure %s?");
 define('filesecure', "File Security");
 define('chattr_locked', "File Locked");
 define('chattr_unlocked', "File Unlocked");

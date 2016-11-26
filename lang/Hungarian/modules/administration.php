@@ -23,7 +23,7 @@
  */
 
 define('external_links', "Külső hivatkozások");
-define('url', "Hivatkozás");
+define('url', "Cím");
 define('name', "Név");
 define('add_it', "Hozzáadás");
 define('link_has_been_removed', "A(z) %s hivatkozás eltávolításra került.");
@@ -32,16 +32,12 @@ define('download_db_backup', "Adatbázis mentés letöltése");
 define('restore_db_backup', "Adatbázis mentés visszaállítása");
 define('sql_file', "fájl(.sql)");
 define('change_buttons_order', "Változás gomb rendelés");
-
-// Watch Logger
 define('when', "Mikor");
 define('who', "Ki");
 define('where', "IP");
 define('what', "Mit csinál?");
-define('search', "Keres");
+define('search', "Keresés");
 define('empty_logger', "Logolás ürítése");
-
-// Ban list
 define('ban_list', "Ban list");
 define('no_banned_ips', "There are no banned IPs");
 define('unban', "Unban IP");
