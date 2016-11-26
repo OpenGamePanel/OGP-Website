@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -30,14 +30,14 @@ define('owner', "Usuario");
 define('group', "Grupo");
 define('empty_directory', "Directorio vacio.");
 define('currently_viewing', "Mostrando el directorio '%s'");
-define('button_edit', "[ Editar ] ");
-define('level_up', "Subir un nivel");
 define('wrote_changes', "Cambios guardados");
-define("failed_write", "Imposible guardar.");
-define("failed_read", "Imposible leer.");
-define("failed_list", "Imposible listar directorio.");
-define("unallowed_char", "Caracter no permitido.");
-define("save", "Guardar");
+define('failed_write', "Imposible guardar.");
+define('failed_read', "Imposible leer.");
+define('failed_list', "Imposible listar directorio.");
+define('level_up', "Subir un nivel");
+define('unallowed_char', "Caracter no permitido.");
+define('button_edit', "[ Editar ] ");
+define('save', "Guardar");
 define('home_id_missing', "Home ID no encontrada.");
 define('upload', "Subir");
 define('upload_failed', "Falló la subida, el error fue: %s.");
@@ -47,12 +47,12 @@ define('upload_file', "Subir archivos");
 define('uncompress', "Descomprimir");
 define('create_folder', "Crear carpeta");
 define('create', "Crear");
-define("delete_item", "Borrar %s?");
+define('delete_item', "Borrar %s?");
 define('upload_in_progress', "Subiendo, en progreso...");
 define('upload_complete', "Archivo subido correctamente.");
 define('chattr_yes', "Bloquear Archivo");
 define('chattr_no', "Desbloquear Archivo");
-define("secure_item", "Bloquear/Desbloquear %s?");
+define('secure_item', "Bloquear/Desbloquear %s?");
 define('filesecure', "Seguridad del archivo");
 define('chattr_locked', "Archivo Bloqueado");
 define('chattr_unlocked', "Archivo Desbloqueado");
@@ -83,6 +83,6 @@ define('dest_email', "Email de destino");
 define('remove', "Borrar");
 define('send_by_email', "Enviar por email");
 define('send_by_email_info', "Para poder enviar archivos por email necesita que el paquete 'mutt' esté instalado en el lado del agente.");
-define('settings_updated', "Configuración actualizada");
+define('settings_updated', "Configuración actualizada.");
 define('update_settings', "Actualizar configuración");
 ?>

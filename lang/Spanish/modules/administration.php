@@ -32,16 +32,12 @@ define('download_db_backup', "Descargar copia de seguridad");
 define('restore_db_backup', "Restaurar copia de seguridad");
 define('sql_file', "Archivo(.sql)");
 define('change_buttons_order', "Cambiar orden de los botones");
-
-// Watch Logger
 define('when', "Cuando");
 define('who', "Quién");
 define('where', "Donde");
 define('what', "Qué");
-define('search', "Buscar");
+define('search', "Busqueda");
 define('empty_logger', "Vaciar Logger");
-
-// Ban list
 define('ban_list', "IP baneadas");
 define('no_banned_ips', "No hay ninguna IP baneada");
 define('unban', "Desbanear");
