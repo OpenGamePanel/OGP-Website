@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -31,7 +31,7 @@ define('execute_permission_required', "Требуются права на вып
 define('create_an_empty_file', "Создать пустой файл.");
 define('found', "Найдено");
 define('not_found', "Не найдено");
-define('pear_xxtea_info', 'Pear Crypt_XXTEA требуется для использования OGP. В большинстве Linux систем этот модуль может быть установлен при помощи команды "pear install Crypt_XXTEA-beta".');
+define('pear_xxtea_info', "Pear Crypt_XXTEA требуется для использования OGP. В большинстве Linux систем этот модуль может быть установлен при помощи команды \"pear install Crypt_XXTEA-beta\".");
 define('refresh', "Обновить");
 define('checking_required_modules', "Проверка нужных модулей");
 define('database_type', "Тип базы данных");

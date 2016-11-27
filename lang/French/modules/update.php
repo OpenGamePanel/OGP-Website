@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,41 +23,33 @@
  */
 
 include('litefm.php');
-// updating.php
 define('curl_needed', "Cette page requiert le module PHP curl.");
-define('no_access', "Vous devez avoir les droits d'administration pour accéder à cette page.");
-define('dwl_update', "Téléchargement de la mise à jour...");
-define('dwl_complete', "Téléchargement complété");
-define('install_update', "Mise à jour en cours...");
-define('update_complete', "Mise à jour effectuée avec succès");
-define('ignored_files', "%s fichiers ignorés.");
-define('not_updated_files_blacklisted', "Fichiers non mis à jour/installés (Blacklistés):<br>%s");
-
-// update.php
-define('latest_version', "Dernière version");
-define('panel_version', "Version du panneau");
-define('update_now', "Mettre à jour maintenant");
-define('the_panel_is_up_to_date', "Le panneau est à jour.");
-define('files_overwritten', "%s fichiers écrasés.");
-define('can_not_update_non_writable_files', "Impossible de mettre à jour car les fichiers/dossiers suivants ne peuvent pas être modifiés");
-define('dwl_failed', "L'URL de téléchargement n'est pas accessible : \"%s\".<br>Réessayer plus tard.");
-define('temp_folder_not_writable', "Le téléchargement ne peut démarré car le serveur Web n'a pas la permission d'écrire dans le dossier temporaire(%s).");
-define('base_dir_not_writable', "Le panneau ne peut être mis à jour car le serveur Web n'a pas les droits d'écriture sur le dossier \"%s\".");
+define('no_access', "Vous devez avoir les droits d'administration pour accÃ©der Ã  cette page.");
+define('dwl_update', "TÃ©lÃ©chargement de la mise Ã  jour...");
+define('dwl_complete', "TÃ©lÃ©chargement complÃ©tÃ©");
+define('install_update', "Mise Ã  jour en cours...");
+define('update_complete', "Mise Ã  jour effectuÃ©e avec succÃ¨s");
+define('ignored_files', "%s fichiers ignorÃ©s.");
+define('not_updated_files_blacklisted', "Fichiers non mis Ã  jour/installÃ©s (BlacklistÃ©s):<br>%s");
+define('latest_version', "DerniÃ¨re version");
+define('panel_version', "Version du Panneau");
+define('update_now', "Mettre Ã  jour maintenant");
+define('the_panel_is_up_to_date', "Le Panneau est Ã  jour.");
+define('files_overwritten', "%s fichiers Ã©crasÃ©s.");
+define('can_not_update_non_writable_files', "Impossible de mettre Ã  jour car les fichiers/dossiers suivants ne peuvent pas Ãªtre modifiÃ©s");
+define('dwl_failed', "L'URL de tÃ©lÃ©chargement n'est pas accessible : \"%s\".<br>RÃ©essayer plus tard.");
+define('temp_folder_not_writable', "Le tÃ©lÃ©chargement ne peut dÃ©marrÃ© car le Serveur Web n'a pas la permission d'Ã©crire dans le dossier temporaire(%s).");
+define('base_dir_not_writable', "Le panneau ne peut Ãªtre mis Ã  jour car le Serveur Web n'a pas les droits d'Ã©criture sur le dossier \"%s\".");
 define('new_files', "%s nouveaux fichiers.");
-define('updated_files', "Fichiers mis à jour :<br>%s");
+define('updated_files', "Fichiers mis Ã  jour:<br>%s");
+define('select_mirror', "SÃ©lectionner le mirroir");
 define('view_changes', "Voir les changements");
-define('get_x_revison_messages_may_take_some_time', "Récupérer %s messages de révision peut prendre du temps.");
-
-//updating_modules.php
-define('updating_modules', "Mise à jour des modules");
-define('updating_finished', "Mise à jour terminée");
-define('updated_module', "Module mis à jour : '%s'.");
-define('select_mirror', "Sélectionner le mirroir");
-
-//blacklist.php
+define('get_x_revison_messages_may_take_some_time', "RÃ©cupÃ©rer %s messages de rÃ©vision peut prendre du temps.");
+define('updating_modules', "Mise Ã  jour des modules");
+define('updating_finished', "Mise Ã  jour terminÃ©e");
+define('updated_module', "Module mis Ã  jour: '%s'.");
 define('blacklist_files', "Liste Noire des fichiers");
-define('blacklist_files_info', "Tous les fichiers marqués ne seront pas mis à jour.");
+define('blacklist_files_info', "Tous les fichiers marquÃ©s ne seront pas mis Ã  jour.");
 define('save_to_blacklist', "Enregistrer dans la Liste Noire");
-
-define('no_new_updates', 'Pas de nouvelles mises à jour');
+define('no_new_updates', "Pas de nouvelles mises Ã  jour");
 ?>

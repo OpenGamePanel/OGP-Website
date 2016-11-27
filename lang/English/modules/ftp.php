@@ -25,9 +25,9 @@
 define('pure-ftpd_accounts_for_remote_server_named', "FTP accounts for remote server named %s");
 define('ftp_address', "FTP address: %s:%s");
 define('change_account_details', "Change account details");
-define('remove_account', "Remove account");
+define('remove_account', "Delete account");
 define('ftp_account_already_exists', "This FTP account already exists.");
-define('full_path', "Full path");
+define('full_path', "Home directory");
 define('add_ftp_account', "Add FTP account");
 define('remote_server', "Remote server");
 define('server_name', "Server name");

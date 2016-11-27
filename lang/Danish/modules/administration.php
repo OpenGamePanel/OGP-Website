@@ -32,16 +32,12 @@ define('download_db_backup', "Download DB Backup");
 define('restore_db_backup', "Genskab DB Backup");
 define('sql_file', "fil(.sql)");
 define('change_buttons_order', "Skifte knap ordre");
-
-// Watch Logger
 define('when', "Når");
 define('who', "Hvem");
 define('where', "Hvor");
 define('what', "Hvad");
 define('search', "Søg");
 define('empty_logger', "Tom Logger");
-
-// Ban list
 define('ban_list', "Ban list");
 define('no_banned_ips', "There are no banned IPs");
 define('unban', "Unban IP");

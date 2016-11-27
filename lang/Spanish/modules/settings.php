@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,15 +22,14 @@
  *
  */
 
-// settings.php
 define('maintenance_mode', "Modo de mantenimiento");
 define('maintenance_mode_info', "El mensaje que se mostrara cuando la pagina este deshabilitada por mantenimiento.");
-define('maintenance_title', "Maintenance Title");
-define('maintenance_title_info', "The title that is displayed to normal users during maintenance.");
+define('maintenance_title', "Titulo de mantenimiento");
+define('maintenance_title_info', "Título que se muestra cuando la página esta en modo de mantenimiento.");
 define('maintenance_message', "Mensaje de mantenimineto");
 define('maintenance_message_info', "Este es el mensaje que se mostrara cuando la pagina este deshabilitada por mantenimiento.");
-define('update_settings', "Aplicar");
-define('settings_updated', "Opciones aplicadas correctamente.");
+define('update_settings', "Actualizar configuración");
+define('settings_updated', "Configuración actualizada.");
 define('panel_language', "Lenguaje del panel");
 define('panel_language_info', "El lenguaje que seleccione aqui sera el lenguaje por defecto para todos los usuarios. Cada usuario podra seleccionar un lenguaje posteriormente.");
 define('page_auto_refresh', "Refresco de paginas automatico");
@@ -84,26 +83,18 @@ define('support_widget_content', "Contenido widget soporte");
 define('support_widget_content_info', "El contenido del widget de soporte, puede usar codigo HTML.");
 define('support_widget_link', "Enlace widget soporte");
 define('support_widget_link_info', "La URL de su web de soporte.");
-define('recaptcha_site_key', "Recaptcha Site Key");
-define('recaptcha_site_key_info', "The site key provided to you by Google.");
-define('recaptcha_secret_key', "Recaptcha Secret Key");
-define('recaptcha_secret_key_info', "The secret key provided to you by Google.");
-define('recaptcha_use_login', "Use Recaptcha on Login");
-define('recaptcha_use_login_info', "If enabled, users will have to solve the Not a Robot Recaptcha when attempting to login.");
+define('recaptcha_site_key', "Clave Recaptcha (site key)");
+define('recaptcha_site_key_info', "La clave que recibiste de Google.");
+define('recaptcha_secret_key', "Clave secreta Recaptcha");
+define('recaptcha_secret_key_info', "La clave secreta que te proporcionó Google.");
+define('recaptcha_use_login', "Usar Recaptcha en el inicio de sesión");
+define('recaptcha_use_login_info', "Si se activa, los usuarios deberán resolver una pregunta a parte de su inicio de sesión habitual. Esto intenta evitar intentos de inicio de sesión automatizados por parte de un programa.");
 define('remote_query', "Peticiones remotas");
 define('remote_query_info', "Usar el servidor remoto (Agente) para hacer peticiones a los servidores de juegos (Solo GameQ y LGSL).");
-
 define('check_expiry_by', "Comprobar caducidad por");
-define('check_expiry_by_info', "Al elegir <i>\"Una vez dentificado\"</i> los servidores ( o asignaciones de servidores ),<br> 
-								seran eliminados ( o quitados al usuario/grupo ) una vez que el usuario al que pertenecen <br>
-								( o estan asignados ) se identifica.<br>
-								Sin embargo, si elige la opción <i>\"Trabajo de Cron\"</i> usted debera tener configurado un trabajo de cron<br>
-								para ejecutar cada cierto tiempo el script que comprueba la fecha de caducidad y,<br>
-								de este modo, llevar a cabo estas tareas lo mas pronto posible.");
+define('check_expiry_by_info', "Al elegir <i>\"Una vez dentificado\"</i> los servidores ( o asignaciones de servidores ),<br>seran eliminados ( o quitados al usuario/grupo ) una vez que el usuario al que pertenecen <br>( o estan asignados ) se identifica.<br>Sin embargo, si elige la opción <i>\"Trabajo de Cron\"</i> usted debera tener configurado un trabajo de cron<br>para ejecutar cada cierto tiempo el script que comprueba la fecha de caducidad y,<br>de este modo, llevar a cabo estas tareas lo mas pronto posible.");
 define('once_logged_in', "Una vez dentificado");
 define('cron_job', "Trabajo de Cron");
-
-// Theme settings
 define('theme_settings', "Ajustes de tema");
 define('theme', "Tema");
 define('theme_info', "El tema que seleccione aqui sera el tema por defecto para todos los usuarios. Cada usuario podra seleccionar un tema posteriormente.");
@@ -133,5 +124,4 @@ define('custom_tab_target_blank', "Comportamiento de los botones");
 define('custom_tab_target_blank_info', "Ajusta el comportamiento de todos los botones personalizados. <b style='font-size:10px; font-weight:normal;'>('_self' = Abre el enlace en la misma pagina. '_blank'  =  Abre el enlace en una pestaña o ventana nueva.)</b>");
 define('bg_wrapper', "Imagen de fondo");
 define('bg_wrapper_info', "La imagen de fondo del panel. <b style='font-size:10px; font-weight:normal;'>(Solo funciona con algunos temas.)</b>");
-
 ?>

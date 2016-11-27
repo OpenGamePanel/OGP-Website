@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -31,7 +31,7 @@ define('execute_permission_required', "Requiere permisos de ejecución (777)");
 define('create_an_empty_file', "Crea un archivo vacio.");
 define('found', "Encontrado");
 define('not_found', "No Encontrado");
-define('pear_xxtea_info', 'Pear Crypt_XXTEA se requiere para usar OGP. En la mayoria de sistemas Linux este modulo puede ser instalado con pear usando el siguiente comando "pear install Crypt_XXTEA-beta".');
+define('pear_xxtea_info', "Pear Crypt_XXTEA se requiere para usar OGP. En la mayoria de sistemas Linux este modulo puede ser instalado con pear usando el siguiente comando \"pear install Crypt_XXTEA-beta\".");
 define('refresh', "Refrescar");
 define('checking_required_modules', "Comprobando modulos requeridos");
 define('database_type', "Tipo De Base De Datos");
@@ -56,13 +56,13 @@ define('back', "Volver");
 define('database_setup_failure', "La instalacion no pudo crear las tablas en la base de datos. Por favor compruebe los datos de conexión.");
 define('php_version_check', "Comprobando la versión de PHP.");
 define('invalid_username', "Introdujo un nombre de usuario no valido.");
+define('password_too_short', "Contraseña demasiado corta.");
 define('password_contains_invalid_characters', "Su contraseña contiene caracteres no validos.");
 define('invalid_email_address', "Sú dirección de Email no puede ser comprobada.");
 define('setup_complete', "La instalación terminó correctamente. Open Game Panel está listo para sú uso.");
 define('remove_install_and_secure_config', "Por seguridad, debería eliminar install.php de su servidor y cambiar los permisos (chmod) de includes/config.inc.php a 644.");
 define('go_to_panel', "Haga click aquí para entrar a OGP.");
 define('unable_to_resolve', "Sí no puede resolver este problema visite el foro de OpenGamePanel.org, estaremos encantados de ayudarle.");
-define('slogan', "The OpenSource one!");
-define('default_welcome_title_message', "Welcome! <b style='font-size:12px; font-weight:normal;'>You can change this title in '<a href='?m=settings&p=themes'>Theme Settings</a>' under the '<a href='?m=administration&p=main'>Administration</a>' tab.</b>");
-define("password_too_short", "Contraseña demasiado corta.");
+define('slogan', "El de código abierto!");
+define('default_welcome_title_message', "Bienvenido! <b style='font-size:12px; font-weight:normal;'>Puede cambiar este texto en '<a href='?m=settings&p=themes'>Temas</a>' bajo el menú de '<a href='?m=administration&p=main'>Administración</a>'.</b>");
 ?>

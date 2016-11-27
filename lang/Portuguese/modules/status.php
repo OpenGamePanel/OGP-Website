@@ -22,17 +22,17 @@
  *
  */
 
-define("system_uptime", "System Uptime");
-define("system_up_time", "Up Time");
-define("system_up_since", "Since");
-define("cpu_usage", "CPU Usage");
-define("cpu_load", "Load");
-define("ram_usage", "RAM Usage");
-define("ram_used", "Memory Used");
-define("ram_of", "of");
-define("storage_space", "Storage Space");
-define("storage_total", "Disk Space");
-define("storage_used", "Used");
-define("storage_free", "Free Space");
-define("process_monitor", "Process Monitor");
+define('system_uptime', "System Uptime");
+define('system_up_time', "Up Time");
+define('system_up_since', "Since");
+define('cpu_usage', "CPU Usage");
+define('cpu_load', "Load");
+define('ram_usage', "RAM Usage");
+define('ram_used', "Memory Used");
+define('ram_of', "of");
+define('storage_space', "Storage Space");
+define('storage_total', "Disk Space");
+define('storage_used', "Used");
+define('storage_free', "Free Space");
+define('process_monitor', "Process Monitor");
 ?>

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# Russian language variables
-#
-#####################################################################
 
 define('lang_charset', "UTF-8");
 define('already_logged_in_redirecting_to_dashboard', "Вы уже вошли в систему, перенаправление на главную страницу");
@@ -58,16 +54,12 @@ define('yes', "Да");
 define('no', "Нет");
 define('on', "On");
 define('off', "Off");
-
-// datase vars.
 define('db_error_invalid_host', "Неверно введен хост базы данных.");
 define('db_error_invalid_user_and_pass', "Неверное имя пользователя базы данных и/или пароль.");
 define('db_error_invalid_database', "Неверная база данных.");
 define('db_unknown_error', "Неизвестная ошибка базы данных: %s");
 define('db_error_module_missing', "Обязательные базы данных PHP модуль отсутствует.");
 define('db_error_invalid_db_type', "Неверный тип базы данных в конфигурационном файле.");
-
-// home.php
 define('invalid_login_information', "Неверная регистрационная информация.");
 define('failed_to_read_config', "Не удалось прочитать файл конфигурации.");
 define('account_expired', "Ваш аккаунт просрочен.");
@@ -75,38 +67,22 @@ define('contact_admin_to_enable_account', "Свяжитесь с админис�
 define('maintenance_mode_on', "Режим обслуживания");
 define('logging_out_10', "Выход через 10 секунд");
 define('invalid_redirect', "Перенаправление");
-define('copyright', "copyright");
-define('all_rights_reserved', "Все права защищены");
-define('queries_executed', "запросов к базе");
-define('cur_theme', "%s тема оформления");
-
-// index.php
 define('login_title', "Вход в панель управления");
-define('lang', "Язык");
-
-// includes/navig.php
 define('module_not_installed', "Модуль не установлен");
-
-// Common
 define('no_access_to_home', "У вас нет доступа для этого действия.");
 define('not_available', "N/A");
 define('offline', "Offline");
 define('online', "Online");
 define('invalid_url', "Неверный URL");
-
-// XML parsing
 define('xml_file_not_valid', "XML файл '%s' не может быть проверен с помощью схемы '%s'.");
 define('unable_to_load_xml', "Невозможно загрузить XML файл '%s'. Проблема с правами доступа?");
-
-// User Menu
 define('gamemanager', "Управление");
 define('game_monitor', "Мониторинг");
 define('dashboard', "Главная");
 define('user_addons', "Аддоны");
 define('ftp', "FTP");
 define('shop', "Магазин");
-
-// Admin Menu
+define('TS3Admin', "TS3 Admin");
 define('administration', "Админка");
 define('config_games', "Игры/Моды конфигурация");
 define('modulemanager', "Модули");
@@ -121,26 +97,26 @@ define('addons_manager', "Менеджер аддонов");
 define('ftp_admin', "пользователи FTP");
 define('orders', "Заказы");
 define('services', "Услуги");
+define('shop_settings', "настройка магазина");
 define('update', "Обновление панели");
 define('extras', "Добавочный");
-define('watch_logger', "Watch Logger");
-
-// Server Selector
 define('show', "Показать");
 define('show_all', "Показать все сервера");
-define("TS3Admin", "TS3Admin");
-define("shop_settings", "настройка магазина");
-
-// Get home path size
+define('cur_theme', "%s тема оформления");
+define('copyright', "Copyright");
+define('all_rights_reserved', "Все права защищены");
+define('queries_executed', "запросов к базе");
+define('lang', "Язык");
 define('get_size', "Get size");
 define('total_size', "Total size");
-define('lgsl', 'Lgsl');
-define('lgsl_admin', 'Lgsl admin');
-define('rcon', 'Rcon');
+define('lgsl', "LGSL");
+define('lgsl_admin', "LGSL Admin");
+define('rcon', "RCON");
+define('watch_logger', "Watch Logger");
 define('litefm_settings', "LiteFM Settings");
-define('assign_expiration_date', 'Assign expiration date');
-define('assign_expiration_date_info', 'Once it expires the server is unassigned but not removed.');
-define('server_expiration_date', 'Server expiration date');
-define('server_expiration_date_info', 'Once it expires the server is removed (database and files).');
-define('set_expiration_date', 'Set expiration date');
+define('assign_expiration_date', "Assign expiration date");
+define('assign_expiration_date_info', "Once it expires the server is unassigned but not removed.");
+define('server_expiration_date', "Server expiration date");
+define('server_expiration_date_info', "Once it expires the server is removed (database and files).");
+define('set_expiration_date', "Set expiration date");
 ?>

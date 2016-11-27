@@ -68,8 +68,8 @@ define('failed_to_update_user_profile_error', "Failed to update user profile. Er
 define('profile_of_user_modified_successfully', "Profile of user <b>%s</b> was modified successfully.");
 define('no_subusers', "No subusers are available to be assigned to a group. Please create subuser accounts.");
 define('ownedby', "Parent Owner");
-define('andSubUsers', " And all of his subusers?"); 
-define('subusers', "Subusers"); 
+define('andSubUsers', " And all of his subusers?");
+define('subusers', "Subusers");
 define('show_subusers', "Show Subusers");
 define('hide_subusers', "Hide Subusers");
 define('info_group', "From this page it is possible to determine user groups. You can assign servers to group so that they are availble for all of the group users.");
@@ -98,7 +98,7 @@ define('successfully_added_server_to_group', "Successfully added server to group
 define('successfully_removed_from_group', "Successfully removed %s from group <em>%s</em>.");
 define('could_not_delete_server_from_group', "Could not delete server %s from group <em>%s</em>.");
 define('successfully_removed_server_from_group', "Successfully removed server %s from group <em>%s</em>.");
-define('group_with_id_does_not_exist', "User with ID %s does not exist.");
+define('group_with_id_does_not_exist', "Group with ID %s does not exist.");
 define('are_you_sure_you_want_to_delete_group', "Are you sure you want to delete group <em>%s</em>?");
 define('unable_to_delete_group', "Unable to delete %s group.");
 define('successfully_deleted_group', "Successfully deleted group <b>%s</b>.");

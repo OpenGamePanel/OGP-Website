@@ -32,11 +32,11 @@ define('update_available', "Frissítés elérhető");
 define('not_installed', "Nincs telepítve");
 define('installed', "Telepítve");
 define('download_update', "Letöltés/Frissítés");
-define('are_you_sure', "Biztos vagy benne?");
+define('are_you_sure', "Biztos vagy benne");
 define('uninstalling_module_dataloss', "Modul eltávolításával elveszíti az összes adatot ami kapcsolódik hozzá");
-define('remove_files_for', "Szeretnéd, hogy távolítsa el az összes fájlt?");
+define('remove_files_for', "Szeretnéd eltávolítani az összes fájlt");
 define('confirm', "Megerősítés");
 define('cancel', "Mégse");
-define('extra_themes', "Extra téma");
-define('extra_modules', "Extra modul");
+define('extra_themes', "Extra témák");
+define('extra_modules', "Extra modulok");
 ?>

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,42 +22,33 @@
  *
  */
 
-// modulemanager.php
-define('module_id', "Module ID");
+define('module_id', "ID du module");
 define('module_name', "Nom du module");
 define('module_folder', "Dossier du module");
 define('module_version', "Version du module");
 define('db_version', "Version BDD");
-define('modules_available_for_install', "Les modules suivants peuvent être installés");
+define('modules_available_for_install', "Les modules suivants peuvent Ãªtre installÃ©s:");
 define('install', "Installer");
 define('modules', "Modules");
-define('update_modules', "Mettre à jour les modules");
-define('no_installed_modules', "Aucun module installé.");
-define('not_complete', "La suppression/installation de modules n'est pas complète et peut ne pas fonctionner correctement.<br>ATTENTION : des données de la base de données OGP peuvent être perdues !");
-define('core_mods_installed', "Modules de Base Installés:");
-define('custom_mods_installed', "Modules Personnalisés Installés:");
-
-// add_module.php
+define('update_modules', "Mettre Ã  jour les modules");
+define('no_installed_modules', "Aucun module installÃ©.");
+define('not_complete', "La suppression/installation de modules n'est pas complÃ¨te et peut ne pas fonctionner correctement.<br>ATTENTION : des donnÃ©es de la base de donnÃ©es OGP peuvent Ãªtre perdues!");
+define('core_mods_installed', "Modules de Base InstallÃ©s:");
+define('custom_mods_installed', "Modules PersonnalisÃ©s InstallÃ©s:");
 define('installing_module', "Installation du module '%s'");
-define('successfully_installed_module', "Module %s installé avec succès.");
+define('successfully_installed_module', "Module %s installÃ© avec succÃ¨s.");
 define('failed_to_install_module', "Installation du module %s impossible.");
 define('adding_module', "Ajout du module '%s'.");
-define('module_already_installed', "Le module '%s' est déjà installé.");
-
-// del_module.php
-define('uninstalling_module', "Désintaller le module '%s'");
-define('successfully_uninstalled_module', "Module %s désinstallé avec succès.");
-define('failed_to_uninstall_module', "Désintallation du module %s impossible.");
-
-// module_handeling.php
-define('module_file_missing', "il manque le fichier module.php dans le répertoire.");
+define('module_already_installed', "Le module '%s' est dÃ©jÃ  installÃ©.");
+define('uninstalling_module', "DÃ©sintaller le module '%s'");
+define('successfully_uninstalled_module', "Module %s dÃ©sinstallÃ© avec succÃ¨s.");
+define('failed_to_uninstall_module', "DÃ©sintallation du module %s impossible.");
+define('module_file_missing', "il manque le fichier module.php dans le rÃ©pertoire.");
 define('module_file_missing_info', "il manque les informations obligatoires.");
-define('query_failed', "Impossible d'exécuter la requête");
-define('query_failed_2', "sur la base de données.");
-define('failed_del_db', "Impossible de supprimer le module de la base de données.");
-define('updated_module', "Modules mis à jour : '%s'.");
-
-//updating_modules.php
-define('updating_modules', "Mise à jour des modules");
-define('updating_finished', "Mise à jour terminée avec succès");
+define('query_failed', "Impossible d'exÃ©cuter la requÃªte");
+define('query_failed_2', "sur la base de donnÃ©es.");
+define('failed_del_db', "Impossible de supprimer le module de la base de donnÃ©es.");
+define('updated_module', "Modules mis Ã  jour: '%s'.");
+define('updating_modules', "Mise Ã  jour des Modules");
+define('updating_finished', "Mise Ã  jour terminÃ©e avec succÃ¨s");
 ?>

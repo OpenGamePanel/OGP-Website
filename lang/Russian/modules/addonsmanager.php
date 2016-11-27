@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// Addons
 define('install_plugin', "Установить плагин/мод");
 define('install_mappack', "Установить карты");
 define('install_config', "Установить конфиг");
@@ -36,8 +35,6 @@ define('no_games_servers_available', "Эти игровые сервера не 
 define('addon_installed_successfully', "Аддон успешно установлен.");
 define('path', "Путь");
 define('wait_while_decompressing', "Подождите, пока файл распаковывается %s.");
-
-// Admin Addons
 define('addon_name', "Название аддона");
 define('url', "URL-адрес");
 define('select_game_type', "Выберите Тип игры");
@@ -65,6 +62,5 @@ define('replacements', "Замены:");
 define('addon_name_info', "Enter a name for this addon, this is the name that the user sees.");
 define('url_info', "Enter a web address that contains a file to download, if compressed in zip or tar.gz will be unpacked in the root directory of the server or on the path given below.");
 define('path_info', "The path must be relative to the server folder and contain no slashes at the beginning or end, eg: cstrike/cfg. If left blank will use the server root path.");
-define('post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data ".
-						   "from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
+define('post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
 ?>

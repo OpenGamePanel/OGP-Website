@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,13 +22,13 @@
  *
  */
 
-define('pure-ftpd_accounts_for_remote_server_named', "Pure-FTPd Konten für Remote-Server mit dem Namen %s");
+define('pure-ftpd_accounts_for_remote_server_named', "FTP Konten fÃ¼r Remote-Server mit dem Namen %s");
 define('ftp_address', "FTP-Adresse: %s:%s");
-define('change_account_details', "Ändern Kontodaten");
+define('change_account_details', "Ã„ndern Kontodaten");
 define('remove_account', "Konto entfernen");
 define('ftp_account_already_exists', "Diese FTP-Account existiert bereits.");
-define('full_path', "Vollständiger Pfad");
-define('add_ftp_account', "Add FTP-Account");
-define('remote_server', "Remoto server");
+define('full_path', "VollstÃ¤ndiger Pfad");
+define('add_ftp_account', "Add FTP account");
+define('remote_server', "Remote server");
 define('server_name', "Server name");
 ?>

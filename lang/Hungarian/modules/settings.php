@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -22,56 +22,55 @@
  *
  */
 
-// settings.php
 define('maintenance_mode', "Karbantartás");
 define('maintenance_mode_info', "Egy üzenet lesz megjelenítve a normál felhasználóknak a karbantartás alatt.");
-define('maintenance_title', "Maintenance Title");
+define('maintenance_title', "Karbantartás címe");
 define('maintenance_title_info', "The title that is displayed to normal users during maintenance.");
-define('maintenance_message', "Üzenet");
+define('maintenance_message', "Karbantartási üzenet");
 define('maintenance_message_info', "Ez az üzenet lesz megjelenítve a felhasználóknak a karbantartás alatt.");
-define('update_settings', "Beállítások frissítése");
-define('settings_updated', "Beállítások sikeresen frissítve.");
-define('panel_language', "Nyelv");
+define('update_settings', "Frissítési beállítások");
+define('settings_updated', "A beállítások sikeresen frissítve.");
+define('panel_language', "Panel nyelve");
 define('panel_language_info', "A panel alapértelmezett nyelve. A felhasználók meg tudják változtatni a saját nyelvükre a profil beállításokban.");
 define('page_auto_refresh', "Oldal automatikus frissítése");
 define('page_auto_refresh_info', "Az oldal automatikus frissítése kikapcsolható debuggolási célból. Normál használat esetén érdemes bekapcsolni.");
-define('smtp_server', "Kimeno email szerver");
+define('smtp_server', "Kimenő e-mail szerver");
 define('smtp_server_info', "Ez a szerver lesz használva a kimeno leveleknek (SMTP szerver), például az elfelejtett jelszavak kiküldéséhez, localhost alapértelmezés szerint.");
-define('panel_email_address', "Kimeno levelek küldoje");
+define('panel_email_address', "Kimenő e-mail címe");
 define('panel_email_address_info', "Ez az email cím lesz használva a kimeno levelek küldojeként.");
 define('panel_name', "Panel neve");
 define('panel_name_info', "Name of the panel that is shown in the page title. This value will overrule all page titles, if not empty.");
-define('feed_enable', "LGSL feed");
+define('feed_enable', "Enable LGSL Feed");
 define('feed_enable_info', "If your webhost has a firewall blocking the query port you need enable it.");
-define('feed_url', "feed URL");
+define('feed_url', "Feed URL");
 define('feed_url_info', "GrayCube.com megosztja a LGSL feed URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Karakterkódolás");
 define('charset_info', "UTF8, ISO, ASCII, stb .. hagyta üresen az ISO kódolást.");
-define('steam_user', "Steam User");
+define('steam_user', "Steam felhasználó");
 define('steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
-define('steam_pass', "Steam Password");
-define('steam_pass_info', "Set here the steam account password.");
-define('steam_guard', "Steam Guard Code");
+define('steam_pass', "Steam jelszó");
+define('steam_pass_info', "Állítsd be itt a Steam fiók jelszavát.");
+define('steam_guard', "Steam Guard");
 define('steam_guard_info', "Some users have steam guard activated to protect their accounts from hackers,<br>this code is sent to the account email when the first steam update is started.");
-define('smtp_port', "SMTP Port");
+define('smtp_port', "SMTP port");
 define('smtp_port_info', "If SMTP port is not the default port (25) Enter the SMTP port here.");
-define('smtp_login', "SMTP User");
+define('smtp_login', "SMTP felhasználó");
 define('smtp_login_info', "If your SMTP server requires authentication, enter your user name here.");
-define('smtp_passw', "SMTP Password");
+define('smtp_passw', "SMTP jelszó");
 define('smtp_passw_info', "If you do not set a password the SMTP authentication will be disabled.");
 define('smtp_secure', "SMTP Secure");
 define('smtp_secure_info', "Use SSL/TLS to connect to the SMTP server");
-define('time_zone', "Time Zone");
+define('time_zone', "Időzóna");
 define('time_zone_info', "Sets the default timezone used by all date/time functions.");
 define('query_cache_life', "Query cache life");
 define('query_cache_life_info', "Sets the timeout in seconds before the server status is refreshed.");
 define('query_num_servers_stop', "Disable Game Server Queries After");
 define('query_num_servers_stop_info', "Use this setting to disable queries if a user owns more game servers than this amount specified to speed up panel loading.");
-define('editable_email', "Editable E-Mail Address");
+define('editable_email', "Szerkeszthető e-mail cím");
 define('editable_email_info', "Select if users can edit their e-mail address or not.");
 define('old_dashboard_behavior', "Old Dashboard behavior");
 define('old_dashboard_behavior_info', "The old Dashboard was running slower but shows more server information, current players and map.");
-define('rsync_available', "Available rsync servers");
+define('rsync_available', "Elérhető Rsync szerverek");
 define('rsync_available_info', "Select what servers list will be shown in the rsync installation.");
 define('all_available_servers', "All available servers ( rsync_sites.list + rsync_sites_local.list )");
 define('only_remote_servers', "Only remote servers ( rsync_sites.list )");
@@ -96,10 +95,8 @@ define('check_expiry_by', "Check expiration using");
 define('check_expiry_by_info', "If set to once_logged_in, the user's game server assignments will be automatically deleted if past the expiration date. If set to cron_job, you will need to create a cron task using the cron module to check for the expiration date at a configured interval.");
 define('once_logged_in', "Once Logged In");
 define('cron_job', "Cron Job");
-
-// Theme settings
 define('theme_settings', "Téma beállítások");
-define('theme', "Kinézet");
+define('theme', "Téma");
 define('theme_info', "A kiválasztott kinézet lesz az alapbeállítás minden felhasználónak. A felhasználók meg tudják változtatni ezt a beállítást a profil oldalukon.");
 define('welcome_title', "Üdvözöljük címe");
 define('welcome_title_info', "Lehetové teszi, hogy a cím jelenik meg a muszerfalra.");

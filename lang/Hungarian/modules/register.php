@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -27,31 +27,29 @@ define('users_fname', "Keresztnév");
 define('users_lname', "Vezetéknév");
 define('users_passwd', "Jelszó");
 define('users_cpasswd', "Jelszó ismét");
-define('passwd_len', "A jelszónak 6 karakternél hosszabbnak kell lennie");
+define('passwd_len', "A jelszónak hosszabbnak kell lennie mint 6 karakter");
 define('err_password', "A jelszó nem lehet üres");
 define('err_confirm_password', "A jelszó ismét mező nem lehet üres");
 define('err_password_mismatch', "A jelszavak nem egyeznek");
 define('phone_number', "Telefonszám");
-define('users_email', "Email");
+define('users_email', "E-mail");
 define('register_a_new_user', "Új felhasználó regisztrálása");
-define('password_mismatch', "Hibás jelszó.");
+define('password_mismatch', "A jelszavak nem egyeznek");
 define('confirm_password', "Jelszó megerősítése");
 define('successfull', "Sikeres");
 define('click_here', "Kattints ide");
 define('to_login', "a bejelentkezéshez.");
-define('registered_on', "Regisztrálás a :: %s");
-define('register_message', "Az Open Game Panel hozzáférésed elkészült és az alábbi adatokkal tudsz bejelentkezni:<br><br>Felhasználónév: %s<br>Jelszó: %s<br><br>~<br>Köszönöm!<br>Open Game Panel Adminisztrátor");
-
-//Errors feedback
+define('registered_on', "Regisztrált: %s.");
+define('register_message', "Hello,<br><br>Az Open Game Panel fiókod elkészült és most már bejelentkezhetsz az alábbi fiók adatokkal:<br><br>Felhasználónév: %s<br>Jelszó: %s<br><br>Ne felejtsd el az első belépés után, illetve néha megváltoztatni a jelszavadat.<br><br>Kérlek ne válaszolj erre az e-mailre!<br><br>______________________________<br>OGP Postázó");
 define('err_captcha', "Captcha nem egyezik.");
 define('err_login_name', "A felhasználónév üres vagy már foglalt.");
 define('err_first_name', "Add meg a neved.");
-define('err_last_name', "Vezetéknév nincs megadva.");
+define('err_last_name', "A vezetéknév nincs megadva.");
 define('err_phone_number', "A telefonszám üres.");
-define('err_email_address', "Üres vagy érvénytelen email cím.");
-define('err_email_address_already_in_use_by', "Az email cím már használatban van <b>%s</b> által.");
+define('err_email_address', "Üres vagy érvénytelen e-mail cím.");
+define('err_email_address_already_in_use_by', "Az e-mail cím már használatban van <b>%s</b> által.");
 define('user_registration', "Felhasználó regisztrálása");
-define('your_account_details_has_been_sent_by_email_to', "A hozzáférési adataid elküldve az alábbi email címre: <b>%s</b>.");
-define('account_created', "Your account has been created.");
-define('subject', "%s :: Hozzáférési adatok");
+define('your_account_details_has_been_sent_by_email_to', "A fiók adataid a(z) <b>%s</b> e-mail címre elküldve.");
+define('account_created', "A fiókod elkészült.");
+define('subject', "%s :: Fiók adatok");
 ?>

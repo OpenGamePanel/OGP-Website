@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,7 +23,6 @@
  */
 
 include('litefm.php');
-// updating.php
 define('curl_needed', "Для отображения этой страницы требуется модуль PHP curl.");
 define('no_access', "У вас не достаточно прав для отображения этой страницы.");
 define('dwl_update', "Загрузка обновления...");
@@ -32,9 +31,6 @@ define('install_update', "Установка обновления...");
 define('update_complete', "Обновление установлено");
 define('ignored_files', "%s ignored files.");
 define('not_updated_files_blacklisted', "Not updated/installed files (Blacklisted):<br>%s");
-
-// update.php
-define('no_new_updates', "Обновлений не обнаружено.");
 define('latest_version', "Последняя версия");
 define('panel_version', "Версия панели");
 define('update_now', "Обновить сейчас");
@@ -46,18 +42,14 @@ define('temp_folder_not_writable', "The download can not be placed because Apach
 define('base_dir_not_writable', "The panel can not update because Apache does not have write permision at folder \"%s\".");
 define('new_files', "%s new files.");
 define('updated_files', "Updated files:<br>%s");
+define('select_mirror', "Select mirror");
 define('view_changes', "View changes");
 define('get_x_revison_messages_may_take_some_time', "Get %s revison messages may take some time.");
-
-//updating_modules.php
-define('updating_modules', "Updating Modules");
-define('updating_finished', "Updating Finished");
-define('updated_module', "Updated module: '%s'.");
-define('select_mirror', "Select mirror");
-
-//blacklist.php
+define('updating_modules', "Обновление модулей");
+define('updating_finished', "Обновление завершено");
+define('updated_module', "Модуль обовлён: '%s'.");
 define('blacklist_files', "Blacklist files");
 define('blacklist_files_info', "All marked files will not be updated.");
 define('save_to_blacklist', "Save to blacklist");
-
+define('no_new_updates', "Обновлений не обнаружено.");
 ?>

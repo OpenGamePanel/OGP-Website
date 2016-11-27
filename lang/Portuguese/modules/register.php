@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,46 +22,33 @@
  *
  */
 
-define('login_name', "Nome de usu·rio");
+define('login_name', "Nome de usu√°rio");
 define('users_fname', "Nome");
 define('users_lname', "Sobrenome");
 define('users_passwd', "Password");
-define('users_cpasswd', "Verify Password");
-define('passwd_len', "Password must be greater than 6 characters");
+define('users_cpasswd', "Verify password");
+define('passwd_len', "Password must be longer than 6 characters");
 define('err_password', "Password cannot be empty");
 define('err_confirm_password', "Verify password field cannot be empty");
 define('err_password_mismatch', "Passwords do not match");
 define('phone_number', "telefone");
 define('users_email', "Email");
-define('register_a_new_user', "adicionar usu·rio");
-define('password_mismatch', "a senha n„o corresponde");
-define('confirm_password', "confirmaÁ„o de senha");
-define('successfull', "ConcluÌdo");
+define('register_a_new_user', "adicionar usu√°rio");
+define('password_mismatch', "a senha n√£o corresponde");
+define('confirm_password', "confirma√ß√£o de senha");
+define('successfull', "Conclu√≠do");
 define('click_here', "clique aqui");
-define('to_login', "para entrar.");
+define('to_login', "Para logar");
 define('registered_on', "Registado em :: %s");
-define('register_message', "Ol·,<br>
-		 Sua conta foi criada.<br><br>
-
-		 Usu·rio: %s<br>
-		 Password: %s<br><br>
-
-		 VocÍ pode alterar a senha de sua conta.<br>
-
-		 Obrigado!<br>
-		 Um administrador.<br>
-
-		 Este e-mail foi criado automaticamente, °Por favor, n„o responda isso!");
-
-//Errors feedback
+define('register_message', "Ol√°,<br>Sua conta foi criada.<br><br>Usu√°rio: %s<br>Password: %s<br><br>Voc√™ pode alterar a senha de sua conta.<br>Obrigado!<br>Um administrador.<br>Este e-mail foi criado automaticamente, ¬°Por favor, n√£o responda isso!");
 define('err_captcha', "Captcha incorrecto.");
-define('err_login_name', "Nome de usu·rio est· vazio ou em uso.");
+define('err_login_name', "Nome de usu√°rio est√° vazio ou em uso.");
 define('err_first_name', "Deve especificar o seu nome.");
 define('err_last_name', "Deve especificar o seu Sobrenome.");
-define('err_phone_number', "N˙mero de telefone est· vazia.");
-define('err_email_address', "EndereÁo de e-mail est· vazio ou incorreto.");
-define('err_email_address_already_in_use_by', "O e-mail j· est· em uso por <b>%s</b>.");
-define('user_registration', "Registro de Usu·rio");
+define('err_phone_number', "N√∫mero de telefone est√° vazia.");
+define('err_email_address', "Endere√ßo de e-mail est√° vazio ou incorreto.");
+define('err_email_address_already_in_use_by', "O e-mail j√° est√° em uso por <b>%s</b>.");
+define('user_registration', "Registro de Usu√°rio");
 define('your_account_details_has_been_sent_by_email_to', "Detalhes de sua conta foi enviado por e-mail para <b>%s</b>.");
 define('account_created', "Your account has been created.");
 define('subject', "%s :: Account Information");

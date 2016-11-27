@@ -1,60 +1,56 @@
 <?php
 /*
-*
-* Copyright (C) 2008 OGP Team
-* 
-* www.opengamepanel.org
-*
-* This program is free software; you can redistribute it and/or
-* modify it under the terms of the GNU General Public License
-* as published by the Free Software Foundation; either version 2
-* of the License, or any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program; if not, write to the Free Software
-* Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
-*/
-define('theme_settings', "DefiniÁıes de tema");
-define('theme', "Tema");
-define('theme_info', "Tema selecionado aqui ser· o tema padr„o para todos os usu·rios Os usu·rios podem alterar seu tema de sua p·gina do perfil..");
-define('welcome_title', "Bem-vindo TÌtulo");
-define('welcome_title_info', "Permite que o tÌtulo que È exibido na parte superior do painel.");
-define('welcome_title_message', "Bem-vindo a Mensagem de tÌtulo");
-define('welcome_title_message_info', "A mensagem de tÌtulo que È apresentado na parte superior do painel de instrumentos (html permitido).");
-define('maintenance_mode', "ManutenÁ„o");
-define('maintenance_mode_info', "A mensagem que È dispayed para usu·rios normais durante a manutenÁ„o.");
+ *
+ * OGP - Open Game Panel
+ * Copyright (C) 2008 - 2016 The OGP Development Team
+ *
+ * http://www.opengamepanel.org/
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *
+ */
+
+define('maintenance_mode', "Manuten√ß√£o");
+define('maintenance_mode_info', "A mensagem que √© dispayed para usu√°rios normais durante a manuten√ß√£o.");
 define('maintenance_title', "Maintenance Title");
 define('maintenance_title_info', "The title that is displayed to normal users during maintenance.");
 define('maintenance_message', "Mensagem");
-define('maintenance_message_info', "A mensagem que È dispayed para usu·rios normais durante a manutenÁ„o.");
+define('maintenance_message_info', "A mensagem que √© dispayed para usu√°rios normais durante a manuten√ß√£o.");
 define('update_settings', "Update Settings");
-define('settings_updated', "ConfiguraÁıes atualizadas com sucesso.");
-define('panel_language', "Language Painel");
-define('panel_language_info', "Esta linguagem È a linguagem padr„o do painel de usu·rio pode alterar sua prÛpria lÌngua de sua p·gina de ediÁ„o de perfil..");
+define('settings_updated', "Configura√ß√µes atualizadas com sucesso.");
+define('panel_language', "Panel Language");
+define('panel_language_info', "Esta linguagem √© a linguagem padr√£o do painel de usu√°rio pode alterar sua pr√≥pria l√≠ngua de sua p√°gina de edi√ß√£o de perfil..");
 define('page_auto_refresh', "Page Auto Refresh");
-define('page_auto_refresh_info', "Page Auto Refresh configuraÁıes È usado principalmente na depuraÁ„o do painel No uso normal, este deve ser definido como Ligado..");
-define('smtp_server', "Servidor de E-Mail de saÌda");
-define('smtp_server_info', "Este È o servidor de correio de saÌda (servidor SMTP) que È usado, por exemplo, enviou senhas esquecidas para os usu·rios, localhost por padr„o..");
-define('panel_email_address', "EndereÁo de email de saÌda");
-define('panel_email_address_info', "Este È o endereÁo de e-mail que est· no campo de quando as senhas s„o enviadas para os usu·rios.");
+define('page_auto_refresh_info', "Page Auto Refresh configura√ß√µes √© usado principalmente na depura√ß√£o do painel No uso normal, este deve ser definido como Ligado..");
+define('smtp_server', "Servidor de E-Mail de sa√≠da");
+define('smtp_server_info', "Este √© o servidor de correio de sa√≠da (servidor SMTP) que √© usado, por exemplo, enviou senhas esquecidas para os usu√°rios, localhost por padr√£o..");
+define('panel_email_address', "Endere√ßo de email de sa√≠da");
+define('panel_email_address_info', "Este √© o endere√ßo de e-mail que est√° no campo de quando as senhas s√£o enviadas para os usu√°rios.");
 define('panel_name', "nome Panel");
-define('panel_name_info', "Nome do painel que È mostrado no tÌtulo da p·gina Este valor ir· rejeitar todos os tÌtulos da p·gina, se n„o est· vazio..");
+define('panel_name_info', "Nome do painel que √© mostrado no t√≠tulo da p√°gina Este valor ir√° rejeitar todos os t√≠tulos da p√°gina, se n√£o est√° vazio..");
 define('feed_enable', "Feed Habilitar LGSL");
-define('feed_enable_info', "Se o seu webhost tem um firewall bloqueando a porta de consulta que vocÍ precisa ativ·-lo.");
+define('feed_enable_info', "Se o seu webhost tem um firewall bloqueando a porta de consulta que voc√™ precisa ativ√°-lo.");
 define('feed_url', "URL do feed");
-define('feed_url_info', "GrayCube.com est· compartilhando um feed LGSL na URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
-define('charset', "CodificaÁ„o de Caracteres");
-define('charset_info', "UTF8, ISO, ASCII, etc .. Esquerda em branco para utilizar a codificaÁ„o ISO.");
+define('feed_url_info', "GrayCube.com est√° compartilhando um feed LGSL na URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
+define('charset', "Codifica√ß√£o de Caracteres");
+define('charset_info', "UTF8, ISO, ASCII, etc .. Esquerda em branco para utilizar a codifica√ß√£o ISO.");
 define('steam_user', "Steam User");
 define('steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('steam_pass', "Steam Password");
 define('steam_pass_info', "Set here the steam account password.");
-define('steam_guard', "Steam Guard Code");
+define('steam_guard', "Steam Guard");
 define('steam_guard_info', "Some users have steam guard activated to protect their accounts from hackers,<br>this code is sent to the account email when the first steam update is started.");
 define('smtp_port', "SMTP Port");
 define('smtp_port_info', "If SMTP port is not the default port (25) Enter the SMTP port here.");
@@ -99,8 +95,13 @@ define('check_expiry_by', "Check expiration using");
 define('check_expiry_by_info', "If set to once_logged_in, the user's game server assignments will be automatically deleted if past the expiration date. If set to cron_job, you will need to create a cron task using the cron module to check for the expiration date at a configured interval.");
 define('once_logged_in', "Once Logged In");
 define('cron_job', "Cron Job");
-
-// Theme settings
+define('theme_settings', "Defini√ß√µes de tema");
+define('theme', "Tema");
+define('theme_info', "Tema selecionado aqui ser√° o tema padr√£o para todos os usu√°rios Os usu√°rios podem alterar seu tema de sua p√°gina do perfil..");
+define('welcome_title', "Bem-vindo T√≠tulo");
+define('welcome_title_info', "Permite que o t√≠tulo que √© exibido na parte superior do painel.");
+define('welcome_title_message', "Bem-vindo a Mensagem de t√≠tulo");
+define('welcome_title_message_info', "A mensagem de t√≠tulo que √© apresentado na parte superior do painel de instrumentos (html permitido).");
 define('logo_link', "Logos Link");
 define('logo_link_info', "The logos hyperlink. <b style='font-size:10px; font-weight:normal;'>(Leaving it blank will link it to the Dashboard)</b>");
 define('custom_tab', "Custom Tab");
@@ -122,5 +123,5 @@ define('custom_tab_sub_link4', "Sub-Tab #4 Link");
 define('custom_tab_target_blank', "Custom Tabs Target");
 define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>('_self' = Opens link on same page. '_blank'  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Wrapper Background");
-define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on Revolution themes.)</b>");
+define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
 ?>

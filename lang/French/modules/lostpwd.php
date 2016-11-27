@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,43 +22,23 @@
  *
  */
 
-define('recover', "Récupérer un mot de passe oublié");
+define('recover', "RÃ©cupÃ©rer un mot de passe oubliÃ©");
 define('back', "Retour");
-define('incomplete', "S'il vous plaît revenez en arrière et remplissez tous les champs du formulaire.");
+define('incomplete', "S'il vous plaÃ®t revenez en arriÃ¨re et remplissez tous les champs du formulaire.");
 define('subject', "Demande de nouveau mot de passe");
-define('password_message', "Bonjour,
-		 Vous ou quelqu'un d'autre a réinitialisé votre mot de passe.
-
-		 Nouveau mot de passe: %s
-		 Une fois connecté, vous pouvez changer votre mot de passe
-
-		 Merci,
-		 L'Administrateur
-
-		 Ceci est un message automatisé, n'y répondez pas !");
-define('send', "Votre mot de passe a été envoyé! S'il vous plaît consultez votre e-mail !");
-define('here', "Ici");
+define('password_message', "Bonjour,<br><br>Vous ou quelqu'un d'autre a rÃ©initialisÃ© votre mot de passe.<br><br>Nouveau mot de passe: %s<br><br>Pensez Ã  changer rÃ©guliÃ¨rement votre mot de passe.<br><br>Ceci est un message automatisÃ©, n'y rÃ©pondez pas !<br><br>______________________________<br>Merci, l'Administrateur");
+define('send', "Votre mot de passe a Ã©tÃ© envoyÃ©! Veuillez vÃ©rifier votre e-mail!");
+define('here', "ici");
 define('to_login', "pour vous connecter");
 define('errormail', "Votre adresse e-mail n'est pas correcte.");
 define('submit', "Soumettre");
 define('click', "Cliquer");
-define('mail_settings_missing', "Les paramètres de messagerie ne sont pas complètes et ne peut donc pas envoyer votre mot de passe. Contactez votre administrateur OGP.");
+define('mail_settings_missing', "Les paramÃ¨tres de messagerie ne sont pas complÃ¨tes et ne peut donc pas envoyer votre mot de passe. Contactez votre administrateur OGP.");
 define('mail_failed', "Impossible d'envoyer un e-mail.");
 define('email', "E-mail");
-define('enter_email', "S'il vous plaît, entrez votre adresse e-mail");
+define('enter_email', "S'il vous plaÃ®t, entrez votre adresse e-mail");
 define('webmaster', "Webmaster");
-define('confirm_send', "Pour des raisons de sécurité, nous vous avons envoyé un lien de confirmation avant de réinitialiser votre mot de passe.<br><b style='color:red;'>S'il vous plaît vérifiez votre boîte de réception.</b>");
+define('confirm_send', "Pour des raisons de sÃ©curitÃ©, nous vous avons envoyÃ© un lien de confirmation avant de rÃ©initialiser votre mot de passe.<br><b style='color:red;'>S'il vous plaÃ®t vÃ©rifiez votre boÃ®te de rÃ©ception.</b>");
 define('confirm_change_subject', "Confirmation du changement de mot de passe");
-define('confirm_change_password_message', "Bonjour,
-		 Vous ou quelqu'un d'autre a fait une demande de changement de mot de passe,
-		 si vous voulez vraiment changer de mot de passe, cliquez sur l'URL suivante:
-
-		 %s
-
-		 Après vous être connecté, un autre e-mail vous sera envoyé vous indiquant votre nouveau mot de passe.
-
-		 Merci,
-		 L'administrateur.
-
-		 Ceci est un message automatisé, n'y répondez pas !");
+define('confirm_change_password_message', "Bonjour,<br><br>Vous ou quelqu'un d'autre a fait une demande de changement de mot de passe,<br>si vous voulez vraiment changer de mot de passe, cliquez sur l'URL suivante:<br><br>%s<br><br>Note: si vous ne souhaitez pas changer votre mot de passe, ignorez cet e-mail.<br><br>Ceci est un message automatisÃ©, n'y rÃ©pondez pas !<br><br>______________________________<br>Merci, l'Administrateur.");
 ?>

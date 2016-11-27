@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,12 +22,8 @@
  *
  */
 
-// add_game_home.php
-define('add_new_game_home', "Dodaj nowe gry");
 define('add_mods_note', "Trzeba dodać mody po dodaniu serwera do użytkownika. Można to zrobić poprzez edycję serwera..");
-define('game_server', "Game Server");
 define('game_servers', "Game Servers");
-define('game_type', "Game Type");
 define('game_path', "Game Path");
 define('game_path_info', "Ścieżka bezwzględna serwera. Przykład: / home / OGP / nazwa_hosta /");
 define('game_server_name_info', "Nazwa serwera ułatwia użytkownikom do jednoznacznej identyfikacji swoich serwerów.");
@@ -39,8 +35,11 @@ define('game_home_added', "Strona główna Game pomyślnie dodana. Przekierowani
 define('failed_to_add_home_to_db', "Nie można dodać do domu do bazy danych. Błąd: %s");
 define('caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Caution!</b> The Agent is offline, can not get OS type and architecture,<br> Showing servers for all platforms:");
 define('select_remote_server', "Select Remote Server");
-
-// edit_games.php
+define('no_remote_servers_configured', "No remote servers configured to the Open Game Panel.<br>You need to add remote servers before you can add servers for the users.");
+define('no_game_configurations_found', "No game configuration found. You need to add game configurations from the");
+define('game_configurations', ">game configuration page");
+define('add_remote_server', "Add a server.");
+define('wine_games', "Wine Games");
 define('home_path', "główna ścieżka:");
 define('change_home_info', "Położenie zainstalowanych serwerów. Przykład: / home / OGP / nazwa_hosta /");
 define('game_server_name', "Nazwa serwera gry");
@@ -69,7 +68,7 @@ define('port', "Port");
 define('no_ip_ports_assigned', "Przynajmniej jeden IP: para Port musi być przypisany do domu.");
 define('successfully_assigned_ip_port', "Pomyślnie przypisane IP: Port parę do domu.");
 define('port_range_error', "Port musi być pomiędzy 0 a 65535 zakresie.");
-define('failed_to_assing_mod_to_home', "Nie udało się przypisać mod z id %d do domu");;
+define('failed_to_assing_mod_to_home', "Nie udało się przypisać mod z id %d do domu");
 define('successfully_assigned_mod_to_home', "Prawidłowo ustawione mod z id %d do domu.");
 define('successfully_modified_mod', "Pomyślnie zmodyfikowane informacje mod.");
 define('back_to_game_monitor', "z powrotem do Game Monitor");
@@ -124,16 +123,15 @@ define('successfully_assigned_mod_to_address', "Successfully assigned mod to add
 define('switch_mods', "Switch mods");
 define('switch_mod_for_address', "Switch mod for address %s");
 define('invalid_path', "Invalid Path");
-
-// show_games.php
+define('add_new_game_home', "Dodaj nowe gry");
 define('no_game_homes_found', "Nie znaleziono gry");
 define('available_game_homes', "Dostępne Gry");
 define('home_id', "Home ID");
+define('game_server', "Game Server");
+define('game_type', "Game Type");
 define('game_home', "sciezka gry");
-define('game_home_name', "Game server Name");
+define('game_home_name', "game server Name");
 define('clone', "skopiuj");
-
-// assign_games.php
 define('unassign', "Unassign");
 define('access_rights', "Access Rights");
 define('assigned_homes', "Currently Assigned Homes");
@@ -161,66 +159,55 @@ define('no_homes_assigned_to_user', "Nr mieszkania przeznaczone dla użytkownika
 define('no_homes_assigned_to_group', "Nr mieszkania przeznaczone dla grupy %s.");
 define('no_more_homes_available_that_can_be_assigned_for_this_user', "No more homes available that can be assigned for this user");
 define('no_more_homes_available_that_can_be_assigned_for_this_group', "No more homes available that can be assigned for this group");
-define('you_can_add_a_new_game_server_from', "You can add a new game server from ");
-
-// get_size.php
+define('you_can_add_a_new_game_server_from', "You can add a new game server from %s.");
+define('no_remote_servers_available_please_add_at_least_one', "There are no remote servers available, please add at least one!");
+define('cloning_of_home_failed', "Cloning of home with id '%s' failed.");
+define('no_mods_to_clone', "No enabled mod(s) for this game yet. None will be cloned.");
+define('failed_to_add_mod', "Failed to add mod with id '%s' to home with id '%s'.");
+define('failed_to_update_mod_settings', "Failed to update mod settings for home with id '%s'.");
+define('successfully_cloned_mods', "Successfully cloned mods for home with id '%s'.");
+define('successfully_copied_home_database', "Successfully copied home database.");
+define('copying_home_remotely', "Copying the home on remote server from '%s' to '%s'.");
+define('cloning_home', "Cloning home called '%s'");
+define('current_home_path', "Current home path");
+define('current_home_path_info', "The current location of the copied home on remote server.");
+define('clone_home', "Clone Home");
+define('new_home_name', "New Home Name");
+define('new_home_path', "New Home Path");
+define('agent_ip', "Agent IP");
+define('game_server_copy_is_running', "Game server copy is running...");
+define('game_server_copy_was_successful', "Game server copy was successful");
+define('game_server_copy_failed_with_return_code', "Game server copy failed with return code %s");
+define('clone_mods', "Clone Mods");
+define('game_server_owner', "Game server owner");
+define('the_name_of_the_server_to_help_users_to_identify_it', "The name of the server to help users to identify it.");
+define('ips_and_ports_used_in_this_home', "IPs and Ports used in this home");
+define('note_ips_and_ports_are_not_cloned', "Note - IPs and Ports are not cloned");
+define('mods_and_settings_for_this_game_server', "Mods and settings for this game server");
+define('sure_to_delete_serverid_from_remoteip_and_directory', "Are you sure you want to delete game server (ID: %s) from server %s and is in directory %s");
+define('yes_and_delete_the_files', "Yes and Delete the files");
+define('failed_to_remove_gamehome_from_database', "Failed to remove gamehome from database.");
+define('successfully_deleted_game_server_with_id', "Successfully deleted game server with ID %s.");
+define('failed_to_remove_ftp_account_from_remote_server', "Failed to remove FTP account from remote server.");
+define('remove_it_anyway', "Would you like to remove it anyway?");
+define('sucessfully_deleted', "Sucessfully deleted %s");
+define('the_agent_had_a_problem_deleting', "The agent had a problem deleting %s, check the agent log");
+define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems reaching the agent");
 define('does_not_exist_yet', "Does not exist yet.");
-
-// Custom fields
 define('go_to_custom_fields', "Go to Custom Fields");
 define('back_to_edit_server', "Back to edit server");
 define('update_settings', "Update settings");
 define('settings_updated', "Settings updated.");
-define('no_remote_servers_configured', 'No remote servers configured');
-define('no_game_configurations_found', 'No game configurations found');
-define('game_configurations', 'Game configurations');
-define('add_remote_server', 'Add remote server');
-define('wine_games', 'Wine games');
-define('no_remote_servers_available_please_add_at_least_one', 'No remote servers available please add at least one');
-define('cloning_of_home_failed', 'Cloning of home failed');
-define('no_mods_to_clone', 'No mods to clone');
-define('failed_to_add_mod', 'Failed to add mod');
-define('failed_to_update_mod_settings', 'Failed to update mod settings');
-define('successfully_cloned_mods', 'Successfully cloned mods');
-define('successfully_copied_home_database', 'Successfully copied home database');
-define('copying_home_remotely', 'Copying home remotely');
-define('cloning_home', 'Cloning home');
-define('current_home_path', 'Current home path');
-define('current_home_path_info', 'Current home path info');
-define('clone_home', 'Clone home');
-define('new_home_name', 'New home name');
-define('new_home_path', 'New home path');
-define('agent_ip', 'Agent ip');
-define('game_server_copy_is_running', 'Game server copy is running');
-define('game_server_copy_was_successful', 'Game server copy was successful');
-define('game_server_copy_failed_with_return_code', 'Game server copy failed with return code');
-define('clone_mods', 'Clone mods');
-define('game_server_owner', 'Game server owner');
-define('the_name_of_the_server_to_help_users_to_identify_it', 'The name of the server to help users to identify it');
-define('ips_and_ports_used_in_this_home', 'Ips and ports used in this home');
-define('note_ips_and_ports_are_not_cloned', 'Note ips and ports are not cloned');
-define('mods_and_settings_for_this_game_server', 'Mods and settings for this game server');
-define('sure_to_delete_serverid_from_remoteip_and_directory', 'Sure to delete serverid from remoteip and directory');
-define('yes_and_delete_the_files', 'Yes and delete the files');
-define('failed_to_remove_gamehome_from_database', 'Failed to remove gamehome from database');
-define('successfully_deleted_game_server_with_id', 'Successfully deleted game server with id');
-define('failed_to_remove_ftp_account_from_remote_server', 'Failed to remove ftp account from remote server');
-define('remove_it_anyway', 'Remove it anyway');
-define('sucessfully_deleted', 'Sucessfully deleted');
-define('the_agent_had_a_problem_deleting', 'The agent had a problem deleting');
-define('connection_timeout_or_problems_reaching_the_agent', 'Connection timeout or problems reaching the agent');
-
-// browse.php
 define('selected_path_already_in_use', "Wybrana ścieżka jest już w użyciu.");
 define('browse', "Przeglądaj");
 define('cancel', "Anuluj");
 define('set_this_path', "Ustaw tę ścieżkę");
-define('select_home_path', 'Wybierz ścieżkę domową');
-define('folder', 'Folder');
-define('owner', 'Owner');
-define('group', 'Group');
-define('level_up', 'Do góry');
-define('level_up_info', 'Powrót do poprzedniego folderu.');
-define('add_folder', 'Dodaj Folder');
-define('add_folder_info', 'Wpisz nazwę nowego folderu, a następnie kliknij na ikonę.');
+define('select_home_path', "Wybierz ścieżkę domową");
+define('folder', "Folder");
+define('owner', "Owner");
+define('group', "Group");
+define('level_up', "Do góry");
+define('level_up_info', "Powrót do poprzedniego folderu.");
+define('add_folder', "Dodaj Folder");
+define('add_folder_info', "Wpisz nazwę nowego folderu, a następnie kliknij na ikonę.");
 ?>

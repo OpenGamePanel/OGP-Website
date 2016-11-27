@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,57 +22,43 @@
  *
  */
 
-define('login_name', "User name");
-define('first_name', "First name");
-define('last_name', "Last name");
-define('phone_number', "Phone number");
-define('email_address', "Email");
-define('register_a_new_user', "Register a new user");
-define('password_mismatch', "Passwords mismatch.");
-define('confirm_password', "Confirm password");
-define('subuser_password', "Sub-User Password");
-define('subuser_man', "Sub-User Management");
-define('successfull', "Successfull");
-define('click_here', "Click here");
-define('to_login', "to login.");
-define('registered_on', "Registered on");
-define('register_message', "Hello,
-
-		 Your Open Game Panel account has been created.
-
-		 Username: %s
-		 Password: %s
-		 
-		 Your password can be changed in the panel.
-
-		 Thank you!
-		 An administrator.
-
-		 This email has been automatically generated. Please do not respond to this message.");
-
-//Errors feedback
-define('err_password', "Password cannot be empty");
-define('err_confirm_password', "Verify password field cannot be empty");
-define('err_password_mismatch', "Passwords do not match");
-define('err_captcha', "Captcha does not match.");
-define('err_login_name', "User name is empty or in use.");
-define('err_first_name', "Enter your name.");
-define('err_last_name', "Last Name not entered.");
-define('err_phone_number', "Phone number is empty.");
-define('err_email_address', "Empty or incorrect email address.");
-define('err_users_parent', "Sub-user accounts may not create other users.");
-define('err_parent_user', "The parent user ID must reference a valid pre-existing user.");
-define('err_email_address_already_in_use_by', "Email address already in use by <b>%s</b>.");
-define('user_registration', "User Registration");
-define('your_account_details_has_been_sent_by_email_to', "Your account details has been sent by email to <b>%s</b>.");
-define('subject', "Hello %s, welcome to %s.");
-define('sub_user', "Sub Users");
-define('create_sub_user', "Add Sub User");
-define('listdel_sub_user', "List or Delete Sub User");
-define('delete_sub_user', "Delete Sub User");
-define('del_subuser_conf', "Are you sure you want to delete this account:");
-define('no_subusers', "No subusers have been created under your account yet!");
-define('subuser_deleted', "Sub-User %s was successfully deleted from the database!");
-define('subuser_added', "Sub-User %s was successfully created and added to the database!");
-define('your_subusers', "Owned Sub-User Accounts");
+define('login_name', "Nombre de usuario");
+define('first_name', "Nombre");
+define('last_name', "Apellidos");
+define('phone_number', "Telefono");
+define('email_address', "Dirección de correo electronico");
+define('register_a_new_user', "Registrar a un nuevo usuario");
+define('password_mismatch', "Las contraseñas no coinciden.");
+define('confirm_password', "Confirmar contraseña");
+define('subuser_password', "Contraseña del Subusuario");
+define('subuser_man', "Subusuarios");
+define('successfull', "Registro completado");
+define('click_here', "Click Aquí");
+define('to_login', "para entrar");
+define('registered_on', "Registrado el :: %s");
+define('register_message', "Hola,<br>Tu cuenta a sido creada.<br><br>Usuario: %s<br>Contraseña: %s<br>Puedes cambiar la contraseña desde tu cuenta.<br>Gracias!<br>El administrador.<br>Esto es un mensaje automatico, por favor no respondas!");
+define('err_password', "El campo de contraseña no puede permanecer vacío.");
+define('err_confirm_password', "Comprueba el campo de contraseña, no puede estar vacío.");
+define('err_password_mismatch', "Las contraseñas no coinciden.");
+define('err_captcha', "Captcha no coincide.");
+define('err_login_name', "Nombre de usuario vacio o en uso.");
+define('err_first_name', "Introduzca su nombre.");
+define('err_last_name', "No ha introducido apellidos.");
+define('err_phone_number', "Número de teléfono vacio.");
+define('err_email_address', "La dirección de email esta vacia o es incorrecta.");
+define('err_users_parent', "Las cuentas de subusuario no pueden crear otros usuarios.");
+define('err_parent_user', "La ID del usuario padre debe referenciar a un usuario pre-existente valido.");
+define('err_email_address_already_in_use_by', "La dirección de email esta en uso por <b>%s</b>.");
+define('user_registration', "Registro de Usuario");
+define('your_account_details_has_been_sent_by_email_to', "Los detalles de su cuenta han sido enviados a <b>%s</b>.");
+define('subject', "Asunto");
+define('sub_user', "Subusuarios");
+define('create_sub_user', "Añadir subusuario");
+define('listdel_sub_user', "Lista, modifica o elimina información de las cuentas de subusuario.");
+define('delete_sub_user', "Eliminar Subusuario");
+define('del_subuser_conf', "Seguro que quieres eliminar esta cuenta?:");
+define('no_subusers', "No hay subusuarios disponibles para ser asignados a este grupo, crea alguna cuenta de usuario primero.");
+define('subuser_deleted', "El subusuario %s se eliminó de la base de datos correctamente!");
+define('subuser_added', "El subusuario %s se añadió a la base de datos correctamente!");
+define('your_subusers', "Cuentas de subusuario de su propiedad");
 ?>

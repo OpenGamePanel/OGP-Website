@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 define('install_lang', "Vælg dit fortrukne sprog");
 define('install_welcome', "Velkommen til Open Game Panel Setup");
 define('file_permission_check', "Kontrollere påkrævet fil tilladelser");
@@ -30,7 +31,7 @@ define('execute_permission_required', "Udføre tilladelse påkrævet");
 define('create_an_empty_file', "Skabe en tom fil.");
 define('found', "Fundet");
 define('not_found', "Ikke Fundet");
-define('pear_xxtea_info', 'Pear Crypt_XXTEA er påkræveet til OGP brug. På fleste Linux systemer, kan dette modul, blive installeret med pear, ved at bruge følgende kommando "pear install Crypt_XXTEA-beta".');
+define('pear_xxtea_info', "Pear Crypt_XXTEA er påkræveet til OGP brug. På fleste Linux systemer, kan dette modul, blive installeret med pear, ved at bruge følgende kommando 'pear install Crypt_XXTEA-beta'.");
 define('refresh', "Genopfrisk");
 define('checking_required_modules', "Kontrollere påkrævet moduler");
 define('database_type', "Database type");

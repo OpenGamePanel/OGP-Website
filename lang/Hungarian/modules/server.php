@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -22,9 +22,8 @@
  *
  */
 
-// servers.php
-define('add_new_remote_host', "Távoli kiszolgáló hozzáadása");
-define('configured_remote_hosts', "Beállított távoli kiszolgálók");
+define('add_new_remote_host', "Új távoli kiszolgáló hozzáadása");
+define('configured_remote_hosts', "Beállított távoli kiszolgáló");
 define('remote_host', "Távoli kiszolgáló");
 define('remote_host_info', "A távoli kiszolgálónak pingelheto címmel kell rendelkeznie!");
 define('remote_host_port', "távoli kiszolgáló portja");
@@ -34,7 +33,7 @@ define('remote_host_name_info', "Távoli hoszt neve segít azonosítani a felhas
 define('add_remote_host', "Távoli kiszolgáló hozzáadása");
 define('remote_encryption_key', "Távoli kiszolgáló kódoló kulcsa (Encryption Key)");
 define('remote_encryption_key_info', "Kódoló kulcs alapján kódolódik a távoli szerver és a weboldal közötti kommunikáció. A kódoló kulcsnak meg kell egyeznie a kiszolgálón és a weboldalon is.");
-define('server_name', "Szerver neve");
+define('server_name', "Szerver név");
 define('agent_ip_port', "Kiszolgáló IP:Port");
 define('agent_status', "Kiszolgáló státusza");
 define('ips', "IP-k");
@@ -42,20 +41,18 @@ define('add_more_ips', "Ha több IP-t akarsz megadni akkor kattints az 'IP-k be�
 define('encryption_key_mismatch', "A megadott kódoló kulcs nem egyezik a kiszolgálón megadottal. Ellenorizd a beállításokat.");
 define('no_ip_for_remote_host', "Legalább 1 IP-t meg kell adnod minden egyes távoli kiszolgálóhoz.");
 define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
-define('ip_administration', "Server & IP Administration :: Open Game Panel");
+define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
 define('unknown_error', "Unknown error - status_chk returned");
 define('remote_host_user_name', "UNIX felhasználó");
 define('remote_host_user_name_info', "Felhasználó neve, ahol ügynök fut. Példa: Jonhy");
-define('ogp_user', remote_host_user_name);
-define('ogp_user_info', remote_host_user_name_info);
 define('remote_host_ftp_ip', "FTP IP");
 define('remote_host_ftp_ip_info', "Az FTP szerver <b>IP</b> az aktuális agent.");
 define('remote_host_ftp_port', "FTP port");
 define('remote_host_ftp_port_info', "Az FTP szerver <b>port</b> az aktuális agent.");
-define('view_log', "Logok");
-define('status', "Státusz:");
-define('stop_firewall', "Tüzfal leállítás");
-define('start_firewall', "Tüzfal elindítás");
+define('view_log', "Log nézése");
+define('status', "Status");
+define('stop_firewall', "Tűzfal leállítása");
+define('start_firewall', "Tűzfal elindítása");
 define('seconds', "Másodperc");
 define('reboot', "Újraindítás szerveren");
 define('restart', "Újraindítás ügynök");
@@ -64,8 +61,6 @@ define('confirm_restart', "Are you sure you want to restart the agent named '%s'
 define('restarting', "Restarting agent... Please wait.");
 define('restarted', "Agent successfully restarted.");
 define('reboot_success', "Server named '%s' was successfully rebooted. You will not be able to access the server until it has successfully booted.");
-
-// edit_server.php
 define('invalid_remote_host_id', "Invalid remote host id '%s' given.");
 define('remote_host_removed', "Remote host called '%s' removed successfully.");
 define('editing_remote_server', "Editing remote server called '%s'");
@@ -83,10 +78,8 @@ define('error_while_remove', "Error occurred while removing remote server.");
 define('add_ip', "IP hozzáadá");
 define('remove_ip', "IP törlés");
 define('edit_ip', "IP szerkesztés");
-define('wrote_changes', "Írta változások sikeresen.");
+define('wrote_changes', "Wrote changes successfully.");
 define('there_are_servers_running_on_this_ip', "Vannak szerverek ami fut az IP-címen.");
-
-// add_server.php
 define('enter_ip_host', "You must enter IP for the remote host.");
 define('enter_valid_ip', "You must enter valid port for the remote host. The port value can be between 0 and 65535, however recommendation is between 1024 and 65535.");
 define('could_not_add_server', "Could not add server");
@@ -101,10 +94,8 @@ define('for_remote_server', "for the remote server.");
 define('failed_add_ip', "Failed to add IP");
 define('timeout', "Időtúllépés");
 define('timeout_info', "Másodperc. A határidőt kap választ az ügynök.");
-define('use_nat', "Használja a NAT");
+define('use_nat', "NAT használta");
 define('use_nat_info', "engedélyezése, ha a távoli szerver NAT mögött.");
-
-// arrange_servers.php
 define('arrange_ports', "Arrange ports");
 define('assign_new_ports_range_for_ip', "Assign new ports range for IP %s");
 define('assigned_port_ranges_for_ip', "Assigned port ranges for IP %s");
@@ -118,9 +109,9 @@ define('available_range_ports', "Available range ports:");
 define('assign_range', "Assign range");
 define('edit_range', "Edit range");
 define('delete_range', "Delete range");
-define('home_id', "Home ID");
-define('home_path', "Home path");
-define('game_type', "Game type");
+define('home_id', "Azonosító");
+define('home_path', "Elérési útvonal");
+define('game_type', "Játék típus");
 define('port', "Port");
 define('invalid_values', "Invalid values.");
 define('ports_in_range_already_arranged', "Ports in range already arranged.");
@@ -128,8 +119,6 @@ define('ports_range_already_configured_for', "Ports range already configured for
 define('ports_range_added_successfull_for', "Ports range added successfull for %s.");
 define('ports_range_deleted_successfull', "Ports range deleted successfull.");
 define('ports_range_edited_successfull_for', "Ports range edited successfull for %s.");
-
-// Firewall
 define('editing_firewall_for_remote_server', "Editing Firewall for remote server named '%s'");
 define('default_allowed', "Default allowed");
 define('allow_port_command', "Allow port command");

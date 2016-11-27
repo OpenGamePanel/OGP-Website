@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -22,13 +22,13 @@
  *
  */
 
-define('pure-ftpd_accounts_for_remote_server_named', "Pure-FTPd fiókok a(z) %s nevű távoli kiszolgálón");
+define('pure-ftpd_accounts_for_remote_server_named', "FTP fiókok a(z) %s nevű távoli kiszolgálón");
 define('ftp_address', "FTP cím: %s:%s");
 define('change_account_details', "Fiók adatok megváltoztatása");
-define('remove_account', "Fiók eltávolítása");
+define('remove_account', "Fiók törlése");
 define('ftp_account_already_exists', "Ez az FTP fiók már létezik.");
-define('full_path', "Teljes elérési út");
-define('add_ftp_account', "FTP fiók hozzáadása");
-define('remote_server', "Távoli kiszolgáló");
+define('full_path', "Főkönyvtár");
+define('add_ftp_account', "Új fiók létrehozása");
+define('remote_server', "Távoli szerver");
 define('server_name', "Szerver neve");
 ?>
