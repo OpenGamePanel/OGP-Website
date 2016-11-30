@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -27,6 +27,7 @@ define('dashboard_addons_manager_text', "Administre todo tipo de servicios con O
 define('dashboard_game_monitor_text', "Puede iniciar y parar los servidores, o ver su estado y registros de una forma rápida y sencilla.");
 define('dashboard_support_text', "Utilice el soporte profesional del equipo de OGP en el foro. Obtendrá una gran atención y respuestas rápidas.");
 define('welcome_text', "Bienvenido al panel.<br><br><b>Open Game Panel</b> es un proyecto de código abierto.<br>OGP le permitirá instalar, iniciar, parar y supervisar<br>servidores de juegos y voz.");
+define('any_server_is_online', "Ningun servidor esta en marcha,");
 define('current_map', "Mapa");
 define('server_ip_port', "IP:Puerto");
 define('statistics', "Estadisticas");
@@ -36,8 +37,7 @@ define('server_status', "Estado del Servidor");
 define('no_games_to_monitor', "Actualmente no hay servidores de juegos instalados.");
 define('online_servers', "Servidores Online");
 define('add_games_in', "Sí desea añadir servidores vaya a %s");
-define("any_server_is_online", "Ningun servidor esta en marcha,");
-define("currently_online", "Ahora En Linea");
-define("game_servers", "Servidores De Juegos");
+define('currently_online', "Ahora En Linea");
+define('game_servers', "Servirdores de Juegos");
 define('select_remote_server', "Select remote server");
 ?>

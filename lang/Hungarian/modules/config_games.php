@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -34,7 +34,7 @@ define('updating_config_from_file', "Konfig fájlok frissítése %s .");
 define('error_when_handling_file', "Hiba történt a %s fájl használatakor.");
 define('error_while_adding_cfg_to_db', "Error occurred when adding data from %s to database.");
 define('no_configs_found', "Nem található konfigurációs fájl %s .");
-define('select_game', "Válaszd ki a játékot");
+define('select_game', "Válassz játékot");
 define('create_xml_configs', "XML konfig készítés");
 define('failed_to_delete_config_from_db', "Nem sikerül törölni a: %s konfigot az adatbázisból");
 define('failed_removing_file', "Nem sikerül törölni a fájlt: %s.");

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -26,63 +26,63 @@ define('dir_not_found', "Dossier '%s' introuvable sur le serveur.");
 define('filename', "Nom de fichier");
 define('filesize', "Taille");
 define('bytes', "Octets");
-define('owner', "Propriétaire");
+define('owner', "PropriÃ©taire");
 define('group', "Groupe");
-define('empty_directory', "Répertoire vide.");
-define('currently_viewing', "Répertoire affiché : '%s'");
-define('wrote_changes', "Changement effectué avec succès.");
-define('failed_write', "Impossible d'écrire le fichier sur le serveur distant.");
+define('empty_directory', "RÃ©pertoire vide.");
+define('currently_viewing', "RÃ©pertoire affichÃ© : '%s'");
+define('wrote_changes', "Changement effectuÃ© avec succÃ¨s.");
+define('failed_write', "Impossible d'Ã©crire le fichier sur le serveur distant.");
 define('failed_read', "Impossible de lire le fichier sur le serveur distant.");
-define('failed_list', "Impossible de récupérer la liste du répertoire.");
+define('failed_list', "Impossible de rÃ©cupÃ©rer la liste du rÃ©pertoire.");
 define('level_up', "^ Dossier parent ^");
-define('unallowed_char', "Caractères non autorisés dans le chemin.");
+define('unallowed_char', "CaractÃ¨res non autorisÃ©s dans le chemin.");
 define('button_edit', "[Editer]");
-define("save", "Enregistrer");
-define('home_id_missing', "ID home manquante.");
-define('upload', "Upload");
+define('save', "Enregistrer");
+define('home_id_missing', "ID Serveur manquante.");
+define('upload', "Uploader");
 define('upload_failed', "Upload impossible, l'erreur est : %s.");
-define('can_not_create_upload_folder_path', "Impossible de créer le chemin %s");
+define('can_not_create_upload_folder_path', "Impossible de crÃ©er le chemin %s");
 define('url_is_not_accesible_from_agent', "L'URL %s n'est pas accessible depuis l'Agent");
 define('upload_file', "Uploader un fichier");
-define('uncompress', "Décompresser");
-define('create_folder', "Créer un Dossier");
-define('create', "Créer");
-define("delete_item", "Supprimer %s ?");
+define('uncompress', "DÃ©compresser");
+define('create_folder', "CrÃ©er un Dossier");
+define('create', "CrÃ©er");
+define('delete_item', "Supprimer %s ?");
 define('upload_in_progress', "Upload en cours...");
-define('upload_complete', "Upload effectué avec succès.");
-define('chattr_yes', "Protéger fichier");
-define('chattr_no', "Déverrouiller fichier");
-define("secure_item", "Protéger/Déverrouiller %s ?");
-define('filesecure', "Sécurité des fichiers");
-define('chattr_locked', "Fichier bloqué");
-define('chattr_unlocked', "Fichier débloqué");
+define('upload_complete', "Upload effectuÃ© avec succÃ¨s.");
+define('chattr_yes', "ProtÃ©ger fichier");
+define('chattr_no', "DÃ©verrouiller fichier");
+define('secure_item', "ProtÃ©ger/DÃ©verrouiller %s?");
+define('filesecure', "SÃ©curitÃ© des fichiers");
+define('chattr_locked', "Fichier bloquÃ©");
+define('chattr_unlocked', "Fichier dÃ©bloquÃ©");
 define('rename', "Renommer");
-define('move', "Déplacer");
+define('move', "DÃ©placer");
 define('copy', "Copier");
 define('compress', "Compresser");
-define('create_file', "Créer un Fichier");
-define('select_at_least_one_item', "Sélectionner au moins un objet");
+define('create_file', "CrÃ©er un Fichier");
+define('select_at_least_one_item', "SÃ©lectionner au moins un objet");
 define('rename_item', "Renommer le(s) objet(s)");
-define('move_item', "Déplacer le(s) objet(s)");
+define('move_item', "DÃ©placer le(s) objet(s)");
 define('copy_item', "Copier le(s) objet(s)");
 define('compress_item', "Compresser le(s) objet(s)");
-define('uncompress_item', "Décompresser le(s) objet(s)");
-define('archive_name', "Nom de l'archive");
-define('archive_type', "Type d'archive");
+define('uncompress_item', "DÃ©compresser le(s) objet(s)");
+define('archive_name', "Nom de l&apos;archive");
+define('archive_type', "Type d&apos;archive");
 define('file_name', "Nom du fichier");
 define('folder_name', "Nom du dossier");
-define('compresses_files_separately', "compresse les fichiers séparement");
-define('to', "à");
+define('compresses_files_separately', "compresse les fichiers sÃ©parement");
+define('to', "Vers");
 define('upload_to_web', "Uploader sur le web");
-define('transfer_to_server', "Transférer au serveur");
-define('mail_sent_successfully', "E-mail envoyé avec succès");
+define('transfer_to_server', "TransfÃ©rer au serveur");
+define('mail_sent_successfully', "E-mail envoyÃ© avec succÃ¨s");
 define('send_item_by_email', "Envoyer le(s) objet(s) par e-mail");
 define('subject', "Sujet");
 define('message', "Message");
 define('dest_email', "E-mail de destination");
 define('remove', "Supprimer");
 define('send_by_email', "Envoyer par e-mail");
-define('send_by_email_info', "Pour envoyer des fichiers par e-mail le paquet 'mutt' doit être installé du côte de l'Agent.");
-define('settings_updated', "Paramètres mis à jour");
-define('update_settings', "Mettre à jour les paramètres");
+define('send_by_email_info', "Pour envoyer des fichiers par e-mail le paquet &apos;mutt&apos; doit Ãªtre installÃ© du cÃ´te de l&apos;Agent.");
+define('settings_updated', "ParamÃ¨tres mis Ã  jour.");
+define('update_settings', "Mise Ã  jour des paramÃ¨tres");
 ?>

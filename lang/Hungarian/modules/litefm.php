@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -26,8 +26,8 @@ define('dir_not_found', "Nem található a %s könyvtár a szerveren.");
 define('filename', "Fájlnév");
 define('filesize', "Fájlméret");
 define('bytes', "Bájt");
-define('owner', "Tulajdonos");
-define('group', "Csoport");
+define('owner', "Owner");
+define('group', "Group");
 define('empty_directory', "Üres a könyvtár");
 define('currently_viewing', "Currently viewing directory '%s'");
 define('wrote_changes', "Wrote changes successfully.");

@@ -23,34 +23,20 @@
  */
 
 define('login_name', "User name");
-define('first_name', "First name");
-define('last_name', "Last name");
+define('first_name', "Vorname");
+define('last_name', "Nachname");
 define('phone_number', "Phone number");
 define('email_address', "Email");
-define('register_a_new_user', "Register a new user");
+define('register_a_new_user', "Neuen Benutzer anmelden");
 define('password_mismatch', "Passwords mismatch.");
 define('confirm_password', "Confirm password");
 define('subuser_password', "Sub-User Password");
 define('subuser_man', "Sub-User Management");
 define('successfull', "Successfull");
 define('click_here', "Click here");
-define('to_login', "to login.");
+define('to_login', "zum Login.");
 define('registered_on', "Registered on");
-define('register_message', "Hello,
-
-		 Your Open Game Panel account has been created.
-
-		 Username: %s
-		 Password: %s
-		 
-		 Your password can be changed in the panel.
-
-		 Thank you!
-		 An administrator.
-
-		 This email has been automatically generated. Please do not respond to this message.");
-
-//Errors feedback
+define('register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may now login using the following account information:<br><br>Username: %s<br>Password: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
 define('err_password', "Password cannot be empty");
 define('err_confirm_password', "Verify password field cannot be empty");
 define('err_password_mismatch', "Passwords do not match");
@@ -62,9 +48,9 @@ define('err_phone_number', "Phone number is empty.");
 define('err_email_address', "Empty or incorrect email address.");
 define('err_users_parent', "Sub-user accounts may not create other users.");
 define('err_parent_user', "The parent user ID must reference a valid pre-existing user.");
-define('err_email_address_already_in_use_by', "Email address already in use by <b>%s</b>.");
+define('err_email_address_already_in_use_by', "Diese E-Mail-Adresse ist bereits in Verwendung durch <b>%s</b>.");
 define('user_registration', "User Registration");
-define('your_account_details_has_been_sent_by_email_to', "Your account details has been sent by email to <b>%s</b>.");
+define('your_account_details_has_been_sent_by_email_to', "Ihre Kontodaten durch E-Mail wurde an <b>%s</b>.");
 define('subject', "Hello %s, welcome to %s.");
 define('sub_user', "Sub Users");
 define('create_sub_user', "Add Sub User");

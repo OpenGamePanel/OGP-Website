@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// Addons
 define('install_plugin', "Instaluj Plugin");
 define('install_mappack', "Instaluj MapPack");
 define('install_config', "Instaluj Config");
@@ -36,8 +35,6 @@ define('no_games_servers_available', "Brak serwerów na twoim koncie.");
 define('addon_installed_successfully', "Dodatek zainstalowany pomyślnie.");
 define('path', "Ścieżka");
 define('wait_while_decompressing', "Poczekaj, aż plik %s zostanie rozpakowany.");
-
-// Admin Addons
 define('addon_name', "Nazwa Dodatku");
 define('url', "URL");
 define('select_game_type', "Wybierz Typ Gry");
@@ -65,6 +62,5 @@ define('replacements', "Zamienniki:");
 define('addon_name_info', "Wprowadź nazwę dla tego dodatku, to jest nazwa autora dodatku.");
 define('url_info', "Wpisz adres internetowy, który zawiera plik do pobrania,jeśli skompresowane w zip lub tar.gz zostaną rozpakowane w katalogu głównym serwera lub w ścieżce podanej poniżej.");
 define('path_info', "Ścieżka musi być w stosunku do folderu na serwerze i nie zawierać ukośników na początku lub na końcu, np: cstrike/cfg. Jeśli pozostanie puste będzie katalog root głównego serwera.");
-define('post-script_info', "Wprowadź kod BASH, zostanie wykonane jako skrypt, można używać zamienników tekstowych do dostosowania instalacji, zostaną one zastąpione przez dane ".
-						   "z serwera, na którym można zainstalować dodatek. Skrypt rozpoczyna się od katalogu głównego serwera lub określonej ścieżce.");
+define('post-script_info', "Wprowadź kod BASH, zostanie wykonane jako skrypt, można używać zamienników tekstowych do dostosowania instalacji, zostaną one zastąpione przez dane z serwera, na którym można zainstalować dodatek. Skrypt rozpoczyna się od katalogu głównego serwera lub określonej ścieżce.");
 ?>

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -34,13 +34,13 @@ define('not_found', "Nem található");
 define('pear_xxtea_info', "Pear Crypt_XXTEA szükséges az OGP használatához. A legtöbb linux disztribúción ez a modul a következo pear parancsal telepítheto: 'pear install Crypt_XXTEA-beta'.");
 define('refresh', "Frissítés");
 define('checking_required_modules', "Szükséges modulok ellenorzése");
-define('database_type', "Database type");
-define('database_settings', "Adatbázis hozzáférések beállítása");
+define('database_type', "Adatbázis tipusa");
+define('database_settings', "Adatbázis hozzáférésének beállítása");
 define('database_hostname', "Adatbázis hosztnév");
-define('database_username', "Adatbázis felhasználónév");
-define('database_password', "Adatbázis jelszó");
+define('database_username', "Adatbázis felhasználóneve");
+define('database_password', "Adatbázis jelszava");
 define('database_name', "Adatbázis neve");
-define('database_prefix', "Adatbázis elotag");
+define('database_prefix', "Adatbázis előtagja");
 define('next', "Tovább");
 define('encryption_key', "Titkosító kulcs (Agent)");
 define('agent_port', "Port (Agent)");

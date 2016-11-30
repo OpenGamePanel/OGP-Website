@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2014 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,20 +23,20 @@
  */
 
 include 'update.php';
-define('unable_download', "Impossible de télécharger %s.");
-define('md5_failed', "Échec du test MD5 pour %s, veuillez réessayer.");
-define('uninstall', "Désinstaller");
+define('unable_download', "Impossible de tÃ©lÃ©charger %s.");
+define('md5_failed', "Ã‰chec du test MD5 pour %s, veuillez rÃ©essayer.");
+define('uninstall', "DÃ©sinstaller");
 define('install', "Installer");
-define('uptodate', "À jour");
-define('update_available', "Mise à jour disponible");
-define('not_installed', "Non Installé");
-define('installed', "Installé");
-define('download_update', "Télécharger/Mise à jour");
-define('are_you_sure', "Êtes-vous sûr");
-define('uninstalling_module_dataloss', "En désinstallant un module vous perdrez toutes les données le concernant.");
+define('uptodate', "A jour");
+define('update_available', "Mise Ã  jour disponible");
+define('not_installed', "Non InstallÃ©");
+define('installed', "InstallÃ©");
+define('download_update', "TÃ©lÃ©charger/Mettre Ã  jour");
+define('are_you_sure', "ÃŠtes-vous sÃ»r");
+define('uninstalling_module_dataloss', "En dÃ©sinstallant un module vous perdrez toutes les donnÃ©es le concernant.");
 define('remove_files_for', "Voulez-vous supprimer tous les fichiers pour");
 define('confirm', "Confirmer");
 define('cancel', "Annuler");
-define('extra_themes', "Thèmes Extra");
-define('extra_modules', "Modules Extra");
+define('extra_themes', "ThÃ¨mes Additionnels");
+define('extra_modules', "Modules Additionnels ");
 ?>

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,47 +22,47 @@
  *
  */
 
-define('install_lang', "Sélectionnez votre langue préférée");
-define('install_welcome', "Bienvenue dans l'installation de Open Game Panel (OGP)");
-define('file_permission_check', "Vérification des permissions sur les fichiers");
+define('install_lang', "SÃ©lectionnez votre langue prÃ©fÃ©rÃ©e");
+define('install_welcome', "Bienvenue dans l'installation de Open Game Panel");
+define('file_permission_check', "VÃ©rification des permissions sur les fichiers");
 define('OK', "OK");
-define('write_permission_required', "Permission en écriture requise");
-define('execute_permission_required', "Permission en exécution requise");
-define('create_an_empty_file', "Créer un fichier vide.");
-define('found', "Trouvé");
-define('not_found', "Non trouvé");
-define('pear_xxtea_info', 'Pear Crypt_XXTEA est nécessaire pour OGP. Sur la plupart des systèmes Linux, ce module peut être installé avec Pear grâce à la commande "pear install Crypt_XXTEA-beta".');
-define('refresh', "Rafraîchir");
-define('checking_required_modules', "Vérification des modules requis");
-define('database_type', "Type de base de données");
-define('database_settings', "Paramètres d'accès à la base de données");
-define('database_hostname', "Nom d'hôte (hostname)");
+define('write_permission_required', "Permission en Ã©criture requise");
+define('execute_permission_required', "Permission en exÃ©cution requise");
+define('create_an_empty_file', "CrÃ©er un fichier vide.");
+define('found', "TrouvÃ©");
+define('not_found', "Non trouvÃ©");
+define('pear_xxtea_info', "Pear Crypt_XXTEA est nÃ©cessaire pour OGP. Sur la plupart des systÃ¨mes Linux, ce module peut Ãªtre installÃ© avec Pear grÃ¢ce Ã  la commande \"pear install Crypt_XXTEA-beta\".");
+define('refresh', "RafraÃ®chir");
+define('checking_required_modules', "VÃ©rification des modules requis");
+define('database_type', "Type de base de donnÃ©es");
+define('database_settings', "ParamÃ¨tres d'accÃ¨s Ã  la base de donnÃ©es");
+define('database_hostname', "Nom d'hÃ´te (hostname)");
 define('database_username', "Nom d'utilisateur");
 define('database_password', "Mot de passe");
-define('database_name', "Nom de la base de données");
-define('database_prefix', "Préfixe");
+define('database_name', "Nom de la base de donnÃ©es");
+define('database_prefix', "PrÃ©fixe");
 define('next', "Suivant");
-define('encryption_key', "Clé de chiffrement (Agent)");
+define('encryption_key', "ClÃ© de chiffrement (Agent)");
 define('agent_port', "Port (Agent)");
-define('unable_to_write_config', "Impossible d'écrire la configuration. Veuillez re-vérifier les permissions d'écriture.");
-define('admin_login_details', "Détails du compte administrateur");
-define('config_written', "Les fichiers de configuration ont été créés avec succès.");
-define('database_created', "Les tables de la base de données ont été créées avec succès.");
-define('admin_login_details_info', "Maintnant, il vous faut créer un administrateur pour Open Game Panel.");
+define('unable_to_write_config', "Impossible d'Ã©crire la configuration. Veuillez re-vÃ©rifier les permissions d'Ã©criture.");
+define('admin_login_details', "DÃ©tails du compte Administrateur");
+define('config_written', "Les fichiers de configuration ont Ã©tÃ© crÃ©Ã©s avec succÃ¨s.");
+define('database_created', "Les tables de la base de donnÃ©es ont Ã©tÃ© crÃ©Ã©es avec succÃ¨s.");
+define('admin_login_details_info', "Maintenant, il vous faut crÃ©er un Administrateur pour Open Game Panel.");
 define('username', "Nom d'utilisateur");
-define('repeat_password', "Vérification mot de passe");
+define('repeat_password', "VÃ©rification mot de passe");
 define('email', "E-mail");
 define('back', "Retour");
-define('database_setup_failure', "L'installation n'arrive pas à créer la base de données. Veuillez re-vérifier votre configuration pour la base de données.");
-define('php_version_check', "Vérification de la version de PHP.");
-define('invalid_username', "Vous avez entré un nom d'utilisateur invalide.");
-define('password_too_short', "Le mot de passe est trop court. Il doit avoir au moins '%d' caractères.");
-define('password_contains_invalid_characters', "Votre mot de passe contient des caractères invalides.");
-define('invalid_email_address', "Vous avez entré une adresse e-mail invalide.");
-define('setup_complete', "L'installation s'est terminée avec succès. Open Game Panel est maintenant prêt à être utilisé !");
-define('remove_install_and_secure_config', "Vous devriez supprimer install.php du serveur et remettre le chmod du fichier includes/config.inc.php à 644 pour des raisons de sécurité.");
-define('go_to_panel', "Cliquez ici pour vous connecter à OGP.");
-define('unable_to_resolve', "Si vous n'arrivez pas à résoudre ce problème, visitez le site OGP (en anglais) ");
-define('slogan', "The OpenSource one !");
-define('default_welcome_title_message', "Bienvenue ! <b style='font-size:12px; font-weight:normal;'>Vous pouvez changer ce titre dans les '<a href='?m=settings&p=themes'>Paramètres du thème</a>' sous l'onglet '<a href='?m=administration&p=main'>Administration</a>'.</b>");
+define('database_setup_failure', "L'installation n'arrive pas Ã  crÃ©er la base de donnÃ©es. Veuillez re-vÃ©rifier votre configuration pour la base de donnÃ©es.");
+define('php_version_check', "VÃ©rification de la version de PHP.");
+define('invalid_username', "Vous avez entrÃ© un nom d'utilisateur invalide.");
+define('password_too_short', "Le mot de passe est trop court. Il doit avoir au moins '%d' caractÃ¨res.");
+define('password_contains_invalid_characters', "Votre mot de passe contient des caractÃ¨res invalides.");
+define('invalid_email_address', "Vous avez entrÃ© une adresse e-mail invalide.");
+define('setup_complete', "L'installation s'est terminÃ©e avec succÃ¨s. Open Game Panel est maintenant prÃªt Ã  Ãªtre utilisÃ©.");
+define('remove_install_and_secure_config', "Vous devriez supprimer install.php du serveur et remettre le chmod du fichier includes/config.inc.php Ã  644 pour des raisons de sÃ©curitÃ©.");
+define('go_to_panel', "Cliquez ici pour vous connecter Ã  OGP.");
+define('unable_to_resolve', "Si vous n'arrivez pas Ã  rÃ©soudre ce problÃ¨me, visitez le site OGP (en anglais) ");
+define('slogan', "The OpenSource one!");
+define('default_welcome_title_message', "Bienvenue! <b style='font-size:12px; font-weight:normal;'>Vous pouvez changer ce titre dans les '<a href='?m=settings&p=themes'>ParamÃ¨tres du ThÃ¨me</a>' sous l'onglet '<a href='?m=administration&p=main'>Administration</a>'.</b>");
 ?>

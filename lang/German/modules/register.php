@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,70 +22,26 @@
  *
  */
 
-define('login_name', "User name");
-define('users_fname', "First name");
-define('users_lname', "Last name");
-define('users_passwd', "Password");
-define('users_cpasswd', "Verify Password");
-define('passwd_len', "Password must be greater than 6 characters");
-define('err_password', "Password cannot be empty");
-define('err_confirm_password', "Verify password field cannot be empty");
-define('err_password_mismatch', "Passwords do not match");
-define('phone_number', "Phone number");
-define('users_email', "Email");
-define('register_a_new_user', "Neuen Benutzer anmelden");
-define('password_mismatch', "Passwords mismatch.");
-define('confirm_password', "Confirm password");
-define('successfull', "Successfull");
-define('click_here', "Click here");
-define('to_login', "to login.");
-define('registered_on', "Registered on");
-define('register_message', "Hello,
-		 Your account has been created.
-
-		 User: %s
-		 Password: %s
-		 
-		 You can change your password from your account.
-
-		 Thankyou!
-		 An administrator.
-
-		 This email has been created automatically, ¡Please, dont reply it!");
-
-//Errors feedback
-define('err_captcha', "Captcha does not match.");
-define('err_login_name', "User name is empty or in use.");
-define('err_first_name', "Enter your name.");
-define('err_last_name', "Last Name not entered.");
-define('err_phone_number', "Phone number is empty.");
-define('err_email_address', "Empty email address.");
-define('user_registration', "User Registration");
 define('login_name', "Benutzername");
 define('users_fname', "Vorname");
 define('users_lname', "Nachname");
+define('users_passwd', "Password");
+define('users_cpasswd', "Verify password");
+define('passwd_len', "Password must be longer than 6 characters");
+define('err_password', "Password cannot be empty");
+define('err_confirm_password', "Verify password field cannot be empty");
+define('err_password_mismatch', "Passwords do not match");
 define('phone_number', "Telefonnummern");
-define('password_mismatch', "Passwörter stimmen nicht überein.");
-define('confirm_password', "Passwort bestätigen");
+define('users_email', "Email");
+define('register_a_new_user', "Neuen Benutzer anmelden");
+define('password_mismatch', "PasswÃ¶rter stimmen nicht Ã¼berein.");
+define('confirm_password', "Passwort bestÃ¤tigen");
 define('successfull', "Erfolgreich");
 define('click_here', "Hier klicken");
 define('to_login', "um sich anzumelden.");
-define('registered_on', "Registered on :: %s");
-define('register_message', "Hallo,<br>
-Ihr Konto wurde erstellt.<br><br>
-
-Benutzer: %s<br>
-Passwort: %s<br><br>
-
-Sie können Ihr Passwort von Ihrem Konto ändern.<br>
-
-Vielen Dank!<br>
-Ein Administrator.<br>
-
-Diese E-Mail wurde automatisch erstellt, ¡Bitte, nicht Antwort it!");
-
-// Errors Feedback
-define('err_captcha', "Captcha stimmt nicht überein.");
+define('registered_on', "Registered on: %s.");
+define('register_message', "Hallo,<br>Ihr Konto wurde erstellt.<br><br>Benutzer: %s<br>Passwort: %s<br><br>Sie kÃ¶nnen Ihr Passwort von Ihrem Konto Ã¤ndern.<br>Vielen Dank!<br>Ein Administrator.<br>Diese E-Mail wurde automatisch erstellt, Â¡Bitte, nicht Antwort it!");
+define('err_captcha', "Captcha stimmt nicht Ã¼berein.");
 define('err_login_name', "Benutzername ist leer oder benutzt wird.");
 define('err_first_name', "Geben Sie Ihren Namen ein.");
 define('err_last_name', "Nachname nicht eingegeben.");

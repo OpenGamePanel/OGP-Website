@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -26,16 +26,7 @@ define('recover', "Gendan glemt adgangskode");
 define('back', "Tilbage");
 define('incomplete', "Vær venlig at gå tilbage, og færdiggøre alle felterne i formularen.");
 define('subject', "Adgangskode anmodet");
-define('password_message', "Hejsa,
-		 Du eller en anden, har anmodet om at nulstille din adgangskode.
-
-		 Ny Adgangskode: %s
-		 Når du er logget ind, kan du ændre din adgangskode
-
-		 På forhånd tak!
-		 Hjemmeside admin
-
-		 Dette er en automatiseret email. vær venlig ikke at svarer tilbage til den!");
+define('password_message', "Hejsa,<br>Du eller en anden, har anmodet om at nulstille din adgangskode.<br><br>Ny Adgangskode: %s<br>Når du er logget ind, kan du ændre din adgangskode<br><br>På forhånd tak!<br>Hjemmeside admin<br><br>Dette er en automatiseret email. vær venlig ikke at svarer tilbage til den!");
 define('send', "Din adgangskode er bleven sendt! Venligst tjek din email!");
 define('here', "Her");
 define('to_login', "til logind");
@@ -44,21 +35,10 @@ define('submit', "Indsend");
 define('click', "klik");
 define('mail_settings_missing', "Panels mail opsætninge er ikke færdiggjort, så det ka ike sende din adgangskode. Kontakt din OGP admin.");
 define('mail_failed', "Fejlet I at sende email.");
-define('email', "Email");
+define('email', "Email addresse");
 define('enter_email', "Venlig skriv din email adresse");
 define('webmaster', "Webmaster");
 define('confirm_send', "Af sikkerhedsmæssige grunde, har vi sendt dig et aktiverings link, før din adgangskode bliver nulstillet.<br><b style='color:red;'>Venlig tjek din indbakke.</b>");
 define('confirm_change_subject', "Adgangskoden er nustillet, bekræftelses email");
-define('confirm_change_password_message', "Hejsa,
-		 Du eller en anden, har anmodet om, at få ændret din adgangskode,
-		 hvis du gerne vil, ændre din adganskode, så besøg dennee URL address:
-
-		 %s
-
-		 Efter besøg på linket, ville en anden email blive sendt, med din nye adgangskode.
-
-		 På forhånd tak!
-		 An administrator.
-
-		 Dette er et automatiseret svar, venlig ikke svar tilbage på den!");
+define('confirm_change_password_message', "Hejsa,<br>Du eller en anden, har anmodet om, at få ændret din adgangskode,<br>hvis du gerne vil, ændre din adganskode, så besøg dennee URL address:<br><br>%s<br><br>Efter besøg på linket, ville en anden email blive sendt, med din nye adgangskode.<br><br>På forhånd tak!<br>An administrator.<br><br>Dette er et automatiseret svar, venlig ikke svar tilbage på den!");
 ?>

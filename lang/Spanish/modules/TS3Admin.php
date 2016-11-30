@@ -1,23 +1,40 @@
 <?php
+/*
+ *
+ * OGP - Open Game Panel
+ * Copyright (C) 2008 - 2016 The OGP Development Team
+ *
+ * http://www.opengamepanel.org/
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *
+ */
 
-// General
-define('error', "error");
+define('error', "Error");
 define('title', "TeamSpeak 3 Web Interface");
-define('update_available', '<h3>Attention: A new version (v%1) of this software is available under <a href="%2" target="_blank">%2</a>.</h3>');
-
-// Head
+define('update_available', '<h3>Atención: Una nueva version (v%1) de este software esta disponible en <a href="%2" target="_blank">%2</a>.</h3>');
 define('head_logout', "Salir");
 define('head_vserver_switch', "Cambiar");
 define('head_vserver_overview', "Configurar");
 define('head_vserver_token', "Lista de Tokens");
 define('head_vserver_liveview', "Monitorizar");
-
-// Errors
 define('e_fill_out', "Rellene los campos.");
 define('e_upload_failed', "Fallo al subir el archivo.");
 define('e_server_responded', "El servidor a respondido: ");
-define('e_conn_serverquery', "No se pudo obtener acceso.");
-define('e_conn_vserver', "Imposible seleccionar servidor.");
+define('e_conn_serverquery', "No se pudo obtener acceso al servicio de peticiones.");
+define('e_conn_vserver', "No se puede elegir el servido virtual.");
 define('e_session_timedout', "Sesión caducada.");
 define('js_error', "Error");
 define('js_ajax_error', "Error de Ajax. %1");
@@ -29,17 +46,11 @@ define('js_prompt_banreason', "Razón (opcional): ");
 define('js_prompt_msg_to', "Mensaje de texto para %1 #%2: ");
 define('js_prompt_poke_to', "Mensaje Poke al cliente #%1: ");
 define('js_prompt_new_propvalue', "Nuevo valor para '%1': ");
-
-// Notices
 define('n_server_responded', "El servidor a respondido: ");
-
-// Login
 define('login_serverquery', "Ususario del Servidor de peticiones");
-define('login_name', "Ususário");
+define('login_name', "Nombre de usuario");
 define('login_password', "contraseña");
 define('login_submit', "Entrar");
-
-// Select vServer page
 define('vsselect_headline', "Selección de servidor");
 define('vsselect_id', "ID #");
 define('vsselect_name', "Nombre");
@@ -54,12 +65,10 @@ define('vsselect_stop', "Parar");
 define('vsselect_delete', "ELIMINAR");
 define('vsselect_new_headline', "Crear un nuevo servidor virtual");
 define('vsselect_new_servername', "Nombre del servidor");
-define('vsselect_new_slots', "Slots");
+define('vsselect_new_slots', "Client slots");
 define('vsselect_new_create', "Crear");
 define('vsselect_new_added_ok', "servidor <span class=\"online\">%1</span> se ha creado.");
 define('vsselect_new_added_generated', "El token generado es:");
-
-// VDS overview
 define('vsoverview_virtualserver', "Servidor Virtual");
 define('vsoverview_information_head', "Información");
 define('vsoverview_connection_head', "Conexión");
@@ -102,8 +111,6 @@ define('vsoverview_conn_bandwidth_second', "segundo");
 define('vsoverview_conn_bandwidth_minute', "minuto");
 define('vsoverview_conn_bandwidth_send', "enviados");
 define('vsoverview_conn_bandwidth_received', "recividos");
-
-// vServer Token
 define('vstoken_token_virtualserver', "Servidor Virtual");
 define('vstoken_token_head', "Token");
 define('vstoken_token_type', "Tipo de grupo");
@@ -122,8 +129,6 @@ define('vstoken_new_select_channel', "Canal");
 define('vstoken_new_tokentype_0', "Servidor");
 define('vstoken_new_tokentype_1', "Canal");
 define('vstoken_new_added_ok', "Token generado.");
-
-// vServer Liveview
 define('vsliveview_server_virtualserver', "Servidor virtual");
 define('vsliveview_server_head', "Vista en linea");
 define('vsliveview_liveview_enable_autorefresh', "Autorefrescar");
@@ -151,8 +156,6 @@ define('vsliveview_channelbackup_get', "Crear y descargar");
 define('vsliveview_channelbackup_load', "Subir copia de seguridad");
 define('vsliveview_channelbackup_load_submit', "Regenerar");
 define('vsliveview_channelbackup_new_added_ok', "Copia de seguridad regenerada correctamente.");
-
-// Counter
 define('time_day', "dia");
 define('time_days', "dias");
 define('time_hour', "hora");
@@ -161,12 +164,8 @@ define('time_minute', "minuto");
 define('time_minutes', "minutos");
 define('time_second', "segundo");
 define('time_seconds', "segundos");
-
-// Error numbers
 define('e_2568', "No tienes permisos suficientes.");
-define('temp_folder_not_writable', "La carpeta de plantillas (%s) no tiene permisos de escritura.");
-
-// Subusers
+define('temp_folder_not_writable', "La descarga no pudo completarse porque Apache no tiene permisos de escritura en la carpeta de archivos temporales del sistema(%s).");
 define('unassign_from_subuser', "Desasignar del subusuario.");
 define('assign_to_subuser', "Asignar al subusuario.");
 define('select_subuser', "Selecciona subusuario.");

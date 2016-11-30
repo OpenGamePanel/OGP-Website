@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -25,7 +25,7 @@
 define('dir_not_found', "Katalog %s nie został znaleziony na serwerze.");
 define('filename', "Nazwa pliku");
 define('filesize', "Rozmiar pliku");
-define('bytes', "rozmiar");
+define('bytes', "Bajty");
 define('owner', "Właściciel");
 define('group', "Grupa");
 define('empty_directory', "Directory is empty.");
@@ -47,12 +47,12 @@ define('upload_file', "Upload file");
 define('uncompress', "Uncompress");
 define('create_folder', "Create folder");
 define('create', "Create");
-define("delete_item", "Delete %s?");
+define('delete_item', "Delete %s?");
 define('upload_in_progress', "Upload in progress...");
 define('upload_complete', "Upload complete.");
 define('chattr_yes', "Lock File");
 define('chattr_no', "Unlock File");
-define("secure_item", "Secure/Unsecure %s?");
+define('secure_item', "Secure/Unsecure %s?");
 define('filesecure', "File Security");
 define('chattr_locked', "File Locked");
 define('chattr_unlocked', "File Unlocked");

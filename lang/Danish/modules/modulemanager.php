@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// modulemanager.php
 define('module_id', "Modul ID");
 define('module_name', "Modul Navn");
 define('module_folder', "Modul Mappe");
@@ -36,28 +35,20 @@ define('no_installed_modules', "Ingen installeret moduler fundet.");
 define('not_complete', "Slet/Installere funktion er ikke komplet, og vil nok ikke fungere korrekt. Advarsels: Data fra ogp database vil nok blive mistet!");
 define('core_mods_installed', "Core Modules Installed:");
 define('custom_mods_installed', "Custom Modules Installed:");
-
-// add_module.php
 define('installing_module', "Installere modul '%s'");
 define('successfully_installed_module', "Modulet blev installeret succesfuldt %s.");
 define('failed_to_install_module', "Fejlet i at installere modul %s.");
 define('adding_module', "Tilføjet modul kaldes '%s'.");
 define('module_already_installed', "Modul kaldet '%s' er allerede installeret.");
-
-// del_module.php
 define('uninstalling_module', "Afinstallering modul '%s'");
 define('successfully_uninstalled_module', "Succesfuldt afinstallering af modul %s.");
 define('failed_to_uninstall_module', "Fejlet I at afinstallere modul %s.");
-
-// module_handeling.php
 define('module_file_missing', "mappen mangler module.php filen.");
 define('module_file_missing_info', "mangler de nødvendige informationer.");
 define('query_failed', "Fejlet I at udøre query");
 define('query_failed_2', "til database.");
 define('failed_del_db', "Fejlet I at slette modulet fra database.");
 define('updated_module', "Opdatere modul: '%s'.");
-
-//updating_modules.php
 define('updating_modules', "Opdatere moduler");
 define('updating_finished', "Opdatering Færdig");
 ?>

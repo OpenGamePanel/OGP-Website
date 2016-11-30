@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,19 +22,19 @@
  *
  */
 
-define('resetting_configs', "Alle Konfigurationen zurücksetzen");
+define('resetting_configs', "Alle Konfigurationen zurÃ¼cksetzen");
 define('updating_configs', "Alte Konfigurationen updaten.");
 define('configs_updated_ok', "Konfigurationen erfolgreich neu eingelesen.");
-define('reset_old_configs', "Alte Konfigs zurücksetzten");
+define('reset_old_configs', "Alte Konfigs zurÃ¼cksetzten");
 define('update_configs', "Konfigs updaten");
 define('game_config_setup', "Erstelle Game Konfigs");
-define('config_reset_warning', "Wenn du alte Konfigs löschts könnte es zu Problemen mit den verbundenen Gameservern geben da die ID-Nummern nicht mehr mit den neuen übereinstimmen.");
-define('modify_configs_info', "Falls du die Game Konfigurationen ändern möchtest kannst du dies über die Dateien in %s tun.");
+define('config_reset_warning', "Wenn du alte Konfigs lÃ¶schts kÃ¶nnte es zu Problemen mit den verbundenen Gameservern geben da die ID-Nummern nicht mehr mit den neuen Ã¼bereinstimmen.");
+define('modify_configs_info', "Falls du die Game Konfigurationen Ã¤ndern mÃ¶chtest kannst du dies Ã¼ber die Dateien in %s tun.");
 define('updating_config_from_file', "Aktuallisiere Konfigs von Datei %s.");
 define('error_when_handling_file', "Fehler bim umgang mit Datei %s.");
 define('error_while_adding_cfg_to_db', "Ein fehler ist aufgetreten als Daten von %s in die Datenbank eingetragen wurden.");
 define('no_configs_found', "Keine Konfigurationen gefunden in %s.");
-define('select_game', "Wähle Game");
+define('select_game', "Spiel auswÃ¤hlen");
 define('create_xml_configs', "Erstelle XML-Konfigs");
 define('failed_to_delete_config_from_db', "Failed to delete %s config from database");
 define('failed_removing_file', "Falied removing the file %s.");

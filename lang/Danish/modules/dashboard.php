@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -38,6 +38,6 @@ define('no_games_to_monitor', "Der er på nuværrende tidspunkt ingen online/off
 define('online_servers', "Online Servers");
 define('add_games_in', "Hvis du vil tilføje et spil, så ka du gøre deet ved %s");
 define('currently_online', "Nuværrende Online");
-define('game_servers', "Spil Servers");
+define('game_servers', "Spil Servere");
 define('select_remote_server', "Select remote server");
 ?>

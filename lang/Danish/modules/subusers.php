@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,54 +22,40 @@
  *
  */
 
-define('login_name', "User name");
-define('first_name', "First name");
-define('last_name', "Last name");
-define('phone_number', "Phone number");
+define('login_name', "Brugerens navn");
+define('first_name', "Fornavn");
+define('last_name', "Efternavn");
+define('phone_number', "Telefon nummer");
 define('email_address', "Email");
-define('register_a_new_user', "Register a new user");
-define('password_mismatch', "Passwords mismatch.");
-define('confirm_password', "Confirm password");
+define('register_a_new_user', "Registerer en ny bruger");
+define('password_mismatch', "Adgangskode passer ikke sammen.");
+define('confirm_password', "Bekræft adgangskode");
 define('subuser_password', "Sub-User Password");
 define('subuser_man', "Sub-User Management");
-define('successfull', "Successfull");
-define('click_here', "Click here");
-define('to_login', "to login.");
-define('registered_on', "Registered on");
-define('register_message', "Hello,
-
-		 Your Open Game Panel account has been created.
-
-		 Username: %s
-		 Password: %s
-		 
-		 Your password can be changed in the panel.
-
-		 Thank you!
-		 An administrator.
-
-		 This email has been automatically generated. Please do not respond to this message.");
-
-//Errors feedback
+define('successfull', "Succesfuldt");
+define('click_here', "Klik her");
+define('to_login', "til logind");
+define('registered_on', "Registrering aktiveret");
+define('register_message', "Hejsa,<br>Din konto er nu oprettet.<br><br>Brugernavn: %s<br>Adgangskode: %s<br><br>Du ka nu ændre din adgangskode til din konto.<br><br>På forhånd tak!<br>En administrator.<br><br>Denne email er bleven sendt automatisk, vær venlig ikke at svarer tilbage!");
 define('err_password', "Password cannot be empty");
 define('err_confirm_password', "Verify password field cannot be empty");
 define('err_password_mismatch', "Passwords do not match");
-define('err_captcha', "Captcha does not match.");
-define('err_login_name', "User name is empty or in use.");
-define('err_first_name', "Enter your name.");
-define('err_last_name', "Last Name not entered.");
-define('err_phone_number', "Phone number is empty.");
-define('err_email_address', "Empty or incorrect email address.");
+define('err_captcha', "Captcha passer ikke sammen.");
+define('err_login_name', "Brugernavn er tomt, eller I brug.");
+define('err_first_name', "Skriv dit navn.");
+define('err_last_name', "Efternavn er ikke indtastet.");
+define('err_phone_number', "Telefon nummer er tomt.");
+define('err_email_address', "Tomt eller ukorrrekt email addresse.");
 define('err_users_parent', "Sub-user accounts may not create other users.");
 define('err_parent_user', "The parent user ID must reference a valid pre-existing user.");
-define('err_email_address_already_in_use_by', "Email address already in use by <b>%s</b>.");
-define('user_registration', "User Registration");
-define('your_account_details_has_been_sent_by_email_to', "Your account details has been sent by email to <b>%s</b>.");
+define('err_email_address_already_in_use_by', "Email addresse er allerede i brug<b>%s</b>.");
+define('user_registration', "Bruger Registrering");
+define('your_account_details_has_been_sent_by_email_to', "Din konto detaljer, er bleven sendt med email til <b>%s</b>.");
 define('subject', "Hello %s, welcome to %s.");
 define('sub_user', "Sub Users");
 define('create_sub_user', "Add Sub User");
-define('listdel_sub_user', "List or Delete Sub User");
-define('delete_sub_user', "Delete Sub User");
+define('listdel_sub_user', "List, Modify Sub User Account Information, or Delete Sub User");
+define('delete_sub_user', "Edit / Delete Sub User");
 define('del_subuser_conf', "Are you sure you want to delete this account:");
 define('no_subusers', "No subusers have been created under your account yet!");
 define('subuser_deleted', "Sub-User %s was successfully deleted from the database!");

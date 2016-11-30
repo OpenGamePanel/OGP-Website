@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# Danish language variables
-# Author : Miscni 
-#####################################################################
 
 define('lang_charset', "UTF-8");
 define('already_logged_in_redirecting_to_dashboard', "Du er allerede logget ind, omadresseres til instrumentpanel");
@@ -94,6 +90,7 @@ define('server', "Servers");
 define('settings', "Panel indstillinger");
 define('themes', "Tema indstillinge");
 define('user_admin', "Brugere");
+define('sub_users', "Sub Users");
 define('show_groups', "Grupper");
 define('user_games', "Spil Servers");
 define('addons_manager', "Addons Manager");
@@ -112,15 +109,14 @@ define('queries_executed', "Forspørgelser udført");
 define('lang', "Sprog");
 define('get_size', "Get size");
 define('total_size', "Total size");
-define('sub_users', 'sub users');
-define('lgsl', 'Lgsl');
-define('lgsl_admin', 'Lgsl admin');
-define('rcon', 'Rcon');
+define('lgsl', "LGSL");
+define('lgsl_admin', "LGSL Admin");
+define('rcon', "RCON");
 define('watch_logger', "iagttage  Logger");
 define('litefm_settings', "LiteFM Settings");
-define('assign_expiration_date', 'Assign expiration date');
-define('assign_expiration_date_info', 'Once it expires the server is unassigned but not removed.');
-define('server_expiration_date', 'Server expiration date');
-define('server_expiration_date_info', 'Once it expires the server is removed (database and files).');
-define('set_expiration_date', 'Set expiration date');
+define('assign_expiration_date', "Assign expiration date");
+define('assign_expiration_date_info', "Once it expires the server is unassigned but not removed.");
+define('server_expiration_date', "Server expiration date");
+define('server_expiration_date_info', "Once it expires the server is removed (database and files).");
+define('set_expiration_date', "Set expiration date");
 ?>

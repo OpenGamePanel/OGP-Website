@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,21 +23,21 @@
  */
 
 define('dashboard_ftp_text', "Der FTP Client kann Dateien komprimieren und via Email versenden sowie dekomprimieren, Textdateien bearbeiten und vieles mehr.");
-define('dashboard_addons_manager_text', "Verwalte alle möglichen Arten von Service mit OGP. Wähle aus über 70 Servern, die direkt durch das OGP Team zur Verfügung gestellt werden.");
-define('dashboard_game_monitor_text', "Überwache schnell deine Dienste. Außerdem kannst du sehen, welche Server laufen und welche nicht.");
+define('dashboard_addons_manager_text', "Verwalte alle mÃ¶glichen Arten von Service mit OGP. WÃ¤hle aus Ã¼ber 70 Servern, die direkt durch das OGP Team zur VerfÃ¼gung gestellt werden.");
+define('dashboard_game_monitor_text', "Ãœberwache schnell deine Dienste. AuÃŸerdem kannst du sehen, welche Server laufen und welche nicht.");
 define('dashboard_support_text', "Das OGP Team bietet dir schnelle und professionelle Hilfe im Forum.");
-define('welcome_text', "Wilkommen im Open Game Panel (OGP). Open Game Panel ist ein Open-Source Projekt, welches das Starten, Überwachen und Installieren diverser Gameserver ermöglicht.");
+define('welcome_text', "Wilkommen im Open Game Panel (OGP). Open Game Panel ist ein Open-Source Projekt, welches das Starten, Ãœberwachen und Installieren diverser Gameserver ermÃ¶glicht.");
 define('any_server_is_online', "Alle Server sind online");
 define('current_map', "Aktuelle Map");
 define('server_ip_port', "IP:Port");
 define('statistics', "Statistik");
-define('servers', "Server");
+define('servers', "Servers");
 define('players', "Spieler");
 define('server_status', "Server Status");
 define('no_games_to_monitor', "Es gibt derzeit keine Gameserver die online/offline sind");
-define('online_servers', "Online Server");
-define('add_games_in', "Falls du Games hinzufügen möchtest kannst dies in %s");
+define('online_servers', "Online Servers");
+define('add_games_in', "Falls du Games hinzufÃ¼gen mÃ¶chtest kannst dies in %s");
 define('currently_online', "Momentan Online");
-define('game_servers', "Game Server");
+define('game_servers', "Game Servers");
 define('select_remote_server', "Select remote server");
 ?>

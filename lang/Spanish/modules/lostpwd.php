@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,19 +23,10 @@
  */
 
 define('recover', "Recuperar una contraseña");
-define('back', "Atras");
+define('back', "Volver");
 define('incomplete', "Rellene todos los campos del formulario.");
-define('subject', "Cambio de contraseña realizado");
-define('password_message',"Hola,
-		 Su contraseña a sido modificada.
-
-		 Nueva contraseña: %s
-		 Puede volver a cambiarla desde su cuenta.
-
-		 Gracias!
-		 El administrador.
-
-		 Esto es un mensaje automatico, por favor no responda.");
+define('subject', "Asunto");
+define('password_message', "Hola,<br>Su contraseña a sido modificada.<br>Nueva contraseña: %s<br>Puede volver a cambiarla desde su cuenta.<br>Gracias!<br>El administrador.<br>Esto es un mensaje automatico, por favor no responda.");
 define('send', "<b style='color:red;'>Su contraseña a sido enviada! Por favor comprueve su bandeja de entrada.</b>");
 define('here', "Aquí");
 define('to_login', "para entrar");
@@ -43,22 +34,11 @@ define('errormail', "La dirección de correo electronico no es valida.");
 define('submit', "Enviar");
 define('click', "Clic");
 define('mail_settings_missing', "El panel no tiene una dirección de correo electronico configurada, contacte con el administrador.");
-define("mail_failed", "Dirección de correo electronica erronea.");
-define("email", "Dirección de correo electronico");
-define("enter_email", "Introduzca sú dirección de correo electronico");
+define('mail_failed', "Dirección de correo electronica erronea.");
+define('email', "Dirección Email");
+define('enter_email', "Introduzca sú dirección de correo electronico");
 define('webmaster', "Webmaster");
 define('confirm_send', "Por razones de seguridad le hemos enviado un enlace de confirmación antes de reiniciar su contraseña.<br><b style='color:red;'>Por favor compruebe su bandeja de entrada.</b>");
 define('confirm_change_subject', "Confirmación de cambio de contraseña");
-define('confirm_change_password_message', "Hola,
-		 Se ha hecho una peticion de cambio de contraseña,
-		 sí realmente usted desea cambiar su contraseña acceda a la siguiente direccion URL: 
-		 
-		 %s
-		 
-		 Una vez haya accedido se le remitira otro correo electronico indicandole su nueva contraseña.
-
-		 Gracias!
-		 El administrador.
-
-		 Esto es un mensaje automatico, por favor no responda!");
+define('confirm_change_password_message', "Hola,<br>Se ha hecho una peticion de cambio de contraseña,<br>sí realmente usted desea cambiar su contraseña acceda a la siguiente direccion URL: <br>%s<br>Una vez haya accedido se le remitira otro correo electronico indicandole su nueva contraseña.<br>Gracias!<br>El administrador.<br><br>Esto es un mensaje automatico, por favor no responda!");
 ?>

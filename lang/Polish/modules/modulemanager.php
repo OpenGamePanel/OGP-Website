@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,38 +22,33 @@
  *
  */
 
-// modulemanager.php
 define('module_id', "Moduł ID");
 define('module_name', "Nazwa modułu");
 define('module_folder', "Moduł Folder");
 define('module_version', "Wersja modułu");
+define('db_version', "DB Version");
 define('modules_available_for_install', "Dostępne są następujące moduły do instalacji");
 define('install', "Instalacja");
 define('modules', "Moduły");
-define('no_installed_modules', "Nie znaleziono zainstalowanych modułów.");
 define('update_modules', "Update Modules");
-define('db_version', "DB Version");
+define('no_installed_modules', "Nie znaleziono zainstalowanych modułów.");
+define('not_complete', "The delete/install feature is not complete and might not work properly. WARNING: Data from ogp database might be lost!");
 define('core_mods_installed', "Core Modules Installed:");
 define('custom_mods_installed', "Custom Modules Installed:");
-
-// add_module.php
+define('installing_module', "Installing module '%s'");
 define('successfully_installed_module', "Został zainstalowany moduł %s.");
 define('failed_to_install_module', "Nie można zainstalować moduł %s.");
+define('adding_module', "Adding module called '%s'.");
+define('module_already_installed', "Module called '%s' is already installed.");
+define('uninstalling_module', "Uninstalling module '%s'");
 define('successfully_uninstalled_module', "Moduł został odinstalowany %s.");
 define('failed_to_uninstall_module', "Nie udało się odinstalować moduł %s.");
+define('module_file_missing', "directory is missing the module.php file.");
+define('module_file_missing_info', "is missing the required information.");
+define('query_failed', "Failed to execute query");
+define('query_failed_2', "to database.");
+define('failed_del_db', "Failed to delete module from database.");
 define('updated_module', "Updated module: '%s'.");
-
-//updating_modules.php
 define('updating_modules', "Updating Modules");
 define('updating_finished', "Updating Finished");
-define('not_complete', 'Not complete');
-define('installing_module', 'Installing module');
-define('adding_module', 'Adding module');
-define('module_already_installed', 'Module already installed');
-define('uninstalling_module', 'Uninstalling module');
-define('module_file_missing', 'Module file missing');
-define('module_file_missing_info', 'Module file missing info');
-define('query_failed', 'Query failed');
-define('query_failed_2', 'Query failed 2');
-define('failed_del_db', 'Failed del db');
 ?>

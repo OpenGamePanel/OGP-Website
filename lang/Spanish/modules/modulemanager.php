@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,40 +22,33 @@
  *
  */
 
-// modulemanager.php
 define('module_id', "ID");
 define('module_name', "Nombre");
 define('module_folder', "Carpeta");
 define('module_version', "Versión");
+define('db_version', "Versión BD");
 define('modules_available_for_install', "Los siguientes módulos estan disponibles para su instalacion");
 define('install', "Instalar");
 define('modules', "Módulos");
-define('no_installed_modules', "No se han encontrado módulos instalados.");
 define('update_modules', "Actualizar Modulos");
-define('db_version', "Versión BD");
+define('no_installed_modules', "No se han encontrado módulos instalados.");
+define('not_complete', "Peligro, manejar con cuidado, eliminar un módulo <br>puede suponer la pérdida de todos los datos relacionados con el.");
 define('core_mods_installed', "Core Modules Installed:");
 define('custom_mods_installed', "Custom Modules Installed:");
-
-// add_module.php
 define('installing_module', "Instalando módulo '%s'");
 define('successfully_installed_module', "Módulo %s instalado correctamente");
 define('failed_to_install_module', "Fallo al instalar el módulo %s.");
 define('adding_module', "Instalando el módulo '%s'.");
 define('module_already_installed', "El módulo '%s' ya se ha instalado.");
-
-// del_module.php
 define('uninstalling_module', "Desinstalando el módulo '%s'");
 define('successfully_uninstalled_module', "Se ha desinstalado el módulo %s correctamente.");
 define('failed_to_uninstall_module', "Fallo la desinstalacion del módulo %s.");
-define('not_complete', "Peligro, manejar con cuidado, eliminar un módulo <br>puede suponer la pérdida de todos los datos relacionados con el.");
-define("module_file_missing", "El archivo del modulo no existe.");
-define("module_file_missing_info", "La informacion sobre el modulo esta incompleta.");
-define("query_failed", "No se pudo procesar la peticion con la base de datos.");
-define("query_failed_2", "PeticiÃ³n Fallida.");
-define("failed_del_db", "Error al eliminar datos de la BD.");
-
-// Update modules
-define("updated_module", "Modulo %s actualizado.");
-define("updating_modules", "Actualizando Modulos");
-define("updating_finished", "Actualización Completa");
+define('module_file_missing', "El archivo del modulo no existe.");
+define('module_file_missing_info', "La informacion sobre el modulo esta incompleta.");
+define('query_failed', "No se pudo procesar la peticion con la base de datos.");
+define('query_failed_2', "to database.");
+define('failed_del_db', "Error al eliminar datos de la BD.");
+define('updated_module', "Modulo %s actualizado.");
+define('updating_modules', "Actualizando Modulos");
+define('updating_finished', "Actualización Completa");
 ?>

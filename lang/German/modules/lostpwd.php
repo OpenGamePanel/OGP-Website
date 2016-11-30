@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,42 +23,22 @@
  */
 
 define('recover', "Passwort wiederherstellen");
-define('back', "Zurück");
-define('incomplete', "Bitte gehe zurück und vervollständige alle Formularfelder");
-define('subject', "Passwort anfordern");
-define('password_message', "Hi,
-		 Du oder jemand anderes hat dein Passwort zurückgesetzt.
-
-		 Neues Passwort: %s
-		 Nachdem du dich mit diesem Passwort eingelogt hast kannst du es ändern.
-
-		 Danke!
-		 Site admin
-
-		 Dies ist eine automatisch generierte eMail, bitte nicht antworten!");
-define('send', "Dein neues Passwort wurde versendet! Bitte überprüfe deine eMail's!");
+define('back', "ZurÃ¼ck");
+define('incomplete', "Bitte gehe zurÃ¼ck und vervollstÃ¤ndige alle Formularfelder");
+define('subject', "Fach");
+define('password_message', "Hi,<br>Du oder jemand anderes hat dein Passwort zurÃ¼ckgesetzt.<br><br>Neues Passwort: %s<br>Nachdem du dich mit diesem Passwort eingelogt hast kannst du es Ã¤ndern.<br><br>Danke!<br>Site admin<br><br>Dies ist eine automatisch generierte eMail, bitte nicht antworten!");
+define('send', "Dein neues Passwort wurde versendet! Bitte Ã¼berprÃ¼fe deine eMail's!");
 define('here', "Hier");
 define('to_login', "zum Login");
 define('errormail', "Die Email-Adresse ist nicht korrekt.");
 define('submit', "Senden");
 define('click', "Klick");
-define('mail_settings_missing', "Dein Passwort kann nicht gesendet werden da die Panel Mail Einstellungen sind nicht vollständig sind. Bitte kontaktiere den Administrator.");
+define('mail_settings_missing', "Dein Passwort kann nicht gesendet werden da die Panel Mail Einstellungen sind nicht vollstÃ¤ndig sind. Bitte kontaktiere den Administrator.");
 define('mail_failed', "Email senden fehlgeschlagen.");
-define('email', "Email");
-define('enter_email', "Bitte fühge dein Emaila-Adresse ein");
+define('email', "Email-Adress");
+define('enter_email', "Bitte fÃ¼hge dein Emaila-Adresse ein");
 define('webmaster', "Webmaster");
-define('confirm_send', "Aus Sicherheitsgründen haben wir Ihnen eine Bestätigungs-Link, bevor Sie Ihr Passwort zurücksetzen.<br><b style='color:red;'>Bitte comprueve Ihrem Posteingang.</b>");
-define('confirm_change_subject', "Bestätigung Passwort-Änderung");
-define('confirm_change_password_message', "Hallo,
-		 Es hat eine Änderung des Kennworts Antrag gestellt hat,
-		 willst du wirklich Ihr Passwort zu ändern, um die folgende URL-Adresse zugreifen:
-
-		 %s
-
-		 Nach der Anmeldung werden Sie eine Email sage Ihnen Ihr neues Passwort zugesandt.
-
-		 Vielen Dank!
-		 Administrator.
-
-		 Dies ist eine automatische Nachricht, bitte nicht antworten!");
+define('confirm_send', "Aus SicherheitsgrÃ¼nden haben wir Ihnen eine BestÃ¤tigungs-Link, bevor Sie Ihr Passwort zurÃ¼cksetzen.<br><b style='color:red;'>Bitte comprueve Ihrem Posteingang.</b>");
+define('confirm_change_subject', "BestÃ¤tigung Passwort-Ã„nderung");
+define('confirm_change_password_message', "Hallo,<br>Es hat eine Ã„nderung des Kennworts Antrag gestellt hat,<br>willst du wirklich Ihr Passwort zu Ã¤ndern, um die folgende URL-Adresse zugreifen:<br><br>%s<br><br>Nach der Anmeldung werden Sie eine Email sage Ihnen Ihr neues Passwort zugesandt.<br><br>Vielen Dank!<br>Administrator.<br><br>Dies ist eine automatische Nachricht, bitte nicht antworten!");
 ?>
