@@ -24,21 +24,21 @@
 
 define('recover', "Elfelejtett jelszó helyreállítása");
 define('back', "Vissza");
-define('incomplete', "Menj vissza, és tölts ki minden mezőt.");
+define('incomplete', "Kérlek menj vissza és tölts ki az összes mezőt az űrlapon.");
 define('subject', "Jelszó kérés");
 define('password_message', "Hello,<br><br>A jelszavad sikeresen törölve.<br><br>Új jelszó: %s<br><br>Ne felejtsd el néha megváltoztatni a jelszavadat.<br><br>Kérlek ne válaszolj erre az e-mailre<br>br>______________________________<br>OGP Postázó");
 define('send', "A jelszavadat elküldtük! Kérlek ellenőrizd az e-mailedet!");
-define('here', "ide");
+define('here', "Ide");
 define('to_login', "a belépéshez");
-define('errormail', "Megadott email cím hibás.");
-define('submit', "Tovább");
+define('errormail', "Az e-mail címed nem megfelelő.");
+define('submit', "Küldés");
 define('click', "Kattints");
-define('mail_settings_missing', "A panel email beállításai nem teljesek, ezért nem kérheto új jelszó. Vedd fel a kapcsolatot az adminisztrátorral.");
-define('mail_failed', "Az e-mail küldés sikertelen.");
+define('mail_settings_missing', "A panel mail beállításai nem teljesek, ezért nem küldhető el a jelszavad. Lépj kapcsolatba az adminisztrátorral.");
+define('mail_failed', "Sikertelen e-mail küldés.");
 define('email', "E-mail");
 define('enter_email', "Kérlek add meg az e-mail címed");
 define('webmaster', "Webmester");
-define('confirm_send', "Biztonsági okokból küldtünk Önnek egy visszaigazoló linkre elott alaphelyzetbe a jelszavát.<br><b style='color:red;'>Kérjük, ellenorizze postaládáját.</b>");
-define('confirm_change_subject', "Jelszó megerosítése változás");
+define('confirm_send', "Biztonsági okokból küldtünk neked egy megerősítő linket mielőtt törölnénk a régi jelszavadat.<br><b style='color:red;'>Kérlek ellenőrizd a postaládádat.</b>");
+define('confirm_change_subject', "Jelszó törlés, megerősítő e-mail");
 define('confirm_change_password_message', "Helló,<br><br>Ön vagy valaki más kért egy jelszócserét,<br>Ha szeretné, hogy meg legyen változtatva, akkor látogasson el az oldalra:<br><br> %s<br><br>Látogatása után, ki küldünk Önnek egy új jelszót.<br><br>Köszönjük!<br>A rendszergazda.<br><br>Ez egy automatikus válasz, kérlek, ne válaszolj!");
 ?>

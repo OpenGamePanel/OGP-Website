@@ -22,7 +22,7 @@
  *
  */
 
-define('dashboard_ftp_text', "The FTP client can compress files and send them via email, can uncompress too, edit text files, and much more.");
+define('dashboard_ftp_text', "The FTP client can compress files and send them via email, can uncompress too, edit text files and much more.");
 define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 70 servers supplied directly by OGP.");
 define('dashboard_game_monitor_text', "Watch and monitor your traffic & logs quickly. You can see what servers are up and down.");
 define('dashboard_support_text', "Get support from the OGP Professional Team on the forum. Fast response and great attention.");

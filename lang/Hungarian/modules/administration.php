@@ -22,26 +22,26 @@
  *
  */
 
-define('external_links', "Külső hivatkozások");
+define('external_links', "Külső linkek");
 define('url', "Cím");
 define('name', "Név");
 define('add_it', "Hozzáadás");
-define('link_has_been_removed', "A(z) %s hivatkozás eltávolításra került.");
+define('link_has_been_removed', "A(z) %s link eltávolítva.");
 define('db_backup', "Adatbázis mentés");
 define('download_db_backup', "Adatbázis mentés letöltése");
 define('restore_db_backup', "Adatbázis mentés visszaállítása");
 define('sql_file', "fájl(.sql)");
-define('change_buttons_order', "Változás gomb rendelés");
-define('when', "Mikor");
-define('who', "Ki");
-define('where', "IP");
-define('what', "Mit csinál?");
+define('change_buttons_order', "Gombok sorrendjének megváltoztatása");
+define('when', "Időpont");
+define('who', "Felhasználó");
+define('where', "IP cím");
+define('what', "Művelet");
 define('search', "Keresés");
-define('empty_logger', "Logolás ürítése");
-define('ban_list', "Ban list");
-define('no_banned_ips', "There are no banned IPs");
-define('unban', "Unban IP");
-define('client_ip', "Client IP");
-define('banned_until', "Banned until");
-define('unban_selected_ips', "Unban selected IPs");
+define('empty_logger', "Napló ürítése");
+define('ban_list', "Kitiltottak listája");
+define('no_banned_ips', "Nincsennek kitiltott IP-k");
+define('unban', "Kitiltás eltávolítása az IP-ről");
+define('client_ip', "Kliens IP");
+define('banned_until', "Kitiltva eddig");
+define('unban_selected_ips', "Kitiltás eltávolítása a kiválasztott IP-ről");
 ?>

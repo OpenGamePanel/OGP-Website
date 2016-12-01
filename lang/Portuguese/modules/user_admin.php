@@ -98,7 +98,7 @@ define('successfully_added_server_to_group', "Successfully added server to group
 define('successfully_removed_from_group', "Successfully removed %s from group <em>%s</em>.");
 define('could_not_delete_server_from_group', "Could not delete server %s from group <em>%s</em>.");
 define('successfully_removed_server_from_group', "Successfully removed server %s from group <em>%s</em>.");
-define('group_with_id_does_not_exist', "User with ID %s does not exist.");
+define('group_with_id_does_not_exist', "Group with ID %s does not exist.");
 define('are_you_sure_you_want_to_delete_group', "Are you sure you want to delete group <em>%s</em>?");
 define('unable_to_delete_group', "Unable to delete %s group.");
 define('successfully_deleted_group', "Successfully deleted group <b>%s</b>.");
