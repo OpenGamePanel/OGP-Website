@@ -29,7 +29,7 @@ define('enter_valid_port', "Enter a valid port.");
 define('enter_mysql_root_password', "Enter MySQL root password.");
 define('enter_mysql_name', "Enter MySQL name.");
 define('could_not_add_mysql_server', "Could not add MySQL server.");
-define('game_server_name_info', "Server name helps users identify their servers.");
+define('game_server_name_info', "Server name helps users to identify their servers.");
 define('note_mysql_host', "Note: Using a 'Direct connection' the server must accept external connections so the servers can connect remotely, whereas connecting through a remote server it will be used just as a local connection.");
 define('direct_connection', "Direct connection");
 define('connection_through_remote_server_named', "Connection through remote server named %s");

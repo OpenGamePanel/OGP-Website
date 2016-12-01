@@ -22,7 +22,7 @@
  *
  */
 
-define('system_uptime', "Rendszer működési ideje");
+define('system_uptime', "Rendszer üzemidő");
 define('system_up_time', "Újraindítás óta eltelt idő");
 define('system_up_since', "Mióta");
 define('cpu_usage', "Processor használat");

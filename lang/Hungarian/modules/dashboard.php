@@ -22,7 +22,7 @@
  *
  */
 
-define('dashboard_ftp_text', "Az FTP kliens képes betömöríteni a fájlokat és elküldeni azokat e-mailben, képes kitömöríteni is, szöveges fájlokat szerkeszteni és még más egyébre.");
+define('dashboard_ftp_text', "Az FTP kliens képes betömöríteni a fájlokat és elküldeni azokat e-mailen keresztül, képes kitömöríteni is, szöveges fájlokat szerkeszteni és még sok mást is.");
 define('dashboard_addons_manager_text', "Kezeld az összes különböző szolgáltatásokat az OGP-vel. Válassz a több mint 70 szerver közül, melyeket közvetlenül támogat az OGP.");
 define('dashboard_game_monitor_text', "Nézd és figyeld a forgalmadat és a naplóidat könnyen. Láthatod, hogy melyik szerver megy és melyik nem.");
 define('dashboard_support_text', "Kérj segítséget az OGP professzionális csapatától a fórumon. Gyors válasz és nagyszerű figyelemmel.");

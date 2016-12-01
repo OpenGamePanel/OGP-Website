@@ -27,7 +27,7 @@ define('install_mappack', "Installere Mappepakke");
 define('install_config', "Installere Config");
 define('game_name', "Spil Navn");
 define('directory', "Mappe Sti");
-define('remote_server', "Fjern Server");
+define('remote_server', "Fjernbetjening Server");
 define('select_addon', "Vælg Addon");
 define('install', "Installere");
 define('failed_to_start_file_download', "Fejlet i at starte fil download.");

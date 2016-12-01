@@ -98,7 +98,7 @@ define('successfully_added_server_to_group', "Został dodany do grupy serwerów"
 define('successfully_removed_from_group', "Pomyślnie usunięty z grupy");
 define('could_not_delete_server_from_group', "Nie można usunąć serwera z grupy");
 define('successfully_removed_server_from_group', "Pomyślnie usunięty z grupy serwera");
-define('group_with_id_does_not_exist', "Grupa z ID nie istnieje");
+define('group_with_id_does_not_exist', "Grupa o ID %s nie istnieje.");
 define('are_you_sure_you_want_to_delete_group', "Czy na pewno chcesz usunąć grupę");
 define('unable_to_delete_group', "Nie można usunąć %s grupy.");
 define('successfully_deleted_group', "Grupa z powodzeniem usunięta");
