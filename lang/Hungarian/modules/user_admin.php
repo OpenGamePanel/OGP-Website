@@ -24,17 +24,17 @@
 
 define('your_profile', "Profilod");
 define('new_password', "Új jelszó");
-define('retype_new_password', "Add meg újra a jelszót");
+define('retype_new_password', "Add meg újra az új jelszót");
 define('login_name', "Felhasználónév");
 define('language', "Nyelv");
 define('first_name', "Keresztnév");
 define('last_name', "Vezetéknév");
 define('phone_number', "Telefonszám");
-define('email_address', "Email address");
+define('email_address', "E-mail cím");
 define('city', "Város");
 define('province', "Megye");
 define('country', "Ország");
-define('comment', "Megjegyzés");
+define('comment', "Megjegyzések");
 define('expires', "Lejárat");
 define('save_profile', "Profil mentése");
 define('new_password_info', "When password field is empty the password will not be updated.");
@@ -54,10 +54,10 @@ define('edit_games', "Játékok szerkesztése");
 define('edit_profile', "Profil szerkesztése");
 define('confirm_password', "Jelszó megerősítése");
 define('you_need_to_enter_both_passwords', "You need to enter both passwords.");
-define('passwords_did_not_match', "Passwords did not match.");
+define('passwords_did_not_match', "A jelszavak nem egyeznek.");
 define('could_not_add_user_because_user_already_exists', "Could not add user, because user <em>%s</em> already exists.");
 define('successfully_added_user', "Successfully added user <em>%s</em>.");
-define('add_a_new_user', "Add a new user");
+define('add_a_new_user', "Új felhasználó hozzáadása");
 define('admin', "Admin");
 define('user', "Felhasználó");
 define('user_with_id_does_not_exist', "User with ID %s does not exist.");
@@ -98,8 +98,8 @@ define('successfully_added_server_to_group', "Successfully added server to group
 define('successfully_removed_from_group', "Successfully removed %s from group <em>%s</em>.");
 define('could_not_delete_server_from_group', "Could not delete server %s from group <em>%s</em>.");
 define('successfully_removed_server_from_group', "Successfully removed server %s from group <em>%s</em>.");
-define('group_with_id_does_not_exist', "Group with ID %s does not exist.");
+define('group_with_id_does_not_exist', "A(z) %s csoport nem létezik.");
 define('are_you_sure_you_want_to_delete_group', "Are you sure you want to delete group <em>%s</em>?");
-define('unable_to_delete_group', "Unable to delete %s group.");
-define('successfully_deleted_group', "Successfully deleted group <b>%s</b>.");
+define('unable_to_delete_group', "Nem lehet törölni a(z) %s csoportot.");
+define('successfully_deleted_group', "Sikeresen törölve a <br>%s<br> csoport.");
 ?>
