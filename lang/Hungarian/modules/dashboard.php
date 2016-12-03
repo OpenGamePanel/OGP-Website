@@ -22,11 +22,11 @@
  *
  */
 
-define('dashboard_ftp_text', "Az FTP kliens képes betömöríteni a fájlokat és elküldeni azokat e-mailen keresztül, képes kitömöríteni is, szöveges fájlokat szerkeszteni és még sok mást is.");
+define('dashboard_ftp_text', "Az FTP kliens képes betömöríteni a fájlokat és elküldeni azokat e-mailen keresztül, képes kitömöríteni is, szöveges fájlokat szerkeszteni és még sok másra is.");
 define('dashboard_addons_manager_text', "Kezeld az összes különböző szolgáltatásokat az OGP-vel. Válassz a több mint 70 szerver közül, melyeket közvetlenül támogat az OGP.");
 define('dashboard_game_monitor_text', "Nézd és figyeld a forgalmadat és a naplóidat könnyen. Láthatod, hogy melyik szerver megy és melyik nem.");
 define('dashboard_support_text', "Kérj segítséget az OGP professzionális csapatától a fórumon. Gyors válasz és nagyszerű figyelemmel.");
-define('welcome_text', "Üdvözöllek az Open Game Panel (OGP) programban. Az 0pen Game Panel egy nyílt forráskódú software, ami lehetővé teszi, hogy elindíts, felügyelj és telepíts különböző játékszervereket.");
+define('welcome_text', "Üdvözöllek az Open Game Panel-ben (OGP). Az 0GP egy nyílt forráskódú szoftver, ami lehetővé teszi, hogy telepíts, elindíts és felügyelj különböző játékszervereket.");
 define('any_server_is_online', "Minden szerver online");
 define('current_map', "Aktuális pálya");
 define('server_ip_port', "IP:Port");

@@ -27,7 +27,7 @@ define('install_mappack', "Pályák telepítése");
 define('install_config', "Konfigurációk telepítése");
 define('game_name', "Játék neve");
 define('directory', "Könyvtár útvonal");
-define('remote_server', "Távoli kiszolgáló");
+define('remote_server', "Távoli szerver");
 define('select_addon', "Kiegészítő választás");
 define('install', "Telepítés");
 define('failed_to_start_file_download', "Nem sikerült elindítani a fájl letöltést.");

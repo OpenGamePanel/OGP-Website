@@ -24,8 +24,8 @@
 
 define('your_profile', "Profilod");
 define('new_password', "Új jelszó");
-define('retype_new_password', "Add meg újra az új jelszót");
-define('login_name', "Felhasználónév");
+define('retype_new_password', "Új jelszó ismét");
+define('login_name', "Bejelentkezési név");
 define('language', "Nyelv");
 define('first_name', "Keresztnév");
 define('last_name', "Vezetéknév");
@@ -38,17 +38,17 @@ define('comment', "Megjegyzések");
 define('expires', "Lejárat");
 define('save_profile', "Profil mentése");
 define('new_password_info', "When password field is empty the password will not be updated.");
-define('theme', "Kinézet");
-define('theme_info', "A kiválasztott kinézet lesz az alapbeállítás minden felhasználónak. A felhasználók meg tudják változtatni ezt a beállítást a profil oldalukon.");
+define('theme', "Téma");
+define('theme_info', "Ha a téma üres, akkor a globális érték lesz használva.");
 define('expires_info', "Lejárati dátum. A hozzáférés nem törlodik, csak a bejelentkezés tiltódik le.");
-define('password_mismatch', "Hibás jelszó.");
-define('current_password', "Aktuális jelszó");
-define('current_password_info', "Az aktuális jelszavad.");
+define('password_mismatch', "A jelszavak nem egyeznek");
+define('current_password', "Jelenlegi jelszó");
+define('current_password_info', "A jelenlegi jelszavad.");
 define('current_password_mismatch', "Your current password did not match to the one in database.");
-define('add_new_user', "Felhasználó hozzáadása");
+define('add_new_user', "Új felhasználó hozzáadása");
 define('edit_user_groups', "Felhasználói csoport szerkesztése");
 define('users', "Felhasználók");
-define('user_role', "Csoport");
+define('user_role', "Felhasználói szerep");
 define('full_name', "Teljes név");
 define('edit_games', "Játékok szerkesztése");
 define('edit_profile', "Profil szerkesztése");
@@ -101,5 +101,5 @@ define('successfully_removed_server_from_group', "Successfully removed server %s
 define('group_with_id_does_not_exist', "A(z) %s csoport nem létezik.");
 define('are_you_sure_you_want_to_delete_group', "Are you sure you want to delete group <em>%s</em>?");
 define('unable_to_delete_group', "Nem lehet törölni a(z) %s csoportot.");
-define('successfully_deleted_group', "Sikeresen törölve a <br>%s<br> csoport.");
+define('successfully_deleted_group', "Sikeresen törölve a(z) <br>%s<br> csoport.");
 ?>

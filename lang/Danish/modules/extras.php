@@ -29,7 +29,7 @@ define('uninstall', "Uninstall");
 define('install', "Installere");
 define('uptodate', "Up-to-date");
 define('update_available', "Update available");
-define('not_installed', "Not Installed");
+define('not_installed', "Not installed");
 define('installed', "Installed");
 define('download_update', "Download/Update");
 define('are_you_sure', "Are you sure");
@@ -39,4 +39,5 @@ define('confirm', "Confirm");
 define('cancel', "Cancel");
 define('extra_themes', "Extra themes");
 define('extra_modules', "Extra modules");
+define('search_for_updates', "Check for updates");
 ?>

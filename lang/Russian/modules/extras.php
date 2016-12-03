@@ -39,4 +39,5 @@ define('confirm', "Подтвердите");
 define('cancel', "Отменить");
 define('extra_themes', "Дополнительные темы");
 define('extra_modules', "Дополнительные модули");
+define('search_for_updates', "Check for updates");
 ?>

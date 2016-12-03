@@ -39,4 +39,5 @@ define('confirm', "Confirmar");
 define('cancel', "Cancelar");
 define('extra_themes', "Temas extra");
 define('extra_modules', "Modulos extra");
+define('search_for_updates', "Check for updates");
 ?>

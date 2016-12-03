@@ -23,7 +23,7 @@
  */
 
 define('install_lang', "Selecione seu idioma preferido");
-define('install_welcome', "Seja bem vindo ao instalador do painel de controle Open Game Panel");
+define('install_welcome', "Welcome to the Open Game Panel Setup");
 define('file_permission_check', "Checando as permissões exigidas para os arquivos");
 define('OK', "OK");
 define('write_permission_required', "Permissão de escrita exigida");
