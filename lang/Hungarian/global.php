@@ -40,7 +40,7 @@ define('lost_passwd', "Elfelejtetted a jelszavad?");
 define('no_db_connection', "Nem lehet csatlakozni az adatbázishoz.");
 define('bad_login', "Hibás felhasználónév vagy jelszó.");
 define('not_logged_in', "Jelenleg nem vagy bejelentkezve.");
-define('remove_install', "Kérlek távolítsd el az install.php fájl biztonsági okokból.");
+define('remove_install', "Kérlek, távolítsd el az install.php fájl biztonsági okokból.");
 define('agent_offline', "A szerver kontrolláló kliens offline.");
 define('logged_in', "Belépve mint");
 define('delete', "Törlés");

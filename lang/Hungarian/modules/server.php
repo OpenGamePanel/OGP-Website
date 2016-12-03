@@ -58,7 +58,7 @@ define('reboot', "Újraindítás szerveren");
 define('restart', "Újraindítás ügynök");
 define('confirm_reboot', "Are you sure you want to remotely reboot the entire physical server named '%s'?");
 define('confirm_restart', "Are you sure you want to restart the agent named '%s'?");
-define('restarting', "Restarting agent... Please wait.");
+define('restarting', "Agent újraindítása... Kérlek várj.");
 define('restarted', "Agent successfully restarted.");
 define('reboot_success', "Server named '%s' was successfully rebooted. You will not be able to access the server until it has successfully booted.");
 define('invalid_remote_host_id', "Invalid remote host id '%s' given.");

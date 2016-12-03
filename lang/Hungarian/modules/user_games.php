@@ -160,7 +160,7 @@ define('no_homes_assigned_to_group', "No homes assigned for group %s.");
 define('no_more_homes_available_that_can_be_assigned_for_this_user', "No more homes available that can be assigned for this user");
 define('no_more_homes_available_that_can_be_assigned_for_this_group', "No more homes available that can be assigned for this group");
 define('you_can_add_a_new_game_server_from', "You can add a new game server from %s.");
-define('no_remote_servers_available_please_add_at_least_one', "There are no remote servers available, please add at least one!");
+define('no_remote_servers_available_please_add_at_least_one', "Nincsenek elérhető távoli szerverek, kérlek, adj meg legalább egyet!");
 define('cloning_of_home_failed', "Cloning of home with id '%s' failed.");
 define('no_mods_to_clone', "No enabled mod(s) for this game yet. None will be cloned.");
 define('failed_to_add_mod', "Failed to add mod with id '%s' to home with id '%s'.");

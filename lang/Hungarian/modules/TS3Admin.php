@@ -30,7 +30,7 @@ define('head_vserver_switch', "Change vServer");
 define('head_vserver_overview', "vServer Overview");
 define('head_vserver_token', "Token management");
 define('head_vserver_liveview', "Liveview");
-define('e_fill_out', "Please fill out all required fields.");
+define('e_fill_out', "Kérlek, töltsd ki az összes kötelező mezőt.");
 define('e_upload_failed', "Feltöltés sikertelen.");
 define('e_server_responded', "The server responded: ");
 define('e_conn_serverquery', "Could not create ServerQuery access.");
@@ -50,8 +50,7 @@ define('n_server_responded', "A szerver válasza:");
 define('login_serverquery', "ServerQuery Login");
 define('login_name', "Felhasználónév");
 define('login_password', "Jelszó");
-define('login_submit', "	
-Bejelentkezés");
+define('login_submit', "Bejelentkezés");
 define('vsselect_headline', "vServer selection");
 define('vsselect_id', "ID #");
 define('vsselect_name', "Name");
