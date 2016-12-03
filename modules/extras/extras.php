@@ -287,33 +287,9 @@ function exec_ogp_module()
 
 	if(isset($_POST['remove']))
 	{
-		$install_nfo = DATA_PATH . str_replace(' ','_',$_POST['folder']) . ".nfo";
-		if( file_exists($install_nfo) )
-		{
-			$lines = file($install_nfo);
-			unset($lines[0]);// timestamp
-			unset($lines[1]);// nfo file
-			usort($lines, "deeperPathFirst");
-			foreach($lines as $file)
-			{
-				$file = trim($file);
-				if(file_exists($file))
-				{
-					unlink($file);
-					$parent_directory = dirname($file);
-					while(count(scandir($parent_directory)) == 2)
-					{							
-						if(realpath($parent_directory) == realpath($baseDir))
-							break;						
-						if(is_writable($parent_directory))
-							rmdir($parent_directory);
-						else
-							break;
-						$parent_directory = dirname($parent_directory);
-					}
-				}
-			}
-			unlink($install_nfo);
+		$themeDirRelPath = $_POST['remove'] . "/" . $_POST['folder'];
+		if(file_exists($themeDirRelPath) && is_dir($themeDirRelPath)){
+			recursiveDelete($themeDirRelPath);
 		}
 		return;
 	}
