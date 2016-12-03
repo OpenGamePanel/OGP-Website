@@ -25,23 +25,19 @@
 define('external_links', "Externe Links");
 define('url', "URL");
 define('name', "Name");
-define('add_it', "Hinzufügen");
+define('add_it', "HinzufÃ¼gen");
 define('link_has_been_removed', "%s link wurde enfernt.");
 define('db_backup', "DB Backup");
 define('download_db_backup', "Download DB Backup");
 define('restore_db_backup', "Restore DB Backup");
 define('sql_file', "file(.sql)");
 define('change_buttons_order', "Change buttons order");
-
-// Watch Logger
 define('when', "When");
 define('who', "Who");
 define('where', "Where");
 define('what', "What");
-define('search', "Search");
+define('search', "Suche");
 define('empty_logger', "Empty Logger");
-
-// Ban list
 define('ban_list', "Ban list");
 define('no_banned_ips', "There are no banned IPs");
 define('unban', "Unban IP");

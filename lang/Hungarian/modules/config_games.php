@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -22,22 +22,22 @@
  *
  */
 
-define('resetting_configs', "Alap konfigok betöltése");
-define('updating_configs', "Régi konfigok frissítése.");
-define('configs_updated_ok', "Konfigurációk újraolvasva sikeresen.");
-define('reset_old_configs', "Régi konfigok alapbeállításra");
-define('update_configs', "Konfiguráció frissítése");
-define('game_config_setup', "Játék konfigok beállítása");
+define('resetting_configs', "Összes konfiguráció visszaállítása.");
+define('updating_configs', "Régi konfigurációk frissítése.");
+define('configs_updated_ok', "Konfigurációk sikeresen újraolvasva.");
+define('reset_old_configs', "Régi konfigurációk visszaállítása.");
+define('update_configs', "Konfigurációk frissítése");
+define('game_config_setup', "Játék konfigurációk beállítása");
 define('config_reset_warning', "Régi konfigok törlésekor probléma adódhat a hozzárendelt játék szerverekkel, ugyanis elofordulhat hogy az azonosítók nem egyeznek meg az új konfigurációban.");
 define('modify_configs_info', "Ha módosítani akarod a játék konfigurációt, módosíthatod a fájlokat a %s mappában.");
-define('updating_config_from_file', "Konfig fájlok frissítése %s .");
+define('updating_config_from_file', "Konfiguráció frissítése a(z) %s fájlból.");
 define('error_when_handling_file', "Hiba történt a %s fájl használatakor.");
 define('error_while_adding_cfg_to_db', "Error occurred when adding data from %s to database.");
-define('no_configs_found', "Nem található konfigurációs fájl %s .");
-define('select_game', "Válaszd ki a játékot");
-define('create_xml_configs', "XML konfig készítés");
-define('failed_to_delete_config_from_db', "Nem sikerül törölni a: %s konfigot az adatbázisból");
-define('failed_removing_file', "Nem sikerül törölni a fájlt: %s.");
+define('no_configs_found', "Nem található konfiguráció a(z) %s fájlban.");
+define('select_game', "Válassz játékot");
+define('create_xml_configs', "XML konfiguráció létrehozása");
+define('failed_to_delete_config_from_db', "Nem sikerül törölni a(z) %s konfigurációt az adatbázisból");
+define('failed_removing_file', "Nem sikerüt eltávolítani a(z) %s fájlt.");
 define('removed_game_cfg_from_disk_and_datbase', "Törlés a konfigot: %s a diszkről és az adatbázisból.");
-define('delete_game_config_for', "Törlés a játék konfigurációkat a %s diszkről és az adatbázisból.");
+define('delete_game_config_for', "A(z) %s játék konfigurációjának törlése a lemezről és az adatbázisból.");
 ?>

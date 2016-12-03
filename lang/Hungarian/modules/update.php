@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -23,38 +23,31 @@
  */
 
 include('litefm.php');
-// updating.php
-define('curl_needed', "This page requires PHP curl module.");
+define('curl_needed', "Ez az oldal megköveteli a PHP curl modult.");
 define('no_access', "You need admin rights to access this page.");
-define('dwl_update', "Downloading update...");
-define('dwl_complete', "Download complete");
-define('install_update', "Installing update...");
-define('update_complete', "Update complete");
+define('dwl_update', "Frissítés letöltése...");
+define('dwl_complete', "A letöltés befejezve");
+define('install_update', "Frissítés telepítése...");
+define('update_complete', "Frissítés elvégezve");
 define('ignored_files', "%s ignored files.");
 define('not_updated_files_blacklisted', "Not updated/installed files (Blacklisted):<br>%s");
-
-// update.php
-define('latest_version', "Latest version");
-define('panel_version', "Panel version");
-define('update_now', "Update Now");
-define('the_panel_is_up_to_date', "The panel is up to date.");
-define('files_overwritten', "%s files overwritten.");
-define('can_not_update_non_writable_files', "Can not update because the following files/folders are not writable");
+define('latest_version', "Legújabb verzió");
+define('panel_version', "Panel verzió");
+define('update_now', "Frissítés most");
+define('the_panel_is_up_to_date', "A panel naprakész.");
+define('files_overwritten', "%s fájlok felülírva.");
+define('can_not_update_non_writable_files', "Nem lehet frissíteni, mert az alábbi fájlok/mappák nem írhatóak");
 define('dwl_failed', "The download URL is not available: \"%s\".<br>Try again later.");
 define('temp_folder_not_writable', "The download can not be placed because Apache does not have write permision at the system temporary folder(%s).");
 define('base_dir_not_writable', "The panel can not update because Apache does not have write permision at folder \"%s\".");
-define('new_files', "%s new files.");
-define('updated_files', "Updated files:<br>%s");
+define('new_files', "%s új fájlok.");
+define('updated_files', "Frissített fájlok:<br>%s");
 define('select_mirror', "Select mirror");
 define('view_changes', "View changes");
 define('get_x_revison_messages_may_take_some_time', "Get %s revison messages may take some time.");
-
-//updating_modules.php
-define('updating_modules', "Updating Modules");
-define('updating_finished', "Updating Finished");
-define('updated_module', "Updated module: '%s'.");
-
-//blacklist.php
+define('updating_modules', "Modulok frissítése");
+define('updating_finished', "A frissítés befejezve");
+define('updated_module', "Frissített modul: '%s'.");
 define('blacklist_files', "Blacklist files");
 define('blacklist_files_info', "All marked files will not be updated.");
 define('save_to_blacklist', "Save to blacklist");

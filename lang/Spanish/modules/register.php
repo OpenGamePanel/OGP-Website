@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -27,7 +27,7 @@ define('users_fname', "Nombre");
 define('users_lname', "Apellidos");
 define('users_passwd', "Contraseña");
 define('users_cpasswd', "Verificar contraseña");
-define('passwd_len', "Password must be greater than 6 characters");
+define('passwd_len', "Password must be longer than 6 characters");
 define('err_password', "Password cannot be empty");
 define('err_confirm_password', "Verify password field cannot be empty");
 define('err_password_mismatch', "Passwords do not match");
@@ -38,22 +38,9 @@ define('password_mismatch', "Los passwords no coinciden.");
 define('confirm_password', "Confirmar password");
 define('successfull', "Registro completado");
 define('click_here', "Click Aquí");
-define('to_login', "para entrar.");
+define('to_login', "para entrar");
 define('registered_on', "Registrado el :: %s");
-define('register_message', "Hola,<br>
-		 Tu cuenta a sido creada.<br><br>
-
-		 Usuario: %s<br>
-		 Contraseña: %s<br>
-		 
-		 Puedes cambiar la contraseña desde tu cuenta.<br>
-
-		 Gracias!<br>
-		 El administrador.<br>
-
-		 Esto es un mensaje automatico, por favor no respondas!");
-
-//Errors feedback
+define('register_message', "Hola,<br>Tu cuenta a sido creada.<br><br>Usuario: %s<br>Contraseña: %s<br>Puedes cambiar la contraseña desde tu cuenta.<br>Gracias!<br>El administrador.<br>Esto es un mensaje automatico, por favor no respondas!");
 define('err_captcha', "Captcha no coincide.");
 define('err_login_name', "Nombre de usuario vacio o en uso.");
 define('err_first_name', "Introduzca su nombre.");
@@ -64,5 +51,5 @@ define('err_email_address_already_in_use_by', "La dirección de email esta en us
 define('user_registration', "Registro de Usuario");
 define('your_account_details_has_been_sent_by_email_to', "Los detalles de su cuenta han sido enviados a <b>%s</b>.");
 define('account_created', "Your account has been created.");
-define('subject', "%s :: Detalles de su cuenta.");
+define('subject', "Asunto");
 ?>

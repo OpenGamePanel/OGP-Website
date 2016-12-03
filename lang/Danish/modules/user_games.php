@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,15 +22,10 @@
  *
  */
 
-// add_game_home.php
-define('add_new_game_home', "Tilføj Ny Spil Server");
 define('add_mods_note', "Du er nødtil at tilføje mods efter en server er tildelt en bruger. Dette ka gøres, ved at redigere serveren.");
-define('game_server', "Spil Server");
 define('game_servers', "Spil Servere");
-define('game_type', "Spil Type");
 define('game_path', "Spil Sti");
 define('game_path_info', "En fuldstændig server sti. Eksempel: /home/ogp/my_server/");
-define('game_server_name', "Spil server navn");
 define('game_server_name_info', "Server navn hjælper brugere til at genkende deres servere.");
 define('control_password', "Kontrol kodeord");
 define('control_password_info', "Denne adgangskode bliver brugt til server kontrol, så som RCON kodeord. Hvis feltet hvor adgangskoden er tom, er der andre muligheder.");
@@ -45,10 +40,9 @@ define('no_game_configurations_found', "Ingen spille konfiguration fundet. Du er
 define('game_configurations', ">spil konfigurations siden");
 define('add_remote_server', "tilføj en server.");
 define('wine_games', "Wine Spil");
-
-// edit_games.php
 define('home_path', "Hjemme sti");
 define('change_home_info', "Stedet hvor spil server er installeret. Eksempel: /home/ogp/my_server/");
+define('game_server_name', "Spil server navn");
 define('change_name_info', "Navnet på serveren, er for at hjælpe brugeren til at identificere den.");
 define('game_control_password', "Spil kontrol adgangskode");
 define('change_control_password_info', "Kontrol adgangskode er feksempel rcon kodeord.");
@@ -129,16 +123,15 @@ define('successfully_assigned_mod_to_address', "Successfully assigned mod to add
 define('switch_mods', "Switch mods");
 define('switch_mod_for_address', "Switch mod for address %s");
 define('invalid_path', "Invalid Path");
-
-// show_games.php
+define('add_new_game_home', "Tilføj Ny Spil Server");
 define('no_game_homes_found', "Ingen spil server fundet");
 define('available_game_homes', "Tilgængelige spil servere");
 define('home_id', "Hjemme ID");
+define('game_server', "Spil Server");
+define('game_type', "Spil Type");
 define('game_home', "spil server");
 define('game_home_name', "spil server Navn");
 define('clone', "Klone");
-
-// assign_games.php
 define('unassign', "Fjern");
 define('access_rights', "Adgangs Rettigheder");
 define('assigned_homes', "Nuværrende Hjem tildelt");
@@ -168,8 +161,6 @@ define('no_more_homes_available_that_can_be_assigned_for_this_user', "Ikke flere
 define('no_more_homes_available_that_can_be_assigned_for_this_group', "Ikke flere hjem tilgængelig, som ka blive tildelt til gruppe");
 define('you_can_add_a_new_game_server_from', "Du ka tilføje en ny spil server fra %s.");
 define('no_remote_servers_available_please_add_at_least_one', "Der er ikke nogen fjern server tilgængelig, venligst tilføj en!");
-
-// clone_home.php
 define('cloning_of_home_failed', "Kloning af hjem med id '%s' fejlet.");
 define('no_mods_to_clone', "Ingen aktiveret mod(s) til dette spil endnu, intet vil blive klonet.");
 define('failed_to_add_mod', "Fejlet I at tilføje mod med id '%s' til hjem med id '%s'.");
@@ -193,38 +184,30 @@ define('the_name_of_the_server_to_help_users_to_identify_it', "Navnet på server
 define('ips_and_ports_used_in_this_home', "IPs og Porte bruges in dette hjem");
 define('note_ips_and_ports_are_not_cloned', "Note - IPs og Porte er ikke klonet");
 define('mods_and_settings_for_this_game_server', "Mods og indstillinger til denne spil server");
-
-// del_home.php
 define('sure_to_delete_serverid_from_remoteip_and_directory', "Er du sikker på, at du ville slette spil server (ID: %s) fra server %s og dets mappe %s");
 define('yes_and_delete_the_files', "Ja, og slet filer");
 define('failed_to_remove_gamehome_from_database', "Fejlet I at fjerne spillehjem fra databasen.");
+define('successfully_deleted_game_server_with_id', "Succesfuldt slettet spil server med ID %s.");
 define('failed_to_remove_ftp_account_from_remote_server', "Fejlet I at fjerne FTP konto fra fjern server.");
 define('remove_it_anyway', "Vil du gerne fjerne det alligevel?");
-define('successfully_deleted_game_server_with_id', "Succesfuldt slettet spil server med ID %s.");
 define('sucessfully_deleted', "Slettet successfuldt %s");
 define('the_agent_had_a_problem_deleting', "Agenten havde problemer med at slette %s, Tjek agent loggen");
 define('connection_timeout_or_problems_reaching_the_agent', "Forbindelse tidsfrist udløb, eller problemet ligger hos agenten");
-
-// get_size.php
 define('does_not_exist_yet', "Does not exist yet.");
-
-// Custom fields
 define('go_to_custom_fields', "Go to Custom Fields");
 define('back_to_edit_server', "Back to edit server");
 define('update_settings', "Update settings");
 define('settings_updated', "Settings updated.");
-
-// Home path browser
 define('selected_path_already_in_use', "The selected path is already in use.");
 define('browse', "Browse");
 define('cancel', "Cancel");
 define('set_this_path', "Set this path");
-define('select_home_path', 'Select home path');
-define('folder', 'Folder');
-define('owner', 'Owner');
-define('group', 'Group');
-define('level_up', 'Level up');
-define('level_up_info', 'Back to the previous folder.');
-define('add_folder', 'Add folder');
-define('add_folder_info', 'Write the name for the new folder, then click on the icon.');
+define('select_home_path', "Select home path");
+define('folder', "Folder");
+define('owner', "Owner");
+define('group', "Group");
+define('level_up', "Level up");
+define('level_up_info', "Back to the previous folder.");
+define('add_folder', "Add folder");
+define('add_folder_info', "Write the name for the new folder, then click on the icon.");
 ?>

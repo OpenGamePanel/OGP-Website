@@ -23,8 +23,8 @@
  */
 
 include 'update.php';
-define('unable_download', "Nem sikerül letölteni a(z) %s.");
-define('md5_failed', "MD5 teszt nem sikerült %s, próbálja újra.");
+define('unable_download', "Nem lehet a(z) %s-t letölteni.");
+define('md5_failed', "Az MD5 teszt sikertelen ehhez %s, próbálja újra.");
 define('uninstall', "Eltávolítás");
 define('install', "Telepítés");
 define('uptodate', "Naprakész");
@@ -32,11 +32,11 @@ define('update_available', "Frissítés elérhető");
 define('not_installed', "Nincs telepítve");
 define('installed', "Telepítve");
 define('download_update', "Letöltés/Frissítés");
-define('are_you_sure', "Biztos vagy benne?");
-define('uninstalling_module_dataloss', "Modul eltávolításával elveszíti az összes adatot ami kapcsolódik hozzá");
-define('remove_files_for', "Szeretnéd, hogy távolítsa el az összes fájlt?");
+define('are_you_sure', "Biztos vagy benne");
+define('uninstalling_module_dataloss', "A modul eltávolításával elveszted az összes hozzá kapcsolodó adatot.");
+define('remove_files_for', "Szeretnéd eltávolítani az összes fájlt a");
 define('confirm', "Megerősítés");
 define('cancel', "Mégse");
-define('extra_themes', "Extra téma");
-define('extra_modules', "Extra modul");
+define('extra_themes', "Extra témák");
+define('extra_modules', "Extra modulok");
 ?>

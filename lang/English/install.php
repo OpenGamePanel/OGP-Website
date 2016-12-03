@@ -23,7 +23,7 @@
  */
 
 define('install_lang', "Select your preferred language");
-define('install_welcome', "Welcome to Open Game Panel setup");
+define('install_welcome', "Welcome to the Open Game Panel Setup");
 define('file_permission_check', "Checking required file permissions");
 define('OK', "OK");
 define('write_permission_required', "Write permission required");

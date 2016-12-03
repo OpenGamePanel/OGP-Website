@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// settings.php
 define('maintenance_mode', "Wartungsmodus");
 define('maintenance_mode_info', "The message that is dispayed to normal users during maintenance.");
 define('maintenance_title', "Wartungsmodus Titel");
@@ -36,7 +35,7 @@ define('panel_language_info', "This language is the default language of the pane
 define('page_auto_refresh', "Page Auto Refresh");
 define('page_auto_refresh_info', "Page Auto Refresh settings is mainly used in panel debugging. In normal usage this should be set to On.");
 define('smtp_server', "Ausgehender E-Mail Server");
-define('smtp_server_info', "This is the outgoing mail server (SMTP server) that is used, for example, to sent forgotten passwords to users, localhost by default..");
+define('smtp_server_info', "This is the outgoing mail server (SMTP server) that is used, for example, to sent forgotten passwords to users, localhost by default.");
 define('panel_email_address', "Ausgehende E-Mail Adresse");
 define('panel_email_address_info', "This is the e-mail address that is in from field when passwords are sent to users.");
 define('panel_name', "Panel name");
@@ -51,7 +50,7 @@ define('steam_user', "Steam User");
 define('steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('steam_pass', "Steam Password");
 define('steam_pass_info', "Set here the steam account password.");
-define('steam_guard', "Steam Guard Code");
+define('steam_guard', "Steam Guard");
 define('steam_guard_info', "Some users have steam guard activated to protect their accounts from hackers,<br>this code is sent to the account email when the first steam update is started.");
 define('smtp_port', "SMTP Port");
 define('smtp_port_info', "If SMTP port is not the default port (25) Enter the SMTP port here.");
@@ -90,16 +89,12 @@ define('recaptcha_secret_key', "Recaptcha Secret Key");
 define('recaptcha_secret_key_info', "The secret key provided to you by Google.");
 define('recaptcha_use_login', "Use Recaptcha on Login");
 define('recaptcha_use_login_info', "If enabled, users will have to solve the Not a Robot Recaptcha when attempting to login.");
-define('support_widget_link', "Support widget link");
-define('support_widget_link_info', "The URL of your support site.");
 define('remote_query', "Remote query");
 define('remote_query_info', "Use the remote server (agent) to make queries to the game servers (Only GameQ and LGSL).");
 define('check_expiry_by', "Check expiration using");
 define('check_expiry_by_info', "If set to once_logged_in, the user's game server assignments will be automatically deleted if past the expiration date. If set to cron_job, you will need to create a cron task using the cron module to check for the expiration date at a configured interval.");
 define('once_logged_in', "Once Logged In");
 define('cron_job', "Cron Job");
-
-// Theme settings
 define('theme_settings', "Theme Einstellungen");
 define('theme', "Theme");
 define('theme_info', "Theme selected here will be the default theme for all users. Users can change their theme from their profile page.");

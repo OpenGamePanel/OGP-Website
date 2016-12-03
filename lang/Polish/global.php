@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-#####################################################################
-# Polish language variables
-#
-#####################################################################
 
 define('lang_charset', "UTF-8");
 define('already_logged_in_redirecting_to_dashboard', "Jesteś już zalogowany, przekierowanie do Strony Głównej");
@@ -37,7 +33,7 @@ define('logout', "Wyloguj");
 define('logout_message', "Zostałeś wylogowany.");
 define('support', "Pomoc");
 define('password', "Hasło");
-define('login', "Login");
+define('login', "Username");
 define('login_button', "Zaloguj");
 define('solve_captcha', "Human Check");
 define('lost_passwd', "Nie pamiętasz hasła?");
@@ -48,6 +44,7 @@ define('remove_install', "Proszę usunąć plik install.php ze względów bezpie
 define('agent_offline', "Agent który kontroluje serwer jest offline.");
 define('logged_in', "Jesteś zalogowany jako");
 define('delete', "Usuń");
+define('edit', "Edit");
 define('actions', "Akcje");
 define('invalid_subpage', "Nieprawidłowa podstrona.");
 define('invalid_home_id', "Nieprawidłowy identyfikator.");
@@ -57,15 +54,12 @@ define('yes', "TAK");
 define('no', "NIE");
 define('on', "Włączony");
 define('off', "Wyłączony");
-
-// datase vars.
 define('db_error_invalid_host', "Nieprawidłowy host bazy danych.");
 define('db_error_invalid_user_and_pass', "Nieprawidłowa nazwa użytkownika bazy danych lub hasło.");
 define('db_error_invalid_database', "Nieprawidłowa baza danych.");
 define('db_unknown_error', "Nieznany bład bazy danych.");
-
-
-// home.php
+define('db_error_module_missing', "Required PHP database module missing.");
+define('db_error_invalid_db_type', "Invalid database type in config file.");
 define('invalid_login_information', "Niepoprawnie wprowadzone dane logowania.");
 define('failed_to_read_config', "Nie można odczytać pliku konfiguracyjnego.");
 define('account_expired', "Konto wygasło.");
@@ -73,30 +67,22 @@ define('contact_admin_to_enable_account', "Skontaktuj się z administratorem, ab
 define('maintenance_mode_on', "Tryb Techniczny AKTYWNY");
 define('logging_out_10', "Wylogowanie za 10sec");
 define('invalid_redirect', "Przekierowanie");
-
-// index.php
 define('login_title', "Logowanie do panelu");
-define('lang', "Język");
-
-// includes/navig.php
 define('module_not_installed', "Moduł nie jest zainstalowany.");
-
-// Common
 define('no_access_to_home', "Nie masz dostępu.");
 define('not_available', "N/A");
 define('offline', "Offline");
 define('online', "Online");
 define('invalid_url', "Nieprawidłowy URL");
-
-// User Menu
+define('xml_file_not_valid', "XML file '%s' could not be validated with schema '%s'.");
+define('unable_to_load_xml', "Unable to load XML file '%s'. Permission issue?");
 define('gamemanager', "Manager Gier");
 define('game_monitor', "Monitor Gier");
 define('dashboard', "Strona Główna");
 define('user_addons', "Dodatki");
 define('ftp', "FTP");
 define('shop', "Sklep");
-
-// Admin Menu
+define('TS3Admin', "TS3 Admin");
 define('administration', "Administracja");
 define('config_games', "Gry/Mody Konfiguracja");
 define('modulemanager', "Moduły");
@@ -114,32 +100,23 @@ define('services', "Usługi");
 define('shop_settings', "Ustawienia Sklepu");
 define('update', "Aktualizacje Panelu");
 define('extras', "Dodatki");
-define('cur_theme', "%s Styl");
-define('watch_logger', "Logowania Konta");
-
-// Server Selector
 define('show', "Pokaż");
 define('show_all', "Pokaż wszystkie serwery");
-
-// Get home path size
+define('cur_theme', "%s Styl");
+define('copyright', "Copyright");
+define('all_rights_reserved', "All rights reserved");
+define('queries_executed', "queries executed");
+define('lang', "Język");
 define('get_size', "Pokaż Rozmiar");
 define('total_size', "Całkowity Rozmiar");
-define('edit', 'Edit');
-define('db_error_module_missing', 'Db error module missing');
-define('db_error_invalid_db_type', 'Db error invalid db type');
-define('xml_file_not_valid', 'Xml file not valid');
-define('unable_to_load_xml', 'Unable to load xml');
-define('TS3Admin', 'TS3Admin');
-define('copyright', 'Copyright');
-define('all_rights_reserved', 'All rights reserved');
-define('queries_executed', 'Queries executed');
-define('lgsl', 'Lgsl');
-define('lgsl_admin', 'Lgsl admin');
-define('rcon', 'Rcon');
+define('lgsl', "LGSL");
+define('lgsl_admin', "LGSL Admin");
+define('rcon', "RCON");
+define('watch_logger', "Logowania Konta");
 define('litefm_settings', "LiteFM Settings");
-define('assign_expiration_date', 'Assign expiration date');
-define('assign_expiration_date_info', 'Once it expires the server is unassigned but not removed.');
-define('server_expiration_date', 'Server expiration date');
-define('server_expiration_date_info', 'Once it expires the server is removed (database and files).');
-define('set_expiration_date', 'Set expiration date');
+define('assign_expiration_date', "Assign expiration date");
+define('assign_expiration_date_info', "Once it expires the server is unassigned but not removed.");
+define('server_expiration_date', "Server expiration date");
+define('server_expiration_date_info', "Once it expires the server is removed (database and files).");
+define('set_expiration_date', "Set expiration date");
 ?>

@@ -1,18 +1,35 @@
 <?php
+/*
+ *
+ * OGP - Open Game Panel
+ * Copyright (C) 2008 - 2016 The OGP Development Team
+ *
+ * http://www.opengamepanel.org/
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ *
+ */
 
-// General
-define('error', "error");
+define('error', "Error");
 define('title', "TeamSpeak 3 Web Interface");
 define('update_available', '<h3>Attention: A new version (v%1) of this software is available under <a href="%2" target="_blank">%2</a>.</h3>');
-
-// Head
 define('head_logout', "Logout");
 define('head_vserver_switch', "Change vServer");
 define('head_vserver_overview', "vServer Overview");
 define('head_vserver_token', "Token management");
 define('head_vserver_liveview', "Liveview");
-
-// Errors
 define('e_fill_out', "Please fill out all required fields.");
 define('e_upload_failed', "Upload unsuccessfull.");
 define('e_server_responded', "The server responded: ");
@@ -29,17 +46,11 @@ define('js_prompt_banreason', "Reason (optional): ");
 define('js_prompt_msg_to', "Textmessage to %1 #%2: ");
 define('js_prompt_poke_to', "Pokemessage to Client #%1: ");
 define('js_prompt_new_propvalue', "New value for '%1': ");
-
-// Notices
 define('n_server_responded', "The server responded: ");
-
-// Login
 define('login_serverquery', "ServerQuery Login");
 define('login_name', "Username");
-define('login_password', "Passwort");
+define('login_password', "Password");
 define('login_submit', "Login");
-
-// Select vServer page
 define('vsselect_headline', "vServer selection");
 define('vsselect_id', "ID #");
 define('vsselect_name', "Name");
@@ -58,8 +69,6 @@ define('vsselect_new_slots', "Client slots");
 define('vsselect_new_create', "Create");
 define('vsselect_new_added_ok', "vServer <span class=\"online\">%1</span> was created successfully.");
 define('vsselect_new_added_generated', "The generated token is:");
-
-// VDS overview
 define('vsoverview_virtualserver', "Virtual Server");
 define('vsoverview_information_head', "Information");
 define('vsoverview_connection_head', "Connection");
@@ -102,8 +111,6 @@ define('vsoverview_conn_bandwidth_second', "second");
 define('vsoverview_conn_bandwidth_minute', "minute");
 define('vsoverview_conn_bandwidth_send', "sent");
 define('vsoverview_conn_bandwidth_received', "received");
-
-// vServer Token
 define('vstoken_token_virtualserver', "Virtual Server");
 define('vstoken_token_head', "Token");
 define('vstoken_token_type', "Group type");
@@ -122,8 +129,6 @@ define('vstoken_new_select_channel', "Channel");
 define('vstoken_new_tokentype_0', "Server");
 define('vstoken_new_tokentype_1', "Channel");
 define('vstoken_new_added_ok', "Token was generated successfully.");
-
-// vServer Liveview
 define('vsliveview_server_virtualserver', "Virtual Server");
 define('vsliveview_server_head', "live view");
 define('vsliveview_liveview_enable_autorefresh', "Auto refresh");
@@ -151,8 +156,6 @@ define('vsliveview_channelbackup_get', "create and download");
 define('vsliveview_channelbackup_load', "Upload Channelbackup");
 define('vsliveview_channelbackup_load_submit', "recreate");
 define('vsliveview_channelbackup_new_added_ok', "Channelbackup successfull.");
-
-// Counter
 define('time_day', "day");
 define('time_days', "days");
 define('time_hour', "hour");
@@ -161,12 +164,8 @@ define('time_minute', "minute");
 define('time_minutes', "minutes");
 define('time_second', "second");
 define('time_seconds', "seconds");
-
-// Error numbers
 define('e_2568', "You do not have sufficient rights.");
 define('temp_folder_not_writable', "The templates folder (%s) is not writable.");
-
-// Subusers
 define('unassign_from_subuser', "Unassign from subuser.");
 define('assign_to_subuser', "Assign to subuser.");
 define('select_subuser', "Select subuser.");

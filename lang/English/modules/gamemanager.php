@@ -182,7 +182,7 @@ define('cant_write_file', "Can't write file:<br><b>%s</b>");
 define('exceeded_php_directive', "Exceeded PHP directive.<br><b>%s</b>.");
 define('unknown_errors', "Unknown errors.");
 define('directory', "Directory");
-define('view_player_commands',"View Player Commands");
-define('hide_player_commands',"Hide Player Commands");
-define('no_online_players',"There are no online players.");
+define('view_player_commands', "View Player Commands");
+define('hide_player_commands', "Hide Player Commands");
+define('no_online_players', "There are no online players.");
 ?>

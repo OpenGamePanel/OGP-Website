@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -40,20 +40,7 @@ define('successfull', "Powodzenie");
 define('click_here', "Kliknij tutaj");
 define('to_login', "aby się zalogować.");
 define('registered_on', "Zarejestrowany w dniu :: %s");
-define('register_message', "Witam,<br>
-		 Twoje konto zostało utworzone.<br><br>
-
-		 Użytkownik: %s<br>
-		 Hasło: %s<br><br>
-
-		 Możesz zmienić swoje hasło z konta.<br>
-
-		 Dziękuję!<br>
-		 Administratora.<br>
-
-		 Ten e-mail został utworzony automatycznie, Proszę, nie odpowiadać na email!");
-
-//Errors feedback
+define('register_message', "Witam,<br>Twoje konto zostało utworzone.<br><br>Użytkownik: %s<br>Hasło: %s<br><br>Możesz zmienić swoje hasło z konta.<br><br>Dziękuję!<br>Administratora.<br><br>Ten e-mail został utworzony automatycznie, Proszę, nie odpowiadać na email!");
 define('err_captcha', "Nieprawidłowe Captcha.");
 define('err_login_name', "Nazwa użytkownika jest pusta lub w użyciu.");
 define('err_first_name', "Podaj swoje imię.");

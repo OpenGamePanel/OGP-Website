@@ -1,8 +1,8 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,65 +22,60 @@
  *
  */
 
-// server.php
-define('configured_mysql_hosts', "Configured MySQL Hosts");
-define('add_new_mysql_host', "Hozzáadás MySQL hosztot");
-define('enter_mysql_ip', "Enter MySQL IP.");
-define('enter_valid_port', "Enter a valid port.");
-define('enter_mysql_root_password', "Enter MySQL root password.");
+define('configured_mysql_hosts', "MySQL hoszt beállítása");
+define('add_new_mysql_host', "MySQL hoszt hozzáadása");
+define('enter_mysql_ip', "Add meg a MySQL IP-t.");
+define('enter_valid_port', "Add meg egy valós portot.");
+define('enter_mysql_root_password', "Add meg a MySQL root jelszavát.");
 define('enter_mysql_name', "Enter MySQL name.");
-define('could_not_add_mysql_server', "Could not add MySQL server.");
-define('game_server_name_info', "Server added.");
+define('could_not_add_mysql_server', "Nem sikerült hozzáadni a MySQL szervert.");
+define('game_server_name_info', "Szerver neve segít a felhasználóknak azonosítani a szervereiket.");
 define('note_mysql_host', "Note: Using a 'Direct connection' the server must accept external connections so the servers can connect remotely, whereas connecting through a remote server it will be used just as a local connection.");
-define('direct_connection', "Direct connection");
+define('direct_connection', "Közvetlen kapcsolat");
 define('connection_through_remote_server_named', "Connection through remote server named %s");
 define('add_mysql_server', "Add MySQL server");
 define('mysql_online', "MySQL elérhető");
 define('mysql_offline', "MySQL nem elérhető");
-define('encryption_key_mismatch', "Encription key mismatch");
-define('unknown_error', "Unknown error");
-define('remove', "Delete");
+define('encryption_key_mismatch', "A titkosítási kulcs nem egyezik");
+define('unknown_error', "Ismeretlen hiba");
+define('remove', "Törlés");
 define('assign_db', "Assign Database");
-define('mysql_server_name', "MySQL server name");
-define('server_status', "Server status");
+define('mysql_server_name', "MySQL szerver neve");
+define('server_status', "Szerver állapota");
 define('mysql_ip_port', "MySQL IP:port");
-define('mysql_root_passwd', "MySQL root password");
-define('connection_method', "Connection method");
-define('user_privilegies', "User privileges");
-define('current_dbs', "Current databases");
+define('mysql_root_passwd', "MySQL root jelszava");
+define('connection_method', "Csatlakozási mód");
+define('user_privilegies', "Felhasználói jogosultságok");
+define('current_dbs', "Jelenlegi adatbázisok");
 define('mysql_name', "MySQL server name");
 define('mysql_ip', "MySQL IP");
 define('mysql_port', "MySQL port");
-define('privilegies', "privileges");
-define('all', "All");
+define('privilegies', "jogosultságok");
+define('all', "Összes");
 define('custom', "Custom");
-define('server_added', "Server added.");
-
-//privileges
-define('alter', "ALTER");
-define('create', "CREATE");
-define('create_temporary_tables', "CREATE TEMPORARY TABLES");
-define('drop', "DROP");
-define('index', "INDEX");
-define('insert', "INSERT");
-define('lock_tables', "LOCK TABLES");
-define('select', "SELECT");
-define('grant_option', "GRANT OPTION");
-
-//privileges descriptions
-define('alter_info', "<b>Enables use of ALTER TABLE.</b>");
-define('create_info', "<b>Enables use of CREATE TABLE.</b>");
-define('create_temporary_tables_info', "<b>Enables use of CREATE TEMPORARY TABLE.</b>");
-define('delete_info', "<b>Enables use of DELETE.</b>");
-define('drop_info', "<b>Enables use of DROP TABLE.</b>");
-define('index_info', "<b>Enables use of CREATE INDEX and DROP INDEX.</b>");
-define('insert_info', "<b>Enables use of INSERT.</b>");
-define('lock_tables_info', "<b>Enables use of LOCK TABLES on tables for which you have the SELECT privilege.</b>");
-define('select_info', "<b>Enables use of SELECT.</b>");
-define('update_info', "<b>Enables use of UPDATE.</b>");
-define('grant_option_info', "<b>Enables privileges to be granted.</b>");
-
-// edit_server.php
+define('server_added', "Szerver hozzáadva.");
+define('sql_alter', "ALTER");
+define('sql_create', "CREATE");
+define('sql_create_temporary_tables', "CREATE TEMPORARY TABLES");
+define('sql_drop', "DROP");
+define('sql_index', "INDEX");
+define('sql_insert', "INSERT");
+define('sql_lock_tables', "LOCK TABLES");
+define('sql_select', "SELECT");
+define('sql_grant_option', "GRANT OPTION");
+define('sql_update', "UPDATE");
+define('sql_delete', "DELETE");
+define('sql_alter_info', "<b>Enables use of ALTER TABLE.</b>");	
+define('sql_create_info', "<b>Enables use of CREATE TABLE.</b>");	
+define('sql_create_temporary_tables_info', "<b>Enables use of CREATE TEMPORARY TABLE.</b>");
+define('sql_delete_info', "<b>Enables use of DELETE.</b>");
+define('sql_drop_info', "<b>Enables use of DROP TABLE.</b>");	
+define('sql_index_info', "<b>Enables use of CREATE INDEX and DROP INDEX.</b>");	
+define('sql_insert_info', "<b>Enables use of INSERT.</b>");	
+define('sql_lock_tables_info', "<b>Enables use of LOCK TABLES on tables for which you have the SELECT privilege.</b>");	
+define('sql_select_info', "<b>Enables use of SELECT.</b>");
+define('sql_update_info', "<b>Enables use of UPDATE.</b>");	
+define('sql_grant_option_info', "<b>Enables privileges to be granted.</b>");
 define('select_game_server', "Select game server");
 define('invalid_mysql_server_id', "Invalid MySQL server ID.");
 define('there_is_another_db_named_or_user_named', "There is another database named <b>%s</b> or another user named <b>%s</b>.");
@@ -94,29 +89,27 @@ define('mysql_server_removed', "MySQL server named <b>%s</b> has been removed su
 define('unable_to_set_changes_to', "Unable to set changes to MySQL server named <b>%s</b>.");
 define('mysql_server_settings_changed', "MySQL server named <b>%s</b> has been changed successfully.");
 define('editing_mysql_server', "Editing MySQL server named <b>%s</b>.");
-define('save_settings', "Save settings");
+define('save_settings', "Beállítások mentése");
 define('mysql_dbs_for', "Databases for server %s");
-define('edit_dbs', "Edit databases");
-define('edit_db_settings', "Edit database settings");
-define('remove_db', "Remove database");
+define('edit_dbs', "Adatbázisok szerkesztése");
+define('edit_db_settings', "Adatbázis beállítások szerkesztése");
+define('remove_db', "Adatbázis eltávolítása");
 define('save_db_changes', "Save database changes.");
 define('add_db', "Add database");
-define('select_db', "Select database");
-define('db_user', "DB User");
-define('db_passwd', "DB Password");
-define('db_name', "DB name");
-define('enabled', "Enabled");
-define('game_server', "Game server");
-
-// user_db.php
+define('select_db', "Adatbázis választása");
+define('db_user', "Adatbázis felhasználó");
+define('db_passwd', "Adatbázis jelszó");
+define('db_name', "Adatbázis név");
+define('enabled', "Engedélyezve");
+define('game_server', "Játék szerver");
 define('there_are_no_databases_assigned_for', "There are no databases assigned for <b>%s</b>.");
 define('unable_to_connect_to_mysql_server_as', "Unable to connect to MySQL server as %s.");
 define('unable_to_create_db', "Unable to create a database.");
 define('unable_to_select_db', "Unable to select database %s.");
 define('db_info', "Database Information");
 define('db_tables', "Database tables");
-define('db_backup', "DB Backup");
-define('download_db_backup', "Download DB Backup");
-define('restore_db_backup', "Restore DB Backup");
-define('sql_file', "file(.sql)");
+define('db_backup', "Adatbázis mentés");
+define('download_db_backup', "Adatbázis mentés letöltése");
+define('restore_db_backup', "Adatbázis mentés visszaállítása");
+define('sql_file', "fájl(.sql)");
 ?>

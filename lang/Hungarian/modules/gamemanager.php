@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -23,10 +23,8 @@
  */
 
 define('game_manager', "Game Manager");
-define('no_games_to_monitor', "Nincs beállítva egy játék szerver se aminek megnézhetnéd a státuszát.");
+define('no_games_to_monitor', "Jelenleg nincsen online/offline játékszerver");
 define('status', "Status");
-
-// server_manager.php
 define('fail_no_mods', "Nincs engedélyezve mod ehhez a játékhoz! Meg kell kérned az adminisztrátort, hogy legalább egy játék modot engedélyezzen a számodra.");
 define('no_game_homes_assigned', "Nincs játék hozzád rendelve. Meg kell kérdned az adminisztrátort, hogy adjon hozzá játékot a profilodhoz.");
 define('select_game_home_to_configure', "Válaszd ki a konfigurálni kívánt játék szervert.");
@@ -36,20 +34,18 @@ define('install_update_steam', "Telepítés/Frissítés Steam-en keresztül");
 define('install_update_manual', "Telepítés/Frissítés manuálisan");
 define('assign_game_homes', "Játék szerver hozzárendelése");
 define('user', "Felhasználó");
-define('group', "Csoport");
+define('group', "Group");
 define('start', "Elindítás");
-
-// start_game.php
 define('ogp_agent_ip', "OGP Kliens IP");
 define('max_players', "Max játékos");
 define('max', "Max");
 define('ip_and_port', "IP és Port");
 define('available_maps', "Elérhető pályák");
 define('map_path', "Pálya útvonal");
-define('available_parameters', "Elérheto paraméterek");
-define('start_server', "Szerver indítása");
+define('available_parameters', "Elérhető paraméterek");
+define('start_server', "Szerver elindítása");
 define('start_wait_note', "A szerver indulása eltarthat egy ideig, böngésző bezárása nélkül várd meg míg elindul.");
-define('game_type', "Játék típusa");
+define('game_type', "Játék típus");
 define('map', "Pálya");
 define('starting_server', "Szerver indítása, kérlek várj...");
 define('starting_server_settings', "Szerver indítása a következő beállításokkal");
@@ -71,12 +67,10 @@ define('server_not_running_log_found', "Server is not running, but log is found.
 define('ip_port_pair_not_owned', "IP:PORT pár tulajdona.");
 define('unsuitable_maxplayers_value_maximum_reachable_number_of_slots_has_been_set', "Alkalmatlan maxplayers érték maximum elérheto számú slot van állítva.");
 define('server_running_not_responding', "Szerver fut, de nem válaszol,<br>előfordulhat, hogy valamilyen hibát ejtett, ezért érdemes átnézni a konfigurációt");
-
-// update_game.php
-define('update_started', "Frissítés elkezdodött, kérlek várj...");
+define('update_started', "Frissítés elkezdődött, kérlek várj...");
 define('failed_to_start_steam_update', "Steam-es frissítés indítása sikertelen. Nézd meg az OGP kliens logját.");
 define('failed_to_start_rsync_update', "Rsync-es frissítés indítása sikertelen. Nézd meg az OGP kliens logját.");
-define('update_completed', "Frissítés elkészült.");
+define('update_completed', "Frissítés sikeresen befejezve.");
 define('update_in_progress', "Frissítés folyamatban, kérlek várj...");
 define('refresh_steam_status', "Frissítése status Steam");
 define('refresh_rsync_status', "Frissítése status Rsync");
@@ -84,21 +78,19 @@ define('server_running_cant_update', "Server running so update is not possible. 
 define('xml_steam_error', "Selected server type does not support steam install/update.");
 define('mod_key_not_found_from_xml', "Mod key '%s' not found from the XML file.");
 define('stop_update', "Frissítésének leállítása");
-
-// game_monitor.php
 define('statistics', "Statisztika");
 define('servers', "Szerverek");
 define('players', "Játékosok");
-define('current_map', "Jelenlegi pálya");
+define('current_map', "Aktuális pálya");
 define('stop_server', "Szerver leállítása");
-define('server_ip_port', "Szerver IP:Port");
+define('server_ip_port', "IP:Port");
 define('server_name', "Szerver Neve");
 define('player_name', "Játékos Neve");
 define('score', "Pontszám");
 define('time', "Idő");
 define('no_rights_to_stop_server', "Nincs jogod ezen szerver leállításához.");
 define('no_ogp_lgsl_support', "Ehhez a játék szerverhez (%s) nincs LGSL támogatás az OGP-ben és ezért nem jelenítheto meg hozzá a statisztika.");
-define('server_status', "Server on %s is %s.");
+define('server_status', "Szerver státusz");
 define('server_stopped', "Szerver leállítása sikeres.");
 define('if_want_to_start_homes', "If you want to start game servers go to %s.");
 define('view_log', "Log nézése");
@@ -111,12 +103,12 @@ define('restarting_server', "Szerver úrjaindítás, kérlek várj...");
 define('server_restarted', "Szerver '%s' sikeresen újraindítva.");
 define('server_not_running', "A szerver nem fut.");
 define('address', "Cím");
-define('owner', "Tulajdonos");
-define('operations', "Művelet");
+define('owner', "Owner");
+define('operations', "Műveletek");
 define('search', "Keresés");
 define('maps_read_from', "Pálya olvasható ");
 define('file', "fájl");
-define('folder', "Mappa");
+define('folder', "folder");
 define('unable_retrieve_mod_info', "Unable to retrieve mod information from database.");
 define('unexpected_result_libremote', "Unexpected result from libremote, please inform developers.");
 define('unable_get_info', "Unable to get the required information for startup, blocking startup.");
@@ -126,7 +118,7 @@ define('error_server_already_running', "ERROR: Server already running on port");
 define('failed_start_server_code', "Failed to start the remote server. Error code: ");
 define('disabled', "disabled ");
 define('not_found_server', "Could not find the remote server with ID");
-define('rcon_command_title', "RCON parancs");
+define('rcon_command_title', "RCON Command");
 define('has_sent_to', "has been sent to");
 define('need_set_remote_pass', "You need to set the remote control password on");
 define('before_sending_rcon_com', "before sending rcon commands to it.");
@@ -158,36 +150,28 @@ define('mysql_databases', "MySQL adatbázis");
 define('failed_querying_server', "* Nem sikerült lekérdezni a szervert.");
 define('query_protocol_not_supported', "* Nincs query protocol OGP, hogy támogatni tudja a szervert.");
 define('queries_disabled_by_setting_disable_queries_after', "Lekérdezések letiltható beállításával: Letiltása lekérdezések után: %s, mert van %s szerver.<br>");
-
-// rcon_presets.php
 define('presets_for_game_and_mod', "RCON előre beállított parancs a játékhoz: %s és a modhoz: %s");
 define('name', "Név");
 define('command', "RCON&nbsp;parancs");
 define('add_preset', "Új előre beállítás");
-define('edit_presets', "edit presets");
+define('edit_presets', "Edit presets");
 define('del_preset', "Törlés");
 define('change_preset', "Megváltoztatás");
-define('send_command', "Parancs küldés");
-
-//rsync_install.php
+define('send_command', "Send command");
 define('starting_copy_with_master_server_named', "Kezdve másolatot master szerver neve '%s'...");
 define('starting_sync_with', "Kezdve szinkron %s...");
 define('refresh_interval', "Log frissítő intervallum");
-
-//update_server_manual.php
 define('finished_manual_update', "Sikeres manuális frissítés.");
-define('failed_to_start_file_download', "Nem sikerült elindítani fájl letöltést");
-define('game_name', "Játék név");
+define('failed_to_start_file_download', "Nem sikerült elindítani a fájl letöltést.");
+define('game_name', "Játék típusa");
 define('dest_dir', "Cél könyvtár");
-define('remote_server', "Távoli szerver");
+define('remote_server', "Távoli gép");
 define('file_url', "Fájl cím");
 define('file_url_info', "Az URL a fájl feltöltve és kicsomagolva a könyvtárba.");
 define('dest_filename', "Cél Fájlnév");
 define('dest_filename_info', "A fájlnév a célfájl.");
 define('update_server', "Szerver frissítés");
 define('unavailable', "Nem elérhető");
-
-//map image upload
 define('upload_map_image', "Pálya kép feltöltés");
 define('upload_image', "Képfeltöltés");
 define('jpg_gif_png_less_than_1mb', "The image must be jpg, gif or png and less than 1 MB.");
@@ -197,10 +181,8 @@ define('cant_create_folder', "Can't create folder:<br><b>%s</b>");
 define('cant_write_file', "Can't write file:<br><b>%s</b>");
 define('exceeded_php_directive', "Exceeded PHP directive.<br><b>%s</b>.");
 define('unknown_errors', "Unknown errors.");
-define('directory', "Directory");
-
-// RCON
-define('view_player_commands',"View Player Commands");
-define('hide_player_commands',"Hide Player Commands");
-define('no_online_players',"There are no online players.");
+define('directory', "Könyvtár útvonal");
+define('view_player_commands', "View Player Commands");
+define('hide_player_commands', "Hide Player Commands");
+define('no_online_players', "There are no online players.");
 ?>

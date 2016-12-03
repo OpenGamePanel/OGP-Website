@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
  *
  * OGP - Open Game Panel
@@ -30,7 +30,7 @@ define('language', "Nyelv");
 define('first_name', "Keresztnév");
 define('last_name', "Vezetéknév");
 define('phone_number', "Telefonszám");
-define('email_address', "Email cím");
+define('email_address', "Email address");
 define('city', "Város");
 define('province', "Megye");
 define('country', "Ország");
@@ -39,14 +39,12 @@ define('expires', "Lejárat");
 define('save_profile', "Profil mentése");
 define('new_password_info', "When password field is empty the password will not be updated.");
 define('theme', "Kinézet");
-define('theme_info', "Amennyiben a kinézetet üresen hagyod, az alapbeállítás lesz használva.");
+define('theme_info', "A kiválasztott kinézet lesz az alapbeállítás minden felhasználónak. A felhasználók meg tudják változtatni ezt a beállítást a profil oldalukon.");
 define('expires_info', "Lejárati dátum. A hozzáférés nem törlodik, csak a bejelentkezés tiltódik le.");
-define('password_mismatch', "A jelszavak nem egyeznek.");
+define('password_mismatch', "Hibás jelszó.");
 define('current_password', "Aktuális jelszó");
 define('current_password_info', "Az aktuális jelszavad.");
 define('current_password_mismatch', "Your current password did not match to the one in database.");
-
-// show_users.php
 define('add_new_user', "Felhasználó hozzáadása");
 define('edit_user_groups', "Felhasználói csoport szerkesztése");
 define('users', "Felhasználók");
@@ -54,31 +52,26 @@ define('user_role', "Csoport");
 define('full_name', "Teljes név");
 define('edit_games', "Játékok szerkesztése");
 define('edit_profile', "Profil szerkesztése");
-// add_user.php
-define('confirm_password', "Jelszó megerosítése");
+define('confirm_password', "Jelszó megerősítése");
 define('you_need_to_enter_both_passwords', "You need to enter both passwords.");
 define('passwords_did_not_match', "Passwords did not match.");
 define('could_not_add_user_because_user_already_exists', "Could not add user, because user <em>%s</em> already exists.");
 define('successfully_added_user', "Successfully added user <em>%s</em>.");
 define('add_a_new_user', "Add a new user");
 define('admin', "Admin");
-define('user', "User");
+define('user', "Felhasználó");
 define('user_with_id_does_not_exist', "User with ID %s does not exist.");
 define('are_you_sure_you_want_to_delete_user', "Are you sure you want to delete user <em>%s</em>?");
 define('unable_to_delete_user', "Unable to delete user %s.");
 define('successfully_deleted_user', "Successfully deleted user <b>%s</b>.");
 define('failed_to_update_user_profile_error', "Failed to update user profile. Error: %s");
 define('profile_of_user_modified_successfully', "Profile of user <b>%s</b> was modified successfully.");
-
-// subuser used in show_groups.php
 define('no_subusers', "No subusers are available to be assigned to a group. Please create subuser accounts.");
 define('ownedby', "Parent Owner");
-define('andSubUsers', " And all of his subusers?"); 
-define('subusers', "Subusers"); 
+define('andSubUsers', " And all of his subusers?");
+define('subusers', "Subusers");
 define('show_subusers', "Show Subusers");
 define('hide_subusers', "Hide Subusers");
-
-// *_group.php
 define('info_group', "From this page it is possible to determine user groups. You can assign servers to group so that they are availble for all of the group users.");
 define('add_new_group', "Új csoport hozzáadása");
 define('group_name', "Csoport neve");
@@ -95,8 +88,6 @@ define('servers_in_group', "Csoportban található szerverek");
 define('no_servers_in_group', "Nincs szerver a %s csoportban.");
 define('available_groups', "Elérheto csoportok");
 define('assign_homes', "Assign Homes");
-
-// add_group.php
 define('successfully_added_group', "Sikeresen hozzáadva a %s csoporthoz.");
 define('group_name_empty', "Csoport név nem lehet üres.");
 define('failed_to_add_group', "Nem sikerült hozzáadni a %s csoporthoz.");
@@ -107,8 +98,8 @@ define('successfully_added_server_to_group', "Successfully added server to group
 define('successfully_removed_from_group', "Successfully removed %s from group <em>%s</em>.");
 define('could_not_delete_server_from_group', "Could not delete server %s from group <em>%s</em>.");
 define('successfully_removed_server_from_group', "Successfully removed server %s from group <em>%s</em>.");
-define('group_with_id_does_not_exist', "User with ID %s does not exist.");
+define('group_with_id_does_not_exist', "Group with ID %s does not exist.");
 define('are_you_sure_you_want_to_delete_group', "Are you sure you want to delete group <em>%s</em>?");
-define('unable_to_delete_group', "Unable to delete user %s.");
+define('unable_to_delete_group', "Unable to delete %s group.");
 define('successfully_deleted_group', "Successfully deleted group <b>%s</b>.");
 ?>

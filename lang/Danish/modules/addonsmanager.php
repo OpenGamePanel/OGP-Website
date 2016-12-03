@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,13 +22,12 @@
  *
  */
 
-// Addons
 define('install_plugin', "Installere Plugin");
 define('install_mappack', "Installere Mappepakke");
 define('install_config', "Installere Config");
 define('game_name', "Spil Navn");
 define('directory', "Mappe Sti");
-define('remote_server', "Fjern Server");
+define('remote_server', "Fjernbetjening Server");
 define('select_addon', "Vælg Addon");
 define('install', "Installere");
 define('failed_to_start_file_download', "Fejlet i at starte fil download.");
@@ -36,8 +35,6 @@ define('no_games_servers_available', "Der er ikke nogen spil servere tilgængeli
 define('addon_installed_successfully', "Addon installeret successfully");
 define('path', "Sti");
 define('wait_while_decompressing', "Vent mens filen %s er dekomprimeret.");
-
-// Admin Addons
 define('addon_name', "Addon Navn");
 define('url', "URL");
 define('select_game_type', "Vælg Spil Type");
@@ -65,6 +62,5 @@ define('replacements', "Replacements:");
 define('addon_name_info', "Enter a name for this addon, this is the name that the user sees.");
 define('url_info', "Enter a web address that contains a file to download, if compressed in zip or tar.gz will be unpacked in the root directory of the server or on the path given below.");
 define('path_info', "The path must be relative to the server folder and contain no slashes at the beginning or end, eg: cstrike/cfg. If left blank will use the server root path.");
-define('post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data ".
-						   "from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
+define('post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
 ?>

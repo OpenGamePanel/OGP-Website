@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,15 +22,14 @@
  *
  */
 
-// settings.php
 define('maintenance_mode', "Обслуживание");
 define('maintenance_mode_info', "Это сообщение будет показано обычным пользователям.");
 define('maintenance_title', "Заголовок обслуживания");
 define('maintenance_title_info', "Название, которое отображается для обычных пользователей во время обслуживания.");
 define('maintenance_message', "Сообщение");
 define('maintenance_message_info', "Это сообщение будет показано обычным пользователям во время обслуживания.");
-define('update_settings', "Сохранить настройки");
-define('settings_updated', "Настройки успешно сохранены!");
+define('update_settings', "Update Settings");
+define('settings_updated', "Settings successfully updated.");
 define('panel_language', "Язык");
 define('panel_language_info', "Выбранный язык будет установлен всем пользователям по умолчанию, но они смогут его сменить в настройках своего профиля");
 define('page_auto_refresh', "Автообновление страниц");
@@ -51,7 +50,7 @@ define('steam_user', "Steam User");
 define('steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('steam_pass', "Steam Password");
 define('steam_pass_info', "Set here the steam account password.");
-define('steam_guard', "Steam Guard Code");
+define('steam_guard', "Steam Guard");
 define('steam_guard_info', "Some users have steam guard activated to protect their accounts from hackers,<br>this code is sent to the account email when the first steam update is started.");
 define('smtp_port', "SMTP Port");
 define('smtp_port_info', "If SMTP port is not the default port (25) Enter the SMTP port here.");
@@ -96,8 +95,6 @@ define('check_expiry_by', "Check expiration using");
 define('check_expiry_by_info', "If set to once_logged_in, the user's game server assignments will be automatically deleted if past the expiration date. If set to cron_job, you will need to create a cron task using the cron module to check for the expiration date at a configured interval.");
 define('once_logged_in', "Once Logged In");
 define('cron_job', "Cron Job");
-
-// Theme settings
 define('theme_settings', "Настройки темы");
 define('theme', "Тема");
 define('theme_info', "Выбранная тема будет установлена всем пользователям по умолчанию, но они смогут ее сменить в настройках своего профиля.");
@@ -127,5 +124,4 @@ define('custom_tab_target_blank', "Цель пользовательской в�
 define('custom_tab_target_blank_info', "Устанавливает цель всех вкладок. <b style='font-size:10px; font-weight:normal;'>('_self' = Открывает ссылку на одной странице. '_blank'  =  Открывает ссылку на новой странице.)</b>");
 define('bg_wrapper', "Задний фон");
 define('bg_wrapper_info', "Картинка заднего фона. <b style='font-size:10px; font-weight:normal;'>(Только для темы Revolution.)</b>");
-
 ?>

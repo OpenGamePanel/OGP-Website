@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// servers.php
 define('add_new_remote_host', "Dodaj nowe Zdalnego Host");
 define('configured_remote_hosts', "Skonfigurowane zdalnych hostach");
 define('remote_host', "Zdalnego Host");
@@ -36,33 +35,25 @@ define('remote_encryption_key', "Klucz szyfrowania zdalnego");
 define('remote_encryption_key_info', "Klucza szyfrowania Remote służy do szyfrowania danych między stron internetowych i agencji. Ten klucz musi być jakiś na obu końcach.");
 define('server_name', "Nazwa Serwera");
 define('agent_ip_port', "Agent IP:Port");
-define('agent_status', "Agent status");
+define('agent_status', "Agent Status");
 define('ips', "IPs");
 define('add_more_ips', "Jeśli chcesz, aby wprowadzić więcej prasy IPs Set IP, gdy wszystkie pola są pełne i puste pole pojawi się.");
 define('encryption_key_mismatch', "Klucz szyfrowania nie zgadza się z agentem. Ponownie sprawdzić swoje pliki konfiguracyjne.");
 define('no_ip_for_remote_host', "Należy dodać co najmniej jednego (1) adres IP dla każdego zdalnego komputera.");
+define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
+define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
+define('unknown_error', "Unknown error - status_chk returned");
 define('remote_host_user_name', "UNIX user");
 define('remote_host_user_name_info', "User name where agent is running. Example: Jonhy");
-define('ogp_user', remote_host_user_name);
-define('ogp_user_info', remote_host_user_name_info);
-define('add_ip', "Add IP");
-define('remove_ip', "Remove IP");
-define('edit_ip', "Edit IP");
-define('remote_ip', "Remote IP");
 define('remote_host_ftp_ip', "FTP IP");
 define('remote_host_ftp_ip_info', "Serwer FTP <b>IP</b> dla obecnego agenta.");
 define('remote_host_ftp_port', "FTP port");
 define('remote_host_ftp_port_info', "Serwer FTP <b>Port</b> dla obecnego agenta.");
-define('view_log', "logs");
-define('timeout', "TimeOut");
-define('timeout_info', "Sekund.Termin, aby uzyskać odpowiedź od tego agenta.");
-define('use_nat', "Użyj NAT");
-define('use_nat_info', "Włącz, jeśli zdalny serwer używa reguły NAT.");
-define('status', "Status:");
+define('view_log', "View log");
+define('status', "Status");
 define('stop_firewall', "Stop Firewall");
 define('start_firewall', "Start Firewall");
-define('wrote_changes', "Wrote changes successfully.");
-define('there_are_servers_running_on_this_ip', "There are servers running on this IP address.");
+define('seconds', "Seconds");
 define('reboot', "Remote Server Reboot");
 define('restart', "Restart Agent");
 define('confirm_reboot', "Are you sure you want to remotely reboot the entire physical server named '%s'?");
@@ -70,8 +61,41 @@ define('confirm_restart', "Are you sure you want to restart the agent named '%s'
 define('restarting', "Restarting agent... Please wait.");
 define('restarted', "Agent successfully restarted.");
 define('reboot_success', "Server named '%s' was successfully rebooted. You will not be able to access the server until it has successfully booted.");
-
-// arrange_servers.php
+define('invalid_remote_host_id', "Invalid remote host id '%s' given.");
+define('remote_host_removed', "Remote host called '%s' removed successfully.");
+define('editing_remote_server', "Editing remote server called '%s'");
+define('remote_server_settings_changed', "Changed settings for remote server '%s' successfully.");
+define('save_settings', "Save Settings");
+define('set_ips', "Set IPs");
+define('remote_ip', "Remote IP");
+define('remote_ips_for', "Remote IPs for server called '%s'");
+define('ips_set_for_server', "IPs set for server called '%s' successfully.");
+define('could_not_remove_ip', "Could not remove old IP's from database.");
+define('could_add_ip', "Could add remote server IP to database.");
+define('areyousure_removeagent', "Are you sure you want to remove the agent called");
+define('areyousure_removeagent2', "and all the homes related to it from the ogp database?");
+define('error_while_remove', "Error occurred while removing remote server.");
+define('add_ip', "Add IP");
+define('remove_ip', "Remove IP");
+define('edit_ip', "Edit IP");
+define('wrote_changes', "Wrote changes successfully.");
+define('there_are_servers_running_on_this_ip', "There are servers running on this IP address.");
+define('enter_ip_host', "You must enter IP for the remote host.");
+define('enter_valid_ip', "You must enter valid port for the remote host. The port value can be between 0 and 65535, however recommendation is between 1024 and 65535.");
+define('could_not_add_server', "Could not add server");
+define('to_db', "to the database.");
+define('added_server', "Added server");
+define('with_port', "with port");
+define('to_db_succesfully', "to the database successfully.");
+define('unable_discover', "Unable to auto discover IPs on");
+define('set_ip_manually', "You'll have to set them manually.");
+define('found_ips', "Found IPs");
+define('for_remote_server', "for the remote server.");
+define('failed_add_ip', "Failed to add IP");
+define('timeout', "Time Out");
+define('timeout_info', "Sekund.Termin, aby uzyskać odpowiedź od tego agenta.");
+define('use_nat', "Użyj NAT");
+define('use_nat_info', "Włącz, jeśli zdalny serwer używa reguły NAT.");
 define('arrange_ports', "Arrange ports");
 define('assign_new_ports_range_for_ip', "Assign new ports range for IP %s");
 define('assigned_port_ranges_for_ip', "Assigned port ranges for IP %s");
@@ -86,8 +110,7 @@ define('assign_range', "Assign range");
 define('edit_range', "Edit range");
 define('delete_range', "Delete range");
 define('home_id', "Home ID");
-define('seconds', "seconds");
-define('home_path', "Home path");
+define('home_path', "główna ścieżka:");
 define('game_type', "Game type");
 define('port', "Port");
 define('invalid_values', "Invalid values.");
@@ -96,35 +119,7 @@ define('ports_range_already_configured_for', "Ports range already configured for
 define('ports_range_added_successfull_for', "Ports range added successfull for %s.");
 define('ports_range_deleted_successfull', "Ports range deleted successfull.");
 define('ports_range_edited_successfull_for', "Ports range edited successfull for %s.");
-define('note_remote_host', 'Note remote host');
-define('ip_administration', 'Ip administration');
-define('unknown_error', 'Unknown error');
-define('invalid_remote_host_id', 'Invalid remote host id');
-define('remote_host_removed', 'Remote host removed');
-define('editing_remote_server', 'Editing remote server');
-define('remote_server_settings_changed', 'Remote server settings changed');
-define('save_settings', 'Save settings');
-define('set_ips', 'Set ips');
-define('remote_ips_for', 'Remote ips for');
-define('ips_set_for_server', 'Ips set for server');
-define('could_not_remove_ip', 'Could not remove ip');
-define('could_add_ip', 'Could add ip');
-define('areyousure_removeagent', 'Areyousure removeagent');
-define('areyousure_removeagent2', 'Areyousure removeagent2');
-define('error_while_remove', 'Error while remove');
-define('enter_ip_host', 'Enter ip host');
-define('enter_valid_ip', 'Enter valid ip');
-define('could_not_add_server', 'Could not add server');
-define('to_db', 'To db');
-define('added_server', 'Added server');
-define('with_port', 'With port');
-define('to_db_succesfully', 'To db succesfully');
-define('unable_discover', 'Unable discover');
-define('set_ip_manually', 'Set ip manually');
-define('found_ips', 'Found ips');
-define('for_remote_server', 'For remote server');
-define('failed_add_ip', 'Failed add ip');
-define('editing_firewall_for_remote_server', "Editing Firewall for remote server named \"%s\"");
+define('editing_firewall_for_remote_server', "Editing Firewall for remote server named '%s'");
 define('default_allowed', "Default allowed");
 define('allow_port_command', "Allow port command");
 define('deny_port_command', "Deny port command");

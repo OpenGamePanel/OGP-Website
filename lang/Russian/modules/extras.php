@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2014 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -26,7 +26,7 @@ include 'update.php';
 define('unable_download', "Невозможно загрузить %s.");
 define('md5_failed', "Тест MD5 не удалось по %s, попробуйте еще раз.");
 define('uninstall', "Отключить");
-define('install', "Включить");
+define('install', "устанавливать");
 define('uptodate', "Современных");
 define('update_available', "Обновление доступно");
 define('not_installed', "Не установлен");

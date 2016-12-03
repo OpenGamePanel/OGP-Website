@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -24,41 +24,21 @@
 
 define('recover', "Recuperar uma senha perdida");
 define('back', "Voltar");
-define('incomplete', "Por favor retorne e complete todos os campos do formulário.");
-define('subject', "Requisição de senha");
-define('password_message', "Oi,
-		 Você ou alguém redefinir sua senha.
-
-		 Nova senha: %s
-		 Uma vez logado, você pode alterar sua senha
-
-		 Obrigado!
-		 site admin
-
-		 Esta é uma resposta automática, por favor, não responda!");
+define('incomplete', "Por favor retorne e complete todos os campos do formulÃ¡rio.");
+define('subject', "RequisiÃ§Ã£o de senha");
+define('password_message', "Oi,<br>VocÃª ou alguÃ©m redefinir sua senha.<br><br>Nova senha: %s<br>Uma vez logado, vocÃª pode alterar sua senha<br><br>Obrigado!<br>site admin<br><br>Esta Ã© uma resposta automÃ¡tica, por favor, nÃ£o responda!");
 define('send', "Sua senha foi enviada ! Por favor verifique seu email!");
 define('here', "Aqui");
 define('to_login', "Para logar");
-define('errormail', "Seu endereço de email não está correto.");
+define('errormail', "Seu endereÃ§o de email nÃ£o estÃ¡ correto.");
 define('submit', "Enviar");
 define('click', "Clique");
+define('mail_settings_missing', "Panel mail settings are not complete so it can not send your password. Contact your OGP admin.");
+define('mail_failed', "Failed to send email.");
+define('email', "EndereÃ§o de email");
+define('enter_email', "Please enter your email address");
 define('webmaster', "Webmaster");
-define('confirm_send', "Por razões de segurança, já enviámos a você um link de confirmação antes de redefinir sua senha.<br><b style='color:red;'> Por favor, verifique sua caixa de entrada.</b>");
-define('confirm_change_subject', "Confirmação de alteração de senha");
-define('confirm_change_password_message', "Olá,
-		Ele fez um pedido de alteração de senha,
-		você realmente quer mudar sua senha para acessar o seguinte endereço URL:
-
-		%s
-
-		Após o login, você será enviado outro e-mail dizendo que sua nova senha.
-
-		Obrigado!
-		Administrador.
-
-		Esta é uma mensagem automática, por favor, não responda!");
-define('mail_settings_missing', 'Mail settings missing');
-define('mail_failed', 'Mail failed');
-define('email', 'Email');
-define('enter_email', 'Enter email');
+define('confirm_send', "Por razÃµes de seguranÃ§a, jÃ¡ enviÃ¡mos a vocÃª um link de confirmaÃ§Ã£o antes de redefinir sua senha.<br><b style='color:red;'> Por favor, verifique sua caixa de entrada.</b>");
+define('confirm_change_subject', "ConfirmaÃ§Ã£o de alteraÃ§Ã£o de senha");
+define('confirm_change_password_message', "OlÃ¡,<br>Ele fez um pedido de alteraÃ§Ã£o de senha,<br>vocÃª realmente quer mudar sua senha para acessar o seguinte endereÃ§o URL:<br><br>%s<br><br>ApÃ³s o login, vocÃª serÃ¡ enviado outro e-mail dizendo que sua nova senha.<br><br>Obrigado!<br>Administrador.<br><br>Esta Ã© uma mensagem automÃ¡tica, por favor, nÃ£o responda!");
 ?>

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// servers.php
 define('add_new_remote_host', "Добавить удаленный хост");
 define('configured_remote_hosts', "Настроенные удаленные хосты");
 define('remote_host', "Удаленный хост");
@@ -38,7 +37,7 @@ define('server_name', "Название сервера");
 define('agent_ip_port', "IP агента:Порт");
 define('agent_status', "Статус агента");
 define('ips', "IP-адрес");
-define('add_more_ips', "");
+define('add_more_ips', "If you want to enter more IPs press 'Set IPs' when all fields are full and an empty field will appear.");
 define('encryption_key_mismatch', "Зашифрованный ключ на удаленной машине не совпадает с ключем агента. Пересмотрите ваши файлы конфигурации.");
 define('no_ip_for_remote_host', "Вам нужно добавить хотя бы один (1) IP-адрес для каждого удаленного хоста.");
 define('note_remote_host', "Удаленный хост сервера, где запущен OGP агент. Каждый хост может иметь несколько IP адресов, к которым пользователи будут привязывать сервера.");
@@ -46,14 +45,12 @@ define('ip_administration', "Сервер &amp; IP Администрации ::
 define('unknown_error', "Неизвестная ошибка - status_chk возвращен");
 define('remote_host_user_name', "UNIX пользователь");
 define('remote_host_user_name_info', "Имя пользователя, под которым запущен агент.");
-define('ogp_user', remote_host_user_name);
-define('ogp_user_info', remote_host_user_name_info);
 define('remote_host_ftp_ip', "FTP IP");
 define('remote_host_ftp_ip_info', "FTP <b>IP</b> сервера для текущего агента.");
 define('remote_host_ftp_port', "FTP порт");
 define('remote_host_ftp_port_info', "FTP <b>порт</b> сервера для текущего агента.");
 define('view_log', "Просмотр лога");
-define('status', "Status:");
+define('status', "Статус");
 define('stop_firewall', "Stop Firewall");
 define('start_firewall', "Start Firewall");
 define('seconds', "Seconds");
@@ -64,8 +61,6 @@ define('confirm_restart', "Are you sure you want to restart the agent named '%s'
 define('restarting', "Restarting agent... Please wait.");
 define('restarted', "Agent successfully restarted.");
 define('reboot_success', "Server named '%s' was successfully rebooted. You will not be able to access the server until it has successfully booted.");
-
-// edit_server.php
 define('invalid_remote_host_id', "Не верный host id '%s' given.");
 define('remote_host_removed', "Удаленный хост: '%s' успешно удален.");
 define('editing_remote_server', "Редактирование удаленного сервера: '%s'");
@@ -83,9 +78,8 @@ define('error_while_remove', "Ошибка при удалении сервер�
 define('add_ip', "Добавить IP");
 define('remove_ip', "Удалить IP");
 define('edit_ip', "Изменить IP");
+define('wrote_changes', "Изменения записаны успешно.");
 define('there_are_servers_running_on_this_ip', "IP в настоящее время используется.");
-
-// add_server.php
 define('enter_ip_host', "Вы должны ввести IP удаленного хоста.");
 define('enter_valid_ip', "Вы должны ввести верный порт на удалённом хосте. Это значение может быть между 0 и 65535, в любом случае мы рекомендуем ставить его между 1024 и 65535 во избежание дальнейших проблем.");
 define('could_not_add_server', "Не удалось добавить сервер");
@@ -102,9 +96,6 @@ define('timeout', "Тайм-аут");
 define('timeout_info', "Секунды. Срок для получения ответа от агента.");
 define('use_nat', "Использовать NAT");
 define('use_nat_info', "Включить, если удаленный сервер использует NAT правила");
-define('wrote_changes', "Изменения записаны успешно.");
-
-// arrange_servers.php
 define('arrange_ports', "Arrange ports");
 define('assign_new_ports_range_for_ip', "Assign new ports range for IP %s");
 define('assigned_port_ranges_for_ip', "Assigned port ranges for IP %s");
@@ -118,30 +109,28 @@ define('available_range_ports', "Available range ports:");
 define('assign_range', "Assign range");
 define('edit_range', "Edit range");
 define('delete_range', "Delete range");
-define('home_id', "Home ID");
-define('home_path', "Home path");
-define('game_type', "Game type");
-define('port', "Port");
+define('home_id', "ID Сервера");
+define('home_path', "Путь к серверу");
+define('game_type', "Игра");
+define('port', "Порт");
 define('invalid_values', "Invalid values.");
 define('ports_in_range_already_arranged', "Ports in range already arranged.");
 define('ports_range_already_configured_for', "Ports range already configured for %s.");
 define('ports_range_added_successfull_for', "Ports range added successfull for %s.");
 define('ports_range_deleted_successfull', "Ports range deleted successfull.");
 define('ports_range_edited_successfull_for', "Ports range edited successfull for %s.");
-
-// Firewall
-define('editing_firewall_for_remote_server', 'Editing Firewall for remote server named "%s"');
-define('default_allowed', 'Default allowed');
-define('allow_port_command', 'Allow port command');
-define('deny_port_command', 'Deny port command');
-define('allow_ip_port_command', 'Allow IP:port command');
-define('deny_ip_port_command', 'Deny IP:port command');
-define('enable_firewall_command', 'Enable firewall command');
-define('disable_firewall_command', 'Disable firewall command');
-define('get_firewall_status_command', 'Get firewall status command');
-define('reset_firewall_command', 'Reset firewall command');
-define('firewall_status', 'Firewall status');
-define('save_firewall_settings', 'Save firewall settings');
-define('reset_firewall', 'Reset Firewall');
-define('firewall_settings', 'Firewall Settings');
+define('editing_firewall_for_remote_server', "Editing Firewall for remote server named '%s'");
+define('default_allowed', "Default allowed");
+define('allow_port_command', "Allow port command");
+define('deny_port_command', "Deny port command");
+define('allow_ip_port_command', "Allow IP:port command");
+define('deny_ip_port_command', "Deny IP:port command");
+define('enable_firewall_command', "Enable firewall command");
+define('disable_firewall_command', "Disable firewall command");
+define('get_firewall_status_command', "Get firewall status command");
+define('reset_firewall_command', "Reset firewall command");
+define('firewall_status', "Firewall status");
+define('save_firewall_settings', "Save firewall settings");
+define('reset_firewall', "Reset Firewall");
+define('firewall_settings', "Firewall Settings");
 ?>

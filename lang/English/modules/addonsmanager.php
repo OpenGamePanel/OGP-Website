@@ -27,7 +27,7 @@ define('install_mappack', "Install Maps");
 define('install_config', "Install Configs");
 define('game_name', "Game Name");
 define('directory', "Directory Path");
-define('remote_server', "Remote Host");
+define('remote_server', "Remote server");
 define('select_addon', "Select Addon");
 define('install', "Install");
 define('failed_to_start_file_download', "Failed to start file download.");

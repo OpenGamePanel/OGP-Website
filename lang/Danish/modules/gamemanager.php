@@ -25,8 +25,6 @@
 define('game_manager', "Spil Manager");
 define('no_games_to_monitor', "Du har ikke konfigureret nogen spil, som du ka iagttage.");
 define('status', "Status");
-
-// server_manager.php
 define('fail_no_mods', "Ingen mods er aktiveret til dette spil! Spørg en OGP admin om hjælp, for at få tildelt nogle mod(s) til det spil, som er tildelt til dig.");
 define('no_game_homes_assigned', "Ingen spil server, er bleven tildelt til dig. Du må spørge en OGP admin om hjælp, for at få tildelt nogle spil.");
 define('select_game_home_to_configure', "Vælg den spil server, som du vil konfigurer");
@@ -36,11 +34,8 @@ define('install_update_steam', "Installere/Opdatere via Steam");
 define('install_update_manual', "Installere/Opdatere manualt");
 define('assign_game_homes', "Tildel spil server");
 define('user', "Bruger");
-define('group', "Grupper");
+define('group', "Gruppe");
 define('start', "Start");
-
-
-// start_game.php
 define('ogp_agent_ip', "OGP Agent IP");
 define('max_players', "Max Spillere");
 define('max', "Max");
@@ -72,10 +67,9 @@ define('server_not_running_log_found', "Server kører ikke, men log er fundet. N
 define('ip_port_pair_not_owned', "IP:PORT tildeling ejes ikke.");
 define('unsuitable_maxplayers_value_maximum_reachable_number_of_slots_has_been_set', "Upassende maxspiller værdi, maximum antal numre af slots er bleven tildelt.");
 define('server_running_not_responding', "Serveren kører, men svarer ikke,<br>det er muligt, at der er en form for problem, og at det måske skulle");
-
-// update_game.php
 define('update_started', "Opdatering startet, vent venligst...");
 define('failed_to_start_steam_update', "Fejlet I at starte steam opdatering. Se agent log.");
+define('failed_to_start_rsync_update', "Failed to start Rsync update. See agent log.");
 define('update_completed', "Opdatering færdiggjort succesfuldt.");
 define('update_in_progress', "Opdatering er igang, vent venligst...");
 define('refresh_steam_status', "Genopfrisk steam status");
@@ -84,11 +78,9 @@ define('server_running_cant_update', "Serveren kører, så updatering er ikke mu
 define('xml_steam_error', "Den valgte server type, supportere ikke steam installering/opdatering.");
 define('mod_key_not_found_from_xml', "Mod nøgle '%s' ikke fundet på XML fil.");
 define('stop_update', "Stop opdatering");
-
-// game_monitor.php
 define('statistics', "Statestikker");
-define('servers', "Servers");
-define('players', "Players");
+define('servers', "Servere");
+define('players', "Spillere");
 define('current_map', "Nuværrende kort");
 define('stop_server', "Stop Server");
 define('server_ip_port', "Server IP:Port");
@@ -98,7 +90,7 @@ define('score', "Score");
 define('time', "Tid");
 define('no_rights_to_stop_server', "Du har ikke rettigheder, til at stoppe denne server.");
 define('no_ogp_lgsl_support', "Denne server (kører: %s) og har ikke LGSL support i OGP, og det statestikker, kan ikke blive vist.");
-define('server_status', "Serveren på %s er %s.");
+define('server_status', "Server on %s is %s.");
 define('server_stopped', "Serveren '%s' er bleven stoppet.");
 define('if_want_to_start_homes', "Hvis du vil starte spille servere, gå til %s.");
 define('view_log', "Se log");
@@ -144,8 +136,8 @@ define('team', "Hold");
 define('deaths', "Døde");
 define('pid', "PID");
 define('skill', "Evne");
-define("AIBot", "AIBot");
-define("steamid", "Steam ID");
+define('AIBot', "AIBot");
+define('steamid', "Steam ID");
 define('player', "Spiller");
 define('port', "Port");
 define('rcon_presets', "RCON standard indstillinger");
@@ -158,8 +150,6 @@ define('mysql_databases', "MySQL Databases");
 define('failed_querying_server', "* Failed querying the server.");
 define('query_protocol_not_supported', "* There is no query protocol in OGP that can support this server.");
 define('queries_disabled_by_setting_disable_queries_after', "Queries disabled by setting: Disable queries after: %s, since you have %s servers.<br>");
-
-// rcon_presets.php
 define('presets_for_game_and_mod', "RCON standard indstillinger for %s og mod %s");
 define('name', "Navn");
 define('command', "RCON&nbsp;Kommando");
@@ -167,16 +157,12 @@ define('add_preset', "Tilføj standard indstillinger");
 define('edit_presets', "Edit standard indstillinger");
 define('del_preset', "Slet");
 define('change_preset', "Vælg");
-define("send_command", "Send kommando");
-
-//rsync_install.php
+define('send_command', "Send kommando");
 define('starting_copy_with_master_server_named', "Start kopi af mester server navn '%s'...");
 define('starting_sync_with', "Start synkronisering med %s...");
 define('refresh_interval', "Log genopfrisker interval");
-
-//update_server_manual.php
 define('finished_manual_update', "Manual opdatering færdiggjort.");
-define('failed_to_start_file_download', "Fejlet I at starte fil download");
+define('failed_to_start_file_download', "Fejlet i at starte fil download.");
 define('game_name', "Spille navn");
 define('dest_dir', "Mappe destinations");
 define('remote_server', "Fjern Server");
@@ -186,8 +172,6 @@ define('dest_filename', "Destinations Fil navn");
 define('dest_filename_info', "Et filnavn for destinations fil.");
 define('update_server', "Updatere server");
 define('unavailable', "Utilgængelig");
-
-//map image upload
 define('upload_map_image', "Upload map image");
 define('upload_image', "Upload image");
 define('jpg_gif_png_less_than_1mb', "The image must be jpg, gif or png and less than 1 MB.");
@@ -197,11 +181,8 @@ define('cant_create_folder', "Can't create folder:<br><b>%s</b>");
 define('cant_write_file', "Can't write file:<br><b>%s</b>");
 define('exceeded_php_directive', "Exceeded PHP directive.<br><b>%s</b>.");
 define('unknown_errors', "Unknown errors.");
-define('failed_to_start_rsync_update', 'failed to start rsync update');
-define('directory', 'Directory');
-
-// RCON
-define('view_player_commands',"View Player Commands");
-define('hide_player_commands',"Hide Player Commands");
-define('no_online_players',"There are no online players.");
+define('directory', "Mappe Sti");
+define('view_player_commands', "View Player Commands");
+define('hide_player_commands', "Hide Player Commands");
+define('no_online_players', "There are no online players.");
 ?>

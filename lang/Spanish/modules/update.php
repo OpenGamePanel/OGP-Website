@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -31,9 +31,6 @@ define('install_update', "Instalando actualización...");
 define('update_complete', "<b>Actualización completa.</b>");
 define('ignored_files', "%s archivos ignorados.");
 define('not_updated_files_blacklisted', "Archivos no actualizados/instalados (En la lista negra):<br>%s");
-
-// update.php
-define('no_new_updates', "No hay actualizaciones disponibles.");
 define('latest_version', "Ultima version");
 define('panel_version', "Version del panel");
 define('update_now', "Actualizar Ahora");
@@ -45,17 +42,14 @@ define('temp_folder_not_writable', "La descarga no pudo completarse porque Apach
 define('base_dir_not_writable', "El panel no puede actualizarse porque Apache no tiene permisos de escritura en la carpeta \"%s\".");
 define('new_files', "%s archivos nuevos.");
 define('updated_files', "Archivos actualizados:<br>%s");
+define('select_mirror', "Seleccione un servidor de descarga");
 define('view_changes', "Ver cambios");
 define('get_x_revison_messages_may_take_some_time', "Obtener %s mensajes de revisión puede tardar algún tiempo.");
-
-// Update modules
-define("updated_module", "Modulo %s actualizado.");
-define("updating_modules", "Actualizando Modulos");
-define("updating_finished", "Actualización Completa");
-define('select_mirror', "Seleccione un servidor de descarga");
-
-//blacklist.php
+define('updating_modules', "Actualizando Modulos");
+define('updating_finished', "Actualización Completa");
+define('updated_module', "Modulo %s actualizado.");
 define('blacklist_files', "Lista negra de archivos");
 define('blacklist_files_info', "Todos los archivos marcados no serán actualizados.");
 define('save_to_blacklist', "Guardar en la lista negra");
+define('no_new_updates', "No hay actualizaciones disponibles.");
 ?>

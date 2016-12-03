@@ -23,7 +23,7 @@
  */
 
 define('external_links', "Внешние ссылки");
-define('url', "URL-ссылки");
+define('url', "URL-адрес");
 define('name', "Название");
 define('add_it', "Добавить");
 define('link_has_been_removed', "%s cсылка удалена.");
@@ -32,16 +32,12 @@ define('download_db_backup', "Скачать бэкап БД");
 define('restore_db_backup', "Восстановить БД из бэкапа");
 define('sql_file', "файл(.sql)");
 define('change_buttons_order', "Изменение порядка кнопки");
-
-// Watch Logger
 define('when', "When");
 define('who', "Who");
 define('where', "Where");
 define('what', "What");
-define('search', "Search");
+define('search', "Поиск");
 define('empty_logger', "Empty Logger");
-
-// Ban list
 define('ban_list', "Ban list");
 define('no_banned_ips', "There are no banned IPs");
 define('unban', "Unban IP");
