@@ -39,4 +39,5 @@ define('confirm', "Megerősítés");
 define('cancel', "Mégse");
 define('extra_themes', "Extra témák");
 define('extra_modules', "Extra modulok");
+define('search_for_updates', "Frissítések keresése");
 ?>

@@ -40,7 +40,7 @@ define('successfull', "Sikeres");
 define('click_here', "Kattints ide");
 define('to_login', "a bejelentkezéshez.");
 define('registered_on', "Regisztrált: %s.");
-define('register_message', "Hello,<br><br>Az Open Game Panel fiókod elkészült és most már bejelentkezhetsz az alábbi fiók adatokkal:<br><br>Felhasználónév: %s<br>Jelszó: %s<br><br>Ne felejtsd el az első belépés után, illetve néha megváltoztatni a jelszavadat.<br><br>Kérlek ne válaszolj erre az e-mailre!<br><br>______________________________<br>OGP Postázó");
+define('register_message', "Hello,<br><br>Az Open Game Panel fiókod elkészült és most már bejelentkezhetsz az alábbi fiók adatokkal:<br><br>Felhasználónév: %s<br>Jelszó: %s<br><br>Ne felejtsd el néha megváltoztatni a jelszavadat és az első belépést követően.<br><br>Kérlek, ne válaszolj erre az e-mailre!<br><br>______________________________<br>OGP Postázó");
 define('err_captcha', "Captcha nem egyezik.");
 define('err_login_name', "A felhasználónév üres vagy már foglalt.");
 define('err_first_name', "Add meg a neved.");

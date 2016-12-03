@@ -53,7 +53,7 @@ define('username', "Felhasználónév");
 define('repeat_password', "Jelszó ismét");
 define('email', "E-mail cím");
 define('back', "Vissza");
-define('database_setup_failure', "Adatbázis létrehozása sikertelen. Ellenorizd az adatbázis beállításokat.");
+define('database_setup_failure', "A telepítő nem tudta létrehozni az adatbázist. Kérlek, ellenőrizd újra az adatbázis konfigurációdat.");
 define('php_version_check', "PHP verzió ellenőrzése.");
 define('invalid_username', "A megadott felhasználónév érvénytelen.");
 define('password_too_short', "A jelszavad túl rövid. Legalább '%d' karakter hosszúnak kell lennie.");
@@ -62,7 +62,7 @@ define('invalid_email_address', "A megadott e-mail cím hibás.");
 define('setup_complete', "A telepítés sikeresen befejezodött. Az Open Game Panel használatra kész.");
 define('remove_install_and_secure_config', "Biztonsági okokból töröld az install.php és változtasd meg az includes/config.inc.php fájl jogosultságát 644 -re.");
 define('go_to_panel', "Kattints ide az OGP-be való belépéshez.");
-define('unable_to_resolve', "Ha nem vagy képes megoldani a problémát, látogasd meg az OGP weboldalát ");
-define('slogan', "Egy nyilt forráskód.");
+define('unable_to_resolve', "Ha nem tudod megoldani ezt a problémát, kérlek, látogasd meg az OGP weboldalát");
+define('slogan', "Egy nyílt forráskódú!");
 define('default_welcome_title_message', "Üdvözöllek! <b style='font-size:12px; font-weight:normal;'>Ezt a feliratot megváltoztathatod a '<a href='?m=settings&p=themes'>Téma beállításokban</a>' az '<a href='?m=administration&p=main'>Adminisztráció</a>' fül alatt.</b>");
 ?>

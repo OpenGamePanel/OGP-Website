@@ -36,7 +36,7 @@ define('connection_through_remote_server_named', "Connection through remote serv
 define('add_mysql_server', "Add MySQL server");
 define('mysql_online', "MySQL online");
 define('mysql_offline', "MySQL offline");
-define('encryption_key_mismatch', "Encription key mismatch");
+define('encryption_key_mismatch', "Encryption key mismatch");
 define('unknown_error', "Unknown error");
 define('remove', "Delete");
 define('assign_db', "Assign Database");
