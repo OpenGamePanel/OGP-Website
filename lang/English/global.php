@@ -119,4 +119,5 @@ define('assign_expiration_date_info', "Once it expires the server is unassigned 
 define('server_expiration_date', "Server expiration date");
 define('server_expiration_date_info', "Once it expires the server is removed (database and files).");
 define('set_expiration_date', "Set expiration date");
+define('admin_dsi', "DSi Settings");
 ?>
