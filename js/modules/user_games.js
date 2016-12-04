@@ -131,7 +131,7 @@ $(document).ready(function() {
 	});
 	
 	$("#main_settings select, #main_settings input").change(function(){
-		$(this).css("background", "red");
+		$(this).css("background", "#fe9cb1");
 	});
 	
 	$('#main_settings input:submit').unbind().click(function(e){

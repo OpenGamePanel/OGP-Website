@@ -1,5 +1,5 @@
 $("#mods select, #mods input").change(function(){
-	$(this).css("background", "red");
+	$(this).css("background", "#fe9cb1");
 });
 
 $('.set_options').click(function(){
@@ -22,7 +22,7 @@ $('.set_options').click(function(){
 		success: function(data){
 			if(data.result == 'success')
 			{
-				modtr.find("select, input[type='text']").css("background", "green");
+				modtr.find("select, input[type='text']").css("background", "#bdf2a2");
 			}
 			$("#result").html('<p class="'+data.result+'">'+data.info+'</p>');
 		},
