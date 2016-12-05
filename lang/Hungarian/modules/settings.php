@@ -23,11 +23,11 @@
  */
 
 define('maintenance_mode', "Karbantartás");
-define('maintenance_mode_info', "Egy üzenet lesz megjelenítve a normál felhasználóknak a karbantartás alatt.");
+define('maintenance_mode_info', "Az üzenet, ami megjelenik a normál felhasználóknak, a karbantartás során.");
 define('maintenance_title', "Karbantartás címe");
 define('maintenance_title_info', "The title that is displayed to normal users during maintenance.");
 define('maintenance_message', "Karbantartási üzenet");
-define('maintenance_message_info', "Ez az üzenet lesz megjelenítve a felhasználóknak a karbantartás alatt.");
+define('maintenance_message_info', "Az üzenet, ami megjelenik a normál felhasználóknak, a karbantartás során.");
 define('update_settings', "Frissítési beállítások");
 define('settings_updated', "A beállítások sikeresen frissítve.");
 define('panel_language', "Panel nyelve");
@@ -45,7 +45,7 @@ define('feed_enable_info', "If your webhost has a firewall blocking the query po
 define('feed_url', "Feed URL");
 define('feed_url_info', "GrayCube.com megosztja a LGSL feed URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Karakterkódolás");
-define('charset_info', "UTF8, ISO, ASCII, stb .. hagyta üresen az ISO kódolást.");
+define('charset_info', "UTF8, ISO, ASCII, stb... Hagyd üresen az ISO kódolás használatához.");
 define('steam_user', "Steam felhasználó");
 define('steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('steam_pass', "Steam jelszó");
