@@ -37,7 +37,7 @@ define('update_now', "Frissítés most");
 define('the_panel_is_up_to_date', "A panel naprakész.");
 define('files_overwritten', "%s fájl felülírva.");
 define('can_not_update_non_writable_files', "Nem lehet frissíteni, mert az alábbi fájlok/mappák nem írhatóak");
-define('dwl_failed', "The download URL is not available: \"%s\".<br>Try again later.");
+define('dwl_failed', "A letöltési link nem elérhető: \"%s\".<br>Próbáld újra később.");
 define('temp_folder_not_writable', "The download can not be placed because Apache does not have write permision at the system temporary folder(%s).");
 define('base_dir_not_writable', "The panel can not update because Apache does not have write permision at folder \"%s\".");
 define('new_files', "%s új fájlok.");

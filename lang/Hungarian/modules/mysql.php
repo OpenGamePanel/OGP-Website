@@ -57,7 +57,7 @@ define('server_added', "Szerver hozzáadva.");
 define('sql_alter', "ALTER");
 define('sql_create', "CREATE");
 define('sql_create_temporary_tables', "CREATE TEMPORARY TABLES");
-define('sql_drop', "DROP");
+define('sql_drop', "KIDOBNI");
 define('sql_index', "INDEX");
 define('sql_insert', "INSERT");
 define('sql_lock_tables', "LOCK TABLES");

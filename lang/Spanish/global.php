@@ -119,4 +119,7 @@ define('assign_expiration_date_info', "Una vez que caduca, el servidor dejará d
 define('server_expiration_date', "Fecha de caducidad del servidor");
 define('server_expiration_date_info', "Cuando expira, el servidor es eliminado (Base de datos y archivos).");
 define('set_expiration_date', "Fecha de caducidad");
+define('admin_dsi', "DSi Settings");
+define('user_dsi', "DSi");
+define('list_dsi', "DSi List");
 ?>

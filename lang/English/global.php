@@ -41,7 +41,7 @@ define('no_db_connection', "Could not connect to the database.");
 define('bad_login', "Invalid username or password.");
 define('not_logged_in', "You are not currently logged in.");
 define('remove_install', "Please remove install.php file for security reasons.");
-define('agent_offline', "The agent that is controlling this server is offline.");
+define('agent_offline', "The Agent that is controlling this server is offline.");
 define('logged_in', "You are logged in as");
 define('delete', "Delete");
 define('edit', "Edit");
