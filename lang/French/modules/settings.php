@@ -89,6 +89,8 @@ define('recaptcha_secret_key', "Clé Secrète Recaptcha");
 define('recaptcha_secret_key_info', "La clé secrète fournie par Google.");
 define('recaptcha_use_login', "Utiliser Recaptcha à l'Authentification");
 define('recaptcha_use_login_info', "Si activé, l&apos;utilisateur devra résoudre le Recaptcha 'Je ne suis pas un Robot' lors de l&apos;authentification.");
+define('login_attempts_before_banned', "Number of failed login attempts before user is banned");
+define('login_attempts_before_banned_info', "If a user tries to login with invalid credentials more than this many times, the user will be banned temporarily by the panel.");
 define('remote_query', "Interrogation à distance");
 define('remote_query_info', "Utiliser le serveur distant (Agent) pour interroger les serveurs de jeu (seulement GameQ et LGSL).");
 define('check_expiry_by', "Vérifier l'expiration en utilisant");

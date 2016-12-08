@@ -109,6 +109,11 @@ class OGPDatabaseMySQL extends OGPDatabase
 		while ( $row = mysql_fetch_assoc($result) )
 			$results[$row['setting']] = strip_real_escape_string($row['value']);
 
+		// Default setting values in case one hasn't been set
+		if(!isset($results["login_attempts_before_banned"]) || empty($results["login_attempts_before_banned"]) || !is_numeric($results["login_attempts_before_banned"])){
+			$results["login_attempts_before_banned"] = 6;
+		}
+
 		return $results;
 	}
 

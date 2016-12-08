@@ -25,7 +25,8 @@
 function exec_ogp_module() 
 {
 	echo "<h2>".get_lang('ban_list')."</h2>";
-	global $db;
+	global $db, $settings;
+	
 	if(isset($_POST['unban']))
 	{
 		unset($_POST['unban']);
@@ -39,7 +40,7 @@ function exec_ogp_module()
 	$ban_table = '';
 	foreach($ban_list as $ban)
 	{
-		if($ban['logging_attempts'] >= 3)
+		if($ban['logging_attempts'] >= $settings["login_attempts_before_banned"])
 		{
 			$ban_table .= "<tr><td><input type=checkbox name='".$ban_qty."' value='".$ban['client_ip']."' /></td><td>".$ban['client_ip']."</td><td>".date("r",$ban['banned_until'])."</td></tr>\n";
 			$ban_qty++;
