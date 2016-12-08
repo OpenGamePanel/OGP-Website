@@ -24,20 +24,20 @@
 
 include('litefm.php');
 define('curl_needed', "Ez az oldal megköveteli a PHP curl modult.");
-define('no_access', "You need admin rights to access this page.");
+define('no_access', "Adminisztrátori jog szükséges az oldal eléréséhez.");
 define('dwl_update', "Frissítés letöltése...");
 define('dwl_complete', "A letöltés befejezve");
 define('install_update', "Frissítés telepítése...");
-define('update_complete', "Frissítés elvégezve");
-define('ignored_files', "%s mellőzött fájlok.");
-define('not_updated_files_blacklisted', "Not updated/installed files (Blacklisted):<br>%s");
+define('update_complete', "Frissítés befejezve");
+define('ignored_files', "%s mellőzött fájl.");
+define('not_updated_files_blacklisted', "Nem frissített/telepített fájlok (Feketelistás):<br>%s");
 define('latest_version', "Legújabb verzió");
 define('panel_version', "Panel verzió");
 define('update_now', "Frissítés most");
 define('the_panel_is_up_to_date', "A panel naprakész.");
-define('files_overwritten', "%s fájlok felülírva.");
+define('files_overwritten', "%s fájl felülírva.");
 define('can_not_update_non_writable_files', "Nem lehet frissíteni, mert az alábbi fájlok/mappák nem írhatóak");
-define('dwl_failed', "The download URL is not available: \"%s\".<br>Try again later.");
+define('dwl_failed', "A letöltési link nem elérhető: \"%s\".<br>Próbáld újra később.");
 define('temp_folder_not_writable', "The download can not be placed because Apache does not have write permision at the system temporary folder(%s).");
 define('base_dir_not_writable', "The panel can not update because Apache does not have write permision at folder \"%s\".");
 define('new_files', "%s új fájlok.");

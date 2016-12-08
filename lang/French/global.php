@@ -119,4 +119,7 @@ define('assign_expiration_date_info', "Une fois expiré le serveur n'est plus as
 define('server_expiration_date', "Date d'expiration du serveur");
 define('server_expiration_date_info', "Une fois expiré le serveur est supprimé (base de données et fichiers).");
 define('set_expiration_date', "Valider la date");
+define('admin_dsi', "Paramètres de DSi");
+define('user_dsi', "DSi");
+define('list_dsi', "Liste DSi");
 ?>

@@ -41,7 +41,7 @@ define('no_db_connection', "Could not connect to the database.");
 define('bad_login', "Invalid username or password.");
 define('not_logged_in', "You are not currently logged in.");
 define('remove_install', "Please remove install.php file for security reasons.");
-define('agent_offline', "The agent that is controlling this server is offline.");
+define('agent_offline', "The Agent that is controlling this server is offline.");
 define('logged_in', "You are logged in as");
 define('delete', "Delete");
 define('edit', "Edit");
@@ -119,4 +119,7 @@ define('assign_expiration_date_info', "Once it expires the server is unassigned 
 define('server_expiration_date', "Server expiration date");
 define('server_expiration_date_info', "Once it expires the server is removed (database and files).");
 define('set_expiration_date', "Set expiration date");
+define('admin_dsi', "DSi Settings");
+define('user_dsi', "DSi");
+define('list_dsi', "DSi List");
 ?>

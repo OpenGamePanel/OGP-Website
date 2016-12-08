@@ -38,6 +38,6 @@ define('select_game', "Válassz játékot");
 define('create_xml_configs', "XML konfiguráció létrehozása");
 define('failed_to_delete_config_from_db', "Nem sikerül törölni a(z) %s konfigurációt az adatbázisból");
 define('failed_removing_file', "Nem sikerüt eltávolítani a(z) %s fájlt.");
-define('removed_game_cfg_from_disk_and_datbase', "Törlés a konfigot: %s a diszkről és az adatbázisból.");
+define('removed_game_cfg_from_disk_and_datbase', "A(z) %s konfiguráció eltávolítva a tárhelyről és az adatbázisból.");
 define('delete_game_config_for', "A(z) %s játék konfigurációjának törlése a lemezről és az adatbázisból.");
 ?>

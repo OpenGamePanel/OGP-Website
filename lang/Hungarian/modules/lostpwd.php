@@ -40,5 +40,5 @@ define('enter_email', "Kérlek, add meg az e-mail címed");
 define('webmaster', "Webmester");
 define('confirm_send', "Biztonsági okokból küldtünk neked egy megerősítő linket mielőtt törölnénk a régi jelszavadat.<br><b style='color:red;'>Kérlek, ellenőrizd a postaládádat.</b>");
 define('confirm_change_subject', "Jelszó törlés, megerősítő e-mail");
-define('confirm_change_password_message', "Helló,<br><br>Ön vagy valaki más kért egy jelszócserét,<br>Ha szeretné, hogy meg legyen változtatva, akkor látogasson el az oldalra:<br><br> %s<br><br>Látogatása után, ki küldünk Önnek egy új jelszót.<br><br>Köszönjük!<br>A rendszergazda.<br><br>Ez egy automatikus válasz, kérlek, ne válaszolj!");
+define('confirm_change_password_message', "Helló,<br><br>Kérlek, kattints az alábbi linkre a jelszó visszaállításához:<br><br>%s<br><br>Jegyzet: ha nem te kérted a jelszavad visszaállítását, akkor figyelmen kívül hagyhatod ezt az e-mailt.<br><br>Kérlek, ne válaszolj erre az e-mailre!<br><br>______________________________<br>OGP Postázó");
 ?>
