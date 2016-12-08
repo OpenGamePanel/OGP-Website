@@ -29,7 +29,7 @@ define('dwl_update', "Frissítés letöltése...");
 define('dwl_complete', "A letöltés befejezve");
 define('install_update', "Frissítés telepítése...");
 define('update_complete', "Frissítés befejezve");
-define('ignored_files', "%s mellőzött fájl.");
+define('ignored_files', "%s fájl figyelmen kívül hagyva.");
 define('not_updated_files_blacklisted', "Nem frissített/telepített fájlok (Feketelistás):<br>%s");
 define('latest_version', "Legújabb verzió");
 define('panel_version', "Panel verzió");
