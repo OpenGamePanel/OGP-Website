@@ -291,12 +291,13 @@ function exec_ogp_module()
 		$install_nfo = DATA_PATH . str_replace(' ','_',$_POST['folder']) . ".nfo";
 		if(file_exists($install_nfo)){
 			unlink($install_nfo);
-		}
-		
-		// Delete directory if it exists
-		$themeDirRelPath = $_POST['remove'] . "/" . strtolower($_POST['folder']);
-		if(file_exists($themeDirRelPath) && is_dir($themeDirRelPath)){
-			recursiveDelete($themeDirRelPath);
+			
+			// Delete directory if it exists 
+			// We won't run this operation if the nfo file doesn't exist because it could be abused...
+			$dirToDelete = $_POST['remove'] . "/" . strtolower($_POST['folder']);
+			if(file_exists($dirToDelete) && is_dir($dirToDelete)){
+				recursiveDelete($dirToDelete);
+			}
 		}
 		
 		return;
