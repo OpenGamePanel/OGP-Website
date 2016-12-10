@@ -245,7 +245,7 @@ function ogpHome()
 				$login_attempts = 0;
 			}
 			
-			if( $login_attempts == 3 )
+			if( $login_attempts == $settings["login_attempts_before_banned"] )
 			{
 				print_failure("Banned until " . date("r",$banlist_info['0']['banned_until']));
 				echo "%botbody%
@@ -292,9 +292,10 @@ function ogpHome()
 			{
 				print_failure( bad_login );
 				$login_attempts++;
-				if( $login_attempts == 3 )
+				if( $login_attempts == $settings["login_attempts_before_banned"] )
 				{
 					$banned_until = time() + 300; // Five minutes banned from the panel.
+					$banlist_info['0']['banned_until'] = $banned_until;
 					$db->logger( bad_login . " ( Banned until " . date("r", $banned_until) . " ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts', banned_until='$banned_until' WHERE client_ip='$client_ip';");
 					print_failure("Banned until " . date("r",$banlist_info['0']['banned_until']));

@@ -64,7 +64,8 @@ function exec_ogp_module()
 			"check_expiry_by" => $_REQUEST['check_expiry_by'],
 			"recaptcha_site_key" => $_REQUEST['recaptcha_site_key'],
 			"recaptcha_secret_key" => $_REQUEST['recaptcha_secret_key'],
-			"recaptcha_use_login" => $_REQUEST['recaptcha_use_login']);
+			"recaptcha_use_login" => $_REQUEST['recaptcha_use_login'],
+			"login_attempts_before_banned" => $_REQUEST['login_attempts_before_banned']);
 		
 		$db->setSettings($settings);
 		echo "<h2>".get_lang('settings')."</h2>";
@@ -153,6 +154,10 @@ function exec_ogp_module()
 	$ft->add_field('string','recaptcha_site_key',@$row['recaptcha_site_key']);
 	$ft->add_field('string','recaptcha_secret_key',@$row['recaptcha_secret_key']);
 	$ft->add_field('on_off','recaptcha_use_login',@$row['recaptcha_use_login']);
+	
+	$login_attempts_before_banned = (isset($row['login_attempts_before_banned']) and $row['login_attempts_before_banned'] != "" and is_numeric($row['login_attempts_before_banned']))? $row['login_attempts_before_banned'] : "6";
+	$ft->add_field('string','login_attempts_before_banned',$login_attempts_before_banned);
+	
 	$ft->end_table();
 	$ft->add_button("submit","update_settings",get_lang('update_settings'));
 	$ft->end_form();

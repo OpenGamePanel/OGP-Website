@@ -131,7 +131,7 @@ $(document).ready(function() {
 	});
 	
 	$("#main_settings select, #main_settings input").change(function(){
-		$(this).css("background", "red");
+		$(this).css("background", "#fe9cb1");
 	});
 	
 	$('#main_settings input:submit').unbind().click(function(e){
@@ -155,7 +155,7 @@ $(document).ready(function() {
 			$.post(window.location + "&type=cleared", formData, function(data) {
 				if(data.result == 'success')
 				{
-					thisForm.find("select, input[type='text']").css("background", "green");
+					thisForm.find("select, input[type='text']").css("background", "#bdf2a2");
 					if(submitName == 'change_home_cfg_id')
 					{
 						loadMods();
@@ -193,7 +193,7 @@ $(document).ready(function() {
 			}
 			if("edit" == GetURLParameter('p'))
 			{
-				datePickerInput.css("background", "red");
+				datePickerInput.css("background", "#fe9cb1");
 			}
 		});
 		

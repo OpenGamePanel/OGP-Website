@@ -125,7 +125,7 @@ body {
 	padding-top:5px;
 	font-size: 20px;
 	text-align: center;
-	color:#FFFF;
+	color: #000;
 	font-family:"Trebuchet MS"
 }
 .lang {

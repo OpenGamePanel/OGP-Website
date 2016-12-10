@@ -38,5 +38,6 @@ define('remove_files_for', "Voulez-vous supprimer tous les fichiers pour");
 define('confirm', "Confirmer");
 define('cancel', "Annuler");
 define('extra_themes', "Thèmes Additionnels");
-define('extra_modules', "Modules Additionnels ");
+define('extra_modules', "Modules Additionnels");
+define('search_for_updates', "Vérifier les mises à jour");
 ?>
