@@ -49,7 +49,7 @@ define('updating_modules', "Modulok frissítése");
 define('updating_finished', "A frissítés befejezve");
 define('updated_module', "Frissített modul: '%s'.");
 define('blacklist_files', "Feketelistás fájlok");
-define('blacklist_files_info', "All marked files will not be updated.");
-define('save_to_blacklist', "Save to blacklist");
+define('blacklist_files_info', "Az összes megjelölt fájl nem kerül frissítésre.");
+define('save_to_blacklist', "Mentés a feketelistába");
 define('no_new_updates', "Nincsenek új frissítések");
 ?>

@@ -22,8 +22,8 @@
  *
  */
 
-define('configured_mysql_hosts', "MySQL hoszt beállítása");
-define('add_new_mysql_host', "MySQL hoszt hozzáadása");
+define('configured_mysql_hosts', "MySQL kiszolgáló beállítása");
+define('add_new_mysql_host', "MySQL kiszolgáló hozzáadása");
 define('enter_mysql_ip', "Add meg a MySQL IP-t.");
 define('enter_valid_port', "Add meg egy valós portot.");
 define('enter_mysql_root_password', "Add meg a MySQL root jelszavát.");

@@ -24,7 +24,7 @@
 
 define('error', "Erreur");
 define('title', "Interface web TeamSpeak 3");
-define('update_available', '<h3>Attention : Une nouvelle version (v%1) de ce logiciel est disponible : <a href="%2" target="_blank">%2</a>.</h3>');
+define('update_available', "<h3>Attention : Une nouvelle version (v%1) de ce logiciel est disponible : <a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
 define('head_logout', "Se déconnecter");
 define('head_vserver_switch', "Changer vServeur");
 define('head_vserver_overview', "Vue d'ensemble vServer");

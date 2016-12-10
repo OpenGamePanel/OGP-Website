@@ -63,6 +63,6 @@ define('setup_complete', "Setup wurde erfolgreich abgeschlossen. Das Open Game P
 define('remove_install_and_secure_config', "Zur Sicherheit solltest du die Datei install.php löschen und includes/config.inc.php die Rechte 644 (chmod) geben.");
 define('go_to_panel', "Hier klicken um in OGP einzuloggen.");
 define('unable_to_resolve', "Falls du dieses Problem nicht lösen kannst besuche die OGP Webseite.");
-define('slogan', "The OpenSource one!");
+define('slogan', "The Open-Source one!");
 define('default_welcome_title_message', "Willkommen! <b style='font-size:12px; font-weight:normal;'>Du kannst diesen Titel in '<a href='?m=settings&p=themes'>Theme Einstellungen</a>' unter dem Tab '<a href='?m=administration&p=main'>Administration</a>' ändern.</b>");
 ?>

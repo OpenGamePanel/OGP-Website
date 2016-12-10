@@ -29,6 +29,7 @@ define('module_version', "Version du module");
 define('db_version', "Version BDD");
 define('modules_available_for_install', "Les modules suivants peuvent être installés:");
 define('install', "Installer");
+define('uninstall', "Uninstall");
 define('modules', "Modules");
 define('update_modules', "Mettre à jour les modules");
 define('no_installed_modules', "Aucun module installé.");

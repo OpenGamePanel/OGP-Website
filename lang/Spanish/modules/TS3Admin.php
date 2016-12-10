@@ -24,7 +24,7 @@
 
 define('error', "Error");
 define('title', "TeamSpeak 3 Web Interface");
-define('update_available', '<h3>Atención: Una nueva version (v%1) de este software esta disponible en <a href="%2" target="_blank">%2</a>.</h3>');
+define('update_available', "<h3>Atención: Una nueva version (v%1) de este software esta disponible en <a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
 define('head_logout', "Salir");
 define('head_vserver_switch', "Cambiar");
 define('head_vserver_overview', "Configurar");

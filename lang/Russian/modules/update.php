@@ -37,7 +37,7 @@ define('update_now', "Обновить сейчас");
 define('the_panel_is_up_to_date', "Панель находится в актуальном состоянии.");
 define('files_overwritten', "%s files overwritten.");
 define('can_not_update_non_writable_files', "Can not update because the following files/folders are not writable");
-define('dwl_failed', "The download URL is not available: \"%s\".<br>Try again later.");
+define('dwl_failed', "The download link is not available: \"%s\".<br>Try again later.");
 define('temp_folder_not_writable', "The download can not be placed because Apache does not have write permision at the system temporary folder(%s).");
 define('base_dir_not_writable', "The panel can not update because Apache does not have write permision at folder \"%s\".");
 define('new_files', "%s new files.");

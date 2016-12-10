@@ -54,7 +54,7 @@ define('yes', "Igen");
 define('no', "Nem");
 define('on', "Be");
 define('off', "Ki");
-define('db_error_invalid_host', "Hibás adatbázis cím.");
+define('db_error_invalid_host', "Érvénytelen adatbázis név beírva.");
 define('db_error_invalid_user_and_pass', "Hibás adatbázis név és/vagy jelszó.");
 define('db_error_invalid_database', "Hibás adatbázis.");
 define('db_unknown_error', "Ismeretlen adatbázis hiba.");

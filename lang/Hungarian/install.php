@@ -36,7 +36,7 @@ define('refresh', "Frissítés");
 define('checking_required_modules', "Szükséges modulok ellenőrzése");
 define('database_type', "Adatbázis típusa");
 define('database_settings', "Adatbázis hozzáférésének beállítása");
-define('database_hostname', "Adatbázis állomás név");
+define('database_hostname', "Adatbázis kiszolgáló név");
 define('database_username', "Adatbázis felhasználóneve");
 define('database_password', "Adatbázis jelszava");
 define('database_name', "Adatbázis neve");
@@ -63,6 +63,6 @@ define('setup_complete', "A telepítés sikeresen befejeződött. Az Open Game P
 define('remove_install_and_secure_config', "Biztonsági okokból törölnöd kell az install.php fájlt a szerveredről és változtasd meg az includes/config.inc.php fájl hozzáférési jogát 644-re.");
 define('go_to_panel', "Kattints ide az OGP-be való belépéshez.");
 define('unable_to_resolve', "Ha nem tudod megoldani ezt a problémát, kérlek, látogasd meg az OGP weboldalát");
-define('slogan', "Egy nyílt forráskódú!");
+define('slogan', "A nyílt forráskódú!");
 define('default_welcome_title_message', "Üdvözöllek! <b style='font-size:12px; font-weight:normal;'>Ezt a feliratot megváltoztathatod a '<a href='?m=settings&p=themes'>Téma beállításokban</a>' az '<a href='?m=administration&p=main'>Adminisztráció</a>' fül alatt.</b>");
 ?>

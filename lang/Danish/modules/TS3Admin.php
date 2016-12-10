@@ -24,12 +24,12 @@
 
 define('error', "Fejl");
 define('title', "Teamspeak 3 Hjemmeside Interface");
-define('update_available', '<h3>OBS OBS OBS: En new version (v%1) af dette software, er muligt at hente her<a href="%2" target="_blank">%2</a>.</h3>');
+define('update_available', "<h3>OBS OBS OBS: En new version (v%1) af dette software, er muligt at hente her<a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
 define('head_logout', "Log ud");
 define('head_vserver_switch', "Skift vServer");
 define('head_vserver_overview', "vServer Oversigt");
 define('head_vserver_token', "Token håndtering");
-define('head_vserver_liveview', "Liveview");
+define('head_vserver_liveview', "Live View");
 define('e_fill_out', "Venligst udfyld alle påkrævet felter.");
 define('e_upload_failed', "Upload var ikke successfuldt.");
 define('e_server_responded', "Serveren svarede: ");
