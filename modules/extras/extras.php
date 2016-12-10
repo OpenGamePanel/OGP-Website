@@ -298,6 +298,12 @@ function exec_ogp_module()
 			if(file_exists($dirToDelete) && is_dir($dirToDelete)){
 				recursiveDelete($dirToDelete);
 			}
+			
+			// In case we using case sensitive names... which happens for themes
+			$dirToDelete = $_POST['remove'] . "/" . $_POST['folder'];
+			if(file_exists($dirToDelete) && is_dir($dirToDelete)){
+				recursiveDelete($dirToDelete);
+			}
 		}
 		
 		return;
