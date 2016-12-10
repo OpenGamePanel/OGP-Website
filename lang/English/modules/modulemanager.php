@@ -29,6 +29,7 @@ define('module_version', "Module Version");
 define('db_version', "DB Version");
 define('modules_available_for_install', "Custom Modules Available for Installation:");
 define('install', "Install");
+define('uninstall', "Uninstall");
 define('modules', "Modules");
 define('update_modules', "Update Modules");
 define('no_installed_modules', "No installed modules found.");
