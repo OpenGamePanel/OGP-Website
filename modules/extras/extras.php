@@ -294,7 +294,7 @@ function exec_ogp_module()
 		}
 		
 		// Delete directory if it exists
-		$themeDirRelPath = $_POST['remove'] . "/" . str_to_lower($_POST['folder']);
+		$themeDirRelPath = $_POST['remove'] . "/" . strtolower($_POST['folder']);
 		if(file_exists($themeDirRelPath) && is_dir($themeDirRelPath)){
 			recursiveDelete($themeDirRelPath);
 		}
