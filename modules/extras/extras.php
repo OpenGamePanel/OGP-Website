@@ -287,22 +287,28 @@ function exec_ogp_module()
 
 	if(isset($_POST['remove']))
 	{
-		// Delete nfo file if it exists
-		$install_nfo = DATA_PATH . str_replace(' ','_',$_POST['folder']) . ".nfo";
-		if(file_exists($install_nfo)){
-			unlink($install_nfo);
-			
-			// Delete directory if it exists 
-			// We won't run this operation if the nfo file doesn't exist because it could be abused...
-			$dirToDelete = $_POST['remove'] . "/" . strtolower($_POST['folder']);
-			if(file_exists($dirToDelete) && is_dir($dirToDelete)){
-				recursiveDelete($dirToDelete);
-			}
-			
-			// In case we are using case sensitive names... which happens for themes
-			$dirToDelete = $_POST['remove'] . "/" . $_POST['folder'];
-			if(file_exists($dirToDelete) && is_dir($dirToDelete)){
-				recursiveDelete($dirToDelete);
+		$remove = $_POST['remove'];
+		$folderToDelete = str_replace(' ','_',$_POST['folder']);
+		
+		if(isset($folderToDelete) && !empty($folderToDelete)){
+		
+			// Delete nfo file if it exists
+			$install_nfo = DATA_PATH . $folderToDelete . ".nfo";
+			if(file_exists($install_nfo)){
+				unlink($install_nfo);
+				
+				// Delete directory if it exists 
+				// We won't run this operation if the nfo file doesn't exist because it could be abused...
+				$dirToDelete = $remove . "/" . strtolower($folderToDelete);
+				if(file_exists($dirToDelete) && is_dir($dirToDelete)){
+					recursiveDelete($dirToDelete);
+				}
+				
+				// In case we are using case sensitive names... which happens for themes
+				$dirToDelete = $remove . "/" . $folderToDelete;
+				if(file_exists($dirToDelete) && is_dir($dirToDelete)){
+					recursiveDelete($dirToDelete);
+				}
 			}
 		}
 		
