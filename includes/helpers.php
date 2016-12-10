@@ -286,14 +286,29 @@ function recursiveDelete($str) {
 	if (is_file($str)) {
 		return @unlink($str);
 	}else if(is_dir($str)){
-		$scan = glob(rtrim($str,'/').'/*');
-		if(isset($scan) && is_array($scan)){
-			foreach($scan as $index=>$path) {
-				recursiveDelete($path);
+		// Strip the trailing slash from the directory if there is one
+		$str = rtrim($str,'/');
+		
+		// Get the index of the last slash in the path so that we can pull just the relative folder name being scanned
+		$lastSlash = strrpos($str, "/");
+		
+		if($lastSlash != false){
+			// Get the folder name so we can ignore "." and ".." which relates to current directory and up a level
+			$folder = substr($str, $lastSlash + 1);
+			
+			if($folder != ".." && $folder != "."){
+				$scan = glob($str . '/{,.}*', GLOB_BRACE);
+				if(isset($scan) && is_array($scan)){
+					foreach($scan as $index=>$path) {
+						recursiveDelete($path);
+					}
+				}
+				return @rmdir($str);
 			}
 		}
-		return @rmdir($str);
 	}
+	
+	return true;
 }
 
 function removeOldGameConfigs(){ // Wrote this function in-case we rename config files like we did for TS3 (https://sourceforge.net/p/hldstart/svn/3376/)
