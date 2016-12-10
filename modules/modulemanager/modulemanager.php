@@ -68,7 +68,7 @@ function exec_ogp_module()
         // Don't allow the deletion of core modules
         if(!isCoreModule($row['folder'])){
 			$html .= "<a href='?m=modulemanager&amp;p=del&amp;id=".$row['id']."&amp;module=".$row['folder']."'>";
-			$html .= get_lang('delete');
+			$html .= get_lang('uninstall');
 			$html .= "</a>";
 			$coreModule = false;
 		}

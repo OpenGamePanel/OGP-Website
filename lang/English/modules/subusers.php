@@ -22,7 +22,7 @@
  *
  */
 
-define('login_name', "User name");
+define('login_name', "Username");
 define('first_name', "First name");
 define('last_name', "Last name");
 define('phone_number', "Phone number");

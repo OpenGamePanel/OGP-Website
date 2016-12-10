@@ -22,7 +22,7 @@
  *
  */
 
-define('login_name', "User name");
+define('login_name', "Username");
 define('users_fname', "First name");
 define('users_lname', "Last name");
 define('users_passwd', "Password");
