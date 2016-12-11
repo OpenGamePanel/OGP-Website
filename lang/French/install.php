@@ -63,7 +63,6 @@ define('setup_complete', "L'installation s'est terminée avec succès. Open Game
 define('remove_install_and_secure_config', "Vous devriez supprimer install.php du serveur et remettre le chmod du fichier includes/config.inc.php à 644 pour des raisons de sécurité.");
 define('go_to_panel', "Cliquez ici pour vous connecter à OGP.");
 define('unable_to_resolve', "Si vous n'arrivez pas à résoudre ce problème, visitez le site OGP (en anglais) ");
-define('slogan', "
-The Open-Source one!");
+define('slogan', "The Open-Source one!");
 define('default_welcome_title_message', "Bienvenue! <b style='font-size:12px; font-weight:normal;'>Vous pouvez changer ce titre dans les '<a href='?m=settings&p=themes'>Paramètres du Thème</a>' sous l'onglet '<a href='?m=administration&p=main'>Administration</a>'.</b>");
 ?>
