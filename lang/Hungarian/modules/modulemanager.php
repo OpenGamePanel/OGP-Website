@@ -33,7 +33,7 @@ define('uninstall', "Eltávolítás");
 define('modules', "Modulok");
 define('update_modules', "Modulok frissítése");
 define('no_installed_modules', "Nem találhatóak telepített modulok.");
-define('not_complete', "A telepítés/eltávolítás funkció nincs befejezve és előfordulhat, hogy nem működik megfelelően. FIGYELEM: elveszthetnek az adatok a OGP adatbázisból!");
+define('not_complete', "A telepítés/eltávolítás funkció nincs befejezve és előfordulhat, hogy nem működik megfelelően. FIGYELEM: adatok veszthetnek el az OGP adatbázisából!");
 define('core_mods_installed', "Telepített alap modulok:");
 define('custom_mods_installed', "Telepített egyedi modulok:");
 define('installing_module', "Modul telepítése '%s'");

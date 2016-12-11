@@ -92,7 +92,7 @@ define('vsoverview_info_hostbanner_url', "URL");
 define('vsoverview_info_hostbanner_imgurl', "Image address");
 define('vsoverview_info_hostbanner_buttonurl', "Hostbutton URL");
 define('vsoverview_info_antiflood_head', "Anti-Flood");
-define('vsoverview_info_antiflood_warning', "Warning on");
+define('vsoverview_info_antiflood_warning', "Figyelmeztetés bekapcsolva");
 define('vsoverview_info_antiflood_kick', "Kick on");
 define('vsoverview_info_antiflood_ban', "Ban on");
 define('vsoverview_info_antiflood_banduration', "Ban length");

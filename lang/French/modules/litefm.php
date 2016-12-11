@@ -30,7 +30,7 @@ define('owner', "Propriétaire");
 define('group', "Groupe");
 define('empty_directory', "Répertoire vide.");
 define('currently_viewing', "Répertoire affiché : '%s'");
-define('wrote_changes', "Changement effectué avec succès.");
+define('wrote_changes', "Changements effectués avec succès.");
 define('failed_write', "Impossible d'écrire le fichier sur le serveur distant.");
 define('failed_read', "Impossible de lire le fichier sur le serveur distant.");
 define('failed_list', "Impossible de récupérer la liste du répertoire.");

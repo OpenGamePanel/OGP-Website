@@ -117,7 +117,7 @@ define('litefm_settings', "LiteFM beállítások");
 define('assign_expiration_date', "Lejárati idő hozzárendelése");
 define('assign_expiration_date_info', "Once it expires the server is unassigned but not removed.");
 define('server_expiration_date', "Szerver lejárati dátum");
-define('server_expiration_date_info', "Once it expires the server is removed (database and files).");
+define('server_expiration_date_info', "Amikor ez lejár a szerver eltávolításra kerül (adatbázis és fájlok).");
 define('set_expiration_date', "Lejárati dátum megadása");
 define('admin_dsi', "DSi beállítások");
 define('user_dsi', "DSi");
