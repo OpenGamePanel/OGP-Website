@@ -22,13 +22,13 @@
  *
  */
 
-define('login_name', "Username");
+define('login_name', "Benutzername");
 define('first_name', "Vorname");
 define('last_name', "Nachname");
-define('phone_number', "Phone number");
+define('phone_number', "Telefonnummer");
 define('email_address', "Email");
 define('register_a_new_user', "Neuen Benutzer anmelden");
-define('password_mismatch', "Passwords mismatch.");
+define('password_mismatch', "Passwörter stimmen nicht überein.");
 define('confirm_password', "Confirm password");
 define('subuser_password', "Sub-User Password");
 define('subuser_man', "Sub-User Management");

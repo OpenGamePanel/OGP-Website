@@ -22,13 +22,13 @@
  *
  */
 
-define('error', "Error");
+define('error', "Fehler");
 define('title', "TeamSpeak 3 Web Interface");
 define('update_available', "<h3>Attention: a new version (v%1) of this software is available under <a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
-define('head_logout', "Logout");
+define('head_logout', "Ausloggen");
 define('head_vserver_switch', "Change vServer");
 define('head_vserver_overview', "vServer Overview");
-define('head_vserver_token', "Token management");
+define('head_vserver_token', "Token verwaltung");
 define('head_vserver_liveview', "Live View");
 define('e_fill_out', "Please fill out all required fields.");
 define('e_upload_failed', "Upload unsuccessfull.");

@@ -25,11 +25,11 @@
 include 'update.php';
 define('unable_download', "Unable to download %s.");
 define('md5_failed', "MD5 test failed for %s, try again.");
-define('uninstall', "Uninstall");
+define('uninstall', "Deinstallieren");
 define('install', "Installieren");
-define('uptodate', "Up-to-date");
-define('update_available', "Update available");
-define('not_installed', "Not installed");
+define('uptodate', "Auf dem neuesten Stand");
+define('update_available', "Update verfügbar");
+define('not_installed', "Nicht installiert");
 define('installed', "Installed");
 define('download_update', "Download/Update");
 define('are_you_sure', "Are you sure");

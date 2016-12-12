@@ -74,7 +74,7 @@ define('could_not_remove_ip', "Could not remove old IP's from database.");
 define('could_add_ip', "Could add remote server IP to database.");
 define('areyousure_removeagent', "Are you sure you want to remove the agent called");
 define('areyousure_removeagent2', "and all the homes related to it from the ogp database?");
-define('error_while_remove', "Error occurred while removing remote server.");
+define('error_while_remove', "Hiba történt a távoli szerver eltávolítása közben.");
 define('add_ip', "IP hozzáadása");
 define('remove_ip', "IP eltávolítása");
 define('edit_ip', "IP szerkesztése");

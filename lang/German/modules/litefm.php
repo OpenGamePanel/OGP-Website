@@ -28,7 +28,7 @@ define('filesize', "Dateigröße");
 define('bytes', "Bytes");
 define('owner', "Besitzer");
 define('group', "Gruppe");
-define('empty_directory', "Directory is empty.");
+define('empty_directory', "Verzeichnis ist leer.");
 define('currently_viewing', "Aktuelles Verzeichnis: '%s'");
 define('wrote_changes', "Changes saved successfully.");
 define('failed_write', "Failed to write file to remote server.");

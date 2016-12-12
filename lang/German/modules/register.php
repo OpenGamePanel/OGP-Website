@@ -25,10 +25,10 @@
 define('login_name', "Benutzername");
 define('users_fname', "Vorname");
 define('users_lname', "Nachname");
-define('users_passwd', "Password");
-define('users_cpasswd', "Verify password");
-define('passwd_len', "Password must be longer than 6 characters");
-define('err_password', "Password cannot be empty");
+define('users_passwd', "Passwort");
+define('users_cpasswd', "Passwort bestätigen");
+define('passwd_len', "Kennwort muss länger als 6 Zeichen lang sein.");
+define('err_password', "Kennwort darf nicht leer sein.");
 define('err_confirm_password', "Verify password field cannot be empty");
 define('err_password_mismatch', "Passwords do not match");
 define('phone_number', "Telefonnummern");
