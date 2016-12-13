@@ -35,13 +35,13 @@ define('change_buttons_order', "Change buttons order");
 define('when', "Datum/Zeit");
 define('who', "Benutzername");
 define('where', "IP address");
-define('what', "Action");
+define('what', "Aktion");
 define('search', "Suche");
 define('empty_logger', "Empty Logger");
 define('ban_list', "Bannliste");
 define('no_banned_ips', "There are no banned IPs");
 define('unban', "Unban IP");
 define('client_ip', "Client IP");
-define('banned_until', "Banned until");
+define('banned_until', "Gebannt bis");
 define('unban_selected_ips', "Unban selected IPs");
 ?>

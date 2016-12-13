@@ -38,7 +38,7 @@ define('select_remote_server', "Select Remote Server");
 define('no_remote_servers_configured', "No remote servers configured to the Open Game Panel.<br>You need to add remote servers before you can add servers for the users.");
 define('no_game_configurations_found', "No game configuration found. You need to add game configurations from the");
 define('game_configurations', ">game configuration page");
-define('add_remote_server', "Add a server.");
+define('add_remote_server', "Server hinzufügen");
 define('wine_games', "Wine Games");
 define('home_path', "Home Pfad");
 define('change_home_info', "The location of the installed game server. Example: /home/ogp/my_server/");

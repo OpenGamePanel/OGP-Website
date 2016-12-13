@@ -23,7 +23,7 @@
  */
 
 include('litefm.php');
-define('curl_needed', "Diese Seite erfordert PHP-Curl-Modul.");
+define('curl_needed', "Diese Seite erfordert PHP-Curl Modul.");
 define('no_access', "Sie benötigen Administratorrechte um diese Seite zuzugreifen.");
 define('dwl_update', "Update herunterladen...");
 define('dwl_complete', "Download abgeschlossen");

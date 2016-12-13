@@ -46,7 +46,7 @@ define('available_parameters', "Verfügbare Parameter");
 define('start_server', "Server starten");
 define('start_wait_note', "Das Starten des Servers kann einige Zeit dauern. Bitte warte und schließe deinen Browser während dessen nicht.");
 define('game_type', "Game Typ");
-define('map', "Map");
+define('map', "Karte");
 define('starting_server', "Starte Server, bitte warten...");
 define('starting_server_settings', "Starte Server mit den folgenden Einstellungen");
 define('startup_params', "Startup parameters");
