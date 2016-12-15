@@ -267,13 +267,13 @@ function ogpHome()
 					$recaptcha = new \ReCaptcha\ReCaptcha($secretkey);
 					
 					if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) === true){
-						$userAddr = $_SERVER['HTTP_CF_CONNECTING_IP'];
+						$client_ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
 					}elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) === true){
-						$userAddr = $_SERVER['HTTP_X_FORWARDED_FOR'];
+						$client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 					}elseif(isset($_SERVER['HTTP_X_REAL_IP']) === true){
-						$userAddr = $_SERVER['HTTP_X_REAL_IP'];
+						$client_ip = $_SERVER['HTTP_X_REAL_IP'];
 					}else{
-						$userAddr = $_SERVER['REMOTE_ADDR'];
+						$client_ip = $_SERVER['REMOTE_ADDR'];
 					}
 					
 					$resp = $recaptcha->verify($gRecaptchaResponse, $userAddr);
