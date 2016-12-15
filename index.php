@@ -276,7 +276,7 @@ function ogpHome()
 						$client_ip = $_SERVER['REMOTE_ADDR'];
 					}
 					
-					$resp = $recaptcha->verify($gRecaptchaResponse, $userAddr);
+					$resp = $recaptcha->verify($gRecaptchaResponse, $client_ip);
 					if (empty($gRecaptchaResponse) || !$resp->isSuccess()){
 						print_failure("Recaptcha failed. Try again!");
 						$view->refresh("index.php",5);
