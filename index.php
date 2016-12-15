@@ -208,18 +208,15 @@ function ogpHome()
 		}
 		
 		if ( isset($_POST['login']) )
-		{
-			if ( isset($_SERVER["REMOTE_ADDR"]) )
-			{
-				$client_ip = $_SERVER["REMOTE_ADDR"];
-			}
-			elseif ( isset($_SERVER["HTTP_X_FORWARDED_FOR"]) )
-			{
-				$client_ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-			} 
-			elseif( isset($_SERVER["HTTP_CLIENT_IP"]) )
-			{
-				$client_ip = $_SERVER["HTTP_CLIENT_IP"]; 
+		{	
+			if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) === true){
+				$client_ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+			}elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) === true){
+				$client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+			}elseif(isset($_SERVER['HTTP_X_REAL_IP']) === true){
+				$client_ip = $_SERVER['HTTP_X_REAL_IP'];
+			}else{
+				$client_ip = $_SERVER['REMOTE_ADDR'];
 			}
 			
 			$ban_list = $db->resultQuery("SHOW TABLES LIKE 'OGP_DB_PREFIXban_list';");
@@ -268,8 +265,18 @@ function ogpHome()
 		
 					require_once('includes/classes/recaptcha/autoload.php');
 					$recaptcha = new \ReCaptcha\ReCaptcha($secretkey);
-					$resp = $recaptcha->verify($gRecaptchaResponse, $_SERVER["REMOTE_ADDR"]);
-
+					
+					if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) === true){
+						$client_ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+					}elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) === true){
+						$client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+					}elseif(isset($_SERVER['HTTP_X_REAL_IP']) === true){
+						$client_ip = $_SERVER['HTTP_X_REAL_IP'];
+					}else{
+						$client_ip = $_SERVER['REMOTE_ADDR'];
+					}
+					
+					$resp = $recaptcha->verify($gRecaptchaResponse, $client_ip);
 					if (empty($gRecaptchaResponse) || !$resp->isSuccess()){
 						print_failure("Recaptcha failed. Try again!");
 						$view->refresh("index.php",5);

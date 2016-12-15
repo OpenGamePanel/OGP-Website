@@ -2406,18 +2406,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function logger($message){
 		$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
-		if ( isset($_SERVER["REMOTE_ADDR"]) )
-		{
-			$client_ip = $_SERVER["REMOTE_ADDR"];
+		if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) === true){
+			$client_ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+		}elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) === true){
+			$client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		}elseif(isset($_SERVER['HTTP_X_REAL_IP']) === true){
+			$client_ip = $_SERVER['HTTP_X_REAL_IP'];
+		}else{
+			$client_ip = $_SERVER['REMOTE_ADDR'];
 		}
-		elseif ( isset($_SERVER["HTTP_X_FORWARDED_FOR"]) )
-		{
-			$client_ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
-		} 
-		elseif( isset($_SERVER["HTTP_CLIENT_IP"]) )
-		{
-			$client_ip = $_SERVER["HTTP_CLIENT_IP"]; 
-		}
+		
 		$message = mysql_real_escape_string($message, $this->link);
 		$this->query("INSERT INTO OGP_DB_PREFIXlogger (date, user_id, ip, message) VALUE (FROM_UNIXTIME(UNIX_TIMESTAMP(), '%d-%m-%Y %H:%i:%s'), $user_id, '$client_ip', '$message');");
 	}
