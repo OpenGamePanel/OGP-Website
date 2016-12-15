@@ -30,7 +30,7 @@ function get_query_port($server_xml, $server_port)
 	return $server_port;
 }
 
-function get_sart_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port)
+function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port)
 {	
 	$last_param = json_decode($home_info['last_param'], True);
 	
@@ -262,7 +262,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	}
 	elseif ( $action == "restart" AND $screen_running )
 	{
-		$start_cmd = get_sart_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port);
+		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port);
 		// Do text replacements in cfg file
 		if( $server_xml->replace_texts )
 		{
@@ -293,7 +293,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	}
 	elseif ( $action == "start" AND ! $screen_running )
 	{
-		$start_cmd = get_sart_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port);
+		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port);
 		// Do text replacements in cfg file
 		if( $server_xml->replace_texts )
 		{
