@@ -529,4 +529,16 @@ function get_game_selector($os, $game_cfgs, $home_cfg_id = FALSE)
 	
 	return $selector;
 }
+
+function getClientIPAddress(){
+	if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) && !empty($_SERVER['HTTP_CF_CONNECTING_IP'])){
+		return $_SERVER['HTTP_CF_CONNECTING_IP'];
+	}else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+		return $_SERVER['HTTP_X_FORWARDED_FOR'];
+	}else if(isset($_SERVER['HTTP_X_REAL_IP']) && !empty($_SERVER['HTTP_X_REAL_IP'])){
+		return $_SERVER['HTTP_X_REAL_IP'];
+	}else{
+		return $_SERVER['REMOTE_ADDR'];
+	}
+}
 ?>
