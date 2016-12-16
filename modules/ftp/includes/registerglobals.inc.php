@@ -90,6 +90,20 @@ if(file_exists("includes/helpers.php")){
 	}
 }
 
+if(file_exists("includes/functions.php")){
+	require_once("includes/functions.php");
+}else{
+	if(file_exists(__DIR__ . "/../../../includes/functions.php")){
+		require_once(__DIR__ . "/../../../includes/functions.php");
+	}
+}
+
+if(function_exists("getClientIPAddress")){
+	$client_ip = getClientIPAddress();
+}else{
+	$client_ip = $_SERVER['REMOTE_ADDR'];
+}
+
 if(function_exists("startSession")){
 	startSession();
 }else{
@@ -103,17 +117,6 @@ else                                                     { $_SESSION["net2ftp_se
 if (isset($_SESSION["net2ftp_remote_addr_new"]) == true) { $_SESSION["net2ftp_remote_addr_old"] = $_SESSION["net2ftp_remote_addr_new"]; }
 else                                                     { $_SESSION["net2ftp_remote_addr_old"] = ""; }
 $_SESSION["net2ftp_session_id_new"]  = session_id();
-
-if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) === true){
-	$client_ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
-}elseif(isset($_SERVER['HTTP_X_FORWARDED_FOR']) === true){
-	$client_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-}elseif(isset($_SERVER['HTTP_X_REAL_IP']) === true){
-	$client_ip = $_SERVER['HTTP_X_REAL_IP'];
-}else{
-	$client_ip = $_SERVER['REMOTE_ADDR'];
-}
-
 $_SESSION["net2ftp_remote_addr_new"] = $client_ip;
 
 // -------------------------------------------------------------------------
@@ -125,7 +128,7 @@ else                                            { $net2ftp_globals["PHP_SELF"]  
 if (isset($_SERVER["HTTP_REFERER"]) == true)    { $net2ftp_globals["HTTP_REFERER"]    = validateGenericInput($_SERVER["HTTP_REFERER"]); }
 else                                            { $net2ftp_globals["HTTP_REFERER"]    = ""; }
 if (isset($_SERVER["HTTP_USER_AGENT"]) == true) { $net2ftp_globals["HTTP_USER_AGENT"] = validateGenericInput($_SERVER["HTTP_USER_AGENT"]); }
-if (isset($client_ip) === true)					{ $net2ftp_globals["REMOTE_ADDR"]     = validateGenericInput($client_ip); }
+if (isset($client_ip) == true)     { $net2ftp_globals["REMOTE_ADDR"]     = validateGenericInput($client_ip); }
 if (isset($_SERVER["REMOTE_PORT"]) == true)     { $net2ftp_globals["REMOTE_PORT"]     = validateGenericInput($_SERVER["REMOTE_PORT"]); }
 
 // Action URL

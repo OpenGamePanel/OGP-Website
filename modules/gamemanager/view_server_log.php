@@ -152,7 +152,7 @@ function exec_ogp_module()
 			}
 			else
 			{
-				echo "<pre class='log'>".htmlentities($home_log)."</pre>";
+				echo "<pre class='log'>" . htmlentities($home_log) . "</pre>";
 				print_failure( server_not_running );
 			}
 			echo create_back_button( $_GET['m'], 'game_monitor&home_id-mod_id-ip-port='.$_GET['home_id-mod_id-ip-port'] );

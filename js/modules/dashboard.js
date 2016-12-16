@@ -62,7 +62,7 @@ function updateWidgetData(){
 	//Pass sortorder variable to server using ajax to save state  
 	$.post('home.php?m=dashboard&p=updateWidgets', 'data='+$.toJSON(sortorder), function(response){ 
 		if(response.indexOf("success") < 0){
-			$("#console").html('<h0><div class="Failed">Failed to update your widget order! Please contact your OGP admin in the meantime.</div></h0>').hide().fadeIn(1000);  
+			$("#console").html('<h0><div class="Failed">Failed to update widget order.</div></h0>').hide().fadeIn(1000);  
 		}
 	});  
 }
