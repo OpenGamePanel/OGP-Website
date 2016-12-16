@@ -39,5 +39,5 @@ define('online_servers', "Online szerverek");
 define('add_games_in', "Ha játékokat szeretnél hozzáadni azt megteheted itt %s");
 define('currently_online', "Jelenleg online");
 define('game_servers', "Játék szerverek");
-define('select_remote_server', "Válaszd ki a távoli szervert");
+define('select_remote_server', "Válassz távoli szervert");
 ?>

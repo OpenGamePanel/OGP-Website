@@ -187,7 +187,7 @@ $(document).ready(function() {
 				var selected = new Date(e.localDate);
 				if( selected <= now )
 				{
-					alert('The given expiration date has already expired.');
+					alert('The selected date has already passed.');
 					datePickerInput.value = "";
 				}
 			}
@@ -210,7 +210,7 @@ $(document).ready(function() {
 					selected  = new Date(date[2], date[1]-1, date[0], time[0], time[1], time[2], 0);
 				if( selected <= now )
 				{
-					alert('The given expiration date has already expired.');
+					alert('The selected date has already passed.');
 					this.value = "";
 				}
 			}

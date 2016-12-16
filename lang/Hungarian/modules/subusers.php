@@ -50,7 +50,7 @@ define('err_users_parent', "Sub-user accounts may not create other users.");
 define('err_parent_user', "The parent user ID must reference a valid pre-existing user.");
 define('err_email_address_already_in_use_by', "Az e-mail cím már használatban van <b>%s</b> által.");
 define('user_registration', "Felhasználó regisztrálás");
-define('your_account_details_has_been_sent_by_email_to', "A fiók adataid elküldésre kerültek e-mailben az alábbi címre: <b>%s</b>.");
+define('your_account_details_has_been_sent_by_email_to', "A fiók adataid e-mailben elküldve a(z) <b>%s</b> címre.");
 define('subject', "Helló %s, üdvözöllek a %s.");
 define('sub_user', "Sub Users");
 define('create_sub_user', "Add Sub User");

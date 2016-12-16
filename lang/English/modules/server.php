@@ -32,7 +32,7 @@ define('remote_host_name', "Remote Host Name");
 define('remote_host_name_info', "Remote host name is used to help users to identify their servers.");
 define('add_remote_host', "Add Remote Host");
 define('remote_encryption_key', "Remote Encryption Key");
-define('remote_encryption_key_info', "Remote encryption key is used to encrypt the data between the Panel and Agent(s). This key must be same in both sides.");
+define('remote_encryption_key_info', "Remote encryption key is used to encrypt the data between the Panel and Agent. This key must be same in both sides.");
 define('server_name', "Server Name");
 define('agent_ip_port', "Agent IP:Port");
 define('agent_status', "Agent Status");
@@ -44,7 +44,7 @@ define('note_remote_host', "A remote host is a server where the OGP agent is run
 define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
 define('unknown_error', "Unknown error - status_chk returned");
 define('remote_host_user_name', "UNIX user");
-define('remote_host_user_name_info', "User name where Agent is running. Example: Jonhy");
+define('remote_host_user_name_info', "Username where the Agent is running. Example: Jonhy");
 define('remote_host_ftp_ip', "FTP IP");
 define('remote_host_ftp_ip_info', "The FTP server <b>IP</b> for the current agent.");
 define('remote_host_ftp_port', "FTP port");

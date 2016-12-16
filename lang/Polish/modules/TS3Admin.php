@@ -24,12 +24,12 @@
 
 define('error', "Error");
 define('title', "TeamSpeak 3 Web Interface");
-define('update_available', 'Dostępne Aktualizacje');
+define('update_available', "Dostępne Aktualizacje");
 define('head_logout', "Logout");
 define('head_vserver_switch', "Change vServer");
 define('head_vserver_overview', "vServer Overview");
 define('head_vserver_token', "Token management");
-define('head_vserver_liveview', "Liveview");
+define('head_vserver_liveview', "Live View");
 define('e_fill_out', "Please fill out all required fields.");
 define('e_upload_failed', "Upload unsuccessfull.");
 define('e_server_responded', "The server responded: ");

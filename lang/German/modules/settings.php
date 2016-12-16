@@ -25,7 +25,7 @@
 define('maintenance_mode', "Wartungsmodus");
 define('maintenance_mode_info', "The message that is dispayed to normal users during maintenance.");
 define('maintenance_title', "Wartungsmodus Titel");
-define('maintenance_title_info', "The title that is displayed to normal users during maintenance.");
+define('maintenance_title_info', "Der Titel, der während der Wartung für normale Benutzer angezeigt wird.");
 define('maintenance_message', "Wartungsmodus Nachricht");
 define('maintenance_message_info', "The message that is dispayed to normal users during maintenance.");
 define('update_settings', "Einstellungen speichern");
@@ -41,7 +41,7 @@ define('panel_email_address_info', "This is the e-mail address that is in from f
 define('panel_name', "Panel name");
 define('panel_name_info', "Name of the panel that is shown in the page title. This value will overrule all page titles, if not empty.");
 define('feed_enable', "LGSL Feed aktivieren");
-define('feed_enable_info', "If your webhost has a firewall blocking the query port you need enable it.");
+define('feed_enable_info', "Wenn Ihr Webhost eine Firewall hat, die den query port blockiert müssen Sie ihn aktivieren.");
 define('feed_url', "Feed URL");
 define('feed_url_info', "GrayCube.com is sharing a LGSL feed on the URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Zeichenkodierung");

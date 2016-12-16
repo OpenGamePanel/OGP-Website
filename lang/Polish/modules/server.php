@@ -44,7 +44,7 @@ define('note_remote_host', "A remote host is a server where the OGP agent is run
 define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
 define('unknown_error', "Unknown error - status_chk returned");
 define('remote_host_user_name', "UNIX user");
-define('remote_host_user_name_info', "User name where agent is running. Example: Jonhy");
+define('remote_host_user_name_info', "Username where the Agent is running. Example: Jonhy");
 define('remote_host_ftp_ip', "FTP IP");
 define('remote_host_ftp_ip_info', "Serwer FTP <b>IP</b> dla obecnego agenta.");
 define('remote_host_ftp_port', "FTP port");

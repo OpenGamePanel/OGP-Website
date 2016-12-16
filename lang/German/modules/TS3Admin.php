@@ -22,30 +22,30 @@
  *
  */
 
-define('error', "Error");
+define('error', "Fehler");
 define('title', "TeamSpeak 3 Web Interface");
-define('update_available', '<h3>Attention: A new version (v%1) of this software is available under <a href="%2" target="_blank">%2</a>.</h3>');
-define('head_logout', "Logout");
+define('update_available', "<h3>Attention: a new version (v%1) of this software is available under <a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
+define('head_logout', "Ausloggen");
 define('head_vserver_switch', "Change vServer");
 define('head_vserver_overview', "vServer Overview");
-define('head_vserver_token', "Token management");
-define('head_vserver_liveview', "Liveview");
-define('e_fill_out', "Please fill out all required fields.");
+define('head_vserver_token', "Token verwaltung");
+define('head_vserver_liveview', "Live View");
+define('e_fill_out', "Bitte füllen Sie alle Pflichtfelder.");
 define('e_upload_failed', "Upload unsuccessfull.");
-define('e_server_responded', "The server responded: ");
+define('e_server_responded', "Der Server hat geantwortet: ");
 define('e_conn_serverquery', "Could not create ServerQuery access.");
 define('e_conn_vserver', "Could not choose virtual server.");
-define('e_session_timedout', "Session expired.");
+define('e_session_timedout', "Sitzung abgelaufen.");
 define('js_error', "Error");
-define('js_ajax_error', "An AJAX error has occurred. %1");
-define('js_confirm_server_stop', "Do you really want to stop server #%1?");
+define('js_ajax_error', "Ein AJAX fehler ist aufgetreten. %1");
+define('js_confirm_server_stop', "Möchten Sie Server #%1 wirklich beenden?");
 define('js_confirm_server_delete', "Do you really want to DELETE server #%1?");
 define('js_notice_server_deleted', "Server %1 was deleted successfully.\nThe overview page will be getting reloaded now.");
-define('js_prompt_banduration', "Duration in hours (0=unlimited): ");
-define('js_prompt_banreason', "Reason (optional): ");
+define('js_prompt_banduration', "Dauer in Stunden (0=unbegrenzt): ");
+define('js_prompt_banreason', "Grund (optional):");
 define('js_prompt_msg_to', "Textmessage to %1 #%2: ");
 define('js_prompt_poke_to', "Pokemessage to Client #%1: ");
-define('js_prompt_new_propvalue', "New value for '%1': ");
+define('js_prompt_new_propvalue', "Neuen Wert für '%1': ");
 define('n_server_responded', "The server responded: ");
 define('login_serverquery', "ServerQuery Login");
 define('login_name', "Username");

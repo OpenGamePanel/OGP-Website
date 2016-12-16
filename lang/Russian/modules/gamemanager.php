@@ -175,7 +175,7 @@ define('unavailable', "Недоступен");
 define('upload_map_image', "Upload map image");
 define('upload_image', "Upload image");
 define('jpg_gif_png_less_than_1mb', "The image must be jpg, gif or png and less than 1 MB.");
-define('check_dev_console', "Error uploading file, check the browser developer console.");
+define('check_dev_console', "Error during uploading file, please check the browser developer console.");
 define('uploaded_successfully', "Uploaded successfully.");
 define('cant_create_folder', "Can't create folder:<br><b>%s</b>");
 define('cant_write_file', "Can't write file:<br><b>%s</b>");

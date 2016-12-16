@@ -30,7 +30,7 @@ define('owner', "Właściciel");
 define('group', "Grupa");
 define('empty_directory', "Directory is empty.");
 define('currently_viewing', "Currently viewing directory '%s'");
-define('wrote_changes', "Wrote changes successfully.");
+define('wrote_changes', "Changes saved successfully.");
 define('failed_write', "Failed to write file to remote server.");
 define('failed_read', "Failed to read file from the remote server.");
 define('failed_list', "Failed to retrieve directory list.");

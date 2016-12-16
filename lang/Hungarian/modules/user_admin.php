@@ -40,7 +40,7 @@ define('save_profile', "Profil mentése");
 define('new_password_info', "Ha jelszó mező üres, a jelszó nem kerül frissítésre.");
 define('theme', "Téma");
 define('theme_info', "Ha a téma üres, akkor a globális érték lesz használva.");
-define('expires_info', "Dátum amikor a fiók lejár. A fiók nem törlődik, de a felhasználó nem tud többé belépni.");
+define('expires_info', "Dátum amikor a felhasználói fiók lejár. A fiók nem törlődik, de a felhasználó nem tud bejelentkezni többé.");
 define('password_mismatch', "A jelszavak nem egyeznek");
 define('current_password', "Jelenlegi jelszó");
 define('current_password_info', "A jelenlegi jelszavad.");

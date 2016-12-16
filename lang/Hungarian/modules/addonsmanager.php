@@ -58,7 +58,7 @@ define('select_an_addon_type', "Kérlek, válaszd ki a kiegészítő típusát."
 define('select_a_game_type', "Kérlek, válaszd ki a játék típusát.");
 define('edit_addon', "Kiegészítő szerkesztése");
 define('post-script', "Telepítés utáni szkript (bash)");
-define('replacements', "Replacements:");
+define('replacements', "Pótlások:");
 define('addon_name_info', "Add meg ennek a kiegészítőnek a nevét, ez az a név amit a felhasználók látnak.");
 define('url_info', "Enter a web address that contains a file to download, if compressed in zip or tar.gz will be unpacked in the root directory of the server or on the path given below.");
 define('path_info', "The path must be relative to the server folder and contain no slashes at the beginning or end, eg: cstrike/cfg. If left blank will use the server root path.");

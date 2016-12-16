@@ -124,9 +124,9 @@ define('need_set_remote_pass', "You need to set the remote control password on")
 define('before_sending_rcon_com', "before sending rcon commands to it.");
 define('retry', "Újra");
 define('page', "oldal");
-define('server_cant_start', "server cant start");
-define('server_cant_stop', "server cant stop");
-define('error_occured_remote_host', "Error occurred on the remote host");
+define('server_cant_start', "a szerver nem tud elindulni");
+define('server_cant_stop', "a szerver nem tud leállni");
+define('error_occured_remote_host', "Hiba történt a távoli kiszolgálón");
 define('follow_server_status', "You can follow the server status from");
 define('addons', "Kiegészítők");
 define('hostname', "Állomásnév");

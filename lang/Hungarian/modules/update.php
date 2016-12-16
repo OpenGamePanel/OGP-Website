@@ -34,7 +34,7 @@ define('not_updated_files_blacklisted', "Nem frissített/telepített fájlok (Fe
 define('latest_version', "Legújabb verzió");
 define('panel_version', "Panel verzió");
 define('update_now', "Frissítés most");
-define('the_panel_is_up_to_date', "A panel naprakész.");
+define('the_panel_is_up_to_date', "A Panel naprakész.");
 define('files_overwritten', "%s fájl felülírva.");
 define('can_not_update_non_writable_files', "Nem lehet frissíteni, mert az alábbi fájlok/mappák nem írhatóak");
 define('dwl_failed', "A letöltési link nem elérhető: \"%s\".<br>Próbáld újra később.");
@@ -49,7 +49,7 @@ define('updating_modules', "Modulok frissítése");
 define('updating_finished', "A frissítés befejezve");
 define('updated_module', "Frissített modul: '%s'.");
 define('blacklist_files', "Feketelistás fájlok");
-define('blacklist_files_info', "All marked files will not be updated.");
-define('save_to_blacklist', "Save to blacklist");
+define('blacklist_files_info', "Az összes megjelölt fájl nem kerül frissítésre.");
+define('save_to_blacklist', "Mentés a feketelistába");
 define('no_new_updates', "Nincsenek új frissítések");
 ?>

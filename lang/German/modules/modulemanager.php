@@ -22,27 +22,28 @@
  *
  */
 
-define('module_id', "Module ID");
-define('module_name', "Module Name");
+define('module_id', "Modul ID");
+define('module_name', "Modul name");
 define('module_folder', "Modul Ordner");
-define('module_version', "Module Version");
+define('module_version', "Module version");
 define('db_version', "DB Version");
 define('modules_available_for_install', "Folgende Module stehen zur Installation bereit");
 define('install', "Installieren");
-define('modules', "Modules");
+define('uninstall', "Deinstallieren");
+define('modules', "Module");
 define('update_modules', "Update Modules");
 define('no_installed_modules', "Keine installierten Module gefunden.");
-define('not_complete', "The delete/install feature is not complete and might not work properly. WARNING: Data from ogp database might be lost!");
-define('core_mods_installed', "Core Modules Installed:");
-define('custom_mods_installed', "Custom Modules Installed:");
+define('not_complete', "The install/uninstall feature is not complete and might not work properly. WARNING: Data loss may occur in the OGP database!");
+define('core_mods_installed', "Installed Core Modules:");
+define('custom_mods_installed', "Installed Custom Modules:");
 define('installing_module', "Installiere Modul '%s'");
-define('successfully_installed_module', "Successfully installed module %s.");
+define('successfully_installed_module', "Modul %s erfolgreich installiert.");
 define('failed_to_install_module', "Failed to install module %s.");
 define('adding_module', "Adding module called '%s'.");
 define('module_already_installed', "Module called '%s' is already installed.");
-define('uninstalling_module', "Uninstalling module '%s'");
+define('uninstalling_module', "Deinstallieren des Moduls '%s'");
 define('successfully_uninstalled_module', "Successfully uninstalled module %s.");
-define('failed_to_uninstall_module', "Failed to uninstall module %s.");
+define('failed_to_uninstall_module', "Das Modul %s  konnte nicht deinstalliert werden.");
 define('module_file_missing', "directory is missing the module.php file.");
 define('module_file_missing_info', "is missing the required information.");
 define('query_failed', "Failed to execute query");

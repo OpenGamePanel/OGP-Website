@@ -85,7 +85,7 @@ function exec_ogp_module()
 		// Using the refreshed class
 		if( isset($_GET['refreshed']) )
 		{
-			echo "<pre class='log'><xmp>".htmlentities($home_log)."</xmp></pre>";
+			echo "<pre class='log'>".htmlentities($home_log)."</pre>";
 		}
 		else
 		{
@@ -152,7 +152,7 @@ function exec_ogp_module()
 			}
 			else
 			{
-				echo "<pre class='log'><xmp>".$home_log."</xmp></pre>";
+				echo "<pre class='log'>" . htmlentities($home_log) . "</pre>";
 				print_failure( server_not_running );
 			}
 			echo create_back_button( $_GET['m'], 'game_monitor&home_id-mod_id-ip-port='.$_GET['home_id-mod_id-ip-port'] );

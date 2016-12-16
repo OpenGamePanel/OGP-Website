@@ -113,7 +113,7 @@ define('lgsl', "LGSL");
 define('lgsl_admin', "LGSL Admin");
 define('rcon', "RCON");
 define('watch_logger', "Voir les Logs");
-define('litefm_settings', "Paramètres LiteFM");
+define('litefm_settings', "Paramètres de LiteFM");
 define('assign_expiration_date', "Assigner une date d'expiration");
 define('assign_expiration_date_info', "Une fois expiré le serveur n'est plus assigné mais pas supprimé.");
 define('server_expiration_date', "Date d'expiration du serveur");
