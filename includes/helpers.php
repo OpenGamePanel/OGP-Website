@@ -155,7 +155,7 @@ function get_first_existing_file($paths)
 				// Reset timeout to old value
 				ini_set('default_socket_timeout', $origSocketTimeout);
 			}
-			if(intval(substr($file_headers[0], 9, 3)) < 400) return $path;
+			if(trim($file_headers[0]) == 'HTTP/1.0 200 OK' || trim($file_headers[0]) == 'HTTP/1.1 200 OK') return $path;
 		}
 		
         if (file_exists($path)) return $path;
