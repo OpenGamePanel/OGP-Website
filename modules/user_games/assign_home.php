@@ -38,6 +38,12 @@ function exec_ogp_module()
 	
 	$isAdmin = $db->isAdmin($_SESSION['user_id']);
 	
+	if(empty($_REQUEST['user_id']) === true || $db->getUserById($_REQUEST['user_id']) === null)
+	{
+		print_failure(get_lang('valid_user'));
+		return;
+	}
+	
 	if ( isset( $_REQUEST['user_id'] ) && !$isAdmin )
 	{
 		echo "<p class='note'>".get_lang('not_available')."</p>";

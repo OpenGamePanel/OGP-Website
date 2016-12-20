@@ -54,6 +54,11 @@ function exec_ogp_module() {
 		$home_cfg_id = $current_mod_info['home_cfg_id'];
 		$mod_cfg_id = $current_mod_info['mod_cfg_id'];
 		
+		if($home_cfg_id === null && $mod_cfg_id === null){
+			print_failure(get_lang('invalid_game_mod_id'));
+			return;
+		}
+		
 		echo "<h2>".get_lang_f( "presets_for_game_and_mod",$game,$mod)."</h2>";
 		
 		if(isset($_POST['add_rcon_preset']))

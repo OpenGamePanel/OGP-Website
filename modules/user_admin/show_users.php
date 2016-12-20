@@ -80,8 +80,8 @@ function exec_ogp_module() {
             get_lang('assign_homes')."]</a><br />
             <a href='?m=user_admin&amp;p=del&amp;user_id=$row[user_id]'>[".get_lang('delete')."]</a><br />
             <a href='?m=user_admin&amp;p=edit_user&amp;user_id=$row[user_id]'>[".get_lang('edit_profile')."]</a></td>
-            <td>$row[users_login]</td><td>$row[users_role]</td>
-            <td>$row[users_email]</td>
+            <td>".htmlentities($row['users_login'])."</td><td>".htmlentities($row['users_role'])."</td>
+            <td>".htmlentities($row['users_email'])."</td>
             <td>$user_expires</td>";
         if(!empty($ownedBy)){
 			print "<td></td>";

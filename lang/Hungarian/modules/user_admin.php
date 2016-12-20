@@ -102,4 +102,8 @@ define('group_with_id_does_not_exist', "A(z) %s csoport nem létezik.");
 define('are_you_sure_you_want_to_delete_group', "Are you sure you want to delete group <em>%s</em>?");
 define('unable_to_delete_group', "Nem lehet törölni a(z) %s csoportot.");
 define('successfully_deleted_group', "Sikeresen törölve a(z) <br>%s<br> csoport.");
+define('editing_profile', "Editing Profile: %s");
+define('valid_user', "Please specify a valid user.");
+define('enter_valid_username', "Please enter a valid username.");
+define('unexpected_role', "Unexpected user role received.");
 ?>

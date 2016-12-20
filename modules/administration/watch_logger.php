@@ -32,7 +32,7 @@ function exec_ogp_module() {
 	<table class="center">
 	<tr>
 	<td>
-	<form>
+	<form onsubmit="event.preventDefault();">
 		<b><?php print_lang('search'); ?>:</b>
 		<input type="text" id="search">
 	</form>
