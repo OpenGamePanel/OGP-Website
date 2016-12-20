@@ -41,6 +41,15 @@ function exec_ogp_module()
 	else
 		$home_info = $db->getUserGameHome($user_id,$home_id);
 	
+	$current_mod_info = $home_info['mods'][$mod_id];	
+	$home_cfg_id = $current_mod_info['home_cfg_id'];
+	$mod_cfg_id = $current_mod_info['mod_cfg_id'];
+	
+	if($home_cfg_id === null && $mod_cfg_id === null){
+		print_failure(get_lang('invalid_game_mod_id'));
+		return;
+	}
+	
     if ( $home_info === FALSE )
     {
         print_failure( no_access_to_home );

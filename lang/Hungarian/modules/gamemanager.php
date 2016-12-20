@@ -185,4 +185,5 @@ define('directory', "Könyvtár");
 define('view_player_commands', "Játékos parancsok mutatása");
 define('hide_player_commands', "Játékos parancsok elrejtése");
 define('no_online_players', "Nincsenek online játékosok.");
+define('invalid_game_mod_id', "Invalid game/mod id specified.");
 ?>

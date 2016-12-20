@@ -503,14 +503,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 			mysqli_real_escape_string($this->link, $parent_id));
 		$results = $this->listQuery($query);
 		
-		foreach($results as $result){
-			$ids[] = $result['user_id'];
+		if($results !== false){
+			foreach($results as $result){
+				$ids[] = $result['user_id'];
+			}
+			
+			if(is_array($ids) && count($ids) > 0){
+				return $ids;
+			}
 		}
 		
-		if(is_array($ids) && count($ids) > 0){
-			return $ids;
-		}
-				
 		return false;
 	}
 	

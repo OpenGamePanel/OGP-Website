@@ -178,7 +178,7 @@ function exec_ogp_module() {
 
 	require("protocol/lgsl/lgsl_protocol.php");
 	?>
-		<form>
+		<form onsubmit="event.preventDefault();">
 			<b><?php print_lang('search'); ?>:</b>
 			<input type="text" id="search">
 		</form>

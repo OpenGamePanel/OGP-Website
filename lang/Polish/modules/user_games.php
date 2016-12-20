@@ -210,4 +210,5 @@ define('level_up', "Do góry");
 define('level_up_info', "Powrót do poprzedniego folderu.");
 define('add_folder', "Dodaj Folder");
 define('add_folder_info', "Wpisz nazwę nowego folderu, a następnie kliknij na ikonę.");
+define('valid_user', "Please specify a valid user.");
 ?>

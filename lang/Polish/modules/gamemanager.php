@@ -185,4 +185,5 @@ define('directory', "ĹšcieĹĽka katalogu");
 define('view_player_commands', "View Player Commands");
 define('hide_player_commands', "Hide Player Commands");
 define('no_online_players', "There are no online players.");
+define('invalid_game_mod_id', "Invalid game/mod id specified.");
 ?>
