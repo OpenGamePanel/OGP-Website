@@ -211,4 +211,5 @@ define('level_up_info', "Back to the previous folder.");
 define('add_folder', "Mappa hozzáadása");
 define('add_folder_info', "Write the name for the new folder, then click on the icon.");
 define('valid_user', "Please specify a valid user.");
+define('valid_group', "Please specify a valid group.");
 ?>

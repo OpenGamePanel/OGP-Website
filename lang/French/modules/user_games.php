@@ -211,4 +211,5 @@ define('level_up_info', "Retour au dossier précédent.");
 define('add_folder', "Créer un dossier");
 define('add_folder_info', "Écrire le nom du nouveau dossier, puis cliquer sur l'icône.");
 define('valid_user', "Please specify a valid user.");
+define('valid_group', "Please specify a valid group.");
 ?>
