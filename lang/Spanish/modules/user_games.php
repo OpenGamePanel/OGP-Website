@@ -211,4 +211,5 @@ define('level_up_info', "Volver a la carpeta anterior.");
 define('add_folder', "Añadir carpeta");
 define('add_folder_info', "Escriba aquí el nombre para la nueva carpeta, después haga click sobre el icono.");
 define('valid_user', "Please specify a valid user.");
+define('valid_group', "Please specify a valid group.");
 ?>
