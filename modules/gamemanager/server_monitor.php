@@ -145,7 +145,12 @@ function exec_ogp_module() {
 		}
 		return;
 	}
-	
+	?>
+		<form onsubmit="event.preventDefault();" style="float:right;">
+			<b><?php print_lang('search'); ?>:</b>
+			<input type="text" id="search">
+		</form>
+	<?php
 	foreach($_POST as $key => $value)
 	{
 		if( preg_match( "/^action/", $key ) )
@@ -177,12 +182,7 @@ function exec_ogp_module() {
 	}
 
 	require("protocol/lgsl/lgsl_protocol.php");
-	?>
-		<form onsubmit="event.preventDefault();">
-			<b><?php print_lang('search'); ?>:</b>
-			<input type="text" id="search">
-		</form>
-	<?php
+
 	$info = $db->getUserById($_SESSION['user_id']);
 	if($info['user_expires'] != "X")
 	{
