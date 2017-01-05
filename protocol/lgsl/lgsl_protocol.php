@@ -80,6 +80,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"jediknightja"	=> "JediKnight: Jedi Academy",
 		"jc2mp"			=> "Just Cause 2 Multiplayer",
 		"killingfloor"	=> "Killing Floor",
+		"kf2"			=> "Killing Floor 2",
 		"kingpin"		=> "Kingpin: Life of Crime",
 		"lif"			=> "Life is Feudal",
 		"modernwarfare3"=> "CoD: Modern Warfare 3",
@@ -215,6 +216,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"jediknightja"	=> "02",
 		"jc2mp"			=> "40",
 		"killingfloor"	=> "13",
+		"kf2"			=> "05",
 		"kingpin"		=> "03",
 		"lif"			=> "05",
 		"modernwarfare3"=> "31",
@@ -358,6 +360,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"jediknightja"	=> "qtracker://{IP}:{S_PORT}?game=JediKnightJediAcademy&action=show",
 		"jc2mp"			=> "steam://connect/{IP}:{S_PORT}",
 		"killingfloor"	=> "steam://connect/{IP}:{C_PORT}",
+		"kf2"	=> "steam://connect/{IP}:{C_PORT}",
 		"kingpin"		=> "qtracker://{IP}:{S_PORT}?game=Kingpin&action=show",
 		"lif"			=> "steam://connect/{IP}:{Q_PORT}",
 		"modernwarfare3"=> "http://en.wikipedia.org/wiki/Call_of_Duty:_Modern_Warfare_3",
@@ -464,6 +467,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "hurtworld"		: $c_to_q = 10;		$c_def = 12871;	$q_def = 12881;	$c_to_s = 0;	break;
 			case "kingpin"			: $c_to_q = -10;	$c_def = 31510;	$q_def = 31500;	$c_to_s = 0;	break;
 			case "killingfloor"		: $c_to_q = 1;		$c_def = 7708;	$q_def = 7709;	$c_to_s = 0;	break;
+			case "kf2"				: $c_to_q = 1;		$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "lif"				: $c_to_q = 2;		$c_def = 28000; $q_def = 28002; $c_to_s = 0;	break;
 			case "modernwarfare3"	: $c_to_q = -1;		$c_def = 27015;	$q_def = 27014;	$c_to_s = 0;	break;
 			case "mohaa"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
