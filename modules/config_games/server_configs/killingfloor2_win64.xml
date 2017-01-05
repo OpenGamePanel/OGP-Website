@@ -51,7 +51,7 @@
     <param id="GAMEMODE" key="?Game=" type="text">
       <option>ns</option>
       <caption>Game Mode</caption>
-      <desc>Leave empty to run the normal game mode.&lt;br&gt;To run your server with official Versus Survival mode use this:&lt;br&gt;&lt;br&gt;KFGameContent.KFGameInfo_VersusSurvival&lt;br&gt;&lt;br&gt;You can use any other gametype i$
+      <desc>Leave empty to run the normal game mode.&lt;br&gt;To run your server with official Versus Survival mode use this:&lt;br&gt;&lt;br&gt;KFGameContent.KFGameInfo_VersusSurvival&lt;br&gt;&lt;br&gt;You can use any other gametype if you installed any other mod from Steam Workshop</desc>
     </param>
   </server_params>
   <post_install>
