@@ -185,5 +185,5 @@ define('directory', "Ruta del Directorio");
 define('view_player_commands', "Ver Comandos De Jugadores");
 define('hide_player_commands', "Ocultar Comandos De Jugadores");
 define('no_online_players', "No hay jugadores en linea.");
-define('invalid_game_mod_id', "Invalid game/mod id specified.");
+define('invalid_game_mod_id', "Invalid Game/Mod ID specified.");
 ?>

@@ -104,5 +104,6 @@ define('unable_to_delete_group', "Unable to delete %s group.");
 define('successfully_deleted_group', "Successfully deleted group <b>%s</b>.");
 define('editing_profile', "Editing Profile: %s");
 define('valid_user', "Please specify a valid user.");
+define('enter_valid_username', "Please enter a valid username.");
 define('unexpected_role', "Unexpected user role received.");
 ?>

@@ -25,7 +25,7 @@
 define('module_id', "Modul ID");
 define('module_name', "Modul name");
 define('module_folder', "Modul Ordner");
-define('module_version', "Module version");
+define('module_version', "Modul version");
 define('db_version', "DB Version");
 define('modules_available_for_install', "Folgende Module stehen zur Installation bereit");
 define('install', "Installieren");
@@ -47,7 +47,7 @@ define('failed_to_uninstall_module', "Das Modul %s  konnte nicht deinstalliert w
 define('module_file_missing', "directory is missing the module.php file.");
 define('module_file_missing_info', "is missing the required information.");
 define('query_failed', "Failed to execute query");
-define('query_failed_2', "to database.");
+define('query_failed_2', "zu Datenbank.");
 define('failed_del_db', "Failed to delete module from database.");
 define('updated_module', "Updated module: '%s'.");
 define('updating_modules', "Updating Modules");

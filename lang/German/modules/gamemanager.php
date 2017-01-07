@@ -85,7 +85,7 @@ define('current_map', "Aktuelle Map");
 define('stop_server', "Server stoppen");
 define('server_ip_port', "Server-IP: Port");
 define('server_name', "Server Name");
-define('player_name', "Player Name");
+define('player_name', "Spielername");
 define('score', "Punkte");
 define('time', "Zeit");
 define('no_rights_to_stop_server', "You do not have rights to stop this server.");
@@ -185,5 +185,5 @@ define('directory', "Ordner-Pfad");
 define('view_player_commands', "View Player Commands");
 define('hide_player_commands', "Hide Player Commands");
 define('no_online_players', "There are no online players.");
-define('invalid_game_mod_id', "Invalid game/mod id specified.");
+define('invalid_game_mod_id', "Invalid Game/Mod ID specified.");
 ?>
