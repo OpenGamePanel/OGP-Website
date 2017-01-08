@@ -110,14 +110,14 @@ define('only_available_for', "Only available for '%s' hosted on the remote serve
 define('ftp_on', "FTP engedélyezése");
 define('ftp_off', "FTP letiltása");
 define('change_ftp_account_status', "FTP fiók állapot negváltoztatása");
-define('change_ftp_account_status_info', "Once a FTP account is enbled or disabled, it is added or removed from the PureFTPd's DataBase.");
+define('change_ftp_account_status_info', "Amikor egy FTP fiók engedélyezve vagy tiltva van, akkor az hozzáadásra vagy eltávolításra kerül az FTP adatbázisból.");
 define('server_ftp_login', "Szerver FTP bejelentkezés");
-define('change_ftp_login_info', "Change the FTP Login with a customized one.");
+define('change_ftp_login_info', "Az FTP bejelentkezés megváltoztatása egy személyre szabottra.");
 define('change_ftp_login', "FTP bejelentkezés megváltoztatása");
-define('ftp_login_can_not_be_changed', "Can not change FTP Login.");
-define('server_is_running_change_addresses_not_available', "The server is actually running, the IP cannot be changed.");
+define('ftp_login_can_not_be_changed', "Nem lehet megváltoztatni az FTP bejelentkezést.");
+define('server_is_running_change_addresses_not_available', "A szerver jelenleg fut, az IPt nem lehet megváltoztatni.");
 define('change_game_type', "Játék típusának megváltoztatása");
-define('change_game_type_info', "By changing the game type the current the mods configuration will be deleted.");
+define('change_game_type_info', "A játék típus megváltoztatásával a jelenlegi modok konfigurációja törlésre kerül.");
 define('force_mod_on_this_address', "Mód kényszerítése ezen a címen");
 define('successfully_assigned_mod_to_address', "A mod sikeresen hozzárendelve a címhez");
 define('switch_mods', "Módok váltása");
@@ -145,7 +145,7 @@ define('allow_parameter_usage_info', "Engedélyezi a felhasználónak, hogy megv
 define('allow_extra_params', "Extra paraméterek engedélyezése");
 define('allow_extra_params_info', "Engedélyezi a felhasználónak, hogy módosítsa az extra parancssori paramétereket.");
 define('allow_ftp', "FTP engedélyezése");
-define('allow_ftp_info', "Show the FTP access information to the user.");
+define('allow_ftp_info', "Mutasd az FTP hozzáférési információkat a felhasználónak.");
 define('allow_custom_fields', "Egyéni mezők engedélyezése");
 define('allow_custom_fields_info', "Engedélyezi a felhasználónak, hogy hozzáférjen a játék szerver egyedi mezőihez, ha van ilyen.");
 define('select_home', "Válaszd ki a társítani kívánt szervert");
@@ -210,6 +210,6 @@ define('level_up', "Szintlépés");
 define('level_up_info', "Vissza az előző mappához.");
 define('add_folder', "Mappa hozzáadása");
 define('add_folder_info', "Írd le a nevét az új mappának, majd kattints az ikonra.");
-define('valid_user', "Please specify a valid user.");
-define('valid_group', "Please specify a valid group.");
+define('valid_user', "Kérlek, határozz meg egy érvényes felhasználót.");
+define('valid_group', "Kérlek, határozz meg egy érvényes csoportot.");
 ?>

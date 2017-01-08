@@ -22,13 +22,13 @@
  *
  */
 
-define('game_manager', "Játék menedzser");
+define('game_manager', "Játék kezelő");
 define('no_games_to_monitor', "Nincs egyetlen játék sem konfigurálva neked, amit felügyelhetnél.");
 define('status', "Státusz");
 define('fail_no_mods', "Nincs mod engedélyezve ehhez a játékhoz! Meg kell kérned az adminisztrátort, hogy legalább egy játék modot engedélyezzen a számodra.");
 define('no_game_homes_assigned', "Nincsenek játék szerverek hozzád rendelve. Meg kell kérdned az OGP Admint, hogy rendeljen játékot hozzád.");
 define('select_game_home_to_configure', "Válassz ki egy szervert amit konfigurálni akarsz");
-define('file_manager', "Fájl Menedzser");
+define('file_manager', "Fájlkezelő");
 define('configure_mods', "Modok beállítása");
 define('install_update_steam', "Telepítés/Frissítés Steam-en keresztül");
 define('install_update_manual', "Telepítés/Frissítés manuálisan");
@@ -44,7 +44,7 @@ define('available_maps', "Elérhető pályák");
 define('map_path', "Pálya útvonal");
 define('available_parameters', "Elérhető paraméterek");
 define('start_server', "Szerver elindítása");
-define('start_wait_note', "A szerver indítása eltarthat egy ideig. Kérlek, várj mielőtt bezárod a böngészőt.");
+define('start_wait_note', "A szerver elindítása eltarthat egy ideig. Kérlek, várj mielőtt bezárod a böngészőt.");
 define('game_type', "Játék típus");
 define('map', "Pálya");
 define('starting_server', "Szerver indítása, kérlek várj...");
@@ -115,7 +115,7 @@ define('unable_get_info', "Nem sikerült megkapni a szükséges információt az
 define('server_already_running', "Server already running. If you do not see the server in the Game Monitor, there might be a somekind of problem and you might want to");
 define('already_running_stop_server', "Szerver leállítása.");
 define('error_server_already_running', "HIBA: már fut szerver ezen a porton");
-define('failed_start_server_code', "Failed to start the remote server. Error code: ");
+define('failed_start_server_code', "Nem sikerült elindítani a távoli szervert. Hibakód:");
 define('disabled', "tiltva");
 define('not_found_server', "Nem található távoli szerver az ID-vel");
 define('rcon_command_title', "RCON parancs");
@@ -185,5 +185,5 @@ define('directory', "Könyvtár");
 define('view_player_commands', "Játékos parancsok mutatása");
 define('hide_player_commands', "Játékos parancsok elrejtése");
 define('no_online_players', "Nincsenek online játékosok.");
-define('invalid_game_mod_id', "Invalid Game/Mod ID specified.");
+define('invalid_game_mod_id', "Érvénytelen játék/mod ID meghatározva.");
 ?>

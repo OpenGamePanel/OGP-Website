@@ -31,7 +31,7 @@ define('send', "A jelszavadat elküldtük! Kérlek, ellenőrizd az e-mailedet!")
 define('here', "Ide");
 define('to_login', "a belépéshez");
 define('errormail', "Az e-mail címed nem megfelelő.");
-define('submit', "Küldés");
+define('submit', "Beküldés");
 define('click', "Kattints");
 define('mail_settings_missing', "A panel mail beállításai nem teljesek, ezért nem küldhető el a jelszavad. Lépj kapcsolatba az adminisztrátorral.");
 define('mail_failed', "Sikertelen e-mail küldés.");
