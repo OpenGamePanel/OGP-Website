@@ -31,7 +31,7 @@ define('register_a_new_user', "Új felhasználó regisztrálása");
 define('password_mismatch', "A jelszavak nem egyeznek.");
 define('confirm_password', "Jelszó megerősítése");
 define('subuser_password', "Alfelhasználó jelszó");
-define('subuser_man', "Sub-User Management");
+define('subuser_man', "Al-felhasználó ügyintézés");
 define('successfull', "Sikeres");
 define('click_here', "Kattints ide");
 define('to_login', "a belépéshez.");
