@@ -85,6 +85,7 @@ if($presets > 0)
 	{
 		echo '<option value="'.$preset['command'].'" >'.$preset['name'].'</option>\n';
 	}
+	echo '<input type="hidden" name="remote_send_rcon_command" value="">';
 	echo '</form>';
 }
 ?>
