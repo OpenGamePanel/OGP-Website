@@ -22,7 +22,7 @@
  *
  */
 
-define('dir_not_found', "Directory '%s' not found from the server.");
+define('dir_not_found', "Verzeichnis '%s' vom Server nicht gefunden.");
 define('filename', "Dateiname");
 define('filesize', "Dateigröße");
 define('bytes', "Bytes");

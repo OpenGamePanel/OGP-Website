@@ -23,7 +23,7 @@
  */
 
 define('configured_mysql_hosts', "Configured MySQL Hosts");
-define('add_new_mysql_host', "Add MySQL host");
+define('add_new_mysql_host', "MySQL-Host hinzufügen");
 define('enter_mysql_ip', "Enter MySQL IP.");
 define('enter_valid_port', "Geben Sie einen gültigen Port ein.");
 define('enter_mysql_root_password', "Enter MySQL root password.");

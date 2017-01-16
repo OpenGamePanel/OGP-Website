@@ -23,8 +23,8 @@
  */
 
 include 'update.php';
-define('unable_download', "Unable to download %s.");
-define('md5_failed', "MD5 test failed for %s, try again.");
+define('unable_download', "Download von %s nicht möglich.");
+define('md5_failed', "MD5 test für %s fehlgeschlagen, versuchen Sie es erneut.");
 define('uninstall', "Deinstallieren");
 define('install', "Installieren");
 define('uptodate', "Auf dem neuesten Stand");

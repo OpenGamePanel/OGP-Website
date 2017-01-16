@@ -44,7 +44,7 @@ define('expires_info', "Dátum amikor a felhasználói fiók lejár. A fiók nem
 define('password_mismatch', "A jelszavak nem egyeznek");
 define('current_password', "Jelenlegi jelszó");
 define('current_password_info', "A jelenlegi jelszavad.");
-define('current_password_mismatch', "Your current password did not match to the one in database.");
+define('current_password_mismatch', "Az aktuális jelszó nem egyezik az adatbázisban tárolttal.");
 define('add_new_user', "Új felhasználó hozzáadása");
 define('edit_user_groups', "Felhasználói csoportok szerkesztése");
 define('users', "Felhasználók");
@@ -62,7 +62,7 @@ define('admin', "Adminisztrátor");
 define('user', "Felhasználó");
 define('user_with_id_does_not_exist', "User with ID %s does not exist.");
 define('are_you_sure_you_want_to_delete_user', "Biztosan törölni akarod a(z) <em>%s</em> felhasználót?");
-define('unable_to_delete_user', "Unable to delete user %s.");
+define('unable_to_delete_user', "Nem sikerült törölni a(z) %s felhasználót.");
 define('successfully_deleted_user', "A(z) <b>%s</b> felhasználó sikeresen törölve.");
 define('failed_to_update_user_profile_error', "Failed to update user profile. Error: %s");
 define('profile_of_user_modified_successfully', "Profile of user <b>%s</b> was modified successfully.");

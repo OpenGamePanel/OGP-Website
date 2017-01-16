@@ -22,13 +22,13 @@
  *
  */
 
-define('game_manager', "Game Manager");
+define('game_manager', "Spiel Manager");
 define('no_games_to_monitor', "Es gibt derzeit keine Gameserver die online/offline sind");
 define('status', "Status");
 define('fail_no_mods', "No mods enabled for this game! You need to ask your OGP admin to add mod(s) for the game assigned for you.");
 define('no_game_homes_assigned', "No game servers assigned for you. You need to ask your OGP admin to assign games for you.");
-define('select_game_home_to_configure', "Select a game server that you want to configure");
-define('file_manager', "File Manager");
+define('select_game_home_to_configure', "Wählen Sie einen Gameserver aus, den Sie konfigurieren möchten");
+define('file_manager', "Dateimanager");
 define('configure_mods', "Mods verwalten");
 define('install_update_steam', "Installation/Aktualisierung via Steam");
 define('install_update_manual', "Manuelle Installation/Aktualisierung");
