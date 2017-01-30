@@ -60,6 +60,14 @@
       <caption>Steam API Key</caption>
       <desc>Set the Steam API key for workshop usage, you can get one by going to: http://steamcommunity.com/dev/apikey</desc>
     </param>
+	<param key="+sv_setsteamaccount" type="text">
+      <caption>Steam Account Login Token</caption>
+      <desc>Manage your steam tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
+    </param>
+   <param key="+sv_loadingurl" type="text">
+      <caption>Loading URL</caption>
+      <desc>URL to show to clients while joining the server. Please remove http:// from URL or it will not work.</desc>
+    </param>
     <param key="-nohltv" type="checkbox_key_value">
       <caption>No SourceTV</caption>
       <desc>Disables SourceTV and closes its port.</desc>

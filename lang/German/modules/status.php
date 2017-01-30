@@ -30,9 +30,9 @@ define('cpu_load', "Last");
 define('ram_usage', "RAM Auslastung");
 define('ram_used', "Speicher verwendet");
 define('ram_of', "von");
-define('storage_space', "Storage Space");
-define('storage_total', "Disk Space");
+define('storage_space', "Speicher Platz");
+define('storage_total', "Speicherplatz");
 define('storage_used', "Verwendet");
-define('storage_free', "Free Space");
+define('storage_free', "Freier Speicher");
 define('process_monitor', "Process Monitor");
 ?>

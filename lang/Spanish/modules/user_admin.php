@@ -102,4 +102,8 @@ define('group_with_id_does_not_exist', "No existe ningun grupo con ID %s.");
 define('are_you_sure_you_want_to_delete_group', "Esta seguro que desea eliminar el grupo %s");
 define('unable_to_delete_group', "Imposible eliminar el grupo %s.");
 define('successfully_deleted_group', "Grupo %s eliminado correctamente.");
+define('editing_profile', "Editing Profile: %s");
+define('valid_user', "Please specify a valid user.");
+define('enter_valid_username', "Please enter a valid username.");
+define('unexpected_role', "Unexpected user role received.");
 ?>

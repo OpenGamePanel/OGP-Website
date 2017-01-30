@@ -23,7 +23,7 @@
  */
 
 define('configured_mysql_hosts', "Configured MySQL Hosts");
-define('add_new_mysql_host', "Add MySQL host");
+define('add_new_mysql_host', "MySQL-Host hinzufügen");
 define('enter_mysql_ip', "Enter MySQL IP.");
 define('enter_valid_port', "Geben Sie einen gültigen Port ein.");
 define('enter_mysql_root_password', "Enter MySQL root password.");
@@ -50,8 +50,8 @@ define('current_dbs', "Current databases");
 define('mysql_name', "MySQL server name");
 define('mysql_ip', "MySQL IP");
 define('mysql_port', "MySQL port");
-define('privilegies', "privileges");
-define('all', "All");
+define('privilegies', "privilegien");
+define('all', "Alle");
 define('custom', "Custom");
 define('server_added', "Server added.");
 define('sql_alter', "ALTER");
@@ -64,7 +64,7 @@ define('sql_lock_tables', "LOCK TABLES");
 define('sql_select', "SELECT");
 define('sql_grant_option', "GRANT OPTION");
 define('sql_update', "UPDATE");
-define('sql_delete', "DELETE");
+define('sql_delete', "LÖSCHEN");
 define('sql_alter_info', "<b>Enables use of ALTER TABLE.</b>");	
 define('sql_create_info', "<b>Enables use of CREATE TABLE.</b>");	
 define('sql_create_temporary_tables_info', "<b>Enables use of CREATE TEMPORARY TABLE.</b>");

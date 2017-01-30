@@ -23,14 +23,14 @@
  */
 
 include 'update.php';
-define('unable_download', "Unable to download %s.");
-define('md5_failed', "MD5 test failed for %s, try again.");
+define('unable_download', "Download von %s nicht möglich.");
+define('md5_failed', "MD5 test für %s fehlgeschlagen, versuchen Sie es erneut.");
 define('uninstall', "Deinstallieren");
 define('install', "Installieren");
 define('uptodate', "Auf dem neuesten Stand");
 define('update_available', "Update verfügbar");
 define('not_installed', "Nicht installiert");
-define('installed', "Installed");
+define('installed', "Installiert");
 define('download_update', "Download/Update");
 define('are_you_sure', "Bist du sicher");
 define('uninstalling_module_dataloss', "By uninstalling a module you will lose all data related to it.");
@@ -38,6 +38,6 @@ define('remove_files_for', "Möchten Sie alle Dateien entfernen");
 define('confirm', "Bestätigen");
 define('cancel', "Abbrechen");
 define('extra_themes', "Extra themes");
-define('extra_modules', "Extra modules");
+define('extra_modules', "Extra module");
 define('search_for_updates', "Nach Updates suchen");
 ?>

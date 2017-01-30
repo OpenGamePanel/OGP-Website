@@ -38,6 +38,23 @@ function exec_ogp_module()
 	
 	$isAdmin = $db->isAdmin($_SESSION['user_id']);
 	
+	if(isset($_REQUEST['user_id'])){
+		if(empty($_REQUEST['user_id']) || $db->getUserById($_REQUEST['user_id']) == null)
+		{
+			print_failure(get_lang('valid_user'));
+			return;
+		}
+	}else if(isset($_REQUEST['group_id'])){
+		if(empty($_REQUEST['group_id']) || $db->getGroupById($_REQUEST['group_id']) == null)
+		{
+			print_failure(get_lang('valid_group'));
+			return;
+		}
+	}else{
+		print_failure(get_lang('invalid_url'));
+		return;
+	}
+	
 	if ( isset( $_REQUEST['user_id'] ) && !$isAdmin )
 	{
 		echo "<p class='note'>".get_lang('not_available')."</p>";
@@ -59,12 +76,6 @@ function exec_ogp_module()
 	if( !$isAdmin && !isset($own_group) ) 
 	{
 		echo "<p class='note'>".get_lang('not_available')."</p>";
-		return;
-	}
-	
-	if ( !isset($_REQUEST['user_id']) && !isset($_REQUEST['group_id']) )
-	{
-		print_failure(get_lang("invalid_url"));
 		return;
 	}
 

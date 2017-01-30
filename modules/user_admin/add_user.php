@@ -28,11 +28,26 @@ function exec_ogp_module()
     global $view;
     if( isset($_POST['submit']) )
     {
-        $username = trim($_POST['username']);
+        $username = sanitizeInputStr($_POST['username']);
         $user_role = trim($_POST['user_role']);
         $password = trim($_POST['newpass']);
         $password2 = trim($_POST['newpass2']);
-
+		
+		// Check a username is actually entered...
+		if(empty($username) === true){
+			print_failure(get_lang('enter_valid_username'));
+			$view->refresh("?m=user_admin");
+			return;
+		}
+		
+		// Check _POST['user_role'] is what we expect it to be: either user or admin.
+		// Without this it can be anything else. It's pointless being anything else - but why allow it to be anything else?
+		if(in_array($_POST['user_role'], array('user', 'admin')) === false){
+			print_failure(get_lang('unexpected_role'));
+			$view->refresh("?m=user_admin");
+			return;
+		}
+		
         if( empty($password) || empty($password2) )
         {
             print_failure(get_lang('you_need_to_enter_both_passwords'));

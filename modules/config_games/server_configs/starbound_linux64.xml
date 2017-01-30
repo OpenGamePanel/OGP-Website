@@ -1,0 +1,67 @@
+<game_config>
+  <game_key>starbound_linux64</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>starbound</gameq_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Starbound</game_name>
+  <server_exec_name>starbound_server</server_exec_name>
+  <exe_location>linux</exe_location>
+  <max_user_amount>512</max_user_amount>
+  <mods>
+    <mod key="starbound">
+      <name>none</name>
+      <installer_name>211820</installer_name>
+    </mod>
+  </mods>
+
+ <replace_texts>
+    <text key="home_name">
+      <default>"serverName" : "[\w\-\s]*"</default>
+      <var>"serverName" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>"rconServerPassword" : "[\w\-\s]*"</default>
+      <var>"rconServerPassword" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>sq</options>
+    </text>
+    <text key="port">
+      <default>"gameServerPort" : [\w\-\s]*</default>
+      <var>"gameServerPort" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>"maxPlayers" : [\w\-\s]*</default>
+      <var>"maxPlayers" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>s</options>
+    </text>
+    <text key="true">
+       <default>"runRconServer" : [\w\-\s]*</default>
+       <var>"runRconServer" : true</var>
+       <filepath>storage/starbound_server.config</filepath>
+       <options></options>
+    </text>
+    <text key="true">
+       <default>"runQueryServer" : [\w\-\s]*</default>
+       <var>"runQueryServer" : true</var>
+       <filepath>storage/starbound_server.config</filepath>
+       <options></options>
+    </text>
+</replace_texts>
+
+ <custom_fields>
+    <field key="rconServerPort" type="text">
+       <default>"rconServerPort" : [\w\-\s]*</default>
+       <default_value>21026</default_value>
+       <var>"rconServerPort" :</var>
+       <filepath>storage/starbound_server.config</filepath>
+       <options>s</options>
+       <desc>RCON Server port</desc>
+    </field>
+ </custom_fields>
+
+</game_config>

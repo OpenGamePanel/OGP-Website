@@ -25,7 +25,7 @@
 define('add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
 define('game_servers', "Game Servers");
 define('game_path', "Game Pfad");
-define('game_path_info', "An absolute server path. Example: /home/ogp/my_server/");
+define('game_path_info', "Ein absoluter Serverpfad. Beispiel: /home/ogp/my_server/");
 define('game_server_name_info', "Server name helps users to identify their servers.");
 define('control_password', "Control Passwort");
 define('control_password_info', "This password is used for server control, such as RCON password. If the password is empty then other means are used.");
@@ -210,4 +210,6 @@ define('level_up', "Level up");
 define('level_up_info', "Zurück zum vorherigen Ordner.");
 define('add_folder', "Ordner hinzufügen");
 define('add_folder_info', "Write the name for the new folder, then click on the icon.");
+define('valid_user', "Please specify a valid user.");
+define('valid_group', "Please specify a valid group.");
 ?>

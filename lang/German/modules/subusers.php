@@ -26,7 +26,7 @@ define('login_name', "Benutzername");
 define('first_name', "Vorname");
 define('last_name', "Nachname");
 define('phone_number', "Telefonnummer");
-define('email_address', "Email");
+define('email_address', "E-Mail");
 define('register_a_new_user', "Neuen Benutzer anmelden");
 define('password_mismatch', "Passwörter stimmen nicht überein.");
 define('confirm_password', "Bestätige das Passwort");

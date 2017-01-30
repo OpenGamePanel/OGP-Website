@@ -24,19 +24,25 @@
 
 function exec_ogp_module() {
 	global $db, $settings;
-
-	$my_user_id = $_SESSION['user_id']; #who we're logged in as
-	$user_id = $_REQUEST['user_id'];
-
-	$isAdmin = $db->isAdmin($my_user_id);
-	$mySubUsers = $db->getUsersSubUsersIds($_SESSION['user_id']);
-
-	// Check that we are admin or the user itself.
-	if ( ! isset( $user_id ) )
-	{
-		print_failure("Error in parameters.");
+	
+	// Check if the user_id is set in the uri first. Prevents notices if it's been removed.
+	if(!isset($_REQUEST['user_id']) === true){
+		print_failure(get_lang('valid_user'));
 		return;
 	}
+	
+	$my_user_id = $_SESSION['user_id']; #who we're logged in as
+	$user_id = $_REQUEST['user_id'];
+	$isAdmin = $db->isAdmin($my_user_id);
+	$mySubUsers = $db->getUsersSubUsersIds($_SESSION['user_id']);
+	
+	// Check that the user_id parameter corresponds to a valid user.
+	if(($userInfo = $db->getUserById($user_id)) === null)
+	{
+		print_failure(get_lang('valid_user'));
+		return;
+	}
+	
 	// Allow user to modify owned subuser account information
 	else if ( ! $isAdmin && $my_user_id !== $user_id && @!in_array($user_id, $mySubUsers))
 	{
@@ -62,8 +68,8 @@ function exec_ogp_module() {
 			return;
 		}
 	}
-
-	echo "<h2>".get_lang('your_profile')."</h2>";
+	
+	echo "<h2>".($my_user_id !== $user_id ? get_lang_f('editing_profile', htmlentities($userInfo['users_login'])) : get_lang('your_profile'))."</h2>";
 	echo "<div align='center'>";
 	require_once("includes/form_table_class.php");
 
@@ -171,7 +177,6 @@ function exec_ogp_module() {
 		return;
 	}
 
-	$userInfo = $db->getUserById($user_id);
 	$ft = new FormTable();
 	$ft->start_form('?m=user_admin&amp;p=edit_user');
 	$ft->add_field_hidden('user_id',$user_id);

@@ -31,7 +31,7 @@ define('execute_permission_required', "Futtatási jogosultság szükséges");
 define('create_an_empty_file', "Hozz létre egy üres fájlt.");
 define('found', "Talált");
 define('not_found', "Nem található");
-define('pear_xxtea_info', "Pear Crypt_XXTEA szükséges az OGP használatához. A legtöbb linux disztribúción ez a modul a következo pear parancsal telepítheto: 'pear install Crypt_XXTEA-beta'.");
+define('pear_xxtea_info', "A Pear Crypt_XXTEA szükséges az OGP használatához. A legtöbb Linux disztribúción ez a modul a következő pear parancsal telepíthető: 'pear install Crypt_XXTEA'.");
 define('refresh', "Frissítés");
 define('checking_required_modules', "Szükséges modulok ellenőrzése");
 define('database_type', "Adatbázis típusa");

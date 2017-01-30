@@ -85,7 +85,7 @@ define('shop', "Shop");
 define('TS3Admin', "TS3 Admin");
 define('administration', "Administration");
 define('config_games', "Game/Mod Konfiguration");
-define('modulemanager', "Modules");
+define('modulemanager', "Module");
 define('server', "Servers");
 define('settings', "Panel Einstellungen");
 define('themes', "Theme Einstellungen");

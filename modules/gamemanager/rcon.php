@@ -85,6 +85,7 @@ if($presets > 0)
 	{
 		echo '<option value="'.$preset['command'].'" >'.$preset['name'].'</option>\n';
 	}
+	echo '<input type="hidden" name="remote_send_rcon_command" value="">';
 	echo '</form>';
 }
 ?>
@@ -99,7 +100,7 @@ if($presets > 0)
 	<form method="post">
 	<input class="rcon" type="text" name="command" size="200" style="width:98%;" value='<?php 
 	if( isset($_POST['command']) )
-		echo $_POST['command'][0];
+		echo htmlentities($_POST['command'][0]);
 	?>' />
   </td>
   <td>
@@ -125,7 +126,7 @@ if(isset($_POST['remote_send_rcon_command']))
 	}
 	if($response)
 	{
-		echo "<div class='bloc' ><h4>" . rcon_command_title . ": [" . implode(" | ", $_POST['command']) . "] " .
+		echo "<div class='bloc' ><h4>" . rcon_command_title . ": [" . htmlentities(implode(" | ", $_POST['command'])) . "] " .
 			 has_sent_to . " " . $home_info['home_name'] . "</h4><xmp style='overflow:scroll;' >" . 
 			 $response . "</xmp></div>";
 	}

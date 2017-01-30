@@ -102,4 +102,8 @@ define('group_with_id_does_not_exist', "Bruger med ID %s eksistere ikke.");
 define('are_you_sure_you_want_to_delete_group', "Er du sikker på, at du ville slette gruppen <em>%s</em>?");
 define('unable_to_delete_group', "Ikke muligt, at slette bruger %s.");
 define('successfully_deleted_group', "Slettet gruppen succesfuldt <b>%s</b>.");
+define('editing_profile', "Editing Profile: %s");
+define('valid_user', "Please specify a valid user.");
+define('enter_valid_username', "Please enter a valid username.");
+define('unexpected_role', "Unexpected user role received.");
 ?>
