@@ -77,7 +77,7 @@ define('sql_select_info', "<b>Enables use of SELECT.</b>");
 define('sql_update_info', "<b>Enables use of UPDATE.</b>");	
 define('sql_grant_option_info', "<b>Enables privileges to be granted.</b>");
 define('select_game_server', "Válassz játék szervert");
-define('invalid_mysql_server_id', "Invalid MySQL server ID.");
+define('invalid_mysql_server_id', "Érvénytelen MySQL szerver ID.");
 define('there_is_another_db_named_or_user_named', "There is another database named <b>%s</b> or another user named <b>%s</b>.");
 define('db_added_for_home_id', "Added database for home ID <b>%s</b>.");
 define('could_not_remove_db', "A kiválasztott adatbázist nem lehet eltávolítani.");
