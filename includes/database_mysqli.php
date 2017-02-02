@@ -668,7 +668,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return mysqli_insert_id($this->link);
 	}
 	
-	public function getMouleMenu($module_id){
+	public function getModuleMenu($module_id){
 		if ( !$this->link ) return false;
 		$query = sprintf("SELECT * FROM `%smodule_menus` WHERE `module_id` = '%d'",
 			$this->table_prefix,

@@ -137,7 +137,7 @@ function update_module($db, $module_id, $module)
     if ( $module_info['version'] != $module_version)
     {
 		// Get position of module so that users don't need to reorder them after updating
-		$currentModuleMenuInfo = $db->getMouleMenu($module_id);
+		$currentModuleMenuInfo = $db->getModuleMenu($module_id);
 		if($currentModuleMenuInfo !== false && is_array($currentModuleMenuInfo)){
 			$pos = $currentModuleMenuInfo["pos"];
 			if(!isset($pos) || empty($pos)){
