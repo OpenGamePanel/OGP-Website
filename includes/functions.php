@@ -105,7 +105,7 @@ function get_map_path($query_name,$mod,$map) {
 		"images/online_big.png"
 	);
 
-	return get_first_existing_file($map_paths);
+	return get_first_existing_file($map_paths, 'http://gametracker.com', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0');
 }
 
 //Refreshed Div:

@@ -135,7 +135,7 @@ function clean_id_string($id_string)
     return preg_replace("/-/","",$id_string);
 }
 
-function get_first_existing_file($paths)
+function get_first_existing_file($paths, $referrer = "", $agent = "")
 {
     foreach ($paths as $path)
     {
@@ -143,13 +143,24 @@ function get_first_existing_file($paths)
 		{
 			if(cURLEnabled()){
 				// Get headers using cURL
-				$file_headers = @get_headers_curl($path);
+				$file_headers = @get_headers_curl($path, $referrer, $agent);
 			}else{
 				// Five second timeout...
 				$origSocketTimeout = ini_get('default_socket_timeout');
 				ini_set('default_socket_timeout', 5);
 				
 				// Get headers with a socket timeout value of 5 seconds...
+				if(isset($agent) && !empty($agent)){
+					stream_context_set_default(
+						array(
+							'http' => array(
+								'method' => 'GET',
+								'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+							)
+						)
+					);
+				}
+				
 				$file_headers = @get_headers($path);
 				
 				// Reset timeout to old value
@@ -166,7 +177,7 @@ function cURLEnabled(){
     return function_exists('curl_version');
 }
 
-function get_headers_curl($url)
+function get_headers_curl($url, $referrer = "", $agent = "")
 {
     $ch = curl_init();
 
@@ -177,6 +188,12 @@ function get_headers_curl($url)
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+	if(isset($referrer) && !empty($referrer)){
+		curl_setopt($ch, CURLOPT_REFERER, $referrer);
+	}
+	if(isset($agent) && !empty($agent)){
+		curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+	}
     
     // 5 second timeout should be reasonable...
     curl_setopt($ch, CURLOPT_TIMEOUT,        5);
