@@ -29,28 +29,25 @@ function exec_ogp_module() {
 	global $db;
 	echo "<h2>".get_lang('watch_logger')."</h2>";
 	?>
-	<table class="center" style="float: left;">
-	<tr>
-	<td>
-	<form onsubmit="event.preventDefault();">
-		<b><?php print_lang('search'); ?>:</b>
-		<input type="text" id="search">
-	</form>
-	</td>
-	<td>
-	<form method=POST>
-		<input type="submit" name="empty_logger" value="<?php print_lang('empty_logger'); ?>" >
-	</form>
-	</td>
-	</tr>
+	<!-- Search, Empty Logger, and Paging Options Table -->
+	<table>
+		<tr>
+			<td style="width: 50%; vertical-align: middle; text-align: left;">
+				<form onsubmit="event.preventDefault();" style="display: inline;">
+					<b><?php print_lang('search'); ?>:</b>
+					<input type="text" id="search">
+				</form>
+				<form method=POST style="display: inline;">
+					<input type="submit" name="empty_logger" value="<?php print_lang('empty_logger'); ?>" >
+				</form>
+			</td>
+			<td style="width: 50%; vertical-align: middle; text-align: right;">
+				<?php echo print_lang('view'); ?> <a href='?m=administration&p=watch_logger&limit=10'>10</a> / <a href='?m=administration&p=watch_logger&limit=20'>20</a> / <a href='?m=administration&p=watch_logger&limit=50'>50</a> / <a href='?m=administration&p=watch_logger&limit=100'>100</a> <?php echo print_lang('per_page'); ?>
+			</td>
+		</tr>
 	</table>
-	<table style="float: right;">
-	<tr>
-	<td>
-		<?php echo print_lang('view'); ?> <a href='?m=administration&p=watch_logger&limit=10'>10</a> / <a href='?m=administration&p=watch_logger&limit=20'>20</a> / <a href='?m=administration&p=watch_logger&limit=50'>50</a> / <a href='?m=administration&p=watch_logger&limit=100'>100</a> <?php echo print_lang('per_page'); ?>
-	</td>
-	</tr>
-	</table>
+	<!-- END Search, Empty Logger, and Paging Options Table -->
+	
 	<table id="servermonitor" class="tablesorter"> 
 	<thead> 
 	<tr>
@@ -124,13 +121,16 @@ function exec_ogp_module() {
 		$pagination = "";
 		for($page=1; $page <= $total_pages+1; $page++)
 		{
-			if($page == $p)
+			if($page == $p){
 				$pagination .= " <b>$page</b>,";
-			else
-				if(isset($_GET['limit']))
-				{$limits = $_GET['limit'];
-				$pagination .= " <a href='?m=administration&p=watch_logger&page=$page&limit=$limits' >$page</a>,";}
-				else {$pagination .= " <a href='?m=administration&p=watch_logger&page=$page' >$page</a>,";}
+			}else{
+				if(isset($_GET['limit'])){
+					$limits = $_GET['limit'];
+					$pagination .= "<a href='?m=administration&p=watch_logger&page=$page&limit=$limits'>$page</a>,";
+				}else{
+					$pagination .= " <a href='?m=administration&p=watch_logger&page=$page' >$page</a>,";
+				}
+			}
 		}
 		echo rtrim($pagination, ",");
 	}
