@@ -47,7 +47,7 @@ function exec_ogp_module() {
 	<table style="float: right;">
 	<tr>
 	<td>
-		<?php echo print_lang('view'); ?> <a href='?m=administration&p=watch_logger&limit=10'>10</a> / <a href='?m=administration&p=watch_logger&limit=20'>20</a> / <a href='?m=administration&p=watch_logger&limit=100'>50</a> / <a href='?m=administration&p=watch_logger&limit=100'>100</a> <?php echo print_lang('per_page'); ?>
+		<?php echo print_lang('view'); ?> <a href='?m=administration&p=watch_logger&limit=10'>10</a> / <a href='?m=administration&p=watch_logger&limit=20'>20</a> / <a href='?m=administration&p=watch_logger&limit=50'>50</a> / <a href='?m=administration&p=watch_logger&limit=100'>100</a> <?php echo print_lang('per_page'); ?>
 	</td>
 	</tr>
 	</table>
