@@ -32,7 +32,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"arma2co"		=> "ArmA 2 Combined Operations",
 		"arma3"			=> "ArmA 3",
 		"arma3alpha"	=> "ArmA 3 Alpha",
-		"avorion"	=> "Avorion",
 		"avp2"			=> "Aliens VS. Predator 2",
 		"avp2010"		=> "Aliens VS. Predator ( 2010 By Rebellion )",
 		"bfbc2"			=> "Battlefield Bad Company 2",
@@ -168,7 +167,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"arma2co"		=> "06",
 		"arma3"			=> "05",
 		"arma3alpha"	=> "09",
-		"avorion"		=> "05",
 		"avp2"			=> "03",
 		"avp2010"		=> "31",
 		"bfbc2"			=> "30",
@@ -449,7 +447,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "arcasimracing"	: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
 			case "arkse"			: $c_to_q = 0;		$c_def = 0;		$q_def = 0;		$c_to_s = 0;	break;
 			case "arma3"			: $c_to_q = 1; 		$c_def = 2302; 	$q_def = 2303; 	$c_to_s = 0; 	break;
-			case "avorion" 			: $c_to_q = 20; 	$c_def = 27000;	$q_def = 27020; $c_to_s = 0;  	break;
 			case "bfbc2"			: $c_to_q = 0;		$c_def = 19567;	$q_def = 48888;	$c_to_s = 0;	break;
 			case "bfvietnam"		: $c_to_q = 0;		$c_def = 15567;	$q_def = 23000;	$c_to_s = 0;	break;
 			case "bf1942"			: $c_to_q = 0;		$c_def = 14567;	$q_def = 23000;	$c_to_s = 0;	break;
