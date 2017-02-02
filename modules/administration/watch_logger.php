@@ -30,7 +30,7 @@ function exec_ogp_module() {
 	echo "<h2>".get_lang('watch_logger')."</h2>";
 	?>
 	<!-- Search, Empty Logger, and Paging Options Table -->
-	<table>
+	<table style="width: 100%;">
 		<tr>
 			<td style="width: 50%; vertical-align: middle; text-align: left;">
 				<form onsubmit="event.preventDefault();" style="display: inline;">
