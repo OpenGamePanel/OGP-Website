@@ -136,11 +136,15 @@ function update_module($db, $module_id, $module)
     
     if ( $module_info['version'] != $module_version)
     {
-		// Get position of module so that users don't need to reorder them after updating
-		$currentModuleMenuInfo = $db->getModuleMenu($module_id);
-		if($currentModuleMenuInfo !== false && is_array($currentModuleMenuInfo)){
-			$pos = $currentModuleMenuInfo["pos"];
-			if(!isset($pos) || empty($pos)){
+		if(method_exists($db, "getModuleMenu")){ // Added this check for successful updates
+			// Get position of module so that users don't need to reorder them after updating
+			$currentModuleMenuInfo = $db->getModuleMenu($module_id);
+			if($currentModuleMenuInfo !== false && is_array($currentModuleMenuInfo)){
+				$pos = $currentModuleMenuInfo["pos"];
+				if(!isset($pos) || empty($pos)){
+					$pos = 0;
+				}
+			}else{
 				$pos = 0;
 			}
 		}else{
