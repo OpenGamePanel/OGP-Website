@@ -29,7 +29,7 @@ function exec_ogp_module() {
 	global $db;
 	echo "<h2>".get_lang('watch_logger')."</h2>";
 	?>
-	<table class="center">
+	<table class="center" style="float: left;">
 	<tr>
 	<td>
 	<form onsubmit="event.preventDefault();">
@@ -41,6 +41,13 @@ function exec_ogp_module() {
 	<form method=POST>
 		<input type="submit" name="empty_logger" value="<?php print_lang('empty_logger'); ?>" >
 	</form>
+	</td>
+	</tr>
+	</table>
+	<table style="float: right;">
+	<tr>
+	<td>
+		<?php echo print_lang('view'); ?> <a href='?m=administration&p=watch_logger&limit=10'>10</a> / <a href='?m=administration&p=watch_logger&limit=20'>20</a> / <a href='?m=administration&p=watch_logger&limit=100'>50</a> / <a href='?m=administration&p=watch_logger&limit=100'>100</a> <?php echo print_lang('per_page'); ?>
 	</td>
 	</tr>
 	</table>
@@ -120,7 +127,10 @@ function exec_ogp_module() {
 			if($page == $p)
 				$pagination .= " <b>$page</b>,";
 			else
-				$pagination .= " <a href='?m=administration&p=watch_logger&page=$page' >$page</a>,";
+				if(isset($_GET['limit']))
+				{$limits = $_GET['limit'];
+				$pagination .= " <a href='?m=administration&p=watch_logger&page=$page&limit=$limits' >$page</a>,";}
+				else {$pagination .= " <a href='?m=administration&p=watch_logger&page=$page' >$page</a>,";}
 		}
 		echo rtrim($pagination, ",");
 	}
