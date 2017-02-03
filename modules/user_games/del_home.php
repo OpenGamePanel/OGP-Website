@@ -79,7 +79,10 @@ function exec_ogp_module() {
 			if($r == 1)
 			{
 				echo "<p><a href=\"?m=user_games&amp;p=del&amp;y=y&amp;home_id=$home_id&amp;files=y\" id=\"deleteLink\">" . 
-					 yes_and_delete_the_files . "</a> | ";		
+					 yes_and_delete_the_files . "</a> ";	
+				echo <<<HTML
+					<input type="checkbox" name="logAction" id="doBackup"><label for="doBackup">Delete and Backup Logs</label> |
+HTML;
 			}
 		}
 		else
@@ -96,24 +99,15 @@ function exec_ogp_module() {
 				defaultLink = linkElement.attr("href"),
 				newLink = linkElement.attr("href");
 				
-				$("#doDelete").click(function(){
-					linkElement.attr("href", newLink + '&logAction=delete');
-					return;
-				});
-				
-				$("#doBackup").click(function(){
-					linkElement.attr("href", newLink + '&logAction=backup');
-				});
-				
-				$("#doNothing").click(function(){
-					linkElement.attr("href", defaultLink);
+				$('#doBackup').change(function(){
+					if($(this).is(":checked")){
+						linkElement.attr("href", newLink + '&logAction=backup');
+					}else{
+						linkElement.attr("href", defaultLink);
+					}
 				});
 			});
 		</script>
-		<p>Screenlog Handling:</p>
-		<button id="doDelete">Delete Logs</button>
-		<button id="doBackup">Delete and Backup Logs</button>
-		<button id="doNothing">Do Nothing</button>
 HTML;
 		return;
 	}
