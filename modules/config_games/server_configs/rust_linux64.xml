@@ -79,9 +79,9 @@
     </param>
   </server_params>
   <post_install>
-		echo &apos;#!/bin/bash
-		export LD_LIBRARY_PATH="./RustDedicated_Data/Plugins/x86_64"
-		./RustDedicated $@&apos; &gt; RustDedicatedOGP.sh
-		chmod +x RustDedicatedOGP.sh
+echo &apos;#!/bin/bash
+export LD_LIBRARY_PATH="./RustDedicated_Data/Plugins/x86_64"
+./RustDedicated $@&apos; &gt; RustDedicatedOGP.sh
+chmod +x RustDedicatedOGP.sh
    </post_install>
 </game_config>
