@@ -22,6 +22,32 @@
  *
  */
 
+function logHandling($home_id, $action = 'delete', &$remote){
+	$fileId = str_pad($home_id, 9, '0', STR_PAD_LEFT);
+	
+	$files = array(
+		'screenlogs/screenlog.OGP_HOME_'.$fileId	=> 'file',
+		'screenlogs/screenlog.OGP_UPDATE_'.$fileId	=> 'file',
+		'screenlogs/home_id_'.$home_id.'/'			=> 'dir',
+	);
+	
+	if($action == 'backup'){
+		$remote->exec('tar czf screenlogs/home_log_backup_'.$home_id.'.tar.gz '.implode(' ', array_keys($files)));
+	}
+	
+	foreach($files as $file => $type){
+		if($remote->rfile_exists($file)){
+			if($type == 'file'){
+				$remote->exec('rm '.$file);
+			}
+			
+			if($type == 'dir'){
+				$remote->exec('rm -r '.$file);
+			}
+		}
+	}
+}
+ 
 function exec_ogp_module() {
 	global $db, $view;
 	require_once('includes/lib_remote.php');
@@ -29,6 +55,7 @@ function exec_ogp_module() {
 	$y = isset($_GET['y']) ? $_GET['y'] : "";
 	$files = isset($_GET['files']) ? $_GET['files'] : "";
 	$force = isset($_GET['force']) ? $_GET['force'] : "";
+	$logAction = !empty($_GET['logAction']) ? $_GET['logAction'] : false;
 
 	$home_info = $db->getGameHomeWithoutMods($home_id);
 
@@ -51,7 +78,7 @@ function exec_ogp_module() {
 			$r = $remote->rfile_exists($home_info['home_path']);
 			if($r == 1)
 			{
-				echo "<p><a href=\"?m=user_games&amp;p=del&amp;y=y&amp;home_id=$home_id&amp;files=y\">" . 
+				echo "<p><a href=\"?m=user_games&amp;p=del&amp;y=y&amp;home_id=$home_id&amp;files=y\" id=\"deleteLink\">" . 
 					 yes_and_delete_the_files . "</a> | ";		
 			}
 		}
@@ -60,6 +87,34 @@ function exec_ogp_module() {
 		echo "<a href=\"?m=user_games&amp;p=del&amp;y=y&amp;home_id=$home_id\">".
 		yes . "</a> | <a href=\"?m=user_games\">".
 		no . "</a></p>";
+		
+		// Not the prettiest way to do this...
+		echo <<<HTML
+		<script>
+			$(function(){
+				var linkElement = $("#deleteLink"),
+				defaultLink = linkElement.attr("href"),
+				newLink = linkElement.attr("href");
+				
+				$("#doDelete").click(function(){
+					linkElement.attr("href", newLink + '&logAction=delete');
+					return;
+				});
+				
+				$("#doBackup").click(function(){
+					linkElement.attr("href", newLink + '&logAction=backup');
+				});
+				
+				$("#doNothing").click(function(){
+					linkElement.attr("href", defaultLink);
+				});
+			});
+		</script>
+		<p>Screenlog Handling:</p>
+		<button id="doDelete">Delete Logs</button>
+		<button id="doBackup">Delete and Backup Logs</button>
+		<button id="doNothing">Do Nothing</button>
+HTML;
 		return;
 	}
 
@@ -92,8 +147,13 @@ function exec_ogp_module() {
 						require_once("modules/gamemanager/home_handling_functions.php");
 						require_once("modules/config_games/server_config_parser.php");
 						exec_operation('stop', $home_id, FALSE, $address['ip'], $address['port']);
+						
 						break;
 					}
+				}
+				
+				if($logAction && is_numeric($home_id)){
+					logHandling($home_id, $logAction, $remote);
 				}
 			}
 		}
