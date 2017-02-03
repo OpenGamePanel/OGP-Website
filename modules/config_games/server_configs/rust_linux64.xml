@@ -4,9 +4,9 @@
   <gameq_query_name>rust</gameq_query_name>
   <installer>steamcmd</installer>
   <game_name>Rust</game_name>
-  <server_exec_name>RustDedicated</server_exec_name>
+  <server_exec_name>RustDedicatedOGP.sh</server_exec_name>
   <query_port type="add">1</query_port>
-  <cli_template>-batchmode %IP% %PORT% %PLAYERS% %HOSTNAME% %IDENTITY% %WORLD_SIZE% %SEED% %SALT% %TICKRATE% %MAP% %SAVEINTERNAL% %SECURE% %RCONWEB% +rcon.ip "0.0.0.0" %QUERY_PORT% %CONTROL_PASSWORD% -logfile RustDedicated_Data/output_log.txt</cli_template>
+  <cli_template>-batchmode %IP% %PORT% %PLAYERS% %HOSTNAME% %IDENTITY% %WORLD_SIZE% %SEED% %SALT% %TICKRATE% %SAVEINTERNAL% %SECURE% %RCONWEB% +rcon.ip "0.0.0.0" %QUERY_PORT% %CONTROL_PASSWORD% -logfile RustDedicated_Data/output_log.txt</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="+server.ip" options="sq" />
     <cli_param id="PORT" cli_string="+server.port" options="sq" />
@@ -51,14 +51,15 @@
       <caption></caption>
       <desc>Server refresh rate (min acceptable 15, max 100) - Increasing this value increase CPU usage.</desc>
     </param>
-    <param key="+server.level" type="select" id="MAP">
+    <!-- Removing this for now because server will start on Bootstrap non-map where you can't spawn if this parameter is defined
+      <param key="+server.level" type="select" id="MAP">
       <option value="Procedural Map">Procedural Map</option>
       <option value="HapisIsland">Hapis Island</option>
       <option value="SavasIsland">Savas Island</option>
       <option value="Barren">Barren</option>
       <caption></caption>
       <desc>The map to start on (Hapis Island doesn't support seed and salt).</desc>
-    </param>
+    </param> -->
     <param key="+server.saveinterval" type="text" id="SAVEINTERNAL">
       <default>600</default>
       <caption></caption>
@@ -77,4 +78,10 @@
       <desc>If set to enabled, use websocket rcon. If set to disabled, use legacy source engine rcon.</desc>
     </param>
   </server_params>
+  <post_install>
+echo &apos;#!/bin/bash
+export LD_LIBRARY_PATH="./RustDedicated_Data/Plugins/x86_64"
+./RustDedicated $@&apos; &gt; RustDedicatedOGP.sh
+chmod +x RustDedicatedOGP.sh
+   </post_install>
 </game_config>
