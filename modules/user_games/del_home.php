@@ -80,9 +80,7 @@ function exec_ogp_module() {
 			{
 				echo "<p><a href=\"?m=user_games&amp;p=del&amp;y=y&amp;home_id=$home_id&amp;files=y\" id=\"deleteLink\">" . 
 					 yes_and_delete_the_files . "</a> ";	
-				echo <<<HTML
-					<input type="checkbox" name="logAction" id="doBackup"><label for="doBackup">Delete and Backup Logs</label> |
-HTML;
+				echo '<input type="checkbox" name="logAction" id="doBackup"><label for="doBackup">Delete and Backup Logs</label> |';
 			}
 		}
 		else
