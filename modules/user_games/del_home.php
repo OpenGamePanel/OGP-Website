@@ -90,23 +90,22 @@ function exec_ogp_module() {
 		no . "</a></p>";
 		
 		// Not the prettiest way to do this...
-		echo <<<HTML
-		<script>
+		echo '<script>
 			$(function(){
 				var linkElement = $("#deleteLink"),
 				defaultLink = linkElement.attr("href"),
 				newLink = linkElement.attr("href");
 				
-				$('#doBackup').change(function(){
+				$("#doBackup").change(function(){
 					if($(this).is(":checked")){
-						linkElement.attr("href", newLink + '&logAction=backup');
+						linkElement.attr("href", newLink + "&logAction=backup");
 					}else{
 						linkElement.attr("href", defaultLink);
 					}
 				});
 			});
-		</script>
-HTML;
+		</script>';
+		
 		return;
 	}
 
