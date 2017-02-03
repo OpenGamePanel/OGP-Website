@@ -4,7 +4,7 @@
   <lgsl_query_name>avorion</lgsl_query_name>
  <installer>steamcmd</installer>
  <game_name>Avorion</game_name>
- <server_exec_name>avorion_ogpstarter.sh</server_exec_name>
+ <server_exec_name>AvorionServer</server_exec_name>
  <cli_template>--datapath ./galaxy/ --galaxy-name main %PORT% %QUERY_PORT% %STEAM_PORT% %PLAYERS% %HOSTNAME% %SEED% %ADMIN% %INFINITE_RESOURCES% %DIFFICULTY% %COLLISION_DAMAGE% %SAME_START_SECTOR% %PUBLIC% %LISTED% %USE_STEAM_NETWORKING%</cli_template>
  <cli_params>
   <cli_param id='PORT' cli_string='--port' options='s'/>
@@ -14,7 +14,8 @@
  <reserve_ports>
   <port type="add" id="QUERY_PORT" cli_string="--steam-query-port" options='s'>20</port>
   <port type="add" id="STEAM_PORT" cli_string="--steam-master-port" options='s'>21</port>
- </reserve_ports> 
+ </reserve_ports>
+ <exe_location>bin</exe_location>
  <max_user_amount>100</max_user_amount>
  <mods>
   <mod key='avorion'>
@@ -24,6 +25,10 @@
   </mod>
  </mods>
  <server_params>
+  <param key="+sv_setsteamaccount" type="text">
+     <caption>Steam Account Login Token</caption>
+     <desc>Manage your steam tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
+  </param>
   <param id='SEED' key='--seed' type='text'>
    <default>yourownseed</default>
    <desc>The seed of the sector creation</desc>
@@ -84,9 +89,6 @@
   </field>
  </custom_fields>
  <post_install>
-cp linux64/steamclient.so ./steamclient.so
-echo &apos;#!/bin/bash
-./bin/AvorionServer $@&apos; &gt; avorion_ogpstarter.sh
-chmod +x avorion_ogpstarter.sh
+cp linux64/steamclient.so ./bin/steamclient.so
  </post_install>
 </game_config>
