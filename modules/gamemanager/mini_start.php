@@ -541,7 +541,10 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	}
 	
 	if(!empty($lockFiles)){
-		$lockedFilesStatus = $remote->lock_additional_home_files($server_home['home_path'], $lockFiles, "lock");
+		// Linux only call
+		if(preg_match("/Linux/", $os)){
+			$lockedFilesStatus = $remote->lock_additional_home_files($server_home['home_path'], $lockFiles, "lock");
+		}
 	}
 	
 	$start_retval = $remote->universal_start($server_home['home_id'],

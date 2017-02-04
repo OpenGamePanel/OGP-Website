@@ -390,7 +390,10 @@ function exec_ogp_module() {
 			}
 			
 			if(!empty($lockFiles)){
-				$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+				// Linux only call
+				if(preg_match("/Linux/", $os)){
+					$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+				}
 			}
 						
 			$remote_retval = $remote->remote_restart_server($home_id,$ip,$port,$server_xml->control_protocol,

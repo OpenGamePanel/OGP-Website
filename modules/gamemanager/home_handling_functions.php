@@ -30,7 +30,7 @@ function get_query_port($server_xml, $server_port)
 	return $server_port;
 }
 
-function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port)
+function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os)
 {	
 	$last_param = json_decode($home_info['last_param'], True);
 	
@@ -40,7 +40,6 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port)
 	$cli_param_data['HOSTNAME'] = $home_info['home_name'];
 	$cli_param_data['PID_FILE'] = "ogp_game_startup.pid";
 	
-	$os = $remote->what_os();
 	// Linux
 	if( preg_match("/Linux/", $os) )
 	{
@@ -206,6 +205,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	
 	require_once('includes/lib_remote.php');
 	$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
+	$os = $remote->what_os();
 		
 	if ( $action != "stop" )
 	{
@@ -262,7 +262,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	}
 	elseif ( $action == "restart" AND $screen_running )
 	{
-		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port);
+		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os);
 		// Do text replacements in cfg file
 		if( $server_xml->replace_texts )
 		{
@@ -298,7 +298,10 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 		}
 		
 		if(!empty($lockFiles)){
-			$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+			// Linux only call
+			if(preg_match("/Linux/", $os)){
+				$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+			}
 		}
 		
 		$remote_retval = $remote->remote_restart_server($home_info['home_id'],$ip,$port,$server_xml->control_protocol,
@@ -321,7 +324,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	}
 	elseif ( $action == "start" AND ! $screen_running )
 	{
-		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port);
+		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os);
 		// Do text replacements in cfg file
 		if( $server_xml->replace_texts )
 		{
@@ -357,7 +360,10 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 		}
 		
 		if(!empty($lockFiles)){
-			$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+			// Linux only call
+			if(preg_match("/Linux/", $os)){
+				$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+			}
 		}
 		
 		$start_retval = $remote->universal_start($home_info['home_id'],
