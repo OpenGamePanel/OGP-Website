@@ -42,7 +42,7 @@ define('encryption_key_mismatch', "A titkosítási kulcs nem egyezik az Agentel.
 define('no_ip_for_remote_host', "Legalább 1 IP-t meg kell adnod minden egyes távoli kiszolgálóhoz.");
 define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
 define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
-define('unknown_error', "Unknown error - status_chk returned");
+define('unknown_error', "Ismeretlen hiba - status_chk visszaérkezett");
 define('remote_host_user_name', "UNIX felhasználó");
 define('remote_host_user_name_info', "Felhasználó neve, ahol az Agent fut. Példa: Jonhy");
 define('remote_host_ftp_ip', "FTP IP");
