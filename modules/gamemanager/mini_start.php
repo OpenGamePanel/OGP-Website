@@ -533,6 +533,17 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 		$envVars = "";
 	}
 	
+	// Additional files to lock
+	if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
+		$lockFiles = trim($server_xml->lock_files);
+	}else{
+		$lockFiles = "";
+	}
+	
+	if(!empty($lockFiles)){
+		$lockedFilesStatus = $remote->lock_additional_home_files($server_home['home_path'], $lockFiles, "lock");
+	}
+	
 	$start_retval = $remote->universal_start($server_home['home_id'],
 		$server_home['home_path'],
 		$server_xml->server_exec_name, $server_xml->exe_location,

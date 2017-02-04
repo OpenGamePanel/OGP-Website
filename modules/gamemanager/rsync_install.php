@@ -211,7 +211,15 @@ function exec_ogp_module() {
 		else
 		{
 			print_success(get_lang_f("starting_sync_with", $full_url));
-			$rsync = $remote->start_rsync_install($home_id,$home_info['home_path'],"$full_url",$exec_folder_path,$exec_path,$precmd,$postcmd);
+			
+			// Additional files to lock
+			if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
+				$lockFiles = trim($server_xml->lock_files);
+			}else{
+				$lockFiles = "";
+			}
+			
+			$rsync = $remote->start_rsync_install($home_id,$home_info['home_path'],"$full_url",$exec_folder_path,$exec_path,$precmd,$postcmd,$lockFiles);
 			$master = "";
 		}
 		if( $rsync === 0 )

@@ -290,6 +290,17 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 			$envVars = "";
 		}
 		
+		// Additional files to lock
+		if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
+			$lockFiles = trim($server_xml->lock_files);
+		}else{
+			$lockFiles = "";
+		}
+		
+		if(!empty($lockFiles)){
+			$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+		}
+		
 		$remote_retval = $remote->remote_restart_server($home_info['home_id'],$ip,$port,$server_xml->control_protocol,
 														$home_info['control_password'],$server_xml->control_protocol_type,$home_info['home_path'],
 														$server_xml->server_exec_name,$server_xml->exe_location,$start_cmd,
@@ -336,6 +347,17 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 			$envVars = trim($server_xml->environment_variables);
 		}else{
 			$envVars = "";
+		}
+		
+		// Additional files to lock
+		if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
+			$lockFiles = trim($server_xml->lock_files);
+		}else{
+			$lockFiles = "";
+		}
+		
+		if(!empty($lockFiles)){
+			$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
 		}
 		
 		$start_retval = $remote->universal_start($home_info['home_id'],

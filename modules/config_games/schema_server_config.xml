@@ -280,6 +280,7 @@
       <xs:element name="post_install" type="nonEmptyString" minOccurs="0" />
       <xs:element name="pre_start" type="nonEmptyString" minOccurs="0" />
       <xs:element name="environment_variables" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="lock_files" type="nonEmptyString" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

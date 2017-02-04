@@ -380,7 +380,18 @@ function exec_ogp_module() {
 				$envVars = trim($server_xml->environment_variables);
 			}else{
 				$envVars = "";
-			}			
+			}		
+			
+			// Additional files to lock
+			if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
+				$lockFiles = trim($server_xml->lock_files);
+			}else{
+				$lockFiles = "";
+			}
+			
+			if(!empty($lockFiles)){
+				$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+			}
 						
 			$remote_retval = $remote->remote_restart_server($home_id,$ip,$port,$server_xml->control_protocol,
 															$home_info['control_password'],$control_type,$home_info['home_path'],
