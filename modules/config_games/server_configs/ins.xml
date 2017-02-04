@@ -4,7 +4,7 @@
   <lgsl_query_name>source</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Insurgency</game_name>
-  <server_exec_name>srcds_linux.sh</server_exec_name>
+  <server_exec_name>srcds_linux</server_exec_name>
   <cli_template>%GAME_TYPE% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS%</cli_template>
   <cli_params>
     <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
@@ -51,10 +51,7 @@
       <desc>Do not attempt to restart failed servers.</desc>
     </param>
   </server_params>
-  <post_install>
-echo &apos;#!/bin/bash
-export LD_LIBRARY_PATH=.:./bin:{$LD_LIBRARY_PATH}
-./srcds_linux $@&apos; &gt; srcds_linux.sh
-chmod +x srcds_linux.sh
-  </post_install>
+  <environment_variables>
+	export LD_LIBRARY_PATH={OGP_HOME_DIR}:{OGP_HOME_DIR}/bin:{$LD_LIBRARY_PATH}
+  </environment_variables>
 </game_config>

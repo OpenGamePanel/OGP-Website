@@ -44,4 +44,6 @@ define('unban', "Kitiltás eltávolítása az IP-ről");
 define('client_ip', "Kliens IP");
 define('banned_until', "Kitiltva eddig");
 define('unban_selected_ips', "Kitiltás eltávolítása a kiválasztott IP-ről");
+define('view', "Megtekintés");
+define('per_page', "naplóbejegyzések oldalanként");
 ?>

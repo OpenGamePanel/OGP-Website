@@ -46,7 +46,7 @@ define('err_first_name', "Add meg a neved.");
 define('err_last_name', "Vezetéknév nincs megadva.");
 define('err_phone_number', "A telefonszám üres.");
 define('err_email_address', "Üres vagy érvénytelen e-mail cím.");
-define('err_users_parent', "Sub-user accounts may not create other users.");
+define('err_users_parent', "Az al-felhasználói fiókok nem hozhatnak létre más felhasználókat.");
 define('err_parent_user', "The parent user ID must reference a valid pre-existing user.");
 define('err_email_address_already_in_use_by', "Az e-mail cím már használatban van <b>%s</b> által.");
 define('user_registration', "Felhasználó regisztrálás");
@@ -54,7 +54,7 @@ define('your_account_details_has_been_sent_by_email_to', "A fiók adataid e-mail
 define('subject', "Helló %s, üdvözöllek a %s.");
 define('sub_user', "Alfelhasználók");
 define('create_sub_user', "Alfelhasználó hozzáadása");
-define('listdel_sub_user', "List, Modify Sub User Account Information, or Delete Sub User");
+define('listdel_sub_user', "Lista, al-felhasználói fiók információk módosítása vagy al-felhasználó törlése");
 define('delete_sub_user', "Alfelhasználó szerkesztése / törlése");
 define('del_subuser_conf', "Biztos vagy benne, hogy törölni akarod ezt a fiókot:");
 define('no_subusers', "No subusers have been created under your account yet!");
