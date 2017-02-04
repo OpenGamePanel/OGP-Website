@@ -523,10 +523,10 @@ class OGPRemoteLibrary
 	/// \return -2 In other errors.
 	/// \todo Other return values?
 	public function universal_start($home_id, $game_home, $game_binary, $run_dir, $startup_cmd,
-		$server_port, $server_ip, $cpu, $nice)
+		$server_port, $server_ip, $cpu, $nice, $preStart = "", $envVars = "")
 	{
 		$params_array = $this->encrypt_params($home_id, $game_home, $game_binary,
-			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice);
+			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice, $preStart, $envVars);
 		$this->add_enc_chk($params_array);
 		$request = xmlrpc_encode_request("universal_start", $params_array);
 		$response = $this->sendRequest($request);
@@ -655,11 +655,11 @@ class OGPRemoteLibrary
 
 	public function remote_restart_server($home_id,$server_ip,$server_port, 
 			$control_protocol,$control_password,$control_type,
-			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice)
+			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart = "", $envVars = "")
 	{
 		$params_array = $this->encrypt_params($home_id,$server_ip,$server_port,
 			$control_protocol,$control_password,$control_type,
-			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice);
+			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart,$envVars);
 		$this->add_enc_chk($params_array);
 		$request = xmlrpc_encode_request("restart_server", $params_array);
 

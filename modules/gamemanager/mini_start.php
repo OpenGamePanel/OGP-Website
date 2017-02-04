@@ -519,12 +519,28 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	if($server_xml->replace_texts OR $server_xml->custom_fields)
 		require_once("modules/gamemanager/cfg_text_replace.php");
 	
+	// Run pre-start commands
+	if(isset($server_xml->pre_start) && !empty($server_xml->pre_start)){
+		$preStart = trim($server_xml->pre_start);
+	}else{
+		$preStart = "";
+	}
+		
+	// Environment variables
+	if(isset($server_xml->environment_variables) && !empty($server_xml->environment_variables)){
+		$envVars = trim($server_xml->environment_variables);
+	}else{
+		$envVars = "";
+	}
+	
 	$start_retval = $remote->universal_start($server_home['home_id'],
 		$server_home['home_path'],
 		$server_xml->server_exec_name, $server_xml->exe_location,
 		$start_cmd, $port, $ip,
 		$server_home['cpu_affinity'],
-		$server_home['nice']);
+		$server_home['nice'],
+		$preStart,
+		$envVars);
 	$db->logger(  server_started  . " (".$server_home['home_name']." $ip:$port)" );
 	if ( $start_retval == AGENT_ERROR_NOT_EXECUTABLE )
 	{

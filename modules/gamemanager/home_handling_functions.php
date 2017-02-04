@@ -275,11 +275,28 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 				require_once('protocol/lgsl/lgsl_protocol.php');
 			require_once("modules/gamemanager/cfg_text_replace.php");
 		}
+		
+		// Run pre-start commands
+		if(isset($server_xml->pre_start) && !empty($server_xml->pre_start)){
+			$preStart = trim($server_xml->pre_start);
+		}else{
+			$preStart = "";
+		}
+			
+		// Environment variables
+		if(isset($server_xml->environment_variables) && !empty($server_xml->environment_variables)){
+			$envVars = trim($server_xml->environment_variables);
+		}else{
+			$envVars = "";
+		}
+		
 		$remote_retval = $remote->remote_restart_server($home_info['home_id'],$ip,$port,$server_xml->control_protocol,
 														$home_info['control_password'],$server_xml->control_protocol_type,$home_info['home_path'],
 														$server_xml->server_exec_name,$server_xml->exe_location,$start_cmd,
 														$home_info['mods'][$mod_id]['cpu_affinity'],
-														$home_info['mods'][$mod_id]['nice']);
+														$home_info['mods'][$mod_id]['nice'],
+														$preStart,
+														$envVars);
 		$db->logger(get_lang_f('server_restarted', $home_info['home_name']) . "($ip:$port)");
 		if ( $remote_retval === -1 )
 			return FALSE;
@@ -306,12 +323,29 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 				require_once('protocol/lgsl/lgsl_protocol.php');
 			require_once("modules/gamemanager/cfg_text_replace.php");
 		}
+		
+		// Run pre-start commands
+		if(isset($server_xml->pre_start) && !empty($server_xml->pre_start)){
+			$preStart = trim($server_xml->pre_start);
+		}else{
+			$preStart = "";
+		}
+		
+		// Environment variables
+		if(isset($server_xml->environment_variables) && !empty($server_xml->environment_variables)){
+			$envVars = trim($server_xml->environment_variables);
+		}else{
+			$envVars = "";
+		}
+		
 		$start_retval = $remote->universal_start($home_info['home_id'],
 												 $home_info['home_path'],
 												 $server_xml->server_exec_name, $server_xml->exe_location,
 												 $start_cmd, $port, $ip,
 												 $home_info['mods'][$mod_id]['cpu_affinity'],
-												 $home_info['mods'][$mod_id]['nice']);
+												 $home_info['mods'][$mod_id]['nice'],
+												 $preStart,
+												 $envVars);
 		$db->logger(get_lang('server_started') . " (".$home_info['home_name']." $ip:$port)");
 		if( $start_retval == AGENT_ERROR_NOT_EXECUTABLE or $start_retval <= 0)
 			return FALSE;
