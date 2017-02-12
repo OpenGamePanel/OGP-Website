@@ -53,14 +53,14 @@ define('addons_db', "Addons Datenbank");
 define('addon_has_been_created', "Das Addon %s wurde erstellt.");
 define('remove_addon', "Entfehrne Addon");
 define('fill_the_url_address_to_a_compressed_file', "Bitte füge eine URL zur komprimierten Datei ein.");
-define('fill_the_addon_name', "Please, fill a name for the addon package.");
-define('select_an_addon_type', "Please, select an addon type.");
+define('fill_the_addon_name', "Füllen Sie bitte einen Namen für das addon Paket.");
+define('select_an_addon_type', "Wählen Sie bitte einen addon Typ aus.");
 define('select_a_game_type', "Bitte wählen Sie einen Spieltyp.");
 define('edit_addon', "Addon bearbeiten");
 define('post-script', "Post-install script(bash)");
 define('replacements', "Ersatz:");
-define('addon_name_info', "Enter a name for this addon, this is the name that the user sees.");
+define('addon_name_info', "Geben Sie einen Namen für diesen addon ein, das ist der Name, den der Benutzer sieht.");
 define('url_info', "Enter a web address that contains a file to download, if compressed in zip or tar.gz will be unpacked in the root directory of the server or on the path given below.");
-define('path_info', "The path must be relative to the server folder and contain no slashes at the beginning or end, eg: cstrike/cfg. If left blank will use the server root path.");
+define('path_info', "Der Pfad muss relativ zum Serverordner liegen und am Anfang oder Ende keine Schrägstriche enthalten, zB: cstrike/cfg. Wenn sie leer ist, wird der Stammpfad verwendet.");
 define('post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
 ?>

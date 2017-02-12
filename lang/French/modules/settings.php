@@ -23,11 +23,11 @@
  */
 
 define('maintenance_mode', "Maintenance");
-define('maintenance_mode_info', "Désactive le site pour que seuls les Administrateurs puissent s&apos;y connecter.");
+define('maintenance_mode_info', "The message that is displayed to normal users during maintenance.");
 define('maintenance_title', "Titre pour la maintenance");
 define('maintenance_title_info', "Le titre qui est affiché aux utilisateurs durant la maintenance.");
 define('maintenance_message', "Message de la Maintenance");
-define('maintenance_message_info', "Le message qui est affiché aux utilisateurs durant la maintenance.");
+define('maintenance_message_info', "The message that is displayed to normal users during maintenance.");
 define('update_settings', "Mettre à jour les paramètres");
 define('settings_updated', "Paramètres mis à jour avec succès.");
 define('panel_language', "Langue du Panneau");

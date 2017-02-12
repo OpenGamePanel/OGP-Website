@@ -29,6 +29,7 @@ define('remote_host_info', "L&apos;hôte distant doit avoir un nom d&apos;hôte 
 define('remote_host_port', "Port de l'hôte distant");
 define('remote_host_port_info', "Le port depuis lequel l&apos;Agent OGP écoute sur l&apos;hôte distant. Défaut: 12679.");
 define('remote_host_name', "Nom de l'hôte distant");
+define('ogp_user', "OGP Agent Username");
 define('remote_host_name_info', "Le nom de l&apos;hôte distant sera utilisé pour faciliter sa reconnaissance dans tout le Panneau.");
 define('add_remote_host', "Ajouter un hôte distant");
 define('remote_encryption_key', "Clé de chiffrement distante");

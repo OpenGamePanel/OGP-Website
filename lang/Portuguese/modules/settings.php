@@ -23,11 +23,11 @@
  */
 
 define('maintenance_mode', "Manutenção");
-define('maintenance_mode_info', "A mensagem que é dispayed para usuários normais durante a manutenção.");
+define('maintenance_mode_info', "The message that is displayed to normal users during maintenance.");
 define('maintenance_title', "Maintenance Title");
 define('maintenance_title_info', "The title that is displayed to normal users during maintenance.");
 define('maintenance_message', "Mensagem");
-define('maintenance_message_info', "A mensagem que é dispayed para usuários normais durante a manutenção.");
+define('maintenance_message_info', "The message that is displayed to normal users during maintenance.");
 define('update_settings', "Update Settings");
 define('settings_updated', "Configurações atualizadas com sucesso.");
 define('panel_language', "Panel Language");

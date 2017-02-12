@@ -23,11 +23,11 @@
  */
 
 define('maintenance_mode', "Vedligeholdelse");
-define('maintenance_mode_info', "Beskeden der bliver vist, til almindelige brugere under vedligeholdelse.");
+define('maintenance_mode_info', "The message that is displayed to normal users during maintenance.");
 define('maintenance_title', "Vedligeholdes Title");
 define('maintenance_title_info', "Denne title bliver vist, til normale brugere, under vedligeholdes.");
 define('maintenance_message', "Vedligeholde Besked");
-define('maintenance_message_info', "Denne besked bliver vist til almindelige brugere imens vedligeholde fortages.");
+define('maintenance_message_info', "The message that is displayed to normal users during maintenance.");
 define('update_settings', "Opdatere Indstillinger");
 define('settings_updated', "Indstillinger opdateret");
 define('panel_language', "Panel Sprog");

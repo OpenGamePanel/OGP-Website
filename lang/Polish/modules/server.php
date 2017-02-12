@@ -29,6 +29,7 @@ define('remote_host_info', "Zdalny host musi być pingable hosta!");
 define('remote_host_port', "Port zdalnego komputera");
 define('remote_host_port_info', "Port, który jest słuchany przez podmiot OGP na zdalnym hoście. Domyślnie: 12.679.");
 define('remote_host_name', "Nazwa zdalnego komputera");
+define('ogp_user', "OGP Agent Username");
 define('remote_host_name_info', "Nazwa zdalnego komputera jest używana, aby pomóc użytkownikom w określeniu ich serwerów.");
 define('add_remote_host', "Dodaj Zdalnego Host");
 define('remote_encryption_key', "Klucz szyfrowania zdalnego");
