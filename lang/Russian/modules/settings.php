@@ -23,11 +23,11 @@
  */
 
 define('maintenance_mode', "Обслуживание");
-define('maintenance_mode_info', "The message that is displayed to normal users during maintenance.");
+define('maintenance_mode_info', "Это сообщение будет показано обычным пользователям.");
 define('maintenance_title', "Заголовок обслуживания");
 define('maintenance_title_info', "Название, которое отображается для обычных пользователей во время обслуживания.");
 define('maintenance_message', "Сообщение");
-define('maintenance_message_info', "The message that is displayed to normal users during maintenance.");
+define('maintenance_message_info', "Это сообщение будет показано обычным пользователям во время обслуживания.");
 define('update_settings', "Update Settings");
 define('settings_updated', "Settings successfully updated.");
 define('panel_language', "Язык");
