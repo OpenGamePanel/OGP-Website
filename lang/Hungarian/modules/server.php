@@ -29,6 +29,7 @@ define('remote_host_info', "A távoli kiszolgálónak pingelhető állomásnévn
 define('remote_host_port', "Távoli kiszolgáló port");
 define('remote_host_port_info', "A port amit az OGP Agent figyel a távoli kiszolgálón. Alapértelmezett: 12679.");
 define('remote_host_name', "Távoli kiszolgáló név");
+define('ogp_user', "OGP Agent Username");
 define('remote_host_name_info', "Távoli állomásnév szokott segíteni a felhasználóknak beazonosítani a szervereiket.");
 define('add_remote_host', "Távoli kiszolgáló hozzáadása");
 define('remote_encryption_key', "Távoli titkosítási kulcs");

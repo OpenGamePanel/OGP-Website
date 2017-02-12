@@ -29,6 +29,7 @@ define('remote_host_info', "Se debe poder hacer ping al servidor remoto!");
 define('remote_host_port', "Puerto del servidor remoto");
 define('remote_host_port_info', "Puerto de escucha para el agente OGP. Por defecto: 12679.");
 define('remote_host_name', "Nombre del servidor remoto");
+define('ogp_user', "OGP Agent Username");
 define('remote_host_name_info', "Solo sirve para que lo identifiquen los usuarios.");
 define('add_remote_host', "Asignar servidor remoto");
 define('remote_encryption_key', "Clave de cifrado del servidor remoto");
