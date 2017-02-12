@@ -4,7 +4,7 @@
   <lgsl_query_name>openttd</lgsl_query_name>
   <game_name>OpenTTD</game_name>
   <server_exec_name>openttd</server_exec_name>
-  <cli_template>-D %IP%:%PORT%</cli_template>
+  <cli_template>-D %IP%:%PORT% %SAVEGAME%</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="" />
     <cli_param id="PORT" cli_string="" />
@@ -14,4 +14,14 @@
       <name>none</name>
     </mod>
   </mods>
+  <server_params>
+   <param id='SAVEGAME' key='-g' type='select'>
+    <option value=''>No</option>
+    <option value='save/autosave/ogp.sav'>Yes</option>
+    <desc>Should the last game be loaded</desc>
+   </param>
+  </server_params>
+  <pre_start>
+   find save/autosave -type f | sort -r | head -n1 | xargs -I &apos;{}&apos; mv &apos;{}&apos; save/autosave/ogp.sav
+  </pre_start>
 </game_config>
