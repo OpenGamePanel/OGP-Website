@@ -31,13 +31,13 @@ define('uptodate', "Auf dem neuesten Stand");
 define('update_available', "Update verfügbar");
 define('not_installed', "Nicht installiert");
 define('installed', "Installiert");
-define('download_update', "Download/Update");
+define('download_update', "Download/Aktualisieren");
 define('are_you_sure', "Bist du sicher");
-define('uninstalling_module_dataloss', "By uninstalling a module you will lose all data related to it.");
+define('uninstalling_module_dataloss', "Beim deinstallieren des Moduls gehen alle zugehörigen Daten verloren.");
 define('remove_files_for', "Möchten Sie alle Dateien entfernen");
 define('confirm', "Bestätigen");
 define('cancel', "Abbrechen");
-define('extra_themes', "Extra themes");
-define('extra_modules', "Extra module");
+define('extra_themes', "Extra Themes");
+define('extra_modules', "Extramodule");
 define('search_for_updates', "Nach Updates suchen");
 ?>

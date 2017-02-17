@@ -110,7 +110,7 @@ define('only_available_for', "Only available for '%s' hosted on the remote serve
 define('ftp_on', "FTP engedélyezése");
 define('ftp_off', "FTP letiltása");
 define('change_ftp_account_status', "FTP fiók állapot negváltoztatása");
-define('change_ftp_account_status_info', "Amikor egy FTP fiók engedélyezve vagy tiltva van, akkor az hozzáadásra vagy eltávolításra kerül az FTP adatbázisból.");
+define('change_ftp_account_status_info', "Ha egy FTP fiók engedélyezve vagy tiltva van, akkor az hozzáadásra vagy eltávolításra kerül az FTP adatbázisából.");
 define('server_ftp_login', "Szerver FTP bejelentkezés");
 define('change_ftp_login_info', "Az FTP bejelentkezés megváltoztatása egy személyre szabottra.");
 define('change_ftp_login', "FTP bejelentkezés megváltoztatása");
