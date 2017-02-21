@@ -169,7 +169,7 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os)
 				}			  
 			}
 			
-			if ($param['id'] != NULL || $param['id'] != ""){
+			if ($param['id'] != NULL && $param['id'] != ""){
 				$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
 			}
 		} 

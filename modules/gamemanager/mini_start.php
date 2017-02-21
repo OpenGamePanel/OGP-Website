@@ -436,7 +436,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 					}			  
 				}
 				
-				if ($param['id'] != NULL || $param['id'] != ""){
+				if ($param['id'] != NULL && $param['id'] != ""){
 					$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
 				}
 			}
@@ -478,7 +478,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 					}			  
 				}
 				
-				if ($param['id'] != NULL || $param['id'] != ""){
+				if ($param['id'] != NULL && $param['id'] != ""){
 					$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
 				}
 			} 
