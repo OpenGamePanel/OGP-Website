@@ -355,7 +355,10 @@ function exec_ogp_module() {
 								$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
 						}			  
 					}
-					$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+					
+					if ($param['id'] != NULL || $param['id'] != ""){
+						$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+					}
 				} 
 			}
 
