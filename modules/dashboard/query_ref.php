@@ -93,7 +93,7 @@ function exec_ogp_module()
 			 $server_home['home_id']."-".$server_home['mod_id']."-".$server_home['ip']."-".$server_home['port'].
 			 "' ><img style='border:0;height:12px;' src='images/magnifglass.png'/><span>". 
 			 htmlentities($server_home['home_name'])."</span></a></div>".
-			 "<div><div style='font-size:8pt;' >[".$players.'/'.$playersmax."]</div> ".$map.'</div>'.
+			 "<div><div style='font-size:8pt;' >[".$players.'/'.$playersmax."]</div> " . ((isset($mapRaw) && !empty($mapRaw)) ? htmlentities($mapRaw) : $map) .'</div>'.
 			 "<div id='gamelink' >$address</div>";
 		$_SESSION[$server_key]['playersmax'] = $playersmax;
 		if ( $players >= 1 )
