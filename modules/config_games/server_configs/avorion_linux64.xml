@@ -24,10 +24,6 @@
   </mod>
  </mods>
  <server_params>
-  <param key="+sv_setsteamaccount" type="text">
-     <caption>Steam Account Login Token</caption>
-     <desc>Manage your steam tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
-  </param>
   <param id='SEED' key='--seed' type='text'>
    <default>yourownseed</default>
    <desc>The seed of the sector creation</desc>
