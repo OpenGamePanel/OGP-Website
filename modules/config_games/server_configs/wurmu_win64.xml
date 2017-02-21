@@ -1,0 +1,94 @@
+<game_config>
+  <game_key>wurmu_win64</game_key>
+  <installer>steamcmd</installer>
+  <game_name>Wurm Unlimited Server Windows</game_name>
+  <server_exec_name>WurmServerLauncher</server_exec_name>
+  <cli_template>%IP% %PORT% %QUERY_PORT% %PLAYERS% %SERVERNAME% %SERVERPASS% %ADMINPASS% %EPIC% %HOME% %HOMEKING% %LOGIN% %PVP% %RMI% %RMIREG% %START%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="ip=" />
+    <cli_param id="PORT" cli_string="externalport=" />
+    <cli_param id="QUERY_PORT" cli_string="queryport=27016" />
+    <cli_param id="PLAYERS" cli_string="maxplayers=" />
+  </cli_params>
+  <cli_allow_chars>"'</cli_allow_chars>
+  <!-- escaped by default: \ " ' | &amp; ; > < ` $ ( ) [ ] -->
+  <max_user_amount>250</max_user_amount>
+  <mods>
+    <mod key="wurmu">
+      <name>none</name>
+      <installer_name>402370</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param id="SERVERNAME" key="servername=" type="text">
+      <option>ns</option>
+      <desc>The name of the server that will be visible in server browsers. (NOTE: If the server name contains spaces, quotes are required! ie. "Server Name")</desc>
+    </param>
+    <param id="SERVERPASS" key="serverpassword=" type="text">
+      <option>ns</option>
+      <desc>Sets the password that is used when trying to connect to the server.</desc>
+    </param>
+    <param id="ADMINPASS" key="adminpwd=" type="text">
+      <option>ns</option>
+      <desc>Unlocks the admin commands from within the game, that can be used to change the gameplay settings of the server, such as skill gain rate and field growth time.</desc>
+    </param>
+    <param id="EPIC" key="epicsettings=" type="select">
+      <option value="true">Enabled</option>
+      <option value="false">Disabled</option>
+      <options>ns</options>
+      <default>false</default>
+      <desc>If enabled, the server will follow the rules from the Epic servers in Wurm Online. For instance it will use the skill curve.</desc>
+    </param>
+    <param id="HOME" key="homeserver=" type="select">
+      <option value="true">Enabled</option>
+      <option value="false">Disabled</option>
+      <options>ns</options>
+      <default>true</default>
+      <desc>If the server is a home server (belongs to a single kingdom).</desc>
+    </param>
+    <param id="HOMEKING" key="homekingdom=" type="select">
+      <option value="0">No Kingdom</option>
+      <option value="1">Jenn-Kellon</option>
+      <option value="2">Mol-Rehan</option>
+      <option value="3">Horde of the Summoned</option>
+      <option value="4">Freedom</option>
+      <options>ns</options>
+      <default>4</default>
+      <desc>The kingdom the server belongs to.</desc>
+    </param>
+    <param id="LOGIN" key="loginserver=" type="select">
+      <option value="true">Enabled</option>
+      <option value="false">Disabled</option>
+      <options>ns</options>
+      <default>true</default>
+      <desc>Should only be set to disabled if the server is intended to be connected with another server that is going to act as a login server.</desc>
+    </param>
+    <param id="PVP" key="pvp=" type="select">
+      <option value="true">Enabled</option>
+      <option value="false">Disabled</option>
+      <options>ns</options>
+      <default>false</default>
+      <desc>Toggles PvP on or off on the server.</desc>
+    </param>
+    <param id="START" key="start=" type="text">
+      <option>ns</option>
+      <default>Adventure</default>
+      <desc>Starts the server with the configuration and world data from the subdirectory specified.</desc>
+    </param>
+    <param id="RMI" key="rmiport=" type="text">
+      <option>ns</option>
+      <default>7220</default>
+      <desc>RMI Port, Used for server to server communication. (NOTE: only edit if you know what you are doing and intend to utilize multiple servers)</desc>
+    </param>
+    <param id="RMIREG" key="rmiregport=" type="text">
+      <option>ns</option>
+      <default>7221</default>
+      <desc>RMI Registration Port, Used for server to server communication. (NOTE: only edit if you know what you are doing and intend to utilize multiple servers)</desc>
+    </param>
+  </server_params>
+  <post_install>
+    mv ./Adventure_backup ./Adventure
+    mv ./Creative_backup ./Creative
+  </post_install>
+</game_config>
