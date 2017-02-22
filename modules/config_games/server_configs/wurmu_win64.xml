@@ -3,17 +3,16 @@
   <installer>steamcmd</installer>
   <game_name>Wurm Unlimited</game_name>
   <server_exec_name>WurmServerLauncher.exe</server_exec_name>
-  <cli_template>%IP% %PORT% %QUERY_PORT% %PLAYERS% %SERVERNAME% %SERVERPASS% %ADMINPASS% %EPIC% %HOME% %HOMEKING% %LOGIN% %PVP% %RMI% %RMIREG% %START%</cli_template>
+  <cli_template>%IP% %PORT% %QUERY_PORT% %PLAYERS% %SERVERNAME% %SERVERPASS% %ADMINPASS% %EPIC% %HOME% %HOMEKING% %LOGIN% %PVP% %RMI% %RMIREG% %START% %VAC%</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="ip=" />
     <cli_param id="PORT" cli_string="externalport=" />
-    <cli_param id="QUERY_PORT" cli_string="queryport="/>
     <cli_param id="PLAYERS" cli_string="maxplayers=" />
   </cli_params>
   <reserve_ports>
-    <port type="add" id="QUERY_PORT" cli_string="QueryPort=">23292</port>
+    <port type="add" id="QUERY_PORT" cli_string="queryport=">23292</port>
   </reserve_ports>
-  <cli_allow_chars>"'</cli_allow_chars>
+  <cli_allow_chars>"'()[]{}|</cli_allow_chars>
   <!-- escaped by default: \ " ' | &amp; ; > < ` $ ( ) [ ] -->
   <max_user_amount>250</max_user_amount>
   <mods>
@@ -35,6 +34,10 @@
     <param id="ADMINPASS" key="adminpwd=" type="text">
       <option>ns</option>
       <desc>Unlocks the admin commands from within the game, that can be used to change the gameplay settings of the server, such as skill gain rate and field growth time.</desc>
+    </param>
+	<param id="VAC" key="-secure" type="checkbox_key_value">
+	  <default>true</default>
+      <desc>Will start the server with Valve Anti-Cheat technology.</desc>
     </param>
     <param id="EPIC" key="epicsettings=" type="select">
       <option value="true">Enabled</option>
