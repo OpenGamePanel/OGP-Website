@@ -1,7 +1,7 @@
 <game_config>
   <game_key>wurmu_win64</game_key>
   <installer>steamcmd</installer>
-  <game_name>Wurm Unlimited Server Windows</game_name>
+  <game_name>Wurm Unlimited</game_name>
   <server_exec_name>WurmServerLauncher.exe</server_exec_name>
   <cli_template>%IP% %PORT% %QUERY_PORT% %PLAYERS% %SERVERNAME% %SERVERPASS% %ADMINPASS% %EPIC% %HOME% %HOMEKING% %LOGIN% %PVP% %RMI% %RMIREG% %START%</cli_template>
   <cli_params>
