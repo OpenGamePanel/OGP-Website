@@ -7,7 +7,7 @@
   <cli_params>
     <cli_param id="IP" cli_string="ip=" />
     <cli_param id="PORT" cli_string="externalport=" />
-    <cli_param id="QUERY_PORT" cli_string="queryport=27016" />
+    <cli_param id="QUERY_PORT" cli_string="queryport=" type='add' port='23292' />
     <cli_param id="PLAYERS" cli_string="maxplayers=" />
   </cli_params>
   <cli_allow_chars>"'</cli_allow_chars>
