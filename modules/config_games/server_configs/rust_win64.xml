@@ -8,9 +8,9 @@
   <query_port type="add">1</query_port>
   <cli_template>-batchmode %IP% %PORT% %PLAYERS% %HOSTNAME% %IDENTITY% %WORLD_SIZE% %SEED% %SALT% %TICKRATE% %MAP% %SAVEINTERNAL% %SECURE% %RCONWEB% +rcon.ip "0.0.0.0" %QUERY_PORT% %CONTROL_PASSWORD% -logfile RustDedicated_Data/output_log.txt</cli_template>
   <cli_params>
-    <cli_param id="IP" cli_string="+server.ip" options="sq" />
-    <cli_param id="PORT" cli_string="+server.port" options="sq" />
-    <cli_param id="PLAYERS" cli_string="+server.maxplayers" options="sq" />
+    <cli_param id="IP" cli_string="+server.ip" options="s" />
+    <cli_param id="PORT" cli_string="+server.port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+server.maxplayers" options="s" />
     <cli_param id="HOSTNAME" cli_string="+server.hostname" options="sq" />
     <cli_param id="QUERY_PORT" cli_string="+rcon.port" options="sq" />
     <cli_param id="CONTROL_PASSWORD" cli_string="+rcon.password" options="sq" />
@@ -19,10 +19,9 @@
   <max_user_amount>500</max_user_amount>
   <mods>
     <mod key="rust">
-      <name>none</name>
+      <name>None</name>
       <installer_name>258550</installer_name>
       <installer_login>anonymous</installer_login>
-      <betaname>experimental</betaname>
     </mod>
   </mods>
   <server_params>
