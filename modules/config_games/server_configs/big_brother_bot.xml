@@ -1,5 +1,5 @@
 <game_config>
-<game_key>big_brother_bot_linux32_win32</game_key>
+<game_key>big_brother_bot_linux32</game_key>
 <game_name>BigBrotherBot (Python)</game_name>         <!-- BigBrotherBot Python Package:         http://forum.bigbrotherbot.net/downloads/?sa=view;down=4    -->
   <server_exec_name>b3_run.py</server_exec_name>      <!-- Python installation reguirmenets:                                                    -->
   <console_log>b3.log</console_log>                  <!--    Python 2.7.* (v3 not compatible):   http://www.python.org/download/releases/2.7.6/            -->

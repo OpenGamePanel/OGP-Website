@@ -1,0 +1,95 @@
+<game_config>
+ <game_key>avorion_linux64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>avorion</lgsl_query_name>
+ <installer>steamcmd</installer>
+ <game_name>Avorion</game_name>
+ <server_exec_name>avorion_ogpstarter.sh</server_exec_name>
+ <cli_template>--datapath ./galaxy/ --galaxy-name main %PORT% %QUERY_PORT% %STEAM_PORT% %PLAYERS% %HOSTNAME% %SEED% %ADMIN% %INFINITE_RESOURCES% %DIFFICULTY% %COLLISION_DAMAGE% %SAME_START_SECTOR% %PUBLIC% %LISTED% %USE_STEAM_NETWORKING%</cli_template>
+ <cli_params>
+  <cli_param id='PORT' cli_string='--port' options='s'/>
+  <cli_param id='PLAYERS' cli_string='--max-players' options='s'/>
+  <cli_param id='HOSTNAME' cli_string='--server-name' options='s'/>
+ </cli_params>
+ <reserve_ports>
+  <port type="add" id="QUERY_PORT" cli_string="--steam-query-port" options='s'>20</port>
+  <port type="add" id="STEAM_PORT" cli_string="--steam-master-port" options='s'>21</port>
+ </reserve_ports>
+ <max_user_amount>100</max_user_amount>
+ <mods>
+  <mod key='avorion'>
+   <name>none</name>
+   <installer_name>565060</installer_name>
+   <installer_login>anonymous</installer_login>
+  </mod>
+ </mods>
+ <server_params>
+  <param id='SEED' key='--seed' type='text'>
+   <default>yourownseed</default>
+   <desc>The seed of the sector creation</desc>
+  </param>
+  <param id='ADMIN' key='--admin' type='text'>
+   <default></default>
+   <desc>steam id(s) of the administrator(s) of the server</desc>
+  </param>
+  <param id='INFINITE_RESOURCES' key='--infinite-resources' type='select'>
+   <option value='false'>No</option>
+   <option value='true'>Yes</option>
+   <desc>Should resources be infinite</desc>
+  </param>
+  <param id='DIFFICULTY' key='--difficulty' type='select'>
+   <option value='-3'>Easyest</option>
+   <option value='-2'>Very Easy</option>
+   <option value='-1'>Easy</option>
+   <option value='0'>Normal</option>
+   <option value='1'>Moderate</option>
+   <option value='2'>Hard</option>
+   <option value='3'>Very Hard</option>
+   <desc>Set the difficulty.</desc>
+  </param>
+  <param id='COLLISION_DAMAGE' key='--collision-damage' type='select'>
+   <option value='1'>Yes</option>
+   <option value='0'>No</option>
+   <desc>Should do a collision damage</desc>
+  </param>
+  <param id='SAME_START_SECTOR' key='--same-start-sector' type='select'>
+   <option value='false'>No</option>
+   <option value='true'>Yes</option>
+   <desc>Should all new players start in the same sector</desc>
+  </param>
+  <param id='PUBLIC' key='--public' type='select'>
+   <option value='true'>Yes</option>
+   <option value='false'>No</option>
+   <desc>Should the server allow other players to join</desc>
+  </param>
+  <param id='LISTED' key='--listed' type='select'>
+   <option value='true'>Yes</option>
+   <option value='false'>No</option>
+   <desc>Should the server announce itself to a public server list</desc>
+  </param>
+  <param id='USE_STEAM_NETWORKING' key='--use-steam-networking' type='select'>
+   <option value='true'>Yes</option>
+   <option value='false'>No</option>
+   <desc>Should the server use steam for networking and authenticating users</desc>
+  </param>
+ </server_params>
+ <custom_fields>
+  <field key='description' type='text'>
+   <default>description.*</default>
+   <default_value>An Avorion Server</default_value>
+   <var>description=</var>
+   <filepath>galaxy/main/server.ini</filepath>
+   <options></options>
+   <desc>Server description name</desc>
+  </field>
+ </custom_fields>
+ <post_install>
+cp linux64/steamclient.so ./steamclient.so
+echo &apos;#!/bin/bash
+./bin/AvorionServer $@&apos; &gt; avorion_ogpstarter.sh
+chmod +x avorion_ogpstarter.sh
+ </post_install>
+ <lock_files>
+bin/AvorionServer
+ </lock_files>
+</game_config>

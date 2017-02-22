@@ -22,11 +22,14 @@
  *
  */
 
+global $view;
+
 require_once("protocol/TeamSpeak3/TeamSpeak3.php");
 $cfg["user"] = "serveradmin";
 $cfg["pass"] = $server_home['control_password'];
-$cfg["query"] = "10011";
 $cfg["voice"] = $server_home['port'];
+$cfg["query"] = $server_home['port'] + 24;
+
 
 if ( $server_home['use_nat'] == 1 )
 	$cfg["host"] = $server_home['agent_ip'];

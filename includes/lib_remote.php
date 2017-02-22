@@ -326,9 +326,9 @@ class OGPRemoteLibrary
 	/// \return 1 If update started successfully
 	/// \return 0 If error
 	/// \return -1 In case of connection error.
-	public function steam_cmd($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os)
+	public function steam_cmd($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles = "")
 	{
-		$params = $this->encrypt_params($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os);
+		$params = $this->encrypt_params($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles);
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("steam_cmd", $params);
 		$response = $this->sendRequest($request);
@@ -419,9 +419,9 @@ class OGPRemoteLibrary
 	/// \return -1 If could not connect to the remote host.
 	/// \return -3 In case of unknown error
 	/// \todo This function is not complete. Also the agent side requires work.
-	public function start_rsync_install($home_id,$home_path,$url,$exec_folder_path,$exec_path,$precmd,$postcmd)
+	public function start_rsync_install($home_id,$home_path,$url,$exec_folder_path,$exec_path,$precmd,$postcmd,$filesToLock="")
 	{
-		$params_array = $this->encrypt_params($home_id,$home_path,$url,$exec_folder_path,$exec_path,$precmd,$postcmd);
+		$params_array = $this->encrypt_params($home_id,$home_path,$url,$exec_folder_path,$exec_path,$precmd,$postcmd,$filesToLock);
 		$this->add_enc_chk($params_array);
 		$request = xmlrpc_encode_request("start_rsync_install",$params_array);
 		$response = $this->sendRequest($request);
@@ -523,12 +523,27 @@ class OGPRemoteLibrary
 	/// \return -2 In other errors.
 	/// \todo Other return values?
 	public function universal_start($home_id, $game_home, $game_binary, $run_dir, $startup_cmd,
-		$server_port, $server_ip, $cpu, $nice)
+		$server_port, $server_ip, $cpu, $nice, $preStart = "", $envVars = "")
 	{
 		$params_array = $this->encrypt_params($home_id, $game_home, $game_binary,
-			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice);
+			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice, $preStart, $envVars);
 		$this->add_enc_chk($params_array);
 		$request = xmlrpc_encode_request("universal_start", $params_array);
+		$response = $this->sendRequest($request);
+		if($response === NULL)
+			return -1;
+
+		if (is_array($response) && xmlrpc_is_fault($response))
+			return -2;
+
+		return $response;
+	}
+	
+	public function lock_additional_home_files($game_home, $filesToLockUnlock, $action)
+	{
+		$params_array = $this->encrypt_params($game_home, $filesToLockUnlock, $action);
+		$this->add_enc_chk($params_array);
+		$request = xmlrpc_encode_request("lock_additional_files", $params_array);
 		$response = $this->sendRequest($request);
 		if($response === NULL)
 			return -1;
@@ -655,11 +670,11 @@ class OGPRemoteLibrary
 
 	public function remote_restart_server($home_id,$server_ip,$server_port, 
 			$control_protocol,$control_password,$control_type,
-			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice)
+			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart = "", $envVars = "")
 	{
 		$params_array = $this->encrypt_params($home_id,$server_ip,$server_port,
 			$control_protocol,$control_password,$control_type,
-			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice);
+			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart,$envVars);
 		$this->add_enc_chk($params_array);
 		$request = xmlrpc_encode_request("restart_server", $params_array);
 

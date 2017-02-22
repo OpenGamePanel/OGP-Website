@@ -29,6 +29,7 @@ define('remote_host_info', "The remote host must be a pingable hostname!");
 define('remote_host_port', "Remote Host Port");
 define('remote_host_port_info', "The port that is listened by the OGP agent on remote host. Default: 12679.");
 define('remote_host_name', "Remote Host Name");
+define('ogp_user', "OGP Agent Username");
 define('remote_host_name_info', "Remote host name is used to help users to identify their servers.");
 define('add_remote_host', "Add Remote Host");
 define('remote_encryption_key', "Remote Encryption Key");

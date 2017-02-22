@@ -23,7 +23,7 @@
  */
 
 define('maintenance_mode', "Manutenção");
-define('maintenance_mode_info', "A mensagem que é dispayed para usuários normais durante a manutenção.");
+define('maintenance_mode_info', "Disable the Panel for normal users. Only administrators can access it during maintenance.");
 define('maintenance_title', "Maintenance Title");
 define('maintenance_title_info', "The title that is displayed to normal users during maintenance.");
 define('maintenance_message', "Mensagem");

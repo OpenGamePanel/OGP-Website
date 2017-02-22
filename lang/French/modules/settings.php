@@ -23,7 +23,7 @@
  */
 
 define('maintenance_mode', "Maintenance");
-define('maintenance_mode_info', "Désactive le site pour que seuls les Administrateurs puissent s&apos;y connecter.");
+define('maintenance_mode_info', "Désactive le site pour que seuls les administrateurs puissent s'y connecter.");
 define('maintenance_title', "Titre pour la maintenance");
 define('maintenance_title_info', "Le titre qui est affiché aux utilisateurs durant la maintenance.");
 define('maintenance_message', "Message de la Maintenance");

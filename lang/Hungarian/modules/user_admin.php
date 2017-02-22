@@ -64,7 +64,7 @@ define('user_with_id_does_not_exist', "User with ID %s does not exist.");
 define('are_you_sure_you_want_to_delete_user', "Biztosan törölni akarod a(z) <em>%s</em> felhasználót?");
 define('unable_to_delete_user', "Nem sikerült törölni a(z) %s felhasználót.");
 define('successfully_deleted_user', "A(z) <b>%s</b> felhasználó sikeresen törölve.");
-define('failed_to_update_user_profile_error', "Failed to update user profile. Error: %s");
+define('failed_to_update_user_profile_error', "Nem sikerült frissíteni a felhasználói profilt. Hiba: %s");
 define('profile_of_user_modified_successfully', "Profile of user <b>%s</b> was modified successfully.");
 define('no_subusers', "No subusers are available to be assigned to a group. Please create subuser accounts.");
 define('ownedby', "Parent Owner");

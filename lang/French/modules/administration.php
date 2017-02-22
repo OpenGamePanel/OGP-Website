@@ -44,4 +44,6 @@ define('unban', "Débannir IP");
 define('client_ip', "IP Client");
 define('banned_until', "Banni juqu'à");
 define('unban_selected_ips', "Débannir les IPs sélectionnées");
+define('view', "Voir");
+define('per_page', "entrées de log par page");
 ?>

@@ -51,7 +51,7 @@
       <caption></caption>
       <desc>Server refresh rate (min acceptable 15, max 100) - Increasing this value increase CPU usage.</desc>
     </param>
-    <param key="+server.level" type="select" id="MAP">
+      <param key="+server.level" type="select" id="MAP">
       <option value="Procedural Map">Procedural Map</option>
       <option value="HapisIsland">Hapis Island</option>
       <option value="SavasIsland">Savas Island</option>
@@ -77,4 +77,7 @@
       <desc>If set to enabled, use websocket rcon. If set to disabled, use legacy source engine rcon.</desc>
     </param>
   </server_params>
+  <environment_variables>
+	export LD_LIBRARY_PATH="{OGP_HOME_DIR}/RustDedicated_Data/Plugins/x86_64"
+  </environment_variables>
 </game_config>

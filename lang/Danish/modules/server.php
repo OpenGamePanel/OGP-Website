@@ -29,6 +29,7 @@ define('remote_host_info', "Fjernhost skal være et pingable værtsnavn!");
 define('remote_host_port', "Fjernvært Port");
 define('remote_host_port_info', "Denne port, bliver lyttet af OGP Agent til fjernværten. Standard: 12679.");
 define('remote_host_name', "Fjernværtens Navn");
+define('ogp_user', "OGP Agent Username");
 define('remote_host_name_info', "Fjernværtens navn er brugt til, at hjælpe brugere til at identificere deres servere.");
 define('add_remote_host', "Tilføj Fjernværten");
 define('remote_encryption_key', "Fjernværtens Krypterings nøgle");

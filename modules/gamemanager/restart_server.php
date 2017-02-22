@@ -355,7 +355,10 @@ function exec_ogp_module() {
 								$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
 						}			  
 					}
-					$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+					
+					if ($param['id'] != NULL && $param['id'] != ""){
+						$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+					}
 				} 
 			}
 
@@ -367,11 +370,39 @@ function exec_ogp_module() {
 				$extra_default = $home_info['mods'][$mod_id]['extra_params'];
 
 			$start_cmd .= " ".$extra_default;
+			
+			// Run pre-start commands
+			if(isset($server_xml->pre_start) && !empty($server_xml->pre_start)){
+				$preStart = trim($server_xml->pre_start);
+			}else{
+				$preStart = "";
+			}
+				
+			// Environment variables
+			if(isset($server_xml->environment_variables) && !empty($server_xml->environment_variables)){
+				$envVars = trim($server_xml->environment_variables);
+			}else{
+				$envVars = "";
+			}		
+			
+			// Additional files to lock
+			if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
+				$lockFiles = trim($server_xml->lock_files);
+			}else{
+				$lockFiles = "";
+			}
+			
+			if(!empty($lockFiles)){
+				// Linux only call
+				if(preg_match("/Linux/", $os)){
+					$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+				}
+			}
 						
 			$remote_retval = $remote->remote_restart_server($home_id,$ip,$port,$server_xml->control_protocol,
 															$home_info['control_password'],$control_type,$home_info['home_path'],
 															$server_xml->server_exec_name,$run_dir,$start_cmd,
-															$home_info['cpu_affinity'],$home_info['nice']);
+															$home_info['cpu_affinity'],$home_info['nice'],$preStart,$envVars);
 			
 			$db->logger(get_lang_f('server_restarted', $home_info['home_name']) . "($ip:$port)");
 				

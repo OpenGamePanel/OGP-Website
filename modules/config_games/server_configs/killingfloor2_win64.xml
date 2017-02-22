@@ -1,11 +1,11 @@
 <game_config> 
   <game_key>killingfloor2_win64</game_key>
   <protocol>lgsl</protocol>
-  <lgsl_query_name>redorchestra2</lgsl_query_name>
+  <lgsl_query_name>killingfloor2</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Killing Floor 2</game_name>
   <server_exec_name>KFServer.exe</server_exec_name>
-  <cli_template>%MAP%%GAMEMODE%%DIFFICULTY%%GAMELENGTH%%PLAYERS% %PORT% %IP% %WEB_ADMIN_PORT%</cli_template>
+  <cli_template>%MAP%%GAMEMODE%%DIFFICULTY%%GAMELENGTH%%PLAYERS% %PORT% %IP% %WEB_ADMIN_PORT% %QUERY_PORT%</cli_template>
   <cli_params>
     <cli_param id="MAP" cli_string="" />
     <cli_param id="IP" cli_string="-MultiHome=" />
@@ -14,6 +14,8 @@
   </cli_params>
   <reserve_ports>
     <port type="add" id="WEB_ADMIN_PORT" cli_string="-WebAdminPort=">10</port>
+    <port type="add" id="QUERY_PORT" cli_string="-QueryPort=">19238</port>
+    <port type="add" id="STEAM_PORT">12783</port>
   </reserve_ports>
   <map_list>maplist.txt</map_list>
   <console_log>KFGame/Logs/Launch.log</console_log>
@@ -65,11 +67,15 @@
 		echo KF-BlackForest >> maplist.txt
 		echo KF-BurningParis >> maplist.txt
 		echo KF-Catacombs >> maplist.txt
+		echo KF-ContainmentStation >> maplist.txt
 		echo KF-EvacuationPoint >> maplist.txt
 		echo KF-Farmhouse >> maplist.txt
-		echo KF-VolterManor >> maplist.txt
+		echo KF-HostileGrounds >> maplist.txt
+		echo KF-InfernalRealm >> maplist.txt
 		echo KF-Outpost >> maplist.txt
 		echo KF-Prison >> maplist.txt
+		echo KF-VolterManor >> maplist.txt
+		echo KF-ZedLanding >> maplist.txt
 		fi
 	</post_install>
 </game_config>

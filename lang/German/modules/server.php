@@ -22,28 +22,29 @@
  *
  */
 
-define('add_new_remote_host', "Add New Remote Host");
-define('configured_remote_hosts', "Configured Remote Host");
-define('remote_host', "Remote Host");
-define('remote_host_info', "The remote host must be a pingable hostname!");
-define('remote_host_port', "Remote Host Port");
-define('remote_host_port_info', "The port that is listened by the OGP agent on remote host. Default: 12679.");
-define('remote_host_name', "Remote Host Name");
-define('remote_host_name_info', "Remote host name is used to help users to identify their servers.");
-define('add_remote_host', "Add Remote Host");
-define('remote_encryption_key', "Remote Encryption Key");
-define('remote_encryption_key_info', "Remote encryption key is used to encrypt the data between the Panel and Agent. This key must be same in both sides.");
-define('server_name', "Server Name");
+define('add_new_remote_host', "Neue entfernten Host hinzufügen");
+define('configured_remote_hosts', "Entfernter Host konfiguriert");
+define('remote_host', "Entfernter Host");
+define('remote_host_info', "Der entfernte Host muss pingbar sein!");
+define('remote_host_port', "Entfernter Host Port");
+define('remote_host_port_info', "Der Port, der vom OGP-Agent auf dem Remote-Host überwacht wird. Standard: 12679.");
+define('remote_host_name', "Entfernter Host Name");
+define('ogp_user', "OGP Agent Username");
+define('remote_host_name_info', "Der entfernte Hostname wird verwendet, um Benutzern zu helfen, ihre Server zu identifizieren.");
+define('add_remote_host', "Entfernten Host hinzufügen");
+define('remote_encryption_key', "Entfernter Verschlüsselungs-Schlüssel");
+define('remote_encryption_key_info', "Der entfernte Verschlüsselungs-Schlüssel wird verwendet um die Daten zwischen Panel und Agent zu verschlüsseln. Er muss auf beiden Seiten gleich sein.");
+define('server_name', "Servername");
 define('agent_ip_port', "Agent IP:Port");
 define('agent_status', "Agent Status");
 define('ips', "IPs");
-define('add_more_ips', "If you want to enter more IPs press 'Set IPs' when all fields are full and an empty field will appear.");
+define('add_more_ips', "Wenn Sie mehr als eine IP eingeben möchten drücken Sie bitte 'IPs setzen', wenn alle Felder ausgefüllt sind.  Ein neues Feld wird erscheinen.");
 define('encryption_key_mismatch', "Encryption key does not match with the Agent. Recheck your configuration files.");
 define('no_ip_for_remote_host', "You need to add at least one (1) IP address for each remote host.");
 define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
 define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
 define('unknown_error', "Unknown error - status_chk returned");
-define('remote_host_user_name', "UNIX nutzer");
+define('remote_host_user_name', "UNIX Benutzer");
 define('remote_host_user_name_info', "Username where the Agent is running. Example: Jonhy");
 define('remote_host_ftp_ip', "FTP IP");
 define('remote_host_ftp_ip_info', "The FTP server <b>IP</b> for the current agent.");

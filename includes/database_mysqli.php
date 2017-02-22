@@ -667,16 +667,31 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$result = mysqli_query($this->link,$query);
 		return mysqli_insert_id($this->link);
 	}
+	
+	public function getModuleMenu($module_id){
+		if ( !$this->link ) return false;
+		$query = sprintf("SELECT * FROM `%smodule_menus` WHERE `module_id` = '%d'",
+			$this->table_prefix,
+			mysqli_real_escape_string($this->link,$module_id));
+		++$this->queries_;
+		$result = mysqli_query($this->link,$query);
+		if($result && mysqli_num_rows($result) == 1){
+			$row = mysqli_fetch_assoc($result);
+			return $row;
+		}
+		return false;
+	}
 
-	public function addModuleMenu($module_id,$subpage,$group,$name)
+	public function addModuleMenu($module_id,$subpage,$group,$name,$pos = 0)
 	{
 		if ( !$this->link ) return false;
-		$query = sprintf("INSERT INTO `%smodule_menus` VALUES( '%d','%s','%s','%s','0');",
+		$query = sprintf("INSERT INTO `%smodule_menus` VALUES( '%d','%s','%s','%s','%d');",
 			$this->table_prefix,
 			mysqli_real_escape_string($this->link,$module_id),
 			mysqli_real_escape_string($this->link,$subpage),
 			mysqli_real_escape_string($this->link,$group),
-			mysqli_real_escape_string($this->link,$name));
+			mysqli_real_escape_string($this->link,$name),
+			mysqli_real_escape_string($this->link,$pos));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 

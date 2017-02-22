@@ -30,7 +30,7 @@ function get_query_port($server_xml, $server_port)
 	return $server_port;
 }
 
-function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port)
+function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os)
 {	
 	$last_param = json_decode($home_info['last_param'], True);
 	
@@ -40,7 +40,6 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port)
 	$cli_param_data['HOSTNAME'] = $home_info['home_name'];
 	$cli_param_data['PID_FILE'] = "ogp_game_startup.pid";
 	
-	$os = $remote->what_os();
 	// Linux
 	if( preg_match("/Linux/", $os) )
 	{
@@ -169,7 +168,10 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port)
 						$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
 				}			  
 			}
-			$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+			
+			if ($param['id'] != NULL && $param['id'] != ""){
+				$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+			}
 		} 
 	}
 	
@@ -206,6 +208,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	
 	require_once('includes/lib_remote.php');
 	$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
+	$os = $remote->what_os();
 		
 	if ( $action != "stop" )
 	{
@@ -262,7 +265,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	}
 	elseif ( $action == "restart" AND $screen_running )
 	{
-		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port);
+		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os);
 		// Do text replacements in cfg file
 		if( $server_xml->replace_texts )
 		{
@@ -275,11 +278,42 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 				require_once('protocol/lgsl/lgsl_protocol.php');
 			require_once("modules/gamemanager/cfg_text_replace.php");
 		}
+		
+		// Run pre-start commands
+		if(isset($server_xml->pre_start) && !empty($server_xml->pre_start)){
+			$preStart = trim($server_xml->pre_start);
+		}else{
+			$preStart = "";
+		}
+			
+		// Environment variables
+		if(isset($server_xml->environment_variables) && !empty($server_xml->environment_variables)){
+			$envVars = trim($server_xml->environment_variables);
+		}else{
+			$envVars = "";
+		}
+		
+		// Additional files to lock
+		if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
+			$lockFiles = trim($server_xml->lock_files);
+		}else{
+			$lockFiles = "";
+		}
+		
+		if(!empty($lockFiles)){
+			// Linux only call
+			if(preg_match("/Linux/", $os)){
+				$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+			}
+		}
+		
 		$remote_retval = $remote->remote_restart_server($home_info['home_id'],$ip,$port,$server_xml->control_protocol,
 														$home_info['control_password'],$server_xml->control_protocol_type,$home_info['home_path'],
 														$server_xml->server_exec_name,$server_xml->exe_location,$start_cmd,
 														$home_info['mods'][$mod_id]['cpu_affinity'],
-														$home_info['mods'][$mod_id]['nice']);
+														$home_info['mods'][$mod_id]['nice'],
+														$preStart,
+														$envVars);
 		$db->logger(get_lang_f('server_restarted', $home_info['home_name']) . "($ip:$port)");
 		if ( $remote_retval === -1 )
 			return FALSE;
@@ -293,7 +327,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	}
 	elseif ( $action == "start" AND ! $screen_running )
 	{
-		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port);
+		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os);
 		// Do text replacements in cfg file
 		if( $server_xml->replace_texts )
 		{
@@ -306,12 +340,43 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 				require_once('protocol/lgsl/lgsl_protocol.php');
 			require_once("modules/gamemanager/cfg_text_replace.php");
 		}
+		
+		// Run pre-start commands
+		if(isset($server_xml->pre_start) && !empty($server_xml->pre_start)){
+			$preStart = trim($server_xml->pre_start);
+		}else{
+			$preStart = "";
+		}
+		
+		// Environment variables
+		if(isset($server_xml->environment_variables) && !empty($server_xml->environment_variables)){
+			$envVars = trim($server_xml->environment_variables);
+		}else{
+			$envVars = "";
+		}
+		
+		// Additional files to lock
+		if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
+			$lockFiles = trim($server_xml->lock_files);
+		}else{
+			$lockFiles = "";
+		}
+		
+		if(!empty($lockFiles)){
+			// Linux only call
+			if(preg_match("/Linux/", $os)){
+				$lockedFilesStatus = $remote->lock_additional_home_files($home_info['home_path'], $lockFiles, "lock");
+			}
+		}
+		
 		$start_retval = $remote->universal_start($home_info['home_id'],
 												 $home_info['home_path'],
 												 $server_xml->server_exec_name, $server_xml->exe_location,
 												 $start_cmd, $port, $ip,
 												 $home_info['mods'][$mod_id]['cpu_affinity'],
-												 $home_info['mods'][$mod_id]['nice']);
+												 $home_info['mods'][$mod_id]['nice'],
+												 $preStart,
+												 $envVars);
 		$db->logger(get_lang('server_started') . " (".$home_info['home_name']." $ip:$port)");
 		if( $start_retval == AGENT_ERROR_NOT_EXECUTABLE or $start_retval <= 0)
 			return FALSE;
