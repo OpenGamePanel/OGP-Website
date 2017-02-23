@@ -94,8 +94,8 @@ function get_map_path($query_name,$mod,$map) {
 	$mod_gt = $query_name == "callofduty4" ? "cod4" : $mod_gt;
 
 	$map_paths= array(
-		"http://image.www.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
-		"http://image.www.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
+		"https://image.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
+		"https://image.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$mod/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$mod/$map.gif",
 		"protocol/lgsl/maps/$query_name/$mod/$map.png",
