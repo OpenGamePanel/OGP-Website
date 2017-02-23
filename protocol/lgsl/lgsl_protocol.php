@@ -2,7 +2,7 @@
 error_reporting(E_ERROR);
  /*----------------------------------------------------------------------------------------------------------\
  |																											|
- |					  [ LIVE GAME SERVER LIST ] [ Â© RICHARD PERRY FROM GREYCUBE.COM ]						|
+ |					  [ LIVE GAME SERVER LIST ] [ © RICHARD PERRY FROM GREYCUBE.COM ]						|
  |																											|
  |	Released under the terms and conditions of the GNU General Public License Version 3 (http://gnu.org)	|
  |																											|
@@ -25,14 +25,14 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy"			=> "Americas Army",
 		"aarmy3"		=> "Americas Army 3",
 		"arcasimracing"	=> "Arca Sim Racing",
-		"arkse"         => "Ark Survival Evolved",
+		"arkse"			=> "ARK: Survival Evolved",
 		"arma"			=> "ArmA: Armed Assault",
 		"arma2"			=> "ArmA 2",
 		"arma2oa"		=> "ArmA 2 Operation Arrowhead",
 		"arma2co"		=> "ArmA 2 Combined Operations",
 		"arma3"			=> "ArmA 3",
 		"arma3alpha"	=> "ArmA 3 Alpha",
-		"avorion"	=> "Avorion",
+		"avorion"		=> "Avorion",
 		"avp2"			=> "Aliens VS. Predator 2",
 		"avp2010"		=> "Aliens VS. Predator ( 2010 By Rebellion )",
 		"bfbc2"			=> "Battlefield Bad Company 2",
@@ -48,6 +48,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofduty4"	=> "Call Of Duty 4",
 		"callofdutymw2"	=> "Call of Duty Modern Warfare 2",
 		"cncrenegade"	=> "Command and Conquer: Renegade",
+		"conanexiles"	=> "Conan Exiles",
 		"crysis"		=> "Crysis",
 		"crysiswars"	=> "Crysis Wars",
 		"cs2d"			=> "Counter-Strike 2D",
@@ -185,6 +186,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofduty4"	=> "02",
 		"callofdutymw2"	=> "02",
 		"cncrenegade"	=> "03",
+		"conanexiles"	=> "05",
 		"crysis"		=> "06",
 		"crysiswars"	=> "06",
 		"cs2d"			=> "29",
@@ -296,7 +298,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 
 		return $lgsl_protocol_list;
 	}
-
+	 
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
 
@@ -330,6 +332,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofduty4"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty4&action=show",
 		"callofdutymw2"	=> "aiw://connect/{IP}:{S_PORT}",
 		"cncrenegade"	=> "qtracker://{IP}:{S_PORT}?game=CommandConquerRenegade&action=show",
+		"conanexiles"	=> "steam://connect/{IP}:{S_PORT}",
 		"crysis"		=> "qtracker://{IP}:{S_PORT}?game=Crysis&action=show",
 		"crysiswars"	=> "qtracker://{IP}:{S_PORT}?game=CrysisWars&action=show",
 		"cs2d"			=> "http://www.cs2d.com",
@@ -451,7 +454,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "aarmy"			: $c_to_q = 1;		$c_def = 1716;	$q_def = 1717;	$c_to_s = 0;	break;
 			case "aarmy3"			: $c_to_q = 0;		$c_def = 8777;	$q_def = 39300;	$c_to_s = 0;	break;
 			case "arcasimracing"	: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
-			case "arkse"			: $c_to_q = 0;		$c_def = 0;		$q_def = 0;		$c_to_s = 0;	break;
+			case "arkse"			: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 0;	break;
 			case "arma3"			: $c_to_q = 1; 		$c_def = 2302; 	$q_def = 2303; 	$c_to_s = 0; 	break;
 			case "avorion" 			: $c_to_q = 20; 	$c_def = 27000;	$q_def = 27020; $c_to_s = 0;  	break;
 			case "bfbc2"			: $c_to_q = 0;		$c_def = 19567;	$q_def = 48888;	$c_to_s = 0;	break;
@@ -460,6 +463,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "bf2"				: $c_to_q = 13333;	$c_def = 16567;	$q_def = 29900;	$c_to_s = 0;	break;
 			case "bf3"				: $c_to_q = 22000;	$c_def = 25200;	$q_def = 47200;	$c_to_s = 0;	break;
 			case "bf2142"			: $c_to_q = 0;		$c_def = 17567;	$q_def = 29900;	$c_to_s = 0;	break;
+			case "conanexiles"		: $c_to_q = 2;		$c_def = 24000;	$q_def = 24002;	$c_to_s = 0;	break;
 			case "cube"				: $c_to_q = 1;		$c_def = 28785;	$q_def = 28786;	$c_to_s = 0;	break;
 			case "dh2005"			: $c_to_q = 0;		$c_def = 23459;	$q_def = 34567;	$c_to_s = 0;	break;
 			case "farcry"			: $c_to_q = 123;	$c_def = 49001;	$q_def = 49124;	$c_to_s = 0;	break;
@@ -471,7 +475,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "hurtworld"		: $c_to_q = 10;		$c_def = 12871;	$q_def = 12881;	$c_to_s = 0;	break;
 			case "kingpin"			: $c_to_q = -10;	$c_def = 31510;	$q_def = 31500;	$c_to_s = 0;	break;
 			case "killingfloor"		: $c_to_q = 1;		$c_def = 7708;	$q_def = 7709;	$c_to_s = 0;	break;
-			case "killingfloor2"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
+			case "killingfloor2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "lif"				: $c_to_q = 2;		$c_def = 28000; $q_def = 28002; $c_to_s = 0;	break;
 			case "modernwarfare3"	: $c_to_q = -1;		$c_def = 27015;	$q_def = 27014;	$c_to_s = 0;	break;
 			case "mohaa"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;

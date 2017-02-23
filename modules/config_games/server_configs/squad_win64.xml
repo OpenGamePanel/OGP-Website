@@ -15,7 +15,7 @@
     <port type="add" id="QUERY_PORT" cli_string="QueryPort=">19378</port>
   </reserve_ports>
   <console_log>Squad/Saved/Logs/Squad.log</console_log>
-  <max_user_amount>72</max_user_amount>
+  <max_user_amount>80</max_user_amount>
   <mods>
     <mod key="squad">
       <name>None</name>
