@@ -10,7 +10,9 @@
     <cli_param id="PLAYERS" cli_string="maxplayers=" />
   </cli_params>
   <reserve_ports>
-    <port type="add" id="QUERY_PORT" cli_string="queryport=">23292</port>
+    <port type="add" id="QUERY_PORT" cli_string="queryport=">3</port>
+    <port type="add" id="RMI" cli_string="rmiport=">1</port>
+    <port type="add" id="RMIREG" cli_string="rmiregport=">2</port>
   </reserve_ports>
   <cli_allow_chars>'()[]{}|</cli_allow_chars>
   <!-- escaped by default: \ " ' | &amp; ; > < ` $ ( ) [ ] -->
@@ -37,7 +39,7 @@
     </param>
 	<param id="VAC" key="-insecure" type="checkbox_key_value">
 	  <default>false</default>
-      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+      <desc>Will start the server WITHOUT Valve Anti-Cheat technology.</desc>
     </param>
     <param id="EPIC" key="epicsettings=" type="select">
       <option value="true">Enabled</option>
@@ -81,16 +83,6 @@
       <option>ns</option>
       <default>Adventure</default>
       <desc>Starts the server with the configuration and world data from the subdirectory specified.</desc>
-    </param>
-    <param id="RMI" key="rmiport=" type="text">
-      <option>ns</option>
-      <default>7220</default>
-      <desc>RMI Port, Used for server to server communication. (NOTE: only edit if you know what you are doing and intend to utilize multiple servers)</desc>
-    </param>
-    <param id="RMIREG" key="rmiregport=" type="text">
-      <option>ns</option>
-      <default>7221</default>
-      <desc>RMI Registration Port, Used for server to server communication. (NOTE: only edit if you know what you are doing and intend to utilize multiple servers)</desc>
     </param>
   </server_params>
   <post_install>
