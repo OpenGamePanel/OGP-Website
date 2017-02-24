@@ -94,7 +94,7 @@
     </param>
   </server_params>
   <post_install>
-    mv ./Adventure_backup ./Adventure
-    mv ./Creative_backup ./Creative
+    cp -nrT ./Adventure_backup ./Adventure
+    cp -nrT ./Creative_backup ./Creative
   </post_install>
 </game_config>
