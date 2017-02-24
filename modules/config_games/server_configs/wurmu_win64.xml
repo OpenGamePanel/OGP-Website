@@ -12,7 +12,7 @@
   <reserve_ports>
     <port type="add" id="QUERY_PORT" cli_string="queryport=">23292</port>
   </reserve_ports>
-  <cli_allow_chars>"'()[]{}|</cli_allow_chars>
+  <cli_allow_chars>'()[]{}|</cli_allow_chars>
   <!-- escaped by default: \ " ' | &amp; ; > < ` $ ( ) [ ] -->
   <max_user_amount>250</max_user_amount>
   <mods>
@@ -24,8 +24,8 @@
   </mods>
   <server_params>
     <param id="SERVERNAME" key="servername=" type="text">
-      <option>ns</option>
-      <desc>The name of the server that will be visible in server browsers. (NOTE: If the server name contains spaces, quotes are required! ie. "Server Name")</desc>
+      <option>q</option>
+      <desc>The name of the server that will be visible in server browsers.</desc>
     </param>
     <param id="SERVERPASS" key="serverpassword=" type="text">
       <option>ns</option>
