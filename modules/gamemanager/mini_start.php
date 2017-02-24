@@ -419,6 +419,14 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 							$new_param = $paramKey.clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
 							$save_param[$paramKey] = $paramValue;
 						}
+						elseif($param->option == "q" or $param->options == "q"){
+							$new_param = $paramKey . '"' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
+							$save_param[$paramKey] = $paramValue;
+						}
+						elseif($param->option == "s" or $param->options == "s"){
+							$new_param = $paramKey . ' ' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
+							$save_param[$paramKey] = $paramValue;
+						}
 						else
 						{
 							$new_param = $paramKey.' "'.clean_server_param_value($paramValue, $server_xml->cli_allow_chars).'"';
@@ -459,6 +467,14 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 						elseif($param->option == "ns" or $param->options == "ns")
 						{
 							$new_param = $paramKey.clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
+							$save_param[$paramKey] = $paramValue;
+						}
+						elseif($param->option == "q" or $param->options == "q"){
+							$new_param = $paramKey . '"' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
+							$save_param[$paramKey] = $paramValue;
+						}
+						elseif($param->option == "s" or $param->options == "s"){
+							$new_param = $paramKey . ' ' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
 							$save_param[$paramKey] = $paramValue;
 						}
 						else
