@@ -105,6 +105,8 @@ define('show_all', "Показать все сервера");
 define('cur_theme', "%s тема оформления");
 define('copyright', "Copyright");
 define('all_rights_reserved', "Все права защищены");
+define('version', "Version");
+define('show_version', "Show Version");
 define('queries_executed', "запросов к базе");
 define('lang', "Язык");
 define('get_size', "Get size");

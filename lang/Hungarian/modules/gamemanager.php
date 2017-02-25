@@ -44,7 +44,7 @@ define('available_maps', "Elérhető pályák");
 define('map_path', "Pálya útvonal");
 define('available_parameters', "Elérhető paraméterek");
 define('start_server', "Szerver elindítása");
-define('start_wait_note', "A szerver elindítása eltarthat egy ideig. Kérlek, várj mielőtt bezárod a böngészőt.");
+define('start_wait_note', "A szerver elindítása eltarthat egy ideig. Kérlek, várj mielőtt bezárod a böngésződet.");
 define('game_type', "Játék típus");
 define('map', "Pálya");
 define('starting_server', "Szerver indítása, kérlek várj...");
@@ -115,7 +115,7 @@ define('unable_get_info', "Nem sikerült megkapni a szükséges információt az
 define('server_already_running', "Server already running. If you do not see the server in the Game Monitor, there might be a somekind of problem and you might want to");
 define('already_running_stop_server', "Szerver leállítása.");
 define('error_server_already_running', "HIBA: már fut szerver ezen a porton");
-define('failed_start_server_code', "Nem sikerült elindítani a távoli szervert. Hibakód:");
+define('failed_start_server_code', "Nem sikerült elindítani a távoli szervert. Hibakód: %s");
 define('disabled', "tiltva");
 define('not_found_server', "Nem található távoli szerver az ID-vel");
 define('rcon_command_title', "RCON parancs");

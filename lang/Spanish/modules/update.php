@@ -34,7 +34,7 @@ define('not_updated_files_blacklisted', "Archivos no actualizados/instalados (En
 define('latest_version', "Ultima version");
 define('panel_version', "Version del panel");
 define('update_now', "Actualizar Ahora");
-define('the_panel_is_up_to_date', "El panel esta actualizado.");
+define('the_panel_is_up_to_date', "The Panel is up-to-date.");
 define('files_overwritten', "%s archivos sobreescritos.");
 define('can_not_update_non_writable_files', "No se puede actualizar porque los siguientes archivos/carpetas no se pueden sobreescribir");
 define('dwl_failed', "El sistema no puede acceder a la url de la descarga: \"%s\".<br>Intentelo de nuevo mas tarde.");

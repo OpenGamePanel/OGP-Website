@@ -105,6 +105,8 @@ define('show_all', "Mostrar todos os servidores");
 define('cur_theme', "Tema %s");
 define('copyright', "Copyright");
 define('all_rights_reserved', "All rights reserved");
+define('version', "Version");
+define('show_version', "Show Version");
 define('queries_executed', "queries executed");
 define('lang', "Idioma");
 define('get_size', "Get size");

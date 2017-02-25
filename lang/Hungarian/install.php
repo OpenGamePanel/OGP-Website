@@ -44,7 +44,7 @@ define('database_prefix', "Adatbázis előtagja");
 define('next', "Tovább");
 define('encryption_key', "Titkosító kulcs (Agent)");
 define('agent_port', "Port (Agent)");
-define('unable_to_write_config', "Nem lehet írni a konfigurációs fájlt. Kérjek, ellenőrizd az írási jogosultságot.");
+define('unable_to_write_config', "Nem lehet a konfigurációs fájlba írni. Kérlek, ellenőrizd az írási jogosultságot.");
 define('admin_login_details', "Adminisztrátor bejelentkezési adatok");
 define('config_written', "A konfigurációs fájl létrehozása sikeres.");
 define('database_created', "Adatbázis táblák sikeresen létrehozva.");

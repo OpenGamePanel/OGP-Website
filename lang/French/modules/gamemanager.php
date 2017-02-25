@@ -44,7 +44,7 @@ define('available_maps', "Cartes disponibles");
 define('map_path', "Chemin vers les cartes");
 define('available_parameters', "Paramètres disponibles");
 define('start_server', "Démarrer");
-define('start_wait_note', "Le démarrage du serveur peut prendre du temps, veuillez attendre sans fermer votre navigateur.");
+define('start_wait_note', "Le démarrage du serveur peut prendre du temps. Veuillez patienter sans fermer votre navigateur.");
 define('game_type', "Type de Jeu");
 define('map', "Carte");
 define('starting_server', "Démarrage du serveur, veuillez patienter...");
@@ -115,7 +115,7 @@ define('unable_get_info', "Impossible de récupérer les informations pour le d�
 define('server_already_running', "Le serveur est déjà démarré. Si vous ne le voyez pas sur la Gestion des Serveurs, il doit y avoir un problème et vous pouvez ");
 define('already_running_stop_server', "Arrêter le serveur.");
 define('error_server_already_running', "ERREUR: Un serveur est déjà démarré avec ce port");
-define('failed_start_server_code', "Impossible de démarrer le serveur distant. Code d'erreur: ");
+define('failed_start_server_code', "Échec du démarrage du serveur. Code d'erreur: %s");
 define('disabled', "désactivé ");
 define('not_found_server', "Impossible de trouver le serveur distant avec l'ID");
 define('rcon_command_title', "Commande RCON");

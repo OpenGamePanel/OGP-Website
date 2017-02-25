@@ -34,7 +34,7 @@ define('not_updated_files_blacklisted', "Not updated/installed files (Blackliste
 define('latest_version', "Latest version");
 define('panel_version', "Panel version");
 define('update_now', "Update Now");
-define('the_panel_is_up_to_date', "The panel is up to date.");
+define('the_panel_is_up_to_date', "The Panel is up-to-date.");
 define('files_overwritten', "%s files overwritten.");
 define('can_not_update_non_writable_files', "Can not update because the following files/folders are not writable");
 define('dwl_failed', "The download link is not available: \"%s\".<br>Try again later.");
