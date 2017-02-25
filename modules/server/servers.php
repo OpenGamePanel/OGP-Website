@@ -44,7 +44,7 @@ function exec_ogp_module() {
 	$ft->add_field('string','remote_host_ftp_ip',"");
 	$ft->add_field('string','remote_host_ftp_port',"21");
 	$ft->add_field('string','remote_encryption_key',"");
-	$ft->add_field('string','timeout',"2");
+	$ft->add_field('string','timeout',"5");
 	$ft->add_field('on_off','use_nat',"0");
 	$ft->end_table();
 	$ft->add_button('submit','add_remote_host', add_remote_host );
