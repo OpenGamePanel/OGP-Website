@@ -151,7 +151,8 @@ function update_module($db, $module_id, $module)
 			$pos = 0;
 		}
 		
-		echo "<p>Module position is " . $pos . " for module " . $currentModuleMenuInfo["menu_name"] . " with ID of " . $module_id . "</p>";
+		// Debug
+		// echo "<p>Module position is " . $pos . " for module " . $currentModuleMenuInfo["menu_name"] . " with ID of " . $module_id . "</p>";
 		
 		$db->delModuleMenu($module_id);
 		if ( isset($module_menus) && is_array($module_menus) )
