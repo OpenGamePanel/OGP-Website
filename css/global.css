@@ -17,3 +17,12 @@
 .bootstrap-datetimepicker-widget > ul{
 	padding: 0px;
 }
+
+span.version{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.hide{
+	display: none;
+}
