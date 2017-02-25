@@ -179,7 +179,7 @@ class OGPView {
         if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
             $footer .= "<div class=\"footer center\">";
             $footer .= get_lang_f('cur_theme', !empty($_SESSION['users_theme']) ? $_SESSION['users_theme'] : @$panel_settings['theme']);
-            $footer .= "<br />".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved').".<br />v".@$panel_settings['ogp_version']." - ".
+            $footer .= "<br />".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved').".<br />".get_lang('version').": ".@$panel_settings['ogp_version']." - ".
 			
 			$db->getNbOfQueries()." ".get_lang('queries_executed')."</div>";
         }
