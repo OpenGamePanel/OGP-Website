@@ -18,11 +18,26 @@
 	padding: 0px;
 }
 
-span.version{
+span.versionInfo{
 	cursor: pointer;
 	text-decoration: underline;
 }
 
+.inline-block{
+	display: inline-block;
+}
+
+div.OGPVersionArea{
+	width: 100%;
+	position: relative;
+}
+
+span.copyVersionResult{
+	position: absolute;
+	left: 90%;
+	top: 0;
+}
+
 .hide{
-	display: none;
+	display: none !important;
 }
