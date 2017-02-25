@@ -366,6 +366,4 @@ function ogpHome()
 	%bottom%
 <?php
 }
-
-//
 ?>
