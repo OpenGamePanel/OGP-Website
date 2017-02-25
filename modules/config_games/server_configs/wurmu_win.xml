@@ -1,5 +1,5 @@
 <game_config>
-  <game_key>wurmu_win64</game_key>
+  <game_key>wurmu_win</game_key>
   <installer>steamcmd</installer>
   <game_name>Wurm Unlimited</game_name>
   <server_exec_name>WurmServerLauncher.exe</server_exec_name>
