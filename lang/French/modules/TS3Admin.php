@@ -28,7 +28,7 @@ define('update_available', "<h3>Attention : Une nouvelle version (v%1) de ce log
 define('head_logout', "Se déconnecter");
 define('head_vserver_switch', "Changer vServeur");
 define('head_vserver_overview', "Vue d'ensemble vServer");
-define('head_vserver_token', "Gestion des Token");
+define('head_vserver_token', "Gestion des Tokens");
 define('head_vserver_liveview', "Vue en direct");
 define('e_fill_out', "Veuillez remplir tous les champs requis.");
 define('e_upload_failed', "Erreur lors de l'upload.");
@@ -61,7 +61,7 @@ define('vsselect_clients', "Clients");
 define('vsselect_uptime', "Uptime");
 define('vsselect_choose', "Sélectionner");
 define('vsselect_start', "Démarrer");
-define('vsselect_stop', "Stop");
+define('vsselect_stop', "Arrêter");
 define('vsselect_delete', "SUPPRIMER");
 define('vsselect_new_headline', "Créer un nouveau serveur virtuel");
 define('vsselect_new_servername', "Nom du serveur");

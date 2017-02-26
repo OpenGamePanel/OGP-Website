@@ -180,7 +180,7 @@ define('game_server_copy_was_successful', "A játék szerver sikeresen átmásol
 define('game_server_copy_failed_with_return_code', "Játék szerver másolása sikertelen az alábbi a(z) %s hiba kóddal.");
 define('clone_mods', "Modok klónozása");
 define('game_server_owner', "Játékszerver tulajdonos");
-define('the_name_of_the_server_to_help_users_to_identify_it', "The name of the server to help users to identify it.");
+define('the_name_of_the_server_to_help_users_to_identify_it', "A szerver neve segít a felhasználóknak az azonosítani.");
 define('ips_and_ports_used_in_this_home', "IPs and Ports used in this home");
 define('note_ips_and_ports_are_not_cloned', "Megjegyzés - az IPk és portok nincsenek klónozva");
 define('mods_and_settings_for_this_game_server', "Modok és beállítások ehhez a játékszerverhez");

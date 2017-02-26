@@ -129,7 +129,7 @@ define('server_cant_stop', "Le serveur ne peut pas s'arrêter");
 define('error_occured_remote_host', "Une erreur s'est produite sur l'hôte distant");
 define('follow_server_status', "Vous pouvez suivre le statut du serveur depuis");
 define('addons', "Addons");
-define('hostname', "Nom d'hôte (hostname)");
+define('hostname', "Nom d'hôte");
 define('rsync_install', "[Installation Rsync]");
 define('ping', "Ping");
 define('team', "Equipe");
