@@ -38,7 +38,7 @@ class OGPRemoteLibrary
 	private $enc;
 	private $timeout;
 
-	function __construct($host,$port,$encryption_key,$timeout = 2)
+	public function __construct($host,$port,$encryption_key,$timeout = 5)
 	{
 		$this->host = $host;
 		$this->port = $port;
@@ -48,7 +48,7 @@ class OGPRemoteLibrary
 		$this->timeout = $timeout;
 	}
 
-	function __destruct()
+	public function __destruct()
 	{
 	}
 
@@ -486,12 +486,10 @@ class OGPRemoteLibrary
 			return -2;
 		if ( $response == 1 )
 			return array();
-		
-		function base_64_decode_filename(&$item, $key){
-			if( $key == 'filename' ) $item = base64_decode($item);
-		}
-		
-		array_walk_recursive($response, 'base_64_decode_filename');
+
+		array_walk_recursive($response, function (&$item, $key) {
+			if ($key == 'filename')$item = base64_decode($item);
+		});
 		
 		return $response;
 	}

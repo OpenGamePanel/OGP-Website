@@ -71,7 +71,7 @@ function exec_ogp_module() {
 		}else{
 			print "subusersShowHide";
 		}
-        print "' uid='" . $row[user_id] . "'";
+        print "' uid='" . $row['user_id'] . "'";
         if(!empty($ownedBy)){
 			print "ownedby='" . $ownedBy . "'";
 		}

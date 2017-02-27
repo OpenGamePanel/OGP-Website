@@ -56,30 +56,32 @@
 }
 </style>
 <?php
+
 class FormTable {
 
 	
-	function FormTable()
+	public function __construct()
 	{
 		$this->i = 0;
 	}
 
-	function start_form($action, $method = "post", $extra = "")
+	public function start_form($action, $method = "post", $extra = "")
 	{
 		echo "<div align='center'>";
 		echo "<form action='".$action."' method='".$method."' $extra >";
 	}
-	function start_table()
+
+	public function start_table()
 	{
 		echo "<table class='center'>";
 	}
 
-	function add_field_hidden($name, $value)
+	public function add_field_hidden($name, $value)
 	{
 		echo "<input type='hidden' name='".$name."' value='".@$value."'/>";
 	}
 
-	function add_field($type, $name, $value, $size = 50, $extra = "")
+	public function add_field($type, $name, $value, $size = 50, $extra = "")
 	{
 		echo "<tr><td align='right'><label for='".$name."'>".get_lang($name).":</label></td>";
 		echo "<td align='left'>";
@@ -132,7 +134,7 @@ class FormTable {
 		}
 	}
 
-	function add_custom_field($name,$data,$td_extra = "")
+	public function add_custom_field($name,$data,$td_extra = "")
 	{
 		echo "<tr><td align='right' $td_extra><label for='".$name."'>".get_lang($name).":</label></td>";
 		echo "<td align='left'>".$data."</td>\n";
@@ -148,17 +150,17 @@ class FormTable {
 		}
 	}
 
-	function end_table()
+	public function end_table()
 	{
 		echo "</table>";
 	}
 
-	function add_button($type,$name,$value)
+	public function add_button($type,$name,$value)
 	{
 		echo "<p class='center'><input type='$type' name='$name' value='$value' /></p>";
 	}
 
-	function end_form()
+	public function end_form()
 	{
 		echo "</form>";
 		echo "</div>";
