@@ -57,7 +57,7 @@ function exec_ogp_module()
 	global $db,$settings;
 	
 	define('REPONAME', 'OGP-Website');
-	define('RSS_REMOTE_PATH', 'https://github.com/OpenGamePanel/'.REPONAME.'/commits/master.atom');
+	define('RSS_REMOTE_PATH', 'https://github.com/acsid/'.REPONAME.'/commits/master.atom');
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
 	define('RSS_LOCAL_PATH', MODULE_PATH.'master.atom');
 		
@@ -84,8 +84,8 @@ function exec_ogp_module()
 	if(isset($seed))
 	{
 		/// Checking for changes in the main update files:
-		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/OpenGamePanel/'.REPONAME.'/'.$seed.'/modules/update/update.php',
-									'modules/update/updating.php' => 'https://raw.githubusercontent.com/OpenGamePanel/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
+		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/acsid/'.REPONAME.'/'.$seed.'/modules/update/update.php',
+									'modules/update/updating.php' => 'https://raw.githubusercontent.com/acsid/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
 		$refresh = False;
 		foreach($main_update_files as $local_path => $remote_url)
 		{
@@ -118,7 +118,7 @@ function exec_ogp_module()
 		
 		if ( $seed != $pversion )
 		{	
-			$dwl = 'https://github.com/OpenGamePanel/'.REPONAME.'/archive/'.$seed.'.zip';
+			$dwl = 'https://github.com/acsid/'.REPONAME.'/archive/'.$seed.'.zip';
 			$dwlHeaders = get_headers($dwl);
 			if($dwlHeaders[0] != 'HTTP/1.1 302 Found')
 				print_failure('The generated URL for the download returned a bad response code: ' . $dwlHeaders[0]);
