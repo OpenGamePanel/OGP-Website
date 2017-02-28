@@ -75,7 +75,6 @@ function exec_ogp_module()
     }
     else
     {
-		function genRandomString($length) {
 	function genRandomString($length) {
 	$characters = "0123456789abcdefghijklmnopqrstuvwxyz";
 	$string = "";	
@@ -84,7 +83,7 @@ function exec_ogp_module()
 	}
 	return $string;
 }
-		}
+		
 		$genPassword = genRandomString(8);
 ?>
     <div class="center">
