@@ -220,7 +220,8 @@ if( !isset( $_POST['start_server'] ) )
 	if ( $check_ok )
 	{
 		echo "<div class='submit-start' ><input type='submit' name='start_server' value='".
-			 start_server ."' /></div>\n";
+			 start_server ."' /><input type='submit' name='save_config' value='".
+			 save_config ."' /></div>\n";
 	}
 	else
 	{
