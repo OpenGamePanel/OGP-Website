@@ -75,16 +75,11 @@ function exec_ogp_module()
     }
     else
     {
-	function genRandomString($length) {
-	$characters = "0123456789abcdefghijklmnopqrstuvwxyz";
-	$string = "";	
-	for ($p = 0; $p < $length; $p++) {
-		$string .= $characters[mt_rand(0, strlen($characters)-1)];
-	}
-	return $string;
+function genRandomString($length = 10) {
+	return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)))),1,$length);
 }
 		
-		$genPassword = genRandomString(8);
+		$genPassword = genRandomString();
 ?>
     <div class="center">
     <h2><?php print_lang('add_a_new_user'); ?></h2>
