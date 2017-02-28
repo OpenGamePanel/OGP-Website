@@ -92,10 +92,11 @@ function get_map_path($query_name,$mod,$map) {
 	$mod_gt = $query_name == "callofduty" ? "cod" : $mod_gt;
 	$mod_gt = $query_name == "callofduty2" ? "cod2" : $mod_gt;
 	$mod_gt = $query_name == "callofduty4" ? "cod4" : $mod_gt;
+	$mod_gt = $query_name == "conanexiles" ? "conan" : $mod_gt;
 
 	$map_paths= array(
-		"http://image.www.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
-		"http://image.www.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
+		"https://image.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
+		"https://image.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$mod/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$mod/$map.gif",
 		"protocol/lgsl/maps/$query_name/$mod/$map.png",
@@ -106,6 +107,30 @@ function get_map_path($query_name,$mod,$map) {
 	);
 
 	return get_first_existing_file($map_paths, 'http://gametracker.com', 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0');
+}
+
+// Thanks adjo (http://opengamepanel.org/forum/viewthread.php?thread_id=5209#post_25073)
+function curlCacheImage($cachePath, $resource){
+   if(preg_match('/^(https?:\/\/)/', $resource)){
+      $map = explode('/', $resource);
+      
+      if(!file_exists($cachePath . '/cache/' . end($map))){
+         $ch = curl_init();
+         curl_setopt($ch, CURLOPT_HEADER, 0);
+         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0');
+         curl_setopt($ch, CURLOPT_REFERER, 'http://gametracker.com');
+         curl_setopt($ch, CURLOPT_URL, $resource);
+         $result = curl_exec($ch);
+         curl_close($ch);
+         
+         file_put_contents($cachePath . '/cache/' . end($map), $result);
+      }
+      
+      return $cachePath . '/cache/' . end($map);
+   }
+   
+   return $resource;
 }
 
 //Refreshed Div:

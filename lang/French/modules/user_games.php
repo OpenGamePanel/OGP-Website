@@ -145,7 +145,7 @@ define('allow_parameter_usage_info', "Autorise l'utilisateur à changer les para
 define('allow_extra_params', "Autoriser les Paramètres Supplémentaires");
 define('allow_extra_params_info', "Autorise l'utilisateur à modifier les paramètres supplémentaires de la ligne de commande.");
 define('allow_ftp', "Autoriser le FTP");
-define('allow_ftp_info', "Autorise l'utilisateur à accéder à son cmpte FTP et modifier ses informations.");
+define('allow_ftp_info', "Autorise l'utilisateur à accéder à son compte FTP et modifier ses informations.");
 define('allow_custom_fields', "Autoriser les Champs Personnalisés");
 define('allow_custom_fields_info', "Autorise l'utilisateur à accéder aux champs personnalisés pour le jeu s'il y en a.");
 define('select_home', "Sélectionner un serveur à assigner");

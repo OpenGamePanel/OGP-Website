@@ -33,12 +33,12 @@ define('to_login', "zum Login");
 define('errormail', "Die Email-Adresse ist nicht korrekt.");
 define('submit', "Senden");
 define('click', "Klick");
-define('mail_settings_missing', "Dein Passwort kann nicht gesendet werden da die Panel Mail Einstellungen sind nicht vollständig sind. Bitte kontaktiere den Administrator.");
+define('mail_settings_missing', "Dein Passwort kann nicht gesendet werden da die Panel Mail Einstellungen nicht vollständig sind. Bitte kontaktiere den Administrator.");
 define('mail_failed', "Email senden fehlgeschlagen.");
-define('email', "Email-Adress");
-define('enter_email', "Bitte fühge dein Emaila-Adresse ein");
+define('email', "Email-Adresse");
+define('enter_email', "Bitte fühge dein Email-Adresse ein");
 define('webmaster', "Webmaster");
-define('confirm_send', "Aus Sicherheitsgründen haben wir Ihnen eine Bestätigungs-Link, bevor Sie Ihr Passwort zurücksetzen.<br><b style='color:red;'>Bitte comprueve Ihrem Posteingang.</b>");
-define('confirm_change_subject', "Bestätigung Passwort-Änderung");
-define('confirm_change_password_message', "Hallo,<br>Es hat eine Änderung des Kennworts Antrag gestellt hat,<br>willst du wirklich Ihr Passwort zu ändern, um die folgende URL-Adresse zugreifen:<br><br>%s<br><br>Nach der Anmeldung werden Sie eine Email sage Ihnen Ihr neues Passwort zugesandt.<br><br>Vielen Dank!<br>Administrator.<br><br>Dies ist eine automatische Nachricht, bitte nicht antworten!");
+define('confirm_send', "Aus Sicherheitsgründen haben wir Ihnen einen Bestätigungs-Link gesendet, bevor Sie Ihr Passwort zurücksetzen.<br><b style='color:red;'>Bitte prüfen Sie Ihren Posteingang.</b>");
+define('confirm_change_subject', "Bestätigungsemail Passwort-Änderung");
+define('confirm_change_password_message', "Hallo,<br><br>Bitte klicke auf den folgenden Link um dein Passwort zurückzusetzen:<br><br>%s<br><br>Achtung: Wenn du kein neues Passwort angefordert hast kannst du die Nachricht ignorieren.<br><br>Bitte antworte nicht auf die Email!<br><br>______________________________<br>OGP Mailer");
 ?>

@@ -65,6 +65,7 @@ if($num_of_servers < $numberservers_to_skip_query)
 		$playersmax= $data['s']['playersmax'];
 		$name = $data['s']['name'];
 		$map  = preg_replace("/[^a-z0-9_]/", "_", strtolower($data['s']['map']));
+		$mapRaw = $data['s']['map'];
 		$address = $data['link'];
 		
 		if ( $data['s']['players'] > 0 )

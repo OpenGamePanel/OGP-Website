@@ -678,7 +678,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			mysql_real_escape_string($module_id,$this->link));
 		++$this->queries_;
 		$result = mysql_query($query,$this->link);
-		if($result && mysql_num_rows($result) == 1){
+		if($result && mysql_num_rows($result) > 0){
 			$row = mysql_fetch_assoc($result);
 			return $row;
 		}

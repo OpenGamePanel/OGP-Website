@@ -110,7 +110,7 @@ define('only_available_for', "Solo estará disponible para servidores de '%s' al
 define('ftp_on', "Activar FTP");
 define('ftp_off', "Desactivar FTP");
 define('change_ftp_account_status', "Cambiar estado del FTP");
-define('change_ftp_account_status_info', "Al activar o desactivar la cuenta esta es añadida o eliminada de la base de datos de Pure-FTPd.");
+define('change_ftp_account_status_info', "Once a FTP account is enabled or disabled, it is added or removed from the FTP's database.");
 define('server_ftp_login', "Usuário FTP");
 define('change_ftp_login_info', "Cambie el nombre de usuário FTP por uno a su elección.");
 define('change_ftp_login', "Cambiar usuário FTP");

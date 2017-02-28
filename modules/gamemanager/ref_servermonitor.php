@@ -108,7 +108,7 @@ function exec_ogp_module()
 			$onlineT .= "</div>";
 			$onlineT .= "<div class='server-info' >";
 				@$onlineT .= hostname .": <marquee class='hostname'>" . htmlentities($name) . "</marquee><br />";
-				@$onlineT .= current_map .": $currentmap";
+				@$onlineT .= current_map . ": " . ((isset($mapRaw) && !empty($mapRaw)) ? htmlentities($mapRaw) : $currentmap);
 			$onlineT .= "</div>";
 		}
 		else if($status == "half")

@@ -110,7 +110,7 @@ define('only_available_for', "Only available for '%s' hosted on the remote serve
 define('ftp_on', "Enable FTP");
 define('ftp_off', "Disable FTP");
 define('change_ftp_account_status', "Change FTP account status");
-define('change_ftp_account_status_info', "Once a FTP account is enbled or disabled, it is added or removed from the PureFTPd's DataBase.");
+define('change_ftp_account_status_info', "Once a FTP account is enabled or disabled, it is added or removed from the FTP's database.");
 define('server_ftp_login', "Server FTP Login");
 define('change_ftp_login_info', "Change the FTP Login with a customized one.");
 define('change_ftp_login', "Change FTP Login");

@@ -105,6 +105,8 @@ define('show_all', "Összes szerver mutatása");
 define('cur_theme', "%s téma");
 define('copyright', "Szerzői jog");
 define('all_rights_reserved', "Minden jog fenntartva");
+define('version', "Verzió");
+define('show_version', "Verzió mutatása");
 define('queries_executed', "SQL lekérdezés(ek)");
 define('lang', "Nyelv");
 define('get_size', "Méret megnézése");

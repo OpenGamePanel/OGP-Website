@@ -104,7 +104,7 @@ define('enabled', "Enabled");
 define('game_server', "Game server");
 define('there_are_no_databases_assigned_for', "There are no databases assigned for <b>%s</b>.");
 define('unable_to_connect_to_mysql_server_as', "Unable to connect to MySQL server as %s.");
-define('unable_to_create_db', "Unable to create a database.");
+define('unable_to_create_db', "Unable to create database.");
 define('unable_to_select_db', "Unable to select database %s.");
 define('db_info', "Database Information");
 define('db_tables', "Database tables");

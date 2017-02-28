@@ -44,7 +44,7 @@ define('available_maps', "Доступные карты");
 define('map_path', "Адрес карты");
 define('available_parameters', "Доступные параметры");
 define('start_server', "Запуск сервера");
-define('start_wait_note', "Запуск сервера может занять некоторое время, пожалуйста, подождите немного, не закрывая окно браузера.");
+define('start_wait_note', "The server startup might take a while. Please wait without closing your browser.");
 define('game_type', "Игра");
 define('map', "Карта");
 define('starting_server', "Запуск сервера, пожалуйста, подождите...");
@@ -115,7 +115,7 @@ define('unable_get_info', "Не удается получить необходи
 define('server_already_running', "Сервер уже запущен. Если вы не видите сервер в Мониторинге, это может быть связано с...");
 define('already_running_stop_server', "Остановка сервера");
 define('error_server_already_running', "Ошибка: сервер уже запущен на данном порту");
-define('failed_start_server_code', "Не удалось запустить удалённый сервер. Ошибка:");
+define('failed_start_server_code', "Failed to start the remote server. Error code: %s");
 define('disabled', "отключён");
 define('not_found_server', "сервер не найден");
 define('rcon_command_title', "RCON команда");

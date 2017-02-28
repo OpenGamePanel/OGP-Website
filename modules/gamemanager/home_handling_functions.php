@@ -159,8 +159,12 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os)
 						$new_param = $paramKey;
 					elseif($param->option == "ns" or $param->options == "ns")
 						$new_param = $paramKey.clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
+					elseif($param->option == "q" or $param->options == "q")
+						$new_param = $paramKey . '"' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
+					elseif($param->option == "s" or $param->options == "s")
+						$new_param = $paramKey . ' ' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
 					else
-						$new_param = $paramKey.' "'.clean_server_param_value($paramValue, $server_xml->cli_allow_chars).'"';
+						$new_param = $paramKey . ' "' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
 				  
 					if ($param['id'] == NULL || $param['id'] == "")
 						$start_cmd .= ' '.$new_param;
@@ -168,7 +172,10 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os)
 						$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
 				}			  
 			}
-			$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+			
+			if ($param['id'] != NULL && $param['id'] != ""){
+				$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+			}
 		} 
 	}
 	

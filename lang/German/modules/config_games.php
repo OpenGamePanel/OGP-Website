@@ -36,8 +36,8 @@ define('error_while_adding_cfg_to_db', "Ein fehler ist aufgetreten als Daten von
 define('no_configs_found', "Keine Konfigurationen gefunden in %s.");
 define('select_game', "Spiel auswählen");
 define('create_xml_configs', "Erstelle XML-Konfigs");
-define('failed_to_delete_config_from_db', "Failed to delete %s config from database");
-define('failed_removing_file', "Falied removing the file %s.");
-define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from disk and database.");
-define('delete_game_config_for', "Delete game configuration for %s from disk and database.");
+define('failed_to_delete_config_from_db', "Die Konfiguration %s konnte nicht aus der Datenbank gelöscht werden.");
+define('failed_removing_file', "Die Datei %s konnte nicht entfernt werden.");
+define('removed_game_cfg_from_disk_and_datbase', "Die Konfiguration %s wurde von Festplatte und Datenbank entfernt.");
+define('delete_game_config_for', "Spielkonfiguration %s von Festplatte und Datenbank löschen.");
 ?>

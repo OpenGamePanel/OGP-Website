@@ -110,7 +110,7 @@ define('only_available_for', "Only available for '%s' hosted on the remote serve
 define('ftp_on', "FTP engedélyezése");
 define('ftp_off', "FTP letiltása");
 define('change_ftp_account_status', "FTP fiók állapot negváltoztatása");
-define('change_ftp_account_status_info', "Amikor egy FTP fiók engedélyezve vagy tiltva van, akkor az hozzáadásra vagy eltávolításra kerül az FTP adatbázisból.");
+define('change_ftp_account_status_info', "Ha egy FTP fiók engedélyezve vagy tiltva van, akkor az hozzáadásra vagy eltávolításra kerül az FTP adatbázisából.");
 define('server_ftp_login', "Szerver FTP bejelentkezés");
 define('change_ftp_login_info', "Az FTP bejelentkezés megváltoztatása egy személyre szabottra.");
 define('change_ftp_login', "FTP bejelentkezés megváltoztatása");
@@ -180,7 +180,7 @@ define('game_server_copy_was_successful', "A játék szerver sikeresen átmásol
 define('game_server_copy_failed_with_return_code', "Játék szerver másolása sikertelen az alábbi a(z) %s hiba kóddal.");
 define('clone_mods', "Modok klónozása");
 define('game_server_owner', "Játékszerver tulajdonos");
-define('the_name_of_the_server_to_help_users_to_identify_it', "The name of the server to help users to identify it.");
+define('the_name_of_the_server_to_help_users_to_identify_it', "A szerver neve segít a felhasználóknak az azonosítani.");
 define('ips_and_ports_used_in_this_home', "IPs and Ports used in this home");
 define('note_ips_and_ports_are_not_cloned', "Megjegyzés - az IPk és portok nincsenek klónozva");
 define('mods_and_settings_for_this_game_server', "Modok és beállítások ehhez a játékszerverhez");

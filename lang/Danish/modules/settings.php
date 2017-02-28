@@ -23,7 +23,7 @@
  */
 
 define('maintenance_mode', "Vedligeholdelse");
-define('maintenance_mode_info', "Beskeden der bliver vist, til almindelige brugere under vedligeholdelse.");
+define('maintenance_mode_info', "Disable the Panel for normal users. Only administrators can access it during maintenance.");
 define('maintenance_title', "Vedligeholdes Title");
 define('maintenance_title_info', "Denne title bliver vist, til normale brugere, under vedligeholdes.");
 define('maintenance_message', "Vedligeholde Besked");

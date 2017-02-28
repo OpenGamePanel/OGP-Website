@@ -110,7 +110,7 @@ define('only_available_for', "Kun tilgængelig for '%s' hostes på fjern server 
 define('ftp_on', "Tænd FTP");
 define('ftp_off', "Sluk FTP");
 define('change_ftp_account_status', "Skift FTP konto status");
-define('change_ftp_account_status_info', "Når først en FTP konto, er slået til, eller slået fra, bliver den tilføjet eller fjernet fra PureFTPd's DataBase.");
+define('change_ftp_account_status_info', "Once a FTP account is enabled or disabled, it is added or removed from the FTP's database.");
 define('server_ftp_login', "Server FTP Log ind");
 define('change_ftp_login_info', "Skift FTP Log ind ved tilpasse en.");
 define('change_ftp_login', "Skift FTP Log ind");
