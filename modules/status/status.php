@@ -70,47 +70,60 @@ function exec_ogp_module()
 			   </div>
 			  </div>";
 	}
-	if ($modulecpu == "1" and $nocpushow != "1") 
-	{
-		echo "<div id=\"column4\" style=\"width:49.5%;float:right;margin-top:1%;\" >
-			   <div class=\"dragbox bloc rounded\">
-			   <h4>".get_lang('cpu_usage')."</h4>
-			   <div class=\"dragbox-content\">";
-		ksort($cores);
-		foreach($cores as $cpu => $percent)
-		{		 
-			echo "<b>CPU" . $cpu . " ".get_lang('cpu_load').": " . $percent . " %</b><br>
-				  <img src=\"modules/status/include/bar.php?rating=" . $percent . "\" style=\"width:100%;border:1px solid tranparent;\" />";
+
+	if (extension_loaded('gd')) {
+
+		if ($modulecpu == "1" and $nocpushow != "1") 
+		{
+			echo "<div id=\"column4\" style=\"width:49.5%;float:right;margin-top:1%;\" >
+				   <div class=\"dragbox bloc rounded\">
+				   <h4>".get_lang('cpu_usage')."</h4>
+				   <div class=\"dragbox-content\">";
+			ksort($cores);
+			foreach($cores as $cpu => $percent)
+			{		 
+				echo "<b>CPU" . $cpu . " ".get_lang('cpu_load').": " . $percent . " %</b><br>
+					  <img src=\"modules/status/include/bar.php?rating=" . $percent . "\" style=\"width:100%;border:1px solid tranparent;\" />";
+			}
+		
+			echo '</div>
+				  </div>
+				 </div>';
 		}
-	
-		echo '</div>
-			  </div>
-			 </div>';
+		if ($modulememory == "1") {
+			echo "<div id=\"column4\" style=\"width:49.5%;float:left;margin-top:1%;\" >
+			    <div class=\"dragbox bloc rounded\" >
+			    <h4>".get_lang('ram_usage')."</h4>
+			     <div class=\"dragbox-content\">
+			     <b>".get_lang('ram_used').": " . $ramusage . "<br></b>
+			     <img src=\"modules/status/include/bar.php?rating=" . $rampercent . "\" style=\"width:100%;border:1px solid tranparent;\">
+			     </div>
+			    </div></div>";
+		}
+		if ($modulestorage == "1") 
+		{
+			echo "<div id=\"column4\" style=\"width:100%;float:left;margin-top:1%;\" >
+				   <div class=\"dragbox bloc rounded\" >
+				   <h4>".get_lang('storage_space')."</h4>
+				    <div class=\"dragbox-content\">
+				    <b>".get_lang('storage_total').": " . $diskspace . "<br>
+				    ".get_lang('storage_used').": " . $diskinuse . "<br>
+				    <img src= \"modules/status/include/bar.php?rating=" . $hddbarusage . "\" style=\"width:100%;border:1px solid tranparent;\"><br>
+				    ".get_lang('storage_free').": " . $hddfreespace . "</b>
+				    </div>
+				   </div>
+				  </div>";
+		}
+
+	} else {
+		echo "<div id=\"column4\" style=\"width:100%;float:left;margin-top:1%;\"
+			<div class=\"dragbox bloc rounded\">
+				<h4>".get_lang('status_extension_required')."</h4>
+				<div class=\"dragbox-content\"><center><b>".get_lang('gd_info')."</b></center></div>
+			</div>
+		</div>";
 	}
-	if ($modulememory == "1") {
-		echo "<div id=\"column4\" style=\"width:49.5%;float:left;margin-top:1%;\" >
-		    <div class=\"dragbox bloc rounded\" >
-		    <h4>".get_lang('ram_usage')."</h4>
-		     <div class=\"dragbox-content\">
-		     <b>".get_lang('ram_used').": " . $ramusage . "<br></b>
-		     <img src=\"modules/status/include/bar.php?rating=" . $rampercent . "\" style=\"width:100%;border:1px solid tranparent;\">
-		     </div>
-		    </div></div>";
-	}
-	if ($modulestorage == "1") 
-	{
-		echo "<div id=\"column4\" style=\"width:100%;float:left;margin-top:1%;\" >
-			   <div class=\"dragbox bloc rounded\" >
-			   <h4>".get_lang('storage_space')."</h4>
-			    <div class=\"dragbox-content\">
-			    <b>".get_lang('storage_total').": " . $diskspace . "<br>
-			    ".get_lang('storage_used').": " . $diskinuse . "<br>
-			    <img src= \"modules/status/include/bar.php?rating=" . $hddbarusage . "\" style=\"width:100%;border:1px solid tranparent;\"><br>
-			    ".get_lang('storage_free').": " . $hddfreespace . "</b>
-			    </div>
-			   </div>
-			  </div>";
-	}
+
 	if($modulesystemtasks == "1"){
 		echo "<div id=\"column4\" style=\"width:100%;float:left;margin-top:1%;\" >
 				<div class=\"dragbox bloc rounded\" >

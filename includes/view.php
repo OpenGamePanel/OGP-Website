@@ -196,8 +196,8 @@ class OGPView {
 			// Attempt to automatically delete the install file only if an admin user has already been created and exists
 			if(is_object($db)){
 				$admins = $db->getAdmins();
-				if(isset($admins) && is_array($admins) && count($admins) > 0){
-					@unlink($filename);
+				if (file_exists($filename) && is_array($admins) && !empty($admins)) {
+					unlink($filename);
 				}
 			}
 			
