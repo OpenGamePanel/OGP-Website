@@ -1,0 +1,88 @@
+<game_config>
+  <game_key>wurmu_win32</game_key>
+  <installer>steamcmd</installer>
+  <game_name>Wurm Unlimited</game_name>
+  <server_exec_name>WurmServerLauncher.exe</server_exec_name>
+  <cli_template>%IP% %PORT% %QUERY_PORT% %PLAYERS% %SERVERNAME% %SERVERPASS% %ADMINPASS% %EPIC% %HOME% %HOMEKING% %LOGIN% %PVP% %RMI% %RMIREG% %START%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="ip=" />
+    <cli_param id="PORT" cli_string="externalport=" />
+    <cli_param id="PLAYERS" cli_string="maxplayers=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="queryport=">3</port>
+    <port type="add" id="RMI" cli_string="rmiport=">1</port>
+    <port type="add" id="RMIREG" cli_string="rmiregport=">2</port>
+  </reserve_ports>
+  <cli_allow_chars>'()[]{}|</cli_allow_chars>
+  <!-- escaped by default: \ " ' | &amp; ; > < ` $ ( ) [ ] -->
+  <max_user_amount>250</max_user_amount>
+  <mods>
+    <mod key="wurmu">
+      <name>none</name>
+      <installer_name>402370</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param id="SERVERNAME" key="servername=" type="text">
+      <option>q</option>
+      <desc>The name of the server that will be visible in server browsers.</desc>
+    </param>
+    <param id="SERVERPASS" key="serverpassword=" type="text">
+      <option>ns</option>
+      <desc>Sets the password that is used when trying to connect to the server.</desc>
+    </param>
+    <param id="ADMINPASS" key="adminpwd=" type="text">
+      <option>ns</option>
+      <desc>Unlocks the admin commands from within the game, that can be used to change the gameplay settings of the server, such as skill gain rate and field growth time.</desc>
+    </param>
+    <param id="EPIC" key="epicsettings=" type="select">
+      <option value="true">Enabled</option>
+      <option value="false">Disabled</option>
+      <options>ns</options>
+      <default>false</default>
+      <desc>If enabled, the server will follow the rules from the Epic servers in Wurm Online. For instance it will use the skill curve.</desc>
+    </param>
+    <param id="HOME" key="homeserver=" type="select">
+      <option value="true">Enabled</option>
+      <option value="false">Disabled</option>
+      <options>ns</options>
+      <default>true</default>
+      <desc>If the server is a home server (belongs to a single kingdom).</desc>
+    </param>
+    <param id="HOMEKING" key="homekingdom=" type="select">
+      <option value="0">No Kingdom</option>
+      <option value="1">Jenn-Kellon</option>
+      <option value="2">Mol-Rehan</option>
+      <option value="3">Horde of the Summoned</option>
+      <option value="4">Freedom</option>
+      <options>ns</options>
+      <default>4</default>
+      <desc>The kingdom the server belongs to.</desc>
+    </param>
+    <param id="LOGIN" key="loginserver=" type="select">
+      <option value="true">Enabled</option>
+      <option value="false">Disabled</option>
+      <options>ns</options>
+      <default>true</default>
+      <desc>Should only be set to disabled if the server is intended to be connected with another server that is going to act as a login server.</desc>
+    </param>
+    <param id="PVP" key="pvp=" type="select">
+      <option value="true">Enabled</option>
+      <option value="false">Disabled</option>
+      <options>ns</options>
+      <default>false</default>
+      <desc>Toggles PvP on or off on the server.</desc>
+    </param>
+    <param id="START" key="start=" type="text">
+      <option>ns</option>
+      <default>Adventure</default>
+      <desc>Starts the server with the configuration and world data from the subdirectory specified.</desc>
+    </param>
+  </server_params>
+  <post_install>
+    cp -nrT ./Adventure_backup ./Adventure
+    cp -nrT ./Creative_backup ./Creative
+  </post_install>
+</game_config>
