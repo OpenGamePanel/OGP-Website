@@ -169,4 +169,5 @@ define('temp_folder_not_writable', "La descarga no pudo completarse porque Apach
 define('unassign_from_subuser', "Desasignar del subusuario.");
 define('assign_to_subuser', "Asignar al subusuario.");
 define('select_subuser', "Selecciona subusuario.");
+define('no_ts3_servers_assigned_to_account', "You have no servers assigned to your account.");
 ?>

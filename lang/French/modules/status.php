@@ -35,4 +35,6 @@ define('storage_total', "Total");
 define('storage_used', "Utilisé");
 define('storage_free', "Libre");
 define('process_monitor', "Moniteur des Processus");
+define('status_extension_required', "Extension Requise");
+define('gd_info', "Extension PHP <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> requise pour générer ces images!");
 ?>

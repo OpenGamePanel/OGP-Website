@@ -45,7 +45,7 @@ define('feed_enable_info', "If your webhost has a firewall blocking the query po
 define('feed_url', "Feed link");
 define('feed_url_info', "GrayCube.com megosztja a LGSL feed URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Karakterkódolás");
-define('charset_info', "UTF8, ISO, ASCII, stb... Hagyd üresen az ISO kódolás használatához.");
+define('charset_info', "UTF8, ISO, ASCII, etc... Leave it blank to use ISO encoding.");
 define('steam_user', "Steam felhasználó");
 define('steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('steam_pass', "Steam jelszó");

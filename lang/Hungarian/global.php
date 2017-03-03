@@ -124,4 +124,6 @@ define('set_expiration_date', "Lejárati dátum megadása");
 define('admin_dsi', "DSi beállítások");
 define('user_dsi', "DSi");
 define('list_dsi', "DSi lista");
+define('no_remote_servers', "Nincs ismert távoli szerver! Adj szervert hozzá a funkció használatához.");
+
 ?>

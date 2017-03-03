@@ -35,4 +35,6 @@ define('storage_total', "Disk Space");
 define('storage_used', "Used");
 define('storage_free', "Free Space");
 define('process_monitor', "Process Monitor");
+define('status_extension_required', "Extension Required");
+define('gd_info', "PHP Extension <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> is required to generate these bar images!");
 ?>

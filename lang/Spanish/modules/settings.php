@@ -45,7 +45,7 @@ define('feed_enable_info', "Sí tu alojamiento web tiene el cortafuegos bloquean
 define('feed_url', "URL del Feed");
 define('feed_url_info', "GrayCube.com comparte un feed LGSL en la URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Codificación de caracteres");
-define('charset_info', "UTF-8, ISO, ASCII, etc... Dejalo en blanco para usar la codificacion de caracteres por defecto.");
+define('charset_info', "UTF8, ISO, ASCII, etc... Leave it blank to use ISO encoding.");
 define('steam_user', "Usuario de Steam");
 define('steam_user_info', "Esta cuenta se necesita para descargar algunos juegos nuevos desde Steam como CS:GO.");
 define('steam_pass', "Contraseña de Steam");

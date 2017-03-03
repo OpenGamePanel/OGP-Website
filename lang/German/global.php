@@ -124,4 +124,6 @@ define('set_expiration_date', "Ablaufdatum setzen");
 define('admin_dsi', "DSi Einstellungen");
 define('user_dsi', "DSi");
 define('list_dsi', "DSi Liste");
+define('no_remote_servers', "There is no known remote servers! Add a server to use this function.");
+
 ?>
