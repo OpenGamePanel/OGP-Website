@@ -1,0 +1,131 @@
+<game_config>
+	<game_key>hellion_win64</game_key>
+	<installer>steamcmd</installer>
+	<game_name>Hellion</game_name>
+	<server_exec_name>HELLION_Dedicated.exe</server_exec_name>
+	<cli_template>%PID_FILE%</cli_template>
+	<cli_params>  
+		<cli_param id='PID_FILE' cli_string='' options='s' />
+	</cli_params>
+	<reserve_ports>
+		<port type="add" id="QUERY_PORT">1</port>
+	</reserve_ports>
+	<console_log>output_log.txt</console_log>
+	<max_user_amount>100</max_user_amount>
+	<mods>
+		<mod key='hellion'>
+			<name>none</name>
+			<installer_name>598850</installer_name>
+			<installer_login>anonymous</installer_login>
+		</mod>
+	</mods>
+	<replace_texts>
+		<text key="home_name">
+			<default>server_name=.*</default>
+			<var>server_name=</var>
+			<filepath>GameServer.ini</filepath>
+			<options></options>
+		</text>
+		<text key="port">
+			<default>game_client_port=.*</default>
+			<var>game_client_port=</var>
+			<filepath>GameServer.ini</filepath>
+			<options></options>
+		</text>
+		<!--<text key="query_port">
+			<default>status_port=.*</default>
+			<var>status_port=</var>
+			<filepath>GameServer.ini</filepath>
+			<options></options>
+		</text>-->
+		<text key="max_players">
+			<default>max_players=.*</default>
+			<var>max_players=</var>
+			<filepath>GameServer.ini</filepath>
+			<options></options>
+		</text>
+		<text key="true">
+			<default>server_tick_count=.*</default>
+			<var>server_tick_count=64</var>
+			<filepath>GameServer.ini</filepath>
+			<options></options>
+		</text>
+	</replace_texts>
+		<custom_fields>
+			<field key="server_password" type="text">
+				<default>server_password=.*</default>
+				<default_value></default_value>
+				<var>server_password=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>Server password needed to login.</desc>
+			</field>
+			<field key="status_port" type="text">
+				<default>status_port=.*</default>
+				<default_value></default_value>
+				<var>status_port=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>Server password needed to login.</desc>
+			</field>
+			<field key="solar_system_time" type="text">
+				<default>solar_system_time=.*</default>
+				<default_value>-1</default_value>
+				<var>solar_system_time=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>Time in seconds, start of solar system. (Default: -1) (-1 = Random)</desc>
+			</field>
+			<field key="save_interval" type="text">
+				<default>save_interval=.*</default>
+				<default_value>900</default_value>
+				<var>save_interval=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>Value in seconds (if value = -1 then its off) (Default: 900)</desc>
+			</field>
+			<field key="number_of_save_files" type="text">
+				<default>number_of_save_files=.*</default>
+				<default_value>10</default_value>
+				<var>number_of_save_files=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>Max value = 100 (Default: 10)</desc>
+			</field>
+			<field key="ship_despawn_time" type="text">
+				<default>ship_despawn_time=.*</default>
+				<default_value>259200</default_value>
+				<var>ship_despawn_time=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>Value in seconds // 259200=72 hours (Default: 259200)</desc>
+			</field>
+			<field key="ship_despawn_distress" type="text">
+				<default>ship_despawn_distress=.*</default>
+				<default_value>10800</default_value>
+				<var>ship_despawn_distress=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>Value in seconds // 10800=3 hours (Default: 10800)</desc>
+			</field>
+			<field key="ship_despawn_distress_chance" type="text">
+				<default>ship_despawn_distress_chance=.*</default>
+				<default_value>0.05</default_value>
+				<var>ship_despawn_distress_chance=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>Value in % (0-1) (Default: 0.05)</desc>
+			</field>
+			<field key="spawn_random_ships_count" type="text">
+				<default>spawn_random_ships_count=.*</default>
+				<default_value>0</default_value>
+				<var>spawn_random_ships_count=</var>
+				<filepath>GameServer.ini</filepath>
+				<options></options>
+				<desc>(Default: 0)</desc>
+			</field>
+		</custom_fields>
+	<post_install>
+		./HELLION_Dedicated.exe -scan
+	</post_install>
+</game_config>
