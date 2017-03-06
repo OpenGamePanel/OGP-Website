@@ -57,7 +57,7 @@ define('start_firewall', "Tűzfal elindítása");
 define('seconds', "Másodpercek");
 define('reboot', "Távoli szerver újraindítása");
 define('restart', "Agent újraindítása");
-define('confirm_reboot', "Are you sure you want to remotely reboot the entire physical server named '%s'?");
+define('confirm_reboot', "Biztos vagy benne, hogy távolról újra akarod indítani az egész fizikai szervert '%s'?");
 define('confirm_restart', "Biztos vagy benne, hogy újra akarod indítani a(z) %s nevű Agentet?");
 define('restarting', "Agent újraindítása... Kérlek várj.");
 define('restarted', "Agent sikeresen újraindítva.");
@@ -65,7 +65,7 @@ define('reboot_success', "Server named '%s' was successfully rebooted. You will 
 define('invalid_remote_host_id', "Invalid remote host id '%s' given.");
 define('remote_host_removed', "A(z) %s nevű távoli kiszolgálót sikeresen eltávolítottuk.");
 define('editing_remote_server', "Az úgynevezett '%s' távoli szerver szerkesztése");
-define('remote_server_settings_changed', "Changed settings for remote server '%s' successfully.");
+define('remote_server_settings_changed', "Beállítások sikeresen megváltoztatva a(z) '%s' távoli szerverhez.");
 define('save_settings', "Beállítások mentése");
 define('set_ips', "IPk beállítása");
 define('remote_ip', "Távoli IP");
