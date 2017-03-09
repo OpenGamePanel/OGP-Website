@@ -93,14 +93,15 @@ function exec_ogp_module()
 	if( !empty($enabled_mods) )
 	{
 		$cpu_count = $remote->cpu_count();
-		
 		if($cpu_count === -1)
 		{
 			print_failure( warning_agent_offline_defaulting_CPU_count_to_1 );
 			$cpu_count = 'NA';
-		} else {
+		}
+		else
+		{
 			// cpu numbering starts from 0 so lets remove the last cpu.
-			--$cpu_count;
+			$cpu_count -= 1;
 		}
 
 		echo "<table class='center'>\n".
@@ -110,6 +111,7 @@ function exec_ogp_module()
 		if ( $server_xml->max_user_amount )
 			echo "<td><b>". max_players ."</b></td>";
 		echo "<td><b>". extra_cmd_line_args ."</b></td>".
+			 "<td><b>". cpu_affinity ."</b></td>".
 			 "<td><b>". nice_level ."</b></td><td></td>".
 			 "</tr>\n";
 		foreach ( $enabled_mods as $enabled_rows ) {
@@ -128,28 +130,17 @@ function exec_ogp_module()
 			}
 			echo "<input id='cliopts' type='text' name='cliopts' size='20' value=\"".
 				 str_replace('"', "&quot;", strip_real_escape_string($enabled_rows['extra_params']))."\" />".
-				 "</td><td>\n";
-
-				 echo create_drop_box_from_array(array_merge(range(-19,19)),
+				 "</td><td>\n".
+				 create_drop_box_from_array(array_merge(array('NA'),range(0,$cpu_count)),
+				 'cpus',$enabled_rows['cpu_affinity']).
+				 "</td><td>\n".
+				 create_drop_box_from_array(array_merge(range(-19,19)),
 				 'nice',$enabled_rows['nice']).
 				 "</td><td>\n".
 				 "<button class='set_options' id='$enabled_rows[mod_cfg_id]' >". set_options ."</button>\n".
 				 "</td></tr>\n";
-
 		}
-			
-		echo '</table>';
-
-		echo '<h2>'.get_lang('cpu_affinity').'</h2>';
-		echo '<div id="cpu_select">';
-		
-		for($x = 0; $x <= $cpu_count; ++$x)
-		{
-			echo '<span style="display:inline-block;"><label for="cpu_'.$x.'">CPU '.$x.'</label> <input type="checkbox" name="cpus[]" value="'.$x.'" id="cpu_'.$x.'" class="cpus" /></span>';
-		}
-		
-		echo '</div><button class="set_options" id="'.$enabled_rows['mod_cfg_id'].'" style="float:right">'.get_lang('set_affinity').'</button>';
-
+		echo "</table>\n";
 		$game_mods = $db->getAvailableModsForGameHome($home_id);
 		$mods_available = 0;
 		foreach ( $game_mods as $game_mod )
