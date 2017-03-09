@@ -186,4 +186,10 @@ define('view_player_commands', "View Player Commands");
 define('hide_player_commands', "Hide Player Commands");
 define('no_online_players', "There are no online players.");
 define('invalid_game_mod_id', "Invalid Game/Mod ID specified.");
+efine('auto_update_title_popup', "Steam Auto Update Link");
+define('auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
+define('auto_update_copy_me', "Copy");
+define('auto_update_copy_me_success', "Copied!");
+define('auto_update_copy_me_fail', "Failed to copy. Please manually copy the link.");
+define('get_steam_autoupdate_api_link', "Auto Update Link");
 ?>
