@@ -134,6 +134,12 @@ class OGPView {
 		// Include jQuery, jQuery UI, and our global CSS file in the header code
 		$this->header_code .= '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">';
 		$this->header_code .= '<script type="text/javascript" src="js/jquery/jquery.min.js"></script><script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>';
+		
+		// Include magnific popup
+		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>';
+		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">';
+		
+		// Include our global JS and CSS
 		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>';
 		$this->header_code .= '<link rel="stylesheet" href="css/global.css">';
 		
@@ -186,6 +192,9 @@ class OGPView {
         {
             $footer .= "<div class='footer center'>".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved').".</div>";
         }
+        
+        // Add our magnific popup holder to the page (hidden element):
+        $footer .= '<div class="mangificWrapper hide"><div class="white-popup"><div class="magnificTitle"></div><div class="magnificSubTitle"></div><div class="magnificContentsDiv"></div><button title="Close (Esc)" type="button" class="mfp-close">&times;</button></div></div>';
 		
 		if (!isset($_GET['action']))
 		{

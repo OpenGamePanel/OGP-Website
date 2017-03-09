@@ -568,4 +568,22 @@ function getClientIPAddress(){
 		return $_SERVER['REMOTE_ADDR'];
 	}
 }
+
+function getOGPSiteURL(){
+	$url = '';
+	$scheme = ( isset($_SERVER['HTTPS']) and get_true_boolean($_SERVER['HTTPS']) ) ? "https://" : "http://";
+	$url .= $scheme . $_SERVER['HTTP_HOST'];
+	if(!empty($_SERVER['REQUEST_URI'])){
+		$lastSlash = strrpos($_SERVER['REQUEST_URI'], "/");
+		if($lastSlash !== false){
+			$url .= substr($_SERVER['REQUEST_URI'], 0, $lastSlash);
+		}
+	}	
+	
+	if(!empty($url)){
+		return $url;
+	}
+	
+	return false;
+}
 ?>

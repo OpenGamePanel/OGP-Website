@@ -6,6 +6,66 @@ function wireClicks(){
 	$("span.versionInfo").click(function(e){
 		handleVersionClick();
 	});
+	
+	$(".getAutoUpdateLink").click(function(e){
+		showSteamUpdateLink($(this));
+	});
+}
+
+function showSteamUpdateLink(elem){
+	$("div.mangificWrapper .magnificTitle").text($(elem).attr('autoupdatetext'));
+	$("div.mangificWrapper .magnificContentsDiv").html('<p>' + $(elem).attr('autoupdatehtml') + '</p><p><input class="updateLink" style="width: 75%;" type="text" value="' + $(elem).attr('autoupdatelink') + '"><button class="copyButton">' + $(elem).attr('copyme') + '</button>&nbsp; <span class="copyStatus"></span></p>');
+		
+	showPopup(function(){
+		$("input.updateLink").click(function(e){
+			$(this).select();
+		});
+		
+		$(".copyButton").click(function(e){
+			copyInput($("input.updateLink"), $("span.copyStatus"), elem);
+		});
+		
+		copyInput($("input.updateLink"), $("span.copyStatus"), elem);
+	});
+}
+
+function copyInput(input, resultArea, elemWithAttr){
+	$(input).select();
+	var successful = document.execCommand('copy');
+	var msg = successful ? 'successful' : 'unsuccessful';
+	logToConsole('Copying text command was ' + msg);
+	if(successful){
+		$(resultArea).text($(elemWithAttr).attr('copysuccess'));
+	}else{
+		$(resultArea).text($(elemWithAttr).attr('copyfail'));
+	}
+}
+
+function showPopup(onOpen, onClose){
+	$.magnificPopup.open({
+		items: {
+			src: $("div.mangificWrapper div.white-popup"),
+			type: 'inline'
+		},
+		callbacks: {
+			close: function() {
+				cleanupPopup();
+				if(!isUndefinedOrEmptyValue(onClose) && jQuery.isFunction(onClose)){
+					onClose();
+				}
+			},
+			open: function() {
+				if(!isUndefinedOrEmptyValue(onOpen) && jQuery.isFunction(onOpen)){
+					onOpen();
+				}
+			}
+		}
+	});
+}
+
+function cleanupPopup(){
+	$("div.mangificWrapper .magnificTitle").text('');
+	$("div.mangificWrapper .magnificContentsDiv").html('');
 }
 
 function handleVersionClick(){
