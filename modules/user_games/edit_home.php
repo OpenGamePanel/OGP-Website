@@ -532,6 +532,21 @@ function exec_ogp_module()
 				$cpus = 'NA';
 			}
 
+			// If we're on Windows, and some cores have been selected...
+			if(preg_match('/win/', $remote->what_os()) && $cpus !== 'NA')
+			{
+				$result = 0;
+				$cores = explode(',', $cpus);
+
+				foreach ($cores as $core)
+				{
+					$coreNum = intval($core);
+					$result |= (1 << $coreNum);
+				}
+
+				$cpus = dechex($result);
+			}
+
 			$nice = isset($_POST['nice']) ? (int)$_POST['nice'] : 0;
 			$mod_cfg_id = $_POST['mod_cfg_id'];
 
