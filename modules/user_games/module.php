@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "User games";
 $module_version = "1.3";
-$db_version = 2;
+$db_version = 3;
 $module_required = TRUE;
 $module_menus = array(
 	array( 'subpage' => '', 'name'=>'Game Servers', 'group'=>'admin' )
@@ -66,4 +66,8 @@ $install_queries[1] = array(
 $install_queries[2] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."user_homes` ADD `user_expiration_date` VARCHAR(21) NOT NULL default 'X';",
 	"ALTER TABLE `".OGP_DB_PREFIX."user_group_homes` ADD `user_group_expiration_date` VARCHAR(21) NOT NULL default 'X';");
+
+$install_queries[3] = array(
+	"ALTER TABLE `".OGP_DB_PREFIX."game_mods` modify column `cpu_affinity` varchar(64) null AFTER `extra_params`, comment = 'utf8mb4_general_ci'";
+	);
 ?>

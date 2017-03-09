@@ -6,9 +6,17 @@ $('.set_options').click(function(){
 	var mod_cfg_id = $(this).attr('id');
 	var modtr = $('#mod_cfg_id_'+mod_cfg_id);
 	var addpost = {};
+	
+	var cpus = [];
+
+	$("#cpu_select").find('.cpus:checked').each(function(i, e) {
+		cpus.push($(this).val());
+		addpost['cpus'] = cpus.join();
+	});
+
 	addpost[ 'set_options' ] = 1;
 	addpost[ 'cliopts' ] = modtr.find('#cliopts').val();
-	addpost[ 'cpus' ] = modtr.find('#cpus').val();
+
 	addpost[ 'nice' ] = modtr.find('#nice').val();
 	addpost[ 'mod_cfg_id' ] = mod_cfg_id;
 	if( modtr.find('#maxplayers').get(0) )
