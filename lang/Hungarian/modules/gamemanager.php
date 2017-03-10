@@ -186,4 +186,10 @@ define('view_player_commands', "Játékos parancsok mutatása");
 define('hide_player_commands', "Játékos parancsok elrejtése");
 define('no_online_players', "Nincsenek online játékosok.");
 define('invalid_game_mod_id', "Érvénytelen játék/mod ID meghatározva.");
+define('auto_update_title_popup', "Steam Auto Update Link");
+define('auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
+define('auto_update_copy_me', "Másolás");
+define('auto_update_copy_me_success', "Másolva!");
+define('auto_update_copy_me_fail', "Sikertelen a másolás. Kérlek másold a linket manuálisan.");
+define('get_steam_autoupdate_api_link', "Automatikus frissítési link");
 ?>

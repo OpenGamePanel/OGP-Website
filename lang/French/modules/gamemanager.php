@@ -186,4 +186,10 @@ define('view_player_commands', "Voir Commandes Joueur");
 define('hide_player_commands', "Cacher Commandes Joueur");
 define('no_online_players', "Il n'y a pas de joueurs en ligne.");
 define('invalid_game_mod_id', "ID de Jeu/Mod spécifié invalide.");
+define('auto_update_title_popup', "Lien de Mise à Jour Steam Automatique");
+define('auto_update_popup_html', "<p>Veuillez utiliser le lien suivant pour vérifier et mettre à jour automatiquement le serveur de jeu par Steam si besoin.&nbsp; Vous pouvez l'utiliser avec un cronjob ou initier manuellement le processus.</p>");
+define('auto_update_copy_me', "Copier");
+define('auto_update_copy_me_success', "Copié!");
+define('auto_update_copy_me_fail', "Erreur de copie. Veuillez copier le lien manuellement.");
+define('get_steam_autoupdate_api_link', "Lien de Mise à Jour");
 ?>
