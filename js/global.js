@@ -35,9 +35,9 @@ function copyInput(input, resultArea, elemWithAttr){
 	var msg = successful ? 'successful' : 'unsuccessful';
 	logToConsole('Copying text command was ' + msg);
 	if(successful){
-		$(resultArea).text($(elemWithAttr).attr('copysuccess'));
+		$(resultArea).text($(elemWithAttr).attr('copysuccess')).fadeIn('fast').delay(500).fadeOut('slow').delay(500).fadeIn('slow').delay(500).fadeOut('slow').delay(500).fadeIn('fast').delay(2000).fadeIn('fast');
 	}else{
-		$(resultArea).text($(elemWithAttr).attr('copyfail'));
+		$(resultArea).text($(elemWithAttr).attr('copyfail')).fadeIn('fast').delay(500).fadeOut('slow').delay(500).fadeIn('slow').delay(500).fadeOut('slow').delay(500).fadeIn('fast').delay(2000).fadeIn('fast');
 	}
 }
 
