@@ -504,8 +504,50 @@ function exec_ogp_module()
 		{
 			$maxplayers = 0 + @$_POST['maxplayers'];
 			$cliopts = $_POST['cliopts'];
-			$cpus = $_POST['cpus'];
-			$nice = $_POST['nice'];
+
+			// Get the total CPU count. and, if the agent is offline, set the CPU to NA.
+			$remoteCpus = $remote->cpu_count();
+			$validCpus = $remoteCpus === -1 ? 'NA' : $remoteCpus-1;
+
+			if(isset($_POST['cpus']) && $validCpus !== 'NA')
+			{
+				$cpuArray = explode(',', $_POST['cpus']);
+
+				// Check if a a valid core has been submitted. eg, the checkbox hasn't been manually edited.
+				foreach($cpuArray as $cpu)
+				{
+					if($cpu > $validCpus || !is_numeric($cpu))
+					{
+						$cpus = 'NA';
+						break;
+					} else {
+						$cpus[] = $cpu;
+					}
+				}
+
+				// If $cpus is an array, seperate all the values with a comma. Otherwise, just pass $cpus to the query - which, as above, will be NA.
+				$cpus = is_array($cpus) ? implode(',', $cpus) : $cpus;
+
+			} else {
+				$cpus = 'NA';
+			}
+
+			// If we're on Windows, and some cores have been selected...
+			if(preg_match('/win/', $remote->what_os()) && $cpus !== 'NA')
+			{
+				$result = 0;
+				$cores = explode(',', $cpus);
+
+				foreach ($cores as $core)
+				{
+					$coreNum = intval($core);
+					$result |= (1 << $coreNum);
+				}
+
+				$cpus = strtoupper(dechex($result));
+			}
+
+			$nice = isset($_POST['nice']) ? (int)$_POST['nice'] : 0;
 			$mod_cfg_id = $_POST['mod_cfg_id'];
 
 			if ( $db->updateGameModParams($maxplayers,$cliopts,$cpus,$nice,$home_id,$mod_cfg_id) === TRUE )
