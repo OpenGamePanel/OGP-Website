@@ -125,7 +125,7 @@ if(isset($_REQUEST["action"])){
 						$home_ip_ports = $db->getHomeIpPorts($homeId)[0];
 						$server_xml = read_server_config(SERVER_CONFIG_LOCATION . '/' . $server_home['home_cfg_file']);
 						if($server_xml->installer == 'steamcmd') {
-							$remote = new OGPRemoteLibrary($server_home['agent_ip'], $server_home['agent_port'], $server_home['encryption_key'], $timeout);
+							$remote = new OGPRemoteLibrary($server_home['agent_ip'], $server_home['agent_port'], $server_home['encryption_key'], $server_home['timeout']);
 							$appId = (int)$server_xml->mods->mod->installer_name;
 							$mod_id = key($server_home['mods']);
 							$mod_key = $server_home['mods'][$mod_id]['mod_key'];
