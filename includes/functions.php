@@ -586,4 +586,16 @@ function getOGPSiteURL(){
 	
 	return false;
 }
+
+function hasValue($val, $zeroAllowed = false){
+	if(isset($val) && !empty($val)){
+		return true;
+	}else{
+		if($zeroAllowed == true && $val == 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
 ?>
