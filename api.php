@@ -80,6 +80,10 @@ function runSteamAutoUpdate(){
 	return false;
 }
 
+/****************** *
+*  CODE APP START   *
+* ******************/
+
 // Report all PHP errors
 error_reporting(E_ERROR);
 
