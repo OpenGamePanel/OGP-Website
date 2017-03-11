@@ -140,15 +140,45 @@ function exec_ogp_module()
 			
 		echo '</table>';
 
-		echo '<h2>'.get_lang('cpu_affinity').'</h2>';
-		echo '<div id="cpu_select">';
+		echo '<h3>'.get_lang('cpu_affinity').'</h3>';
+		echo "<p class='info'>". cpu_affinity_info ."</p>\n";
+		echo '<div id="cpu_select" style="text-align: center;">';
+		
+		// Get the selected cores.
+		$enabledCores = $db->getHomeAffinity($home_id);
+		$cores = [];
+		
+		if ($enabledCores !== 'NA')
+		{
+			
+			if (preg_match('/win/', $remote->what_os()))
+			{
+				$coreHex = hexdec($enabledCores);
+				$cores = [];
+				$core = 0;
+
+				while ($coreHex > 0)
+				{
+					if ($coreHex & 1 === 1)
+					{
+						$cores[] = $core;
+					}
+					
+					$core++;
+					$coreHex >>= 1;
+				}
+			} else {
+				$cores = explode(',', $enabledCores);
+			}
+			
+		}
 		
 		for($x = 0; $x <= $cpu_count; ++$x)
 		{
-			echo '<span style="display:inline-block;"><label for="cpu_'.$x.'">CPU '.$x.'</label> <input type="checkbox" name="cpus[]" value="'.$x.'" id="cpu_'.$x.'" class="cpus" /></span>';
+			echo '<span style="display:inline-block;"><label for="cpu_'.$x.'">CPU '.$x.'</label> <input type="checkbox" name="cpus[]" value="'.$x.'" id="cpu_'.$x.'" class="cpus" '. ( in_array($x, $cores) ? 'checked' : '' ) .'/></span>';
 		}
 		
-		echo '</div><button class="set_options" id="'.$enabled_rows['mod_cfg_id'].'" style="float:right">'.get_lang('set_affinity').'</button>';
+		echo '<button class="set_options" id="'.$enabled_rows['mod_cfg_id'].'" style="margin-left:10px;">'.get_lang('set_affinity').'</button></div>';
 
 		$game_mods = $db->getAvailableModsForGameHome($home_id);
 		$mods_available = 0;
