@@ -68,6 +68,5 @@ $install_queries[2] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."user_group_homes` ADD `user_group_expiration_date` VARCHAR(21) NOT NULL default 'X';");
 
 $install_queries[3] = array(
-	"ALTER TABLE `".OGP_DB_PREFIX."game_mods` modify column `cpu_affinity` varchar(64) null AFTER `extra_params`, comment = 'utf8mb4_general_ci'";
-	);
+	"ALTER TABLE `".OGP_DB_PREFIX."game_mods` modify column `cpu_affinity` varchar(64) null AFTER `extra_params`, comment = 'utf8mb4_general_ci';");
 ?>
