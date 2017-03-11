@@ -66,8 +66,8 @@ abstract class OGPDatabase {
     abstract public function getGroupList();
 
     abstract public function getUsersGroups($user_id);
-	
-	abstract public function getUserGroupList($user_id);
+    
+    abstract public function getUserGroupList($user_id);
 
     /// \return array of users. Array is empty if there is no users available.
     abstract public function getAvailableUsersForGroup($group_id);
@@ -116,7 +116,7 @@ abstract class OGPDatabase {
 
     abstract public function addModule($module_title,$module,$module_version,$db_version);
 
-	abstract public function getModuleMenu($module_id);
+    abstract public function getModuleMenu($module_id);
 
     abstract public function addModuleMenu($module_id,$subpage,$group,$name,$pos);
 
@@ -177,8 +177,8 @@ abstract class OGPDatabase {
     abstract public function isIpPortOwnedByUser($user_id, $ip, $port);
 
     abstract public function getRemoteServerById($remote_server_id);
-	
-	abstract public function getCfgHomeById($cfgid);
+    
+    abstract public function getCfgHomeById($cfgid);
 
     abstract public function getIpPortsForUser($user_id);
 
@@ -219,11 +219,11 @@ abstract class OGPDatabase {
     abstract public function delGameMod($mod_id);
 
     abstract public function changeHomePath($home_id,$path);
-	
-	abstract public function changeUserIdMain($home_id,$userid);
-	
-	abstract public function changeFtpPassword($home_id,$password);
-	
+    
+    abstract public function changeUserIdMain($home_id,$userid);
+    
+    abstract public function changeFtpPassword($home_id,$password);
+    
     /// \brief get available mods for game home.
     abstract public function getAvailableModsForGameHome($home_id);
 
@@ -245,8 +245,10 @@ abstract class OGPDatabase {
     /// \return true If username and password match.
     /// \return false If username and password does not match
     abstract public function is_valid_login($username,$password);
-	
-	abstract public function getTablePrefix();
+    
+    abstract public function getTablePrefix();
+    
+    abstract public function getHomeAffinity($home_id);
 }
 
 ?>

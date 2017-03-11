@@ -2831,6 +2831,27 @@ class OGPDatabaseMySQL extends OGPDatabase
 		}
 		return FALSE;
 	}
+	
+	public function getHomeAffinity ($home_id)
+	{
+		if (is_numeric($home_id) === false)
+		{
+			return false;
+		}
+		
+		$query = 'SELECT `cpu_affinity` FROM `%sgame_mods` WHERE `home_id` = %2$d;';
+		$query = sprintf($query, $this->table_prefix, (int)$home_id);
+		
+		$result = mysqli_query($this->link, $query);
+		++$this->queries_;
+		
+		if($result === false)
+		{
+			return false;
+		}
+		
+		return mysqli_fetch_row($result)[0];
+	}
 }
 
 ?>
