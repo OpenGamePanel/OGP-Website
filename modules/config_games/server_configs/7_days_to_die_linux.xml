@@ -12,7 +12,7 @@
     <cli_param id="CONTROL_PASSWORD" cli_string="-t" options="s" />
   </cli_params>
   <maps_location>Data/Worlds</maps_location>
-  <console_log>7DaysToDie_Data/output_log.txt</console_log>
+  <console_log>7DaysToDieServer_Data/output_log.txt</console_log>
   <max_user_amount>128</max_user_amount>
   <mods>
     <mod key="7daystodie">
@@ -407,7 +407,7 @@
   </custom_fields>
   <post_install>
 echo &apos;#!/bin/bash
-SERVER_CMD=&quot;./7DaysToDie.x86 -configfile=serverconfig.xml -logfile 7DaysToDie_Data/output_log.txt&quot;
+SERVER_CMD=&quot;./7DaysToDieServer.x86 -configfile=serverconfig.xml -logfile 7DaysToDieServer_Data/output_log.txt&quot;
 while getopts &quot;:i:p:t:&quot; OPTION
   do
     case $OPTION in
@@ -426,13 +426,13 @@ while getopts &quot;:i:p:t:&quot; OPTION
     esac
   done
 TPORT=$(expr $PORT + 1)
-if [ -h 7DaysToDie.x86 ]
+if [ -h 7DaysToDieServer.x86 ]
   then
-    cp 7DaysToDie.x86 7DaysToDie.x86.temp
-    rm 7DaysToDie.x86
-    mv 7DaysToDie.x86.temp 7DaysToDie.x86
-    chmod +x 7DaysToDie.x86
-    chattr +i 7DaysToDie.x86
+    cp 7DaysToDieServer.x86 7DaysToDieServer.x86.temp
+    rm 7DaysToDieServer.x86
+    mv 7DaysToDieServer.x86.temp 7DaysToDieServer.x86
+    chmod +x 7DaysToDieServer.x86
+    chattr +i 7DaysToDieServer.x86
 fi
 nohup $SERVER_CMD &amp;
 trap shutdown EXIT
