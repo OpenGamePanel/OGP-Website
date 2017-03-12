@@ -212,4 +212,6 @@ define('add_folder', "Mappa hozzáadása");
 define('add_folder_info', "Írd le a nevét az új mappának, majd kattints az ikonra.");
 define('valid_user', "Kérlek, határozz meg egy érvényes felhasználót.");
 define('valid_group', "Kérlek, határozz meg egy érvényes csoportot.");
+define('set_affinity', "Set Server Affinity");
+define('cpu_affinity_info', "Select the CPU core(s) you want to assign to the game server.");
 ?>
