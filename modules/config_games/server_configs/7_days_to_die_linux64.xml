@@ -12,7 +12,7 @@
     <cli_param id="CONTROL_PASSWORD" cli_string="-t" options="s" />
   </cli_params>
   <maps_location>Data/Worlds</maps_location>
-  <console_log>7DaysToDie_Data/output_log.txt</console_log>
+  <console_log>7DaysToDieServer_Data/output_log.txt</console_log>
   <max_user_amount>128</max_user_amount>
   <mods>
     <mod key="7daystodie">
@@ -406,7 +406,7 @@
   </custom_fields>
   <post_install>
 echo &apos;#!/bin/bash
-SERVER_CMD=&quot;./7DaysToDieServer.x86_64 -configfile=serverconfig.xml -logfile 7DaysToDie_Data/output_log.txt&quot;
+SERVER_CMD=&quot;./7DaysToDieServer.x86_64 -configfile=serverconfig.xml -logfile 7DaysToDieServer_Data/output_log.txt&quot;
 while getopts &quot;:i:p:t:&quot; OPTION
   do
     case $OPTION in
