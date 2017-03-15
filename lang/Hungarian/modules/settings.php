@@ -25,7 +25,7 @@
 define('maintenance_mode', "Karbantartás");
 define('maintenance_mode_info', "A Panel kikapcsolása a normál felhasználók számára. Csak rendszergazdák férhetnek hozzá a karbantartás alatt.");
 define('maintenance_title', "Karbantartás címe");
-define('maintenance_title_info', "The title that is displayed to normal users during maintenance.");
+define('maintenance_title_info', "A cím, amely megjelenik a normál felhasználók számára a karbantartás során.");
 define('maintenance_message', "Karbantartási üzenet");
 define('maintenance_message_info', "Az üzenet, ami megjelenik a rendes felhasználóknak a karbantartás alatt.");
 define('update_settings', "Frissítési beállítások");

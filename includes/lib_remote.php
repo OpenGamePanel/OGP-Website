@@ -38,7 +38,7 @@ class OGPRemoteLibrary
 	private $enc;
 	private $timeout;
 
-	function __construct($host,$port,$encryption_key,$timeout = 2)
+	public function __construct($host,$port,$encryption_key,$timeout = 5)
 	{
 		$this->host = $host;
 		$this->port = $port;
@@ -48,7 +48,7 @@ class OGPRemoteLibrary
 		$this->timeout = $timeout;
 	}
 
-	function __destruct()
+	public function __destruct()
 	{
 	}
 
@@ -167,6 +167,8 @@ class OGPRemoteLibrary
 		if ( $response === NULL )
 			return 0;
 
+		if ( $response == -10 )
+			return 'Agent Returned: -10. Home not found.';
 		@list($retval,$data_tmp) = @explode(";",$response);
 
 		// We get log only with positive values.
@@ -340,6 +342,59 @@ class OGPRemoteLibrary
 		else
 			return -1;
 	}
+
+	// Returns the latest buildid for $appId
+	public function fetch_steam_version($appId, $pureOutput = 0)
+	{
+		$params = $this->encrypt_params($appId, $pureOutput);
+		$this->add_enc_chk($params);
+
+		$request = xmlrpc_encode_request("fetch_steam_version", $params);
+		$response = $this->sendRequest($request);
+
+		return $response;
+	}
+
+	// Returns -10 if the steamapps/appmanifest file doesn't exist.
+	// Returns the version installed otherwise.
+	public function installed_steam_version($game_home, $mod, $pureOutput = 0)
+	{
+		$params = $this->encrypt_params($game_home, $mod, $pureOutput);
+		$this->add_enc_chk($params);
+
+		$request = xmlrpc_encode_request("installed_steam_version", $params);
+		$response = $this->sendRequest($request);
+
+		return $response;
+	}
+
+	// If server is running, stops it. Starts an update. And if the server was running, starts the server upon finishing the update.
+	// Returns -10 if an update is currently in place.
+	// Returns -9 if the server failed to stop.
+	// Returns -8 if the update failed to start.
+	// Returns -7 if the server failed to start.
+	// Returns 1 on success. (updated, started)
+	// Returns 2 if the update was successful, but the server wasn't originally running. So wasn't started.
+
+	// Requires agent timeout to be set to a high value - otherwise return value will be null.
+	public function automatic_steam_update(
+						$home_id, $home_path, $server_ip, $server_port, $exec_path, $exec_folder_path,
+						$control_protocol, $control_password, $control_type,
+						$appId, $modname, $betaname, $betapwd, $user, $pass, $guard, $precmd, $postcmd, $cfg_os, $filesToLockUnlock,
+						$startup_cmd, $cpu, $nice, $preStart, $envVars
+	)
+	{
+		$params = $this->encrypt_params($home_id, $home_path, $server_ip, $server_port, $exec_path, $exec_folder_path,
+						$control_protocol, $control_password, $control_type,
+						$appId, $modname, $betaname, $betapwd, $user, $pass, $guard, $precmd, $postcmd, $cfg_os, $filesToLockUnlock,
+						$startup_cmd, $cpu, $nice, $preStart, $envVars);
+
+		$this->add_enc_chk($params);
+		$request = xmlrpc_encode_request("automatic_steam_update", $params);
+		$response = $this->sendRequest($request);
+
+		return $response;
+	}
 	
 	/// Updates the mod located in the game home with master server.
 	/// \return 1 If update started successfully
@@ -486,12 +541,10 @@ class OGPRemoteLibrary
 			return -2;
 		if ( $response == 1 )
 			return array();
-		
-		function base_64_decode_filename(&$item, $key){
-			if( $key == 'filename' ) $item = base64_decode($item);
-		}
-		
-		array_walk_recursive($response, 'base_64_decode_filename');
+
+		array_walk_recursive($response, function (&$item, $key) {
+			if ($key == 'filename')$item = base64_decode($item);
+		});
 		
 		return $response;
 	}

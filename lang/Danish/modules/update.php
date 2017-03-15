@@ -34,7 +34,7 @@ define('not_updated_files_blacklisted', "Not updated/installed files (Blackliste
 define('latest_version', "Seneste version");
 define('panel_version', "Panel version");
 define('update_now', "Opdatere Nu");
-define('the_panel_is_up_to_date', "Dette Panel bruger nyeste version.");
+define('the_panel_is_up_to_date', "The Panel is up-to-date.");
 define('files_overwritten', "%s filer overskrives.");
 define('can_not_update_non_writable_files', "Kan ikke opdatere, på grund af følgende filer/mapper ikke er har skriverettigheder");
 define('dwl_failed', "Den download URL er ikke tilgængelig: \"%s\".<br>Prøv igen senere.");

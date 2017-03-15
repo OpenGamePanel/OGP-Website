@@ -7,7 +7,7 @@
 		<!-- HEADER -->
 		<div id="header">
 
-			<img id="logo" src="skins/shinra/img/logo.png" alt="net2ftp" />
+			<img id="logo" src="skins/blue/images/img/logo.png" alt="net2ftp" />
 
 		</div>
 		<!-- ENDS HEADER -->

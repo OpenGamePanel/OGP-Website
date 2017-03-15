@@ -105,6 +105,8 @@ define('show_all', "Vis Alle Servere");
 define('cur_theme', "%s Theme");
 define('copyright', "Copyright");
 define('all_rights_reserved', "Alle rettigheder forbeholdes");
+define('version', "Version");
+define('show_version', "Show Version");
 define('queries_executed', "Forspørgelser udført");
 define('lang', "Sprog");
 define('get_size', "Get size");
@@ -122,4 +124,6 @@ define('set_expiration_date', "Set expiration date");
 define('admin_dsi', "DSi Settings");
 define('user_dsi', "DSi");
 define('list_dsi', "DSi List");
+define('no_remote_servers', "There is no known remote servers! Add a server to use this function.");
+
 ?>

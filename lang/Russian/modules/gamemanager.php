@@ -44,7 +44,7 @@ define('available_maps', "Доступные карты");
 define('map_path', "Адрес карты");
 define('available_parameters', "Доступные параметры");
 define('start_server', "Запуск сервера");
-define('start_wait_note', "Запуск сервера может занять некоторое время, пожалуйста, подождите немного, не закрывая окно браузера.");
+define('start_wait_note', "The server startup might take a while. Please wait without closing your browser.");
 define('game_type', "Игра");
 define('map', "Карта");
 define('starting_server', "Запуск сервера, пожалуйста, подождите...");
@@ -115,7 +115,7 @@ define('unable_get_info', "Не удается получить необходи
 define('server_already_running', "Сервер уже запущен. Если вы не видите сервер в Мониторинге, это может быть связано с...");
 define('already_running_stop_server', "Остановка сервера");
 define('error_server_already_running', "Ошибка: сервер уже запущен на данном порту");
-define('failed_start_server_code', "Не удалось запустить удалённый сервер. Ошибка:");
+define('failed_start_server_code', "Failed to start the remote server. Error code: %s");
 define('disabled', "отключён");
 define('not_found_server', "сервер не найден");
 define('rcon_command_title', "RCON команда");
@@ -186,4 +186,10 @@ define('view_player_commands', "View Player Commands");
 define('hide_player_commands', "Hide Player Commands");
 define('no_online_players', "There are no online players.");
 define('invalid_game_mod_id', "Invalid Game/Mod ID specified.");
+define('auto_update_title_popup', "Steam Auto Update Link");
+define('auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
+define('auto_update_copy_me', "Copy");
+define('auto_update_copy_me_success', "Copied!");
+define('auto_update_copy_me_fail', "Failed to copy. Please manually copy the link.");
+define('get_steam_autoupdate_api_link', "Auto Update Link");
 ?>

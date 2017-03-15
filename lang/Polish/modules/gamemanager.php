@@ -44,7 +44,7 @@ define('available_maps', "Dostępne mapy");
 define('map_path', "Ścieżka Map");
 define('available_parameters', "Dostępne paramentry");
 define('start_server', "Start Serwera");
-define('start_wait_note', "start serwera może trochę potrwać, proszę czekać nie zamykając przeglądarki.");
+define('start_wait_note', "The server startup might take a while. Please wait without closing your browser.");
 define('game_type', "Rodzaj gry");
 define('map', "Map");
 define('starting_server', "Uruchamianie serwera, proszę czekać...");
@@ -115,7 +115,7 @@ define('unable_get_info', "Unable to get the required information for startup, b
 define('server_already_running', "Server already running. If you do not see the server in the Game Monitor, there might be a somekind of problem and you might want to");
 define('already_running_stop_server', "Stop server.");
 define('error_server_already_running', "ERROR: Server already running on port");
-define('failed_start_server_code', "Failed to start the remote server. Error code: ");
+define('failed_start_server_code', "Failed to start the remote server. Error code: %s");
 define('disabled', "disabled ");
 define('not_found_server', "Could not find the remote server with ID");
 define('rcon_command_title', "RCON Command");
@@ -186,4 +186,10 @@ define('view_player_commands', "View Player Commands");
 define('hide_player_commands', "Hide Player Commands");
 define('no_online_players', "There are no online players.");
 define('invalid_game_mod_id', "Invalid Game/Mod ID specified.");
+define('auto_update_title_popup', "Steam Auto Update Link");
+define('auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
+define('auto_update_copy_me', "Copy");
+define('auto_update_copy_me_success', "Copied!");
+define('auto_update_copy_me_fail', "Failed to copy. Please manually copy the link.");
+define('get_steam_autoupdate_api_link', "Auto Update Link");
 ?>

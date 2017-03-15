@@ -380,6 +380,10 @@ function exec_ogp_module() {
 									"_".$server_home['port'].".submit()' ><img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/steam.png") . "' />".
 									"<br /><span style='font-weight:bold;'>". install_update_steam .
 									"</span></td></tr>\n</table>\n</form>";
+									
+						$manager .= "<table align='right' class='monitorbutton getAutoUpdateLink' copyfail='" . auto_update_copy_me_fail . "' copysuccess='" . auto_update_copy_me_success . "' autoupdatetext='" . auto_update_title_popup . "' autoupdatehtml='" . htmlentities(auto_update_popup_html) . "' copyme='" . auto_update_copy_me . "' autoupdatelink='" . getOGPSiteURL() . "/api.php?action=autoUpdateSteamHome&homeid=" . $server_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>\n".
+									"<tr><td align='middle'><img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/auto_update.png") . "' />".
+									"<br /><span style='font-weight:bold;'>". get_steam_autoupdate_api_link . "</span></td></tr>\n</table>\n";
 					}
 					// In other cases manual update is provided.
 					else

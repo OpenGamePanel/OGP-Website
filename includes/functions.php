@@ -568,4 +568,93 @@ function getClientIPAddress(){
 		return $_SERVER['REMOTE_ADDR'];
 	}
 }
+
+function getOGPSiteURL(){
+	$url = '';
+	$scheme = ( isset($_SERVER['HTTPS']) and get_true_boolean($_SERVER['HTTPS']) ) ? "https://" : "http://";
+	$url .= $scheme;
+	
+	if(strtolower($_SERVER['HTTP_HOST']) == "localhost"){
+		$ip = getRemoteIPAddressFromSite('http://grabip.tk/');
+		if(!hasValue($ip)){
+			if(cURLEnabled()){
+				$ipOfServer = get_headers_curl("http://grabip.tk/", $referrer, $agent);
+				if(hasValue($ipOfServer) && is_array($ipOfServer)){
+					$ipOfServer = $ipOfServer[0];
+					if (preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $ipOfServer, $ip_match)) {
+						$ipStr = $ip_match[0];
+						if(isValidIP($ipStr) && !isPrivateIp($ipStr)){
+							$ip = $ipStr;
+						}
+					}
+
+				}
+			}
+		}
+	}
+	
+	if(hasValue($ip)){
+		$url .= $ip;
+	}else{
+		$url .= $_SERVER['HTTP_HOST'];
+	}
+	
+	if(!empty($_SERVER['REQUEST_URI'])){
+		$lastSlash = strrpos($_SERVER['REQUEST_URI'], "/");
+		if($lastSlash !== false){
+			$url .= substr($_SERVER['REQUEST_URI'], 0, $lastSlash);
+		}
+	}	
+	
+	if(!empty($url)){
+		return $url;
+	}
+	
+	return false;
+}
+
+function getRemoteIPAddressFromSite($site){
+	$str = "";
+	if(isset($site) && !empty($site)){
+		$str=trim(file_get_contents($site));
+		// Look for an IP
+		if (preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $str, $ip_match)) {
+			$ip = $ip_match[0];
+			if(isValidIP($ip) && !isPrivateIp($ip)){
+				$str = $ip;
+			}
+		}
+	}
+	return $str;
+}
+
+function isValidIP($ip){
+	if(preg_match( "/^(([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).){3}([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/", $ip)){
+		return True;
+	}else{
+		return False;
+	}
+}
+
+function isPrivateIp($ip){
+	if(is_array($ip)) {
+		$ret=false;
+		foreach($ip as $i)
+			$ret=$ret or isPrivateIp($i);
+		return $ret;
+	}
+	return (substr($ip,0,7)=='192.168' or substr($ip,0,6)=='172.16' or substr($ip,0,3)=='10.');
+}
+
+function hasValue($val, $zeroAllowed = false){
+	if(isset($val) && !empty($val)){
+		return true;
+	}else{
+		if($zeroAllowed == true && $val == 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
 ?>

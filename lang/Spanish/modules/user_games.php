@@ -212,4 +212,6 @@ define('add_folder', "Añadir carpeta");
 define('add_folder_info', "Escriba aquí el nombre para la nueva carpeta, después haga click sobre el icono.");
 define('valid_user', "Please specify a valid user.");
 define('valid_group', "Please specify a valid group.");
+define('set_affinity', "Set Server Affinity");
+define('cpu_affinity_info', "Select the CPU core(s) you want to assign to the game server.");
 ?>

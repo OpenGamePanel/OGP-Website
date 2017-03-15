@@ -105,6 +105,8 @@ define('show_all', "Afficher tous les Serveurs");
 define('cur_theme', "Thème %s");
 define('copyright', "Copyright");
 define('all_rights_reserved', "Tous droits réservés");
+define('version', "Version");
+define('show_version', "Voir la Version");
 define('queries_executed', "requêtes exécutées");
 define('lang', "Langue");
 define('get_size', "Compter la taille");
@@ -122,4 +124,6 @@ define('set_expiration_date', "Valider la date");
 define('admin_dsi', "Paramètres de DSi");
 define('user_dsi', "DSi");
 define('list_dsi', "Liste DSi");
+define('no_remote_servers', "Il n'y a pas de serveurs distants connus! Ajoutez un serveur pour utiliser cette fonction.");
+
 ?>

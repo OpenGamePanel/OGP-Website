@@ -134,6 +134,13 @@ class OGPView {
 		// Include jQuery, jQuery UI, and our global CSS file in the header code
 		$this->header_code .= '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">';
 		$this->header_code .= '<script type="text/javascript" src="js/jquery/jquery.min.js"></script><script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>';
+		
+		// Include magnific popup
+		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>';
+		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">';
+		
+		// Include our global JS and CSS
+		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>';
 		$this->header_code .= '<link rel="stylesheet" href="css/global.css">';
 		
         $buffer = ob_get_contents();
@@ -178,15 +185,16 @@ class OGPView {
 
         if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
             $footer .= "<div class=\"footer center\">";
-            $footer .= get_lang_f('cur_theme', !empty($_SESSION['users_theme']) ? $_SESSION['users_theme'] : @$panel_settings['theme']);
-            $footer .= "<br />".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved').".<br />".get_lang('version').": ".@$panel_settings['ogp_version']." - ".
-			
-			$db->getNbOfQueries()." ".get_lang('queries_executed')."</div>";
+            $footer .= get_lang_f('cur_theme', !empty($_SESSION['users_theme']) ? $_SESSION['users_theme'] : @$panel_settings['theme']) . " - " . $db->getNbOfQueries()." ".get_lang('queries_executed');
+            $footer .= "<br />".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved')." - <span class='versionInfo'>".get_lang('show_version')."</span><br /><div class='inline-block OGPVersionArea'><span class='version hide'>" . get_lang('version') . ":</span>&nbsp; <span class='hide versionNumber'>".@$panel_settings['ogp_version']."</span> <span class='copyVersionResult'></span></div></div>";
         }
         else
         {
             $footer .= "<div class='footer center'>".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved').".</div>";
         }
+        
+        // Add our magnific popup holder to the page (hidden element):
+        $footer .= '<div class="mangificWrapper hide"><div class="white-popup"><div class="magnificTitle"></div><div class="magnificSubTitle"></div><div class="magnificContentsDiv"></div><button title="Close (Esc)" type="button" class="mfp-close">&times;</button></div></div>';
 		
 		if (!isset($_GET['action']))
 		{
@@ -197,8 +205,8 @@ class OGPView {
 			// Attempt to automatically delete the install file only if an admin user has already been created and exists
 			if(is_object($db)){
 				$admins = $db->getAdmins();
-				if(isset($admins) && is_array($admins) && count($admins) > 0){
-					@unlink($filename);
+				if (file_exists($filename) && is_array($admins) && !empty($admins)) {
+					unlink($filename);
 				}
 			}
 			

@@ -105,6 +105,8 @@ define('show_all', "Показать все сервера");
 define('cur_theme', "%s тема оформления");
 define('copyright', "Copyright");
 define('all_rights_reserved', "Все права защищены");
+define('version', "Version");
+define('show_version', "Show Version");
 define('queries_executed', "запросов к базе");
 define('lang', "Язык");
 define('get_size', "Get size");
@@ -122,4 +124,6 @@ define('set_expiration_date', "Set expiration date");
 define('admin_dsi', "DSi Settings");
 define('user_dsi', "DSi");
 define('list_dsi', "DSi List");
+define('no_remote_servers', "There is no known remote servers! Add a server to use this function.");
+
 ?>

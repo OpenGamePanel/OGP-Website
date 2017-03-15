@@ -44,7 +44,7 @@ define('available_maps', "Tilgængelig Maps");
 define('map_path', "Kort Sti");
 define('available_parameters', "Tilgængelig Parametere");
 define('start_server', "Start Server");
-define('start_wait_note', "Opstarte på serveren ka godt tage lidt tid, vent venligt, og luk ikke din browser.");
+define('start_wait_note', "The server startup might take a while. Please wait without closing your browser.");
 define('game_type', "Spil Type");
 define('map', "Kort");
 define('starting_server', "Starter server, vent venligst...");
@@ -115,7 +115,7 @@ define('unable_get_info', "Ude af stand til, at hente krævende information til 
 define('server_already_running', "Server kører allerede. Hvis du ikke ser serveren I spille monitoren, kan det skyldes et eller andet problem, som du nok ville");
 define('already_running_stop_server', "Stop server.");
 define('error_server_already_running', "FEJL: Server kører allerede på port");
-define('failed_start_server_code', "Fejlet I, at starte fjern server. Fejl kode: ");
+define('failed_start_server_code', "Failed to start the remote server. Error code: %s");
 define('disabled', "Slået fra ");
 define('not_found_server', "Kunne ikke finde fjernserveren med ID");
 define('rcon_command_title', "RCON Kommando");
@@ -186,4 +186,10 @@ define('view_player_commands', "View Player Commands");
 define('hide_player_commands', "Hide Player Commands");
 define('no_online_players', "There are no online players.");
 define('invalid_game_mod_id', "Invalid Game/Mod ID specified.");
+define('auto_update_title_popup', "Steam Auto Update Link");
+define('auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
+define('auto_update_copy_me', "Copy");
+define('auto_update_copy_me_success', "Copied!");
+define('auto_update_copy_me_fail', "Failed to copy. Please manually copy the link.");
+define('get_steam_autoupdate_api_link', "Auto Update Link");
 ?>

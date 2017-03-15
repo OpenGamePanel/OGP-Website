@@ -35,4 +35,6 @@ define('storage_total', "Lemez terület");
 define('storage_used', "Felhasznált");
 define('storage_free', "Szabad hely");
 define('process_monitor', "Háttérfolyamatok");
+define('status_extension_required', "Kiterjesztés szükséges");
+define('gd_info', "<a href=\"http://php.net/manual/en/image.installation.php\">PHP GD kiterjesztés</a> szükséges ezeknek a tár képeknek a generálásához!");
 ?>

@@ -34,7 +34,7 @@ define('not_updated_files_blacklisted', "Not updated/installed files (Blackliste
 define('latest_version', "Najnowsza wersja");
 define('panel_version', "Wersja panelu");
 define('update_now', "Aktualizuj Teraz");
-define('the_panel_is_up_to_date', "Brak nowych aktualizacji.");
+define('the_panel_is_up_to_date', "The Panel is up-to-date.");
 define('files_overwritten', "%s pliki nadpisane.");
 define('can_not_update_non_writable_files', "Nie można zaktualizować, ponieważ następujące pliki / foldery nie są zapisywalne.");
 define('dwl_failed', "Adres pobierania nie jest dostepny: \"%s\".<br> Spróbuj ponownie później.");

@@ -68,7 +68,7 @@ define('failed_to_update_user_profile_error', "Nem sikerült frissíteni a felha
 define('profile_of_user_modified_successfully', "Profile of user <b>%s</b> was modified successfully.");
 define('no_subusers', "No subusers are available to be assigned to a group. Please create subuser accounts.");
 define('ownedby', "Parent Owner");
-define('andSubUsers', " And all of his subusers?");
+define('andSubUsers', "És az összes al-felhasználóját?");
 define('subusers', "Al-felhasználók");
 define('show_subusers', "Al-felhasználók mutatása");
 define('hide_subusers', "Al-felhasználók elrejtése");
