@@ -2850,7 +2850,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			return false;
 		}
 		
-		return mysqli_fetch_row($result)[0];
+		$tmp = mysqli_fetch_row($result);
+		return $tmp[0];
 	}
 }
 
