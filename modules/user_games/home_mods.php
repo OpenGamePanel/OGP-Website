@@ -139,6 +139,30 @@ function exec_ogp_module()
 		}
 			
 		echo '</table>';
+		
+		$game_mods = $db->getAvailableModsForGameHome($home_id);
+		$mods_available = 0;
+		foreach ( $game_mods as $game_mod )
+		{
+			if( !preg_match("/^none$/i", $game_mod['mod_name']) )
+			{
+				$mods_available++;
+				break;
+			}
+		}
+		if($mods_available > 0)
+		{
+			echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n".
+				 "<input type='hidden' name='home_id' value=\"$home_id\" />\n".
+				 "<p>". available_mods .": <select name='mod_cfg_id'>\n";
+			foreach ( $game_mods as $game_mod )
+			{
+				echo "<option value='".$game_mod['mod_cfg_id']."'>".$game_mod['mod_name']."</option>\n";
+			}
+			echo "</select>\n".
+				 "<input type='submit' name='add_mod' value='". add_mod ."' /></p>".
+				 "</form>";
+		}
 
 		echo '<h3>'.get_lang('cpu_affinity').'</h3>';
 		echo "<p class='info'>". cpu_affinity_info ."</p>\n";
@@ -179,30 +203,6 @@ function exec_ogp_module()
 		}
 		
 		echo '<button class="set_options" id="'.$enabled_rows['mod_cfg_id'].'" style="margin-left:10px;">'.get_lang('set_affinity').'</button></div>';
-
-		$game_mods = $db->getAvailableModsForGameHome($home_id);
-		$mods_available = 0;
-		foreach ( $game_mods as $game_mod )
-		{
-			if( !preg_match("/^none$/i", $game_mod['mod_name']) )
-			{
-				$mods_available++;
-				break;
-			}
-		}
-		if($mods_available > 0)
-		{
-			echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n".
-				 "<input type='hidden' name='home_id' value=\"$home_id\" />\n".
-				 "<p>". available_mods .": <select name='mod_cfg_id'>\n";
-			foreach ( $game_mods as $game_mod )
-			{
-				echo "<option value='".$game_mod['mod_cfg_id']."'>".$game_mod['mod_name']."</option>\n";
-			}
-			echo "</select>\n".
-				 "<input type='submit' name='add_mod' value='". add_mod ."' /></p>".
-				 "</form>";
-		}
 	}
 	?>
 	<script type="text/javascript" src="js/modules/user_games-mods.js"></script>
