@@ -127,27 +127,12 @@ function exec_ogp_module() {
 	$stats_servers = 0;
 	$stats_players = 0;
 	$stats_maxplayers = 0;
-	
-	$home_page = isset($_GET['page']) ? $_GET['page'] : 1;
-	$home_limit = isset($_GET['limit']) ? $_GET['limit'] : 10;
-	
+
 	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
-	
 	if ( $isAdmin )
-		{	
-			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
-				$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
-			else
-				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit);
-	
-		}
-		else
-		{
-			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
-				$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
-			else			
-				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit);
-		}
+		$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
+	else
+		$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 
 	if( $server_homes === FALSE )
 	{
@@ -627,40 +612,6 @@ function exec_ogp_module() {
 		  </tfoot>";
 
 	echo "</table>";
-
-	if($isAdmin)
-	{	
-		$homes_count = $db->getHomesFor_count('admin',$_SESSION['user_id']);
-	}
-	else
-	{
-		$isSubUser = $db->isSubUser($_SESSION['user_id']);
-		if($isSubUser)
-		{
-			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id']);
-		}else{$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id']);}	
-	}
-	if($homes_count > $home_limit)
-	{
-		$total_pages = $homes_count[0]['total'] / $home_limit;
-		$pagination = "";
-		for($page=1; $page <= $total_pages+1; $page++)
-		{
-			if($page == $home_page){
-				$pagination .= " <b>$page</b>,";
-				if($total_pages <= 1){$pagination = "";}
-			}else{
-				if(isset($_GET['limit'])){
-					$limits = $_GET['limit'];
-					$pagination .= "<a href='?m=gamemanager&p=game_monitor&page=$page&limit=$limits'>$page</a>,";
-				}else{
-					$pagination .= " <a href='?m=gamemanager&p=game_monitor&page=$page' >$page</a>,";
-				}
-			}
-		}
-		echo rtrim($pagination, ",");
-	}
-
 	echo "<div id=translation data-title='". upload_map_image .
 		 "' data-upload_button='". upload_image .
 		 "' data-bad_file='". jpg_gif_png_less_than_1mb .

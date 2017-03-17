@@ -252,31 +252,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		return $results;
 	}
-	
-	public function getUserList_limit($page_user,$limit_user) {
-		
-       $user_get_id = ($page_user - 1) * $limit_user;		
-	
-		if ( !$this->link ) return;
-		$query = sprintf("SELECT user_id,users_login,users_lang,
-			users_role,users_fname,users_lname,users_email,user_expires,users_parent
-			FROM %susers ORDER BY users_login ASC LIMIT $user_get_id,$limit_user",
-			$this->table_prefix);
-
-		++$this->queries_;
-		$result = mysqli_query($this->link,$query);
-
-		$results = array();
-
-		while ( $row = mysqli_fetch_assoc( $result ) )
-			array_push($results,$row);
-
-		return $results;
-	}
-	
-	public function get_user_count(){
-		return $this->resultQuery("SELECT COUNT(user_id) AS total FROM `".$this->table_prefix."users`;");
-	}
 
 	public function getGroupList() {
 		$query = sprintf("SELECT group_id,group_name
@@ -1385,227 +1360,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 			return $this->listQuery($query);
 		}
 	}
-	
-	public function getHomesFor_count($id_type,$assign_id){
-		if ( $id_type == "admin" )
-		{		
-			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."server_homes`;");
-		}
-		else if ( $id_type == "user_and_group" )
-		{
-			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."user_homes` WHERE user_id = $assign_id ;");
-		}
-		else if ( $id_type == "subuser" )
-		{
-			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."user_group_homes` WHERE group_id IN (SELECT group_id FROM `".$this->table_prefix."user_groups` WHERE user_id = $assign_id) ");
-		}		
-		
-	}
-	
-	public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit){
-	$gethome_page_forlimit = ($home_page - 1) * $home_limit;	
-		if ( $id_type == "admin" )
-		{
-			$template = 'SELECT	%1$sserver_homes.*, 
-								%1$sremote_servers.*, 
-								%1$sconfig_homes.*, 
-								%1$shome_ip_ports.port,
-								%1$shome_ip_ports.force_mod_id,
-								%1$sremote_server_ips.ip_id,
-								%1$sremote_server_ips.ip,
-								%1$sgame_mods.mod_id,
-								%1$sgame_mods.mod_cfg_id,
-								%1$sgame_mods.max_players,
-								%1$sgame_mods.extra_params,
-								%1$sgame_mods.cpu_affinity,
-								%1$sgame_mods.nice,
-								%1$sgame_mods.precmd,
-								%1$sgame_mods.postcmd,
-								%1$sconfig_mods.mod_key,
-								%1$sconfig_mods.mod_name,
-								%1$sconfig_mods.def_precmd,
-								%1$sconfig_mods.def_postcmd,
-								%1$sconfig_mods.mod_cfg_id
-						FROM %1$sserver_homes
-						NATURAL JOIN %1$sremote_servers
-						NATURAL JOIN %1$sconfig_homes
-						LEFT JOIN %1$sgame_mods 
-							NATURAL JOIN %1$sconfig_mods
-							ON %1$sserver_homes.home_id=%1$sgame_mods.home_id
-						LEFT JOIN %1$shome_ip_ports 
-							NATURAL JOIN %1$sremote_server_ips 
-							ON %1$sserver_homes.home_id=%1$shome_ip_ports.home_id
-						WHERE `force_mod_id` IN
-						(
-							SELECT `force_mod_id`
-							FROM `%1$shome_ip_ports`
-							WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
-						)
-						OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
-			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d;';
-			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
-							SELECT %1$suser_groups.group_id
-							FROM %1$suser_groups
-							WHERE %1$suser_groups.user_id=%2$d
-						  );';
-		}
-		else if ( $id_type == "user" )
-		{
-			$template = 'SELECT %1$sserver_homes.*, %1$suser_homes.access_rights,
-				%1$suser_homes.user_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
-				FROM %1$sremote_servers NATURAL JOIN %1$suser_homes
-				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_homes.user_id = %2$d ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
-		}
-		else if ( $id_type == "group" )
-		{
-			$template = 'SELECT %1$sserver_homes.*, %1$suser_group_homes.access_rights,
-				%1$suser_group_homes.user_group_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
-				FROM %1$sremote_servers NATURAL JOIN %1$suser_group_homes
-				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_group_homes.group_id = %2$d LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
-		}
-		else if ( $id_type == "user_and_group" )
-		{
-			$template = 'SELECT	%1$suser_homes.*, 
-								%1$sserver_homes.*, 
-								%1$sremote_servers.*, 
-								%1$sconfig_homes.*, 
-								%1$shome_ip_ports.port,
-								%1$shome_ip_ports.force_mod_id,
-								%1$sremote_server_ips.ip_id,
-								%1$sremote_server_ips.ip,
-								%1$sgame_mods.mod_id,
-								%1$sgame_mods.mod_cfg_id,
-								%1$sgame_mods.max_players,
-								%1$sgame_mods.extra_params,
-								%1$sgame_mods.cpu_affinity,
-								%1$sgame_mods.nice,
-								%1$sgame_mods.precmd,
-								%1$sgame_mods.postcmd,
-								%1$sconfig_mods.mod_key,
-								%1$sconfig_mods.mod_name,
-								%1$sconfig_mods.def_precmd,
-								%1$sconfig_mods.def_postcmd,
-								%1$sconfig_mods.mod_cfg_id
-						FROM %1$sremote_servers 
-						NATURAL JOIN %1$suser_homes 
-						NATURAL JOIN %1$sserver_homes 
-						NATURAL JOIN %1$sconfig_homes
-						LEFT JOIN %1$shome_ip_ports 
-							NATURAL JOIN %1$sremote_server_ips 
-							ON %1$sserver_homes.home_id=%1$shome_ip_ports.home_id
-						LEFT JOIN %1$sgame_mods 
-							NATURAL JOIN %1$sconfig_mods
-							ON %1$sserver_homes.home_id=%1$sgame_mods.home_id
-						WHERE %1$suser_homes.user_id = %2$d
-						AND (
-							`force_mod_id` IN(
-								SELECT `force_mod_id`
-								FROM `%1$shome_ip_ports`
-								WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
-							)
-							OR %1$shome_ip_ports.force_mod_id IS NULL
-						)
-						UNION
-						SELECT	%1$suser_group_homes.*,
-								%1$sserver_homes.*, 
-								%1$sremote_servers.*, 
-								%1$sconfig_homes.*, 
-								%1$shome_ip_ports.port,
-								%1$shome_ip_ports.force_mod_id,
-								%1$sremote_server_ips.ip_id,
-								%1$sremote_server_ips.ip,
-								%1$sgame_mods.mod_id,
-								%1$sgame_mods.mod_cfg_id,
-								%1$sgame_mods.max_players,
-								%1$sgame_mods.extra_params,
-								%1$sgame_mods.cpu_affinity,
-								%1$sgame_mods.nice,
-								%1$sgame_mods.precmd,
-								%1$sgame_mods.postcmd,
-								%1$sconfig_mods.mod_key,
-								%1$sconfig_mods.mod_name,
-								%1$sconfig_mods.def_precmd,
-								%1$sconfig_mods.def_postcmd,
-								%1$sconfig_mods.mod_cfg_id
-						FROM %1$sremote_servers 
-						NATURAL JOIN %1$suser_group_homes 
-						NATURAL JOIN %1$sserver_homes 
-						NATURAL JOIN %1$sconfig_homes
-						LEFT JOIN %1$shome_ip_ports 
-							NATURAL JOIN %1$sremote_server_ips 
-							ON %1$sserver_homes.home_id=%1$shome_ip_ports.home_id
-						LEFT JOIN %1$sgame_mods 
-							NATURAL JOIN %1$sconfig_mods
-							ON %1$sserver_homes.home_id=%1$sgame_mods.home_id
-						WHERE %1$suser_group_homes.group_id
-						IN(
-							SELECT %1$suser_groups.group_id
-							FROM %1$suser_groups
-							WHERE %1$suser_groups.user_id=%2$d
-						)
-						AND (
-							`force_mod_id` IN(
-								SELECT `force_mod_id`
-								FROM `%1$shome_ip_ports`
-								WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
-							)
-							OR %1$shome_ip_ports.force_mod_id IS NULL
-						) 
-						LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
-		}
-		else
-		{
-			return FALSE;
-		}
-		
-		if ( $id_type == "admin" )
-		{
-			$query1 = sprintf($template,
-				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
-			$query2 = sprintf($template2,
-				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
-			$query3 = sprintf($template3,
-				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
-			$servers = $this->listQuery($query1);
-			if($servers)
-			{
-				$user_expiration_dates = $this->listQuery($query2);
-				$user_group_expiration_dates = $this->listQuery($query3);
-				foreach($servers as $key => $server)
-				{
-					if($user_expiration_dates)
-					{
-						foreach($user_expiration_dates as $user_expiration_date)
-						{
-							if($server['home_id'] == $user_expiration_date['home_id'])
-								$servers[$key]['user_expiration_date'] = $user_expiration_date['user_expiration_date'];
-						}
-					}
-					if($user_group_expiration_dates)
-					{
-						foreach($user_group_expiration_dates as $user_group_expiration_date)
-						{
-							if($server['home_id'] == $user_group_expiration_date['home_id'])
-								$servers[$key]['user_group_expiration_date'] = $user_group_expiration_date['user_group_expiration_date'];
-						}
-					}
-				}
-			}
-			return $servers;
-		}
-		else
-		{
-			$query = sprintf($template,
-				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
-			return $this->listQuery($query);
-		}
-	}
 
 	public function getHomeMods($home_id) {
 		$query = sprintf('SELECT %1$sgame_mods.*, %1$sconfig_homes.game_key as gametype,
@@ -2433,18 +2187,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $this->listQuery($query);
 	}
 	
-	public function getGameHomes_limit($page_gameHomes,$limit_gameHomes){
-		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
-		$query = sprintf('SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.*
-			FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers` ORDER BY home_id ASC LIMIT '.$game_home_id.','.$limit_gameHomes.'; ',
-			$this->table_prefix);
-		return $this->listQuery($query);
-	}
-	
-   public function get_GameHomes_count(){
-      return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."server_homes`;");
-   }
-	
 	public function changeLastParam($home_id,$json) {
 		$query = sprintf("UPDATE `%sserver_homes` SET `last_param` = '%s' WHERE `home_id` = %d",
 			$this->table_prefix,
@@ -2699,7 +2441,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function read_logger($page,$limit){
 		$log_id = ($page - 1) * $limit;
-		return $this->resultQuery("SELECT * FROM `".$this->table_prefix."logger` ORDER BY log_id DESC LIMIT $log_id,$limit;");
+		return $this->resultQuery("SELECT * FROM `".$this->table_prefix."logger` WHERE log_id > $log_id ORDER BY log_id LIMIT $limit;");
 	}
 	
 	public function del_logger_log($log_id){

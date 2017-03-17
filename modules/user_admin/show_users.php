@@ -46,10 +46,6 @@ td.actions{
  */
 function exec_ogp_module() {
     global $db;
-	
-	$page_user = isset($_GET['page']) ? $_GET['page'] : 1;
-	$limit_user = isset($_GET['limit']) ? $_GET['limit'] : 10;
-	
     echo '<h2>'.get_lang('users')."</h2>";
 	echo "<p><a href='?m=user_admin&amp;p=add'>".get_lang('add_new_user')."</a></p>";
     echo '<table class="userListTable center" style="width: 100%;">';
@@ -58,7 +54,7 @@ function exec_ogp_module() {
     echo "<th>".get_lang('email_address')."</th>";
     echo "<th>".get_lang('expires')."</th>";
     echo "<th class='subuserColumn'>".get_lang('subusers')."</th></tr>";
-    $result = $db->getUserList_limit($page_user,$limit_user);
+    $result = $db->getUserList();
     $i = 0;
     foreach ( $result as $row )
     {
@@ -94,27 +90,6 @@ function exec_ogp_module() {
 		}  
         print "</tr>";
     }
-    echo '</table><br>';
-	
-	$count_users = $db->get_user_count();
-	if($count_users > $limit_user)
-	{
-		$total_pages = $count_users[0]['total'] / $limit_user;
-		$pagination = "";
-		for($page=1; $page <= $total_pages+1; $page++)
-		{
-			if($page == $page_user){
-				$pagination .= " <b>$page</b>,";
-			}else{
-				if(isset($_GET['limit'])){
-					$limits = $_GET['limit'];
-					$pagination .= "<a href='?m=user_admin&page=$page&limit=$limits'>$page</a>,";
-				}else{
-					$pagination .= " <a href='?m=user_admin&page=$page' >$page</a>,";
-				}
-			}
-		}
-		echo rtrim($pagination, ",");
-	}
+    echo '</table>';
 }
 ?>
