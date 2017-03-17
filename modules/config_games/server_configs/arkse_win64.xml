@@ -1,0 +1,154 @@
+  <game_config>
+  <game_key>arkse_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>arkse</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>ARK: Survival Evolved</game_name>
+  <server_exec_name>ShooterGameServer.exe</server_exec_name>
+  <cli_template>%MAP%%IP%%PORT%%QUERY_PORT%%PLAYERS%%CONTROL_PASSWORD%%PDS%%PDI%%PDD%%PUS%%PUI%%PUD%%ASDN%%POP%%POPI%%PTA%?listen %AMM% %CDO% %CID% %FACF% %NTFF% -server -log</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="?Multihome=" />
+    <cli_param id="PORT" cli_string="?Port=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="?ServerAdminPassword=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">1</port>
+  </reserve_ports>
+  <map_list>maplist.txt</map_list>
+  <console_log>ShooterGame/Saved/Logs/ShooterGame.log</console_log>
+  <exe_location>ShooterGame/Binaries/Win64</exe_location>
+  <max_user_amount>127</max_user_amount>
+  <mods>
+    <mod key="arkse">
+      <name>None</name>
+      <installer_name>376030</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>SessionName=.*</default>
+      <var>SessionName=</var>
+      <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-automanagedmods" type="checkbox_key_value" id="AMM">
+      <desc>Enable automatic MOD downloading, installing and updating.</desc>
+    </param>
+    <param key="-servergamelog" type="checkbox_key_value">
+      <desc>Enable server admin logs.</desc>
+    </param>
+    <param key="-gameplaylogging" type="checkbox_key_value">
+      <desc>Log file will contain a timestamped kills and winners log listing Steam ID, Steam name, character name, etc.</desc>
+    </param>
+    <param key="?PreventOfflinePvP=" type="select" id="POP">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Use this to enable the offline raiding prevention option.</desc>
+    </param>
+    <param key="?PreventOfflinePvPInterval=" type="text" id="POPI">
+      <default>900</default>
+      <options>ns</options>
+      <desc>Time in seconds to wait before a tribe/players dinos/structures become invulnerable/inactive after they log off. If tribe, requires ALL tribe members logged off!</desc>
+    </param>
+    <param key="?PreventTribeAlliances=" type="select" id="PTA">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable tribe alliances.</desc>
+    </param>
+    <param key="-ForceAllowCaveFlyers" type="checkbox_key_value" id="FACF">
+      <desc>Force flyer dinos to be allowed into caves (Flyers able to go into caves by default on custom maps).</desc>
+    </param>
+    <param key="?AltSaveDirectoryName=" type="text" id="ASDN">
+      <options>ns</options>
+      <desc>Name of the save folder.</desc>
+    </param>
+    <param key="-NoTransferFromFiltering" type="checkbox_key_value" id="NTFF">
+      <desc>Cross-ARK Data Transfer protection against other servers that use different Cluster IDs. If you set this, players from unknown servers will not able to transfer datas to your Cluster.</desc>
+    </param>
+    <param key="-clusterid=" type="text" id="CID">
+      <options>ns</options>
+      <desc>Unique identifier of your Cluster.</desc>
+    </param>
+    <param key="-ClusterDirOverride=" type="text" id="CDO">
+      <default>/home/ogpbot/OGP_User_Files/HOMEID/ShooterGame/Saved</default>
+      <options>ns</options>
+      <desc>Specify a common cross-server storage location that functions between multiple servers running on the same machine.</desc>
+    </param>
+    <param key="?PreventDownloadSurvivors=" type="select" id="PDS">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable downloading characters from Cluster to this server.</desc>
+    </param>
+    <param key="?PreventDownloadItems=" type="select" id="PDI">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable downloading items from Cluster to this server.</desc>
+    </param>
+    <param key="?PreventDownloadDinos=" type="select" id="PDD">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable downloading tamed dinos from Cluster to this server.</desc>
+    </param>
+    <param key="?PreventUploadSurvivors=" type="select" id="PUS">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable uploading characters from this server to Cluster.</desc>
+    </param>
+    <param key="?PreventUploadItems=" type="select" id="PUI">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable uploading items from this server to Cluster.</desc>
+    </param>
+    <param key="?PreventUploadDinos=" type="select" id="PUD">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable uploading tamed dinos from this server to Cluster.</desc>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="RCONEnabled" type="select">
+      <option value="True">Yes</option>
+      <option value="False">No</option>
+      <default>RCONEnabled=.*</default>
+      <default_value>True</default_value>
+      <var>RCONEnabled=</var>
+      <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
+      <options>sq</options>
+      <desc>Enable or disable remote control.</desc>
+    </field>
+    <field key="RCONPort" type="text">
+      <default>RCONPort=.*</default>
+      <default_value>27020</default_value>
+      <var>RCONPort=</var>
+      <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
+   	  <options>sq</options>
+      <desc>Port of remote control.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+    maplist="maplist.txt"
+    if [ -s "$maplist" ]
+      then
+        echo "File $maplist found. OK!"
+      else
+        echo "File $maplist not found."
+        echo "Generating new maplist file in $maplist!"
+        touch maplist.txt
+        echo ScorchedEarth_P> maplist.txt
+        echo TheCenter>> maplist.txt
+        echo TheIsland>> maplist.txt
+    fi
+  </post_install>
+</game_config>
