@@ -170,7 +170,7 @@ function exec_ogp_module()
 		
 		// Get the selected cores.
 		$enabledCores = $db->getHomeAffinity($home_id);
-		$cores = [];
+		$cores = array();
 		
 		if ($enabledCores !== 'NA')
 		{
@@ -178,7 +178,7 @@ function exec_ogp_module()
 			if (preg_match('/win/', $remote->what_os()))
 			{
 				$coreHex = hexdec($enabledCores);
-				$cores = [];
+				$cores = array();
 				$core = 0;
 
 				while ($coreHex > 0)
