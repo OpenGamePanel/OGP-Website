@@ -142,7 +142,7 @@ function exec_ogp_module()
 
 		echo '<h3>'.get_lang('cpu_affinity').'</h3>';
 		echo "<p class='info'>". cpu_affinity_info ."</p>\n";
-		echo '<div id="cpu_select" style="text-align: center;">';
+		echo '<div id="cpu_select" class="cpu_select_div">';
 		
 		// Get the selected cores.
 		$enabledCores = $db->getHomeAffinity($home_id);
