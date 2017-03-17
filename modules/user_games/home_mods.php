@@ -199,7 +199,7 @@ function exec_ogp_module()
 		
 		for($x = 0; $x <= $cpu_count; ++$x)
 		{
-			echo '<span style="display:inline-block;"><label for="cpu_'.$x.'">CPU '.$x.'</label> <input type="checkbox" name="cpus[]" value="'.$x.'" id="cpu_'.$x.'" class="cpus" '. ( in_array($x, $cores) ? 'checked' : '' ) .'/></span>';
+			echo '<span><label for="cpu_'.$x.'">CPU '.$x.'</label> <input type="checkbox" name="cpus[]" value="'.$x.'" id="cpu_'.$x.'" class="cpus" '. ( in_array($x, $cores) ? 'checked' : '' ) .'/></span>';
 		}
 		
 		echo '<button class="set_options" id="'.$enabled_rows['mod_cfg_id'].'" style="margin-left:10px;">'.get_lang('set_affinity').'</button></div>';

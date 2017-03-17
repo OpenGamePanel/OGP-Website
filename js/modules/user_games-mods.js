@@ -30,7 +30,7 @@ $('.set_options').click(function(){
 		success: function(data){
 			if(data.result == 'success')
 			{
-				modtr.find("#cpu_select").css("background", "#bdf2a2");
+				$("#cpu_select").css("background", "#bdf2a2");
 			}
 			$("#result").html('<p class="'+data.result+'">'+data.info+'</p>');
 		},
