@@ -126,7 +126,7 @@ function exec_ogp_module() {
 		for($page=1; $page <= $total_pages+1; $page++)
 		{
 			if($page == $p){
-				$pagination .= " <b>$page</b>,";
+				$pagination .= " <b>$page</b>, ";
 			}else{
 				if(isset($l)){
 					$limits = $l;
