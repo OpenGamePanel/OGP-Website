@@ -39,11 +39,6 @@ require_once("includes/html_functions.php");
 // Start the session valid for opengamepanel_web only
 startSession();
 
-// Logged in user settings - access this global variable where needed
-if(hasValue($_SESSION['user_id'])){
-	$loggedInUserInfo = $db->getUserById($_SESSION['user_id']);
-}
-
 // Useful for debugging :)
 // echo "<p>Session ID is " . session_id() . "</p>";
 // echo "<p>Lifetime is: " . $cookie_lifetime . "<br />Dir is " . rtrim(dirname($_SERVER["SCRIPT_NAME"]),"/") . "/" . "<br /> Session cookie domain path is " . $session_cookie_domain_path . "<br />SSL is " . $ssl . "</p>";
@@ -62,6 +57,12 @@ if ( '' == file_get_contents(CONFIG_FILE) ) {
 require_once CONFIG_FILE;
 // Connect to the database server and select database.
 $db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
+
+// Logged in user settings - access this global variable where needed
+if(hasValue($_SESSION['user_id'])){
+	$loggedInUserInfo = $db->getUserById($_SESSION['user_id']);
+}
+
 $settings = $db->getSettings();
 @$GLOBALS['panel_language'] = $settings['panel_language'];
 
