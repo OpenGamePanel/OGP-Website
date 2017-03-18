@@ -62,6 +62,8 @@ abstract class OGPDatabase {
     abstract public function getGroupById($group_id);
 
     abstract public function getUserList();
+    
+    abstract public function getUserList_limit($page_user,$limit_user);
 
     abstract public function getGroupList();
 
@@ -169,6 +171,8 @@ abstract class OGPDatabase {
     abstract public function getHomeIpPorts($home_id);
 
     abstract public function getHomesFor($id_type,$assign_id);
+    
+    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit);
 
     abstract public function getHomeMods($home_id);
 
@@ -241,6 +245,8 @@ abstract class OGPDatabase {
     abstract public function getAvailableHomesFor($id_type,$assign_id);
 
     abstract public function getGameHomes();
+    
+    abstract public function getGameHomes_limit($page_gameHomes,$limit_gameHomes);
 
     /// \return true If username and password match.
     /// \return false If username and password does not match
