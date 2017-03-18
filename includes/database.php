@@ -153,6 +153,8 @@ abstract class OGPDatabase {
 
     /// \brief Get Remote servers
     abstract public function getRemoteServers();
+    
+    abstract public function getRemoteServers_ts3($assign_id);
 
     abstract public function removeRemoteServer($remote_server_id);
 
