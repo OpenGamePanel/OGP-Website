@@ -82,6 +82,11 @@
       <caption>Workshop Start Map</caption>
       <desc>Set the id of the workshop map ( this will override the selected map ), you can find the file id for a workshop map in its workshop page URL.</desc>
     </param>
+    <param key="-tickrate" type="select">
+      <option value="64">64</option>
+      <option value="128">128</option>
+      <desc>Specifies server tickrate.</desc>
+    </param>
     <param key="-nohltv" type="checkbox_key_value">
       <caption>No SourceTV</caption>
       <desc>Disables SourceTV and closes its port.</desc>
