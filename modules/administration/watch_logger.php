@@ -68,7 +68,7 @@ function exec_ogp_module() {
 	$p = isset($_GET['page']) ? $_GET['page'] : 1;
 	$l = isset($_GET['limit']) ? $_GET['limit'] : 10;
 	
-	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"]){
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$l = $loggedInUserInfo["users_page_limit"];
 	}
 	

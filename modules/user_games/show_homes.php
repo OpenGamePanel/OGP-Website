@@ -30,7 +30,7 @@ function exec_ogp_module()
 	$page_GameHomes = isset($_GET['page']) ? $_GET['page'] : 1;
 	$limit_GameHomes = isset($_GET['limit']) ? $_GET['limit'] : 10;
 	
-	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"]){
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$limit_GameHomes = $loggedInUserInfo["users_page_limit"];
 	}
 	
