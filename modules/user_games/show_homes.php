@@ -25,10 +25,14 @@
 
 function exec_ogp_module()
 {
-	global $db;
+	global $db, $loggedInUserInfo;
 
 	$page_GameHomes = isset($_GET['page']) ? $_GET['page'] : 1;
 	$limit_GameHomes = isset($_GET['limit']) ? $_GET['limit'] : 10;
+	
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"]){
+		$limit_GameHomes = $loggedInUserInfo["users_page_limit"];
+	}
 	
 	echo "<h2>".get_lang('game_servers')."</h2>";
 	echo "<p><a href='?m=user_games&amp;p=add'>".get_lang('add_new_game_home')."</a></p>";
@@ -82,8 +86,8 @@ function exec_ogp_module()
 				$pagination .= " <b>$page</b>,";
 				if($total_pages <= 1){$pagination = "";}
 			}else{
-				if(isset($_GET['limit'])){
-					$limits = $_GET['limit'];
+				if(isset($limit_GameHomes)){
+					$limits = $limit_GameHomes;
 					$pagination .= "<a href='?m=user_games&page=$page&limit=$limits'>$page</a>,";
 				}else{
 					$pagination .= " <a href='?m=user_games&page=$page' >$page</a>,";

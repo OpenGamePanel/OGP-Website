@@ -99,6 +99,7 @@ function exec_ogp_module() {
 		$phone = sanitizeInputStr($_POST['phone_number']);
 		$phone = preg_replace("/[^0-9]/", "", $phone);
 		$theme = sanitizeInputStr($_POST['theme']);
+		$page_limit = sanitizeInputStr($_POST['page_limit']);
 
 		// OGP needs to set the new theme and language in the current session, only if I'm modifying my own user profile.
 		if ( $my_user_id == $user_id )
@@ -148,6 +149,15 @@ function exec_ogp_module() {
 			$fields['users_theme'] = NULL;
 		else
 			$fields['users_theme'] = $theme;
+			
+		if (empty($page_limit) || !is_numeric($page_limit) || $page_limit < 10){
+			$fields['users_page_limit'] = 25;
+		}else{
+			if($page_limit > 9999){
+				$page_limit = 9999;
+			}
+			$fields['users_page_limit'] = $page_limit;
+		}
 
 		if ( isset($_POST['new_password']) && !empty($_POST['new_password']) )
 			$fields['users_passwd'] = md5($_POST['new_password']);
@@ -208,6 +218,7 @@ function exec_ogp_module() {
 	}
 
 	$ft->add_custom_field('theme', get_theme_html_str($theme, $add_empty));
+	$ft->add_field('string','page_limit',$userInfo['users_page_limit']);
 	$ft->add_field('string','first_name',$userInfo['users_fname']);
 	$ft->add_field('string','last_name',$userInfo['users_lname']);
 	$ft->add_field('string','phone_number',$userInfo['users_phone']);
