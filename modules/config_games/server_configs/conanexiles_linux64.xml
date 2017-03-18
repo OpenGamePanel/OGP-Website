@@ -1,10 +1,10 @@
 <game_config>
-  <game_key>conanexiles_win64</game_key>
+  <game_key>conanexiles_linux64</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>conanexiles</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Conan Exiles</game_name>
-  <server_exec_name>ConanSandboxServer.exe</server_exec_name>
+  <server_exec_name>ConanSandboxServer</server_exec_name>
   <cli_template>%MAP%%IP%%PORT%%QUERY_PORT%%PLAYERS% -log</cli_template>
   <cli_params>
     <cli_param id="MAP" cli_string="" />
@@ -17,6 +17,7 @@
   </reserve_ports>
   <map_list>maplist.txt</map_list>
   <console_log>ConanSandbox/Saved/Logs/ConanSandbox.log</console_log>
+  <exe_location>ConanSandbox/Binaries/Linux</exe_location>
   <max_user_amount>70</max_user_amount>
   <mods>
     <mod key="ce">
