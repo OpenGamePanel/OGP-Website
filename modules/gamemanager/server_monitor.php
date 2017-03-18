@@ -128,8 +128,8 @@ function exec_ogp_module() {
 	$stats_players = 0;
 	$stats_maxplayers = 0;
 	
-	$home_page = isset($_GET['page']) ? $_GET['page'] : 1;
-	$home_limit = isset($_GET['limit']) ? $_GET['limit'] : 10;
+	$home_page = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
+	$home_limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$home_limit = $loggedInUserInfo["users_page_limit"];
