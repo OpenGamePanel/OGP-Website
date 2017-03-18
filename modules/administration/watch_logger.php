@@ -132,11 +132,11 @@ function exec_ogp_module() {
 					$limits = $l;
 					$pagination .= "<a href='?m=administration&p=watch_logger&page=$page&limit=$limits'>$page</a>, ";
 				}else{
-					$pagination .= " <a href='?m=administration&p=watch_logger&page=$page' >$page</a>, ";
+					$pagination .= "<a href='?m=administration&p=watch_logger&page=$page' >$page</a>, ";
 				}
 			}
 		}
-		echo rtrim($pagination, ",");
+		echo rtrim($pagination, ", ");
 	}
 }
 ?>
