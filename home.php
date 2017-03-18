@@ -27,6 +27,10 @@ require_once("includes/helpers.php");
 require_once("includes/html_functions.php");
 startSession();
 
+if(hasValue($_SESSION['user_id'])){
+	$loggedInUserInfo = $db->getUserById($_SESSION['user_id']);
+}
+
 // Report all PHP errors
 error_reporting(E_ERROR);
 
