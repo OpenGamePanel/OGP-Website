@@ -35,6 +35,9 @@ function exec_ogp_module()
 			
 		if( isset( $_GET['changevServer'] ) OR  !isset( $_SESSION['ts3_ip'] ))
 		{
+			if(!$isAdmin)
+			$remote_servers = $db->getRemoteServers_ts3($_SESSION['user_id']);
+			else
 			$remote_servers = $db->getRemoteServers();
 
 			if ($remote_servers !== false) {

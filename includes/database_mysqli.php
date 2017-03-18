@@ -1039,6 +1039,11 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$this->table_prefix);
 		return $this->listQuery($query);
 	}
+	
+	public function getRemoteServers_ts3($assign_id){
+		$query = sprintf("SELECT * FROM ".$this->table_prefix."remote_servers WHERE agent_ip IN (SELECT ip FROM `".$this->table_prefix."ts3_homes` WHERE user_id = $assign_id)");
+		return $this->listQuery($query);
+	}
 
 	public function removeRemoteServer($remote_server_id) {
 		$remote_server_id = mysqli_real_escape_string($this->link,$remote_server_id);
