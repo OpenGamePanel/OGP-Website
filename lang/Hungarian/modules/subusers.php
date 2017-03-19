@@ -58,7 +58,7 @@ define('listdel_sub_user', "Lista, al-felhasználói fiók információk módos�
 define('delete_sub_user', "Alfelhasználó szerkesztése / törlése");
 define('del_subuser_conf', "Biztos vagy benne, hogy törölni akarod ezt a fiókot:");
 define('no_subusers', "No subusers have been created under your account yet!");
-define('subuser_deleted', "Sub-User %s was successfully deleted from the database!");
+define('subuser_deleted', "A(z) %s al-felhasználó sikeresen törölve az adatbázisból!");
 define('subuser_added', "A(z) %s al-felhasználó sikeresen létrehozva és hozzáadva az adatbázishoz.");
 define('your_subusers', "Birtokolt alfelhasználói fiókok");
 ?>

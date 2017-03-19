@@ -28,6 +28,7 @@ define('retype_new_password', "Új jelszó ismét");
 define('login_name', "Bejelentkezési név");
 define('language', "Nyelv");
 define('first_name', "Keresztnév");
+define('page_limit', "Oldalankénti tételek");
 define('last_name', "Vezetéknév");
 define('phone_number', "Telefonszám");
 define('email_address', "E-mail cím");

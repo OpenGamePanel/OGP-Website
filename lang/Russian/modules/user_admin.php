@@ -28,6 +28,7 @@ define('retype_new_password', "Повторите новый пароль");
 define('login_name', "Имя пользователя");
 define('language', "Язык");
 define('first_name', "Имя");
+define('page_limit', "Items per Page");
 define('last_name', "Фамилия");
 define('phone_number', "Номер телефона");
 define('email_address', "Адрес e-mail");
