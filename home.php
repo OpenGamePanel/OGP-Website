@@ -40,6 +40,12 @@ define("CONFIG_FILE","includes/config.inc.php");
 require_once CONFIG_FILE;
 // Connect to the database server and select database.
 $db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
+
+// Logged in user settings - access this global variable where needed
+if(hasValue($_SESSION['user_id'])){
+	$loggedInUserInfo = $db->getUserById($_SESSION['user_id']);
+}
+
 $settings = $db->getSettings();
 @$GLOBALS['panel_language'] = $settings['panel_language'];
 

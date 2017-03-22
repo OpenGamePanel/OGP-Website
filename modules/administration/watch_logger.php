@@ -26,7 +26,7 @@
  *
  */
 function exec_ogp_module() {
-	global $db;
+	global $db, $loggedInUserInfo;
 	echo "<h2>".get_lang('watch_logger')."</h2>";
 	?>
 	<!-- Search, Empty Logger, and Paging Options Table -->
@@ -67,6 +67,10 @@ function exec_ogp_module() {
 	
 	$p = isset($_GET['page']) ? $_GET['page'] : 1;
 	$l = isset($_GET['limit']) ? $_GET['limit'] : 10;
+	
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+		$l = $loggedInUserInfo["users_page_limit"];
+	}
 	
 	$logs = $db->read_logger($p,$l);
 	
@@ -122,17 +126,17 @@ function exec_ogp_module() {
 		for($page=1; $page <= $total_pages+1; $page++)
 		{
 			if($page == $p){
-				$pagination .= " <b>$page</b>,";
+				$pagination .= " <b>$page</b>, ";
 			}else{
-				if(isset($_GET['limit'])){
-					$limits = $_GET['limit'];
-					$pagination .= "<a href='?m=administration&p=watch_logger&page=$page&limit=$limits'>$page</a>,";
+				if(isset($l)){
+					$limits = $l;
+					$pagination .= "<a href='?m=administration&p=watch_logger&page=$page&limit=$limits'>$page</a>, ";
 				}else{
-					$pagination .= " <a href='?m=administration&p=watch_logger&page=$page' >$page</a>,";
+					$pagination .= "<a href='?m=administration&p=watch_logger&page=$page' >$page</a>, ";
 				}
 			}
 		}
-		echo rtrim($pagination, ",");
+		echo rtrim($pagination, ", ");
 	}
 }
 ?>

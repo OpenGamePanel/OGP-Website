@@ -28,6 +28,7 @@ define('retype_new_password', "Vérification du nouveau mot de passe");
 define('login_name', "Nom d'utilisateur");
 define('language', "Langue");
 define('first_name', "Prénom");
+define('page_limit', "Objets par Page");
 define('last_name', "Nom");
 define('phone_number', "Numéro de téléphone");
 define('email_address', "E-mail");

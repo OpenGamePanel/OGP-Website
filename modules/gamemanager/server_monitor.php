@@ -119,7 +119,7 @@ function get_sync_name($server_xml)
 }
 
 function exec_ogp_module() {
-	global $db, $settings;
+	global $db, $settings, $loggedInUserInfo;
 	echo "<h2>". game_monitor ."</h2>";
 	$refresh = new refreshed();
 	set_time_limit(0);
@@ -128,8 +128,12 @@ function exec_ogp_module() {
 	$stats_players = 0;
 	$stats_maxplayers = 0;
 	
-	$home_page = isset($_GET['page']) ? $_GET['page'] : 1;
-	$home_limit = isset($_GET['limit']) ? $_GET['limit'] : 10;
+	$home_page = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
+	$home_limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
+	
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+		$home_limit = $loggedInUserInfo["users_page_limit"];
+	}
 	
 	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
 	
@@ -650,8 +654,8 @@ function exec_ogp_module() {
 				$pagination .= " <b>$page</b>,";
 				if($total_pages <= 1){$pagination = "";}
 			}else{
-				if(isset($_GET['limit'])){
-					$limits = $_GET['limit'];
+				if(isset($home_limit)){
+					$limits = $home_limit;
 					$pagination .= "<a href='?m=gamemanager&p=game_monitor&page=$page&limit=$limits'>$page</a>,";
 				}else{
 					$pagination .= " <a href='?m=gamemanager&p=game_monitor&page=$page' >$page</a>,";

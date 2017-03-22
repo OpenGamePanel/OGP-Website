@@ -28,6 +28,7 @@ define('retype_new_password', "Powtórz hasło");
 define('login_name', "Nazwa użytkownika");
 define('language', "Język");
 define('first_name', "Imię");
+define('page_limit', "Items per Page");
 define('last_name', "Nazwisko");
 define('phone_number', "Numer telefonu");
 define('email_address', "Email address");
