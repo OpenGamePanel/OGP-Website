@@ -181,6 +181,10 @@ abstract class OGPDatabase {
     abstract public function getCfgHomeById($cfgid);
 
     abstract public function getIpPortsForUser($user_id);
+	
+    abstract public function getIpPortsForUser_limit($user_id,$page_user,$limit_user);
+	
+	abstract public function getIpPorts_count($id_type,$assign_id);
 
     // Module manager functions
 
