@@ -139,9 +139,9 @@ function ogpHome()
 		$isAdmin = $db->isAdmin($_SESSION['user_id']);
 			
 		if ( $isAdmin )
-			$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
+			$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id']);
 		else
-			$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
+			$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id']);
 		
 		if(!empty($server_homes))
 		{
