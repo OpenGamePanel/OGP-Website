@@ -27,10 +27,10 @@ define('users_fname', "Nombre");
 define('users_lname', "Apellidos");
 define('users_passwd', "Contraseña");
 define('users_cpasswd', "Verificar contraseña");
-define('passwd_len', "Password must be longer than 6 characters");
-define('err_password', "Password cannot be empty");
-define('err_confirm_password', "Verify password field cannot be empty");
-define('err_password_mismatch', "Passwords do not match");
+define('passwd_len', "La contraseña debe tener más de 6 caracteres");
+define('err_password', "La contraseña no puede estar en blanco");
+define('err_confirm_password', "El campo Verificar contraseña no puede estar en blanco");
+define('err_password_mismatch', "Las contraseñas no coinciden");
 define('phone_number', "Telefono");
 define('users_email', "Email");
 define('register_a_new_user', "Registrar a un nuevo usuario");
@@ -50,6 +50,6 @@ define('err_email_address', "La dirección de email esta vacia o es incorrecta."
 define('err_email_address_already_in_use_by', "La dirección de email esta en uso por <b>%s</b>.");
 define('user_registration', "Registro de Usuario");
 define('your_account_details_has_been_sent_by_email_to', "Los detalles de su cuenta han sido enviados a <b>%s</b>.");
-define('account_created', "Your account has been created.");
+define('account_created', "Tu cuenta ha sido creada.");
 define('subject', "Asunto");
 ?>

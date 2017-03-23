@@ -50,6 +50,6 @@ define('err_email_address', "Adres e-mail jest puste lub nieprawidłowe.");
 define('err_email_address_already_in_use_by', "Adres e-mail jest już w użyciu przez użytkownika <b>%s</b>.");
 define('user_registration', "Rejestracja Użytkownika");
 define('your_account_details_has_been_sent_by_email_to', "Dane konta zostały wysłane pocztą do <b>%s</b>.");
-define('account_created', "Your account has been created.");
+define('account_created', "Twoje konto zostało stworzone.");
 define('subject', "%s :: Informacje o Koncie");
 ?>

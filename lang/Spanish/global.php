@@ -77,7 +77,7 @@ define('invalid_url', "Dirección URL invalida");
 define('xml_file_not_valid', "Archivo XML no valido");
 define('unable_to_load_xml', "Imposible cargar archivo XML");
 define('gamemanager', "Gestión");
-define('game_monitor', "Game Monitor");
+define('game_monitor', "Monitor");
 define('dashboard', "Dashboard");
 define('user_addons', "Añadidos");
 define('ftp', "FTP");
@@ -105,8 +105,8 @@ define('show_all', "Mostrar Todos Los Servidores");
 define('cur_theme', "Tema %s");
 define('copyright', "Copyright");
 define('all_rights_reserved', "Todos los derechos reservados");
-define('version', "Version");
-define('show_version', "Show Version");
+define('version', "Versión");
+define('show_version', "Mostrar versión");
 define('queries_executed', "consultas ejecutadas.");
 define('lang', "Idioma");
 define('get_size', "Obtener tamaño");
@@ -121,9 +121,9 @@ define('assign_expiration_date_info', "Una vez que caduca, el servidor dejará d
 define('server_expiration_date', "Fecha de caducidad del servidor");
 define('server_expiration_date_info', "Cuando expira, el servidor es eliminado (Base de datos y archivos).");
 define('set_expiration_date', "Fecha de caducidad");
-define('admin_dsi', "DSi Settings");
+define('admin_dsi', "Configuración del DSi");
 define('user_dsi', "DSi");
-define('list_dsi', "DSi List");
-define('no_remote_servers', "There is no known remote servers! Add a server to use this function.");
+define('list_dsi', "Lista del DSi");
+define('no_remote_servers', "No hay servidores remotos añadidos. Añade uno para usar esta función.");
 
 ?>

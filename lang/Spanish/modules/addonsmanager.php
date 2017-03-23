@@ -37,7 +37,7 @@ define('path', "Ruta");
 define('wait_while_decompressing', "Espere mientras el archivo %s es descomprimido.");
 define('addon_name', "Nombre del añadido");
 define('url', "URL");
-define('select_game_type', "Selecciona Juego");
+define('select_game_type', "Selecciona tipo de Juego");
 define('plugin', "Plugins");
 define('mappack', "Mapas");
 define('config', "Configs");

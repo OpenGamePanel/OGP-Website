@@ -23,28 +23,28 @@
  */
 
 include('litefm.php');
-define('curl_needed', "Ta strona wymaga modułu PHP curl.");
+define('curl_needed', "Ta strona wymaga modułu PHP Curl.");
 define('no_access', "Potrzebujesz uprawnień administratora, aby uzyskać dostęp do tej strony.");
 define('dwl_update', "Pobieranie Aktualizacji...");
 define('dwl_complete', "Pobieranie zakończone.");
 define('install_update', "Instalowanie aktualizacji...");
 define('update_complete', "Aktualizacja zakonczona.");
-define('ignored_files', "%s ignored files.");
-define('not_updated_files_blacklisted', "Not updated/installed files (Blacklisted):<br>%s");
+define('ignored_files', "%s zignorowane pliki.");
+define('not_updated_files_blacklisted', "Nie zaktualizowane pliki (Czarna Lista)<br>%s");
 define('latest_version', "Najnowsza wersja");
 define('panel_version', "Wersja panelu");
 define('update_now', "Aktualizuj Teraz");
-define('the_panel_is_up_to_date', "The Panel is up-to-date.");
+define('the_panel_is_up_to_date', "Panel jest Aktualny.");
 define('files_overwritten', "%s pliki nadpisane.");
-define('can_not_update_non_writable_files', "Nie można zaktualizować, ponieważ następujące pliki / foldery nie są zapisywalne.");
+define('can_not_update_non_writable_files', "Nie można zaktualizować, ponieważ następujące pliki/foldery nie mają praw do zapisu.");
 define('dwl_failed', "Adres pobierania nie jest dostepny: \"%s\".<br> Spróbuj ponownie później.");
-define('temp_folder_not_writable', "The download can not be placed because Apache does not have write permision at the system temporary folder(%s).");
-define('base_dir_not_writable', "The panel can not update because Apache does not have write permision at folder \"%s\".");
+define('temp_folder_not_writable', "Pobieranie nie może zostać zakończone, ponieważ Apache nie ma uprawnień do zapisu w tymczasowym folderze (%s).");
+define('base_dir_not_writable', "Panel nie może zostać zaktualizowany, ponieważ Apache nie ma uprawnień do zapisu w folderze \\"%s\\".");
 define('new_files', "%s nowych plików.");
 define('updated_files', "Zaktualizowane pliki:<br>%s");
 define('select_mirror', "Wybierz żródło");
 define('view_changes', "Pokaż zmiany");
-define('get_x_revison_messages_may_take_some_time', "Get %s revison messages may take some time.");
+define('get_x_revison_messages_may_take_some_time', "Otrzymanie %s weryfikacji może zająć trochę czasu.");
 define('updating_modules', "Aktualizacja modułów");
 define('updating_finished', "Aktualizacja zakończona");
 define('updated_module', "Zaktualizowany moduł: '%s'.");

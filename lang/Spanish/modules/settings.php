@@ -23,7 +23,7 @@
  */
 
 define('maintenance_mode', "Modo de mantenimiento");
-define('maintenance_mode_info', "Disable the Panel for normal users. Only administrators can access it during maintenance.");
+define('maintenance_mode_info', "Deshabilita el Panel para usuarios normales. Solo los administradores pueden acceder a él durante el mantenimiento.");
 define('maintenance_title', "Titulo de mantenimiento");
 define('maintenance_title_info', "Título que se muestra cuando la página esta en modo de mantenimiento.");
 define('maintenance_message', "Mensaje de mantenimineto");
@@ -45,7 +45,7 @@ define('feed_enable_info', "Sí tu alojamiento web tiene el cortafuegos bloquean
 define('feed_url', "URL del Feed");
 define('feed_url_info', "GrayCube.com comparte un feed LGSL en la URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Codificación de caracteres");
-define('charset_info', "UTF8, ISO, ASCII, etc... Leave it blank to use ISO encoding.");
+define('charset_info', "UTF8, ISO, ASCII, etc... Dejar en blanco para usar ISO");
 define('steam_user', "Usuario de Steam");
 define('steam_user_info', "Esta cuenta se necesita para descargar algunos juegos nuevos desde Steam como CS:GO.");
 define('steam_pass', "Contraseña de Steam");
@@ -89,8 +89,8 @@ define('recaptcha_secret_key', "Clave secreta Recaptcha");
 define('recaptcha_secret_key_info', "La clave secreta que te proporcionó Google.");
 define('recaptcha_use_login', "Usar Recaptcha en el inicio de sesión");
 define('recaptcha_use_login_info', "Si se activa, los usuarios deberán resolver una pregunta a parte de su inicio de sesión habitual. Esto intenta evitar intentos de inicio de sesión automatizados por parte de un programa.");
-define('login_attempts_before_banned', "Number of failed login attempts before user is banned");
-define('login_attempts_before_banned_info', "If a user tries to login with invalid credentials more than this many times, the user will be banned temporarily by the panel.");
+define('login_attempts_before_banned', "Número de intentos de logueo fallido antes de banear al usuario");
+define('login_attempts_before_banned_info', "Si un usuario intenta loguearse con credenciales inválidas más de estas veces, el usuario será baneado temporalmente por el panel.");
 define('remote_query', "Peticiones remotas");
 define('remote_query_info', "Usar el servidor remoto (Agente) para hacer peticiones a los servidores de juegos (Solo GameQ y LGSL).");
 define('check_expiry_by', "Comprobar caducidad por");

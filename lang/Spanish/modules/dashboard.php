@@ -28,7 +28,7 @@ define('dashboard_game_monitor_text', "Puede iniciar y parar los servidores, o v
 define('dashboard_support_text', "Utilice el soporte profesional del equipo de OGP en el foro. Obtendrá una gran atención y respuestas rápidas.");
 define('welcome_text', "Bienvenido al panel.<br><br><b>Open Game Panel</b> es un proyecto de código abierto.<br>OGP le permitirá instalar, iniciar, parar y supervisar<br>servidores de juegos y voz.");
 define('any_server_is_online', "Ningun servidor esta en marcha,");
-define('current_map', "Mapa");
+define('current_map', "Mapa actual");
 define('server_ip_port', "IP:Puerto");
 define('statistics', "Estadisticas");
 define('servers', "Servidores");
@@ -38,6 +38,6 @@ define('no_games_to_monitor', "Actualmente no hay servidores de juegos instalado
 define('online_servers', "Servidores Online");
 define('add_games_in', "Sí desea añadir servidores vaya a %s");
 define('currently_online', "Ahora En Linea");
-define('game_servers', "Servirdores de Juegos");
-define('select_remote_server', "Select remote server");
+define('game_servers', "Servidores de Juegos");
+define('select_remote_server', "Seleccionar servidor remoto");
 ?>

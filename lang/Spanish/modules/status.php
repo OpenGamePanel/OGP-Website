@@ -22,19 +22,19 @@
  *
  */
 
-define('system_uptime', "System Uptime");
-define('system_up_time', "Up Time");
-define('system_up_since', "Since");
-define('cpu_usage', "CPU Usage");
-define('cpu_load', "Load");
-define('ram_usage', "RAM Usage");
-define('ram_used', "Memory Used");
-define('ram_of', "of");
-define('storage_space', "Storage Space");
-define('storage_total', "Disk Space");
-define('storage_used', "Used");
-define('storage_free', "Free Space");
-define('process_monitor', "Process Monitor");
-define('status_extension_required', "Extension Required");
-define('gd_info', "PHP Extension <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> is required to generate these bar images!");
+define('system_uptime', "Tiempo de Encendido");
+define('system_up_time', "Tiempo Encendido");
+define('system_up_since', "Desde");
+define('cpu_usage', "Consumo de CPU");
+define('cpu_load', "Cargar");
+define('ram_usage', "Uso de memoria RAM");
+define('ram_used', "Memoria Usada");
+define('ram_of', "de");
+define('storage_space', "Espacio de Almacenamiento");
+define('storage_total', "Espacio en Disco");
+define('storage_used', "Usado");
+define('storage_free', "Espacio Libre");
+define('process_monitor', "Monitorear Procesos");
+define('status_extension_required', "Extensión Requerida");
+define('gd_info', "Extensión PHP <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> para generar las imágenes de barras!");
 ?>

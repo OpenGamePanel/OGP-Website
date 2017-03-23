@@ -32,12 +32,12 @@ define('update_available', "Actualización disponible");
 define('not_installed', "No instalado");
 define('installed', "Instalado");
 define('download_update', "Descargar/Actualizar");
-define('are_you_sure', "Estas seguro");
+define('are_you_sure', "¿Estás seguro?");
 define('uninstalling_module_dataloss', "Al desinstalar un modulo perderás todos los datos relacionados con él.");
 define('remove_files_for', "Te gustaria eliminar todos los archivos de");
 define('confirm', "Confirmar");
 define('cancel', "Cancelar");
 define('extra_themes', "Temas extra");
 define('extra_modules', "Modulos extra");
-define('search_for_updates', "Check for updates");
+define('search_for_updates', "Comprobar actualizaciones");
 ?>

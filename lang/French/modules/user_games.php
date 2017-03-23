@@ -213,5 +213,5 @@ define('add_folder_info', "Écrire le nom du nouveau dossier, puis cliquer sur l
 define('valid_user', "Veuillez spécifier un utilisateur valide.");
 define('valid_group', "Veuillez spécifier un groupe valide.");
 define('set_affinity', "Définir l'affinité du CPU");
-define('cpu_affinity_info', "Sélectionner le(s) cœur(s) de CPU à assigner au serveur de jeu.");
+define('cpu_affinity_info', "Sélectionnez le(s) cœur(s) de CPU à assigner au serveur de jeu.");
 ?>
