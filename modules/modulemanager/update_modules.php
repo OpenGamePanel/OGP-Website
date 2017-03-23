@@ -42,6 +42,6 @@ function exec_ogp_module()
 
 	print "<p>".get_lang_f('updating_finished')."</p>";
 	
-    $view->refresh("?m=modulemanager");
+    $view->refresh("?m=modulemanager",30);
 }
 ?>
