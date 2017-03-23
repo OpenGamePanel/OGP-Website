@@ -267,7 +267,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$this->table_prefix);
 
 		++$this->queries_;
-		$result = mysql_query($this->link,$query);
+		$result = mysql_query($query,$this->link);
 
 		$results = array();
 
@@ -1572,13 +1572,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query1 = sprintf($template,
 				$this->table_prefix,
-				mysql_real_escape_string($this->link,$assign_id) );
+				mysql_real_escape_string($assign_id,$this->link) );
 			$query2 = sprintf($template2,
 				$this->table_prefix,
-				mysql_real_escape_string($this->link,$assign_id) );
+				mysql_real_escape_string($assign_id,$this->link) );
 			$query3 = sprintf($template3,
 				$this->table_prefix,
-				mysql_real_escape_string($this->link,$assign_id) );
+				mysql_real_escape_string($assign_id,$this->link) );
 			$servers = $this->listQuery($query1);
 			if($servers)
 			{
@@ -1714,6 +1714,45 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $this->listQuery($query);
 	}
 	
+	public function getIpPortsForUser_limit($user_id,$page_dashboardlist,$limit_dashboardlist) {
+		
+		$user_request_page = ($page_dashboardlist - 1) * $limit_dashboardlist;
+		
+		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
+			%1$sremote_servers.*,
+			%1$sconfig_homes.*,
+			%1$sconfig_mods.*,
+			%1$sgame_mods.*
+			FROM `%1$shome_ip_ports`
+			NATURAL JOIN `%1$sremote_servers`
+			NATURAL JOIN `%1$sserver_homes`
+			NATURAL JOIN `%1$sconfig_homes`
+			NATURAL JOIN `%1$sremote_server_ips`
+			NATURAL JOIN `%1$sconfig_mods`
+			NATURAL JOIN `%1$sgame_mods`
+			WHERE `home_id` IN
+			(
+				SELECT `home_id`
+				FROM `%1$suser_homes`
+				WHERE `user_id` = %2$d
+				UNION
+				SELECT `home_id`
+				FROM `%1$suser_groups`
+				NATURAL JOIN `%1$suser_group_homes`
+				WHERE `user_id` = %2$d
+			) 
+			AND `force_mod_id` IN
+			(
+				SELECT `force_mod_id`
+				FROM `%1$shome_ip_ports`
+				WHERE `force_mod_id` = %1$sgame_mods.mod_id OR `force_mod_id` = "0"
+			) ORDER BY %1$shome_ip_ports.home_id ASC LIMIT '.$user_request_page.','.$limit_dashboardlist.';',
+			$this->table_prefix,
+			mysql_real_escape_string($user_id, $this->link) );
+							
+		return $this->listQuery($query);
+	}
+	
 	public function getIpPorts( $ip_id = 0 ) {
 		
 		$ip_id_and = $ip_id == 0 ? "" : "`ip_id`='".$ip_id."' AND ";
@@ -1738,6 +1777,46 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$this->table_prefix );
 
 		return $this->listQuery($query);
+	}
+	
+	public function getIpPorts_limit($ip_id = 0,$page_dashboardlist,$limit_dashboardlist) {
+		
+		$user_request_page = ($page_dashboardlist - 1) * $limit_dashboardlist;
+
+		$ip_id_and = $ip_id == 0 ? "" : "`ip_id`='".$ip_id."' AND ";
+		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
+			%1$sremote_servers.*,
+			%1$sconfig_homes.*,
+			%1$sconfig_mods.*,
+			%1$sgame_mods.*
+			FROM `%1$shome_ip_ports`
+			NATURAL JOIN `%1$sremote_servers`
+			NATURAL JOIN `%1$sserver_homes`
+			NATURAL JOIN `%1$sconfig_homes`
+			NATURAL JOIN `%1$sremote_server_ips`
+			NATURAL JOIN `%1$sconfig_mods`
+			NATURAL JOIN `%1$sgame_mods` 
+			WHERE `force_mod_id` IN
+			(
+				SELECT `force_mod_id`
+				FROM `%1$shome_ip_ports`
+				WHERE '.$ip_id_and.'(`force_mod_id` = %1$sgame_mods.mod_id OR `force_mod_id` = "0")
+			) ORDER BY %1$shome_ip_ports.home_id ASC LIMIT '.$user_request_page.','.$limit_dashboardlist.';',
+			$this->table_prefix );
+
+		return $this->listQuery($query);
+	}
+	
+	public function getIpPorts_count($id_type,$assign_id){
+		if ( $id_type == "admin" ){
+ 		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports`;");
+		}
+		else if ( $id_type == "user_and_group" ){
+		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT home_id FROM `".$this->table_prefix."user_homes` WHERE user_id = $assign_id);");
+		}
+		else if ( $id_type == "subuser" ){
+		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT group_id FROM `".$this->table_prefix."user_groups` WHERE user_id = $assign_id);");
+		}
 	}
 
 	// Module manager functions
