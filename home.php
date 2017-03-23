@@ -136,7 +136,15 @@ function heading()
 
 function ogpHome()
 {
-    global $db,$view,$settings;
+    global $db,$view,$settings, $loggedInUserInfo;
+
+ 	$page_user = isset($_GET['page']) ? $_GET['page'] : 1;
+  	$limit_user = isset($_GET['limit']) ? $_GET['limit'] : 10;
+	
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"]){
+		$limit_user = $loggedInUserInfo["users_page_limit"];
+ 	}
+	
 	?>
 	%top%
 	<?php
@@ -145,10 +153,10 @@ function ogpHome()
 		$isAdmin = $db->isAdmin($_SESSION['user_id']);
 			
 		if ( $isAdmin )
-			$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
+			$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$page_user,$limit_user);
 		else
-			$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
-		
+			$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$page_user,$limit_user);
+				
 		if(!empty($server_homes))
 		{
 			$servers_by_game_name = array();
