@@ -32,7 +32,7 @@ function exec_ogp_module()
 	
 	$isAdmin = $db->isAdmin($_SESSION['user_id']);
 
-	$page_user = isset($_GET['page']) ? $_GET['page'] : 1;
+	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1; // thanks for Adjokip
 	$limit_user = isset($_GET['limit']) ? $_GET['limit'] : 10;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
@@ -105,7 +105,7 @@ function exec_ogp_module()
 			$OnlineServers .= "</table><br>";
 			
 if ($isAdmin){			
-	$count_homes = $db->getIpPorts_count('admin');
+	$count_homes = $db->getIpPorts_count('admin',$_SESSION['user_id']);
 	}
 	else{
 	$isSubUser = $db->isSubUser($_SESSION['user_id']);

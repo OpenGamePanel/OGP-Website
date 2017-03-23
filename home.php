@@ -138,7 +138,7 @@ function ogpHome()
 {
     global $db,$view,$settings, $loggedInUserInfo;
 
- 	$page_user = isset($_GET['page']) ? $_GET['page'] : 1;
+	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1; // thanks for Adjokip
   	$limit_user = isset($_GET['limit']) ? $_GET['limit'] : 10;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
