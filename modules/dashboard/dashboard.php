@@ -28,9 +28,17 @@ require('includes/lib_remote.php');
 
 function exec_ogp_module() 
 {
-	global $db, $settings;
+	global $db, $settings, $loggedInUserInfo;
+	
 	$isAdmin = $db->isAdmin($_SESSION['user_id']);
 
+	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1; // thanks for Adjokip
+	$limit_user = isset($_GET['limit']) ? $_GET['limit'] : 10;
+	
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+ 		$limit_user = $loggedInUserInfo["users_page_limit"];
+ 	}	
+	
 	$OnlineServers = "";
 	$OnlineServersTitle = "";
 	
@@ -47,13 +55,13 @@ function exec_ogp_module()
 	
 	if ( $isAdmin )
 	{
-		$server_homes = $db->getIpPorts();
+		$server_homes = $db->getIpPorts_limit($ip_id,$page_user,$limit_user);
 	}
 	else
 	{
 		$OnlineServersTitle = "Open Game Panel";
 		$OnlineServers .= "<p>" . get_lang("welcome_text") . "</p><br><b>".get_lang('online_servers').":</b><br><br>";
-		$server_homes = $db->getIpPortsForUser($_SESSION['user_id']);
+		$server_homes = $db->getIpPortsForUser_limit($_SESSION['user_id'],$page_user,$limit_user);
 	}
 
 	require_once("includes/refreshed.php");
@@ -94,7 +102,41 @@ function exec_ogp_module()
 					$player_list .= $refresh->getdiv($refresh->add("home.php?m=dashboard&p=query_ref&show=players&type=cleared&ip=".$server_home['ip']."&port=".$server_home['port']));
 				}
 			}
-			$OnlineServers .= "</table>";
+			$OnlineServers .= "</table><br>";
+			
+if ($isAdmin){			
+	$count_homes = $db->getIpPorts_count('admin',$_SESSION['user_id']);
+	}
+	else{
+	$isSubUser = $db->isSubUser($_SESSION['user_id']);
+	if($isSubUser){
+	$count_homes = $db->getIpPorts_count('subuser',$_SESSION['user_id']);
+	}else{
+	$count_homes = $db->getIpPorts_count('user_and_group',$_SESSION['user_id']);
+		}
+	}
+	if($count_homes > $limit_user)
+ 	{
+ 		$total_pages = $count_homes[0]['total'] / $limit_user;
+ 		$pagination = "";
+ 		for($page=1; $page <= $total_pages+1; $page++)
+ 		{
+ 			if($page == $page_user){
+ 				$pagination .= " <b>$page</b>,";
+				if($total_pages <= 1){$pagination = "";}
+ 			}else{
+				if(isset($limit_user)){
+ 					$limits = $limit_user;
+					
+ 					$pagination .= "<a href='?m=dashboard&p=dashboard&page=$page&limit=$limits'>$page</a>,";
+ 				}else{
+ 					$pagination .= "<a href='?m=dashboard&p=dashboard&page=$page' >$page</a>,";
+ 				}
+ 			}
+ 		}
+ 		$OnlineServers .= rtrim($pagination, ",");
+ 	}
+	
 			$OnlineServers .= "<center>" . statistics . ":<br>$stats_servers_online/$stats_servers " . servers . "<br>" . 
 							  $refresh->getdiv($refresh->add("home.php?m=dashboard&p=query_ref&show=player_statistics&type=cleared&ip=" .
 							  $server_home['ip']."&port=".$server_home['port'])) . "</center>";
