@@ -39,7 +39,7 @@ define('files_overwritten', "%s pliki nadpisane.");
 define('can_not_update_non_writable_files', "Nie można zaktualizować, ponieważ następujące pliki/foldery nie mają praw do zapisu.");
 define('dwl_failed', "Adres pobierania nie jest dostepny: \"%s\".<br> Spróbuj ponownie później.");
 define('temp_folder_not_writable', "Pobieranie nie może zostać zakończone, ponieważ Apache nie ma uprawnień do zapisu w tymczasowym folderze (%s).");
-define('base_dir_not_writable', "Panel nie może zostać zaktualizowany, ponieważ Apache nie ma uprawnień do zapisu w folderze \\"%s\\".");
+define('base_dir_not_writable', "Panel nie może zostać zaktualizowany, ponieważ Apache nie ma uprawnień do zapisu w folderze %s.");
 define('new_files', "%s nowych plików.");
 define('updated_files', "Zaktualizowane pliki:<br>%s");
 define('select_mirror', "Wybierz żródło");

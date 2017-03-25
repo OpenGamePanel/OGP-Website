@@ -22,7 +22,7 @@
  *
  */
 
-define('game_manager', "Gestion");
+define('game_manager', "Gestión de Juegos");
 define('no_games_to_monitor', "Actualmente no hay servidores de juegos instalados.");
 define('status', "Estado");
 define('fail_no_mods', "No hay ningún mod para este juego. Habla con el administrador del panel para que añada mod(s) para este juego");
@@ -36,7 +36,7 @@ define('assign_game_homes', "Asignar home");
 define('user', "Usuario");
 define('group', "Grupo");
 define('start', "Iniciar Servidor");
-define('ogp_agent_ip', "IP del agente OGP");
+define('ogp_agent_ip', "IP del Agente OGP");
 define('max_players', "Jugadores máximos");
 define('max', "Máximo");
 define('ip_and_port', "IP y Puerto");

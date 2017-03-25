@@ -22,11 +22,11 @@
  *
  */
 
-define('system_uptime', "Tiempo de Encendido");
+define('system_uptime', "Tiempo Encendido");
 define('system_up_time', "Tiempo Encendido");
 define('system_up_since', "Desde");
 define('cpu_usage', "Consumo de CPU");
-define('cpu_load', "Cargar");
+define('cpu_load', "consumo");
 define('ram_usage', "Uso de memoria RAM");
 define('ram_used', "Memoria Usada");
 define('ram_of', "de");

@@ -35,7 +35,7 @@ define('error_when_handling_file', "Ocurrio un error mientras se leia %s.");
 define('error_while_adding_cfg_to_db', "Ocurrio un error actualizando desde %s a la base de datos.");
 define('no_configs_found', "No se encontraron configuraciones en %s.");
 define('select_game', "Seleccione un juego");
-define('create_xml_configs', "Crear Configs XML");
+define('create_xml_configs', "Crear Configuraciones XML");
 define('failed_to_delete_config_from_db', "Error al eliminar la configuración de %s de la base de datos.");
 define('failed_removing_file', "Error, no se pudo eliminar el archivo %s.");
 define('removed_game_cfg_from_disk_and_datbase', "Eliminada correctamente la configuración de %s de la base de datos y del disco.");

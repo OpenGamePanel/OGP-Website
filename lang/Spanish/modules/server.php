@@ -22,14 +22,14 @@
  *
  */
 
-define('add_new_remote_host', "Nuevo servidor remoto");
-define('configured_remote_hosts', "Servidores remotos instalados");
+define('add_new_remote_host', "Añadir nuevo servidor remoto");
+define('configured_remote_hosts', "Servidores remotos configurados");
 define('remote_host', "Servidor remoto");
 define('remote_host_info', "Se debe poder hacer ping al servidor remoto!");
 define('remote_host_port', "Puerto del servidor remoto");
-define('remote_host_port_info', "Puerto de escucha para el agente OGP. Por defecto: 12679.");
+define('remote_host_port_info', "Puerto de escucha para Agente OGP. Por defecto: 12679.");
 define('remote_host_name', "Nombre del servidor remoto");
-define('ogp_user', "OGP Agent Username");
+define('ogp_user', "Nombre de usuario de OGP Agent");
 define('remote_host_name_info', "Solo sirve para que lo identifiquen los usuarios.");
 define('add_remote_host', "Asignar servidor remoto");
 define('remote_encryption_key', "Clave de cifrado del servidor remoto");
@@ -122,16 +122,16 @@ define('ports_range_deleted_successfull', "Rango de puertos eliminados correctam
 define('ports_range_edited_successfull_for', "Rango de puertos editados correctamente a %s.");
 define('editing_firewall_for_remote_server', "Editando el cortafuegos para el servidor remoto llamado \"%s\"");
 define('default_allowed', "Permitido por defecto");
-define('allow_port_command', "Comando permitir puerto");
-define('deny_port_command', "Comando denegar puerto");
-define('allow_ip_port_command', "Comando permitir IP:puerto");
-define('deny_ip_port_command', "Comando denegar IP:puerto");
-define('enable_firewall_command', "Comando activar cortafuegos");
-define('disable_firewall_command', "Comando desactivar cortafuegos");
-define('get_firewall_status_command', "Comando mostrar estado cortafuegos");
-define('reset_firewall_command', "Comando restablecer cortafuegos");
-define('firewall_status', "Estado cortafuegos");
-define('save_firewall_settings', "Guardar configuración cortafuegos");
+define('allow_port_command', "Permitir el comando de puerto");
+define('deny_port_command', "Denegar el comando de puerto");
+define('allow_ip_port_command', "Permitir IP: comando de puerto");
+define('deny_ip_port_command', "Denegar IP: comando de puerto");
+define('enable_firewall_command', "Habilitar el comando de cortafuegos");
+define('disable_firewall_command', "Deshabilitar el comando de cortafuegos");
+define('get_firewall_status_command', "Obtener el estado de comando de el cortafuegos");
+define('reset_firewall_command', "Restablecer comandos del cortafuegos");
+define('firewall_status', "Estado del cortafuegos");
+define('save_firewall_settings', "Guardar configuración del cortafuegos");
 define('reset_firewall', "Restablecer cortafuegos");
-define('firewall_settings', "Configuración cortafuegos");
+define('firewall_settings', "Configuración del cortafuegos");
 ?>

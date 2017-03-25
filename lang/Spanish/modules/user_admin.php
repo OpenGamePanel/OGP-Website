@@ -66,10 +66,10 @@ define('are_you_sure_you_want_to_delete_user', "Esta seguro que quiere eliminar 
 define('unable_to_delete_user', "Imposible eliminar el usuario %s");
 define('successfully_deleted_user', "El usuario %s se elimino correctamente");
 define('failed_to_update_user_profile_error', "Imposible editar el perfil. Error: %s.");
-define('profile_of_user_modified_successfully', "El perfil del ususario %s fue modificado correctamente.");
+define('profile_of_user_modified_successfully', "El perfil del usuario %s fue modificado correctamente.");
 define('no_subusers', "No hay subusuarios disponibles para asignar a un grupo. Por favor cree subusuarios.");
 define('ownedby', "Propietario principal");
-define('andSubUsers', " And all of his subusers?");
+define('andSubUsers', "y todos sus subusuarios");
 define('subusers', "Subusuarios");
 define('show_subusers', "Mostrar Subusuarios");
 define('hide_subusers', "Ocultar Subusuarios");
@@ -106,5 +106,5 @@ define('successfully_deleted_group', "Grupo %s eliminado correctamente.");
 define('editing_profile', "Editar Perfil: %s");
 define('valid_user', "Por favor especifica un usuario valido.");
 define('enter_valid_username', "Por favor introduzca un nombre de usuario valido.");
-define('unexpected_role', "Unexpected user role received.");
+define('unexpected_role', "Rol de usuario inválido");
 ?>

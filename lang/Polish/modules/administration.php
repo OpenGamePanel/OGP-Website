@@ -45,5 +45,5 @@ define('client_ip', "Klient IP");
 define('banned_until', "Zbanowany do");
 define('unban_selected_ips', "Odbanuj zaznaczone IPs");
 define('view', "Podgląd");
-define('per_page', "log entries per page");
+define('per_page', "wyników na stronę");
 ?>
