@@ -202,7 +202,7 @@ function exec_ogp_module()
 			echo '<span><label for="cpu_'.$x.'">CPU '.$x.'</label> <input type="checkbox" name="cpus[]" value="'.$x.'" id="cpu_'.$x.'" class="cpus" '. ( in_array($x, $cores) ? 'checked' : '' ) .'/></span>';
 		}
 		
-		echo '<button class="set_options" id="'.$enabled_rows['mod_cfg_id'].'" style="margin-left:10px;">'.get_lang('set_affinity').'</button></div>';
+		echo '<button class="set_options set_affinity_button" id="'.$enabled_rows['mod_cfg_id'].'" style="margin-left:10px;">'.get_lang('set_affinity').'</button></div>';
 	}
 	?>
 	<script type="text/javascript" src="js/modules/user_games-mods.js"></script>

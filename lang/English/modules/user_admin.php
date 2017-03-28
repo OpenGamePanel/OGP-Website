@@ -29,6 +29,7 @@ define('login_name', "Login name");
 define('language', "Language");
 define('first_name', "First name");
 define('page_limit', "Items per Page");
+define('page_limit_info', "Number of items shown per page. The number of items cannot be less than 10.");
 define('last_name', "Last name");
 define('phone_number', "Phone number");
 define('email_address', "Email address");
