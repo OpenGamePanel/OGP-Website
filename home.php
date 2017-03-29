@@ -35,11 +35,19 @@ define("IMAGES", "images/");
 define("INCLUDES", "includes/");
 define("MODULES", "modules/");
 
+// Load languages.
+include_once("includes/lang.php");
+ogpLang();
+
 define("CONFIG_FILE","includes/config.inc.php");
 
 require_once CONFIG_FILE;
 // Connect to the database server and select database.
 $db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
+
+if (!$db instanceof OGPDatabase) {
+	die(get_lang('no_db_connection'));
+}
 
 // Logged in user settings - access this global variable where needed
 if(hasValue($_SESSION['user_id'])){
@@ -48,10 +56,6 @@ if(hasValue($_SESSION['user_id'])){
 
 $settings = $db->getSettings();
 @$GLOBALS['panel_language'] = $settings['panel_language'];
-
-// Load languages.
-include_once("includes/lang.php");
-ogpLang();
 
 require_once("includes/view.php");
 $view = new OGPView();
@@ -136,15 +140,7 @@ function heading()
 
 function ogpHome()
 {
-    global $db,$view,$settings, $loggedInUserInfo;
-
-	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1; // thanks for Adjokip
-  	$limit_user = isset($_GET['limit']) ? $_GET['limit'] : 10;
-	
-	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
-		$limit_user = $loggedInUserInfo["users_page_limit"];
- 	}
-	
+    global $db,$view,$settings;
 	?>
 	%top%
 	<?php
@@ -153,9 +149,9 @@ function ogpHome()
 		$isAdmin = $db->isAdmin($_SESSION['user_id']);
 			
 		if ( $isAdmin )
-			$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$page_user,$limit_user);
+			$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
 		else
-			$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$page_user,$limit_user);
+			$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 				
 		if(!empty($server_homes))
 		{

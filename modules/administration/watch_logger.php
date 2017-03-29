@@ -65,8 +65,8 @@ function exec_ogp_module() {
 	if( isset( $_POST['empty_logger'] ) )
 		$db->empty_logger();
 	
-	$p = isset($_GET['page']) ? $_GET['page'] : 1;
-	$l = isset($_GET['limit']) ? $_GET['limit'] : 10;
+	$p = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
+	$l = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$l = $loggedInUserInfo["users_page_limit"];
@@ -119,25 +119,15 @@ function exec_ogp_module() {
 	echo "<tfoot style='border:1px solid grey;'></tfoot>\n";
 	echo "</table>\n";
 	$count_logs = $db->get_logger_count();
-	if($count_logs > $l)
-	{
-		$total_pages = $count_logs[0]['total'] / $l;
-		$pagination = "";
-		for($page=1; $page <= $total_pages+1; $page++)
-		{
-			if($page == $p){
-				$pagination .= " <b>$page</b>, ";
-			}else{
-				if(isset($l)){
-					$limits = $l;
-					$pagination .= "<a href='?m=administration&p=watch_logger&page=$page&limit=$limits'>$page</a>, ";
-				}else{
-					$pagination .= "<a href='?m=administration&p=watch_logger&page=$page' >$page</a>, ";
-				}
-			}
-		}
-		echo rtrim($pagination, ", ");
-	}
+
+	$uri = '?m=administration&p=watch_logger&limit='.$l.'&page=';
+	echo paginationPages($count_logs[0]['total'], $p, $l, $uri,
+		array(
+			'previousLink' => 'watchLogger_previousPageLink',
+			'pageLinks' => 'watchLogger_pageLinks',
+			'nextLink' => 'watchLogger_nextPageLink',
+			'currentPage' => 'watchLogger_currentPageLink',
+		)
+	);
 }
 ?>
-

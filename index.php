@@ -36,6 +36,10 @@ require_once("includes/functions.php");
 require_once("includes/helpers.php");
 require_once("includes/html_functions.php");
 
+// Load languages.
+include_once("includes/lang.php");
+ogpLang();
+
 // Start the session valid for opengamepanel_web only
 startSession();
 
@@ -58,6 +62,10 @@ require_once CONFIG_FILE;
 // Connect to the database server and select database.
 $db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
 
+if (!$db instanceof OGPDatabase) {
+	die(get_lang('no_db_connection'));
+}
+
 // Logged in user settings - access this global variable where needed
 if(hasValue($_SESSION['user_id'])){
 	$loggedInUserInfo = $db->getUserById($_SESSION['user_id']);
@@ -65,10 +73,6 @@ if(hasValue($_SESSION['user_id'])){
 
 $settings = $db->getSettings();
 @$GLOBALS['panel_language'] = $settings['panel_language'];
-
-// Load languages.
-include_once("includes/lang.php");
-ogpLang();
 
 require_once("includes/view.php");
 $view = new OGPView();
