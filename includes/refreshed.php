@@ -120,7 +120,7 @@ class refreshed
 						  "\t		if (!enableCallbacks) return;\n".
 						  "\t		$('".$ref."').html(data);\n";
 				
-				if($_GET['m'] == 'status'){
+				if($_GET['m'] == 'status' || $_GET['m'] == 'dashboard'){
 					$first .= "\t		animateProgressBars();\n";
 				}
 				
@@ -148,6 +148,11 @@ class refreshed
 				{
 					$second .= "\t\t		$('".$ref."').animate({ scrollTop: 9999});\n";
 				}
+				
+				if($_GET['m'] == 'status' || $_GET['m'] == 'dashboard'){
+					$second .= "\t\t		animateProgressBars();\n";
+				}
+				
 				$second .= "\t\t	}\n".
 						   "\t\t});\n";
 			}
