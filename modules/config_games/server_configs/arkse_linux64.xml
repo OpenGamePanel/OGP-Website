@@ -156,7 +156,12 @@
       else
         echo "SteamCMD not found."
         echo "Installing SteamCMD!"
-        ./SteamCMDInstall.sh
+      
+        mkdir -p Engine/Binaries/ThirdParty/SteamCMD/Linux
+		cd Engine/Binaries/ThirdParty/SteamCMD/Linux
+		
+		wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+		tar -xf steamcmd_linux.tar.gz
     fi
   </post_install>
 </game_config>
