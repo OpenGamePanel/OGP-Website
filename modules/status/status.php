@@ -113,8 +113,7 @@ function exec_ogp_module()
 				    
 				    drawBarDiv($hddbarusage, "HDD");
 				    
-				    echo "<br>
-				    ".get_lang('storage_free').": " . $hddfreespace . "</b>
+				    echo get_lang('storage_free').": " . $hddfreespace . "</b>
 				    </div>
 				   </div>
 				  </div>";
