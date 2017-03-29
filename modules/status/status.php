@@ -31,6 +31,7 @@ function numbersFormatting($bytes){
 function exec_ogp_module()
 {
 	global $db;
+	include_once ("modules/status/include/status_functions.php");
 	include_once ("modules/status/config.php");
 	include_once ("modules/status/include/os.php");
 	//CPU Usage
@@ -82,8 +83,8 @@ function exec_ogp_module()
 			ksort($cores);
 			foreach($cores as $cpu => $percent)
 			{		 
-				echo "<b>CPU" . $cpu . " ".get_lang('cpu_load').": " . $percent . " %</b><br>
-					  <img src=\"modules/status/include/bar.php?rating=" . $percent . "\" style=\"width:100%;border:1px solid tranparent;\" />";
+				echo "<b>CPU" . $cpu . " ".get_lang('cpu_load').": " . $percent . " %</b><br>";
+				drawBarDiv($percent, "CPU" . $cpu);
 			}
 		
 			echo '</div>
@@ -95,8 +96,9 @@ function exec_ogp_module()
 			    <div class=\"dragbox bloc rounded\" >
 			    <h4>".get_lang('ram_usage')."</h4>
 			     <div class=\"dragbox-content\">
-			     <b>".get_lang('ram_used').": " . $ramusage . "<br></b>
-			     <img src=\"modules/status/include/bar.php?rating=" . $rampercent . "\" style=\"width:100%;border:1px solid tranparent;\">
+			     <b>".get_lang('ram_used').": " . $ramusage . "<br></b>";
+			drawBarDiv($rampercent, "RAM");
+			echo "
 			     </div>
 			    </div></div>";
 		}
@@ -107,8 +109,11 @@ function exec_ogp_module()
 				   <h4>".get_lang('storage_space')."</h4>
 				    <div class=\"dragbox-content\">
 				    <b>".get_lang('storage_total').": " . $diskspace . "<br>
-				    ".get_lang('storage_used').": " . $diskinuse . "<br>
-				    <img src= \"modules/status/include/bar.php?rating=" . $hddbarusage . "\" style=\"width:100%;border:1px solid tranparent;\"><br>
+				    ".get_lang('storage_used').": " . $diskinuse . "<br>";
+				    
+				    drawBarDiv($hddbarusage, "HDD");
+				    
+				    echo "<br>
 				    ".get_lang('storage_free').": " . $hddfreespace . "</b>
 				    </div>
 				   </div>

@@ -1,5 +1,6 @@
 $(document).ready(function(){
     wireClicks();
+    animateProgressBars();
 });
 
 function wireClicks(){
@@ -9,6 +10,18 @@ function wireClicks(){
 	
 	$(".getAutoUpdateLink").click(function(e){
 		showSteamUpdateLink($(this));
+	});
+}
+
+function animateProgressBars(){
+	var percent = 0;
+	$(".progress-bar").each(function() {
+		percent = $(this).attr("data");
+		if(percent){
+			$(this).animate({
+				width: percent + "%"
+			});
+		}
 	});
 }
 

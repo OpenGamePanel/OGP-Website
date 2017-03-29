@@ -53,6 +53,9 @@ class OGPView {
         if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
             $panel_settings = $db->getSettings();
         }
+        
+        // Our global CSS goes first so that themes can override
+        $this->header_code = '<link rel="stylesheet" href="css/global.css">';
 
         $path = "";
 
@@ -113,9 +116,7 @@ class OGPView {
 		
 		if ( isset($panel_settings['header_code']) &&
             !empty($panel_settings['header_code']))  
-			$this->header_code = $panel_settings['header_code']."\n";
-		else
-			$this->header_code = "";
+			$this->header_code .= $panel_settings['header_code']."\n";
 		
 		$module = isset($_GET['m']) ? $_GET['m'] : "";
 		$subpage = isset($_GET['p']) ? $_GET['p'] : $module;
@@ -139,9 +140,8 @@ class OGPView {
 		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>';
 		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">';
 		
-		// Include our global JS and CSS
+		// Include our global JS
 		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>';
-		$this->header_code .= '<link rel="stylesheet" href="css/global.css">';
 		
         $buffer = ob_get_contents();
         ob_end_clean();
