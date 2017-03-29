@@ -48,7 +48,7 @@ define('uncompress', "Descomprimir");
 define('create_folder', "Crear carpeta");
 define('create', "Crear");
 define('delete_item', "Borrar %s?");
-define('upload_in_progress', "Subiendo, en progreso...");
+define('upload_in_progress', "Subida en progreso...");
 define('upload_complete', "Archivo subido correctamente.");
 define('chattr_yes', "Bloquear Archivo");
 define('chattr_no', "Desbloquear Archivo");

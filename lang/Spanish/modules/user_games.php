@@ -70,7 +70,7 @@ define('successfully_assigned_ip_port', "Asignados IP:Puerto al home.");
 define('port_range_error', "Los puertos deben pertenecer al rango entre 0 y 65535. En Linux, solo root puede usar puertos por debajo de 1024, por lo que el agente no será capaz de iniciar ningún servidor que use un puerto inferior a 1024.");
 define('failed_to_assing_mod_to_home', "No se pudo asignar el mod %d al home.");
 define('successfully_assigned_mod_to_home', "Se asigno el mod con id %d al home.");
-define('successfully_modified_mod', "La informacion del mod a sido modificada correctamente.");
+define('successfully_modified_mod', "La informacion del mod ha sido modificada correctamente.");
 define('back_to_game_monitor', "Volver a Monitor");
 define('back_to_game_servers', "Volver a Servirdores de Juegos");
 define('user_id_main', "Propietário principal");

@@ -78,7 +78,7 @@ define('xml_file_not_valid', "Archivo XML no valido");
 define('unable_to_load_xml', "Imposible cargar archivo XML");
 define('gamemanager', "Gestión");
 define('game_monitor', "Monitor de Juegos");
-define('dashboard', "Tablero");
+define('dashboard', "Dashboard");
 define('user_addons', "Añadidos");
 define('ftp', "FTP");
 define('shop', "Tienda");

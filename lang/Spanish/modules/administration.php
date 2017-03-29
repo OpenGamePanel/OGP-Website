@@ -25,7 +25,7 @@
 define('external_links', "Links Externos");
 define('url', "URL");
 define('name', "Nombre");
-define('add_it', "Añadelo");
+define('add_it', "Añadir");
 define('link_has_been_removed', "%s enlace eliminado.");
 define('db_backup', "Copia de seguridad de la base de datos");
 define('download_db_backup', "Descargar copia de seguridad");
@@ -36,7 +36,7 @@ define('when', "Fecha");
 define('who', "Nombre de Usuario");
 define('where', "Dirección IP");
 define('what', "Acción");
-define('search', "Busqueda");
+define('search', "Búsqueda");
 define('empty_logger', "Vaciar Logger");
 define('ban_list', "IP baneadas");
 define('no_banned_ips', "No hay ninguna IP baneada");

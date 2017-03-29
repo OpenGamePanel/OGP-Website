@@ -37,7 +37,7 @@ define('server_status', "Estado del Servidor");
 define('no_games_to_monitor', "Actualmente no hay servidores de juegos instalados.");
 define('online_servers', "Servidores Online");
 define('add_games_in', "Sí desea añadir servidores vaya a %s");
-define('currently_online', "Ahora En Linea");
+define('currently_online', "Ahora en Linea");
 define('game_servers', "Servidores de Juegos");
 define('select_remote_server', "Seleccionar servidor remoto");
 ?>

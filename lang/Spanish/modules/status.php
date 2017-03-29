@@ -34,7 +34,7 @@ define('storage_space', "Espacio de Almacenamiento");
 define('storage_total', "Espacio en Disco");
 define('storage_used', "Usado");
 define('storage_free', "Espacio Libre");
-define('process_monitor', "Monitorear Procesos");
+define('process_monitor', "Monitor de Procesos");
 define('status_extension_required', "Extensión Requerida");
 define('gd_info', "Extensión PHP <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> para generar las imágenes de barras!");
 ?>

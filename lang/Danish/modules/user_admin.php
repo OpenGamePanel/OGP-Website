@@ -29,6 +29,7 @@ define('login_name', "Brugerens navn");
 define('language', "Sprog");
 define('first_name', "Fornavn");
 define('page_limit', "Items per Page");
+define('page_limit_info', "Number of items shown per page. The number of items cannot be less than 10.");
 define('last_name', "Efternavn");
 define('phone_number', "Telefon nummer");
 define('email_address', "Email address");

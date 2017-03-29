@@ -29,6 +29,7 @@ define('login_name', "Bejelentkezési név");
 define('language', "Nyelv");
 define('first_name', "Keresztnév");
 define('page_limit', "Oldalankénti tételek");
+define('page_limit_info', "Number of items shown per page. The number of items cannot be less than 10.");
 define('last_name', "Vezetéknév");
 define('phone_number', "Telefonszám");
 define('email_address', "E-mail cím");
