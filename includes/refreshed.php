@@ -119,6 +119,11 @@ class refreshed
 						  "\t	success: function(data, textStatus) {\n".
 						  "\t		if (!enableCallbacks) return;\n".
 						  "\t		$('".$ref."').html(data);\n";
+				
+				if($_GET['m'] == 'status'){
+					$first .= "\t		animateProgressBars();\n";
+				}
+				
 				if($_GET['m'] == 'gamemanager' and $_GET['p'] == 'log')
 				{
 					$first .= "\t		$('".$ref."').animate({ scrollTop: $('".$ref."').prop('scrollHeight')*3}, 3000);\n";
