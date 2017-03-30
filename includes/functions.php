@@ -657,4 +657,33 @@ function hasValue($val, $zeroAllowed = false){
 		}
 	}
 }
+
+function paginationPages($pageResults, $currentPage, $perPage, $pageUri, $customClasses) {
+	$pagination = '';
+
+	if ($pageResults > $perPage) {
+		if ($currentPage > 1) {
+			$pagination .= '<a href="'.$pageUri . ($currentPage-1) .'" class="'.$customClasses['previousLink'].'">Previous</a> ';
+		}
+
+		$totalPages = ceil($pageResults/$perPage);
+
+		for ($i=1; $i<=$totalPages;++$i) {
+			if ($currentPage == $i) {
+				$pagination .= '<span class="'.$customClasses['currentPage'].'">'.$i.'</span>';
+			} else {
+				$pagination .= '<a href="'.$pageUri . $i .'" class="'.$customClasses['pageLinks'].'">'.$i.'</a>';
+			}
+
+			$pagination .= ($i < $totalPages) ? ', ' : ' ';
+		}
+
+		if ($currentPage < $totalPages) {
+			$pagination .= '<a href="'.$pageUri . ($currentPage+1) .'" class="'.$customClasses['nextLink'].'">Next</a>';
+		}
+	}
+
+	return $pagination;
+}
+
 ?>

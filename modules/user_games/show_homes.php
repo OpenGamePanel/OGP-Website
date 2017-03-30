@@ -28,7 +28,7 @@ function exec_ogp_module()
 	global $db, $loggedInUserInfo;
 
 	$page_GameHomes = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
-	$limit_GameHomes = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
+	$limit_GameHomes = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$limit_GameHomes = $loggedInUserInfo["users_page_limit"];
@@ -76,26 +76,16 @@ function exec_ogp_module()
 	echo "</table>";
 
 	$count_GameHomes = $db->get_GameHomes_count();
-	if($count_GameHomes > $limit_GameHomes)
-	{
-		$total_pages = $count_GameHomes[0]['total'] / $limit_GameHomes;
-		$pagination = "";
-		for($page=1; $page <= $total_pages+1; $page++)
-		{
-			if($page == $page_GameHomes){
-				$pagination .= " <b>$page</b>,";
-				if($total_pages <= 1){$pagination = "";}
-			}else{
-				if(isset($limit_GameHomes)){
-					$limits = $limit_GameHomes;
-					$pagination .= "<a href='?m=user_games&page=$page&limit=$limits'>$page</a>,";
-				}else{
-					$pagination .= " <a href='?m=user_games&page=$page' >$page</a>,";
-				}
-			}
-		}
-		echo rtrim($pagination, ",");
-	}
+
+	$uri = '?m=user_games&limit='.$limit_GameHomes.'&page=';
+	echo paginationPages($count_GameHomes[0]['total'], $page_GameHomes, $limit_GameHomes, $uri,
+		array(
+			'previousLink' => 'userGames_previousPageLink',
+			'pageLinks' => 'userGames_pageLinks',
+			'nextLink' => 'userGames_nextPageLink',
+			'currentPage' => 'userGames_currentPageLink',
+		)
+	);
 
 	?>
 	<script type="text/javascript">

@@ -71,9 +71,14 @@ function exec_ogp_module()
 	
 	if( file_exists(RSS_LOCAL_PATH) )
 	{
-		$feedXml = new SimpleXMLElement(file_get_contents(RSS_LOCAL_PATH), LIBXML_NOCDATA);
-		$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
-		unlink(RSS_LOCAL_PATH);
+		try {
+			$feedXml = new SimpleXMLElement(file_get_contents(RSS_LOCAL_PATH), LIBXML_NOCDATA);
+			$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
+			unlink(RSS_LOCAL_PATH);
+		} catch (Exception $e) {
+			print_failure('Unable to update: '.$e->getMessage());
+			return;
+		}
 	}
 	else
 	{

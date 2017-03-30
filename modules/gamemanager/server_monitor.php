@@ -129,7 +129,7 @@ function exec_ogp_module() {
 	$stats_maxplayers = 0;
 	
 	$home_page = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
-	$home_limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
+	$home_limit = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$home_limit = $loggedInUserInfo["users_page_limit"];
@@ -632,38 +632,28 @@ function exec_ogp_module() {
 
 	echo "</table>";
 
-	if($isAdmin)
-	{	
-		$homes_count = $db->getHomesFor_count('admin',$_SESSION['user_id']);
-	}
-	else
-	{
+	if ($isAdmin) {	
+		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id']);
+	} else {
 		$isSubUser = $db->isSubUser($_SESSION['user_id']);
-		if($isSubUser)
-		{
+
+		if ($isSubUser) {
 			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id']);
-		}else{$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id']);}	
+		} else {
+			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id']);
+		}	
 	}
-	if($homes_count > $home_limit)
-	{
-		$total_pages = $homes_count[0]['total'] / $home_limit;
-		$pagination = "";
-		for($page=1; $page <= $total_pages+1; $page++)
-		{
-			if($page == $home_page){
-				$pagination .= " <b>$page</b>,";
-				if($total_pages <= 1){$pagination = "";}
-			}else{
-				if(isset($home_limit)){
-					$limits = $home_limit;
-					$pagination .= "<a href='?m=gamemanager&p=game_monitor&page=$page&limit=$limits'>$page</a>,";
-				}else{
-					$pagination .= " <a href='?m=gamemanager&p=game_monitor&page=$page' >$page</a>,";
-				}
-			}
-		}
-		echo rtrim($pagination, ",");
-	}
+
+
+	$uri = '?m=gamemanager&p=game_monitor&limit='.$home_limit.'&page=';
+	echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri,
+		array(
+			'previousLink' => 'serverMonitor_previousPageLink',
+			'pageLinks' => 'serverMonitor_pageLinks',
+			'nextLink' => 'serverMonitor_nextPageLink',
+			'currentPage' => 'serverMonitor_currentPageLink',
+		)
+	);
 
 	echo "<div id=translation data-title='". upload_map_image .
 		 "' data-upload_button='". upload_image .

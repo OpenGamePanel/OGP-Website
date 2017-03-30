@@ -48,7 +48,7 @@ function exec_ogp_module() {
     global $db, $loggedInUserInfo;
 	
 	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
-	$limit_user = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
+	$limit_user = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$limit_user = $loggedInUserInfo["users_page_limit"];
@@ -99,26 +99,18 @@ function exec_ogp_module() {
         print "</tr>";
     }
     echo '</table><br>';
-	
+
 	$count_users = $db->get_user_count();
-	if($count_users > $limit_user)
-	{
-		$total_pages = $count_users[0]['total'] / $limit_user;
-		$pagination = "";
-		for($page=1; $page <= $total_pages+1; $page++)
-		{
-			if($page == $page_user){
-				$pagination .= " <b>$page</b>,";
-			}else{
-				if(isset($limit_user)){
-					$limits = $limit_user;
-					$pagination .= "<a href='?m=user_admin&page=$page&limit=$limits'>$page</a>,";
-				}else{
-					$pagination .= " <a href='?m=user_admin&page=$page' >$page</a>,";
-				}
-			}
-		}
-		echo rtrim($pagination, ",");
-	}
+	
+	$uri = '?m=user_admin&limit='.$limit_user.'&page=';
+	echo paginationPages($count_users[0]['total'], $page_user, $limit_user, $uri,
+		array(
+			'previousLink' => 'userManager_previousPageLink',
+			'pageLinks' => 'userManager_pageLinks',
+			'nextLink' => 'userManager_nextPageLink',
+			'currentPage' => 'userManager_currentPageLink',
+		)
+	);
+
 }
 ?>

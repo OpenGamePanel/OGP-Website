@@ -314,11 +314,14 @@ function exec_ogp_module()
 		
 		return;
 	}
-	
-	$m = 0;
+
 	$modules = array();
-	$t = 0;
 	$themes = array();
+	$moduleErrors = array();
+
+	$m = 0;
+	$t = 0;
+
 	foreach($repos_info_array as $key => $repository)
 	{
 		if(preg_match('/^(OGP-Website|OGP-Agent-Linux|OGP-Agent-Windows)$/',$repository['name']))
@@ -344,40 +347,53 @@ function exec_ogp_module()
 			print_failure('Unable to get contents from : ' . $used_file);
 			continue;
 		}
-		$feedXml = new SimpleXMLElement($contents, LIBXML_NOCDATA);
-		$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
-		/* echo "<xmp>";
-		print_r($feedXml);
-		echo "</xmp>"; */
-		if($seed)
-		{
-			if(preg_match("/^Module-/",$repository['name']))
+
+		try {
+			$feedXml = new SimpleXMLElement($contents, LIBXML_NOCDATA);
+			$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
+			/* echo "<xmp>";
+			print_r($feedXml);
+			echo "</xmp>"; */
+			if($seed)
 			{
-				$module_title = preg_replace(array("/^Module-/i","/_/"),array(""," "),$repository['name']);
-				$modules[$m]['title'] = $module_title;
-				$modules[$m]['reponame'] = $repository['name'];
-				$modules[$m]['file'] = $seed.'.zip';
-				$modules[$m]['link'] = 'https://github.com/OpenGamePanel/'.$repository['name'].'/archive/'.$seed.'.zip';
-				$modules[$m]['date'] = (string) $feedXml->entry[0]->updated;
-				$modules[$m]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
-				$modules[$m]['remove_path'] = $repository['name']."-".$seed;
-				$m++;
+				if(preg_match("/^Module-/",$repository['name']))
+				{
+					$module_title = preg_replace(array("/^Module-/i","/_/"),array(""," "),$repository['name']);
+					$modules[$m]['title'] = $module_title;
+					$modules[$m]['reponame'] = $repository['name'];
+					$modules[$m]['file'] = $seed.'.zip';
+					$modules[$m]['link'] = 'https://github.com/OpenGamePanel/'.$repository['name'].'/archive/'.$seed.'.zip';
+					$modules[$m]['date'] = (string) $feedXml->entry[0]->updated;
+					$modules[$m]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
+					$modules[$m]['remove_path'] = $repository['name']."-".$seed;
+					$m++;
+				}
+				
+				if(preg_match("/^Theme-/",$repository['name']))
+				{
+					$theme_title = preg_replace("/Theme-/i","",$repository['name']);
+					$themes[$t]['title'] = $theme_title;
+					$themes[$t]['reponame'] = $repository['name'];
+					$themes[$t]['file'] = $seed.'.zip';
+					$themes[$t]['link'] = 'https://github.com/OpenGamePanel/'.$repository['name'].'/archive/'.$seed.'.zip';
+					$themes[$t]['date'] = (string) $feedXml->entry[0]->updated;
+					$themes[$t]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
+					$themes[$t]['remove_path'] = $repository['name']."-".$seed;
+					$t++;
+				}
 			}
-			if(preg_match("/^Theme-/",$repository['name']))
-			{
-				$theme_title = preg_replace("/Theme-/i","",$repository['name']);
-				$themes[$t]['title'] = $theme_title;
-				$themes[$t]['reponame'] = $repository['name'];
-				$themes[$t]['file'] = $seed.'.zip';
-				$themes[$t]['link'] = 'https://github.com/OpenGamePanel/'.$repository['name'].'/archive/'.$seed.'.zip';
-				$themes[$t]['date'] = (string) $feedXml->entry[0]->updated;
-				$themes[$t]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
-				$themes[$t]['remove_path'] = $repository['name']."-".$seed;
-				$t++;
+		} catch (Exception $e) {
+			if (preg_match("/^Module-/", $repository['name'])) {
+				$moduleErrors['modules'][] = preg_replace(array("/^Module-/i","/_/"),array(""," "),$repository['name']);
+			}
+
+			if(preg_match("/^Theme-/", $repository['name']) && !empty($repository['name'])) {
+				$moduleErrors['themes'][] = preg_replace("/Theme-/i","",$repository['name']);
 			}
 		}
+
 	}
-		
+
 	global $db;
 	$installed_modules = $db->getInstalledModules();
 	
@@ -441,6 +457,12 @@ function exec_ogp_module()
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
 		 "<h4>".extra_modules."</h4>".
 		 "<div class=\"dragbox-content\" >";
+
+	if (!empty($moduleErrors['modules'])) {
+		foreach($moduleErrors['modules'] as $module) {
+			echo '<input type="checkbox" disabled><b>',$module,'</b> - <b style="color:red;">Unable to retrieve XML data.</b><br>';
+		}
+	}
 	
 	foreach ( $installed_modules as $installed_module )
 	{
@@ -487,6 +509,13 @@ function exec_ogp_module()
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
 		 "<h4>".extra_themes."</h4>".
 		 "<div class=\"dragbox-content\" >";
+
+	if (!empty($moduleErrors['themes'])) {
+		foreach($moduleErrors['themes'] as $theme) {
+			echo '<input type="checkbox" disabled><b>',$theme,'</b> - <b style="color:red;">Unable to retrieve XML data.</b><br>';
+		}
+	}
+
 	foreach($themes as $key => $theme)
 	{
 		$local_repo_file = DATA_PATH . $theme['reponame'] . '.atom';
@@ -526,5 +555,6 @@ function exec_ogp_module()
 		 "' data-confirm='".confirm.
 		 "' data-cancel='".cancel.
 		 "' ></div>";
+
 }
 ?>
