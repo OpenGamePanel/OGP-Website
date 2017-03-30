@@ -78,14 +78,7 @@ function exec_ogp_module()
 	$count_GameHomes = $db->get_GameHomes_count();
 
 	$uri = '?m=user_games&limit='.$limit_GameHomes.'&page=';
-	echo paginationPages($count_GameHomes[0]['total'], $page_GameHomes, $limit_GameHomes, $uri,
-		array(
-			'previousLink' => 'userGames_previousPageLink',
-			'pageLinks' => 'userGames_pageLinks',
-			'nextLink' => 'userGames_nextPageLink',
-			'currentPage' => 'userGames_currentPageLink',
-		)
-	);
+	echo paginationPages($count_GameHomes[0]['total'], $page_GameHomes, $limit_GameHomes, $uri, 3, 'userGames');
 
 	?>
 	<script type="text/javascript">
