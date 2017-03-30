@@ -35,17 +35,17 @@ define("IMAGES", "images/");
 define("INCLUDES", "includes/");
 define("MODULES", "modules/");
 
-// Load languages.
-include_once("includes/lang.php");
-ogpLang();
-
 define("CONFIG_FILE","includes/config.inc.php");
 
 require_once CONFIG_FILE;
 // Connect to the database server and select database.
 $db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
 
+// Load languages.
+include_once("includes/lang.php");
+
 if (!$db instanceof OGPDatabase) {
+	ogpLang();
 	die(get_lang('no_db_connection'));
 }
 
@@ -56,6 +56,7 @@ if(hasValue($_SESSION['user_id'])){
 
 $settings = $db->getSettings();
 @$GLOBALS['panel_language'] = $settings['panel_language'];
+ogpLang();
 
 require_once("includes/view.php");
 $view = new OGPView();
