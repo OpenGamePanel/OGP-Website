@@ -69,6 +69,10 @@
 	  <caption>Max RAM</caption>
 	  <desc>How much memory? for example: 1024M</desc>
 	</param>
+	<param key="-autoupdate" type="checkbox_key_value">
+	  <caption>Update the server before starting</caption>
+	  <desc>Will compile the server from source, this process may take some minutes.</desc>
+	</param>
 	<param key="-updateBuildTools" type="checkbox_key_value">
 	  <caption>Downlad latest BuildTools.jar</caption>
 	  <desc>Download latest BuildTools.jar before updating the server.</desc>
