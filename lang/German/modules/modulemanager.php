@@ -31,7 +31,7 @@ define('modules_available_for_install', "Folgende Module stehen zur Installation
 define('install', "Installieren");
 define('uninstall', "Deinstallieren");
 define('modules', "Module");
-define('update_modules', "Update Modules");
+define('update_modules', "Module Aktualisieren");
 define('no_installed_modules', "Keine installierten Module gefunden.");
 define('not_complete', "The install/uninstall feature is not complete and might not work properly. WARNING: Data loss may occur in the OGP database!");
 define('core_mods_installed', "Installed Core Modules:");

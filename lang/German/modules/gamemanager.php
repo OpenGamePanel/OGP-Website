@@ -56,7 +56,7 @@ define('game_home', "game server");
 define('server_started', "Server erfolgreich gestartet.");
 define('no_parameter_access', "You do not have access to parameters.");
 define('extra_parameters', "Zusätzliche Parameter");
-define('no_extra_param_access', "You do not have access to extra parameters.");
+define('no_extra_param_access', "Sie haben keinen Zugriff auf die zusätzlichen Parameter.");
 define('extra_parameters_info', "These parameters are put to the end of the command line when the game is started.");
 define('game_exec_not_found', "The game executable %s was not found from the remote server.");
 define('select_params_and_start', "Select the startup parameters for the server and press '%s'.");

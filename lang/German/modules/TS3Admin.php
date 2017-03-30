@@ -50,7 +50,7 @@ define('n_server_responded', "The server responded: ");
 define('login_serverquery', "ServerQuery Login");
 define('login_name', "Benutzername");
 define('login_password', "Passwort");
-define('login_submit', "Login");
+define('login_submit', "Anmelden");
 define('vsselect_headline', "vServer selection");
 define('vsselect_id', "ID #");
 define('vsselect_name', "Name");

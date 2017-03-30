@@ -67,8 +67,8 @@ define('query_cache_life_info', "Sets the timeout in seconds before the server s
 define('query_num_servers_stop', "A játék szerver lekérdezés tiltása ennyi után");
 define('query_num_servers_stop_info', "Use this setting to disable queries if a user owns more game servers than this amount specified to speed up panel loading.");
 define('editable_email', "Szerkeszthető e-mail cím");
-define('editable_email_info', "Select if users can edit their e-mail address or not.");
-define('old_dashboard_behavior', "Old Dashboard behavior");
+define('editable_email_info', "Válaszd ki, hogy a felhasználók szerkeszthetik a saját e-mail címüket vagy nem.");
+define('old_dashboard_behavior', "Régi műszerfal viselkedés");
 define('old_dashboard_behavior_info', "The old Dashboard was running slower but shows more server information, current players and map.");
 define('rsync_available', "Elérhető Rsync szerverek");
 define('rsync_available_info', "Select what servers list will be shown in the rsync installation.");

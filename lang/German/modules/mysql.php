@@ -46,7 +46,7 @@ define('mysql_ip_port', "MySQL IP:port");
 define('mysql_root_passwd', "MySQL root password");
 define('connection_method', "Verbindungsmethode");
 define('user_privilegies', "Benutzerberechtigungen");
-define('current_dbs', "Current databases");
+define('current_dbs', "Aktuelle Datenbanken");
 define('mysql_name', "MySQL server name");
 define('mysql_ip', "MySQL IP");
 define('mysql_port', "MySQL port");

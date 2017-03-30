@@ -72,7 +72,7 @@ define('remote_ip', "Távoli IP");
 define('remote_ips_for', "Távoli IPk a(z) '%s' nevü szerverhez");
 define('ips_set_for_server', "IPs set for server called '%s' successfully.");
 define('could_not_remove_ip', "Nem sikerült eltávolítani a régi IPket az adatbázisból.");
-define('could_add_ip', "Could add remote server IP to database.");
+define('could_add_ip', "Nem sikerült hozzáadni a távoli szerver IP-t az adatbázishoz.");
 define('areyousure_removeagent', "Are you sure you want to remove the agent called");
 define('areyousure_removeagent2', "and all the homes related to it from the ogp database?");
 define('error_while_remove', "Hiba történt a távoli szerver eltávolítása közben.");
