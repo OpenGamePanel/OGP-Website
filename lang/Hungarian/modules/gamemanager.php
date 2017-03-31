@@ -76,7 +76,7 @@ define('refresh_steam_status', "Steam állapot frissítése");
 define('refresh_rsync_status', "Rsync állapot frissítése");
 define('server_running_cant_update', "Szerver fut, így a frissítés nem lehetséges. Állítsd le a szervert frissítés előtt.");
 define('xml_steam_error', "A kiválasztott szerver típus nem támogatja a Steam telepítést/frissítést.");
-define('mod_key_not_found_from_xml', "A mod kulcs '%s' nem található az XML fájlban.");
+define('mod_key_not_found_from_xml', "A(z) '%s' mod kulcs nem található az XML fájlban.");
 define('stop_update', "Frissítés leállítása");
 define('statistics', "Statisztika");
 define('servers', "Szerverek");

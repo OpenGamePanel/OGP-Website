@@ -105,7 +105,7 @@ define('welcome_title_info', "Lehetové teszi, hogy a cím jelenik meg a muszerf
 define('welcome_title_message', "Üdvözöljük cím üzenet");
 define('welcome_title_message_info', "A cím üzenet jelenik meg a muszerfalra (HTML nem engedélyezett).");
 define('logo_link', "Logo linkje");
-define('logo_link_info', "The logos hyperlink. <b style='font-size:10px; font-weight:normal;'>(Leaving it blank will link it to the Dashboard)</b>");
+define('logo_link_info', "A logó linkje. <b style='font-size:10px; font-weight:normal;'>(Üresen hagyva a vezérlőpultra irányít át)</b>");
 define('custom_tab', "Custom Tab");
 define('custom_tab_info', "Adds a customisable tab at the end of the menu. <b style='font-size:10px; font-weight:normal;'>(Apply and refresh this page to edit tab settings)</b>");
 define('custom_tab_name', "Egyéni lap neve");
