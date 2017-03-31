@@ -103,14 +103,7 @@ function exec_ogp_module() {
 	$count_users = $db->get_user_count();
 	
 	$uri = '?m=user_admin&limit='.$limit_user.'&page=';
-	echo paginationPages($count_users[0]['total'], $page_user, $limit_user, $uri,
-		array(
-			'previousLink' => 'userManager_previousPageLink',
-			'pageLinks' => 'userManager_pageLinks',
-			'nextLink' => 'userManager_nextPageLink',
-			'currentPage' => 'userManager_currentPageLink',
-		)
-	);
-
+	echo paginationPages($count_users[0]['total'], $page_user, $limit_user, $uri, 3, 'userManager');
+	
 }
 ?>

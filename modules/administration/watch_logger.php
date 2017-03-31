@@ -121,13 +121,6 @@ function exec_ogp_module() {
 	$count_logs = $db->get_logger_count();
 
 	$uri = '?m=administration&p=watch_logger&limit='.$l.'&page=';
-	echo paginationPages($count_logs[0]['total'], $p, $l, $uri,
-		array(
-			'previousLink' => 'watchLogger_previousPageLink',
-			'pageLinks' => 'watchLogger_pageLinks',
-			'nextLink' => 'watchLogger_nextPageLink',
-			'currentPage' => 'watchLogger_currentPageLink',
-		)
-	);
+	echo paginationPages($count_logs[0]['total'], $p, $l, $uri, 3, 'watchLogger');
 }
 ?>

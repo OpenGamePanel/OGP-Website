@@ -646,14 +646,7 @@ function exec_ogp_module() {
 
 
 	$uri = '?m=gamemanager&p=game_monitor&limit='.$home_limit.'&page=';
-	echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri,
-		array(
-			'previousLink' => 'serverMonitor_previousPageLink',
-			'pageLinks' => 'serverMonitor_pageLinks',
-			'nextLink' => 'serverMonitor_nextPageLink',
-			'currentPage' => 'serverMonitor_currentPageLink',
-		)
-	);
+	echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri, 3, 'serverMonitor');
 
 	echo "<div id=translation data-title='". upload_map_image .
 		 "' data-upload_button='". upload_image .

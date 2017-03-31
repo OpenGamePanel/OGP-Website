@@ -658,32 +658,51 @@ function hasValue($val, $zeroAllowed = false){
 	}
 }
 
-function paginationPages($pageResults, $currentPage, $perPage, $pageUri, $customClasses) {
-	$pagination = '';
+function paginationPages($pageResults, $currentPage, $perPage, $pageUri, $pagesShown, $classPrefix) {
+	$pagination = '<div id="pagination">';
 
 	if ($pageResults > $perPage) {
-		if ($currentPage > 1) {
-			$pagination .= '<a href="'.$pageUri . ($currentPage-1) .'" class="'.$customClasses['previousLink'].'">Previous</a> ';
-		}
 
 		$totalPages = ceil($pageResults/$perPage);
+		$pageStart = (($currentPage - $pagesShown) > 0) ? $currentPage - $pagesShown : 1;
+		$pageEnd = (($currentPage + $pagesShown) < $totalPages) ? $currentPage + $pagesShown : $totalPages;
+		
+		if ($pageStart > 1) {
+			$pagination .= '<span class="'.$classPrefix.'_paginationStart">
+				<a href="'.$pageUri . ($currentPage-1) .'" class="'.$classPrefix.'_previousPageLink">&laquo;</a>
+				<a href="'.$pageUri .'1" class="'.$classPrefix.'_firstPageLink">1</a>
+				<span class='.$classPrefix.'_divider">&hellip;</span>
+			</span>';
+		}
 
-		for ($i=1; $i<=$totalPages;++$i) {
+		$pagination .= '<span class="'.$classPrefix.'_paginationPages">';
+
+		for ($i=$pageStart; $i<=$pageEnd; ++$i) {
+		
 			if ($currentPage == $i) {
-				$pagination .= '<span class="'.$customClasses['currentPage'].'">'.$i.'</span>';
+				$pagination .= '<a href="'.$pageUri . $i .'" class="'.$classPrefix.'_currentPageLink">['.$i.']</a>';
 			} else {
-				$pagination .= '<a href="'.$pageUri . $i .'" class="'.$customClasses['pageLinks'].'">'.$i.'</a>';
+				$pagination .= '<a href="'.$pageUri . $i .'" class="'.$classPrefix.'_pageLinks">'.$i.'</a>';
 			}
-
-			$pagination .= ($i < $totalPages) ? ', ' : ' ';
+		
+				$pagination .= ($i < $pageEnd) ? ', ' : ' ';
 		}
 
-		if ($currentPage < $totalPages) {
-			$pagination .= '<a href="'.$pageUri . ($currentPage+1) .'" class="'.$customClasses['nextLink'].'">Next</a>';
+		$pagination .= '</span>';
+
+		if ($pageEnd < $totalPages) {
+			$pagination .= '<span class="'.$classPrefix.'_paginationEnd">
+				<span class='.$classPrefix.'_divider">&hellip;</span>
+				<a href="'.$pageUri . $totalPages .'" class="'.$classPrefix.'_lastPageLink">'.$totalPages.'</a>
+				<a href="'.$pageUri . ($currentPage+1) .'" class="'.$classPrefix.'_nextPageLink">&raquo;</a>
+			</span>';
 		}
+
 	}
 
+	$pagination .= '</div>';
 	return $pagination;
+
 }
 
 ?>
