@@ -142,6 +142,10 @@ class OGPView {
 		
 		// Include our global JS
 		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>';
+
+		if (file_exists($path . MODULES . "$module/$subpage.js")) { 
+			$this->header_code .= '<script type="text/javascript" src="' . $path . MODULES . $module.'/'.$subpage.'.js"></script>';
+		}
 		
         $buffer = ob_get_contents();
         ob_end_clean();
