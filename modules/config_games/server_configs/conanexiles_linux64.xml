@@ -20,10 +20,17 @@
   <exe_location>ConanSandbox/Binaries/Linux</exe_location>
   <max_user_amount>70</max_user_amount>
   <mods>
-    <mod key="ce">
-      <name>None</name>
+    <mod key="conanexiles1">
+      <name>Stable</name>
       <installer_name>443030</installer_name>
       <installer_login>anonymous</installer_login>
+      <betaname>public</betaname>
+    </mod>
+    <mod key="conanexiles2">
+      <name>Test Live</name>
+      <installer_name>443030</installer_name>
+      <installer_login>anonymous</installer_login>
+      <betaname>testlive</betaname>
     </mod>
   </mods>
   <replace_texts>
