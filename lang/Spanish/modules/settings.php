@@ -31,8 +31,8 @@ define('maintenance_message_info', "Este es el mensaje que se mostrara cuando la
 define('update_settings', "Actualizar configuración");
 define('settings_updated', "Configuración actualizada.");
 define('panel_language', "Lenguaje del panel");
-define('panel_language_info', "El lenguaje que seleccione aqui sera el lenguaje por defecto para todos los usuarios. Cada usuario podra seleccionar un lenguaje posteriormente.");
-define('page_auto_refresh', "Refresco de paginas automatico");
+define('panel_language_info', "El lenguaje que seleccione aquí será el lenguaje por defecto para todos los usuarios. Cada usuario podrá seleccionar un lenguaje posteriormente.");
+define('page_auto_refresh', "Refresco de páginas automático");
 define('page_auto_refresh_info', "el refresco de paginas automatico se utiliza principalmente en la depuración del panel. En el uso normal debe ser activado.");
 define('smtp_server', "Servidor de correo saliente SMTP");
 define('smtp_server_info', "Este es el servidor de correo saliente (servidor SMTP) que se utiliza, por ejemplo, para enviar las contraseñas olvidadas a los usuarios, por defecto 'localhost'.");
