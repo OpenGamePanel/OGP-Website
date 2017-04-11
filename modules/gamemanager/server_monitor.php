@@ -296,45 +296,53 @@ function exec_ogp_module() {
 			if(isset($server_home['user_group_expiration_date']) and $server_home['user_expiration_date'] != "X")
 				$expiration_dates .= assign_expiration_date . " (" . group . "): " . date('d/m/Y H:i:s', $server_home["user_group_expiration_date"]);
 			
-			$get_size = "<table align='left' class='monitorbutton' ><tr>".
-						"<td align='middle' class='size' data-home_id='".$server_home["home_id"]."'>".
-						"<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/file_size.png") . "' title='".
-						 get_size ."'/>\n<br /><span style='font-weight:bold;'>". get_size ."</span></td></tr></table>";
-						
-			$manager = "<a href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>\n".
-						"<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-						"<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/edit.png") . "' title='".
-						 edit ."'/>\n<br />". edit ."\n</td></tr></table></a>";
-						
+			$get_size = "
+			<a class='monitorbutton size' data-home_id='".$server_home["home_id"]."'>
+				<img src='" . check_theme_image("images/file_size.png") . "' title='". get_size ."'>
+				<span>". get_size ."</span>
+			</a>
+			";
+
+			$manager = "
+			<a class='monitorbutton' href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>
+				<img src='" . check_theme_image("images/edit.png") . "' title='". edit ."'>
+				<span>". edit ."</span>
+			</a>
+			";
 
 			// Only show the filemanager link when the litefm is installed.
 			if ( preg_match("/f/",$server_home['access_rights']) > 0 && $litefm_installed )
 			{
-				$lite_fm  = "<a href='?m=litefm&amp;home_id=".$server_home['home_id']."'>\n".
-							"<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-							"<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/txt.png") . "' title='".
-							 file_manager ."'/>\n<br />". file_manager ."\n</td></tr></table></a>";
+				$lite_fm = "
+				<a class='monitorbutton' href='?m=litefm&amp;home_id=".$server_home['home_id']."'>
+					<img src='" . check_theme_image("images/txt.png") . "' title='". file_manager ."'>
+					<span>". file_manager ."</span>
+				</a>
+				";
 			}
 			
 			if ( preg_match("/t/",$server_home['access_rights']) > 0 && $ftp_installed )
 			{
-				$ftp = "<a href='?m=ftp&amp;home_id=".$server_home['home_id']."'>\n".
-						"<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-						"<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/ftp.png") . "' title='".
-						 ftp ."'/>\n<br>". ftp ."\n</td></tr></table></a>";
+				$ftp = "
+                                <a class='monitorbutton' href='?m=ftp&amp;home_id=".$server_home['home_id']."'>
+                                        <img src='" . check_theme_image("images/ftp.png") . "' title='". ftp ."'>
+                                        <span>". ftp ."</span>
+                                </a>
+				";
 			}
 			if ( $addonsmanager_installed )
 			{
 				$addons = $db->resultQuery("SELECT DISTINCT addon_id FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE home_cfg_id=".$server_home['home_cfg_id']);
 				$addons_qty = count($addons);
 				if($addons and $addons_qty >= 1){
-					$addonsmanager = "<a href='?m=addonsmanager&amp;p=user_addons&amp;home_id=".
-									 $server_home['home_id']."&amp;mod_id=".$server_home['mod_id'].
-									 "&amp;ip=".$server_home['ip']."&amp;port=".$server_home['port']."'>\n".
-									 "<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-									 "<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("modules/administration/images/addons_manager.png") . "' title='".
-									  addons ."'/>\n<br />". addons ."\n<b style='font-size:0.9em' >(".
-									 $addons_qty.")</td></tr></table></a>";
+					$addonsmanager = "
+                        	        <a class='monitorbutton' href='?m=addonsmanager&amp;p=user_addons&amp;home_id=".
+                                                                         $server_home['home_id']."&amp;mod_id=".$server_home['mod_id'].
+                                                                         "&amp;ip=".$server_home['ip']."&amp;port=".$server_home['port']."'>
+                	                        <img src='" . check_theme_image("modules/administration/images/addons_manager.png") . "' title='". addons ."'>
+        	                                <span>". addons ." (".$addons_qty.")</span>
+	                                </a>
+					";
 				}
 			}
 			
@@ -343,10 +351,12 @@ function exec_ogp_module() {
 				$mysql_dbs = $db->resultQuery("SELECT db_id FROM OGP_DB_PREFIXmysql_databases WHERE enabled=1 AND home_id=".$server_home['home_id']);
 
 				if(!empty($mysql_dbs))
-					$mysql = "<a href='?m=mysql&p=user_db&home_id=".$server_home['home_id']."'>\n".
-							 "<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-							 "<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("modules/administration/images/mysql_admin.png") . "' title='".
-							  mysql_databases ."'/>\n<br />". mysql_databases ."\n</td></tr></table></a>\n";
+					$mysql = "
+                        	        <a class='monitorbutton' href='?m=mysql&p=user_db&home_id=".$server_home['home_id']."'>
+                	                        <img src='" . check_theme_image("modules/administration/images/mysql_admin.png") . "' title='". mysql_databases ."'>
+        	                                <span>". mysql_databases ."</span>
+	                                </a>
+					";
 			}
 
 			if( !isset($server_home['mod_id']) )
@@ -355,7 +365,11 @@ function exec_ogp_module() {
 
 				if ( $isAdmin )
 				{
-					$ministart .= "<a href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>" . configure_mods . "</a>";
+					$ministart .= "
+                        	        <a class='monitorbutton' href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>
+        	                                <span>" . configure_mods . "</span>
+	                                </a>
+					";
 				}
 			}
 
@@ -379,49 +393,49 @@ function exec_ogp_module() {
 					{						
 						if( $master_server_home_id != FALSE AND $master_server_home_id != $server_home['home_id']  )
 						{
-							$manager .= "<form name='steam_master_".$server_home['home_id']."_".$server_home['mod_id'].
-										"_".str_replace(".","",$server_home['ip'])."_".$server_home['port']."' action='?m=gamemanager&amp;p=update&amp;home_id=".
-										$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update' method='POST' >\n".
-										"<table align='left' class='monitorbutton' >\n".
-										"<tr><td align='middle' onclick='document.steam_master_".$server_home['home_id']."_".
-										$server_home['mod_id']."_".str_replace(".","",$server_home['ip'])."_".$server_home['port'].
-										".submit()' ><img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/master.png") . "' />".
-										"<br /><span style='font-weight:bold;'>". update_from_local_master_server .
-										"</span><input id='master".$server_home['home_id'].
-										"' type='hidden' name='master_server_home_id' value='".$master_server_home_id.
-										"' /></td></tr>\n</table>\n</form>";
+							$manager .= "
+							<a class='monitorbutton' href='?m=gamemanager&amp;p=update&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
+								<img src='" . check_theme_image("images/master.png") . "' title='". update_from_local_master_server ."'>
+								<span>". update_from_local_master_server ."</span>
+							</a>
+							";
 						}
-						$manager .= "<form name='steam_".$server_home['home_id']."_".$server_home['mod_id']."_".
-									str_replace(".","",$server_home['ip'])."_".$server_home['port']."' action='?m=gamemanager&amp;p=update&amp;home_id=".
-									$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update' method='POST' >\n".
-									"<table align='left' class='monitorbutton' >\n".
-									"<tr><td align='middle' onclick='document.steam_".$server_home['home_id']."_".$server_home['mod_id']."_".str_replace(".","",$server_home['ip']).
-									"_".$server_home['port'].".submit()' ><img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/steam.png") . "' />".
-									"<br /><span style='font-weight:bold;'>". install_update_steam .
-									"</span></td></tr>\n</table>\n</form>";
-									
-						$manager .= "<table align='right' class='monitorbutton getAutoUpdateLink' copyfail='" . auto_update_copy_me_fail . "' copysuccess='" . auto_update_copy_me_success . "' autoupdatetext='" . auto_update_title_popup . "' autoupdatehtml='" . htmlentities(auto_update_popup_html) . "' copyme='" . auto_update_copy_me . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?action=autoUpdateSteamHome&homeid=" . $server_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>\n".
-									"<tr><td align='middle'><img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/auto_update.png") . "' />".
-									"<br /><span style='font-weight:bold;'>". get_steam_autoupdate_api_link . "</span></td></tr>\n</table>\n";
+
+						$manager .= "
+						<a class='monitorbutton' href='?m=gamemanager&amp;p=update&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
+							<img src='" . check_theme_image("images/steam.png") ."' title='". install_update_steam ."'>
+							<span>". install_update_steam ."</span>
+						</a>
+						";
+						$manager .= "
+						<a class='monitorbutton getAutoUpdateLink' copyfail='" . auto_update_copy_me_fail . "' copysuccess='" . auto_update_copy_me_success . "' autoupdatetext='" . auto_update_title_popup . "' autoupdatehtml='" . htmlentities(auto_update_popup_html) . "' copyme='" . auto_update_copy_me . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?action=autoUpdateSteamHome&homeid=" . $ver_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>
+							<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_steam_autoupdate_api_link . "'>
+							<span>". get_steam_autoupdate_api_link . "</span>
+						</a>
+						";
 					}
 					// In other cases manual update is provided.
 					else
 					{
-						$manager .= "<a href='?m=gamemanager&amp;p=update_manual&amp;home_id=".$server_home['home_id'].
-									"&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>\n".
-									"<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-									"<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/install.png") . "' title='".
-									 install_update_manual ."'/>\n<br>". install_update_manual ."\n</td></td></table></a>";
+						$manager .= "
+						<a class='monitorbutton' href='?m=gamemanager&amp;p=update_manual&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
+							<img src='" . check_theme_image("images/install.png") . "' title='". install_update_manual ."'>
+							<span>". install_update_manual ."</span>
+						</a>
+						";
+
 
 						$sync_name = get_sync_name($server_xml);
 						$sync_list = @file("modules/gamemanager/rsync.list", FILE_IGNORE_NEW_LINES);
 						if ( in_array($sync_name, $sync_list) OR ($master_server_home_id != FALSE and $master_server_home_id != $server_home['home_id']) )
 						{
-							$manager .= "<a href='?m=gamemanager&amp;p=rsync_install&amp;home_id=".$server_home['home_id'].
-										"&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>\n".
-										"<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-										"<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/rsync.png") . "' title='".
-										 rsync_install ."'/>\n<br />". rsync_install ."\n</td></td></table></a>";
+							$manager .= "
+							<a class='monitorbutton' href='?m=gamemanager&amp;p=rsync_install&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
+								<img src='" . check_theme_image("images/rsync.png") . "' title='". rsync_install ."'>
+								<span>". rsync_install ."</span>
+							</a>
+							";
+
 						}
 					}
 				}
@@ -432,17 +446,13 @@ function exec_ogp_module() {
 				if ( ( $server_xml->control_protocol and preg_match("/^(rcon|lcon|rcon2)$/" ,$server_xml->control_protocol) ) OR 
 					 ( $server_xml->gameq_query_name and $server_xml->gameq_query_name == 'minecraft' ) )
 				{
-					$manager .= "<form name='rcon_preset".$server_home['home_id']."' action='home.php?m=gamemanager&amp;p=rcon_presets&amp;home_id=".
-								 $server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."' method='POST'>\n".
-								 "<table align='left' class='monitorbutton' >\n".
-								 "<tr>\n".
-								 "<td align='middle' onclick='document.rcon_preset".$server_home['home_id'].
-								 ".submit()' ><img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/rcon_preset.png") . "' /><br /><span style='font-weight:bold;'>".
-								  rcon_presets .
-								 "</span></td>\n".
-								 "</tr>\n".
-								 "</table>\n".
-								 "</form>";
+					$manager .= "
+					<a class='monitorbutton' href='home.php?m=gamemanager&amp;p=rcon_presets&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."'>
+						<img src='" . check_theme_image("images/rcon_preset.png") . "' title='".rcon_presets."'>
+						<span>".rcon_presets."</span>
+					</a>
+					";
+
 				}
 			}
 			
@@ -492,11 +502,13 @@ function exec_ogp_module() {
 			}
 			$other_owners = $other_owners != "" ? $other_owners = "<b>". assigned_to ."</b><br>".$other_owners : "";
 
-			$view_log = "<a href='?m=gamemanager&amp;p=log&amp;home_id-mod_id-ip-port=".$server_home['home_id']."-".
-						$server_home['mod_id']."-".$server_home['ip']."-".$server_home['port']."'>\n".
-						"<table align='left' class='monitorbutton' ><tr><td align='middle' >".
-						"<img style='border:0;height:40px;vertical-align:middle;' src='" . check_theme_image("images/log.png") . "' title='".
-						 view_log ."'/>\n<br>". view_log ."\n</td></tr></table></a>";
+			$view_log = "
+			<a class='monitorbutton' href='?m=gamemanager&amp;p=log&amp;home_id-mod_id-ip-port=".$server_home['home_id']."-".$server_home['mod_id']."-".$server_home['ip']."-".$server_home['port']."'>
+				<img src='" . check_theme_image("images/log.png") . "' title='". view_log ."'>
+				<span>". view_log ."</span>
+			</a>
+			";
+
 
 			$btns = $view_log.
 					@$ftp.
