@@ -1,27 +1,32 @@
 .monitorbutton{
-	display:inline;
-	width:auto !important;
-}
-.monitorbutton tr td{
-	cursor:pointer;
+	display: inline-block;
+	cursor: pointer;
 	color: #323232;
-	background-color:#F0F0F6;
 	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
 	border: 1px solid grey;
-	width:145px !important;
-	height:72px !important;
-	background-color: #F0F0F6 !important;
-	vertical-align: middle !important;
+	width: 145px;
+	height: 80px;
+	background-color: #F0F0F6;
+	vertical-align: middle;
+	text-align: center;
+	margin-bottom: 3px;
 }
-.monitorbutton tr td:hover {
-	background-color:#D9D9D9 !important;
+.monitorbutton:hover {
+	background-color:#D9D9D9;
 	transition: background-color 0.5s;
 	-webkit-transition: background-color 0.5s;
 	cursor:pointer;
-}
-.monitorbutton tr td a:hover {
 	text-decoration:none;
+}
+.monitorbutton > img {
+	height: 50px;
+	margin: 5px 0px;
+}
+.monitorbutton > span {
+	display: block;
+	font-weight: normal;
+	color: #000;
 }
 button:active, button[type="submit"]:active, input[type="submit"]:active, .monitorbutton tr td:active {
 	background-color:#0F0 !important;
