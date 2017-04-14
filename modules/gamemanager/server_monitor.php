@@ -389,7 +389,7 @@ function exec_ogp_module() {
 							<img src='" . check_theme_image("images/steam.png") ."' title='". install_update_steam ."'>
 							<span>". install_update_steam ."</span>
 						</a>";
-						$manager .= "<a class='monitorbutton getAutoUpdateLink' copyfail='" . auto_update_copy_me_fail . "' copysuccess='" . auto_update_copy_me_success . "' autoupdatetext='" . auto_update_title_popup . "' autoupdatehtml='" . htmlentities(auto_update_popup_html) . "' copyme='" . auto_update_copy_me . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?action=autoUpdateSteamHome&homeid=" . $ver_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>
+						$manager .= "<a class='monitorbutton getAutoUpdateLink' copyfail='" . auto_update_copy_me_fail . "' copysuccess='" . auto_update_copy_me_success . "' autoupdatetext='" . auto_update_title_popup . "' autoupdatehtml='" . htmlentities(auto_update_popup_html) . "' copyme='" . auto_update_copy_me . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?action=autoUpdateSteamHome&homeid=" . $server_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>
 							<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_steam_autoupdate_api_link . "'>
 							<span>". get_steam_autoupdate_api_link . "</span>
 						</a>";
