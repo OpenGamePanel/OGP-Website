@@ -384,6 +384,12 @@ function exec_ogp_module()
 		{
 			$used_file = $LOCAL_REPO_FILE;
 			$contents = file_get_contents($used_file);
+			if(!isset($contents) || empty($contents) || filesize($used_file) == 0){
+				$used_file = $REMOTE_REPO_FILE;
+				$contents = file_get_contents($used_file);
+				if(file_put_contents($LOCAL_REPO_FILE, $contents))
+					touch($LOCAL_REPO_FILE);
+			}
 		}
 		
 		if( ! $contents )
