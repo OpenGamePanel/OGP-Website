@@ -216,6 +216,7 @@ function exec_ogp_module()
 	
 	// GitHub URL
 	$gitHubURL = $settings["custom_github_update_URL"];	
+	$gitHubURL = getOGPGitHubURL($gitHubURL);
 	
 	set_time_limit(0);
 	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . $_GET['m'],"",dirname(__FILE__) );
