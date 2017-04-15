@@ -87,10 +87,10 @@ function install_module($db, $module, $install_if_optional = TRUE)
     return 1;
 }
 
-function uninstall_module($db, $module_id, $module)
+function uninstall_module($db, $module_id, $module, $adminOverride = false)
 {
 	// Don't allow users to uninstall core IMPORTANT MODULES
-	if(!isCoreModule($module)){
+	if(!isCoreModule($module) || $adminOverride === true){
 		if ( !is_file("modules/".$module."/module.php") )
 		{
 			print_failure("modules/".$module." ".get_lang("module_file_missing")."");

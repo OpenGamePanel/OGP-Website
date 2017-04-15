@@ -66,15 +66,15 @@ function exec_ogp_module()
 	$blacklist = array ('/install.php',
 						'/modules/gamemanager/rsync_sites_local.list');
 						
-	$curren_blacklist = array();
+	$current_blacklist = array();
 	
 	$blacklisted_files = $db->resultQuery('SELECT file_path FROM `OGP_DB_PREFIXupdate_blacklist`;');
 	if($blacklisted_files !== FALSE)
 	{
-		$curren_blacklist = array();
+		$current_blacklist = array();
 		foreach($blacklisted_files as $blacklisted_file)
 		{
-			$curren_blacklist[] = $blacklisted_file['file_path'];
+			$current_blacklist[] = $blacklisted_file['file_path'];
 		}			
 	}
 
@@ -86,7 +86,7 @@ function exec_ogp_module()
 		}
 		foreach($_POST['folder_files'] as $file)
 		{
-			if(in_array($file,$curren_blacklist))
+			if(in_array($file,$current_blacklist))
 			{
 				if(!in_array($file,$_POST['blacklist']))
 				{
@@ -98,15 +98,15 @@ function exec_ogp_module()
 		$blacklisted_files = $db->resultQuery('SELECT file_path FROM `OGP_DB_PREFIXupdate_blacklist`;');
 		if($blacklisted_files !== FALSE)
 		{
-			$curren_blacklist = array();
+			$current_blacklist = array();
 			foreach($blacklisted_files as $blacklisted_file)
 			{
-				$curren_blacklist[] = $blacklisted_file['file_path'];
+				$current_blacklist[] = $blacklisted_file['file_path'];
 			}			
 		}
 	}
 		
-	$curren_blacklist = array_merge($curren_blacklist,$blacklist);
+	$current_blacklist = array_merge($current_blacklist,$blacklist);
 	
     path_check();
     	
@@ -231,7 +231,7 @@ function exec_ogp_module()
 		$unchecked = array();
 		foreach($files as $file)
 		{
-			$checked = in_array($file['filepath'],$curren_blacklist) ? "checked='checked'" : "";
+			$checked = in_array($file['filepath'],$current_blacklist) ? "checked='checked'" : "";
 			echo "<tr>\n".
 				 "<td>".
 				 "<input type=checkbox name='blacklist[$i]' value='" . $file['filepath'] . "' class='item' $checked/>\n".

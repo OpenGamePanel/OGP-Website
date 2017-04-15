@@ -113,6 +113,15 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if(!isset($results["login_attempts_before_banned"]) || empty($results["login_attempts_before_banned"]) || !is_numeric($results["login_attempts_before_banned"])){
 			$results["login_attempts_before_banned"] = 6;
 		}
+		
+		if(!isset($results["custom_github_update_URL"]) || empty($results["custom_github_update_URL"])){
+			$results["custom_github_update_URL"] = "https://github.com/OpenGamePanel/";
+		}else{
+			// validation
+			if(substr($results["custom_github_update_URL"], -1) != "/" || stripos($results["custom_github_update_URL"], "github.com") === false){
+				$results["custom_github_update_URL"] = "https://github.com/OpenGamePanel/";
+			}
+		}
 
 		return $results;
 	}
@@ -1834,6 +1843,25 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("SELECT `id`,`title`,`folder`,`version`,`db_version` FROM `%smodules` WHERE `id` = '%d'",
 			$this->table_prefix,
 			mysql_real_escape_string($id,$this->link));
+		$result = $this->listQuery($query);
+		return $result[0];
+	}
+	
+	public function updateModuleNeedsUpdate(){
+		$query = sprintf("SHOW INDEX FROM `%supdate_blacklist`",
+			$this->table_prefix
+		);
+		$result = $this->listQuery($query);
+		if($result === false){
+			return true;
+		}
+		return false;
+	}
+
+	public function getModuleIDByName($name) {
+		$query = sprintf("SELECT `id` FROM `%smodules` WHERE `folder` = '%d'",
+			$this->table_prefix,
+			mysql_real_escape_string($name,$this->link));
 		$result = $this->listQuery($query);
 		return $result[0];
 	}

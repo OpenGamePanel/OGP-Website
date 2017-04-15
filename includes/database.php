@@ -119,6 +119,12 @@ abstract class OGPDatabase {
     abstract public function addModule($module_title,$module,$module_version,$db_version);
 
     abstract public function getModuleMenu($module_id);
+    
+    abstract public function getModuleIDByName($name);
+    
+    abstract public function getModule($id);
+    
+    abstract public function updateModuleNeedsUpdate();
 
     abstract public function addModuleMenu($module_id,$subpage,$group,$name,$pos);
 
