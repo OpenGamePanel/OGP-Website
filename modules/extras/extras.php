@@ -212,6 +212,11 @@ function deeperPathFirst($a, $b)
  
 function exec_ogp_module() 
 {
+	global $db, $settings;		
+	
+	// GitHub URL
+	$gitHubURL = $settings["custom_github_update_URL"];	
+	
 	set_time_limit(0);
 	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . $_GET['m'],"",dirname(__FILE__) );
 	define('DATA_PATH', realpath('modules/'.$_GET['m'].'/') . DIRECTORY_SEPARATOR . "data" . DIRECTORY_SEPARATOR);
@@ -327,7 +332,7 @@ function exec_ogp_module()
 		if(preg_match('/^(OGP-Website|OGP-Agent-Linux|OGP-Agent-Windows)$/',$repository['name']))
 			continue;
 		
-		$REMOTE_REPO_FILE = 'https://github.com/OpenGamePanel/'.$repository['name'].'/commits/master.atom';
+		$REMOTE_REPO_FILE = $gitHubURL . $repository['name'] . '/commits/master.atom';
 		$LOCAL_REPO_FILE = DATA_PATH . $repository['name'] . '.atom';
 		if(!file_exists($LOCAL_REPO_FILE) OR (isset($_GET['searchForUpdates']) and $_GET['searchForUpdates'] == $repository['name']) OR isset($_POST['update']))
 		{
@@ -362,7 +367,7 @@ function exec_ogp_module()
 					$modules[$m]['title'] = $module_title;
 					$modules[$m]['reponame'] = $repository['name'];
 					$modules[$m]['file'] = $seed.'.zip';
-					$modules[$m]['link'] = 'https://github.com/OpenGamePanel/'.$repository['name'].'/archive/'.$seed.'.zip';
+					$modules[$m]['link'] = $gitHubURL . $repository['name'] . '/archive/'.$seed.'.zip';
 					$modules[$m]['date'] = (string) $feedXml->entry[0]->updated;
 					$modules[$m]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
 					$modules[$m]['remove_path'] = $repository['name']."-".$seed;
@@ -375,7 +380,7 @@ function exec_ogp_module()
 					$themes[$t]['title'] = $theme_title;
 					$themes[$t]['reponame'] = $repository['name'];
 					$themes[$t]['file'] = $seed.'.zip';
-					$themes[$t]['link'] = 'https://github.com/OpenGamePanel/'.$repository['name'].'/archive/'.$seed.'.zip';
+					$themes[$t]['link'] = $gitHubURL . $repository['name'] . '/archive/'.$seed.'.zip';
 					$themes[$t]['date'] = (string) $feedXml->entry[0]->updated;
 					$themes[$t]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
 					$themes[$t]['remove_path'] = $repository['name']."-".$seed;
@@ -394,7 +399,6 @@ function exec_ogp_module()
 
 	}
 
-	global $db;
 	$installed_modules = $db->getInstalledModules();
 	
 	if(isset($_POST['update']))

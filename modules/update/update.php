@@ -56,8 +56,11 @@ function exec_ogp_module()
 
 	global $db,$settings;
 	
+	// GitHub URL
+	$gitHubURL = $settings["custom_github_update_URL"];	
+	
 	define('REPONAME', 'OGP-Website');
-	define('RSS_REMOTE_PATH', 'https://github.com/OpenGamePanel/'.REPONAME.'/commits/master.atom');
+	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/master.atom');
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
 	define('RSS_LOCAL_PATH', MODULE_PATH.'master.atom');
 		
@@ -133,7 +136,7 @@ function exec_ogp_module()
 		
 		if ( $seed != $pversion )
 		{	
-			$dwl = 'https://github.com/OpenGamePanel/'.REPONAME.'/archive/'.$seed.'.zip';
+			$dwl = $gitHubURL . REPONAME . '/archive/'.$seed.'.zip';
 			$dwlHeaders = get_headers($dwl);
 			if($dwlHeaders[0] != 'HTTP/1.1 302 Found')
 				print_failure('The generated URL for the download returned a bad response code: ' . $dwlHeaders[0]);
