@@ -246,7 +246,11 @@ function exec_ogp_module()
 	$gitHubURL = $settings["custom_github_update_URL"];	
 	$gitHubURL = getOGPGitHubURL($gitHubURL);
 	$gitHubOrganization = getGitHubOrganization($gitHubURL);
-	echo "<p>GitHub Org is " . $gitHubOrganization . "</p>";
+	if($gitHubOrganization == "OpenGamePanel"){
+		$gitAPICont = "orgs";
+	}else{
+		$gitAPICont = "users";
+	}
 	
 	set_time_limit(0);
 	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . $_GET['m'],"",dirname(__FILE__) );
@@ -297,7 +301,7 @@ function exec_ogp_module()
 	}
 	#return;
 	define('REPO_FILE', DATA_PATH . "repos");
-	define('URL', 'https://api.github.com/orgs/' . $gitHubOrganization . '/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
+	define('URL', 'https://api.github.com/' . $gitAPICont . '/' . $gitHubOrganization . '/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
 	if(!file_exists(REPO_FILE) or isset($_GET['searchForUpdates']) or isset($_POST['update']))
 	{
 		# Without this $context the file_get_contents function was returning HTTP/1.0 403 Forbidden
