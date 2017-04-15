@@ -358,4 +358,13 @@ function getOGPGitHubURL($gitHubURL){
 	return $gitHubURL;
 }
 
+function getGitHubOrganization($gitHubURL){
+	$gitHubOrg = "OpenGamePanel";
+	$githubCom = "github.com";
+	if(substr($gitHubURL, -1) == "/" && stripos($gitHubURL, $githubCom) !== false){
+		$gitHubOrg = substr($gitHubURL, stripos($gitHubURL, $githubCom) + strlen($githubCom) + 2);
+	}
+	return $gitHubOrg;
+}
+
 ?>

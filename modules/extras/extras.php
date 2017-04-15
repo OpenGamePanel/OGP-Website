@@ -101,8 +101,8 @@ function installUpdate($info, $base_dir)
 			
 			if( file_exists( $web_file ) )
 			{
-				echo "/" . $web_file;
-				if(!in_array("/" . $web_file, $current_blacklist)){
+				echo $filename . "\n";
+				if(!in_array($filename, $current_blacklist)){
 					$temp = file_get_contents($temp_file);
 					$web = file_get_contents($web_file);
 					
@@ -241,11 +241,12 @@ function exec_ogp_module()
 			$current_blacklist[] = $blacklisted_file['file_path'];
 		}			
 	}
-	print_r($current_blacklist);
 	
 	// GitHub URL
 	$gitHubURL = $settings["custom_github_update_URL"];	
 	$gitHubURL = getOGPGitHubURL($gitHubURL);
+	$gitHubOrganization = getGitHubOrganization($gitHubURL);
+	echo "<p>GitHub Org is " . $gitHubOrganization . "</p>";
 	
 	set_time_limit(0);
 	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . $_GET['m'],"",dirname(__FILE__) );
@@ -296,7 +297,7 @@ function exec_ogp_module()
 	}
 	#return;
 	define('REPO_FILE', DATA_PATH . "repos");
-	define('URL', 'https://api.github.com/orgs/OpenGamePanel/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
+	define('URL', 'https://api.github.com/orgs/' . $gitHubOrganization . '/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
 	if(!file_exists(REPO_FILE) or isset($_GET['searchForUpdates']) or isset($_POST['update']))
 	{
 		# Without this $context the file_get_contents function was returning HTTP/1.0 403 Forbidden
@@ -406,7 +407,7 @@ function exec_ogp_module()
 			}
 		}
 		
-		if( ! $contents )
+		if( ! $contents && !isset($_GET["type"]) )
 		{
 			print_failure('Unable to get contents from : ' . $used_file);
 			continue;
