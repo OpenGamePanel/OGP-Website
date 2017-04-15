@@ -36,7 +36,7 @@ $install_queries = array();
 $install_queries[0] = array();
 $install_queries[1] = array(
     "CREATE TABLE IF NOT EXISTS ".OGP_DB_PREFIX."update_blacklist (
-        `file_path` TEXT UNIQUE NOT NULL
+        `file_path` VARCHAR(1000) UNIQUE NOT NULL
     ) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
 $install_queries[2] = array(
 	"DELETE FROM ".OGP_DB_PREFIX."update_blacklist
