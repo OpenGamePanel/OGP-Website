@@ -1845,17 +1845,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $result[0];
 	}
 	
-	public function updateModuleNeedsUpdate(){
-		$query = sprintf("SHOW INDEX FROM `%supdate_blacklist`",
-			$this->table_prefix
-		);
-		$result = $this->listQuery($query);
-		if($result === false){
-			return true;
-		}
-		return false;
-	}
-	
 	public function getModuleIDByName($name) {
 		$query = sprintf("SELECT `id` FROM `%smodules` WHERE `folder` = '%d'",
 			$this->table_prefix,
