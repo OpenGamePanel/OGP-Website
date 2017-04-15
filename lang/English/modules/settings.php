@@ -91,7 +91,7 @@ define('recaptcha_use_login', "Use Recaptcha on Login");
 define('recaptcha_use_login_info', "If enabled, users will have to solve the Not a Robot Recaptcha when attempting to login.");
 define('login_attempts_before_banned', "Number of failed login attempts before user is banned");
 define('login_attempts_before_banned_info', "If a user tries to login with invalid credentials more than this many times, the user will be banned temporarily by the panel.");
-define('custom_github_update_URL', "GitHub update URL used by the update module.");
+define('custom_github_update_URL', "GitHub update URL used by the update module");
 define('custom_github_update_URL_info', "This should only be changed by developers who wish to use their own repo for development rather than checking in possibly buggy code into the main branch.");
 define('remote_query', "Remote query");
 define('remote_query_info', "Use the remote server (agent) to make queries to the game servers (Only GameQ and LGSL).");
