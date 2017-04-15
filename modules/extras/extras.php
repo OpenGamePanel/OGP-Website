@@ -103,7 +103,7 @@ function installUpdate($info, $base_dir)
 			{
 				echo $filename . "\n";
 				echo print_r($current_blacklist,true) . "\n";
-				if(!in_array(trim($filename), $current_blacklist)){
+				if(!in_array(trim($filename), $current_blacklist), true){
 					$temp = file_get_contents($temp_file);
 					$web = file_get_contents($web_file);
 					
