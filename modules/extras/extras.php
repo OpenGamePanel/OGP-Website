@@ -302,7 +302,7 @@ function exec_ogp_module()
 	#return;
 	define('REPO_FILE', DATA_PATH . "repos");
 	define('URL', 'https://api.github.com/' . $gitAPICont . '/' . $gitHubOrganization . '/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
-	if(!file_exists(REPO_FILE) or isset($_GET['searchForUpdates']) or isset($_POST['update']))
+	if(!file_exists(REPO_FILE) or isset($_GET['searchForUpdates']) or isset($_POST['update']) or filesize(REPO_FILE) == 0 or filesize(REPO_FILE) == 1)
 	{
 		# Without this $context the file_get_contents function was returning HTTP/1.0 403 Forbidden
 		# Thanks: https://github.com/philsturgeon/codeigniter-oauth2/issues/57#issuecomment-29306192 
@@ -403,7 +403,7 @@ function exec_ogp_module()
 		{
 			$used_file = $LOCAL_REPO_FILE;
 			$contents = file_get_contents($used_file);
-			if(!isset($contents) || empty($contents) || filesize($used_file) == 0){
+			if(!isset($contents) || empty($contents) || filesize($used_file) == 0 || filesize($used_file) == 1){
 				$used_file = $REMOTE_REPO_FILE;
 				$contents = file_get_contents($used_file);
 				if(file_put_contents($LOCAL_REPO_FILE, $contents))
