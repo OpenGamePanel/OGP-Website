@@ -350,7 +350,7 @@ function exec_ogp_module()
 				$langDirs = array_filter(glob('lang/*'), 'is_dir');
 				foreach($langDirs as $langDir){
 					if($langDir != ".." && $langDir != "."){
-						$langDirPath = "lang/" . $langDir . "/modules/" . strtolower($folderToDelete) . ".php";
+						$langDirPath = $langDir . "/modules/" . strtolower($folderToDelete) . ".php";
 						if(file_exists($langDirPath)){
 							recursiveDelete($langDirPath);
 						}
