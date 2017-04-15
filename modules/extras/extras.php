@@ -48,6 +48,9 @@ function getMyFile($url,$destination)
 
 function installUpdate($info, $base_dir)
 {
+	// Get blacklisted files
+	global $current_blacklist;
+	
 	$tmp = get_temp_dir(dirname(__FILE__));
 	$temp_dwl = $tmp . DIRECTORY_SEPARATOR . $info['file'];
 	$_SESSION['link'] = $info['link'];
@@ -61,10 +64,12 @@ function installUpdate($info, $base_dir)
 	$not_writable = can_not_update_non_writable_files ." :\n";
 	$filename = "";
 	$overwritten = 0;
+	$not_overwritten = 0;
 	$new = 0;
 	$all_writable = TRUE;
 	$filelist = "";
 	$overwritten_files = "";
+	$not_overwritten_files = "";
 	$new_files = "";
 	
 	$temp_dir = $tmp . DIRECTORY_SEPARATOR . "OGP_Extras";
@@ -96,17 +101,26 @@ function installUpdate($info, $base_dir)
 			
 			if( file_exists( $web_file ) )
 			{
-				$temp = file_get_contents($temp_file);
-				$web = file_get_contents($web_file);
-				
-				if( $temp != $web )
-				{
-					if( !is_writable( $web_file ) )
+				if(!in_array("/" . $web_file, $current_blacklist)){
+					$temp = file_get_contents($temp_file);
+					$web = file_get_contents($web_file);
+					
+					if( $temp != $web )
 					{
-						if ( ! @chmod( $web_file, 0644 ) )
+						if( !is_writable( $web_file ) )
 						{
-							$all_writable = FALSE;
-							$not_writable .= $web_file."\n";
+							if ( ! @chmod( $web_file, 0644 ) )
+							{
+								$all_writable = FALSE;
+								$not_writable .= $web_file."\n";
+							}
+							else
+							{
+								$filelist[$i] = $file['filename'];
+								$i++;
+								$overwritten_files .= $filename . "\n";
+								$overwritten++;
+							}
 						}
 						else
 						{
@@ -116,13 +130,9 @@ function installUpdate($info, $base_dir)
 							$overwritten++;
 						}
 					}
-					else
-					{
-						$filelist[$i] = $file['filename'];
-						$i++;
-						$overwritten_files .= $filename . "\n";
-						$overwritten++;
-					}
+				}else{
+					$not_overwritten_files .= $filename . "\n";
+					$not_overwritten++;
 				}
 			}
 			else
@@ -165,6 +175,11 @@ function installUpdate($info, $base_dir)
 			if ( $new > 0 )
 			{
 				echo get_lang_f('new_files',$new).":\n".$new_files;
+			}
+			
+			if ( $not_overwritten > 0 )
+			{
+				echo get_lang_f('files_not_overwritten',$not_overwritten).":\n".$not_overwritten_files;
 			}
 						
 			// Add install.nfo file to the module/theme directory so we can remove the installed files later and check the installed files timestamp.
@@ -213,6 +228,18 @@ function deeperPathFirst($a, $b)
 function exec_ogp_module() 
 {
 	global $db, $settings;		
+	
+	// Get blacklisted files
+	$current_blacklist = array();
+	$blacklisted_files = $db->resultQuery('SELECT file_path FROM `OGP_DB_PREFIXupdate_blacklist`;');
+	if($blacklisted_files !== FALSE)
+	{
+		$current_blacklist = array();
+		foreach($blacklisted_files as $blacklisted_file)
+		{
+			$current_blacklist[] = $blacklisted_file['file_path'];
+		}			
+	}
 	
 	// GitHub URL
 	$gitHubURL = $settings["custom_github_update_URL"];	
@@ -314,6 +341,17 @@ function exec_ogp_module()
 				$dirToDelete = $remove . "/" . $folderToDelete;
 				if(file_exists($dirToDelete) && is_dir($dirToDelete)){
 					recursiveDelete($dirToDelete);
+				}
+				
+				// Delete lang files too
+				$langDirs = array_filter(glob('lang/*'), 'is_dir');
+				foreach($langDirs as $langDir){
+					if($langDir != ".." && $langDir != "."){
+						$langDirPath = "lang/" . $langDir . "/modules/" . strtolower($folderToDelete) . ".php";
+						if(file_exists($langDirPath)){
+							recursiveDelete($langDirPath);
+						}
+					}
 				}
 			}
 		}
