@@ -237,11 +237,17 @@ function exec_ogp_module()
 			$current_blacklist[] = $blacklisted_file['file_path'];
 		}			
 	}
-	
+		
 	// GitHub URL
-	$gitHubURL = $settings["custom_github_update_URL"];	
-	$gitHubURL = getOGPGitHubURL($gitHubURL);
-	$gitHubOrganization = getGitHubOrganization($gitHubURL);
+	if(function_exists("getOGPGitHubURL")){
+		$gitHubURL = $settings["custom_github_update_URL"];	
+		$gitHubURL = getOGPGitHubURL($gitHubURL);
+		$gitHubOrganization = getGitHubOrganization($gitHubURL);
+	}else{
+		$gitHubURL = "https://github.com/OpenGamePanel/";
+		$gitHubOrganization = "OpenGamePanel";
+	}
+	
 	if($gitHubOrganization == "OpenGamePanel"){
 		$gitAPICont = "orgs";
 	}else{
