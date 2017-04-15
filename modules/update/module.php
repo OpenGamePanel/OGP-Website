@@ -45,7 +45,7 @@ WHERE file_path IN (SELECT *
                    GROUP BY file_path HAVING (COUNT(*) > 1)
                   ) AS A
             );",
-    "ALTER TABLE ".OGP_DB_PREFIX."update_blacklist MODIFY file_path VARCHAR(2000);",
+    "ALTER TABLE ".OGP_DB_PREFIX."update_blacklist MODIFY file_path VARCHAR(1000);",
 	"ALTER TABLE ".OGP_DB_PREFIX."update_blacklist ADD UNIQUE (file_path);"
 );
 ?>
