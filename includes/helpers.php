@@ -362,7 +362,11 @@ function getGitHubOrganization($gitHubURL){
 	$gitHubOrg = "OpenGamePanel";
 	$githubCom = "github.com";
 	if(substr($gitHubURL, -1) == "/" && stripos($gitHubURL, $githubCom) !== false){
-		$gitHubOrg = substr($gitHubURL, stripos($gitHubURL, $githubCom) + strlen($githubCom) + 2);
+		// Get the immediate folder after github.com
+		$gitHubOrg = substr($gitHubURL, stripos($gitHubURL, $githubCom) + strlen($githubCom) + 1);
+		
+		// Strip last forward slash
+		$gitHubOrg = substr($gitHubOrg, 0, -1);
 	}
 	return $gitHubOrg;
 }
