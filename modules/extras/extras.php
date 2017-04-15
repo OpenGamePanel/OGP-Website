@@ -409,7 +409,7 @@ function exec_ogp_module()
 		
 		if( ! $contents && !isset($_GET["type"]) )
 		{
-			print_failure('Unable to get contents from : ' . $used_file);
+			print_failure('Unable to get contents from: ' . $used_file);
 			continue;
 		}
 
