@@ -46,11 +46,8 @@ function getMyFile($url,$destination)
 	return file_put_contents($destination, $result);
 }
 
-function installUpdate($info, $base_dir)
-{
-	// Get blacklisted files
-	global $current_blacklist;
-	
+function installUpdate($info, $base_dir, $current_blacklist = array())
+{	
 	$tmp = get_temp_dir(dirname(__FILE__));
 	$temp_dwl = $tmp . DIRECTORY_SEPARATOR . $info['file'];
 	$_SESSION['link'] = $info['link'];
@@ -102,8 +99,7 @@ function installUpdate($info, $base_dir)
 			if( file_exists( $web_file ) )
 			{
 				echo $filename . "\n";
-				echo print_r($current_blacklist,true) . "\n";
-				if(!in_array(trim($filename), $current_blacklist, true)){
+				if(!in_array($filename, $current_blacklist)){
 					$temp = file_get_contents($temp_file);
 					$web = file_get_contents($web_file);
 					
@@ -484,7 +480,7 @@ function exec_ogp_module()
 			{
 				foreach($value as $m)
 				{
-					if(installUpdate($modules[$m], $baseDir))
+					if(installUpdate($modules[$m], $baseDir, $current_blacklist))
 					{
 						$install_nfo = DATA_PATH . str_replace(' ','_',$modules[$m]['title']) . ".nfo";
 						$nfo = file_get_contents($install_nfo);
@@ -499,7 +495,7 @@ function exec_ogp_module()
 			if($key == 'theme')
 			{
 				foreach($value as $t)
-					installUpdate($themes[$t], $baseDir);
+					installUpdate($themes[$t], $baseDir, $current_blacklist);
 			}
 		}
 		
