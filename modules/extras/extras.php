@@ -353,6 +353,18 @@ function exec_ogp_module()
 						}
 					}
 				}
+				
+				// Delete js files for module too
+				$js = "js/modules/" . strtolower($folderToDelete) . ".js";
+				if(file_exists($js)){
+					recursiveDelete($js);
+				}
+				
+				// Delete possible image too
+				$modImage = "modules/administration/images/" . strtolower($folderToDelete) . ".png";
+				if(file_exists($modImage)){
+					recursiveDelete($modImage);
+				}
 			}
 		}
 		
