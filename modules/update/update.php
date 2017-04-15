@@ -65,7 +65,7 @@ function exec_ogp_module()
 	define('RSS_LOCAL_PATH', MODULE_PATH.'master.atom');
 		
 	// Reinstall update module for db changes if needed
-	if($db->updateModuleNeedsUpdate()){
+	if(method_exists($db, "updateModuleNeedsUpdate") && $db->updateModuleNeedsUpdate()){
 		require_once('modules/modulemanager/module_handling.php');
 		$updateModuleId = $db->getModuleIDByName("update");
 		if($updateModuleId){
