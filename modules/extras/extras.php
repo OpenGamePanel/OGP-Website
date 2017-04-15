@@ -98,7 +98,6 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 			
 			if( file_exists( $web_file ) )
 			{
-				echo $filename . "\n";
 				if(!in_array($filename, $current_blacklist)){
 					$temp = file_get_contents($temp_file);
 					$web = file_get_contents($web_file);
