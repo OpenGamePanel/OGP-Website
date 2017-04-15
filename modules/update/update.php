@@ -61,6 +61,16 @@ function exec_ogp_module()
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
 	define('RSS_LOCAL_PATH', MODULE_PATH.'master.atom');
 		
+	// Reinstall update module for db changes if needed
+	if($db->updateModuleNeedsUpdate()){
+		require_once('modules/modulemanager/module_handling.php');
+		$updateModuleId = $db->getModuleIDByName("update");
+		if($updateModuleId){
+			uninstall_module($db, $updateModuleId, "update", true);	
+			install_module($db, "update");
+		}
+	}
+		
 	if( is_writable(MODULE_PATH) )
 	{
 		if( ! file_put_contents(RSS_LOCAL_PATH, file_get_contents(RSS_REMOTE_PATH)))
