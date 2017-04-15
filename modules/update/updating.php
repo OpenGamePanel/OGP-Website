@@ -49,6 +49,7 @@ function exec_ogp_module()
 	
 	// GitHub URL
 	$gitHubURL = $settings["custom_github_update_URL"];		
+	$gitHubURL = getOGPGitHubURL($gitHubURL);
 	
 	$vtype = "HubGit";
 

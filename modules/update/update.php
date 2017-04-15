@@ -58,6 +58,7 @@ function exec_ogp_module()
 	
 	// GitHub URL
 	$gitHubURL = $settings["custom_github_update_URL"];	
+	$gitHubURL = getOGPGitHubURL($gitHubURL);
 	
 	define('REPONAME', 'OGP-Website');
 	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/master.atom');

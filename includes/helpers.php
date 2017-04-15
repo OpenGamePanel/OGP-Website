@@ -344,4 +344,18 @@ function removeOldGameConfigs(){ // Wrote this function in-case we rename config
 		}
 	}	 
 }
+
+function getOGPGitHubURL($gitHubURL){
+	if(!isset($gitHubURL) || empty($gitHubURL)){
+		$gitHubURL = "https://github.com/OpenGamePanel/"; 
+	}else{
+		// validation
+		if(substr($gitHubURL, -1) != "/" || stripos($gitHubURL, "github.com") === false){
+			$gitHubURL = "https://github.com/OpenGamePanel/";
+		}
+	}
+	
+	return $gitHubURL;
+}
+
 ?>
