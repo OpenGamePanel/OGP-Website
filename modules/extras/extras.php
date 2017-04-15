@@ -101,6 +101,7 @@ function installUpdate($info, $base_dir)
 			
 			if( file_exists( $web_file ) )
 			{
+				echo "/" . $web_file;
 				if(!in_array("/" . $web_file, $current_blacklist)){
 					$temp = file_get_contents($temp_file);
 					$web = file_get_contents($web_file);
@@ -240,6 +241,7 @@ function exec_ogp_module()
 			$current_blacklist[] = $blacklisted_file['file_path'];
 		}			
 	}
+	print_r($current_blacklist);
 	
 	// GitHub URL
 	$gitHubURL = $settings["custom_github_update_URL"];	
