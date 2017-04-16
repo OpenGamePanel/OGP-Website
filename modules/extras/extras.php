@@ -302,7 +302,7 @@ function exec_ogp_module()
 		}
 	}
 	#return;
-	define('REPO_FILE', DATA_PATH . "repos");
+	define('REPO_FILE', DATA_PATH . "repos" . "_" . strtolower($gitHubOrganization));
 	define('URL', 'https://api.github.com/' . $gitAPICont . '/' . $gitHubOrganization . '/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
 	if(!file_exists(REPO_FILE) or isset($_GET['searchForUpdates']) or isset($_POST['update']) or filesize(REPO_FILE) == 0 or filesize(REPO_FILE) == 1)
 	{
