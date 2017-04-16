@@ -59,7 +59,7 @@ function exec_ogp_module()
 	define('REPONAME', 'OGP-Website');
 	
 	// GitHub URL
-	if(function_exists("getOGPGitHubURL")){
+	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict")){
 		$gitHubUsername = $settings["custom_github_update_username"];	
 		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME);
 	}else{

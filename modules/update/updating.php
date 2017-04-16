@@ -48,7 +48,7 @@ function exec_ogp_module()
 	global $view;
 	
 	// GitHub URL
-	if(function_exists("getOGPGitHubURL")){
+	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict")){
 		$gitHubUsername = $settings["custom_github_update_username"];	
 		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME);
 	}else{
