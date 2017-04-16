@@ -266,7 +266,7 @@ function exec_ogp_module() {
 
 		$tittle = "<b>ID#:</b>  <b style='color:red;'>".$mysql_server['mysql_server_id']."</b></td>
 					<td class='collapsible' ><b>".get_lang('mysql_server_name').":</b> ".$mysql_server['mysql_name']."</td>
-					<td class='collapsible' ><b>".get_lang('server_status').":</b>$server_status</td>";
+					<td class='collapsible' ><b>".get_lang('server_status').": </b>$server_status</td>";
 		
 		$data = "<tr class='expand-child' >
 				   <td>
