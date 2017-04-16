@@ -56,15 +56,17 @@ function exec_ogp_module()
 
 	global $db, $settings;
 	
+	define('REPONAME', 'OGP-Website');
+	
 	// GitHub URL
 	if(function_exists("getOGPGitHubURL")){
-		$gitHubURL = $settings["custom_github_update_URL"];	
-		$gitHubURL = getOGPGitHubURL($gitHubURL);
+		$gitHubUsername = $settings["custom_github_update_username"];	
+		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME);
 	}else{
 		$gitHubURL = "https://github.com/OpenGamePanel/";
 	}
 	
-	define('REPONAME', 'OGP-Website');
+	
 	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/master.atom');
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
 	define('RSS_LOCAL_PATH', MODULE_PATH.'master.atom');

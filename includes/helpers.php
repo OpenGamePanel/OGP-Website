@@ -171,6 +171,8 @@ function get_first_existing_file($paths, $referrer = "", $agent = "")
 		
         if (file_exists($path)) return $path;
     }
+    
+    return false;
 }
 
 function cURLEnabled(){
@@ -345,17 +347,37 @@ function removeOldGameConfigs(){ // Wrote this function in-case we rename config
 	}	 
 }
 
-function getOGPGitHubURL($gitHubURL){
-	if(!isset($gitHubURL) || empty($gitHubURL)){
-		$gitHubURL = "https://github.com/OpenGamePanel/"; 
-	}else{
-		// validation
-		if(substr($gitHubURL, -1) != "/" || stripos($gitHubURL, "github.com") === false){
-			$gitHubURL = "https://github.com/OpenGamePanel/";
-		}
+function getOGPGitHubURL($gitHubUsername, $repo){
+	$OGPGitHub = "https://github.com/OpenGamePanel/";
+	$gitHubURL = $OGPGitHub; 
+	if(isset($gitHubUsername) && !empty($gitHubUsername)){
+		$gitHubURL = "https://github.com/" . $gitHubUsername . "/"; 
 	}
 	
-	return $gitHubURL;
+	$paths[] = $gitHubURL . $repo . "/commits/master.atom";
+	$exists = get_first_existing_file($paths);
+	if($exists !== false){
+		return $gitHubURL;
+	}
+	
+	return $OGPGitHub;
+}
+
+function getOGPGitHubURLUnstrict($gitHubUsername){
+	$OGPGitHub = "https://github.com/OpenGamePanel/";
+	$gitHubURL = $OGPGitHub; 
+	if(isset($gitHubUsername) && !empty($gitHubUsername)){
+		$gitHubURL = "https://github.com/" . $gitHubUsername . "/"; 
+	}
+	
+	$paths[] = $gitHubURL;
+	
+	$exists = get_first_existing_file($paths);
+	if($exists !== false){
+		return $gitHubURL;
+	}
+	
+	return $OGPGitHub;
 }
 
 function getGitHubOrganization($gitHubURL){
