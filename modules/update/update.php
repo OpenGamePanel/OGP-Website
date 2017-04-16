@@ -59,9 +59,10 @@ function exec_ogp_module()
 	define('REPONAME', 'OGP-Website');
 	
 	// GitHub URL
-	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict")){
+	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict") && function_exists("getGitHubOrganization")){
 		$gitHubUsername = $settings["custom_github_update_username"];	
 		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME);
+		$gitHubOrganization = getGitHubOrganization($gitHubURL);
 	}else{
 		$gitHubURL = "https://github.com/OpenGamePanel/";
 	}
@@ -99,8 +100,8 @@ function exec_ogp_module()
 	if(isset($seed))
 	{
 		/// Checking for changes in the main update files:
-		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/OpenGamePanel/'.REPONAME.'/'.$seed.'/modules/update/update.php',
-									'modules/update/updating.php' => 'https://raw.githubusercontent.com/OpenGamePanel/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
+		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/update.php',
+									'modules/update/updating.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
 		$refresh = False;
 		foreach($main_update_files as $local_path => $remote_url)
 		{
