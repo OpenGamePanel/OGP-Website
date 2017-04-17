@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Red Orchestra 2</game_name>
   <server_exec_name>ROGame.exe</server_exec_name>
-  <cli_template>TE-Apartments?%PORT%?%PLAYERS% -seekfreeloadingserver -log=ServerLog.log %IP%</cli_template>
+  <cli_template>TE-Apartments?%PORT%?%PLAYERS% -log=ServerLog.log %IP% -brewedloading</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="-multihome=" />
     <cli_param id="PORT" cli_string="Port=" />
