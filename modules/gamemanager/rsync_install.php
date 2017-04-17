@@ -214,6 +214,8 @@ function exec_ogp_module() {
 				} else {
 					print_failure(get_lang('cannot_update_from_own_self'));
 					$view->refresh('?m=gamemanager&p=game_monitor', 2);
+					
+					return;
 				}
 			} else {
 				$db->logger(get_lang_f('update_attempt_from_nonmaster_server', $_SESSION['users_login'], $home_id, $ms_home_id));
