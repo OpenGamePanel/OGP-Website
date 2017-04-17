@@ -91,6 +91,8 @@ define('recaptcha_use_login', "Utiliser Recaptcha à l'Authentification");
 define('recaptcha_use_login_info', "Si activé, l&apos;utilisateur devra résoudre le Recaptcha 'Je ne suis pas un Robot' lors de l&apos;authentification.");
 define('login_attempts_before_banned', "Nombre de tentatives de connexion échouées avant d'être banni");
 define('login_attempts_before_banned_info', "Si un utilisateur essaye de se connecter avec de mauvaises informations plus de fois que défini ici, l&apos;utilisateur sera banni temporairement par le Panneau.");
+define('custom_github_update_username', "Nom d'utilisateur GitHub");
+define('custom_github_update_username_info', "Entrer votre nom d&apos;utilisateur GitHub UNIQUEMENT pour utiliser votre propre dépôt pour mettre à jour OGP. Ceci ne doit être changé seulement par les développeurs qui souhaitent utiliser leur propre dépôt de développement plutôt que tester leur code éventuellement bugué dans la branche principale.");
 define('remote_query', "Interrogation à distance");
 define('remote_query_info', "Utiliser le serveur distant (Agent) pour interroger les serveurs de jeu (seulement GameQ et LGSL).");
 define('check_expiry_by', "Vérifier l'expiration en utilisant");

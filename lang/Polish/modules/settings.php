@@ -91,6 +91,8 @@ define('recaptcha_use_login', "Use Recaptcha on Login");
 define('recaptcha_use_login_info', "If enabled, users will have to solve the Not a Robot Recaptcha when attempting to login.");
 define('login_attempts_before_banned', "Ilość nieprawidłowych logowań");
 define('login_attempts_before_banned_info', "Liczba nieudanych prób zalogowania się zanim użytkownik zostanie zbanowany.");
+define('custom_github_update_username', "GitHub update username");
+define('custom_github_update_username_info', "Enter your GitHub username ONLY to use your own forked repositories to update OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.");
 define('remote_query', "Remote query");
 define('remote_query_info', "Use the remote server (agent) to make queries to the game servers (Only GameQ and LGSL).");
 define('check_expiry_by', "Check expiration using");

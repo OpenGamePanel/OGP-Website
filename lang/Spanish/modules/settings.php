@@ -91,6 +91,8 @@ define('recaptcha_use_login', "Usar Recaptcha en el inicio de sesión");
 define('recaptcha_use_login_info', "Si se activa, los usuarios deberán resolver una pregunta a parte de su inicio de sesión habitual. Esto intenta evitar intentos de inicio de sesión automatizados por parte de un programa.");
 define('login_attempts_before_banned', "Número de intentos de logueo fallido antes de banear al usuario");
 define('login_attempts_before_banned_info', "Si un usuario intenta loguearse con credenciales inválidas más de estas veces, el usuario será baneado temporalmente por el panel.");
+define('custom_github_update_username', "GitHub update username");
+define('custom_github_update_username_info', "Enter your GitHub username ONLY to use your own forked repositories to update OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.");
 define('remote_query', "Peticiones remotas");
 define('remote_query_info', "Usar el servidor remoto (Agente) para hacer peticiones a los servidores de juegos (Solo GameQ y LGSL).");
 define('check_expiry_by', "Comprobar caducidad por");
