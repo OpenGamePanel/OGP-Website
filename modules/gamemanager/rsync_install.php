@@ -205,11 +205,16 @@ function exec_ogp_module() {
 			$ms_home_id = $_REQUEST['master_server_home_id'];
 
 			if ($db->getMasterServer($home_info['remote_server_id'], $home_info['home_cfg_id']) == $ms_home_id) {
-				$ms_info = $db->getGameHome($ms_home_id);
-				print_success(get_lang_f("starting_copy_with_master_server_named",htmlentities($ms_info['home_name'])));
-				$rsync = $remote->masterServerUpdate( $home_id,$home_info['home_path'],$ms_home_id,$ms_info['home_path'],$exec_folder_path,$exec_path,$precmd,$postcmd );
+				if ($ms_home_id !== $home_id) {
+					$ms_info = $db->getGameHome($ms_home_id);
+					print_success(get_lang_f("starting_copy_with_master_server_named",htmlentities($ms_info['home_name'])));
+					$rsync = $remote->masterServerUpdate( $home_id,$home_info['home_path'],$ms_home_id,$ms_info['home_path'],$exec_folder_path,$exec_path,$precmd,$postcmd );
 
-				$master = "&amp;master=true";
+					$master = "&amp;master=true";
+				} else {
+					print_failure(get_lang('cannot_update_from_own_self'));
+					$view->refresh('?m=gamemanager&p=game_monitor', 2);
+				}
 			} else {
 				$db->logger(get_lang_f('update_attempt_from_nonmaster_server', $_SESSION['users_login'], $home_id, $ms_home_id));
 				print_failure(get_lang('attempting_nonmaster_update'));
