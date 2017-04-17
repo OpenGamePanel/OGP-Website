@@ -114,8 +114,18 @@ function exec_ogp_module() {
 			if( isset( $_REQUEST['master_server_home_id'] ) )
 			{
 				$ms_home_id = $_REQUEST['master_server_home_id'];
-				$ms_info = $db->getGameHome($ms_home_id);
-				$steam_out = $remote->masterServerUpdate( $home_id,$home_info['home_path'],$ms_home_id,$ms_info['home_path'],$exec_folder_path,$exec_path,$precmd,$postcmd );
+
+				if ($db->getMasterServer($ms_home_id, $home_info['home_cfg_id']) !== false) {
+					$ms_info = $db->getGameHome($ms_home_id);
+					$steam_out = $remote->masterServerUpdate( $home_id,$home_info['home_path'],$ms_home_id,$ms_info['home_path'],$exec_folder_path,$exec_path,$precmd,$postcmd );
+				} else {
+					$db->logger(get_lang_f('update_attempt_from_nonmaster_server', $_SESSION['users_login'], $home_id, $ms_home_id));
+					print_failure(get_lang('attempting_nonmaster_update'));
+					$view->refresh('?m=gamemanager&p=game_monitor', 2);
+
+					return;
+				}
+
 			}
 			else
 			{

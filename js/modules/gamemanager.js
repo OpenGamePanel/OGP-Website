@@ -155,4 +155,22 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	$('.masterserver_update').click(function(e) {
+		e.preventDefault();
+
+		var updatePage = (this.getAttribute('data-page') == 'rsync_install' ? 'rsync_install' : 'update');
+		var homeId = this.getAttribute('data-home-id');
+		var modId = this.getAttribute('data-mod-id');
+		var masterServerValue = this.getAttribute('data-masterserver-id');
+
+		var pageAction = '?m=gamemanager&p=' + updatePage + '&home_id=' + homeId + '&mod_id=' + modId + '&update=update';
+		var masterServer = (masterServerValue == null ? '' : '<input type="hidden" name="master_server_home_id" value="' + masterServerValue + '">');
+
+		var updateForm = $('<form action="' + pageAction + '" method="POST">' + masterServer + '</form>');
+
+		$('body').append(updateForm);
+		updateForm.submit();
+	});
+
 });
