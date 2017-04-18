@@ -379,7 +379,7 @@ function exec_ogp_module() {
 					{						
 						if( $master_server_home_id != FALSE AND $master_server_home_id != $server_home['home_id']  )
 						{
-							$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=update&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
+							$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=update&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;master_server_home_id=".$master_server_home_id."&amp;update=update'>
 								<img src='" . check_theme_image("images/master.png") . "' title='". update_from_local_master_server ."'>
 								<span>". update_from_local_master_server ."</span>
 							</a>";
