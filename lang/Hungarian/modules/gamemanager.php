@@ -192,4 +192,8 @@ define('auto_update_copy_me', "Másolás");
 define('auto_update_copy_me_success', "Másolva!");
 define('auto_update_copy_me_fail', "Sikertelen a másolás. Kérlek másold a linket manuálisan.");
 define('get_steam_autoupdate_api_link', "Automatikus frissítési link");
+define('update_attempt_from_nonmaster_server', "User %s attempted to update home_id %d from a non-master server. (Home ID: %d)");
+define('attempting_nonmaster_update', "You are attempting to update this server from a non-master server.");
+define('cannot_update_from_own_self', "Local Server Update may not run on a master server.");
+
 ?>
