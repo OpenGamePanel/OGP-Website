@@ -193,7 +193,7 @@ define('auto_update_copy_me_success', "Copié!");
 define('auto_update_copy_me_fail', "Erreur de copie. Veuillez copier le lien manuellement.");
 define('get_steam_autoupdate_api_link', "Lien de Mise à Jour");
 define('update_attempt_from_nonmaster_server', "L'utilisateur %s a tenté une mise à jour sur le serveur avec le home_id %d à partir d'une serveur non maître. (Home ID: %d)");
-define('attempting_nonmaster_update', "You are attempting to update this server from a non-master server.");
+define('attempting_nonmaster_update', "Vous tentez de mettre à jour ce serveur à partir d'un serveur non maître.");
 define('cannot_update_from_own_self', "La mise à jour à partir du Serveur Maître local ne peut s'effectuer sur un Serveur Maître.");
 
 ?>
