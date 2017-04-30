@@ -154,7 +154,7 @@ function exec_ogp_module()
 						$expandme = ( ( isset($_POST['ftp_login']) and $ftp_login == strip_real_escape_string($_POST['ftp_login']) ) AND ( isset($_POST['remote_server_id']) and $home_info['remote_server_id'] == $_POST['remote_server_id'] ) ) ? "expandme" : "";
 						$home_name = isset( $home_info['home_name'] ) ? $home_info['home_name'] : $ftp_path;
 						echo "<tr class='maintr $expandme'><td class='collapsible' ></td><td>".$server_row['remote_server_name']." (".$server_row['agent_ip'].")</td><td><b class='failure' >$ftp_login</td><td>" . htmlentities($home_name) . "</td><td>$ftp_path</td></tr>
-							  <tr class='expand-child' ><td colspan='4' >
+							  <tr class='expand-child' ><td colspan='5' >
 							  <form method=POST >
 							  <table>";
 							  
