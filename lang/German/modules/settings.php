@@ -42,7 +42,7 @@ define('panel_name', "Panel name");
 define('panel_name_info', "Name of the panel that is shown in the page title. This value will overrule all page titles, if not empty.");
 define('feed_enable', "LGSL Feed aktivieren");
 define('feed_enable_info', "Wenn Ihr Webhost eine Firewall hat, die den query port blockiert müssen Sie ihn aktivieren.");
-define('feed_url', "Feed URL");
+define('feed_url', "Feed URL ");
 define('feed_url_info', "GrayCube.com is sharing a LGSL feed on the URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Zeichenkodierung");
 define('charset_info', "UTF8, ISO, ASCII, etc... Leave it blank to use ISO encoding.");

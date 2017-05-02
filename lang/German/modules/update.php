@@ -34,7 +34,7 @@ define('not_updated_files_blacklisted', "Nicht aktualisierte/installierte Dateie
 define('latest_version', "Neueste version");
 define('panel_version', "Panel Version");
 define('update_now', "Jetzt aktualisieren");
-define('the_panel_is_up_to_date', "The Panel is up-to-date.");
+define('the_panel_is_up_to_date', "Das Panel ist aktuell.");
 define('files_overwritten', "%s files overwritten");
 define('files_not_overwritten', "%s files NOT overwritten due to blacklist");
 define('can_not_update_non_writable_files', "Kann nicht aktualisiert werden, da die folgenden Dateien/Ordner nicht beschreibbar sind");

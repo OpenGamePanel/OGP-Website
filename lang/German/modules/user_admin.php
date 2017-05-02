@@ -40,7 +40,7 @@ define('comment', "Kommentar");
 define('expires', "Läuft ab");
 define('save_profile', "Profil speichern");
 define('new_password_info', "When password field is empty the password will not be updated.");
-define('theme', "Theme");
+define('theme', "Thema");
 define('theme_info', "If theme is empty the global value is used.");
 define('expires_info', "Date when the user account expires. The account is not deleted, but user can not login anymore.");
 define('password_mismatch', "Die Passwörter stimmen nicht überein.");
