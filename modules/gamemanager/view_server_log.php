@@ -91,6 +91,11 @@ function exec_ogp_module()
     }
     elseif ($log_retval == 1 || $log_retval == 2)
     {
+		// Force log file contents to be UTF-8 (fixes http://www.opengamepanel.org/forum/viewthread.php?thread_id=5379)
+		if(hasValue($home_log)){
+			$home_log = utf8_encode($home_log);
+		}
+		
 		// Using the refreshed class
 		if( isset($_GET['refreshed']) )
 		{
