@@ -50,10 +50,10 @@
 		echo VNSU-SongBe >> maplist.txt
 		fi
 		echo "_________________________________________"
-		echo "To access Web Admin be sure to edit /ROGame/Config/ROWeb.ini after first start."
+		echo "To access Web Admin be sure to edit /ROGame/Config/ROWeb.ini after the first start."
 		echo "Stop the server and change bEnable=False to bEnable=True then start the server."
 		echo "Access your Web Admin from 'http://YOUR_IP:PORT+10' (you can see the full Web Admin URL"
-		echo "from the Log page if needed. Use the Control Password set when you Edit the server to log in."
+		echo "from the Log page if needed). Use the Control Password set when you Edit the server to log in."
 		echo "_________________________________________"
 	</post_install>
 </game_config>
