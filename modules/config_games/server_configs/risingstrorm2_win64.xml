@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Rising Storm 2: Vietnam</game_name>
   <server_exec_name>VNGame.exe</server_exec_name>
-  <cli_template>%MAP%%PORT%%PLAYERS%%CONTROL_PASSWORD%%WEB_ADMIN_PORT% -log=ServerLog.log %IP% %QUERY_PORT%</cli_template>
+  <cli_template>%MAP%%PORT%%PLAYERS%%CONTROL_PASSWORD%?EnableWebAdmin=true%WEB_ADMIN_PORT% -log=ServerLog.log %IP% %QUERY_PORT%</cli_template>
   <cli_params>
     <cli_param id="MAP" cli_string="" />
     <cli_param id="IP" cli_string="-MultiHome=" />
@@ -49,11 +49,5 @@
 		echo VNSU-AnLaoValley >> maplist.txt
 		echo VNSU-SongBe >> maplist.txt
 		fi
-		echo "_________________________________________"
-		echo "To access Web Admin be sure to edit /ROGame/Config/ROWeb.ini after the first start."
-		echo "Stop the server and change bEnable=False to bEnable=True then start the server."
-		echo "Access your Web Admin from 'http://YOUR_IP:PORT+10' (you can see the full Web Admin URL"
-		echo "from the Log page if needed). Use the Control Password set when you Edit the server to log in."
-		echo "_________________________________________"
 	</post_install>
 </game_config>
