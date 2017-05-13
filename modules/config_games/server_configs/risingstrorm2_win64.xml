@@ -1,7 +1,7 @@
 <game_config>
   <game_key>risingstorm2_win64</game_key>
   <protocol>lgsl</protocol>
-  <lgsl_query_name>redorchestra2</lgsl_query_name>
+  <lgsl_query_name>risingstorm2</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Rising Storm 2: Vietnam</game_name>
   <server_exec_name>VNGame.exe</server_exec_name>
