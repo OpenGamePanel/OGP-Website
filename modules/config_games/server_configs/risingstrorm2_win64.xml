@@ -1,0 +1,53 @@
+<game_config>
+  <game_key>risingstorm2_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>risingstorm2</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Rising Storm 2: Vietnam</game_name>
+  <server_exec_name>VNGame.exe</server_exec_name>
+  <cli_template>%MAP%%PORT%%PLAYERS%%CONTROL_PASSWORD%?EnableWebAdmin=true%WEB_ADMIN_PORT% -log=ServerLog.log %IP% %QUERY_PORT% -UNATTENDED</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="-MultiHome=" />
+    <cli_param id="PORT" cli_string="?Port=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="?AdminPassword=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="WEB_ADMIN_PORT" cli_string="?WebAdminPort=">10</port>
+    <port type="add" id="QUERY_PORT" cli_string="-QueryPort=">19238</port>
+    <port type="add" id="STEAM_PORT">12783</port>
+  </reserve_ports>
+  <map_list>maplist.txt</map_list>
+  <console_log>ROGame/Logs/ServerLog.log</console_log>
+  <exe_location>Binaries/Win64</exe_location>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="risingstorm2">
+      <name>none</name>
+      <installer_name>418480</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <post_install>
+		maplist="maplist.txt"
+		if [ -s "$maplist" ]
+		then
+		echo "File $maplist found. OK!"
+		else
+		echo "File $maplist not found"
+		echo "Generating new maplist file in $maplist"
+		touch maplist.txt
+		echo VNTE-Compound > maplist.txt
+		echo VNTE-CuChi >> maplist.txt
+		echo VNTE-Firebase >> maplist.txt
+		echo VNTE-Hill937 >> maplist.txt
+		echo VNTE-HueCity >> maplist.txt
+		echo VNSK-Compound >> maplist.txt
+		echo VNSK-Firebase >> maplist.txt
+		echo VNSK-JungleCamp >> maplist.txt
+		echo VNSU-AnLaoValley >> maplist.txt
+		echo VNSU-SongBe >> maplist.txt
+		fi
+	</post_install>
+</game_config>
