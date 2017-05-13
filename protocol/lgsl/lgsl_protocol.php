@@ -109,8 +109,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"quake4"		=> "Quake 4",
 		"ravenshield"	=> "Raven Shield",
 		"redorchestra"	=> "Red Orchestra",
-		"redorchestra2" => "Red Orchestra 2 & Rising Storm",
+		"redorchestra2"	=> "Red Orchestra 2 & Rising Storm",
 		"rfactor"		=> "RFactor",
+		"risingstorm2"	=> "Rising Storm 2: Vietnam",
 		"ror"			=> "Rigs of Rods",
 		"rust"			=> "Rust",
 		"samp"			=> "San Andreas Multiplayer",
@@ -255,6 +256,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"redorchestra"	=> "13",
 		"redorchestra2" => "05",
 		"rfactor"		=> "16",
+		"risingstorm2" => "05",
 		"ror"			=> "36",
 		"rust"			=> "05",
 		"samp"			=> "12",
@@ -396,6 +398,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"redorchestra"	=> "steam://connect/{IP}:{C_PORT}",
 		"redorchestra2" => "steam://connect/{IP}:{S_PORT}",
 		"rfactor"		=> "rfactor://{IP}:{S_PORT}",
+		"risingstorm2" => "steam://connect/{IP}:{S_PORT}",
 		"ror"			=> "http://www.rigsofrods.com/servers/",
 		"rust"			=> "steam://connect/{IP}:{S_PORT}",
 		"samp"			=> "samp://{IP}:{C_PORT}",
@@ -493,6 +496,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "redorchestra"		: $c_to_q = 1;		$c_def = 7758;	$q_def = 7759;	$c_to_s = 0;	break;
 			case "redorchestra2" 	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "rfactor"			: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
+			case "risingstorm2" 	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "serioussam"		: $c_to_q = 1;		$c_def = 25600;	$q_def = 25601;	$c_to_s = 0;	break;
 			case "soldat"			: $c_to_q = 123;	$c_def = 23073;	$q_def = 23196;	$c_to_s = 0;	break;
 			case "stalker"			: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
