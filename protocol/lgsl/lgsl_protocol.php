@@ -109,8 +109,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"quake4"		=> "Quake 4",
 		"ravenshield"	=> "Raven Shield",
 		"redorchestra"	=> "Red Orchestra",
-		"redorchestra2" => "Red Orchestra 2 & Rising Storm",
+		"redorchestra2"	=> "Red Orchestra 2 & Rising Storm",
 		"rfactor"		=> "RFactor",
+		"risingstorm2"	=> "Rising Storm 2: Vietnam",
 		"ror"			=> "Rigs of Rods",
 		"rust"			=> "Rust",
 		"samp"			=> "San Andreas Multiplayer",
@@ -164,7 +165,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy_"		=> "03",
 		"aarmy3"		=> "26",
 		"arcasimracing"	=> "16",
-		"arkse"         => "05",
+		"arkse"			=> "05",
 		"arma"			=> "09",
 		"arma2"			=> "06",
 		"arma2oa"		=> "06",
@@ -253,8 +254,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"quake4"		=> "10",
 		"ravenshield"	=> "04",
 		"redorchestra"	=> "13",
-		"redorchestra2" => "05",
+		"redorchestra2"	=> "05",
 		"rfactor"		=> "16",
+		"risingstorm2"	=> "05",
 		"ror"			=> "36",
 		"rust"			=> "05",
 		"samp"			=> "12",
@@ -311,14 +313,14 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy"			=> "qtracker://{IP}:{S_PORT}?game=ArmyOperations&action=show",
 		"aarmy3"		=> "qtracker://{IP}:{S_PORT}?game=AmericasArmy3&action=show",
 		"arcasimracing"	=> "http://en.wikipedia.org/wiki/ARCA_Sim_Racing",
-		"arkse"         => "steam://connect/{IP}:{S_PORT}",
+		"arkse"			=> "steam://connect/{IP}:{S_PORT}",
 		"arma"			=> "qtracker://{IP}:{S_PORT}?game=ArmedAssault&action=show",
 		"arma2"			=> "http://en.wikipedia.org/wiki/ARMA_2",
 		"arma2oa"		=> "http://en.wikipedia.org/wiki/ARMA_2",
 		"arma2co"		=> "http://en.wikipedia.org/wiki/ARMA_2",
 		"arma3"			=> "steam://connect/{IP}:{S_PORT}",
 		"arma3alpha"	=> "http://en.wikipedia.org/wiki/ARMA_2",
-		"avorion" 	=> "steam://connect/{IP}:{S_PORT}",
+		"avorion"		=> "steam://connect/{IP}:{S_PORT}",
 		"avp2"			=> "qtracker://{IP}:{S_PORT}?game=AliensversusPredator2&action=show",
 		"avp2010"		=> "http://en.wikipedia.org/wiki/Aliens_vs._Predator_%28video_game%29",
 		"bfbc2"			=> "http://en.wikipedia.org/wiki/Battlefield_bad_company_2",
@@ -394,8 +396,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"quake4"		=> "qtracker://{IP}:{S_PORT}?game=Quake4&action=show",
 		"ravenshield"	=> "http://en.wikipedia.org/wiki/Tom_Clancy's_Rainbow_Six_3",
 		"redorchestra"	=> "steam://connect/{IP}:{C_PORT}",
-		"redorchestra2" => "steam://connect/{IP}:{S_PORT}",
+		"redorchestra2"	=> "steam://connect/{IP}:{S_PORT}",
 		"rfactor"		=> "rfactor://{IP}:{S_PORT}",
+		"risingstorm2"	=> "steam://connect/{IP}:{S_PORT}",
 		"ror"			=> "http://www.rigsofrods.com/servers/",
 		"rust"			=> "steam://connect/{IP}:{S_PORT}",
 		"samp"			=> "samp://{IP}:{C_PORT}",
@@ -459,7 +462,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "arcasimracing"	: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
 			case "arkse"			: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 0;	break;
 			case "arma3"			: $c_to_q = 1; 		$c_def = 2302; 	$q_def = 2303; 	$c_to_s = 0; 	break;
-			case "avorion" 			: $c_to_q = 20; 	$c_def = 27000;	$q_def = 27020; $c_to_s = 0;  	break;
+			case "avorion"			: $c_to_q = 20; 	$c_def = 27000;	$q_def = 27020; $c_to_s = 0;  	break;
 			case "bfbc2"			: $c_to_q = 0;		$c_def = 19567;	$q_def = 48888;	$c_to_s = 0;	break;
 			case "bfvietnam"		: $c_to_q = 0;		$c_def = 15567;	$q_def = 23000;	$c_to_s = 0;	break;
 			case "bf1942"			: $c_to_q = 0;		$c_def = 14567;	$q_def = 23000;	$c_to_s = 0;	break;
@@ -491,8 +494,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "painkiller"		: $c_to_q = 123;	$c_def = 3455;	$q_def = 3578;	$c_to_s = 0;	break;
 			case "ravenshield"		: $c_to_q = 1000;	$c_def = 7777;	$q_def = 8777;	$c_to_s = 0;	break;
 			case "redorchestra"		: $c_to_q = 1;		$c_def = 7758;	$q_def = 7759;	$c_to_s = 0;	break;
-			case "redorchestra2" 	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
+			case "redorchestra2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "rfactor"			: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
+			case "risingstorm2"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "serioussam"		: $c_to_q = 1;		$c_def = 25600;	$q_def = 25601;	$c_to_s = 0;	break;
 			case "soldat"			: $c_to_q = 123;	$c_def = 23073;	$q_def = 23196;	$c_to_s = 0;	break;
 			case "stalker"			: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
