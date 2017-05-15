@@ -192,8 +192,8 @@ define('auto_update_copy_me', "Copiar");
 define('auto_update_copy_me_success', "Copiado!");
 define('auto_update_copy_me_fail', "Fallo al copiar. Por favor copie manualmente el link");
 define('get_steam_autoupdate_api_link', "Auto Update Link");
-define('update_attempt_from_nonmaster_server', "User %s attempted to update home_id %d from a non-master server. (Home ID: %d)");
-define('attempting_nonmaster_update', "You are attempting to update this server from a non-master server.");
-define('cannot_update_from_own_self', "Local Server Update may not run on a master server.");
+define('update_attempt_from_nonmaster_server', "El usuario %s intentó actualizar home_id %d desde un servidor no maestro. (ID Home: %d)");
+define('attempting_nonmaster_update', "Está intentando actualizar este servidor desde un servidor no maestro.");
+define('cannot_update_from_own_self', "La Actualización de servidor local no se puede ejecutar en un servidor maestro.");
 
 ?>

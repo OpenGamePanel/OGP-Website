@@ -23,7 +23,7 @@
  */
 
 define('add_mods_note', "Usted necesita agregar mods después de agregar el servidor al usuario.<br>Esto se puede hacer mediante la edición del servidor.");
-define('game_servers', "Servirdores de Juegos");
+define('game_servers', "Servidores de Juegos");
 define('game_path', "Carpeta del juego");
 define('game_path_info', "Ejemplo: /home/ogp/my_server/");
 define('game_server_name_info', "Ayuda a identificar el servidor.");
