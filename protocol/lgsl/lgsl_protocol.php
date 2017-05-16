@@ -53,8 +53,8 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"crysiswars"	=> "Crysis Wars",
 		"cs2d"			=> "Counter-Strike 2D",
 		"cube"			=> "Cube Engine",
-		"dayz_arma2co"	=> "Dayz ArmA 2 Combined Operations",
-		"dayz_arma2oa"  => "DayZ ArmA 2 Operation Arrowhead",
+		"dayzarma2co"	=> "Dayz ArmA 2 Combined Operations",
+		"dayzarma2oa"  => "DayZ ArmA 2 Operation Arrowhead",
 		"doomskulltag"	=> "Doom - Skulltag",
 		"doomzdaemon"	=> "Doom - ZDaemon",
 		"doom3"			=> "Doom 3",
@@ -194,8 +194,8 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"crysiswars"	=> "06",
 		"cs2d"			=> "29",
 		"cube"			=> "24",
-		"dayz_arma2co"	=> "06",
-		"dayz_arma2oa"  => "05",
+		"dayzarma2co"	=> "06",
+		"dayzarma2oa"  => "05",
 		"doomskulltag"	=> "27",
 		"doomzdaemon"	=> "28",
 		"doom3"			=> "10",
@@ -343,8 +343,8 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"crysiswars"	=> "qtracker://{IP}:{S_PORT}?game=CrysisWars&action=show",
 		"cs2d"			=> "http://www.cs2d.com",
 		"cube"			=> "http://cubeengine.com",
-		"dayz_arma2co"	=> "http://en.wikipedia.org/wiki/ARMA_2",
-		"dayz_arma2oa"  => "steam://connect/{IP}:{S_PORT}",
+		"dayzarma2co"	=> "http://en.wikipedia.org/wiki/ARMA_2",
+		"dayzarma2oa"  => "steam://connect/{IP}:{S_PORT}",
 		"doomskulltag"	=> "http://skulltag.com",
 		"doomzdaemon"	=> "http://www.zdaemon.org",
 		"doom3"			=> "qtracker://{IP}:{S_PORT}?game=Doom3&action=show",
@@ -445,6 +445,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		// SOFTWARE PORT IS THE QUERY PORT UNLESS SET
 		if (!$s_port) { $s_port = $q_port; }
 
+		// Force the SimpleXMLElement into a plain string
+		$type = (string) $type;
+
 	   // TRY USING THE STANDARD LAUNCH LINK FOR ALTERNATE PROTOCOLS IF ONE IS NOT SET
 		$type = str_replace("_", "", $type);
 
@@ -474,7 +477,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "bf2142"			: $c_to_q = 0;		$c_def = 17567;	$q_def = 29900;	$c_to_s = 0;	break;
 			case "conanexiles"		: $c_to_q = 2;		$c_def = 24000;	$q_def = 24002;	$c_to_s = 0;	break;
 			case "cube"				: $c_to_q = 1;		$c_def = 28785;	$q_def = 28786;	$c_to_s = 0;	break;
-			case "dayz_arma2oa"             : $c_to_q = 1;   	$c_def = 2302;  $q_def = 2303;  $c_to_s = 0;    break;
+			case "dayzarma2oa"             : $c_to_q = 1;   	$c_def = 2302;  $q_def = 2303;  $c_to_s = 0;    break;
 			case "dh2005"			: $c_to_q = 0;		$c_def = 23459;	$q_def = 34567;	$c_to_s = 0;	break;
 			case "farcry"			: $c_to_q = 123;	$c_def = 49001;	$q_def = 49124;	$c_to_s = 0;	break;
 			case "flashpoint"		: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
@@ -524,7 +527,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		if		(!$c_port &&  $q_port && $c_to_q)	{ $c_port = $q_port - $c_to_q; }
 		elseif	(!$c_port &&  $q_port && $c_def)	{ $c_port = $c_def; }
 		elseif	(!$c_port &&  $q_port)				{ $c_port = $q_port; }
-		if		(!$q_port &&  $c_port && $c_to_q)	{ $q_port = $c_port + $c_to_q; }
+		if		(!$q_port &&  $c_port && $c_to_q)	{ $q_port = $c_port + $c_to_q;}
 		elseif	(!$q_port &&  $c_port && $q_def)	{ $q_port = $q_def; }
 		elseif	(!$q_port &&  $c_port)				{ $q_port = $c_port; }
 		if		(!$s_port &&  $c_to_s)				{ $s_port = $c_port + $c_to_s; }
