@@ -1,10 +1,10 @@
 <game_config>
  <game_key>dayz_arma2oa_win32</game_key>
  <protocol>lgsl</protocol>
- <lgsl_query_name>dayzarma2oa</lgsl_query_name>
- <game_name>DayZ (OA)</game_name>
+ <lgsl_query_name>dayz</lgsl_query_name>
+ <game_name>DayZ Mod (OA)</game_name>
  <server_exec_name>arma2oaserver.exe</server_exec_name>
- <cli_template>"-mod=@DayZ_Epoch;@DayZ_Epoch_Server;" -name=epoch "-config=epoch\\server.cfg" "-cfg=epoch\\basic.cfg" -profiles=epoch %MEMORY%</cli_template>
+ <cli_template>-autoInit -noSound -noPause "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;" -name=epoch "-config=epoch\\server.cfg" "-cfg=epoch\\basic.cfg" -profiles=epoch %MEMORY%</cli_template>
  <reserve_ports>
     <port type="add" id="QUERY_PORT">1</port>
  </reserve_ports>

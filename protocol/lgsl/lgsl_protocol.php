@@ -53,8 +53,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"crysiswars"	=> "Crysis Wars",
 		"cs2d"			=> "Counter-Strike 2D",
 		"cube"			=> "Cube Engine",
-		"dayzarma2co"	=> "Dayz ArmA 2 Combined Operations",
-		"dayzarma2oa"  => "DayZ ArmA 2 Operation Arrowhead",
+		"dayz"          => "DayZ Mod",
 		"doomskulltag"	=> "Doom - Skulltag",
 		"doomzdaemon"	=> "Doom - ZDaemon",
 		"doom3"			=> "Doom 3",
@@ -194,8 +193,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"crysiswars"	=> "06",
 		"cs2d"			=> "29",
 		"cube"			=> "24",
-		"dayzarma2co"	=> "06",
-		"dayzarma2oa"  => "05",
+		"dayz"  => "05",
 		"doomskulltag"	=> "27",
 		"doomzdaemon"	=> "28",
 		"doom3"			=> "10",
@@ -343,8 +341,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"crysiswars"	=> "qtracker://{IP}:{S_PORT}?game=CrysisWars&action=show",
 		"cs2d"			=> "http://www.cs2d.com",
 		"cube"			=> "http://cubeengine.com",
-		"dayzarma2co"	=> "http://en.wikipedia.org/wiki/ARMA_2",
-		"dayzarma2oa"  => "steam://connect/{IP}:{S_PORT}",
+		"dayz"          => "steam://connect/{IP}:{S_PORT}",
 		"doomskulltag"	=> "http://skulltag.com",
 		"doomzdaemon"	=> "http://www.zdaemon.org",
 		"doom3"			=> "qtracker://{IP}:{S_PORT}?game=Doom3&action=show",
@@ -477,7 +474,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "bf2142"			: $c_to_q = 0;		$c_def = 17567;	$q_def = 29900;	$c_to_s = 0;	break;
 			case "conanexiles"		: $c_to_q = 2;		$c_def = 24000;	$q_def = 24002;	$c_to_s = 0;	break;
 			case "cube"				: $c_to_q = 1;		$c_def = 28785;	$q_def = 28786;	$c_to_s = 0;	break;
-			case "dayzarma2oa"             : $c_to_q = 1;   	$c_def = 2302;  $q_def = 2303;  $c_to_s = 0;    break;
+			case "dayz"                     : $c_to_q = 1;	  	$c_def = 2302;  $q_def = 2303;  $c_to_s = 0;    break;
 			case "dh2005"			: $c_to_q = 0;		$c_def = 23459;	$q_def = 34567;	$c_to_s = 0;	break;
 			case "farcry"			: $c_to_q = 123;	$c_def = 49001;	$q_def = 49124;	$c_to_s = 0;	break;
 			case "flashpoint"		: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
@@ -1646,7 +1643,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			if (!empty($server['e']['gsgamename'])) { $server['s']['game'] = $server['e']['gsgamename']; } // FEAR
 			if (!empty($server['e']['game_id']))	{ $server['s']['game'] = $server['e']['game_id']; }	// BFVIETNAM
 
-			if ($server['b']['type'] == "arma" || $server['b']['type'] == "arma2" || $server['b']['type'] == "arma2oa" || $server['b']['type'] == "arma2co" || $server['b']['type'] == "dayz_arma2co" || $server['b']['type'] == "dayz_arma2oa")
+			if ($server['b']['type'] == "arma" || $server['b']['type'] == "arma2" || $server['b']['type'] == "arma2oa" || $server['b']['type'] == "arma2co" || $server['b']['type'] == "dayz")
 			{
 				$server['s']['map'] = $server['e']['mission'];
 			}
