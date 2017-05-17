@@ -39,7 +39,8 @@ define('agent_ip_port', "Agent IP:Port");
 define('agent_status', "Agent Status");
 define('ips', "IPs");
 define('add_more_ips', "Wenn Sie mehr als eine IP eingeben möchten drücken Sie bitte 'IPs setzen', wenn alle Felder ausgefüllt sind.  Ein neues Feld wird erscheinen.");
-define('encryption_key_mismatch', "Encryption key does not match with the Agent. Please recheck your Agent configuration.");
+define('encryption_key_mismatch', "Der Verschlüsselungsschlüssel stimmt nicht mit dem Agenten überein. Bitte überprüfen Sie die Agentenkonfiguration.
+");
 define('no_ip_for_remote_host', "You need to add at least one (1) IP address for each remote host.");
 define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
 define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");

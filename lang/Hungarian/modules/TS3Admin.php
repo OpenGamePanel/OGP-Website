@@ -43,7 +43,7 @@ define('js_confirm_server_delete', "Tényleg TÖRÖLNI akarod a(z) #%1 szervert?
 define('js_notice_server_deleted', "Server %1 was deleted successfully.\nThe overview page will be getting reloaded now.");
 define('js_prompt_banduration', "Időtartam órában (0=korlátlan):");
 define('js_prompt_banreason', "Ok (opcionális):");
-define('js_prompt_msg_to', "Textmessage to %1 #%2: ");
+define('js_prompt_msg_to', "Szöveges üzenet %1 #%2:");
 define('js_prompt_poke_to', "Pokemessage to Client #%1: ");
 define('js_prompt_new_propvalue', "Új érték a(z) '%1':");
 define('n_server_responded', "A szerver válasza:");

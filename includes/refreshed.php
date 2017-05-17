@@ -119,6 +119,11 @@ class refreshed
 						  "\t	success: function(data, textStatus) {\n".
 						  "\t		if (!enableCallbacks) return;\n".
 						  "\t		$('".$ref."').html(data);\n";
+				
+				if($_GET['m'] == 'status' || $_GET['m'] == 'dashboard'){
+					$first .= "\t		animateProgressBars();\n";
+				}
+				
 				if($_GET['m'] == 'gamemanager' and $_GET['p'] == 'log')
 				{
 					$first .= "\t		$('".$ref."').animate({ scrollTop: $('".$ref."').prop('scrollHeight')*3}, 3000);\n";
@@ -143,6 +148,11 @@ class refreshed
 				{
 					$second .= "\t\t		$('".$ref."').animate({ scrollTop: 9999});\n";
 				}
+				
+				if($_GET['m'] == 'status' || $_GET['m'] == 'dashboard'){
+					$second .= "\t\t		animateProgressBars();\n";
+				}
+				
 				$second .= "\t\t	}\n".
 						   "\t\t});\n";
 			}

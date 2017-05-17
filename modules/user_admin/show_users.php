@@ -45,7 +45,15 @@ td.actions{
  *
  */
 function exec_ogp_module() {
-    global $db;
+    global $db, $loggedInUserInfo;
+	
+	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
+	$limit_user = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+	
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+		$limit_user = $loggedInUserInfo["users_page_limit"];
+	}
+	
     echo '<h2>'.get_lang('users')."</h2>";
 	echo "<p><a href='?m=user_admin&amp;p=add'>".get_lang('add_new_user')."</a></p>";
     echo '<table class="userListTable center" style="width: 100%;">';
@@ -54,7 +62,7 @@ function exec_ogp_module() {
     echo "<th>".get_lang('email_address')."</th>";
     echo "<th>".get_lang('expires')."</th>";
     echo "<th class='subuserColumn'>".get_lang('subusers')."</th></tr>";
-    $result = $db->getUserList();
+    $result = $db->getUserList_limit($page_user,$limit_user);
     $i = 0;
     foreach ( $result as $row )
     {
@@ -90,6 +98,12 @@ function exec_ogp_module() {
 		}  
         print "</tr>";
     }
-    echo '</table>';
+    echo '</table><br>';
+
+	$count_users = $db->get_user_count();
+	
+	$uri = '?m=user_admin&limit='.$limit_user.'&page=';
+	echo paginationPages($count_users[0]['total'], $page_user, $limit_user, $uri, 3, 'userManager');
+	
 }
 ?>

@@ -60,7 +60,7 @@ define('edit_addon', "Kiegészítő szerkesztése");
 define('post-script', "Telepítés utáni szkript (bash)");
 define('replacements', "Pótlások:");
 define('addon_name_info', "Add meg ennek a kiegészítőnek a nevét, ez az a név amit a felhasználók látnak.");
-define('url_info', "Enter a web address that contains a file to download, if compressed in zip or tar.gz will be unpacked in the root directory of the server or on the path given below.");
-define('path_info', "The path must be relative to the server folder and contain no slashes at the beginning or end, eg: cstrike/cfg. If left blank will use the server root path.");
+define('url_info', "Adj meg egy webcímet ami tartalmazza a fájlt a letöltéshez, ha tömörítve van zip vagy tar.gz arhívumba, az ki lesz csomagolva a szerveren az alul megadott könyvtárba.");
+define('path_info', "A könyvár mindenképpen relatív útvonal kell legyen a szerver mappájához, es nem tartalmazhat törtvonalat (/) az elején és a végén, pl: cstrike/cfg. Ha üresen hagyod a mezőt akkor a szerver gyökérkönyvtárját fogja használni.");
 define('post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
 ?>

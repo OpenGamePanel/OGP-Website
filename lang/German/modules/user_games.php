@@ -39,7 +39,7 @@ define('no_remote_servers_configured', "No remote servers configured to the Open
 define('no_game_configurations_found', "No game configuration found. You need to add game configurations from the");
 define('game_configurations', ">game configuration page");
 define('add_remote_server', "Server hinzufügen");
-define('wine_games', "Wine Games");
+define('wine_games', "Wine Spiele");
 define('home_path', "Home Pfad");
 define('change_home_info', "The location of the installed game server. Example: /home/ogp/my_server/");
 define('game_server_name', "Game server name");

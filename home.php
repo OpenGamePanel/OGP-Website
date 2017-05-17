@@ -40,11 +40,22 @@ define("CONFIG_FILE","includes/config.inc.php");
 require_once CONFIG_FILE;
 // Connect to the database server and select database.
 $db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
-$settings = $db->getSettings();
-@$GLOBALS['panel_language'] = $settings['panel_language'];
 
 // Load languages.
 include_once("includes/lang.php");
+
+if (!$db instanceof OGPDatabase) {
+	ogpLang();
+	die(get_lang('no_db_connection'));
+}
+
+// Logged in user settings - access this global variable where needed
+if(hasValue($_SESSION['user_id'])){
+	$loggedInUserInfo = $db->getUserById($_SESSION['user_id']);
+}
+
+$settings = $db->getSettings();
+@$GLOBALS['panel_language'] = $settings['panel_language'];
 ogpLang();
 
 require_once("includes/view.php");
@@ -142,7 +153,7 @@ function ogpHome()
 			$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
 		else
 			$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
-		
+				
 		if(!empty($server_homes))
 		{
 			$servers_by_game_name = array();

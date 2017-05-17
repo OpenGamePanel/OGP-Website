@@ -171,6 +171,8 @@ function get_first_existing_file($paths, $referrer = "", $agent = "")
 		
         if (file_exists($path)) return $path;
     }
+    
+    return false;
 }
 
 function cURLEnabled(){
@@ -344,4 +346,51 @@ function removeOldGameConfigs(){ // Wrote this function in-case we rename config
 		}
 	}	 
 }
+
+function getOGPGitHubURL($gitHubUsername, $repo){
+	$OGPGitHub = "https://github.com/OpenGamePanel/";
+	$gitHubURL = $OGPGitHub; 
+	if(isset($gitHubUsername) && !empty($gitHubUsername)){
+		$gitHubURL = "https://github.com/" . $gitHubUsername . "/"; 
+	}
+	
+	$paths[] = $gitHubURL . $repo . "/commits/master.atom";
+	$exists = get_first_existing_file($paths);
+	if($exists !== false){
+		return $gitHubURL;
+	}
+	
+	return $OGPGitHub;
+}
+
+function getOGPGitHubURLUnstrict($gitHubUsername){
+	$OGPGitHub = "https://github.com/OpenGamePanel/";
+	$gitHubURL = $OGPGitHub; 
+	if(isset($gitHubUsername) && !empty($gitHubUsername)){
+		$gitHubURL = "https://github.com/" . $gitHubUsername . "/"; 
+	}
+	
+	$paths[] = $gitHubURL;
+	
+	$exists = get_first_existing_file($paths);
+	if($exists !== false){
+		return $gitHubURL;
+	}
+	
+	return $OGPGitHub;
+}
+
+function getGitHubOrganization($gitHubURL){
+	$gitHubOrg = "OpenGamePanel";
+	$githubCom = "github.com";
+	if(substr($gitHubURL, -1) == "/" && stripos($gitHubURL, $githubCom) !== false){
+		// Get the immediate folder after github.com
+		$gitHubOrg = substr($gitHubURL, stripos($gitHubURL, $githubCom) + strlen($githubCom) + 1);
+		
+		// Strip last forward slash
+		$gitHubOrg = substr($gitHubOrg, 0, -1);
+	}
+	return $gitHubOrg;
+}
+
 ?>

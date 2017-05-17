@@ -138,11 +138,19 @@ if(isset($_REQUEST["action"])){
 									$steamVersion = $remote->fetch_steam_version($appId, 0);
 									if($ourVersion != $steamVersion){
 										$success = runSteamAutoUpdate($server_xml, $mod_xml, $server_home, $mod_key);
-										if($success){
+										if($success == 1){
 											$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully auto-updated via SteamCMD and restarted.";
 											$resultOp["success"] = true;
+										}else if($success == 2){
+											$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully auto-updated via SteamCMD.";
+											$resultOp["success"] = true;
 										}else{
-											
+											if(is_array($success)){
+												$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to auto-update. Agent returned: " . print_r($success, true);
+											}else{
+												$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to auto-update. Agent returned error code: " . $success;
+											}
+											$resultOp["success"] = false;
 										}
 									}else{
 										$resultOp["message"] = "Server is already up-to-date.";

@@ -67,8 +67,8 @@ define('query_cache_life_info', "Sets the timeout in seconds before the server s
 define('query_num_servers_stop', "A játék szerver lekérdezés tiltása ennyi után");
 define('query_num_servers_stop_info', "Use this setting to disable queries if a user owns more game servers than this amount specified to speed up panel loading.");
 define('editable_email', "Szerkeszthető e-mail cím");
-define('editable_email_info', "Select if users can edit their e-mail address or not.");
-define('old_dashboard_behavior', "Old Dashboard behavior");
+define('editable_email_info', "Válaszd ki, hogy a felhasználók szerkeszthetik a saját e-mail címüket vagy nem.");
+define('old_dashboard_behavior', "Régi műszerfal viselkedés");
 define('old_dashboard_behavior_info', "The old Dashboard was running slower but shows more server information, current players and map.");
 define('rsync_available', "Elérhető Rsync szerverek");
 define('rsync_available_info', "Select what servers list will be shown in the rsync installation.");
@@ -91,6 +91,8 @@ define('recaptcha_use_login', "Recaptcha használata a bejelentkezéshez");
 define('recaptcha_use_login_info', "If enabled, users will have to solve the Not a Robot Recaptcha when attempting to login.");
 define('login_attempts_before_banned', "Sikertelen bejelentkezések száma mielőtt a felhasználó kitiltva lesz");
 define('login_attempts_before_banned_info', "If a user tries to login with invalid credentials more than this many times, the user will be banned temporarily by the panel.");
+define('custom_github_update_username', "GitHub update username");
+define('custom_github_update_username_info', "Enter your GitHub username ONLY to use your own forked repositories to update OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.");
 define('remote_query', "Távoli lekérdezés");
 define('remote_query_info', "Use the remote server (agent) to make queries to the game servers (Only GameQ and LGSL).");
 define('check_expiry_by', "Check expiration using");
@@ -105,7 +107,7 @@ define('welcome_title_info', "Lehetové teszi, hogy a cím jelenik meg a muszerf
 define('welcome_title_message', "Üdvözöljük cím üzenet");
 define('welcome_title_message_info', "A cím üzenet jelenik meg a muszerfalra (HTML nem engedélyezett).");
 define('logo_link', "Logo linkje");
-define('logo_link_info', "The logos hyperlink. <b style='font-size:10px; font-weight:normal;'>(Leaving it blank will link it to the Dashboard)</b>");
+define('logo_link_info', "A logó linkje. <b style='font-size:10px; font-weight:normal;'>(Üresen hagyva a vezérlőpultra irányít át)</b>");
 define('custom_tab', "Custom Tab");
 define('custom_tab_info', "Adds a customisable tab at the end of the menu. <b style='font-size:10px; font-weight:normal;'>(Apply and refresh this page to edit tab settings)</b>");
 define('custom_tab_name', "Egyéni lap neve");

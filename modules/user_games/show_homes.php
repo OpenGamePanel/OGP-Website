@@ -25,12 +25,19 @@
 
 function exec_ogp_module()
 {
-	global $db;
+	global $db, $loggedInUserInfo;
+
+	$page_GameHomes = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
+	$limit_GameHomes = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+	
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+		$limit_GameHomes = $loggedInUserInfo["users_page_limit"];
+	}
 	
 	echo "<h2>".get_lang('game_servers')."</h2>";
 	echo "<p><a href='?m=user_games&amp;p=add'>".get_lang('add_new_game_home')."</a></p>";
 
-	$game_homes = $db->getGameHomes();
+	$game_homes = $db->getGameHomes_limit($page_GameHomes,$limit_GameHomes);
 	if ( empty($game_homes) )
 	{
 		echo "<p>".get_lang('no_game_homes_found')."</p>";
@@ -67,6 +74,12 @@ function exec_ogp_module()
 		 "style='cursor:pointer;float:left;margin-left:5px;' >[".get_lang('get_size')."]</div></td><td colspan='2' style='border:none;' ></td></tr>";
 	
 	echo "</table>";
+
+	$count_GameHomes = $db->get_GameHomes_count();
+
+	$uri = '?m=user_games&limit='.$limit_GameHomes.'&page=';
+	echo paginationPages($count_GameHomes[0]['total'], $page_GameHomes, $limit_GameHomes, $uri, 3, 'userGames');
+
 	?>
 	<script type="text/javascript">
 	$('.size').click(function(){

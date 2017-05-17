@@ -46,8 +46,8 @@ function getMyFile($url,$destination)
 	return file_put_contents($destination, $result);
 }
 
-function installUpdate($info, $base_dir)
-{
+function installUpdate($info, $base_dir, $current_blacklist = array())
+{	
 	$tmp = get_temp_dir(dirname(__FILE__));
 	$temp_dwl = $tmp . DIRECTORY_SEPARATOR . $info['file'];
 	$_SESSION['link'] = $info['link'];
@@ -61,10 +61,12 @@ function installUpdate($info, $base_dir)
 	$not_writable = can_not_update_non_writable_files ." :\n";
 	$filename = "";
 	$overwritten = 0;
+	$not_overwritten = 0;
 	$new = 0;
 	$all_writable = TRUE;
 	$filelist = "";
 	$overwritten_files = "";
+	$not_overwritten_files = "";
 	$new_files = "";
 	
 	$temp_dir = $tmp . DIRECTORY_SEPARATOR . "OGP_Extras";
@@ -96,17 +98,26 @@ function installUpdate($info, $base_dir)
 			
 			if( file_exists( $web_file ) )
 			{
-				$temp = file_get_contents($temp_file);
-				$web = file_get_contents($web_file);
-				
-				if( $temp != $web )
-				{
-					if( !is_writable( $web_file ) )
+				if(!in_array($filename, $current_blacklist)){
+					$temp = file_get_contents($temp_file);
+					$web = file_get_contents($web_file);
+					
+					if( $temp != $web )
 					{
-						if ( ! @chmod( $web_file, 0644 ) )
+						if( !is_writable( $web_file ) )
 						{
-							$all_writable = FALSE;
-							$not_writable .= $web_file."\n";
+							if ( ! @chmod( $web_file, 0644 ) )
+							{
+								$all_writable = FALSE;
+								$not_writable .= $web_file."\n";
+							}
+							else
+							{
+								$filelist[$i] = $file['filename'];
+								$i++;
+								$overwritten_files .= $filename . "\n";
+								$overwritten++;
+							}
 						}
 						else
 						{
@@ -116,13 +127,9 @@ function installUpdate($info, $base_dir)
 							$overwritten++;
 						}
 					}
-					else
-					{
-						$filelist[$i] = $file['filename'];
-						$i++;
-						$overwritten_files .= $filename . "\n";
-						$overwritten++;
-					}
+				}else{
+					$not_overwritten_files .= $filename . "\n";
+					$not_overwritten++;
 				}
 			}
 			else
@@ -159,12 +166,17 @@ function installUpdate($info, $base_dir)
 			// Updated files
 			if ( $overwritten > 0 )
 			{
-				echo get_lang_f('files_overwritten',$overwritten).":\n".$overwritten_files;
+				echo get_lang_f('files_overwritten',$overwritten).":\n\n".$overwritten_files;
 			}
 			
 			if ( $new > 0 )
 			{
-				echo get_lang_f('new_files',$new).":\n".$new_files;
+				echo get_lang_f('new_files',$new).":\n\n".$new_files;
+			}
+			
+			if ( $not_overwritten > 0 )
+			{
+				echo get_lang_f('files_not_overwritten',$not_overwritten).":\n\n".$not_overwritten_files;
 			}
 						
 			// Add install.nfo file to the module/theme directory so we can remove the installed files later and check the installed files timestamp.
@@ -212,6 +224,36 @@ function deeperPathFirst($a, $b)
  
 function exec_ogp_module() 
 {
+	global $db, $settings;		
+	
+	// Get blacklisted files
+	$current_blacklist = array();
+	$blacklisted_files = $db->resultQuery('SELECT file_path FROM `OGP_DB_PREFIXupdate_blacklist`;');
+	if($blacklisted_files !== FALSE)
+	{
+		$current_blacklist = array();
+		foreach($blacklisted_files as $blacklisted_file)
+		{
+			$current_blacklist[] = $blacklisted_file['file_path'];
+		}			
+	}
+		
+	// GitHub URL
+	if(function_exists("getOGPGitHubURLUnstrict") && function_exists("getGitHubOrganization")){
+		$gitHubUsername = $settings["custom_github_update_username"];	
+		$gitHubURL = getOGPGitHubURLUnstrict($gitHubUsername);
+		$gitHubOrganization = getGitHubOrganization($gitHubURL);
+	}else{
+		$gitHubURL = "https://github.com/OpenGamePanel/";
+		$gitHubOrganization = "OpenGamePanel";
+	}
+	
+	if($gitHubOrganization == "OpenGamePanel"){
+		$gitAPICont = "orgs";
+	}else{
+		$gitAPICont = "users";
+	}
+	
 	set_time_limit(0);
 	$baseDir = str_replace( "modules" . DIRECTORY_SEPARATOR . $_GET['m'],"",dirname(__FILE__) );
 	define('DATA_PATH', realpath('modules/'.$_GET['m'].'/') . DIRECTORY_SEPARATOR . "data" . DIRECTORY_SEPARATOR);
@@ -260,9 +302,9 @@ function exec_ogp_module()
 		}
 	}
 	#return;
-	define('REPO_FILE', DATA_PATH . "repos");
-	define('URL', 'https://api.github.com/orgs/OpenGamePanel/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
-	if(!file_exists(REPO_FILE) or isset($_GET['searchForUpdates']) or isset($_POST['update']))
+	define('REPO_FILE', DATA_PATH . "repos" . "_" . strtolower($gitHubOrganization));
+	define('URL', 'https://api.github.com/' . $gitAPICont . '/' . $gitHubOrganization . '/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
+	if(!file_exists(REPO_FILE) or isset($_GET['searchForUpdates']) or isset($_POST['update']) or filesize(REPO_FILE) == 0 or filesize(REPO_FILE) == 1)
 	{
 		# Without this $context the file_get_contents function was returning HTTP/1.0 403 Forbidden
 		# Thanks: https://github.com/philsturgeon/codeigniter-oauth2/issues/57#issuecomment-29306192 
@@ -309,22 +351,48 @@ function exec_ogp_module()
 				if(file_exists($dirToDelete) && is_dir($dirToDelete)){
 					recursiveDelete($dirToDelete);
 				}
+				
+				// Delete lang files too
+				$langDirs = array_filter(glob('lang/*'), 'is_dir');
+				foreach($langDirs as $langDir){
+					if($langDir != ".." && $langDir != "."){
+						$langDirPath = $langDir . "/modules/" . strtolower($folderToDelete) . ".php";
+						if(file_exists($langDirPath)){
+							recursiveDelete($langDirPath);
+						}
+					}
+				}
+				
+				// Delete js files for module too
+				$js = "js/modules/" . strtolower($folderToDelete) . ".js";
+				if(file_exists($js)){
+					recursiveDelete($js);
+				}
+				
+				// Delete possible image too
+				$modImage = "modules/administration/images/" . strtolower($folderToDelete) . ".png";
+				if(file_exists($modImage)){
+					recursiveDelete($modImage);
+				}
 			}
 		}
 		
 		return;
 	}
-	
-	$m = 0;
+
 	$modules = array();
-	$t = 0;
 	$themes = array();
+	$moduleErrors = array();
+
+	$m = 0;
+	$t = 0;
+
 	foreach($repos_info_array as $key => $repository)
 	{
 		if(preg_match('/^(OGP-Website|OGP-Agent-Linux|OGP-Agent-Windows)$/',$repository['name']))
 			continue;
 		
-		$REMOTE_REPO_FILE = 'https://github.com/OpenGamePanel/'.$repository['name'].'/commits/master.atom';
+		$REMOTE_REPO_FILE = $gitHubURL . $repository['name'] . '/commits/master.atom';
 		$LOCAL_REPO_FILE = DATA_PATH . $repository['name'] . '.atom';
 		if(!file_exists($LOCAL_REPO_FILE) OR (isset($_GET['searchForUpdates']) and $_GET['searchForUpdates'] == $repository['name']) OR isset($_POST['update']))
 		{
@@ -337,48 +405,66 @@ function exec_ogp_module()
 		{
 			$used_file = $LOCAL_REPO_FILE;
 			$contents = file_get_contents($used_file);
+			if(!isset($contents) || empty($contents) || filesize($used_file) == 0 || filesize($used_file) == 1){
+				$used_file = $REMOTE_REPO_FILE;
+				$contents = file_get_contents($used_file);
+				if(file_put_contents($LOCAL_REPO_FILE, $contents))
+					touch($LOCAL_REPO_FILE);
+			}
 		}
 		
-		if( ! $contents )
+		if( ! $contents && !isset($_GET["type"]) )
 		{
-			print_failure('Unable to get contents from : ' . $used_file);
+			print_failure('Unable to get contents from: ' . $used_file);
 			continue;
 		}
-		$feedXml = new SimpleXMLElement($contents, LIBXML_NOCDATA);
-		$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
-		/* echo "<xmp>";
-		print_r($feedXml);
-		echo "</xmp>"; */
-		if($seed)
-		{
-			if(preg_match("/^Module-/",$repository['name']))
+
+		try {
+			$feedXml = new SimpleXMLElement($contents, LIBXML_NOCDATA);
+			$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
+			/* echo "<xmp>";
+			print_r($feedXml);
+			echo "</xmp>"; */
+			if($seed)
 			{
-				$module_title = preg_replace(array("/^Module-/i","/_/"),array(""," "),$repository['name']);
-				$modules[$m]['title'] = $module_title;
-				$modules[$m]['reponame'] = $repository['name'];
-				$modules[$m]['file'] = $seed.'.zip';
-				$modules[$m]['link'] = 'https://github.com/OpenGamePanel/'.$repository['name'].'/archive/'.$seed.'.zip';
-				$modules[$m]['date'] = (string) $feedXml->entry[0]->updated;
-				$modules[$m]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
-				$modules[$m]['remove_path'] = $repository['name']."-".$seed;
-				$m++;
+				if(preg_match("/^Module-/",$repository['name']))
+				{
+					$module_title = preg_replace(array("/^Module-/i","/_/"),array(""," "),$repository['name']);
+					$modules[$m]['title'] = $module_title;
+					$modules[$m]['reponame'] = $repository['name'];
+					$modules[$m]['file'] = $seed.'.zip';
+					$modules[$m]['link'] = $gitHubURL . $repository['name'] . '/archive/'.$seed.'.zip';
+					$modules[$m]['date'] = (string) $feedXml->entry[0]->updated;
+					$modules[$m]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
+					$modules[$m]['remove_path'] = $repository['name']."-".$seed;
+					$m++;
+				}
+				
+				if(preg_match("/^Theme-/",$repository['name']))
+				{
+					$theme_title = preg_replace("/Theme-/i","",$repository['name']);
+					$themes[$t]['title'] = $theme_title;
+					$themes[$t]['reponame'] = $repository['name'];
+					$themes[$t]['file'] = $seed.'.zip';
+					$themes[$t]['link'] = $gitHubURL . $repository['name'] . '/archive/'.$seed.'.zip';
+					$themes[$t]['date'] = (string) $feedXml->entry[0]->updated;
+					$themes[$t]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
+					$themes[$t]['remove_path'] = $repository['name']."-".$seed;
+					$t++;
+				}
 			}
-			if(preg_match("/^Theme-/",$repository['name']))
-			{
-				$theme_title = preg_replace("/Theme-/i","",$repository['name']);
-				$themes[$t]['title'] = $theme_title;
-				$themes[$t]['reponame'] = $repository['name'];
-				$themes[$t]['file'] = $seed.'.zip';
-				$themes[$t]['link'] = 'https://github.com/OpenGamePanel/'.$repository['name'].'/archive/'.$seed.'.zip';
-				$themes[$t]['date'] = (string) $feedXml->entry[0]->updated;
-				$themes[$t]['timestamp'] = strtotime((string) $feedXml->entry[0]->updated);
-				$themes[$t]['remove_path'] = $repository['name']."-".$seed;
-				$t++;
+		} catch (Exception $e) {
+			if (preg_match("/^Module-/", $repository['name'])) {
+				$moduleErrors['modules'][] = preg_replace(array("/^Module-/i","/_/"),array(""," "),$repository['name']);
+			}
+
+			if(preg_match("/^Theme-/", $repository['name']) && !empty($repository['name'])) {
+				$moduleErrors['themes'][] = preg_replace("/Theme-/i","",$repository['name']);
 			}
 		}
+
 	}
-		
-	global $db;
+
 	$installed_modules = $db->getInstalledModules();
 	
 	if(isset($_POST['update']))
@@ -399,7 +485,7 @@ function exec_ogp_module()
 			{
 				foreach($value as $m)
 				{
-					if(installUpdate($modules[$m], $baseDir))
+					if(installUpdate($modules[$m], $baseDir, $current_blacklist))
 					{
 						$install_nfo = DATA_PATH . str_replace(' ','_',$modules[$m]['title']) . ".nfo";
 						$nfo = file_get_contents($install_nfo);
@@ -414,7 +500,7 @@ function exec_ogp_module()
 			if($key == 'theme')
 			{
 				foreach($value as $t)
-					installUpdate($themes[$t], $baseDir);
+					installUpdate($themes[$t], $baseDir, $current_blacklist);
 			}
 		}
 		
@@ -441,6 +527,12 @@ function exec_ogp_module()
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
 		 "<h4>".extra_modules."</h4>".
 		 "<div class=\"dragbox-content\" >";
+
+	if (!empty($moduleErrors['modules'])) {
+		foreach($moduleErrors['modules'] as $module) {
+			echo '<input type="checkbox" disabled><b>',$module,'</b> - <b style="color:red;">Unable to retrieve XML data.</b><br>';
+		}
+	}
 	
 	foreach ( $installed_modules as $installed_module )
 	{
@@ -487,6 +579,13 @@ function exec_ogp_module()
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
 		 "<h4>".extra_themes."</h4>".
 		 "<div class=\"dragbox-content\" >";
+
+	if (!empty($moduleErrors['themes'])) {
+		foreach($moduleErrors['themes'] as $theme) {
+			echo '<input type="checkbox" disabled><b>',$theme,'</b> - <b style="color:red;">Unable to retrieve XML data.</b><br>';
+		}
+	}
+
 	foreach($themes as $key => $theme)
 	{
 		$local_repo_file = DATA_PATH . $theme['reponame'] . '.atom';
@@ -526,5 +625,6 @@ function exec_ogp_module()
 		 "' data-confirm='".confirm.
 		 "' data-cancel='".cancel.
 		 "' ></div>";
+
 }
 ?>

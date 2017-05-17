@@ -95,8 +95,8 @@ function get_map_path($query_name,$mod,$map) {
 	$mod_gt = $query_name == "conanexiles" ? "conan" : $mod_gt;
 
 	$map_paths= array(
-		"https://image.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
-		"https://image.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
+		"http://image.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
+		"http://image.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$mod/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$mod/$map.gif",
 		"protocol/lgsl/maps/$query_name/$mod/$map.png",
@@ -657,4 +657,52 @@ function hasValue($val, $zeroAllowed = false){
 		}
 	}
 }
+
+function paginationPages($pageResults, $currentPage, $perPage, $pageUri, $pagesShown, $classPrefix) {
+	$pagination = '<div id="pagination">';
+
+	if ($pageResults > $perPage) {
+
+		$totalPages = ceil($pageResults/$perPage);
+		$pageStart = (($currentPage - $pagesShown) > 0) ? $currentPage - $pagesShown : 1;
+		$pageEnd = (($currentPage + $pagesShown) < $totalPages) ? $currentPage + $pagesShown : $totalPages;
+		
+		if ($pageStart > 1) {
+			$pagination .= '<span class="'.$classPrefix.'_paginationStart">
+				<a href="'.$pageUri . ($currentPage-1) .'" class="'.$classPrefix.'_previousPageLink">&laquo;</a>
+				<a href="'.$pageUri .'1" class="'.$classPrefix.'_firstPageLink">1</a>
+				<span class='.$classPrefix.'_divider">&hellip;</span>
+			</span>';
+		}
+
+		$pagination .= '<span class="'.$classPrefix.'_paginationPages">';
+
+		for ($i=$pageStart; $i<=$pageEnd; ++$i) {
+		
+			if ($currentPage == $i) {
+				$pagination .= '<a href="'.$pageUri . $i .'" class="'.$classPrefix.'_currentPageLink">['.$i.']</a>';
+			} else {
+				$pagination .= '<a href="'.$pageUri . $i .'" class="'.$classPrefix.'_pageLinks">'.$i.'</a>';
+			}
+		
+				$pagination .= ($i < $pageEnd) ? ', ' : ' ';
+		}
+
+		$pagination .= '</span>';
+
+		if ($pageEnd < $totalPages) {
+			$pagination .= '<span class="'.$classPrefix.'_paginationEnd">
+				<span class='.$classPrefix.'_divider">&hellip;</span>
+				<a href="'.$pageUri . $totalPages .'" class="'.$classPrefix.'_lastPageLink">'.$totalPages.'</a>
+				<a href="'.$pageUri . ($currentPage+1) .'" class="'.$classPrefix.'_nextPageLink">&raquo;</a>
+			</span>';
+		}
+
+	}
+
+	$pagination .= '</div>';
+	return $pagination;
+
+}
+
 ?>

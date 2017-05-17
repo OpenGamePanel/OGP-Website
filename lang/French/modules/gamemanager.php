@@ -187,9 +187,13 @@ define('hide_player_commands', "Cacher Commandes Joueur");
 define('no_online_players', "Il n'y a pas de joueurs en ligne.");
 define('invalid_game_mod_id', "ID de Jeu/Mod spécifié invalide.");
 define('auto_update_title_popup', "Lien de Mise à Jour Steam Automatique");
-define('auto_update_popup_html', "<p>Veuillez utiliser le lien suivant pour vérifier et mettre à jour automatiquement le serveur de jeu par Steam si besoin.&nbsp; Vous pouvez l'utiliser avec un cronjob ou initier manuellement le processus.</p>");
+define('auto_update_popup_html', "<p>Veuillez utiliser le lien suivant pour vérifier et mettre à jour automatiquement le serveur de jeu par Steam si besoin.&nbsp; Vous pouvez l&apos;utiliser avec un cronjob ou initier manuellement le processus.</p>");
 define('auto_update_copy_me', "Copier");
 define('auto_update_copy_me_success', "Copié!");
 define('auto_update_copy_me_fail', "Erreur de copie. Veuillez copier le lien manuellement.");
 define('get_steam_autoupdate_api_link', "Lien de Mise à Jour");
+define('update_attempt_from_nonmaster_server', "L'utilisateur %s a tenté une mise à jour sur le serveur avec le home_id %d à partir d'une serveur non maître. (Home ID: %d)");
+define('attempting_nonmaster_update', "Vous tentez de mettre à jour ce serveur à partir d'un serveur non maître.");
+define('cannot_update_from_own_self', "La mise à jour à partir du Serveur Maître local ne peut s'effectuer sur un Serveur Maître.");
+
 ?>

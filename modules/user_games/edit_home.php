@@ -533,13 +533,11 @@ function exec_ogp_module()
 			}
 
 			// If we're on Windows, and some cores have been selected...
-			if(preg_match('/win/', $remote->what_os()) && $cpus !== 'NA')
-			{
+			if (preg_match('/cygwin/i', $remote->what_os()) && $cpus !== 'NA') {
 				$result = 0;
 				$cores = explode(',', $cpus);
 
-				foreach ($cores as $core)
-				{
+				foreach ($cores as $core) {
 					$coreNum = intval($core);
 					$result |= (1 << $coreNum);
 				}

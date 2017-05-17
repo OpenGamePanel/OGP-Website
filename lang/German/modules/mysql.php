@@ -39,14 +39,15 @@ define('mysql_offline', "MySQL offline");
 define('encryption_key_mismatch', "Encryption key mismatch");
 define('unknown_error', "Unbekannter Fehler");
 define('remove', "Löschen");
-define('assign_db', "Assign Database");
+define('assign_db', "Datenbank zuweisen
+");
 define('mysql_server_name', "MySQL server name");
 define('server_status', "Server status");
 define('mysql_ip_port', "MySQL IP:port");
 define('mysql_root_passwd', "MySQL root password");
 define('connection_method', "Verbindungsmethode");
 define('user_privilegies', "Benutzerberechtigungen");
-define('current_dbs', "Current databases");
+define('current_dbs', "Aktuelle Datenbanken");
 define('mysql_name', "MySQL server name");
 define('mysql_ip', "MySQL IP");
 define('mysql_port', "MySQL port");

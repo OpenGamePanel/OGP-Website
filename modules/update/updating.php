@@ -44,8 +44,16 @@ function exec_ogp_module()
 		return;
 	}
 
-	global $db;
+	global $db, $settings;
 	global $view;
+	
+	// GitHub URL
+	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict")){
+		$gitHubUsername = $settings["custom_github_update_username"];	
+		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME);
+	}else{
+		$gitHubURL = "https://github.com/OpenGamePanel/";
+	}
 	
 	$vtype = "HubGit";
 
@@ -74,7 +82,7 @@ function exec_ogp_module()
 	{
 		// Download file to temporary folder
 		$temp_dwl = $temp . DIRECTORY_SEPARATOR . $_GET['version'] . '.zip';
-		$dwl = 'https://github.com/OpenGamePanel/'.REPONAME.'/archive/'.$_GET['version'].'.zip';
+		$dwl = $gitHubURL . REPONAME . '/archive/'.$_GET['version'].'.zip';
 		$zip_raw_data = file_get_contents($dwl);
 		if(! $zip_raw_data)
 		{
@@ -128,12 +136,12 @@ function exec_ogp_module()
 		$blacklisted_files = $db->resultQuery('SELECT file_path FROM `OGP_DB_PREFIXupdate_blacklist`;');
 		if($blacklisted_files !== FALSE)
 		{
-			$curren_blacklist = array();
+			$current_blacklist = array();
 			foreach($blacklisted_files as $blacklisted_file)
 			{
-				$curren_blacklist[] = $blacklisted_file['file_path'];
+				$current_blacklist[] = $blacklisted_file['file_path'];
 			}			
-			$blacklist = array_merge($curren_blacklist,$blacklist);
+			$blacklist = array_merge($current_blacklist,$blacklist);
 		}
 		
 		include ( 'unzip.php' );     // array|false extractZip( string $zipFile, string $extract_path [, string $remove_path, array $blacklist, array $whitelist] )

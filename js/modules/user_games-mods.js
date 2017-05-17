@@ -3,6 +3,7 @@ $("#mods select, #mods input").change(function(){
 });
 
 $('.set_options').click(function(){
+	var instance = $(this);
 	var mod_cfg_id = $(this).attr('id');
 	var modtr = $('#mod_cfg_id_'+mod_cfg_id);
 	var addpost = {};
@@ -30,7 +31,11 @@ $('.set_options').click(function(){
 		success: function(data){
 			if(data.result == 'success')
 			{
-				modtr.find("select, input[type='text']").css("background", "#bdf2a2");
+				if(instance.is('.set_affinity_button')){
+					$("#cpu_select").css("background", "#bdf2a2");
+				}else{
+					modtr.find("select, input[type='text']").css("background", "#bdf2a2");
+				}
 			}
 			$("#result").html('<p class="'+data.result+'">'+data.info+'</p>');
 		},

@@ -54,10 +54,21 @@ function exec_ogp_module()
 		return;
 	}
 
-	global $db,$settings;
+	global $db, $settings;
 	
 	define('REPONAME', 'OGP-Website');
-	define('RSS_REMOTE_PATH', 'https://github.com/OpenGamePanel/'.REPONAME.'/commits/master.atom');
+	
+	// GitHub URL
+	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict") && function_exists("getGitHubOrganization")){
+		$gitHubUsername = $settings["custom_github_update_username"];	
+		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME);
+		$gitHubOrganization = getGitHubOrganization($gitHubURL);
+	}else{
+		$gitHubURL = "https://github.com/OpenGamePanel/";
+	}
+	
+	
+	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/master.atom');
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
 	define('RSS_LOCAL_PATH', MODULE_PATH.'master.atom');
 		
@@ -71,9 +82,14 @@ function exec_ogp_module()
 	
 	if( file_exists(RSS_LOCAL_PATH) )
 	{
-		$feedXml = new SimpleXMLElement(file_get_contents(RSS_LOCAL_PATH), LIBXML_NOCDATA);
-		$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
-		unlink(RSS_LOCAL_PATH);
+		try {
+			$feedXml = new SimpleXMLElement(file_get_contents(RSS_LOCAL_PATH), LIBXML_NOCDATA);
+			$seed = basename(  (string) $feedXml->entry[0]->link['href'] );
+			unlink(RSS_LOCAL_PATH);
+		} catch (Exception $e) {
+			print_failure('Unable to update: '.$e->getMessage());
+			return;
+		}
 	}
 	else
 	{
@@ -84,8 +100,8 @@ function exec_ogp_module()
 	if(isset($seed))
 	{
 		/// Checking for changes in the main update files:
-		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/OpenGamePanel/'.REPONAME.'/'.$seed.'/modules/update/update.php',
-									'modules/update/updating.php' => 'https://raw.githubusercontent.com/OpenGamePanel/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
+		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/update.php',
+									'modules/update/updating.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
 		$refresh = False;
 		foreach($main_update_files as $local_path => $remote_url)
 		{
@@ -118,7 +134,7 @@ function exec_ogp_module()
 		
 		if ( $seed != $pversion )
 		{	
-			$dwl = 'https://github.com/OpenGamePanel/'.REPONAME.'/archive/'.$seed.'.zip';
+			$dwl = $gitHubURL . REPONAME . '/archive/'.$seed.'.zip';
 			$dwlHeaders = get_headers($dwl);
 			if($dwlHeaders[0] != 'HTTP/1.1 302 Found')
 				print_failure('The generated URL for the download returned a bad response code: ' . $dwlHeaders[0]);

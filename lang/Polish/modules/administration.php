@@ -23,7 +23,7 @@
  */
 
 define('external_links', "Linki zewnętrzne");
-define('url', "URL");
+define('url', "Adres");
 define('name', "Nazwa");
 define('add_it', "Dodaj go");
 define('link_has_been_removed', "%s link został usunięty.");
@@ -44,6 +44,6 @@ define('unban', "Odbanuj IP");
 define('client_ip', "Klient IP");
 define('banned_until', "Zbanowany do");
 define('unban_selected_ips', "Odbanuj zaznaczone IPs");
-define('view', "View");
-define('per_page', "log entries per page");
+define('view', "Podgląd");
+define('per_page', "wyników na stronę");
 ?>

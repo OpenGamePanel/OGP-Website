@@ -28,6 +28,8 @@ define('retype_new_password', "Retype new password");
 define('login_name', "Nome de usuário");
 define('language', "Idioma");
 define('first_name', "Nome");
+define('page_limit', "Items per Page");
+define('page_limit_info', "Number of items shown per page. The number of items cannot be less than 10.");
 define('last_name', "Sobrenome");
 define('phone_number', "Telefone");
 define('email_address', "Email address");
