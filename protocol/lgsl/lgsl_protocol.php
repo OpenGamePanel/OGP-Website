@@ -463,7 +463,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "aarmy"			: $c_to_q = 1;		$c_def = 1716;	$q_def = 1717;	$c_to_s = 0;	break;
 			case "aarmy3"			: $c_to_q = 0;		$c_def = 8777;	$q_def = 39300;	$c_to_s = 0;	break;
 			case "arcasimracing"	: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
-			case "arkse"			: $c_to_q = 0;		$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
+			case "arkse"			: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "arma3"			: $c_to_q = 1; 		$c_def = 2302; 	$q_def = 2303; 	$c_to_s = 0; 	break;
 			case "avorion"			: $c_to_q = 20; 	$c_def = 27000;	$q_def = 27020; $c_to_s = 0;  	break;
 			case "bfbc2"			: $c_to_q = 0;		$c_def = 19567;	$q_def = 48888;	$c_to_s = 0;	break;
@@ -524,7 +524,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		if		(!$c_port &&  $q_port && $c_to_q)	{ $c_port = $q_port - $c_to_q; }
 		elseif	(!$c_port &&  $q_port && $c_def)	{ $c_port = $c_def; }
 		elseif	(!$c_port &&  $q_port)				{ $c_port = $q_port; }
-		if		(!$q_port &&  $c_port && $c_to_q)	{ $q_port = $c_port + $c_to_q;}
+		if		(!$q_port &&  $c_port && $c_to_q)	{ $q_port = $c_port + $c_to_q; }
 		elseif	(!$q_port &&  $c_port && $q_def)	{ $q_port = $q_def; }
 		elseif	(!$q_port &&  $c_port)				{ $q_port = $c_port; }
 		if		(!$s_port &&  $c_to_s)				{ $s_port = $c_port + $c_to_s; }
