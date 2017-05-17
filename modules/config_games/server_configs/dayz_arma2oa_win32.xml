@@ -1,7 +1,7 @@
 <game_config>
  <game_key>dayz_arma2oa_win32</game_key>
  <protocol>lgsl</protocol>
- <lgsl_query_name>dayz</lgsl_query_name>
+ <lgsl_query_name>dayzmod</lgsl_query_name>
  <game_name>DayZ Mod (OA)</game_name>
  <server_exec_name>arma2oaserver.exe</server_exec_name>
  <cli_template>-autoInit -noSound -noPause "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;" -name=epoch "-config=epoch\\server.cfg" "-cfg=epoch\\basic.cfg" -profiles=epoch %MEMORY%</cli_template>
@@ -12,9 +12,9 @@
  <max_user_amount>64</max_user_amount>
  <control_protocol>rcon2</control_protocol>
  <mods>
-  <mod key='dayz'>
+  <mod key='dayzmod'>
    <name>none</name>
-   <installer_name>dayz</installer_name>
+   <installer_name>dayzmod</installer_name>
   </mod>
  </mods>
  <replace_texts>
