@@ -14,7 +14,7 @@
     <cli_param id="CONTROL_PASSWORD" cli_string="?ServerAdminPassword=" />
   </cli_params>
   <reserve_ports>
-    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">1</port>
+    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
   </reserve_ports>
   <map_list>maplist.txt</map_list>
   <console_log>ShooterGame/Saved/Logs/ShooterGame.log</console_log>
