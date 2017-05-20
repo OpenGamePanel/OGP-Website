@@ -114,7 +114,7 @@ define('total_size', "Całkowity Rozmiar");
 define('lgsl', "LGSL");
 define('lgsl_admin', "Admin LGSL ");
 define('rcon', "RCON");
-define('watch_logger', "Logowania Konta");
+define('watch_logger', "Logowania Panelu");
 define('litefm_settings', "Ustawienia LiteFM");
 define('assign_expiration_date', "Przypisz datę ważności");
 define('assign_expiration_date_info', "Serwer po wygaśnięciu zostanie przekazany dla admina.");
