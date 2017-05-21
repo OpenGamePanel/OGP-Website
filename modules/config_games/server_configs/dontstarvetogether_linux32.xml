@@ -1,0 +1,50 @@
+<game_config>
+  <game_key>dontstarvetogether_linux32</game_key>
+  <installer>steamcmd</installer>
+  <game_name>Dont Starve Together</game_name>
+  <server_exec_name>dontstarve_dedicated_server_nullrenderer</server_exec_name>
+  <cli_template>%IP% %PORT% -persistent_storage_root {OGP_HOME_DIR} -conf_dir config</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="-bind_ip" options='s'/>
+    <cli_param id="PORT" cli_string="-port" options='s'/>
+  </cli_params>
+  <exe_location>bin</exe_location>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="dontstarvetogether">
+      <name>none</name>
+      <installer_name>343050</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>(cluster_name\s*=\s*)(.*)</default>
+      <var>cluster_name = %key%</var>
+      <filepath>config/Cluster_1/cluster.ini</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="max_players">
+      <default>(max_players\s*=\s*)(.*)</default>
+      <var>max_players = %key%</var>
+      <filepath>config/Cluster_1/cluster.ini</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="control_password">
+      <default>(cluster_password\s*=\s*)(.*)</default>
+      <var>cluster_password = %key%</var>
+      <filepath>config/Cluster_1/cluster.ini</filepath>
+      <options>key-regex</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key='cluster_description' type='text'>
+      <default>cluster_description.*</default>
+      <default_value>A Dont Starve Together Server</default_value>
+      <var>cluster_description = </var>
+      <filepath>config/Cluster_1/cluster.ini</filepath>
+      <options></options>
+      <desc>Server description name</desc>
+    </field>
+  </custom_fields>
+</game_config>
