@@ -3,7 +3,7 @@
   <installer>steamcmd</installer>
   <game_name>Dont Starve Together</game_name>
   <server_exec_name>dontstarve_dedicated_server_nullrenderer</server_exec_name>
-  <cli_template>%IP% %PORT% -persistent_storage_root ../ -conf_dir config -cluster Server</cli_template>
+  <cli_template>%IP% %PORT% -persistent_storage_root {OGP_HOME_DIR} -conf_dir config -cluster Server</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="-bind_ip" options='s'/>
     <cli_param id="PORT" cli_string="-port" options='s'/>
@@ -44,7 +44,7 @@
       <default>cluster_password.*</default>
       <default_value></default_value>
       <var>cluster_password =</var>
-      <filepath>DoNotStarveTogether/Server/cluster.ini</filepath>
+      <filepath>config/Server/cluster.ini</filepath>
       <options>s</options>
       <desc>This is the password that players must enter to join your server. Leave this blank for no password</desc>
     </field>
