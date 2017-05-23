@@ -22,22 +22,22 @@
  *
  */
 
-define('dashboard_ftp_text', "The FTP client can compress files and send them via email, can uncompress too, edit text files and much more.");
-define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 70 servers supplied directly by OGP.");
-define('dashboard_game_monitor_text', "Watch and monitor your traffic & logs quickly. You can see what servers are up and down.");
-define('dashboard_support_text', "Get support from the OGP Professional Team on the forum. Fast response and great attention.");
+define('dashboard_ftp_text', "O cliente FTP pode comprimir arquivos e enviá-los via e-mail, pode descompactar também, editar arquivos de texto e muito mais.");
+define('dashboard_addons_manager_text', "Gerencie todos os tipos diferentes de serviços com OGP. Escolha entre mais de 70 servidores fornecidos diretamente pelo OGP.");
+define('dashboard_game_monitor_text', "Você pode iniciar e parar servidores, ou ver o estado e registros de forma rápida e fácil.");
+define('dashboard_support_text', "Obtenha suporte da Equipe Profissional da OGP no fórum. Resposta rápida e grande atenção.");
 define('welcome_text', "Seja bem vindo ao painel de controle <a href='http://www.opengamepanel.org/'>O G P</a>");
-define('any_server_is_online', "Any server is Online");
-define('current_map', "Current Map");
-define('server_ip_port', "IP:Port");
-define('statistics', "Statistics");
-define('servers', "Servers");
-define('players', "Players");
-define('server_status', "Server Status");
-define('no_games_to_monitor', "There are currently no online/offline game servers");
-define('online_servers', "Online Servers");
-define('add_games_in', "If you want to add games you can do it in %s");
-define('currently_online', "Currently Online");
-define('game_servers', "Game Servers");
-define('select_remote_server', "Select remote server");
+define('any_server_is_online', "Nenhum servidor está online");
+define('current_map', "Mapa atual");
+define('server_ip_port', "IP:Porta");
+define('statistics', "Estatisticas");
+define('servers', "Servidores");
+define('players', "Jogadores");
+define('server_status', "Status do servidor");
+define('no_games_to_monitor', "Atualmente não existem servidores de jogos online/offline");
+define('online_servers', "Servidores online");
+define('add_games_in', "Se você quiser adicionar jogos, pode fazê-lo em %s");
+define('currently_online', "Atualmente Online");
+define('game_servers', "Servidores de jogos");
+define('select_remote_server', "Selecionar servidor remoto");
 ?>

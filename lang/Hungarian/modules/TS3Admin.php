@@ -88,7 +88,7 @@ define('vsoverview_info_hostmsg_mode_3', "Ablak + lekapcsolódás");
 define('vsoverview_info_req_security', "Biztonsági szint");
 define('vsoverview_info_req_securitylvl', "szükséges");
 define('vsoverview_info_hostbanner_head', "Hostbanner");
-define('vsoverview_info_hostbanner_url', "URL");
+define('vsoverview_info_hostbanner_url', "LINK");
 define('vsoverview_info_hostbanner_imgurl', "Kép címe");
 define('vsoverview_info_hostbanner_buttonurl', "Hostbutton URL");
 define('vsoverview_info_antiflood_head', "Anti-Flood");

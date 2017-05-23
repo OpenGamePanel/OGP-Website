@@ -62,7 +62,7 @@ define('successfully_added_user', "A(z) <em>%s</em> felhasználó sikeresen hozz
 define('add_a_new_user', "Új felhasználó hozzáadása");
 define('admin', "Adminisztrátor");
 define('user', "Felhasználó");
-define('user_with_id_does_not_exist', "User with ID %s does not exist.");
+define('user_with_id_does_not_exist', "Felhasználó a(z) %s ID-vel nem létezik.");
 define('are_you_sure_you_want_to_delete_user', "Biztosan törölni akarod a(z) <em>%s</em> felhasználót?");
 define('unable_to_delete_user', "Nem sikerült törölni a(z) %s felhasználót.");
 define('successfully_deleted_user', "A(z) <b>%s</b> felhasználó sikeresen törölve.");
@@ -97,7 +97,7 @@ define('could_not_add_user_to_group', "Could not add user %s to group %s, becaus
 define('successfully_added_to_group', ">Successfully added %s to group <em>%s</em>.");
 define('could_not_add_server_to_group', "Nem sikerült hozzáadni a szervert a(z) %s csoporthoz, mert már hozzátartozik.");
 define('successfully_added_server_to_group', "Successfully added server to group <em>%s</em>.");
-define('successfully_removed_from_group', "Successfully removed %s from group <em>%s</em>.");
+define('successfully_removed_from_group', "A(z) %s sikeresen eltávolítva a(z) <em>%s</em> csoportból.");
 define('could_not_delete_server_from_group', "Could not delete server %s from group <em>%s</em>.");
 define('successfully_removed_server_from_group', "Successfully removed server %s from group <em>%s</em>.");
 define('group_with_id_does_not_exist', "A(z) %s csoport nem létezik.");
