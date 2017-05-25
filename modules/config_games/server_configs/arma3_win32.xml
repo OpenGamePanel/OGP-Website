@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Arma 3</game_name>
   <server_exec_name>arma3server.exe</server_exec_name>
-  <cli_template>-netlog -config=server.cfg -cfg=basic.cfg -profiles=profile %MEMORY% %PORT% %PLAYERS%</cli_template>
+  <cli_template>-config=server.cfg -cfg=basic.cfg -profiles=profile %MEMORY% %PORT% %PLAYERS%</cli_template>
   <cli_params>
    <cli_param cli_string="-port=" id="PORT"/>
    <cli_param cli_string="-maxplayers=" id="PLAYERS"/>
