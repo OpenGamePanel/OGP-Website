@@ -1,0 +1,151 @@
+<game_config>
+  <game_key>dontstarvetogether_linux32</game_key>
+  <installer>steamcmd</installer>
+  <game_name>Dont Starve Together</game_name>
+  <server_exec_name>dontstarve_dedicated_server_nullrenderer</server_exec_name>
+  <cli_template>%IP% %PORT% -persistent_storage_root {OGP_HOME_DIR} -conf_dir config -cluster Server</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="-bind_ip" options='s'/>
+    <cli_param id="PORT" cli_string="-port" options='s'/>
+  </cli_params>
+  <exe_location>bin</exe_location>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="dontstarvetogether">
+      <name>none</name>
+      <installer_name>343050</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>cluster_name.*</default>
+      <var>cluster_name = %key%</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="max_players">
+      <default>max_players.*</default>
+      <var>max_players = %key%</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>key-regex</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="cluster_description" type="text">
+      <default>cluster_description.*</default>
+      <default_value>This server is super duper!</default_value>
+      <var>cluster_description =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>Cluster description. This will show up in the server details area on the "Browse Games" screen</desc>
+    </field>
+    <field key="cluster_password" type="text">
+      <default>cluster_password.*</default>
+      <default_value></default_value>
+      <var>cluster_password =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>This is the password that players must enter to join your server. Leave this blank for no password</desc>
+    </field>
+    <field key="game_mode" type="select">
+      <option value="survival">Survival</option>
+      <option value="wilderness">Wilderness</option>
+      <option value="endless">Endless</option>
+      <default>game_mode.*</default>
+      <default_value>survival</default_value>
+      <var>game_mode =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>The cluster’s game mode. This field is the equivalent of the "Game Mode" field on the "Host Game" screen</desc>
+    </field>
+    <field key="cluster_intention" type="select">
+      <option value="social">Social</option>
+      <option value="cooperative">Cooperative</option>
+      <option value="competitive">Competitive</option>
+      <option value="madness">Madness</option>
+      <default>cluster_intention.*</default>
+      <default_value>cooperative</default_value>
+      <var>cluster_intention =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>The cluster’s playstyle. This field is the equivalent of the "Server Playstyle" field on the "Host Game" screen</desc>
+    </field>
+    <field key="console_enabled" type="select">
+      <option value="true">Enable console</option>
+      <option value="false">Disable console</option>
+      <default>console_enabled.*</default>
+      <default_value>true</default_value>
+      <var>console_enabled =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>The console allows to input admin commands, cheats, and so on</desc>
+    </field>
+    <field key="autosaver_enabled" type="select">
+      <option value="true">Enable auto saver</option>
+      <option value="false">Disable auto saver</option>
+      <default>autosaver_enabled.*</default>
+      <default_value>true</default_value>
+      <var>autosaver_enabled =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>The auto saver creates a save at the start of each day, which will be resumed from when the server restarts</desc>
+    </field>
+    <field key="enable_vote_kick" type="select">
+      <option value="true">Enable kick voting</option>
+      <option value="false">Disable kick voting</option>
+      <default>enable_vote_kick.*</default>
+      <default_value>true</default_value>
+      <var>enable_vote_kick =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>When no admin is present, vote kick allows players to vote to kick players that are disrupting the game</desc>
+    </field>
+    <field key="pause_when_empty" type="select">
+      <option value="true">Pause when empty</option>
+      <option value="false">Do not pause when empty</option>
+      <default>pause_when_empty.*</default>
+      <default_value>true</default_value>
+      <var>pause_when_empty =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>Pause the server when there are no players connected</desc>
+    </field>
+    <field key="pvp" type="select">
+      <option value="true">Enable PVP</option>
+      <option value="false">Disable PVP</option>
+      <default>pvp.*</default>
+      <default_value>false</default_value>
+      <var>pvp =</var>
+      <filepath>config/Server/cluster.ini</filepath>
+      <options>s</options>
+      <desc>Players versus Players</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+echo
+echo
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   R E A D    T H I S   ////////////////"
+echo
+cluster_ini="config/Server/cluster.ini"
+if [ -f "$cluster_ini" ]; then
+    echo "Configuration file $cluster_ini found. OK!"
+else
+    echo "Configuration file $cluster_ini not found"
+    echo "Generating new configuration file in $cluster_ini"
+    mkdir -p config/Server
+    echo 'W0dBTUVQTEFZXQpnYW1lX21vZGUgPSBlbmRsZXNzCm1heF9wbGF5ZXJzID0gNjQKcHZwID0gZmFsc2UKcGF1c2Vfd2hlbl9lbXB0eSA9IGZhbHNlCgpbbmV0d29ya10KY2x1c3Rlcl9uYW1lID0gRG9udCBTdGFydmUgVG9nZXRoZXIKY2x1c3Rlcl9kZXNjcmlwdGlvbiA9IEEgRG9udCBTdGFydmUgVG9nZXRoZXIgU2VydmVyCmNsdXN0ZXJfaW50ZW50aW9uID0gY29vcGVyYXRpdmUKY2x1c3Rlcl9wYXNzd29yZCA9CnRpY2tfcmF0ZSA9IDMwCmF1dG9zYXZlcl9lbmFibGVkID0gdHJ1ZQpjb25uZWN0aW9uX3RpbWVvdXQgPSA4MDAwCnNlcnZlcl9zYXZlX3Nsb3QgPSAxCmVuYWJsZV92b3RlX2tpY2sgPSBmYWxzZQoKW2FjY291bnRdCmRlZGljYXRlZF9sYW5fc2VydmVyID0gZmFsc2UKCgpbU1RFQU1dCkRJU0FCTEVDTE9VRCA9IHRydWUKCgpbTUlTQ10KQ09OU09MRV9FTkFCTEVEID0gdHJ1ZQphdXRvY29tcGlsZXJfZW5hYmxlZCA9IHRydWUKCg==' | base64 -di > $cluster_ini
+fi
+cluster_token="config/Server/cluster_token.txt"
+if [ -f "$cluster_token" ]; then
+    echo "Cluster token file found in $cluster_token OK!"
+else
+    echo "You will have to upload your file cluster_token.txt to folder config/Server/"
+    echo "Please see official forum if you don't know how to generate it. http://forums.kleientertainment.com/forum/"
+fi
+echo
+echo "If you want to reset your server to initial state, delete the folder config and re-install the server from OGP"
+echo
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   R E A D    T H I S   ////////////////"
+  </post_install>
+</game_config>

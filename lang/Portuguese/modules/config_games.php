@@ -22,22 +22,22 @@
  *
  */
 
-define('resetting_configs', "Resetting all configs");
-define('updating_configs', "Updating old configs.");
-define('configs_updated_ok', "Configurations reread successfully.");
-define('reset_old_configs', "Reset old configs");
-define('update_configs', "Update Configs");
-define('game_config_setup', "Setup Game Configs");
-define('config_reset_warning', "When you clear old configs there might be issues with the assigned game servers, because the identification numbers might not match with the new configurations.");
-define('modify_configs_info', "If you want to modify the game configuration, you can modify the files located in %s.");
-define('updating_config_from_file', "Updating config from %s file.");
-define('error_when_handling_file', "Error occurred when handling file %s.");
-define('error_while_adding_cfg_to_db', "Error occurred when adding data from %s to database.");
-define('no_configs_found', "No configuration found from %s file.");
-define('select_game', "Select Game");
-define('create_xml_configs', "Create XML Configs");
-define('failed_to_delete_config_from_db', "Failed to delete %s config from database");
-define('failed_removing_file', "Falied removing the file %s.");
-define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from disk and database.");
-define('delete_game_config_for', "Delete game configuration for %s from disk and database.");
+define('resetting_configs', "Redefinindo todas as configurações");
+define('updating_configs', "Atualizando configurações antigas.");
+define('configs_updated_ok', "Configurações lidas com sucesso.");
+define('reset_old_configs', "Redefinir configurações antigas");
+define('update_configs', "Atualizar configurações");
+define('game_config_setup', "Ajustar configurações de jogo");
+define('config_reset_warning', "Quando você limpa configurações antigas, pode haver problemas com os servidores de jogos atribuídos, porque os números de identificação podem não corresponder com as novas configurações.");
+define('modify_configs_info', "Se você quiser modificar a configuração do jogo, você pode modificar os arquivos localizados em %s.");
+define('updating_config_from_file', "Atualizando a configuração do arquivo %s.");
+define('error_when_handling_file', "Ocorreu um erro ao manipular o arquivo %s.");
+define('error_while_adding_cfg_to_db', "Ocorreu um erro ao adicionar dados de %s ao banco de dados.");
+define('no_configs_found', "Nenhuma configuração encontrada no arquivo %s.");
+define('select_game', "Selecionar Jogo");
+define('create_xml_configs', "Criar configurações XML");
+define('failed_to_delete_config_from_db', "Falha ao excluir a configuração %s do banco de dados");
+define('failed_removing_file', "Falha ao remover o arquivo %s.");
+define('removed_game_cfg_from_disk_and_datbase', "Removida Configuração para %s do disco e do banco de dados.");
+define('delete_game_config_for', "Excluir a configuração do jogo para %s do disco e do banco de dados.");
 ?>

@@ -22,28 +22,28 @@
  *
  */
 
-define('external_links', "External Links");
+define('external_links', "Links externos");
 define('url', "URL");
-define('name', "Name");
-define('add_it', "Add");
-define('link_has_been_removed', "%s link has been removed.");
-define('db_backup', "DB Backup");
-define('download_db_backup', "Download DB Backup");
-define('restore_db_backup', "Restore DB Backup");
-define('sql_file', "file(.sql)");
-define('change_buttons_order', "Change buttons order");
-define('when', "Date/Time");
-define('who', "Username");
-define('where', "IP address");
-define('what', "Action");
-define('search', "Search");
-define('empty_logger', "Empty Logger");
-define('ban_list', "Ban list");
-define('no_banned_ips', "There are no banned IPs");
-define('unban', "Unban IP");
-define('client_ip', "Client IP");
-define('banned_until', "Banned until");
-define('unban_selected_ips', "Unban selected IPs");
-define('view', "View");
-define('per_page', "log entries per page");
+define('name', "Nome");
+define('add_it', "Adicionar");
+define('link_has_been_removed', "%s link foi removido.");
+define('db_backup', "Backup do Banco de dados");
+define('download_db_backup', "Baixar DB backup");
+define('restore_db_backup', "Restaurar DB backup");
+define('sql_file', "arquivo (.SQL)");
+define('change_buttons_order', "Alterar botões encomendar");
+define('when', "Data/hora");
+define('who', "Nome de Usuário");
+define('where', "endereço de IP");
+define('what', "Ação");
+define('search', "Pesquisa");
+define('empty_logger', "Log vazio");
+define('ban_list', "Lista de proibição");
+define('no_banned_ips', "Não há IPs proibidos");
+define('unban', "IP unban");
+define('client_ip', "IP do cliente");
+define('banned_until', "proibido até");
+define('unban_selected_ips', "IPs UNBAN selecionado");
+define('view', "Visão");
+define('per_page', "entradas por página log");
 ?>
