@@ -11,7 +11,7 @@
     <cli_param id="BASE_PATH" cli_string="+set fs_basepath" options="s" />
     <cli_param id="HOME_PATH" cli_string="+set fs_homepath" options="s" />
     <cli_param id="SAVE_PATH" cli_string="+set fs_savepath" options="s" />
-    <cli_param id="CONTROL_PASSWORD" cli_string="+set rcon_password" options="s" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="+set rcon_password" options="sq" />
     <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
   </cli_params>
   <max_user_amount>64</max_user_amount>
