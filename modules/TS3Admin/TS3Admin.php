@@ -141,12 +141,12 @@ function exec_ogp_module()
 		if ( $isAdmin )
 		{
 			if( !$refreshing )
-				echo '<a href="home.php?m=TS3Admin&changevServer">Change Virtual Server</a>&nbsp;';
+				echo '<a href="home.php?m=TS3Admin&changevServer">'.get_lang("change_virtual_server").'</a>&nbsp;';
 		}
 		else
 		{
 			if( !$refreshing )
-				echo '<a href="home.php?m=TS3Admin&changeRemoteServer">Change Remote Server</a>&nbsp;';
+				echo '<a href="home.php?m=TS3Admin&changeRemoteServer">'.get_lang("change_remote_server").'</a>&nbsp;';
 		}
 			
 		define('TS3WEBINTERFACE_IP', $_SESSION['ts3_ip']);	// edit server ip
