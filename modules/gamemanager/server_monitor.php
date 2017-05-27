@@ -581,7 +581,7 @@ function exec_ogp_module() {
 			@$first = "<tr class='maintr$trclass'>";
 				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span><a></a>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
 				$first .= "<td>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
-				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><a></a><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
+				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos' title='{$server_home['home_id']}'><a></a><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
 				$first .= "<td>" . $address . "</td>";
 				$first .= "<td class='owner' >" . $user['users_login'] . "</td>";
 				$first .= "<td style='width:328px;padding:0px;'>$ctrlChkBoxes</td>";
