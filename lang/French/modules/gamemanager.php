@@ -85,7 +85,7 @@ define('current_map', "Carte actuelle");
 define('stop_server', "Arrêter le serveur");
 define('server_ip_port', "Serveur IP:Port");
 define('server_name', "Nom du serveur");
-define('server_id', "Server ID");
+define('server_id', "ID du Serveur");
 define('player_name', "Nom du joueur");
 define('score', "Score");
 define('time', "Temps");
@@ -196,6 +196,6 @@ define('get_steam_autoupdate_api_link', "Lien de Mise à Jour");
 define('update_attempt_from_nonmaster_server', "L'utilisateur %s a tenté une mise à jour sur le serveur avec le home_id %d à partir d'une serveur non maître. (Home ID: %d)");
 define('attempting_nonmaster_update', "Vous tentez de mettre à jour ce serveur à partir d'un serveur non maître.");
 define('cannot_update_from_own_self', "La mise à jour à partir du Serveur Maître local ne peut s'effectuer sur un Serveur Maître.");
-define('show_server_id', "Show Server IDs");
-define('hide_server_id', "Hide Server IDs");
+define('show_server_id', "Voir les IDs des Serveurs");
+define('hide_server_id', "Cacher les IDs des Serveurs");
 ?>
