@@ -605,7 +605,7 @@ function exec_ogp_module() {
 
 	echo "<tfoot style='border:1px solid grey;'>
 			<tr>
-			  <td colspan='6' >
+			  <td colspan='7' >
 				<div class='bloc' >
 				<img src='" . check_theme_image("images/magnifglass.png") . "' /> ". statistics .": $stats_servers_online/$stats_servers ". servers ."\n</div>
 				<div class='right bloc' >

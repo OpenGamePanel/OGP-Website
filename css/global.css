@@ -62,7 +62,7 @@ span.copyVersionResult{
 }
 
 .serverIdToggle{
-	text-align: right;
+	text-align: right !important;
 	cursor: pointer;
 	text-decoration: underline;
 }
