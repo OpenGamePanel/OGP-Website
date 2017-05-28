@@ -170,4 +170,6 @@ define('unassign_from_subuser', "Désattribuer de l'Utilisateur Secondaire.");
 define('assign_to_subuser', "Attribuer à l'Utilisateur Secondaire.");
 define('select_subuser', "Sélectionner un Utilisateur Secondaire.");
 define('no_ts3_servers_assigned_to_account', "Il n'y a pas de serveur assigné sur votre compte.");
+define('change_virtual_server', "Change Virtual Server");
+define('change_remote_server', "Change Remote Server");
 ?>

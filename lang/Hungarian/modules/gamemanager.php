@@ -85,6 +85,7 @@ define('current_map', "Aktuális pálya");
 define('stop_server', "Szerver leállítása");
 define('server_ip_port', "Szerver IP:Port");
 define('server_name', "Szerver neve");
+define('server_id', "Szerver ID");
 define('player_name', "Játékos név");
 define('score', "Pontszám");
 define('time', "Idő");
@@ -187,13 +188,14 @@ define('hide_player_commands', "Játékos parancsok elrejtése");
 define('no_online_players', "Nincsenek online játékosok.");
 define('invalid_game_mod_id', "Érvénytelen játék/mod ID meghatározva.");
 define('auto_update_title_popup', "Steam automatikus frissítési link");
-define('auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
+define('auto_update_popup_html', "<p>Használd az alábbi linket az ellenőrzéshez és az automatikus frissítéshez a játékszerveredhez a Steamen keresztül, ha szükséges.&nbsp; A cronjob segítségével lekérdezheted vagy manuálisan is elindíthatod a folyamatot.</p>");
 define('auto_update_copy_me', "Másolás");
 define('auto_update_copy_me_success', "Másolva!");
 define('auto_update_copy_me_fail', "Sikertelen a másolás. Kérlek másold a linket manuálisan.");
 define('get_steam_autoupdate_api_link', "Automatikus frissítési link");
 define('update_attempt_from_nonmaster_server', "User %s attempted to update home_id %d from a non-master server. (Home ID: %d)");
-define('attempting_nonmaster_update', "You are attempting to update this server from a non-master server.");
+define('attempting_nonmaster_update', "Megpróbálod frissíteni ezt a szervert egy nem mester szerverről.");
 define('cannot_update_from_own_self', "Local Server Update may not run on a master server.");
-
+define('show_server_id', "Szerver ID mutatása");
+define('hide_server_id', "Szerver ID elrejtése");
 ?>

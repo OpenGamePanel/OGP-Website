@@ -170,4 +170,6 @@ define('unassign_from_subuser', "Unassign from subuser.");
 define('assign_to_subuser', "Assign to subuser.");
 define('select_subuser', "Select subuser.");
 define('no_ts3_servers_assigned_to_account', "You have no servers assigned to your account.");
+define('change_virtual_server', "Change Virtual Server");
+define('change_remote_server', "Change Remote Server");
 ?>

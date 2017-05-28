@@ -85,6 +85,7 @@ define('current_map', "Mapa actual");
 define('stop_server', "Parar servidor");
 define('server_ip_port', "IP:Puerto");
 define('server_name', "Nombre del servidor");
+define('server_id', "Server ID");
 define('player_name', "Nombre del jugador");
 define('score', "Puntuacion");
 define('time', "Tiempo");
@@ -195,5 +196,6 @@ define('get_steam_autoupdate_api_link', "Auto Update Link");
 define('update_attempt_from_nonmaster_server', "El usuario %s intentó actualizar home_id %d desde un servidor no maestro. (ID Home: %d)");
 define('attempting_nonmaster_update', "Está intentando actualizar este servidor desde un servidor no maestro.");
 define('cannot_update_from_own_self', "La Actualización de servidor local no se puede ejecutar en un servidor maestro.");
-
+define('show_server_id', "Show Server IDs");
+define('hide_server_id', "Hide Server IDs");
 ?>
