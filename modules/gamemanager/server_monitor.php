@@ -214,7 +214,7 @@ function exec_ogp_module() {
 		</span>
 	<?php
 	}
-	echo "<p class='serverIdToggle' showtext='" . print_lang('show_server_id') . "' hidetext='" . print_lang('hide_server_id') . "'>" . print_lang('show_server_id') . "</p>";
+	echo "<p class='serverIdToggle' showtext='" . get_lang('show_server_id') . "' hidetext='" . get_lang('hide_server_id') . "'>" . get_lang('show_server_id') . "</p>";
 	echo "<table id='servermonitor' class='tablesorter'>".
 		 "<thead>".
 		 "<tr>".
