@@ -19,11 +19,13 @@ function wireClicks(){
 
 function showHideServerIDShow(linkElem){
 	if($(".serverId:visible").length){
-			$(".serverId").removeClass('hide').addClass('hide');
-			$(linkElem).text($(linkElem).attr('showtext'));
+		$(".serverId").removeClass('hide').addClass('hide');
+		$(linkElem).text($(linkElem).attr('showtext'));
+		$("tr.expand-child td:first").attr('colspan', $("tr.expand-child td:first").attr('colspan') - 1);
 	}else{
 		$(".serverId").removeClass('hide');
 		$(linkElem).text($(linkElem).attr('hidetext'));
+		$("tr.expand-child td:first").attr('colspan', $("tr.expand-child td:first").attr('colspan') + 1);
 	}
 }
 
