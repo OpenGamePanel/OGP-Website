@@ -75,6 +75,11 @@ function exec_ogp_module()
     }
     else
     {
+function genRandomString($length = 10) {
+	return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)))),1,$length);
+}
+		
+		$genPassword = genRandomString();
 ?>
     <div class="center">
     <h2><?php print_lang('add_a_new_user'); ?></h2>
@@ -85,13 +90,14 @@ function exec_ogp_module()
     <select name='user_role'>
     <option value="admin"><?php print_lang('admin'); ?></option>
     <option value="user" selected="selected"><?php print_lang('user'); ?></option></select></td></tr>
-    <tr><td align='right'><label for='password'><?php print_lang('password'); ?>:</label></td><td><input id="password" type="password" name="newpass" value="" /></td></tr>
+    <tr><td align='right'><label for='password'><?php print_lang('password'); ?>:</label></td><td><input id="password" type="password" name="newpass" value="<? print($genPassword); ?>" /></td></tr>
     <tr><td align='right'><label for='confirm_password'><?php print_lang('confirm_password'); ?>:</label></td>
-        <td><input id="confirm_password" type="password" name="newpass2" value="" /></td></tr>
+    <td><input id="confirm_password" type="password" name="newpass2" value="<? print($genPassword); ?>" /></td></tr>
     </table>
     <p><input type="submit" name="submit" value="<?php print_lang('add_user'); ?>" /></p>
     </form>
-    </div><?php
+    <br>Generated password: <? print($genPassword); ?>
+	</div><?php
     }
 }
 ?>
