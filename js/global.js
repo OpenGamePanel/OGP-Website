@@ -11,6 +11,20 @@ function wireClicks(){
 	$(".getAutoUpdateLink").click(function(e){
 		showSteamUpdateLink($(this));
 	});
+	
+	$(".serverIdToggle").click(function(e){
+		showHideServerIDShow($(this));
+	});
+}
+
+function showHideServerIDShow(linkElem){
+	if($(".serverId:visible").length){
+			$(".serverId").removeClass('hide').addClass('hide');
+			$(linkElem).text($(linkElem).attr('showtext'));
+	}else{
+		$(".serverId").removeClass('hide');
+		$(linkElem).text($(linkElem).attr('hidetext'));
+	}
 }
 
 function animateProgressBars(){

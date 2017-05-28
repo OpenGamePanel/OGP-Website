@@ -214,12 +214,13 @@ function exec_ogp_module() {
 		</span>
 	<?php
 	}
-
+	echo "<p class='serverIdToggle' showtext='" . print_lang('show_server_id') . "' hidetext='" . print_lang('hide_server_id') . "'>" . print_lang('show_server_id') . "</p>";
 	echo "<table id='servermonitor' class='tablesorter'>".
 		 "<thead>".
 		 "<tr>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
+		 "\t<th class='hide serverId'>" . server_id . "</th>".
 		 "\t<th>" . server_name . "</th>".
 		 "\t<th>" . address . "</th>".
 		 "\t<th>" . owner . "</th>".
@@ -581,6 +582,7 @@ function exec_ogp_module() {
 			@$first = "<tr class='maintr$trclass'>";
 				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span><a></a>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
 				$first .= "<td>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
+				$first .= "<td class='serverId hide'>" . $server_home["home_id"] . "</td>";
 				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><a></a><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
 				$first .= "<td>" . $address . "</td>";
 				$first .= "<td class='owner' >" . $user['users_login'] . "</td>";
