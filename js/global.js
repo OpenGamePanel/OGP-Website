@@ -22,13 +22,13 @@ function showHideServerIDShow(linkElem){
 		$(".serverId").removeClass('hide').addClass('hide');
 		$(linkElem).text($(linkElem).attr('showtext'));
 		$("tr.expand-child").each(function(e){
-			$("td:first", $(this)).attr('colspan', Number($("tr.expand-child td:first").attr('colspan')) - 1);
+			$("td:first", $(this)).attr('colspan', Number($("td:first", $(this)).attr('colspan')) - 1);
 		}); 
 	}else{
 		$(".serverId").removeClass('hide');
 		$(linkElem).text($(linkElem).attr('hidetext'));
 		$("tr.expand-child").each(function(e){
-			$("td:first", $(this)).attr('colspan', Number($("tr.expand-child td:first").attr('colspan')) + 1);
+			$("td:first", $(this)).attr('colspan', Number($("td:first", $(this)).attr('colspan')) + 1);
 		}); 
 	}
 }
