@@ -219,7 +219,7 @@ function exec_ogp_module() {
 		echo "<p class='serverIdToggle' showtext='" . get_lang('show_server_id') . "' hidetext='" . get_lang('hide_server_id') . "'>" . get_lang('show_server_id') . "</p>";
 	}
 	
-	echo "<table id='servermonitor' class='tablesorter' data-sortlist='[[0,1],[3,1]]'>".
+	echo "<table id='servermonitor' class='tablesorter' data-sortlist='[[0,0],[3,1]]'>".
 		 "<thead>".
 		 "<tr>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
