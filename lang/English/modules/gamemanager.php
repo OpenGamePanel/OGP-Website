@@ -198,4 +198,5 @@ define('attempting_nonmaster_update', "You are attempting to update this server 
 define('cannot_update_from_own_self', "Local Server Update may not run on a master server.");
 define('show_server_id', "Show Server IDs");
 define('hide_server_id', "Hide Server IDs");
+define('show_server_id_game_monitor', "Show Server IDs on Game Monitor Page");
 ?>

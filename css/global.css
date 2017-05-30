@@ -66,3 +66,7 @@ span.copyVersionResult{
 	cursor: pointer;
 	text-decoration: underline;
 }
+
+th.serverIdToggle{
+	width: 60px;
+}
