@@ -68,5 +68,5 @@ span.copyVersionResult{
 }
 
 th.serverId{
-	width: 60px;
+	min-width: 60px;
 }
