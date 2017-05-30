@@ -73,4 +73,5 @@ th.serverId{
 
 table.tablesorter thead tr .header.sorter-false{ /* No background image for non-sortable TH */
 	background-image: none;
+	cursor: auto;
 }
