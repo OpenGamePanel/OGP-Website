@@ -124,10 +124,10 @@ function exec_ogp_module()
 			 </form>
 			 </td></tr>";
 	?>
-	<table id="servermonitor" class="tablesorter">
+	<table id="servermonitor" class="tablesorter" data-sortlist='[[2,0]]'>
 				<thead> 
 				<tr> 
-					<th class="header" ></th><th><?php print_lang('remote_server'); ?></th><th><?php print_lang('login'); ?></th><th><?php print_lang('server_name'); ?></th><th><?php print_lang('full_path'); ?></th> 
+					<th class="header sorter-false"></th><th><?php print_lang('remote_server'); ?></th><th><?php print_lang('login'); ?></th><th><?php print_lang('server_name'); ?></th><th><?php print_lang('full_path'); ?></th> 
 				</tr> 
 				</thead> 
 				<tbody>

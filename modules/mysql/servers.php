@@ -164,7 +164,7 @@ function exec_ogp_module() {
 	$tr = 0;
 	
 	
-	?><table id="servermonitor" class="tablesorter remote">
+	?><table id="servermonitor" class="tablesorter remote sorter-false">
 		<thead> 
 		<tr> 
 			<th colspan="4" ><?php print_lang('configured_mysql_hosts'); ?></th> 
