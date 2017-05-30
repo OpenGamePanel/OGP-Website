@@ -173,4 +173,13 @@ function toggleEvents(){
 	if($("p.serverIdToggle").length){
 		$("p.serverIdToggle").trigger("click");
 	}
+	
+	$(".tablesorter").tablesorter({
+		cssHeader: "header",
+		cssAsc: "headerSortUp",
+		cssDesc: "headerSortDown",
+		cssChildRow: "expand-child",
+		sortInitialOrder: "asc",
+		sortMultiSortKey: "shiftKey",
+	});
 }

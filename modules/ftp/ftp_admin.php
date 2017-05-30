@@ -1,5 +1,5 @@
 <script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.mod.js"></script>
+<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="js/modules/ftp.js"></script>
 <?php
 /*
