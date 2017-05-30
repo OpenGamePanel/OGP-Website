@@ -216,7 +216,7 @@ function exec_ogp_module() {
 	<?php
 	}
 	
-	if($settings["custom_github_update_username"]){
+	if($settings["show_server_id_game_monitor"]){
 		echo "<p class='serverIdToggle' showtext='" . get_lang('show_server_id') . "' hidetext='" . get_lang('hide_server_id') . "'>" . get_lang('show_server_id') . "</p>";
 	}
 	
