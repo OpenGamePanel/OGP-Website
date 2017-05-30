@@ -228,7 +228,7 @@ function exec_ogp_module() {
 		 "\t<th>" . server_name . "</th>".
 		 "\t<th>" . address . "</th>".
 		 "\t<th>" . owner . "</th>".
-		 "\t<th>".
+		 "\t<th class='sorter-false'>".
 		 "\t\t" . operations . "".
 		 "\t\t<img style='border:0;height:15px;' id='action-stop' src='" . check_theme_image("images/stop.png") . "'/>".
 		 "\t\t<img style='border:0;height:15px;' id='action-restart' src='" . check_theme_image("images/restart.png") . "'/>".

@@ -51,7 +51,7 @@ function exec_ogp_module() {
 	<table id="servermonitor" class="tablesorter"> 
 	<thead> 
 	<tr>
-		<th style="width:16px;background-position: center;"></th> 
+		<th style="width:16px;background-position: center;" class="sorter-false"></th> 
 		<th><?php print_lang('when'); ?></th> 
 		<th><?php print_lang('who'); ?></th> 
 		<th><?php print_lang('where'); ?></th> 
@@ -94,7 +94,7 @@ function exec_ogp_module() {
 				 "</form>\n".
 				 "</center>\n".
 				 "</td>\n".
-				 "<td class='collapsible'><span class='hidden' >$log_id</span>$when</td>\n".
+				 "<td class='collapsible'>$when</td>\n".
 				 "<td class='collapsible'>$who</td>\n".
 				 "<td class='collapsible'>$where</td>\n".
 				 "<td class='collapsible'>$what</td>\n".
