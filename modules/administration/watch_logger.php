@@ -48,7 +48,7 @@ function exec_ogp_module() {
 	</table>
 	<!-- END Search, Empty Logger, and Paging Options Table -->
 	
-	<table id="servermonitor" class="tablesorter"> 
+	<table id="servermonitor" class="tablesorter" data-sortlist="[[1,1]]"> 
 	<thead> 
 	<tr>
 		<th style="width:16px;background-position: center;" class="sorter-false"></th> 
