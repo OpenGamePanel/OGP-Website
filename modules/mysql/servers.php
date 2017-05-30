@@ -1,4 +1,5 @@
 <script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
+<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
 	$( "#privilegies" ).change(function() {
