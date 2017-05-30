@@ -224,7 +224,7 @@ function exec_ogp_module() {
 		 "<tr>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
-		 "\t<th class=\"hide serverId sorter-digit\">" . server_id . "</th>".
+		 "\t<th class=\"hide serverId\">" . server_id . "</th>".
 		 "\t<th>" . server_name . "</th>".
 		 "\t<th>" . address . "</th>".
 		 "\t<th>" . owner . "</th>".
