@@ -26,20 +26,14 @@
 		if( settings.collapse ) settings.showCollapsed = true;
 		
 		return this.each(function (){
-			var $td = $(settings.selector, this),
-				// look for existing anchors
-				$a = $td.find("a");
-				
+			var $td = $(settings.selector, this);
+
 				// if a "toggle all" selector has been specified, find and attach the behavior
 				if( settings.toggleAllSelector.length > 0 ) $(this).find(settings.toggleAllSelector).collapsibleToggle(this);
 			
-				// if no anchors, create them
-				if( $a.length == 0 ) $a = $td[settings.addAnchor]('<a href="#" class="' + settings[settings.showCollapsed ? "classCollapse" : "classExpand"] + '"></a>').find("a");
-				
-				//$a.bind("click", function (){
 				$("#servermonitor tr td.collapsible").click(function(){
-					var $self = $(this).find('a:first'), 
-						$tr = $self.parent().parent(), 
+					var $self = $(this), 
+						$tr = $self.parent(), 
 						$trc = $tr.next(), 
 						bIsCollapsed = $self.hasClass(settings.classExpand);
 					// change the css class
@@ -68,8 +62,8 @@
 			}
 
 			$("#servermonitor tr.expandme td.collapsible").each(function(){
-					var $self = $(this).find('a:first'), 
-						$tr = $self.parent().parent(), 
+					var $self = $(this), 
+						$tr = $self.parent(), 
 						$trc = $tr.next(), 
 						bIsCollapsed = $self.hasClass(settings.classExpand);
 					// change the css class
@@ -96,7 +90,7 @@
 				$el.addClass(settings.classExpand).removeClass(settings.classCollapse);
 				if( !$el.is("td,th") )
 					$el[$el.is(":input") ? "val" : "html"](settings.textCollapse);
-				$(settings.selector + " a", $table).removeClass(settings.classExpand).click();
+				$(settings.selector, $table).removeClass(settings.classExpand).click();
 			}
 			// collapse all entries
 			, function (){
@@ -104,7 +98,7 @@
 				$el.addClass(settings.classCollapse).removeClass(settings.classExpand);
 				if( !$el.is("td,th") )
 					$el[$el.is(":input") ? "val" : "html"](settings.textExpand);
-				$(settings.selector + " a", $table).addClass(settings.classExpand).click();
+				$(settings.selector, $table).addClass(settings.classExpand).click();
 			}
 		);
 		

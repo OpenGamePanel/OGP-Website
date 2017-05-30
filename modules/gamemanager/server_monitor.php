@@ -584,12 +584,12 @@ function exec_ogp_module() {
 
 			// Template
 			@$first = "<tr class='maintr$trclass'>";
-				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span><a></a>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
-				$first .= "<td class='collapsible'><a></a>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
-				$first .= "<td class='collapsible serverId hide'><a></a>" . $server_home["home_id"] . "</td>";
-				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><a></a><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
-				$first .= "<td class='collapsible'><a></a>" . $address . "</td>";
-				$first .= "<td class='owner collapsible'><a></a>" . $user['users_login'] . "</td>";
+				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
+				$first .= "<td class='collapsible'>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
+				$first .= "<td class='collapsible serverId hide'>" . $server_home["home_id"] . "</td>";
+				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
+				$first .= "<td class='collapsible'>" . $address . "</td>";
+				$first .= "<td class='owner collapsible'>" . $user['users_login'] . "</td>";
 				$first .= "<td style='width:328px;padding:0px;'>$ctrlChkBoxes</td>";
 			$first .= "</tr>";
 
