@@ -52,7 +52,7 @@ function exec_ogp_module() {
 	<thead> 
 	<tr>
 		<th style="width:16px;background-position: center;" class="sorter-false"></th> 
-		<th><?php print_lang('when'); ?></th> 
+		<th class="dateFormat-ddmmyyyy"><?php print_lang('when'); ?></th> 
 		<th><?php print_lang('who'); ?></th> 
 		<th><?php print_lang('where'); ?></th> 
 		<th><?php print_lang('what'); ?></th> 
