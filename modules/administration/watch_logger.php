@@ -94,10 +94,10 @@ function exec_ogp_module() {
 				 "</form>\n".
 				 "</center>\n".
 				 "</td>\n".
-				 "<td class='collapsible'><span class='hidden' >$log_id</span><a></a>$when</td>\n".
-				 "<td class='collapsible'><a></a>$who</td>\n".
-				 "<td class='collapsible'><a></a>$where</td>\n".
-				 "<td class='collapsible'><a></a>$what</td>\n".
+				 "<td class='collapsible'><span class='hidden' >$log_id</span>$when</td>\n".
+				 "<td class='collapsible'>$who</td>\n".
+				 "<td class='collapsible'>$where</td>\n".
+				 "<td class='collapsible'>$what</td>\n".
 				 "</tr>\n";
 			
 			echo "<tr class='expand-child'>\n".
