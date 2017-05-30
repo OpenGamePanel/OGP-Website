@@ -1,3 +1,4 @@
+<script type="text/javascript" src="js/jquery/plugins/jquery.metadata.js"></script>
 <script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
 <script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.mod.js"></script>
 <script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>
@@ -214,13 +215,17 @@ function exec_ogp_module() {
 		</span>
 	<?php
 	}
-	echo "<p class='serverIdToggle' showtext='" . get_lang('show_server_id') . "' hidetext='" . get_lang('hide_server_id') . "'>" . get_lang('show_server_id') . "</p>";
+	
+	if($settings["custom_github_update_username"]){
+		echo "<p class='serverIdToggle' showtext='" . get_lang('show_server_id') . "' hidetext='" . get_lang('hide_server_id') . "'>" . get_lang('show_server_id') . "</p>";
+	}
+	
 	echo "<table id='servermonitor' class='tablesorter'>".
 		 "<thead>".
 		 "<tr>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
-		 "\t<th class='hide serverId'>" . server_id . "</th>".
+		 "\t<th class=\"hide serverId {sorter: 'digit'}\">" . server_id . "</th>".
 		 "\t<th>" . server_name . "</th>".
 		 "\t<th>" . address . "</th>".
 		 "\t<th>" . owner . "</th>".

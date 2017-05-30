@@ -1,6 +1,7 @@
 $(document).ready(function(){
     wireClicks();
     animateProgressBars();
+    toggleEvents();
 });
 
 function wireClicks(){
@@ -165,4 +166,11 @@ function hideVLength(){
 
 function showVLength(){
 	$("span.versionNumberCopyLengthener").removeClass("hide");
+}
+
+function toggleEvents(){
+	// Toggle show server id if setting is enabled and the markup is on the page.
+	if($("p.serverIdToggle").length){
+		$("p.serverIdToggle").trigger("click");
+	}
 }
