@@ -128,6 +128,4 @@ define('custom_tab_target_blank', "Custom Tabs Target");
 define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>('_self' = Opens link on same page. '_blank'  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Wrapper Background");
 define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
-define('show_server_id_game_monitor', "Show Server IDs on Game Monitor Page");
-define('show_server_id_game_monitor_info', "Show the game server ID column on the game monitor page. This is helpful for matching up files created by the agent to the actual game server.");
 ?>
