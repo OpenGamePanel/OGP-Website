@@ -61,7 +61,7 @@ function exec_ogp_module() {
 	?><table id="servermonitor" class="tablesorter remote">
 		<thead> 
 		<tr> 
-			<th colspan="4" class="header tablesorter"><?php print_lang('configured_remote_hosts'); ?></th> 
+			<th colspan="4" class="header sorter-false"><?php print_lang('configured_remote_hosts'); ?></th> 
 		</tr> 
 		</thead> 
 		<tbody> <?php
