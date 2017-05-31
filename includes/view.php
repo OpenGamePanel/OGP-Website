@@ -140,6 +140,11 @@ class OGPView {
 		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>';
 		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">';
 		
+		// Include tablesorter, table collapse, and quick search
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>';
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>';
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>';
+		
 		// Include our global JS
 		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>';
 

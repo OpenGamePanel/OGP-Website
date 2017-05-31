@@ -1,6 +1,3 @@
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>
 <script type="text/javascript" src="js/modules/administration.js"></script>
 <?php
 /*
