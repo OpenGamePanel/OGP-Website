@@ -23,10 +23,10 @@
  */
 
 define('add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
-define('game_servers', "Game Servers");
+define('game_servers', "Spielserver ");
 define('game_path', "Game Pfad");
 define('game_path_info', "Ein absoluter Serverpfad. Beispiel: /home/ogp/my_server/");
-define('game_server_name_info', "Server name helps users to identify their servers.");
+define('game_server_name_info', "Servername hilft Benutzern, ihre Server zu identifizieren. ");
 define('control_password', "Control Passwort");
 define('control_password_info', "This password is used for server control, such as RCON password. If the password is empty then other means are used.");
 define('add_game_home', "Game Server hinzufügen");
@@ -37,11 +37,11 @@ define('caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_pl
 define('select_remote_server', "Select Remote Server");
 define('no_remote_servers_configured', "No remote servers configured to the Open Game Panel.<br>You need to add remote servers before you can add servers for the users.");
 define('no_game_configurations_found', "No game configuration found. You need to add game configurations from the");
-define('game_configurations', ">game configuration page");
+define('game_configurations', ">Spiele Konfigurationsseite");
 define('add_remote_server', "Server hinzufügen");
 define('wine_games', "Wine Spiele");
 define('home_path', "Home Pfad");
-define('change_home_info', "The location of the installed game server. Example: /home/ogp/my_server/");
+define('change_home_info', "Der Standort des installierten Spielservers. Beispiel: /home/ogp/my_server/");
 define('game_server_name', "Game server name");
 define('change_name_info', "The name of the server to help users to identify it.");
 define('game_control_password', "Game Control Passwort");
@@ -58,7 +58,7 @@ define('mod_name', "Mod Name");
 define('max_players', "Max Spieler");
 define('extra_cmd_line_args', "Extra Command Line Args");
 define('extra_cmd_line_info', "The Extra command line args provides a way to enter extra arguments to the game command line when it is started.");
-define('cpu_affinity', "CPU Affinity");
+define('cpu_affinity', "CPU-Affinität");
 define('nice_level', "Nice Level");
 define('set_options', "Set Options");
 define('remove_mod', "Mod entfernen");

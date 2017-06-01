@@ -63,7 +63,7 @@ define('extra_parameters_info', "Diese Parameter werden am Ende der Befehlszeile
 define('game_exec_not_found', "Die ausführbare Datei %s wurde vom Remoteserver nicht gefunden.");
 define('select_params_and_start', "Wählen Sie die start parameter für den Server aus und drücken Sie '%s'.");
 define('no_ip_port_pairs_assigned', "No IP Port pairs assigned for this home. If you do not have access to home editing contact your admin.");
-define('unable_to_get_log', "Unable to get log, retval %s.");
+define('unable_to_get_log', "Log konnte nicht abgerufen werden, retval %s.");
 define('server_binary_not_executable', "Server binary is not executable. Check you have proper permissions in the server home directory.");
 define('server_not_running_log_found', "Server is not running, but log is found. NOTE: This log might not be related to the last server startup.");
 define('ip_port_pair_not_owned', "IP:PORT pair not owned.");
