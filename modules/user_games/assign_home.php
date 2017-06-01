@@ -201,11 +201,6 @@ function exec_ogp_module()
 		if( isset($_POST['home_id']) and !empty($_POST['home_id']) )
 		{
 			?>
-			<link href="js/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet">
-			<link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap/css/bootstrap-datetimepicker.min.css" >
-			<script type="text/javascript" src="js/jquery/jquery-1.11.0.min.js"></script> 
-			<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-			<script type="text/javascript" src="js/bootstrap/plugins/datetimepicker.min.js"></script>
 			<script type="text/javascript" src="js/modules/user_games.js"></script>
 			<?php
 			if( $isAdmin )

@@ -570,13 +570,6 @@ function exec_ogp_module()
 		}
 	}
 	?>
-	<link href="js/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap/css/bootstrap-datetimepicker.min.css" >
-	<link rel="stylesheet" href="js/jquery/ui/themes/base/jquery.ui.all.css">
-	<script type="text/javascript" src="js/jquery/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="js/jquery/ui/jquery-ui-1.10.4.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap/plugins/datetimepicker.min.js"></script>
 	<script type="text/javascript" src="js/modules/user_games.js"></script>
 	<?php
 	echo "<h2>". editing_home_called ." \"".htmlentities($home_info['home_name'])."\"</h2><div id='result' >";
