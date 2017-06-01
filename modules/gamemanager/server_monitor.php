@@ -638,7 +638,9 @@ function exec_ogp_module() {
 	else{
 	$uri = '?m=gamemanager&p=game_monitor&limit='.$home_limit.'&page=';	
 	}
-	echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri, 3, 'serverMonitor');
+	
+	if(!isset($_GET['home_id-mod_id-ip-port']) && !isset($_GET['home_id']))
+	{echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri, 3, 'serverMonitor');}
 
 	echo "<div id=translation data-title='". upload_map_image .
 		 "' data-upload_button='". upload_image .
