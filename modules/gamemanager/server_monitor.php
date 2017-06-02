@@ -127,6 +127,7 @@ function exec_ogp_module() {
 	
 	$home_page = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
 	$home_limit = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+	$home_cfg_id = (isset($_GET['home_cfg_id']) && (int)$_GET['home_cfg_id'] > 0) ? (int)$_GET['home_cfg_id'] : false;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$home_limit = $loggedInUserInfo["users_page_limit"];
@@ -135,19 +136,21 @@ function exec_ogp_module() {
 	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
 	
 	if ( $isAdmin )
-		{	
+		{
+			$show_games_type = $db->getHomesFor('admin', $_SESSION['user_id']);
 			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
 				$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
 			else
-				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit);
+				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id);
 	
 		}
 		else
 		{
+			$show_games_type = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
 				$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 			else			
-				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit);
+				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id);
 		}
 
 	if( $server_homes === FALSE )
@@ -183,7 +186,7 @@ function exec_ogp_module() {
 	if ( isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] ==  game_type  )
 		unset( $_GET['home_cfg_id'] );
 
-	create_home_selector_game_type($_GET['m'], $_GET['p'], $server_homes);
+	create_home_selector_game_type($_GET['m'], $_GET['p'], $show_games_type);
 
 	if (!isset($_GET['home_id-mod_id-ip-port']) and !isset($_GET['home_id']) and !isset($_GET['home_cfg_id'])) 
 	{
@@ -620,14 +623,14 @@ function exec_ogp_module() {
 	echo "</table>";
 
 	if ($isAdmin) {	
-		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id']);
+		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id'], $home_cfg_id);
 	} else {
 		$isSubUser = $db->isSubUser($_SESSION['user_id']);
 
 		if ($isSubUser) {
-			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id']);
+			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id'], $home_cfg_id);
 		} else {
-			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id']);
+			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id'], $home_cfg_id);
 		}	
 	}
 
