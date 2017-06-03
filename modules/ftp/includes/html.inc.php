@@ -172,9 +172,9 @@ function getBrowser($what) {
 			strstr($http_user_agent, 'Windows CE')) {
 			$BROWSER_PLATFORM = 'Mobile';
 		}
-		elseif (strstr($http_user_agent, 'iPhone') || strstr($http_user_agent, 'iPod')) {
+		/*elseif (strstr($http_user_agent, 'iPhone') || strstr($http_user_agent, 'iPod')) {
 			$BROWSER_PLATFORM = 'iPhone';
-		}
+		}*/
 		elseif (strstr($http_user_agent, 'Win')) {
 			$BROWSER_PLATFORM = 'Win';
 		}
