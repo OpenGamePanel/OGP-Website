@@ -4,7 +4,7 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: Text.php 10/11/2013 11:35:22 scp@orilla $
+ * $Id: Text.php 06/06/2016 22:27:13 scp@Svens-iMac $
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.23
+ * @version   1.1.24
  * @author    Sven 'ScP' Paulsen
  * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
  */
@@ -36,15 +36,7 @@ class TeamSpeak3_Viewer_Html implements TeamSpeak3_Viewer_Interface
    *
    * @var string
    */
-    protected $pattern = "<div id='%0' class='%1' summary='%2' style='display:table;'>
-							<div class='%3' style='display:table-row;'>
-								<div class='%4' style='display:table-cell;line-height:14px;vertical-align:middle;'>&nbsp;%5</div>
-								<div class='%6' title='%7' style='display:table-cell;line-height:14px;vertical-align:middle;'>&nbsp;%8
-									<span style='position:relative;bottom:3px;cursor:default;'><b>%9</b></span>
-								</div>
-								<div class='%10' style='display:table-cell;line-height:14px;vertical-align:middle;'>&nbsp;%11%12</div>
-							</div>
-						</div>";
+  protected $pattern = "<table id='%0' class='%1' summary='%2'><tr class='%3'><td class='%4'>%5</td><td class='%6' title='%7'>%8 %9</td><td class='%10'>%11%12</td></tr></table>\n";
 
   /**
    * The TeamSpeak3_Node_Abstract object which is currently processed.
@@ -426,7 +418,7 @@ class TeamSpeak3_Viewer_Html implements TeamSpeak3_Viewer_Interface
 
           if($this->ftclient == "data:image")
           {
-            $download = TeamSpeak3::factory("filetransfer://" . $download["host"] . ":" . $download["port"])->download($download["ftkey"], $download["size"]);
+            $download = TeamSpeak3::factory("filetransfer://" . (strstr($download["host"], ":") !== FALSE ? "[" . $download["host"] . "]" : $download["host"]) . ":" . $download["port"])->download($download["ftkey"], $download["size"]);
           }
 
           $this->cacheIcon[$this->currObj["virtualserver_icon_id"]] = $download;
@@ -496,7 +488,7 @@ class TeamSpeak3_Viewer_Html implements TeamSpeak3_Viewer_Interface
 
           if($this->ftclient == "data:image")
           {
-            $download = TeamSpeak3::factory("filetransfer://" . $download["host"] . ":" . $download["port"])->download($download["ftkey"], $download["size"]);
+            $download = TeamSpeak3::factory("filetransfer://" . (strstr($download["host"], ":") !== FALSE ? "[" . $download["host"] . "]" : $download["host"]) . ":" . $download["port"])->download($download["ftkey"], $download["size"]);
           }
 
           $this->cacheIcon[$this->currObj["channel_icon_id"]] = $download;
@@ -570,7 +562,7 @@ class TeamSpeak3_Viewer_Html implements TeamSpeak3_Viewer_Interface
 
           if($this->ftclient == "data:image")
           {
-            $download = TeamSpeak3::factory("filetransfer://" . $download["host"] . ":" . $download["port"])->download($download["ftkey"], $download["size"]);
+            $download = TeamSpeak3::factory("filetransfer://" . (strstr($download["host"], ":") !== FALSE ? "[" . $download["host"] . "]" : $download["host"]) . ":" . $download["port"])->download($download["ftkey"], $download["size"]);
           }
 
           $this->cacheIcon[$group["iconid"]] = $download;
@@ -605,7 +597,7 @@ class TeamSpeak3_Viewer_Html implements TeamSpeak3_Viewer_Interface
 
           if($this->ftclient == "data:image")
           {
-            $download = TeamSpeak3::factory("filetransfer://" . $download["host"] . ":" . $download["port"])->download($download["ftkey"], $download["size"]);
+            $download = TeamSpeak3::factory("filetransfer://" . (strstr($download["host"], ":") !== FALSE ? "[" . $download["host"] . "]" : $download["host"]) . ":" . $download["port"])->download($download["ftkey"], $download["size"]);
           }
 
           $this->cacheIcon[$this->currObj["client_icon_id"]] = $download;
@@ -673,6 +665,6 @@ class TeamSpeak3_Viewer_Html implements TeamSpeak3_Viewer_Interface
       $src = $this->flagpath;
     }
 
-    return "<img src='" . $src . $name . "' title='" . $text . "' alt='' />";
+    return "<img src='" . $src . $name . "' title='" . $text . "' alt='' align='top' />";
   }
 }
