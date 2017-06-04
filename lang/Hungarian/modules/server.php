@@ -89,7 +89,7 @@ define('added_server', "Szerver hozzáadva");
 define('with_port', "porttal");
 define('to_db_succesfully', "to the database successfully.");
 define('unable_discover', "Unable to auto discover IPs on");
-define('set_ip_manually', "You'll have to set them manually.");
+define('set_ip_manually', "Manuálisan kell beállítanod.");
 define('found_ips', "Talált IPk");
 define('for_remote_server', "for the remote server.");
 define('failed_add_ip', "Nem sikerült az IP hozzáadása");

@@ -82,9 +82,9 @@ define('support_widget_title_info', "A custom title for the support widget in th
 define('support_widget_content', "Support widget content");
 define('support_widget_content_info', "The content of the support widget, you can use HTML code.");
 define('support_widget_link', "Support widget link");
-define('support_widget_link_info', "The URL of your support site.");
+define('support_widget_link_info', "A támogatási oldalad linkje.");
 define('recaptcha_site_key', "Recaptcha oldal kulcs");
-define('recaptcha_site_key_info', "The site key provided to you by Google.");
+define('recaptcha_site_key_info', "A webhely kulcsát a Google biztosítja neked.");
 define('recaptcha_secret_key', "Recaptcha titkos kulcs");
 define('recaptcha_secret_key_info', "A titkos kulcsot a Google biztosítja neked.");
 define('recaptcha_use_login', "Recaptcha használata a bejelentkezéshez");

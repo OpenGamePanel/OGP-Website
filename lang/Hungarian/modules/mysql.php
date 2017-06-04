@@ -86,8 +86,8 @@ define('areyousure_remove_mysql_server', "Are you sure that you want remove MySQ
 define('db_changed_successfully', "A(z) %s nevű adatbázist sikeresen megváltoztattuk.");
 define('error_while_remove', "Hiba az eltávolítás közben.");
 define('mysql_server_removed', "A(z) <b>%s</b> nevű MySQL szerver eltávolítása sikeresen megtörtént.");
-define('unable_to_set_changes_to', "Unable to set changes to MySQL server named <b>%s</b>.");
-define('mysql_server_settings_changed', "MySQL server named <b>%s</b> has been changed successfully.");
+define('unable_to_set_changes_to', "Nem sikerült beállítani a módosításokat a(z) <b>%s</b> nevű MySQL szerverhez.");
+define('mysql_server_settings_changed', "A(z) <b>%s</b> nevű MySQL szerver sikeresen megváltoztatva.");
 define('editing_mysql_server', "A(z) <b>%s</b> nevű MySQL szerver szerkesztése.");
 define('save_settings', "Beállítások mentése");
 define('mysql_dbs_for', "Adatbázisok a(z) %s szerverhez");
