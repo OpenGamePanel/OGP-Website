@@ -4,8 +4,8 @@
   <gameq_query_name>minecraft</gameq_query_name>
   <game_name>Spigot Server</game_name>
   <server_exec_name>spigot_run</server_exec_name>
-  <cli_template>-Xincgc %XMX% -XX:MaxPermSize=128M -jar spigot.jar nogui</cli_template>
-  <max_user_amount>32</max_user_amount>
+  <cli_template>-Xincgc %XMX% -XX:MaxPermSize=128M -jar minecraft_server.jar nogui</cli_template>
+  <max_user_amount>1000</max_user_amount>
   <!-- <control_protocol>lcon</control_protocol> Enables legacy console, the output will be shown in the log file-->
   <mods>
     <mod key="spigot">
@@ -92,7 +92,7 @@ while test $# -gt 0; do
 	esac
 	shift
 done
-# java -Xincgc -Xmx1024M -XX:MaxPermSize=128M -jar spigot.jar nogui
+# java -Xincgc -Xmx1024M -XX:MaxPermSize=128M -jar minecraft_server.jar nogui
 RUNCMD=&quot;java$ARGS&quot;
 BTURL=&quot;https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar&quot;
 BT=&quot;BuildTools.jar&quot;
@@ -110,7 +110,7 @@ if test -n &quot;$AUTO_UPDATE&quot;; then
 	if test -f &quot;$BT&quot;; then
 		echo &quot;Buiding jar files&quot;
 		java -jar &quot;$BT&quot;
-		mv spigot-*.jar spigot.jar
+		mv spigot-*.jar minecraft_server.jar
 		echo eula=true &gt; eula.txt
 	else
 		echo &quot;Error: $BT not found. &quot;
