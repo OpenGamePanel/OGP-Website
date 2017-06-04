@@ -127,7 +127,7 @@ if(isset($_POST['remote_send_rcon_command']))
 	if($response)
 	{
 		echo "<div class='bloc' ><h4>" . rcon_command_title . ": [" . htmlentities(implode(" | ", $_POST['command'])) . "] " .
-			 has_sent_to . " " . $home_info['home_name'] . "</h4><xmp style='overflow:scroll;' >" . 
+			 has_sent_to . " " . $home_info['home_name'] . "</h4><xmp style='overflow:auto;' >" . 
 			 $response . "</xmp></div>";
 	}
 }
