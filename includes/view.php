@@ -136,10 +136,6 @@ class OGPView {
 		$this->header_code .= '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">' . "\n";
 		$this->header_code .= '<script type="text/javascript" src="js/jquery/jquery.min.js"></script><script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>' . "\n";
 		
-		// Include bootstrap libraries
-		$this->header_code .= '<link href="js/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet"><link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap/css/bootstrap-datetimepicker.min.css">' . "\n";
-		$this->header_code .= '<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script><script type="text/javascript" src="js/bootstrap/plugins/datetimepicker.min.js"></script>' . "\n";
-		
 		// Include magnific popup
 		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>' . "\n";
 		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">' . "\n";
