@@ -23,21 +23,21 @@
  */
 
 include 'update.php';
-define('unable_download', "Unable to download %s.");
-define('md5_failed', "MD5 test failed for %s, try again.");
-define('uninstall', "Uninstall");
-define('install', "Install");
-define('uptodate', "Up-to-date");
-define('update_available', "Update available");
-define('not_installed', "Not installed");
-define('installed', "Installed");
-define('download_update', "Download/Update");
-define('are_you_sure', "Are you sure");
-define('uninstalling_module_dataloss', "By uninstalling a module you will lose all data related to it.");
-define('remove_files_for', "Would you like to remove all files for");
-define('confirm', "Confirm");
-define('cancel', "Cancel");
-define('extra_themes', "Extra themes");
-define('extra_modules', "Extra modules");
-define('search_for_updates', "Check for updates");
+define('unable_download', "غير قادر على تحميل %s.");
+define('md5_failed', "اختبار MD5 فشل في %s ، جرب مرة أخرى");
+define('uninstall', "إزالة تثبيت");
+define('install', "تثبيت");
+define('uptodate', "محدث لأخر نسخة");
+define('update_available', "التحديث متوفر");
+define('not_installed', "غير مثبت");
+define('installed', "مثبت");
+define('download_update', "تحميل/تحديث");
+define('are_you_sure', "هل أنت متأكد");
+define('uninstalling_module_dataloss', "بإزالة هذا الموديول سوف تخسر كل الداتا المتعلقة به.");
+define('remove_files_for', "هل ترغب بحذف كل الملفات لـ ");
+define('confirm', "تأكيد");
+define('cancel', "إلغاء");
+define('extra_themes', "مظاهر إضافية");
+define('extra_modules', "موديولات إضافية");
+define('search_for_updates', "تحقق من التحديثات");
 ?>
