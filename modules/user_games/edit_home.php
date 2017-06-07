@@ -533,13 +533,11 @@ function exec_ogp_module()
 			}
 
 			// If we're on Windows, and some cores have been selected...
-			if(preg_match('/win/', $remote->what_os()) && $cpus !== 'NA')
-			{
+			if (preg_match('/cygwin/i', $remote->what_os()) && $cpus !== 'NA') {
 				$result = 0;
 				$cores = explode(',', $cpus);
 
-				foreach ($cores as $core)
-				{
+				foreach ($cores as $core) {
 					$coreNum = intval($core);
 					$result |= (1 << $coreNum);
 				}
@@ -572,15 +570,23 @@ function exec_ogp_module()
 		}
 	}
 	?>
-	<link href="js/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap/css/bootstrap-datetimepicker.min.css" >
-	<link rel="stylesheet" href="js/jquery/ui/themes/base/jquery.ui.all.css">
-	<script type="text/javascript" src="js/jquery/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="js/jquery/ui/jquery-ui-1.10.4.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap/plugins/datetimepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="js/datetimepicker/jquery.datetimepicker.min.css"/>
+	<script src="js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 	<script type="text/javascript" src="js/modules/user_games.js"></script>
 	<?php
+	if($isAdmin){
+		$expiration_date = $home_info['server_expiration_date'] == "X" ? "X" : date('d/m/Y H:i:s', $home_info['server_expiration_date']);
+	?>
+	<script>
+	$(window).load(function(){
+		$('input[name="expiration_date"]').datetimepicker({
+			value: '<?php echo $expiration_date;?>'
+		});
+	});
+	</script>
+	<?php
+	}
+
 	echo "<h2>". editing_home_called ." \"".htmlentities($home_info['home_name'])."\"</h2><div id='result' >";
 	if(isset($result))
 	{
@@ -736,13 +742,10 @@ function exec_ogp_module()
 		echo "<tr><td colspan='2' class='info'>". set_as_master_server_for_local_clon_update .
 			 " (".get_lang_f( 'only_available_for', $server_xml->game_name, $home_info['remote_server_name']).")</td></tr>";
 		// Expiration
-		$expiration_date = $home_info['server_expiration_date'] == "X" ? "X" : date('d/m/Y H:i:s', $home_info['server_expiration_date']);
 		echo "<tr><td class='right'>".get_lang('server_expiration_date').":</td>\n".
 			 "<td class='left'><form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>".
 			 "<div id='datetimepicker' class='input-append date'>".
-			 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='".$expiration_date.
-			 "' data-today='".date('d/m/Y H:i:s')."' >\n".
-			 "<span class='add-on'><i data-time-icon='icon-time' data-date-icon='icon-calendar'></i></span>".
+			 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='".$expiration_date."'>".
 			 "</div>".
 			 "<input type='submit' name='set_expiration_date' value='". set_expiration_date ."' />".
 			 "</form></td></tr>\n".
