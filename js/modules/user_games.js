@@ -165,55 +165,9 @@ $(document).ready(function() {
 			}, "json");
 		}
 	});
-	
-	var datePickerInput = $( "input[name=expiration_date]" );
-	if(datePickerInput)
-	{
-		var now_str = datePickerInput.attr('data-today').split(' '),
-			date = now_str[0].split('/'),
-			time = now_str[1].split(':'),
-			now  = new Date(date[2], date[1]-1, date[0], time[0], time[1], time[2], 0);
-		
-		$('#datetimepicker').datetimepicker({
-			format: 'dd/MM/yyyy hh:mm:ss',
-			startDate: now
-		}).on('changeDate', function(e) {
-			if(e.localDate == null)
-			{
-				datePickerInput.val("X");
-			}
-			else
-			{
-				var selected = new Date(e.localDate);
-				if( selected <= now )
-				{
-					alert('The selected date has already passed.');
-					datePickerInput.value = "";
-				}
-			}
-			if("edit" == GetURLParameter('p'))
-			{
-				datePickerInput.css("background", "#fe9cb1");
-			}
-		});
-		
-		datePickerInput.on('change', function() {
-			if(this.value.match(/^\d{1,2}\/\d{1,2}\/\d{4}\s\d{1,2}:\d{1,2}:\d{1,2}$/g) == null || this.value == "X")
-			{
-				this.value = "";
-			}
-			else
-			{
-				var sel_str = this.value.split(' '),
-					date = sel_str[0].split('/'),
-					time = sel_str[1].split(':'),
-					selected  = new Date(date[2], date[1]-1, date[0], time[0], time[1], time[2], 0);
-				if( selected <= now )
-				{
-					alert('The selected date has already passed.');
-					this.value = "";
-				}
-			}
-		});
-	}
+
+});
+
+$(window).load(function(){
+	$('input[name="expiration_date"]').datetimepicker();
 });
