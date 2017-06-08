@@ -91,7 +91,7 @@ define('recaptcha_use_login', "Use Recaptcha on Login");
 define('recaptcha_use_login_info', "If enabled, users will have to solve the Not a Robot Recaptcha when attempting to login.");
 define('login_attempts_before_banned', "Ilość nieprawidłowych logowań");
 define('login_attempts_before_banned_info', "Liczba nieudanych prób zalogowania się zanim użytkownik zostanie zbanowany.");
-define('custom_github_update_username', "GitHub update username");
+define('custom_github_update_username', "Nazwa użytkownika GitHub");
 define('custom_github_update_username_info', "Enter your GitHub username ONLY to use your own forked repositories to update OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.");
 define('remote_query', "Remote query");
 define('remote_query_info', "Use the remote server (agent) to make queries to the game servers (Only GameQ and LGSL).");
@@ -128,4 +128,6 @@ define('custom_tab_target_blank', "Custom Tabs Target");
 define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>('_self' = Opens link on same page. '_blank'  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Wrapper Background");
 define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
+define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");
+define('show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
 ?>

@@ -25,7 +25,7 @@
 define('game_manager', "Spiel Manager");
 define('no_games_to_monitor', "Es gibt derzeit keine Gameserver die online/offline sind");
 define('status', "Status");
-define('fail_no_mods', "Keine Mods für dieses Spiel aktiviert! Sie müssen ihren OGP admin bitten, mods für das Spiel hinzuzufügen, das Ihnen zugeteilt wird.");
+define('fail_no_mods', "Keine Mods für dieses Spiel aktiviert! Sie müssen einen OGP Admin bitten, Mods für das Spiel hinzuzufügen, das Ihnen zugeteilt wird.");
 define('no_game_homes_assigned', "Keine Spielserver für Sie zugewiesen. Sie müssen ihre OGP admin bitten, Spiele für Sie zuzuweisen.");
 define('select_game_home_to_configure', "Wählen Sie einen Gameserver aus, den Sie konfigurieren möchten");
 define('file_manager', "Dateimanager");

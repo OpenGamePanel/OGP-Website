@@ -29,7 +29,7 @@ define('maintenance_title_info', "Der Titel, der während der Wartung für norma
 define('maintenance_message', "Wartungsmodus Nachricht");
 define('maintenance_message_info', "Die Meldung, die normale Benutzer während der Wartung angezeigt wird.");
 define('update_settings', "Einstellungen speichern");
-define('settings_updated', "Settings successfully updated.");
+define('settings_updated', "Einstellungen erfolgreich aktualisiert.");
 define('panel_language', "Panel Sprache");
 define('panel_language_info', "This language is the default language of the panel. Users can change their own language from their profile editing page.");
 define('page_auto_refresh', "Page Auto Refresh");
@@ -128,4 +128,6 @@ define('custom_tab_target_blank', "Custom Tabs Target");
 define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>('_self' = Opens link on same page. '_blank'  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Wrapper Hintergrund");
 define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
+define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");
+define('show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
 ?>

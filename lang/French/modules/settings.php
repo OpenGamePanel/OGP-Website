@@ -128,4 +128,6 @@ define('custom_tab_target_blank', "Cible des sous-onglets personnalisés");
 define('custom_tab_target_blank_info', "Définit la cible de tous les onglets. <b style='font-size:10px; font-weight:normal;'>('_self' = le lien s&apos;ouvre dans la même page. '_blank'  =  le lien s&apos;ouvre dans un nouvel onglet.)</b>");
 define('bg_wrapper', "Image de fond du Panneau");
 define('bg_wrapper_info', "L&apos;image de fond du Panneau. <b style='font-size:10px; font-weight:normal;'>(Pas disponible sur tous les thèmes.)</b>");
+define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");
+define('show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
 ?>

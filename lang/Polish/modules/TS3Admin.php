@@ -170,6 +170,6 @@ define('unassign_from_subuser', "Usuń dla sub-użytkownika.");
 define('assign_to_subuser', "Przypisz do sub-użytkownika.");
 define('select_subuser', "Wybierz Sub-użytkownika.");
 define('no_ts3_servers_assigned_to_account', "Nie masz żadnych serwerów przypisanych do Twojego konta.");
-define('change_virtual_server', "Change Virtual Server");
-define('change_remote_server', "Change Remote Server");
+define('change_virtual_server', "Zmień Wirtualny Serwer");
+define('change_remote_server', "Zmień Serwer Hosta");
 ?>

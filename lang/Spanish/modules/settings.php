@@ -128,4 +128,6 @@ define('custom_tab_target_blank', "Comportamiento de los botones");
 define('custom_tab_target_blank_info', "Ajusta el comportamiento de todos los botones personalizados. <b style='font-size:10px; font-weight:normal;'>('_self' = Abre el enlace en la misma pagina. '_blank'  =  Abre el enlace en una pestaña o ventana nueva.)</b>");
 define('bg_wrapper', "Imagen de fondo");
 define('bg_wrapper_info', "La imagen de fondo del panel. <b style='font-size:10px; font-weight:normal;'>(Solo funciona con algunos temas.)</b>");
+define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");
+define('show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
 ?>
