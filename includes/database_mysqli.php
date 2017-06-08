@@ -1462,7 +1462,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				%1$suser_homes.user_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
 				FROM %1$sremote_servers NATURAL JOIN %1$suser_homes
 				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_homes.user_id = %2$d ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+				WHERE %1$suser_homes.user_id = %2$d '.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').' ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else if ( $id_type == "group" )
 		{
@@ -1470,7 +1470,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				%1$suser_group_homes.user_group_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
 				FROM %1$sremote_servers NATURAL JOIN %1$suser_group_homes
 				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_group_homes.group_id = %2$d ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+				WHERE %1$suser_group_homes.group_id = %2$d '.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').' ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else if ( $id_type == "user_and_group" )
 		{
