@@ -63,6 +63,6 @@ define('setup_complete', "Instalação concluída com sucesso. Seu Open Game Pan
 define('remove_install_and_secure_config', "Por razões de segurança, você deve excluir o arquivo install.php de sua instalação e configurar as permissões do arquivo includes/config.inc.php para o modo 644.");
 define('go_to_panel', "Clique aqui para entrar em seu painel de controle OGP.");
 define('unable_to_resolve', "Se você não conseguir resolver este problema visite o site do OGP");
-define('slogan', "The Open-Source one!");
+define('slogan', "De Código Aberto!");
 define('default_welcome_title_message', "Bem Vindo! <b style='font-size:12px; font-weight:normal;'>Você pode alterar essa mensagem em '<a href='?m=settings&p=themes'>Definições de tema</a>' no menu de '<a href='?m=administration&p=main'>Administração</a>'.</b>");
 ?>
