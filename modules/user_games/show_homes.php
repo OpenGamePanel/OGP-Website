@@ -25,7 +25,8 @@
 function exec_ogp_module()
 {
 	global $db, $loggedInUserInfo;
-
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
+	
 	$page_GameHomes = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
 	$limit_GameHomes = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
 	
@@ -34,9 +35,14 @@ function exec_ogp_module()
 	}
 	
 	echo "<h2>".get_lang('game_servers')."</h2>";
-	echo "<p><a href='?m=user_games&amp;p=add'>".get_lang('add_new_game_home')."</a></p>";
+	echo '<form action="home.php" method="GET" style="margin-bottom:10px;float:left;">
+		<p><a href="?m=user_games&amp;p=add">'.get_lang("add_new_game_home").'</a></p>
+		<input type ="hidden" name="m" value="user_games" />
+		<input name="search" type="text" id="search" />
+		<input type="submit" value="search" />
+		</form>';	
 
-	$game_homes = $db->getGameHomes_limit($page_GameHomes,$limit_GameHomes);
+	$game_homes = $db->getGameHomes_limit($page_GameHomes,$limit_GameHomes,$search_field);
 	if ( empty($game_homes) )
 	{
 		echo "<p>".get_lang('no_game_homes_found')."</p>";
@@ -74,9 +80,16 @@ function exec_ogp_module()
 	
 	echo "</table>";
 
-	$count_GameHomes = $db->get_GameHomes_count();
-
+	$count_GameHomes = $db->get_GameHomes_count($search_field);
+	
+	if(isset($_GET['search']) && !empty($_GET['search'])){
+	$uri = '?m=user_games&search='.$_GET['search'].'&limit='.$limit_GameHomes.'&page=';
+	}
+	else
+	{
 	$uri = '?m=user_games&limit='.$limit_GameHomes.'&page=';
+	}
+	
 	echo paginationPages($count_GameHomes[0]['total'], $page_GameHomes, $limit_GameHomes, $uri, 3, 'userGames');
 
 	?>
