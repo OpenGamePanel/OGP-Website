@@ -498,12 +498,14 @@ function exec_ogp_module() {
 
 			if( $host_stat === 1)
 			{
-				if ( $server_home['use_nat'] == 1 )
+				if ( $server_home['use_nat'] == 1 ){
 					$query_ip = $server_home['agent_ip'];
-				else
+				}else{
 					$query_ip = $server_home['ip'];
-
-				$address = $query_ip . ":" . $server_home['port'];
+				}
+				if(ip2long($server_home['display_public_ip'])){
+					$query_ip = $server_home['display_public_ip'];
+				}
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;
 				$update_in_progress = $remote->is_screen_running(OGP_SCREEN_TYPE_UPDATE,$server_home['home_id']) === 1;
 				if($screen_running)

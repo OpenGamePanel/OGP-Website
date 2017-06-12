@@ -45,6 +45,7 @@ function exec_ogp_module() {
 	$ft->add_field('string','remote_encryption_key',"");
 	$ft->add_field('string','timeout',"5");
 	$ft->add_field('on_off','use_nat',"0");
+	$ft->add_field('string','default_public_ip',"");
 	$ft->end_table();
 	$ft->add_button('submit','add_remote_host', add_remote_host );
 	$ft->end_form();
