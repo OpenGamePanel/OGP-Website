@@ -506,6 +506,8 @@ function exec_ogp_module() {
 				if(ip2long($server_home['display_public_ip'])){
 					$query_ip = $server_home['display_public_ip'];
 				}
+				$address = $query_ip . ":" . $server_home['port'];
+
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;
 				$update_in_progress = $remote->is_screen_running(OGP_SCREEN_TYPE_UPDATE,$server_home['home_id']) === 1;
 				if($screen_running)
