@@ -136,8 +136,9 @@ function exec_ogp_module()
 		echo "<option>".get_lang('select_remote_server')."</option>\n";
 		foreach ( $remote_servers as $server )
 		{
+			$ip = ip2long($server['display_public_ip']) && $server['display_public_ip']!=$server['agent_ip'] ? $server['display_public_ip'] : $server['agent_ip'];
 			echo "<option value='".$server['remote_server_id']."'>".
-				$server['remote_server_name']." (".$server['agent_ip'].")</option>\n";
+				$server['remote_server_name']." (".$ip.")</option>\n";
 		}
 		echo "</select>\n";
 		echo "</form>";
