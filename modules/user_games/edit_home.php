@@ -43,7 +43,9 @@ function exec_ogp_module()
 	$home_info = $db->getGameHomeWithoutMods($home_id);
 	$home_id = $home_info['home_id'];
 	$enabled_mods = $db->getHomeMods($home_id);
-		
+
+	$display_ip = ip2long($home_info['display_public_ip']) && $home_info['display_public_ip']!=$home_info['agent_ip'] ? $home_info['display_public_ip'] : $home_info['agent_ip'];
+
 	if( $isAdmin and isset( $_POST['change_home_cfg_id'] ) )
 	{
 		if( !empty($enabled_mods) )
@@ -783,11 +785,11 @@ function exec_ogp_module()
 					{
 						if ( $db->addGameIpPort($home_id, $ip_id, $port) === FALSE )
 						{
-							print_failure(get_lang_f('ip_port_already_in_use', $ip, $port));
+							print_failure(get_lang_f('ip_port_already_in_use', $display_ip, $port));
 						}
 						else {
-							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
-							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
+							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $display_ip, $port, $home_id));
+							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $display_ip, $port, $home_id));
 						}
 					}
 				}
@@ -805,22 +807,26 @@ function exec_ogp_module()
 					else
 						print_failure("Failed to unassign ip:port.");
 				}
-								
+
 				echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n";
 				echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
 				echo  ip .":<select name='ip' onchange='this.form.submit();'>";
-				
-				foreach($avail_ips as $value)
-				{
-					$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
-					echo "<option value='".$value['ip_id']."' $selected >".$value['ip']."</option>\n";
+
+				if(ip2long($home_info['display_public_ip']) && $home_info['display_public_ip']!=$home_info['agent_ip']){
+					echo "<option value='".$avail_ips[0]['ip_id']."' $selected >".$display_ip."</option>\n";
+				}else{
+					foreach($avail_ips as $value)
+					{
+						$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
+						echo "<option value='".$value['ip_id']."' $selected >".$value['ip']."</option>\n";
+					}
 				}
-				
+
 				echo "</select>";
 
 				$ip_id = isset($_POST['ip']) ? $_POST['ip'] : $avail_ips[0]['ip_id'];
 				$port = $db->getNextAvailablePort($ip_id,$home_info['home_cfg_id']);
-					
+
 				echo " ". port .":<input type='text' name='port' value='".$port."' size='6' />";
 				echo "<input type='submit' name='set_ip' value='". set_ip ."' />";
 				echo "</form>";
@@ -851,9 +857,14 @@ function exec_ogp_module()
 							$force_mod .= "</select>\n</form>\n</td>\n";
 							$align = "right";
 						}
-						echo "<table class='center'><tr><td align='$align'>".$assigned_rows['ip'].":".$assigned_rows['port'].
-							 " <a href='?m=user_games&amp;p=edit&amp;home_id=$home_id&amp;delete_ip&amp;ip=".
-							 $assigned_rows['ip_id']."&amp;port=".$assigned_rows['port'].
+						if(ip2long($home_info['display_public_ip']) && $home_info['display_public_ip']!=$home_info['agent_ip']){
+							$assigned_ip = $home_info['display_public_ip'];
+						}else{
+							$assigned_ip = $assigned_rows['ip'];
+						}
+						echo "<table class='center'><tr><td align='$align'>".$assigned_ip.":".$assigned_rows['port'].
+							 " <a href='?m=user_games&p=edit&home_id=$home_id&delete_ip&ip=".
+							 $assigned_rows['ip_id']."&port=".$assigned_rows['port'].
 							 "'>[ ". delete ." ]</a></td>\n".
 							 $force_mod.
 							 "</tr>\n</table>\n";
