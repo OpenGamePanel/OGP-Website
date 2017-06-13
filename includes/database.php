@@ -178,7 +178,7 @@ abstract class OGPDatabase {
 
     abstract public function getHomesFor($id_type,$assign_id);
     
-    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id,$search_field);
+    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id);
 
     abstract public function getHomeMods($home_id);
 
