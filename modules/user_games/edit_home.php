@@ -580,7 +580,8 @@ function exec_ogp_module()
 	<script>
 	$(window).load(function(){
 		$('input[name="expiration_date"]').datetimepicker({
-			value: '<?php echo $expiration_date;?>'
+			value: '<?php echo $expiration_date;?>',
+			format: 'd/m/Y H:i:s'
 		});
 	});
 	</script>
