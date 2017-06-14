@@ -44,7 +44,7 @@ function exec_ogp_module()
 	$home_id = $home_info['home_id'];
 	$enabled_mods = $db->getHomeMods($home_id);
 
-	$display_ip = ip2long($home_info['display_public_ip']) && $home_info['display_public_ip']!=$home_info['agent_ip'] ? $home_info['display_public_ip'] : $home_info['agent_ip'];
+	$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$home_info['agent_ip']);
 
 	if( $isAdmin and isset( $_POST['change_home_cfg_id'] ) )
 	{
@@ -813,14 +813,11 @@ function exec_ogp_module()
 				echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
 				echo  ip .":<select name='ip' onchange='this.form.submit();'>";
 
-				if(ip2long($home_info['display_public_ip']) && $home_info['display_public_ip']!=$home_info['agent_ip']){
-					echo "<option value='".$avail_ips[0]['ip_id']."' $selected >".$display_ip."</option>\n";
-				}else{
-					foreach($avail_ips as $value)
-					{
-						$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
-						echo "<option value='".$value['ip_id']."' $selected >".$value['ip']."</option>\n";
-					}
+				foreach($avail_ips as $value)
+				{
+					$avail_display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$value['ip']);
+					$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
+					echo "<option value='".$value['ip_id']."' $selected >".$avail_display_ip."</option>\n";
 				}
 
 				echo "</select>";
@@ -858,11 +855,7 @@ function exec_ogp_module()
 							$force_mod .= "</select>\n</form>\n</td>\n";
 							$align = "right";
 						}
-						if(ip2long($home_info['display_public_ip']) && $home_info['display_public_ip']!=$home_info['agent_ip']){
-							$assigned_ip = $home_info['display_public_ip'];
-						}else{
-							$assigned_ip = $assigned_rows['ip'];
-						}
+						$assigned_ip = checkDisplayPublicIP($home_info['display_public_ip'],$assigned_rows['ip']);
 						echo "<table class='center'><tr><td align='$align'>".$assigned_ip.":".$assigned_rows['port'].
 							 " <a href='?m=user_games&p=edit&home_id=$home_id&delete_ip&ip=".
 							 $assigned_rows['ip_id']."&port=".$assigned_rows['port'].

@@ -105,7 +105,7 @@ function exec_ogp_module()
 
 		foreach ( $servers as $server_row )
 		{
-			$display_ip = ip2long($server_row['display_public_ip']) && $server_row['display_public_ip']!=$server_row['agent_ip'] ? $server_row['display_public_ip'] : $server_row['agent_ip'];
+			$display_ip = checkDisplayPublicIP($server_row['display_public_ip'],$server_row['agent_ip']);
 			echo "<option value='" . $server_row['remote_server_id'] . "' >" . $server_row['remote_server_name'] . " (" . $display_ip . ":" . $server_row['agent_port'] . ")</option>";
 		}
 		echo "</select>
@@ -131,7 +131,7 @@ function exec_ogp_module()
 	<?php		
 		foreach ( $servers as $server_row )
 		{
-			$display_ip = ip2long($server_row['display_public_ip']) && $server_row['display_public_ip']!=$server_row['agent_ip'] ? $server_row['display_public_ip'] : $server_row['agent_ip'];
+			$display_ip = checkDisplayPublicIP($server_row['display_public_ip'],$server_row['agent_ip']);
 			$remote = new OGPRemoteLibrary($server_row['agent_ip'],$server_row['agent_port'],$server_row['encryption_key'],$server_row['timeout']);
 
 			$host_stat = $remote->status_chk();

@@ -705,4 +705,44 @@ function paginationPages($pageResults, $currentPage, $perPage, $pageUri, $pagesS
 
 }
 
+function checkDisplayPublicIP($display_public_ip,$internal_ip){
+
+	// Set Cache Timer in Seconds
+	$cache_timer = 600;
+
+	if(!isset($_SESSION['gethostbyname_cache'])){
+		$_SESSION['gethostbyname_cache'] = array();
+	}
+
+	if(filter_var($display_public_ip, FILTER_VALIDATE_IP) && $display_public_ip!=$internal_ip){
+		return $display_public_ip;
+	}else{
+		if(!array_key_exists($display_public_ip, $_SESSION['gethostbyname_cache'])){
+			$_SESSION['gethostbyname_cache'][$display_public_ip] = array();
+			$ipcheck = gethostbyname($display_public_ip);
+			if($ipcheck!=$display_public_ip){
+				$_SESSION['gethostbyname_cache'][$display_public_ip]['ip'] = $ipcheck;
+				$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'] = time();
+			}else{
+				unset($_SESSION['gethostbyname_cache'][$display_public_ip]);
+				return $internal_ip;
+			}
+		}else{
+			if((time()-$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'])>=$cache_timer){
+				$ipcheck = gethostbyname($display_public_ip);
+				if($ipcheck!=$display_public_ip){
+					$_SESSION['gethostbyname_cache'][$display_public_ip]['ip'] = $ipcheck;
+					$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'] = time();
+				}else{
+					unset($_SESSION['gethostbyname_cache'][$display_public_ip]);
+					return $internal_ip;
+				}
+			}
+		}
+		if(filter_var($_SESSION['gethostbyname_cache'][$display_public_ip]['ip'], FILTER_VALIDATE_IP)){
+			return $_SESSION['gethostbyname_cache'][$display_public_ip]['ip'];
+		}
+	}
+	return $internal_ip;
+}
 ?>
