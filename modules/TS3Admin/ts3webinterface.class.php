@@ -297,6 +297,8 @@ class TS3webinterface
 	
 	private function switchAction()
 	{
+		global $db;
+
 		if( isset($_GET['getchannelbackup']) && $this->session['lvserver'] != 0 )
 		{
 			if( $channelBackupString = $this->getChannelBackupString() )
