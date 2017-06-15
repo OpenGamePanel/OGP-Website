@@ -54,7 +54,7 @@
 	</tr>
 	<tr>
 		<td><b>{$lang.vsoverview_info_state}</b></td>
-		<td><span id="serverstatus" class="{$data.virtualserver_status}">{$data.virtualserver_status}</span>{if $data.virtualserver_status == "online"} - {$lang.vsselect_ip}:{$lang.vsselect_port} <a href="ts3server://{$IP}:{$data.virtualserver_port}">{$IP}:{$data.virtualserver_port}</a>{/if}</td>
+		<td><span id="serverstatus" class="{$data.virtualserver_status}">{$data.virtualserver_status}</span>{if $data.virtualserver_status == "online"} - {$lang.vsselect_ip}:{$lang.vsselect_port} <a href="ts3server://{$display_public_ip}:{$data.virtualserver_port}">{$display_public_ip}:{$data.virtualserver_port}</a>{/if}</td>
 	</tr>
 	<tr>
 		<td><b>{$lang.vsoverview_info_uptime}</b></td>

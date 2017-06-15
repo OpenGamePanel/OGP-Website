@@ -615,9 +615,9 @@ class TS3webinterface
 			{
 				$this->template->assign('title', $this->language['title'].' :: '.$this->language['login']);
 				$this->template->display('header.tpl');
-				
+
 				$addData = array();
-				
+
 				/*if( !isset($_GET['do']) ) $_GET['do'] = '';
 				switch($_GET['do'])
 				{
@@ -630,7 +630,7 @@ class TS3webinterface
 						{
 							//$addData = $this->server->de_escape($addData[0]);
 							$addData = $addData[0];
-							
+
 							array_unshift($addData, 'OK');
 						}
 						else
@@ -646,27 +646,31 @@ class TS3webinterface
 				}
 					/*break;
 				}*/
-				
+
 				$vServerList = $this->server->r_serverlist();
 				if( !isset($vServerList[0]) )
 				{
 					$tmp = array($vServerList);
 					$vServerList = $tmp;
 				}
-				
+
+				$getPublicIp = $db->resultQuery("SELECT display_public_ip FROM OGP_DB_PREFIXremote_servers WHERE remote_server_id=".$_SESSION['rserver_id']);
+				$display_ip = checkDisplayPublicIP($getPublicIp[0]['display_public_ip'],$this->serverIP);
+
 				$this->template->assign('IP', $this->serverIP);
+				$this->template->assign('display_public_ip', $display_ip);
 				$this->template->assign('selectvServer', $vServerList);
 				$this->template->assign('addData', $addData);
-				
+
 				$updateAvailable = $this->checkForUpdate();
 				$this->template->assign('updateAvailable', $updateAvailable);
 				if( $updateAvailable != "" )
 				{
 					$this->template->display('updateAvailable.tpl');
 				}
-				
+
 				$this->template->display('selectvServer.tpl');
-				
+
 				$this->template->display('footer.tpl');
 			}
 			else
@@ -799,7 +803,6 @@ class TS3webinterface
 					
 					$this->template->assign('banList', $this->server->r_banlist());
 					
-					
 					$this->template->display('vServerLiveview.tpl');
 				}
 				else
@@ -841,6 +844,12 @@ class TS3webinterface
 					}
 					$this->template->assign('is_parent_user', $is_parent_user);
 					$this->template->assign('subusers_installed', $subusers_installed);
+
+	                                $getPublicIp = $db->resultQuery("SELECT display_public_ip FROM OGP_DB_PREFIXremote_servers WHERE remote_server_id=".$_SESSION['rserver_id']);
+        	                        $display_ip = checkDisplayPublicIP($getPublicIp[0]['display_public_ip'],$this->serverIP);
+
+					$this->template->assign('display_public_ip', $display_ip);
+
 					$this->template->assign('IP', $this->serverIP);
 					$this->template->display('vServerOverview.tpl');
 				}
