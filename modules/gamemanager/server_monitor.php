@@ -503,9 +503,8 @@ function exec_ogp_module() {
 				}else{
 					$query_ip = $server_home['ip'];
 				}
-				if(ip2long($server_home['display_public_ip'])){
-					$query_ip = $server_home['display_public_ip'];
-				}
+
+				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$query_ip);
 				$address = $query_ip . ":" . $server_home['port'];
 
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;
