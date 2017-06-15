@@ -1,11 +1,11 @@
 .collapsible.collapsed {
 	padding: 5px;
-	background: url('../../images/tablesorter_expand.png') no-repeat 3px 3px;
+	background: url('../../images/tablesorter_expand.png') no-repeat center center;
 	cursor: pointer;
 }
 
 .collapsible.expanded {
 	padding: 5px;
-	background: url('../../images/tablesorter_expand.png') no-repeat -24px 3px;
+	background: url('../../images/tablesorter_collapse.png') no-repeat center center;
 	cursor: pointer;
 }
