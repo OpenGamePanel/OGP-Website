@@ -201,10 +201,8 @@ function exec_ogp_module()
 		if( isset($_POST['home_id']) and !empty($_POST['home_id']) )
 		{
 			?>
-			<link href="js/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet">
-			<link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap/css/bootstrap-datetimepicker.min.css" >
-			<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-			<script type="text/javascript" src="js/bootstrap/plugins/datetimepicker.min.js"></script>
+			<link rel="stylesheet" type="text/css" href="js/datetimepicker/jquery.datetimepicker.min.css">
+			<script src="js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 			<script type="text/javascript" src="js/modules/user_games.js"></script>
 			<?php
 			if( $isAdmin )
@@ -225,8 +223,7 @@ function exec_ogp_module()
 				 "<tr><td class='right'>".get_lang('server_expiration_date').":</td>\n".
 				 "<td class='left'>".
 				 "<div id='datetimepicker' class='input-append date'>".
-				 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='X' data-today='".date('d/m/Y H:i:s')."' >\n".
-				 "<span class='add-on'><i data-time-icon='icon-time' data-date-icon='icon-calendar'></i></span>".
+				 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='X'>".
 				 "</div></td></tr>\n".
 				 "<tr><td  colspan='2' class='info'>". assign_expiration_date_info ."</td></tr>\n";
 			echo "<tr><td colspan='2'><input type='submit' name='assign' value='".get_lang('assign')."' /></td></tr>\n";

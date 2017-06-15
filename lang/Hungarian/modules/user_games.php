@@ -214,4 +214,6 @@ define('valid_user', "Kérlek, határozz meg egy érvényes felhasználót.");
 define('valid_group', "Kérlek, határozz meg egy érvényes csoportot.");
 define('set_affinity', "Szerver affinitás beállítása");
 define('cpu_affinity_info', "Válaszd ki azokat a CPU magokat, amelyeket hozzá akarod rendelni a játékszerverhez.");
+define('expiration_date_changed', "Expiration date for selected home has been changed.");
+define('expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
 ?>

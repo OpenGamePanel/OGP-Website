@@ -82,7 +82,7 @@ define('there_is_another_db_named_or_user_named', "There is another database nam
 define('db_added_for_home_id', "Added database for home ID <b>%s</b>.");
 define('could_not_remove_db', "A kiválasztott adatbázist nem lehet eltávolítani.");
 define('db_removed_successfully_from_mysql_server_named', "Az adatbázis eltávolítva a(z) %s szerverről.");
-define('areyousure_remove_mysql_server', "Are you sure that you want remove MySQL server named <b>%s</b>?");
+define('areyousure_remove_mysql_server', "Biztos, hogy el akarod távolítani a(z) <b>%s</b> nevű MySQL szervert?");
 define('db_changed_successfully', "A(z) %s nevű adatbázist sikeresen megváltoztattuk.");
 define('error_while_remove', "Hiba az eltávolítás közben.");
 define('mysql_server_removed', "A(z) <b>%s</b> nevű MySQL szerver eltávolítása sikeresen megtörtént.");

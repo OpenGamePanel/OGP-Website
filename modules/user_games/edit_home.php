@@ -43,7 +43,9 @@ function exec_ogp_module()
 	$home_info = $db->getGameHomeWithoutMods($home_id);
 	$home_id = $home_info['home_id'];
 	$enabled_mods = $db->getHomeMods($home_id);
-		
+
+	$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$home_info['agent_ip']);
+
 	if( $isAdmin and isset( $_POST['change_home_cfg_id'] ) )
 	{
 		if( !empty($enabled_mods) )
@@ -570,12 +572,24 @@ function exec_ogp_module()
 		}
 	}
 	?>
-	<link href="js/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap/css/bootstrap-datetimepicker.min.css" >
-	<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap/plugins/datetimepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="js/datetimepicker/jquery.datetimepicker.min.css"/>
+	<script src="js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 	<script type="text/javascript" src="js/modules/user_games.js"></script>
 	<?php
+	if($isAdmin){
+		$expiration_date = $home_info['server_expiration_date'] == "X" ? "X" : date('d/m/Y H:i:s', $home_info['server_expiration_date']);
+	?>
+	<script>
+	$(window).load(function(){
+		$('input[name="expiration_date"]').datetimepicker({
+			value: '<?php echo $expiration_date;?>',
+			format: 'd/m/Y H:i:s'
+		});
+	});
+	</script>
+	<?php
+	}
+
 	echo "<h2>". editing_home_called ." \"".htmlentities($home_info['home_name'])."\"</h2><div id='result' >";
 	if(isset($result))
 	{
@@ -731,13 +745,10 @@ function exec_ogp_module()
 		echo "<tr><td colspan='2' class='info'>". set_as_master_server_for_local_clon_update .
 			 " (".get_lang_f( 'only_available_for', $server_xml->game_name, $home_info['remote_server_name']).")</td></tr>";
 		// Expiration
-		$expiration_date = $home_info['server_expiration_date'] == "X" ? "X" : date('d/m/Y H:i:s', $home_info['server_expiration_date']);
 		echo "<tr><td class='right'>".get_lang('server_expiration_date').":</td>\n".
 			 "<td class='left'><form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>".
 			 "<div id='datetimepicker' class='input-append date'>".
-			 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='".$expiration_date.
-			 "' data-today='".date('d/m/Y H:i:s')."' >\n".
-			 "<span class='add-on'><i data-time-icon='icon-time' data-date-icon='icon-calendar'></i></span>".
+			 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='".$expiration_date."'>".
 			 "</div>".
 			 "<input type='submit' name='set_expiration_date' value='". set_expiration_date ."' />".
 			 "</form></td></tr>\n".
@@ -775,11 +786,11 @@ function exec_ogp_module()
 					{
 						if ( $db->addGameIpPort($home_id, $ip_id, $port) === FALSE )
 						{
-							print_failure(get_lang_f('ip_port_already_in_use', $ip, $port));
+							print_failure(get_lang_f('ip_port_already_in_use', $display_ip, $port));
 						}
 						else {
-							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
-							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
+							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $display_ip, $port, $home_id));
+							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $display_ip, $port, $home_id));
 						}
 					}
 				}
@@ -797,22 +808,23 @@ function exec_ogp_module()
 					else
 						print_failure("Failed to unassign ip:port.");
 				}
-								
+
 				echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n";
 				echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
 				echo  ip .":<select name='ip' onchange='this.form.submit();'>";
-				
+
 				foreach($avail_ips as $value)
 				{
+					$avail_display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$value['ip']);
 					$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
-					echo "<option value='".$value['ip_id']."' $selected >".$value['ip']."</option>\n";
+					echo "<option value='".$value['ip_id']."' $selected >".$avail_display_ip."</option>\n";
 				}
-				
+
 				echo "</select>";
 
 				$ip_id = isset($_POST['ip']) ? $_POST['ip'] : $avail_ips[0]['ip_id'];
 				$port = $db->getNextAvailablePort($ip_id,$home_info['home_cfg_id']);
-					
+
 				echo " ". port .":<input type='text' name='port' value='".$port."' size='6' />";
 				echo "<input type='submit' name='set_ip' value='". set_ip ."' />";
 				echo "</form>";
@@ -843,9 +855,10 @@ function exec_ogp_module()
 							$force_mod .= "</select>\n</form>\n</td>\n";
 							$align = "right";
 						}
-						echo "<table class='center'><tr><td align='$align'>".$assigned_rows['ip'].":".$assigned_rows['port'].
-							 " <a href='?m=user_games&amp;p=edit&amp;home_id=$home_id&amp;delete_ip&amp;ip=".
-							 $assigned_rows['ip_id']."&amp;port=".$assigned_rows['port'].
+						$assigned_ip = checkDisplayPublicIP($home_info['display_public_ip'],$assigned_rows['ip']);
+						echo "<table class='center'><tr><td align='$align'>".$assigned_ip.":".$assigned_rows['port'].
+							 " <a href='?m=user_games&p=edit&home_id=$home_id&delete_ip&ip=".
+							 $assigned_rows['ip_id']."&port=".$assigned_rows['port'].
 							 "'>[ ". delete ." ]</a></td>\n".
 							 $force_mod.
 							 "</tr>\n</table>\n";

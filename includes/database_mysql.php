@@ -977,7 +977,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 	// Server module functions
 	/// \brief Adds remote server to database.
-	public function addRemoteServer($rhost_ip,$rhost_name,$rhost_user_name,$rhost_port,$rhost_ftp_ip,$rhost_ftp_port,$encryption_key,$rhost_timeout,$use_nat)
+	public function addRemoteServer($rhost_ip,$rhost_name,$rhost_user_name,$rhost_port,$rhost_ftp_ip,$rhost_ftp_port,$encryption_key,$rhost_timeout,$use_nat,$display_public_ip)
 	{
 		$rhost_ip = trim($rhost_ip);
 		$rhost_port = trim($rhost_port);
@@ -987,6 +987,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$encryption_key = trim($encryption_key);
 		$rhost_timeout = trim($rhost_timeout);
 		$use_nat = trim($use_nat);
+		$display_public_ip = trim($display_public_ip);
 
 		if ( empty($rhost_ip) )
 			return false;
@@ -996,8 +997,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			return false;
 
 		$rhost_name = trim($rhost_name);
-		$query = sprintf("INSERT INTO `%sremote_servers` (`agent_ip`,remote_server_name,ogp_user,agent_port,ftp_ip,ftp_port,`encryption_key`,timeout,use_nat)
-			VALUES('%s','%s','%s','%d','%s','%s','%s','%s','%s');",
+		$query = sprintf("INSERT INTO `%sremote_servers` (`agent_ip`,remote_server_name,ogp_user,agent_port,ftp_ip,ftp_port,`encryption_key`,timeout,use_nat,display_public_ip)
+			VALUES('%s','%s','%s','%d','%s','%s','%s','%s','%s','%s');",
 				$this->table_prefix,
 				mysql_real_escape_string($rhost_ip,$this->link),
 				mysql_real_escape_string($rhost_name,$this->link),
@@ -1007,7 +1008,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 				mysql_real_escape_string($rhost_ftp_port,$this->link),
 				mysql_real_escape_string($encryption_key,$this->link),
 				mysql_real_escape_string($rhost_timeout,$this->link),
-				mysql_real_escape_string($use_nat,$this->link));
+				mysql_real_escape_string($use_nat,$this->link),
+				mysql_real_escape_string($display_public_ip,$this->link));
 		++$this->queries_;
 		mysql_query($query,$this->link);
 
@@ -1151,7 +1153,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 
 	public function changeRemoteServerSettings($server_id,
-		$agent_ip,$agent_port,$remote_server_name,$remote_server_user_name,$remote_host_ftp_ip,$remote_host_ftp_port,$encryption_key,$remote_timeout,$use_nat)
+		$agent_ip,$agent_port,$remote_server_name,$remote_server_user_name,$remote_host_ftp_ip,$remote_host_ftp_port,$encryption_key,$remote_timeout,$use_nat,$display_public_ip)
 	{
 		$query = sprintf("UPDATE %sremote_servers SET agent_ip='%s',
 			agent_port='%s', encryption_key='%s',
@@ -1160,7 +1162,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			ftp_ip='%s',
 			ftp_port='%s',
 			timeout='%s',
-			use_nat='%s'
+			use_nat='%s',
+			display_public_ip='%s'
 			WHERE remote_server_id = %d;",
 			$this->table_prefix,
 			mysql_real_escape_string($agent_ip, $this->link),
@@ -1172,6 +1175,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			mysql_real_escape_string($remote_host_ftp_port, $this->link),
 			mysql_real_escape_string($remote_timeout, $this->link),
 			mysql_real_escape_string($use_nat, $this->link),
+			mysql_real_escape_string($display_public_ip, $this->link),
 			mysql_real_escape_string($server_id, $this->link));
 		++$this->queries_;
 		if ( mysql_query($query, $this->link) === FALSE )
@@ -1465,7 +1469,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				%1$suser_homes.user_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
 				FROM %1$sremote_servers NATURAL JOIN %1$suser_homes
 				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_homes.user_id = %2$d ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+				WHERE %1$suser_homes.user_id = %2$d '.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').' ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else if ( $id_type == "group" )
 		{
@@ -1473,7 +1477,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				%1$suser_group_homes.user_group_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
 				FROM %1$sremote_servers NATURAL JOIN %1$suser_group_homes
 				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_group_homes.group_id = %2$d ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+				WHERE %1$suser_group_homes.group_id = %2$d '.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').' ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else if ( $id_type == "user_and_group" )
 		{

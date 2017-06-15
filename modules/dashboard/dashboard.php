@@ -139,10 +139,14 @@ function exec_ogp_module()
 				{
 					require_once("modules/config_games/server_config_parser.php");
 					$server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$server_home['home_cfg_file']);
-					if ( $server_home['use_nat'] == 1 )
+					if ( $server_home['use_nat'] == 1 ){
 						$ip = $server_home['agent_ip'];
-					else
+					}else{
 						$ip = $server_home['ip'];
+					}
+					if(ip2long($server_home['display_public_ip'])){
+						$ip = $server_home['display_public_ip'];
+					}
 					$port = $server_home['port'];
 					
 					if($server_xml->protocol == "lgsl")

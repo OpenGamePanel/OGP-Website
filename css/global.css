@@ -13,10 +13,6 @@
 	text-align: left;
 	text-align: initial;
 }
-/* Fixes date/time picker off screen issue */
-.bootstrap-datetimepicker-widget > ul{
-	padding: 0px;
-}
 
 span.versionInfo{
 	cursor: pointer;

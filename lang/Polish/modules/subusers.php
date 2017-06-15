@@ -60,5 +60,5 @@ define('del_subuser_conf', "Czy na pewno chcesz usunąć to konto:");
 define('no_subusers', "Brak subuser aby być przypisany do grupie. Proszę utworzyć konta subuser.");
 define('subuser_deleted', "Sub-User %s został usunięty z bazy danych!");
 define('subuser_added', "Sub-User %s został utworzony i dodano do bazy!");
-define('your_subusers', "Owned Sub-User Accounts");
+define('your_subusers', "Właściciel Kont Sub-Użytkownika ");
 ?>
