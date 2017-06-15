@@ -22,7 +22,7 @@
  *
  */
 
-define('lang_charset', "ISO");
+define('lang_charset', "UTF-8");
 define('already_logged_in_redirecting_to_dashboard', "تم تسجيل الدخول بالفعل ، إعادة توجيه إلى لوحة التحكم.");
 define('logging_in', "تسجيل الدخول");
 define('redirecting_in', "توجيه الى");
