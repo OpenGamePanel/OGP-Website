@@ -108,6 +108,6 @@
 		return this.addClass(settings.classCollapse).removeClass(settings.classExpand);
 	}
 	
-	var $self = $("#servermonitor tr.expandme td.collapsible").find('a:first');
+	var $self = $("#servermonitor tr.expandme td.collapsible");
 
 })(jQuery);

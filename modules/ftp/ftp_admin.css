@@ -1,7 +1,7 @@
 .collapsible {
 	width: 6px;
 }
-.collapsible a.collapsed {
+.collapsible.collapsed {
 	margin: 2px;
 	display: block;
 	width: 15px;
@@ -10,7 +10,7 @@
 	outline: 0;
 }
 
-.collapsible a.expanded {
+.collapsible.expanded {
 	margin: 2px;
 	display: block;
 	width: 15px;
