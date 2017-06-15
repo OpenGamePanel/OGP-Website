@@ -1,0 +1,45 @@
+<game_config>
+  <game_key>openttd_linux64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>openttd</lgsl_query_name>
+  <game_name>OpenTTD</game_name>
+  <server_exec_name>openttd</server_exec_name>
+  <cli_template>-D %IP%:%PORT% %SAVEGAME%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="" />
+    <cli_param id="PORT" cli_string="" />
+  </cli_params>
+  <max_user_amount>255</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>server_name=.*</default>
+      <var>server_name=</var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+    <text key="control_password">
+      <default>rcon_password=.*</default>
+      <var>rcon_password=</var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+    <text key="max_players">
+      <default>max_clients=.*</default>
+      <var>max_clients=</var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-g" type="select" id="SAVEGAME">
+      <option value="">No</option>
+      <option value="save/autosave/latest_autosave.sav">Yes</option>
+      <desc>If no, starts a new game. If yes, loads the latest autosaved game.</desc>
+    </param>
+  </server_params>
+  <pre_start>
+    find save/autosave -type f | sort -r | head -n1 | xargs -I &apos;{}&apos; cp -f &apos;{}&apos; save/autosave/ogp.sav
+  </pre_start>
+</game_config>
