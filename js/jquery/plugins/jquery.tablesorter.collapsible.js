@@ -59,6 +59,7 @@
 							$tr = $tr.find("td").hide().end().next();
 						}
 					});
+				$td.removeClass(settings.classCollapse).addClass(settings.classCollapse);
 			}
 
 			$("#servermonitor tr.expandme td.collapsible").each(function(){
