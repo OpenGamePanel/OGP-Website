@@ -24,8 +24,8 @@
 
 // Module general information
 $module_title = "Server manager";
-$module_version = "1.6";
-$db_version = 6;
+$module_version = "1.6.1";
+$db_version = 7;
 $module_required = TRUE;
 $module_menus = array(
 	array( 'subpage' => '', 'name'=>'Servers', 'group'=>'admin' )
@@ -86,5 +86,9 @@ $install_queries[5] = array(
 $install_queries[6] = array(
         "ALTER TABLE `OGP_DB_PREFIXremote_servers`
 	ADD `display_public_ip` varchar(15) NOT NULL;");
+
+$install_queries[7] = array(
+        "ALTER TABLE `OGP_DB_PREFIXremote_servers`
+        MODIFY `display_public_ip` varchar(255) NOT NULL;");
 
 ?>
