@@ -1395,10 +1395,32 @@ class OGPDatabaseMySQL extends OGPDatabase
 		}
 	}
 	
-	public function getHomesFor_count($id_type,$assign_id,$home_cfg_id){
+	public function getHomesFor_count($id_type,$assign_id,$home_cfg_id,$search_field){
 		if ( $id_type == "admin" )
 		{
-			return $this->resultQuery('SELECT COUNT(home_id) AS total FROM `'.$this->table_prefix.'server_homes`' . ($home_cfg_id ?' WHERE home_cfg_id = '.$home_cfg_id : ''));
+			return $this->resultQuery('SELECT COUNT(distinct(home_id)) AS total FROM `'.$this->table_prefix.'server_homes`
+			'.($search_field ? '
+			NATURAL JOIN `'.$this->table_prefix.'user_homes`
+			NATURAL JOIN `'.$this->table_prefix.'remote_servers` 
+ 			NATURAL JOIN `'.$this->table_prefix.'home_ip_ports`
+			' : '').'
+			'
+ 			.($home_cfg_id ?" WHERE home_cfg_id = '$home_cfg_id'
+ 			".($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
+ 								OR home_name = '$search_field' 
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR user_id = '$search_field'
+ 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR port = '$search_field'
+ 								" : '')." ": '
+ 			'.($search_field ?" WHERE home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
+ 								OR home_name = '$search_field' 
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR user_id = '$search_field'
+								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+								OR port = '$search_field'
+								" : '').'
+								'));
 		}
 		else if ( $id_type == "user_and_group" )
 		{
@@ -1411,7 +1433,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		
 	}
 	
-	public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id){
+	public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id,$search_field){
 	$gethome_page_forlimit = ($home_page - 1) * $home_limit;	
 		if ( $id_type == "admin" )
 		{
@@ -1436,6 +1458,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_mods.def_postcmd,
 								%1$sconfig_mods.mod_cfg_id
 						FROM %1$sserver_homes
+						'.($search_field ?'NATURAL JOIN `%1$suser_homes`':'').'
 						NATURAL JOIN %1$sremote_servers
 						NATURAL JOIN %1$sconfig_homes
 						LEFT JOIN %1$sgame_mods 
@@ -1450,8 +1473,33 @@ class OGPDatabaseMySQL extends OGPDatabase
 							FROM `%1$shome_ip_ports`
 							WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 						)
-						'.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').'
-						OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+						
+						'.($home_cfg_id ? '
+						AND %1$sserver_homes.home_cfg_id = \''.$home_cfg_id.'\'
+						
+						'.($search_field ?'
+						
+						AND %1$sserver_homes.home_id = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR home_name = \''.$search_field.'\'
+						OR port = \''.$search_field.'\'
+						' : '').'
+						'
+						: 
+						'
+						'.($search_field ?'
+						AND %1$sserver_homes.home_id = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR home_name = \''.$search_field.'\'
+						OR port = \''.$search_field.'\'
+						' : '').'
+						').' OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 						
 			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d;';
 			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
