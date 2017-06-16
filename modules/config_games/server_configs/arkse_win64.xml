@@ -145,10 +145,10 @@
       else
         echo "File $maplist not found."
         echo "Generating new maplist file in $maplist!"
-        touch maplist.txt
-        echo ScorchedEarth_P> maplist.txt
-        echo TheCenter>> maplist.txt
-        echo TheIsland>> maplist.txt
+        touch $maplist
+        echo ScorchedEarth_P> $maplist
+        echo TheCenter>> $maplist
+        echo TheIsland>> $maplist
     fi
   </post_install>
 </game_config>
