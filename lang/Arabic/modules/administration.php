@@ -35,7 +35,7 @@ define('change_buttons_order', "تغير ترتيب الأزرار");
 define('when', "تاريخ/وقت");
 define('who', "إسم مستخدم");
 define('where', "عنوان ip");
-define('what', "Action");
+define('what', "عمل");
 define('search', "بحث");
 define('empty_logger', "سجل فارغ");
 define('ban_list', "قائمة الحظر");

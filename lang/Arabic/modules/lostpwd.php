@@ -22,22 +22,22 @@
  *
  */
 
-define('recover', "Recover a forgotten password");
-define('back', "Back");
-define('incomplete', "Please go back and complete all the fields in the form.");
-define('subject', "Password request");
-define('password_message', "Hello,<br><br>Your password has been successfully reseted.<br><br>New Password: %s<br><br>Remember to change your password often.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
-define('send', "Your password has been sent! Please check your email!");
-define('here', "Here");
-define('to_login', "to login");
-define('errormail', "Your email address is not correct.");
-define('submit', "Submit");
-define('click', "Click");
-define('mail_settings_missing', "Panel mail settings are not complete so it can not send your password. Contact your OGP admin.");
-define('mail_failed', "Failed to send email.");
-define('email', "Email");
-define('enter_email', "Please enter your email address");
-define('webmaster', "Webmaster");
+define('recover', "استرداد كلمة مرور منسية");
+define('back', "رجوع");
+define('incomplete', "يرجى العودة وإكمال كافة الحقول في النموذج.");
+define('subject', "طلب كلمة مرور");
+define('password_message', "مرحبا <br> <br> تمت إعادة تعيين كلمة المرور بنجاح.<br> <br>كلمة السر الجديدة: %s <br> <br> تذكر تغيير كلمة المرور الخاصة بك في كثير من الأحيان.<br> <br>رجاءا لا ترد على هذا الأيميل!<br> <br>______________________________<br> OGP Mailer");
+define('send', "تم إرسال كلمة المرور الخاصة بك! الرجاء التحقق من البريد الإلكتروني الخاص بك!");
+define('here', "هنا");
+define('to_login', "لتسجيل الدخول");
+define('errormail', "عنوان البريد الإلكتروني الخاص بك غير صحيح.");
+define('submit', "إرسال");
+define('click', "انقر");
+define('mail_settings_missing', "إعدادات البريد الخاصة باللوحة غير كاملة بحيث لا يمكن إرسال كلمة المرور. اتصل بمشرف OGP.");
+define('mail_failed', "أخفق إرسال البريد الإلكتروني.");
+define('email', "البريد الإلكتروني");
+define('enter_email', "الرجاء إدخال عنوان البريد الإلكتروني الخاص بك");
+define('webmaster', "المسؤول عن الموقع");
 define('confirm_send', "For security reasons we have sent you a confirmation link before you restart your password.<br><b style='color:red;'>Please check your inbox.</b>");
 define('confirm_change_subject', "Password reset, confirmation email");
 define('confirm_change_password_message', "Hello,<br><br>Please click on the link below to reset your password:<br><br>%s<br><br>Note: If you do not have requested the reset of your password, you can ignore this email.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
