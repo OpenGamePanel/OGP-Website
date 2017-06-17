@@ -17,18 +17,23 @@
   </mods>
   <replace_texts>
     <text key="home_name">
-      <default>server_name=.*</default>
-      <var>server_name=</var>
-      <filepath>openttd.cfg</filepath>
-    </text>
-    <text key="control_password">
-      <default>rcon_password=.*</default>
-      <var>rcon_password=</var>
+      <default>server_name = .*</default>
+      <var>server_name = </var>
       <filepath>openttd.cfg</filepath>
     </text>
     <text key="max_players">
-      <default>max_clients=.*</default>
-      <var>max_clients=</var>
+      <default>max_clients = .*</default>
+      <var>max_clients = </var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+    <text key="control_password">
+      <default>rcon_password = .*</default>
+      <var>rcon_password = </var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+    <text key="control_password">
+      <default>admin_password = .*</default>
+      <var>admin_password = </var>
       <filepath>openttd.cfg</filepath>
     </text>
   </replace_texts>
@@ -39,6 +44,15 @@
       <desc>If no, starts a new game. If yes, loads the latest autosaved game.</desc>
     </param>
   </server_params>
+  <custom_fields>
+    <field key="Server Admin Port" type="text">
+      <default>server_admin_port = .*</default>
+      <default_value>3977</default_value>
+      <var>server_admin_port = </var>
+      <filepath>openttd.cfg</filepath>
+      <desc>The port the admin interface of an OpenTTD server is listening on.</desc>
+    </field>
+  </custom_fields>
   <pre_start>
     find save/autosave -type f | sort -r | head -n1 | xargs -I &apos;{}&apos; cp -f &apos;{}&apos; save/autosave/latest_autosave.sav
   </pre_start>

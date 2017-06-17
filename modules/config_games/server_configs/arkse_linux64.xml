@@ -118,7 +118,7 @@
     </param>
   </server_params>
   <custom_fields>
-    <field key="RCONEnabled" type="select">
+    <field key="Enable RCON" type="select">
       <option value="True">Yes</option>
       <option value="False">No</option>
       <default>RCONEnabled=.*</default>
@@ -128,7 +128,7 @@
       <options>sq</options>
       <desc>Enable or disable remote control.</desc>
     </field>
-    <field key="RCONPort" type="text">
+    <field key="RCON Port" type="text">
       <default>RCONPort=.*</default>
       <default_value>27020</default_value>
       <var>RCONPort=</var>
