@@ -1,0 +1,73 @@
+<game_config>
+  <game_key>egs_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>source</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Empyrion – Galactic Survival</game_name>
+  <server_exec_name>EmpyrionLauncher.exe</server_exec_name>
+  <cli_template>-startDedi</cli_template>
+  <console_log>Logs/Dedicated.log</console_log>
+  <max_user_amount>12</max_user_amount>
+  <mods>
+    <mod key="egs1">
+      <name>Stable</name>
+      <installer_name>530870</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+    <mod key="egs2">
+      <name>Experimental</name>
+      <installer_name>530870</installer_name>
+      <installer_login>anonymous</installer_login>
+      <betaname>experimental</betaname>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>Srv_Name: .*</default>
+      <var>Srv_Name: </var>
+      <filepath>dedicated.yaml</filepath>
+    </text>
+    <text key="port">
+      <default>Srv_Port: .*</default>
+      <var>Srv_Port: </var>
+      <filepath>dedicated.yaml</filepath>
+    </text>
+    <text key="max_players">
+      <default>Srv_MaxPlayers: .*</default>
+      <var>Srv_MaxPlayers: </var>
+      <filepath>dedicated.yaml</filepath>
+    </text>
+    <text key="control_password">
+      <default>Tel_Pwd: .*</default>
+      <var>Tel_Pwd: </var>
+      <filepath>dedicated.yaml</filepath>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Enable Telnet" type="select">
+      <option value="true">True</option>
+      <option value="false">False</option>
+      <default>Tel_Enabled: .*</default>
+      <default_value>true</default_value>
+      <var>Tel_Enabled: </var>
+      <filepath>dedicated.yaml</filepath>
+      <desc>Activate Telnet server.</desc>
+    </field>
+    <field key="Telnet Port" type="text">
+      <default>Tel_Port: .*</default>
+      <default_value>30004</default_value>
+      <var>Tel_Port: </var>
+      <filepath>dedicated.yaml</filepath>
+      <desc>Port of Telnet.</desc>
+    </field>
+    <field key="Activate EAC" type="select">
+      <option value="true">True</option>
+      <option value="false">False</option>
+      <default>EACActive: .*</default>
+      <default_value>false</default_value>
+      <var>EACActive: </var>
+      <filepath>dedicated.yaml</filepath>
+      <desc>Activate Easy Anti Cheat.</desc>
+    </field>
+  </custom_fields>
+</game_config>
