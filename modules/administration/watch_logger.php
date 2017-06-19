@@ -30,9 +30,12 @@ function exec_ogp_module() {
 	<table style="width: 100%;">
 		<tr>
 			<td style="width: 50%; vertical-align: middle; text-align: left;">
-				<form onsubmit="event.preventDefault();" style="display: inline;">
+				<form action="home.php" method="GET" style="display: inline;">
 					<b><?php print_lang('search'); ?>:</b>
-					<input type="text" id="search">
+					<input type ="hidden" name="m" value="administration" />
+					<input type ="hidden" name="p" value="watch_logger" />
+					<input name="search" type="text" id="search">
+					<input type="submit" value="search" />
 				</form>
 				<form method=POST style="display: inline;">
 					<input type="submit" name="empty_logger" value="<?php print_lang('empty_logger'); ?>" >
@@ -62,6 +65,7 @@ function exec_ogp_module() {
 	if( isset( $_POST['empty_logger'] ) )
 		$db->empty_logger();
 	
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
 	$p = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
 	$l = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
 	
@@ -69,7 +73,7 @@ function exec_ogp_module() {
 		$l = $loggedInUserInfo["users_page_limit"];
 	}
 	
-	$logs = $db->read_logger($p,$l);
+	$logs = $db->read_logger($p,$l,$search_field);
 	
 	if($logs)
 	{
@@ -115,9 +119,14 @@ function exec_ogp_module() {
 	echo "</tbody>\n";
 	echo "<tfoot style='border:1px solid grey;'></tfoot>\n";
 	echo "</table>\n";
-	$count_logs = $db->get_logger_count();
-
+	$count_logs = $db->get_logger_count($search_field);
+	
+	if(isset($_GET['search']) && !empty($_GET['search'])){
+	$uri = '?m=administration&p=watch_logger&search='.$_GET['search'].'&limit='.$l.'&page=';
+	}
+	else{
 	$uri = '?m=administration&p=watch_logger&limit='.$l.'&page=';
+	}
 	echo paginationPages($count_logs[0]['total'], $p, $l, $uri, 3, 'watchLogger');
 }
 ?>
