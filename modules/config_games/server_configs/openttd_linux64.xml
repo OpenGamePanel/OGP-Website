@@ -54,6 +54,6 @@
     </field>
   </custom_fields>
   <pre_start>
-    find save/autosave -type f | sort -r | head -n1 | xargs -I &apos;{}&apos; cp -f &apos;{}&apos; save/autosave/latest_autosave.sav
+    ls -t save/autosave | head -n1 | xargs -I {} cp save/autosave/{} save/autosave/latest_autosave.sav
   </pre_start>
 </game_config>
