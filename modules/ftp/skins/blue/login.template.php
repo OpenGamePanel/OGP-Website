@@ -33,7 +33,7 @@ foreach($user_homes as $ftp_info)
 		$ftp_login = isset($ftp_info['ftp_login']) ? $ftp_info['ftp_login'] : $ftp_info['home_id'];
 		$isFtpEnabled = $ftp_info['ftp_status'] == 1 ? TRUE : FALSE;
 		$ftp_ip = empty($ftp_info['ftp_ip']) ? $ftp_info['agent_ip'] : $ftp_info['ftp_ip'];
-		$display_ip = ip2long($ftp_info['display_public_ip']) && $ftp_info['display_public_ip']!=$ftp_info['agent_ip'] ? $ftp_info['display_public_ip'] : $ftp_ip;
+		$display_ip = checkDisplayPublicIP($ftp_info['display_public_ip'],$ftp_ip);
 
 		?><table style="text-align:center;width:100%;border:1px solid black;background-image:url(../../themes/Revolution/images/wrapper-bg.png);">
 			<tr>
