@@ -1,5 +1,5 @@
 <game_config>
-  <game_key>openttd_linux64</game_key>
+  <game_key>openttd_linux32</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>openttd</lgsl_query_name>
   <game_name>OpenTTD</game_name>
