@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -134,5 +134,6 @@ define('firewall_status', "Tűzfal állapota");
 define('save_firewall_settings', "Tűzfal beállítások mentése");
 define('reset_firewall', "Tűzfal visszaállítása");
 define('firewall_settings', "Tűzfal beállítások");
-define('default_public_ip', "Alapértelmezett publikus IP");
+define('default_public_ip', "Alapértelmezett nyilvános IP");
+define('display_public_ip', "Nyilvános IP megjelenítése");
 ?>

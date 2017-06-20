@@ -38,7 +38,7 @@ define('mail_failed', "أخفق إرسال البريد الإلكتروني.");
 define('email', "البريد الإلكتروني");
 define('enter_email', "الرجاء إدخال عنوان البريد الإلكتروني الخاص بك");
 define('webmaster', "المسؤول عن الموقع");
-define('confirm_send', "For security reasons we have sent you a confirmation link before you restart your password.<br><b style='color:red;'>Please check your inbox.</b>");
-define('confirm_change_subject', "Password reset, confirmation email");
-define('confirm_change_password_message', "Hello,<br><br>Please click on the link below to reset your password:<br><br>%s<br><br>Note: If you do not have requested the reset of your password, you can ignore this email.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('confirm_send', "لأسباب أمنية، أرسلنا لك رابط تأكيد قبل إعادة تشغيل كلمة المرور.<br><b style='color:red;'>يرجى التحقق من البريد الوارد الخاص بك.</b>");
+define('confirm_change_subject', "إعادة تعيين كلمة المرور، تأكيد البريد الإلكتروني");
+define('confirm_change_password_message', "مرحبا،<br><br>يرجى النقر على الرابط أدناه لإعادة تعيين كلمة المرور:<br><br>%s<br><br>ملاحظة: إذا لم تكن قد طلبت إعادة تعيين كلمة المرور، فيمكنك تجاهل هذه الرسالة الإلكترونية.<br><br>رجاءا لا ترد على هذا الأيميل!<br><br>______________________________<br>OGP Mailer");
 ?>
