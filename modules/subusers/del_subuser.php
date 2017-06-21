@@ -1,9 +1,8 @@
 <?php
-
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,7 +20,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
-*/
+ */
 
 //Open Game Panel Sub User Add On By
 //  own3mall
