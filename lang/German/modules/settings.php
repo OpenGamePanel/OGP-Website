@@ -29,7 +29,7 @@ define('maintenance_title_info', "Der Titel, der während der Wartung für norma
 define('maintenance_message', "Wartungsmodus Nachricht");
 define('maintenance_message_info', "Die Meldung, die normale Benutzer während der Wartung angezeigt wird.");
 define('update_settings', "Einstellungen speichern");
-define('settings_updated', "Settings successfully updated.");
+define('settings_updated', "Einstellungen erfolgreich aktualisiert.");
 define('panel_language', "Panel Sprache");
 define('panel_language_info', "This language is the default language of the panel. Users can change their own language from their profile editing page.");
 define('page_auto_refresh', "Page Auto Refresh");
@@ -43,13 +43,13 @@ define('panel_name_info', "Name of the panel that is shown in the page title. Th
 define('feed_enable', "LGSL Feed aktivieren");
 define('feed_enable_info', "Wenn Ihr Webhost eine Firewall hat, die den query port blockiert müssen Sie ihn aktivieren.");
 define('feed_url', "Feed URL ");
-define('feed_url_info', "GrayCube.com is sharing a LGSL feed on the URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
+define('feed_url_info', "GrayCube.com teilt einen LGSL-Feed auf der URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Zeichenkodierung");
-define('charset_info', "UTF8, ISO, ASCII, etc... Leave it blank to use ISO encoding.");
+define('charset_info', "UTF8, ISO, ASCII, usw... Lassen Sie es leer, um ISO-Enkodierung zu verwenden.");
 define('steam_user', "Steam Nutzer");
 define('steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('steam_pass', "Steam Passwort");
-define('steam_pass_info', "Set here the steam account password.");
+define('steam_pass_info', "Legen Sie hier das Kennwort für das Steam-Account fest.");
 define('steam_guard', "Steam Guard");
 define('steam_guard_info', "Some users have steam guard activated to protect their accounts from hackers,<br>this code is sent to the account email when the first steam update is started.");
 define('smtp_port', "SMTP Port");
@@ -57,7 +57,7 @@ define('smtp_port_info', "If SMTP port is not the default port (25) Enter the SM
 define('smtp_login', "SMTP Nutzer");
 define('smtp_login_info', "If your SMTP server requires authentication, enter your user name here.");
 define('smtp_passw', "SMTP Passwort");
-define('smtp_passw_info', "If you do not set a password the SMTP authentication will be disabled.");
+define('smtp_passw_info', "Wenn Sie kein Passwort setzen, wird die SMTP-Authentifizierung deaktiviert.");
 define('smtp_secure', "SMTP Sicherheit");
 define('smtp_secure_info', "Verwenden Sie SSL/TLS, um eine Verbindung zum SMTP Server herzustellen");
 define('time_zone', "Zeitzone");
@@ -128,4 +128,6 @@ define('custom_tab_target_blank', "Custom Tabs Target");
 define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>('_self' = Opens link on same page. '_blank'  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Wrapper Hintergrund");
 define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
+define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");
+define('show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
 ?>

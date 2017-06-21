@@ -1,6 +1,7 @@
 $(document).ready(function(){
     wireClicks();
     animateProgressBars();
+    toggleEvents();
 });
 
 function wireClicks(){
@@ -11,6 +12,26 @@ function wireClicks(){
 	$(".getAutoUpdateLink").click(function(e){
 		showSteamUpdateLink($(this));
 	});
+	
+	$(".serverIdToggle").click(function(e){
+		showHideServerIDShow($(this));
+	});
+}
+
+function showHideServerIDShow(linkElem){
+	if($(".serverId:visible").length){
+		$(".serverId").removeClass('hide').addClass('hide');
+		$(linkElem).text($(linkElem).attr('showtext'));
+		$("tr.expand-child").each(function(e){
+			$("td:first", $(this)).attr('colspan', Number($("td:first", $(this)).attr('colspan')) - 1);
+		}); 
+	}else{
+		$(".serverId").removeClass('hide');
+		$(linkElem).text($(linkElem).attr('hidetext'));
+		$("tr.expand-child").each(function(e){
+			$("td:first", $(this)).attr('colspan', Number($("td:first", $(this)).attr('colspan')) + 1);
+		}); 
+	}
 }
 
 function animateProgressBars(){
@@ -145,4 +166,20 @@ function hideVLength(){
 
 function showVLength(){
 	$("span.versionNumberCopyLengthener").removeClass("hide");
+}
+
+function toggleEvents(){
+	// Toggle show server id if setting is enabled and the markup is on the page.
+	if($("p.serverIdToggle").length){
+		$("p.serverIdToggle").trigger("click");
+	}
+	
+	$(".tablesorter").tablesorter({
+		cssHeader: "header",
+		cssAsc: "headerSortUp",
+		cssDesc: "headerSortDown",
+		cssChildRow: "expand-child",
+		sortInitialOrder: "asc",
+		sortMultiSortKey: "shiftKey",
+	});
 }

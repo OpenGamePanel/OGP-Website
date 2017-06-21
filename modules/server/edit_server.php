@@ -119,7 +119,8 @@ function exec_ogp_module() {
 			$_REQUEST['remote_host_ftp_port'],
             $_REQUEST['remote_encryption_key'],
 			$_REQUEST['timeout'],
-			$_REQUEST['use_nat']);
+			$_REQUEST['use_nat'],
+			$_REQUEST['display_public_ip']);
         print_success(get_lang_f('remote_server_settings_changed',$remote_server['remote_server_name']));
         $view->refresh("?m=server&amp;p=edit&amp;rhost_id=".$rhost_id."&amp;edit");
     }
@@ -127,6 +128,7 @@ function exec_ogp_module() {
     {
 		$remote_server = $db->getRemoteServer($rhost_id);
 		$ftp_ip = empty($remote_server['ftp_ip']) ? $remote_server['agent_ip'] : $remote_server['ftp_ip'];
+		$dp_ip = empty($remote_server['display_public_ip']) ? $remote_server['agent_ip'] : $remote_server['display_public_ip'];
         require_once('includes/form_table_class.php');
         $ft = new FormTable();
         $ft->start_form('?m=server&amp;p=edit&amp;rhost_id='.$rhost_id.'&amp;edit');
@@ -141,6 +143,7 @@ function exec_ogp_module() {
         $ft->add_field('string','remote_encryption_key',$remote_server['encryption_key']);
 		$ft->add_field('string','timeout',$remote_server['timeout']);
 		$ft->add_field('on_off','use_nat',$remote_server['use_nat']);
+		$ft->add_field('string','display_public_ip',$dp_ip);
         $ft->end_table();
         $ft->add_button('submit','save_settings', save_settings );
         $ft->end_form();

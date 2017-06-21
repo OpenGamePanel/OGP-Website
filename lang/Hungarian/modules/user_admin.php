@@ -57,7 +57,7 @@ define('edit_profile', "Profil szerkesztése");
 define('confirm_password', "Jelszó megerősítése");
 define('you_need_to_enter_both_passwords', "Meg kell adnod mindkét jelszót.");
 define('passwords_did_not_match', "A jelszavak nem egyeznek.");
-define('could_not_add_user_because_user_already_exists', "Could not add user, because user <em>%s</em> already exists.");
+define('could_not_add_user_because_user_already_exists', "Nem tudta hozzáadni a felhasználót, mert a(z) <em>%s</em> felhasználó már létezik.");
 define('successfully_added_user', "A(z) <em>%s</em> felhasználó sikeresen hozzáadva.");
 define('add_a_new_user', "Új felhasználó hozzáadása");
 define('admin', "Adminisztrátor");
@@ -67,7 +67,7 @@ define('are_you_sure_you_want_to_delete_user', "Biztosan törölni akarod a(z) <
 define('unable_to_delete_user', "Nem sikerült törölni a(z) %s felhasználót.");
 define('successfully_deleted_user', "A(z) <b>%s</b> felhasználó sikeresen törölve.");
 define('failed_to_update_user_profile_error', "Nem sikerült frissíteni a felhasználói profilt. Hiba: %s");
-define('profile_of_user_modified_successfully', "Profile of user <b>%s</b> was modified successfully.");
+define('profile_of_user_modified_successfully', "A(z) <b>%s</b> felhasználó profilja sikeresen módosítva.");
 define('no_subusers', "No subusers are available to be assigned to a group. Please create subuser accounts.");
 define('ownedby', "Szülő tulajdonos");
 define('andSubUsers', "És az összes al-felhasználóját?");

@@ -35,6 +35,6 @@ define('storage_total', "Festplattenspeicher");
 define('storage_used', "Verwendet");
 define('storage_free', "Freier Speicher");
 define('process_monitor', "Prozessmonitor");
-define('status_extension_required', "Extension Required");
-define('gd_info', "PHP Extension <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> is required to generate these bar images!");
+define('status_extension_required', "Erweiterungen erforderlich ");
+define('gd_info', "PHP Erweiterung <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> wird benötigt, um diese Balkenbilder zu erzeugen!");
 ?>

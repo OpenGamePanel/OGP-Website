@@ -85,6 +85,7 @@ define('current_map', "Current Map");
 define('stop_server', "Stop Server");
 define('server_ip_port', "Server IP:Port");
 define('server_name', "Server Name");
+define('server_id', "Server ID");
 define('player_name', "Player Name");
 define('score', "Score");
 define('time', "Time");
@@ -195,5 +196,6 @@ define('get_steam_autoupdate_api_link', "Auto Update Link");
 define('update_attempt_from_nonmaster_server', "User %s attempted to update home_id %d from a non-master server. (Home ID: %d)");
 define('attempting_nonmaster_update', "You are attempting to update this server from a non-master server.");
 define('cannot_update_from_own_self', "Local Server Update may not run on a master server.");
-
+define('show_server_id', "Show Server IDs");
+define('hide_server_id', "Hide Server IDs");
 ?>

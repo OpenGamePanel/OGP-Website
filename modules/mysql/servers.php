@@ -1,4 +1,3 @@
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
 	$( "#privilegies" ).change(function() {
@@ -166,7 +165,7 @@ function exec_ogp_module() {
 	?><table id="servermonitor" class="tablesorter remote">
 		<thead> 
 		<tr> 
-			<th colspan="4" ><?php print_lang('configured_mysql_hosts'); ?></th> 
+			<th colspan="4" class="sorter-false"><?php print_lang('configured_mysql_hosts'); ?></th> 
 		</tr> 
 		</thead> 
 		<tbody> <?php

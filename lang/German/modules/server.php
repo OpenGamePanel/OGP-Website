@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -41,27 +41,27 @@ define('ips', "IPs");
 define('add_more_ips', "Wenn Sie mehr als eine IP eingeben möchten drücken Sie bitte 'IPs setzen', wenn alle Felder ausgefüllt sind.  Ein neues Feld wird erscheinen.");
 define('encryption_key_mismatch', "Der Verschlüsselungsschlüssel stimmt nicht mit dem Agenten überein. Bitte überprüfen Sie die Agentenkonfiguration.
 ");
-define('no_ip_for_remote_host', "You need to add at least one (1) IP address for each remote host.");
+define('no_ip_for_remote_host', "Sie müssen mindestens eine (1) IP Adresse für jeden Remotehost hinzufügen.");
 define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
 define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
 define('unknown_error', "Unknown error - status_chk returned");
 define('remote_host_user_name', "UNIX Benutzer");
-define('remote_host_user_name_info', "Username where the Agent is running. Example: Jonhy");
+define('remote_host_user_name_info', "Benutzername, in dem der Agent läuft. Beispiel: Jonhy");
 define('remote_host_ftp_ip', "FTP IP");
-define('remote_host_ftp_ip_info', "The FTP server <b>IP</b> for the current agent.");
+define('remote_host_ftp_ip_info', "Die FTP-Server <b>IP</b> für den aktuellen Agent.");
 define('remote_host_ftp_port', "FTP port");
 define('remote_host_ftp_port_info', "The FTP server <b>port</b> for the current agent.");
-define('view_log', "View log");
+define('view_log', "Protokoll anzeigen");
 define('status', "Status");
 define('stop_firewall', "Firewall anhalten");
 define('start_firewall', "Firewall starten");
 define('seconds', "Sekunden");
 define('reboot', "Remote Server Reboot");
-define('restart', "Restart Agent");
+define('restart', "Agent neu starten");
 define('confirm_reboot', "Are you sure you want to remotely reboot the entire physical server named '%s'?");
 define('confirm_restart', "Are you sure you want to restart the agent named '%s'?");
-define('restarting', "Restarting agent... Please wait.");
-define('restarted', "Agent successfully restarted.");
+define('restarting', "Agent wird neu gestartet... Bitte warten.");
+define('restarted', "Agent wurde erfolgreich neu gestartet.");
 define('reboot_success', "Server named '%s' was successfully rebooted. You will not be able to access the server until it has successfully booted.");
 define('invalid_remote_host_id', "Invalid remote host id '%s' given.");
 define('remote_host_removed', "Remote host called '%s' removed successfully.");
@@ -135,4 +135,6 @@ define('firewall_status', "Firewall status");
 define('save_firewall_settings', "Save firewall settings");
 define('reset_firewall', "Reset Firewall");
 define('firewall_settings', "Firewall Settings");
+define('default_public_ip', "Default Public IP");
+define('display_public_ip', "Display Public IP");
 ?>

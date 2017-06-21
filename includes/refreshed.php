@@ -80,7 +80,7 @@ class refreshed
 					$isUndefined = " && typeof collapsible !== 'undefined'";
 				}
 				$switch .= "if( pos == $i && status == 'online' )\n{\n".
-								"if(collapsible == 'expanded'$isUndefined){\n".
+								"if(collapsible.match('expanded')$isUndefined){\n".
 									$stopRefresh.
 								"}\nelse\n{\n".
 									$load.
@@ -91,7 +91,7 @@ class refreshed
 			return	"$.ajaxSetup({ cache: false });\n".
 					$start_expanded.
 					"$('.collapsible').click(function(){\n".
-						"var collapsible = $(this).find('a').attr('class');\n".
+						"var collapsible = $(this).attr('class');\n".
 						"var pos = $(this).attr('data-pos');\n".
 						"var status = $(this).attr('data-status');\n".
 						$switch.

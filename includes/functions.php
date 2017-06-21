@@ -226,6 +226,8 @@ function create_home_selector_address($module, $subpage, $server_homes, $extra_i
 					$home_id, SORT_DESC, $server_homes);
 	foreach ( $server_homes as $server_home )
 	{
+		$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip']);
+
 		if(isset($_GET['home_id-mod_id-ip-port']) and 
 		   $get_home_id == $server_home['home_id'] and 
 		   $get_mod_id == $server_home['mod_id'] and 
@@ -237,7 +239,7 @@ function create_home_selector_address($module, $subpage, $server_homes, $extra_i
 		echo "<option value='". $server_home['home_id'] .
 			 "-" . $server_home['mod_id'] . "-" . $server_home['ip'] . 
 			 "-" . $server_home['port'] . "' $selected >" . 
-			 htmlentities($server_home['home_name']) . " - " . $server_home['ip'] .
+			 htmlentities($server_home['home_name']) . " - " . $display_ip .
 			 ":" . $server_home['port'] . "</option>\n";
 	}
 	echo "</select>\n";
@@ -705,4 +707,44 @@ function paginationPages($pageResults, $currentPage, $perPage, $pageUri, $pagesS
 
 }
 
+function checkDisplayPublicIP($display_public_ip,$internal_ip){
+
+	// Set Cache Timer in Seconds
+	$cache_timer = 600;
+
+	if(!isset($_SESSION['gethostbyname_cache'])){
+		$_SESSION['gethostbyname_cache'] = array();
+	}
+
+	if(filter_var($display_public_ip, FILTER_VALIDATE_IP) && $display_public_ip!=$internal_ip){
+		return $display_public_ip;
+	}else{
+		if(!array_key_exists($display_public_ip, $_SESSION['gethostbyname_cache'])){
+			$_SESSION['gethostbyname_cache'][$display_public_ip] = array();
+			$ipcheck = gethostbyname($display_public_ip);
+			if($ipcheck!=$display_public_ip){
+				$_SESSION['gethostbyname_cache'][$display_public_ip]['ip'] = $ipcheck;
+				$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'] = time();
+			}else{
+				unset($_SESSION['gethostbyname_cache'][$display_public_ip]);
+				return $internal_ip;
+			}
+		}else{
+			if((time()-$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'])>=$cache_timer){
+				$ipcheck = gethostbyname($display_public_ip);
+				if($ipcheck!=$display_public_ip){
+					$_SESSION['gethostbyname_cache'][$display_public_ip]['ip'] = $ipcheck;
+					$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'] = time();
+				}else{
+					unset($_SESSION['gethostbyname_cache'][$display_public_ip]);
+					return $internal_ip;
+				}
+			}
+		}
+		if(filter_var($_SESSION['gethostbyname_cache'][$display_public_ip]['ip'], FILTER_VALIDATE_IP)){
+			return $_SESSION['gethostbyname_cache'][$display_public_ip]['ip'];
+		}
+	}
+	return $internal_ip;
+}
 ?>

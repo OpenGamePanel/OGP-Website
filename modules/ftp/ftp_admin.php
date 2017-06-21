@@ -1,5 +1,3 @@
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.mod.js"></script>
 <script type="text/javascript" src="js/modules/ftp.js"></script>
 <?php
 /*
@@ -65,19 +63,19 @@ function exec_ogp_module()
 			$remote->ftp_mgr("useradd", $post_ftp_login, $post_ftp_password, $post_full_path);
 		}
 	}
-	
+
 	if(isset($_POST['del_ftp_user_y']))
 	{
 		$ftp_login = strip_real_escape_string($_POST['ftp_login']);
 		$server_row = $db->getRemoteServer($_POST['remote_server_id']);
 		$remote = new OGPRemoteLibrary($server_row['agent_ip'],$server_row['agent_port'],$server_row['encryption_key'],$server_row['timeout']);
-				
+
 		$remote->ftp_mgr("userdel", $ftp_login);
-		
+
 		$home_info = $db->getHomeByFtpLogin($server_row['remote_server_id'], $ftp_login);
 		$db->changeFtpStatus('disabled',$home_info['home_id']);
 	}
-		
+
 	if(isset($_POST['edit_ftp_user']))
 	{
 		$server_row = $db->getRemoteServer($_POST['remote_server_id']);
@@ -100,17 +98,16 @@ function exec_ogp_module()
 	$servers = $db->getRemoteServers();
 
 	if ($servers !== false) {
-		
 		echo "<tr><td colspan='3' >
 			<form method=POST >
 			<table class='center' style='width:100%' ><tr>
 			<td>". remote_server ." <select style='width:250px' name='remote_server_id' >";
-			
+
 		foreach ( $servers as $server_row )
 		{
-			echo "<option value='" . $server_row['remote_server_id'] . "' >" . $server_row['remote_server_name'] . " (" . $server_row['agent_ip'] . ":" . $server_row['agent_port'] . ")</option>";
+			$display_ip = checkDisplayPublicIP($server_row['display_public_ip'],$server_row['agent_ip']);
+			echo "<option value='" . $server_row['remote_server_id'] . "' >" . $server_row['remote_server_name'] . " (" . $display_ip . ":" . $server_row['agent_port'] . ")</option>";
 		}
-		
 		echo "</select>
 				</td>
 				<td>". login ."<input type=text name='ftp_login' /></td>
@@ -124,16 +121,17 @@ function exec_ogp_module()
 			 </form>
 			 </td></tr>";
 	?>
-	<table id="servermonitor" class="tablesorter">
+	<table id="servermonitor" class="tablesorter" data-sortlist='[[2,0]]'>
 				<thead> 
 				<tr> 
-					<th class="header" ></th><th><?php print_lang('remote_server'); ?></th><th><?php print_lang('login'); ?></th><th><?php print_lang('server_name'); ?></th><th><?php print_lang('full_path'); ?></th> 
+					<th class="header sorter-false"></th><th><?php print_lang('remote_server'); ?></th><th><?php print_lang('login'); ?></th><th><?php print_lang('server_name'); ?></th><th><?php print_lang('full_path'); ?></th> 
 				</tr> 
 				</thead> 
 				<tbody>
 	<?php		
 		foreach ( $servers as $server_row )
 		{
+			$display_ip = checkDisplayPublicIP($server_row['display_public_ip'],$server_row['agent_ip']);
 			$remote = new OGPRemoteLibrary($server_row['agent_ip'],$server_row['agent_port'],$server_row['encryption_key'],$server_row['timeout']);
 
 			$host_stat = $remote->status_chk();
@@ -153,7 +151,7 @@ function exec_ogp_module()
 						$home_info = $db->getHomeByFtpLogin($server_row['remote_server_id'], $ftp_login);
 						$expandme = ( ( isset($_POST['ftp_login']) and $ftp_login == strip_real_escape_string($_POST['ftp_login']) ) AND ( isset($_POST['remote_server_id']) and $home_info['remote_server_id'] == $_POST['remote_server_id'] ) ) ? "expandme" : "";
 						$home_name = isset( $home_info['home_name'] ) ? $home_info['home_name'] : $ftp_path;
-						echo "<tr class='maintr $expandme'><td class='collapsible' ></td><td>".$server_row['remote_server_name']." (".$server_row['agent_ip'].")</td><td><b class='failure' >$ftp_login</td><td>" . htmlentities($home_name) . "</td><td>$ftp_path</td></tr>
+						echo "<tr class='maintr $expandme'><td class='collapsible' ></td><td>".$server_row['remote_server_name']." (".$display_ip.")</td><td><b class='failure' >$ftp_login</td><td>" . htmlentities($home_name) . "</td><td>$ftp_path</td></tr>
 							  <tr class='expand-child' ><td colspan='4' >
 							  <form method=POST >
 							  <table>";

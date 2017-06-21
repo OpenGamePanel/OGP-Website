@@ -1,4 +1,3 @@
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
 <script type="text/javascript" src="js/modules/server.js"></script>
 <?php
 /*
@@ -46,6 +45,7 @@ function exec_ogp_module() {
 	$ft->add_field('string','remote_encryption_key',"");
 	$ft->add_field('string','timeout',"5");
 	$ft->add_field('on_off','use_nat',"0");
+	$ft->add_field('string','default_public_ip',"");
 	$ft->end_table();
 	$ft->add_button('submit','add_remote_host', add_remote_host );
 	$ft->end_form();
@@ -60,7 +60,7 @@ function exec_ogp_module() {
 	?><table id="servermonitor" class="tablesorter remote">
 		<thead> 
 		<tr> 
-			<th colspan="4" class="header" ><?php print_lang('configured_remote_hosts'); ?></th> 
+			<th colspan="4" class="header sorter-false"><?php print_lang('configured_remote_hosts'); ?></th> 
 		</tr> 
 		</thead> 
 		<tbody> <?php

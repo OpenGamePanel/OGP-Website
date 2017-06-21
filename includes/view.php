@@ -55,7 +55,7 @@ class OGPView {
         }
         
         // Our global CSS goes first so that themes can override
-        $this->header_code = '<link rel="stylesheet" href="css/global.css">';
+        $this->header_code = '<link rel="stylesheet" href="css/global.css">' . "\n";
 
         $path = "";
 
@@ -122,9 +122,9 @@ class OGPView {
 		$subpage = isset($_GET['p']) ? $_GET['p'] : $module;
 		
 		if( file_exists( $path . MODULES . "$module/$subpage.css" ) ) 
-			$this->header_code .= "<link rel='stylesheet' href='" . $path . MODULES . "$module/$subpage.css'>";
+			$this->header_code .= "<link rel='stylesheet' href='" . $path . MODULES . "$module/$subpage.css'>" . "\n";
 		elseif( file_exists( MODULES . "$module/$subpage.css" ) )
-			$this->header_code .= "<link rel='stylesheet' href='" . MODULES . "$module/$subpage.css'>";
+			$this->header_code .= "<link rel='stylesheet' href='" . MODULES . "$module/$subpage.css'>" . "\n";
 		
 		$module_name = isset($_GET['m']) ? get_lang($_GET['m']) : "";
 		$page_name = isset($_GET['p']) ? get_lang($_GET['p']) : "";
@@ -133,18 +133,23 @@ class OGPView {
 		$this->title = $title == "" ? $this->title : $this->title . " [$title]";
 		
 		// Include jQuery, jQuery UI, and our global CSS file in the header code
-		$this->header_code .= '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">';
-		$this->header_code .= '<script type="text/javascript" src="js/jquery/jquery.min.js"></script><script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>';
+		$this->header_code .= '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">' . "\n";
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/jquery.min.js"></script><script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>' . "\n";
 		
 		// Include magnific popup
-		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>';
-		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">';
+		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>' . "\n";
+		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">' . "\n";
+		
+		// Include tablesorter, table collapse, and quick search
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>' . "\n";
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>' . "\n";
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>' . "\n";
 		
 		// Include our global JS
-		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>';
+		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
 
 		if (file_exists($path . MODULES . "$module/$subpage.js")) { 
-			$this->header_code .= '<script type="text/javascript" src="' . $path . MODULES . $module.'/'.$subpage.'.js"></script>';
+			$this->header_code .= '<script type="text/javascript" src="' . $path . MODULES . $module.'/'.$subpage.'.js"></script>' . "\n";
 		}
 		
         $buffer = ob_get_contents();

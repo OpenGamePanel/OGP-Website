@@ -63,7 +63,7 @@ abstract class OGPDatabase {
 
     abstract public function getUserList();
     
-    abstract public function getUserList_limit($page_user,$limit_user);
+    abstract public function getUserList_limit($page_user,$limit_user,$search_field);
 
     abstract public function getGroupList();
 
@@ -151,7 +151,7 @@ abstract class OGPDatabase {
 
     // Server module functions
     /// \brief Adds remote server to database.
-    abstract public function addRemoteServer($rhost_ip,$rhost_name,$rhost_user_name,$rhost_port,$rhost_ftp_ip,$rhost_ftp_port,$encryption_key,$rhost_timeout,$use_nat);
+    abstract public function addRemoteServer($rhost_ip,$rhost_name,$rhost_user_name,$rhost_port,$rhost_ftp_ip,$rhost_ftp_port,$encryption_key,$rhost_timeout,$use_nat,$display_public_ip);
 
     abstract public function getRemoteServer($id);
 
@@ -171,14 +171,14 @@ abstract class OGPDatabase {
 
     /// \brief Change encryption key for remote server.
     abstract public function changeRemoteServerSettings($server_id,
-        $agent_ip,$agent_port,$remote_server_name,$remote_server_user_name,$remote_host_ftp_ip,$remote_host_ftp_port,$encryption_key,$rhost_timeout,$use_nat);
+        $agent_ip,$agent_port,$remote_server_name,$remote_server_user_name,$remote_host_ftp_ip,$remote_host_ftp_port,$encryption_key,$rhost_timeout,$use_nat,$display_public_ip);
 
     // Gamemanager functions
     abstract public function getHomeIpPorts($home_id);
 
     abstract public function getHomesFor($id_type,$assign_id);
     
-    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit);
+    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id,$search_field);
 
     abstract public function getHomeMods($home_id);
 
@@ -256,7 +256,7 @@ abstract class OGPDatabase {
 
     abstract public function getGameHomes();
     
-    abstract public function getGameHomes_limit($page_gameHomes,$limit_gameHomes);
+    abstract public function getGameHomes_limit($page_gameHomes,$limit_gameHomes,$search_field);
 
     /// \return true If username and password match.
     /// \return false If username and password does not match

@@ -1,6 +1,3 @@
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.mod.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>
 <script type="text/javascript" src="js/modules/gamemanager.js"></script>
 <?php
 /*
@@ -130,6 +127,10 @@ function exec_ogp_module() {
 	
 	$home_page = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
 	$home_limit = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+	$home_cfg_id = (isset($_GET['home_cfg_id']) && (int)$_GET['home_cfg_id'] > 0) ? (int)$_GET['home_cfg_id'] : false;
+	
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
+	
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$home_limit = $loggedInUserInfo["users_page_limit"];
@@ -138,19 +139,21 @@ function exec_ogp_module() {
 	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
 	
 	if ( $isAdmin )
-		{	
+		{
+			$show_games_type = $db->getHomesFor('admin', $_SESSION['user_id']);
 			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
 				$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
 			else
-				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit);
+				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id,$search_field);
 	
 		}
 		else
 		{
+			$show_games_type = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
 				$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 			else			
-				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit);
+				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id,$search_field);
 		}
 
 	if( $server_homes === FALSE )
@@ -165,9 +168,12 @@ function exec_ogp_module() {
 		return;
 	}
 	?>
-		<form onsubmit="event.preventDefault();" style="float:right;">
+		<form action="home.php" style="float:right;">
 			<b><?php print_lang('search'); ?>:</b>
-			<input type="text" id="search">
+			<input type ="hidden" name="m" value="gamemanager" />
+			<input type ="hidden" name="p" value="game_monitor" />
+			<input name="search" type="text" id="search">
+			<input type="submit" value="search" />
 		</form>
 	<?php
 	foreach($_POST as $key => $value)
@@ -186,7 +192,7 @@ function exec_ogp_module() {
 	if ( isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] ==  game_type  )
 		unset( $_GET['home_cfg_id'] );
 
-	create_home_selector_game_type($_GET['m'], $_GET['p'], $server_homes);
+	create_home_selector_game_type($_GET['m'], $_GET['p'], $show_games_type);
 
 	if (!isset($_GET['home_id-mod_id-ip-port']) and !isset($_GET['home_id']) and !isset($_GET['home_cfg_id'])) 
 	{
@@ -214,16 +220,21 @@ function exec_ogp_module() {
 		</span>
 	<?php
 	}
-
-	echo "<table id='servermonitor' class='tablesorter'>".
+	
+	if($settings["show_server_id_game_monitor"]){
+		echo "<p class='serverIdToggle' showtext='" . get_lang('show_server_id') . "' hidetext='" . get_lang('hide_server_id') . "'>" . get_lang('show_server_id') . "</p>";
+	}
+	
+	echo "<table id='servermonitor' class='tablesorter' data-sortlist='[[0,0],[3,1]]'>".
 		 "<thead>".
 		 "<tr>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
+		 "\t<th class=\"hide serverId\">" . server_id . "</th>".
 		 "\t<th>" . server_name . "</th>".
 		 "\t<th>" . address . "</th>".
 		 "\t<th>" . owner . "</th>".
-		 "\t<th>".
+		 "\t<th class='sorter-false'>".
 		 "\t\t" . operations . "".
 		 "\t\t<img style='border:0;height:15px;' id='action-stop' src='" . check_theme_image("images/stop.png") . "'/>".
 		 "\t\t<img style='border:0;height:15px;' id='action-restart' src='" . check_theme_image("images/restart.png") . "'/>".
@@ -493,12 +504,15 @@ function exec_ogp_module() {
 
 			if( $host_stat === 1)
 			{
-				if ( $server_home['use_nat'] == 1 )
+				if ( $server_home['use_nat'] == 1 ){
 					$query_ip = $server_home['agent_ip'];
-				else
+				}else{
 					$query_ip = $server_home['ip'];
+				}
 
+				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$query_ip);
 				$address = $query_ip . ":" . $server_home['port'];
+
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;
 				$update_in_progress = $remote->is_screen_running(OGP_SCREEN_TYPE_UPDATE,$server_home['home_id']) === 1;
 				if($screen_running)
@@ -579,11 +593,12 @@ function exec_ogp_module() {
 
 			// Template
 			@$first = "<tr class='maintr$trclass'>";
-				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span><a></a>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
-				$first .= "<td>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
-				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><a></a><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
-				$first .= "<td>" . $address . "</td>";
-				$first .= "<td class='owner' >" . $user['users_login'] . "</td>";
+				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
+				$first .= "<td class='collapsible'>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
+				$first .= "<td class='collapsible serverId hide'>" . $server_home["home_id"] . "</td>";
+				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
+				$first .= "<td class='collapsible'>" . $address . "</td>";
+				$first .= "<td class='owner collapsible'>" . $user['users_login'] . "</td>";
 				$first .= "<td style='width:328px;padding:0px;'>$ctrlChkBoxes</td>";
 			$first .= "</tr>";
 
@@ -603,7 +618,7 @@ function exec_ogp_module() {
 
 	echo "<tfoot style='border:1px solid grey;'>
 			<tr>
-			  <td colspan='6' >
+			  <td colspan='7' >
 				<div class='bloc' >
 				<img src='" . check_theme_image("images/magnifglass.png") . "' /> ". statistics .": $stats_servers_online/$stats_servers ". servers ."\n</div>
 				<div class='right bloc' >
@@ -617,20 +632,27 @@ function exec_ogp_module() {
 	echo "</table>";
 
 	if ($isAdmin) {	
-		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id']);
+		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id'], $home_cfg_id,$search_field);
 	} else {
 		$isSubUser = $db->isSubUser($_SESSION['user_id']);
 
 		if ($isSubUser) {
-			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id']);
+			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id'], $home_cfg_id,$search_field);
 		} else {
-			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id']);
+			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id'], $home_cfg_id,$search_field);
 		}	
 	}
 
 
-	$uri = '?m=gamemanager&p=game_monitor&limit='.$home_limit.'&page=';
-	echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri, 3, 'serverMonitor');
+	if(isset($_GET['home_cfg_id']) && !empty($_GET['home_cfg_id'])){
+	$uri = '?m=gamemanager&p=game_monitor&home_cfg_id='.$_GET['home_cfg_id'].''.($search_field ? "&search=$search_field" : "").'&limit='.$home_limit.'&page=';
+	}
+	else{
+	$uri = '?m=gamemanager&p=game_monitor'.($search_field ? "&search=$search_field" : "").'&limit='.$home_limit.'&page=';	
+	}
+	
+	if(!isset($_GET['home_id-mod_id-ip-port']) && !isset($_GET['home_id']))
+	{echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri, 3, 'serverMonitor');}
 
 	echo "<div id=translation data-title='". upload_map_image .
 		 "' data-upload_button='". upload_image .

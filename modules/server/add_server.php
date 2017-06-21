@@ -38,6 +38,7 @@ function exec_ogp_module() {
 		$encryption_key = trim($_POST['remote_encryption_key']);
 		$timeout = trim($_POST['timeout']);
 		$use_nat = trim($_POST['use_nat']);
+		$display_public_ip = trim($_POST['display_public_ip']);
 		
 		if ( empty($rhost_ip) ){
 			print_failure( enter_ip_host );
@@ -71,7 +72,7 @@ function exec_ogp_module() {
 		$rhost_user_name = trim($remote->exec('echo %USERNAME%'));
 		if( $rhost_user_name == '%USERNAME%' ) $rhost_user_name = trim($remote->exec('whoami'));
 		
-		$rhost_id = $db->addRemoteServer($rhost_ip,$rhost_name,$rhost_user_name,$rhost_port,$rhost_ftp_ip,$rhost_ftp_port,$encryption_key,$timeout,$use_nat);
+		$rhost_id = $db->addRemoteServer($rhost_ip,$rhost_name,$rhost_user_name,$rhost_port,$rhost_ftp_ip,$rhost_ftp_port,$encryption_key,$timeout,$use_nat,$display_public_ip);
 		if ( !$rhost_id )
 		{
 			print_failure( could_not_add_server ." ".$rhost_ip." ". to_db );

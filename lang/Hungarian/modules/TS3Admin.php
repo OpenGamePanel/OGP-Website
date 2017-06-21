@@ -170,4 +170,6 @@ define('unassign_from_subuser', "Eltávolítás az al-felhasználótól.");
 define('assign_to_subuser', "Hozzárendelés az al-felhasználóhoz.");
 define('select_subuser', "Al-felhasználó kiválasztása.");
 define('no_ts3_servers_assigned_to_account', "Nincsenek szerverek hozzárendelve  a fiókodhoz.");
+define('change_virtual_server', "Virtuális szerver módosítása");
+define('change_remote_server', "Távoli szerver módosítása");
 ?>

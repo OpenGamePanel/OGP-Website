@@ -128,4 +128,6 @@ define('custom_tab_target_blank', "Цель пользовательской в�
 define('custom_tab_target_blank_info', "Устанавливает цель всех вкладок. <b style='font-size:10px; font-weight:normal;'>('_self' = Открывает ссылку на одной странице. '_blank'  =  Открывает ссылку на новой странице.)</b>");
 define('bg_wrapper', "Задний фон");
 define('bg_wrapper_info', "Картинка заднего фона. <b style='font-size:10px; font-weight:normal;'>(Только для темы Revolution.)</b>");
+define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");
+define('show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
 ?>

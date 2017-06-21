@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -42,7 +42,7 @@ define('add_more_ips', "Ha több IP-t akarsz megadni akkor kattints az 'IP-k be�
 define('encryption_key_mismatch', "A titkosítási kulcs nem egyezik meg az Agentel. Kérlek, ellenőrizd az Agented konfigurációját.");
 define('no_ip_for_remote_host', "Legalább 1 IP-t meg kell adnod minden egyes távoli kiszolgálóhoz.");
 define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
-define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
+define('ip_administration', "Szerver és IP adminisztráció :: Open Game Panel");
 define('unknown_error', "Ismeretlen hiba - status_chk visszaérkezett");
 define('remote_host_user_name', "UNIX felhasználó");
 define('remote_host_user_name_info', "Felhasználó neve, ahol az Agent fut. Példa: Jonhy");
@@ -70,7 +70,7 @@ define('save_settings', "Beállítások mentése");
 define('set_ips', "IPk beállítása");
 define('remote_ip', "Távoli IP");
 define('remote_ips_for', "Távoli IPk a(z) '%s' nevü szerverhez");
-define('ips_set_for_server', "IPs set for server called '%s' successfully.");
+define('ips_set_for_server', "Az IP(k) a(z) '%s' nevű szerverhez  sikeresen beállítva.");
 define('could_not_remove_ip', "Nem sikerült eltávolítani a régi IPket az adatbázisból.");
 define('could_add_ip', "Nem sikerült hozzáadni a távoli szerver IP-t az adatbázishoz.");
 define('areyousure_removeagent', "Are you sure you want to remove the agent called");
@@ -84,14 +84,14 @@ define('there_are_servers_running_on_this_ip', "Vannak szerverek ami fut az IP-c
 define('enter_ip_host', "Meg kell adnod az IPt a távoli kiszolgálóhoz.");
 define('enter_valid_ip', "You must enter valid port for the remote host. The port value can be between 0 and 65535, however recommendation is between 1024 and 65535.");
 define('could_not_add_server', "Nem lehet hozzáadni a szervert");
-define('to_db', "to the database.");
+define('to_db', "az adatbázisba.");
 define('added_server', "Szerver hozzáadva");
 define('with_port', "porttal");
-define('to_db_succesfully', "to the database successfully.");
+define('to_db_succesfully', "az adatbázisba sikeresen.");
 define('unable_discover', "Unable to auto discover IPs on");
-define('set_ip_manually', "You'll have to set them manually.");
+define('set_ip_manually', "Manuálisan kell beállítanod.");
 define('found_ips', "Talált IPk");
-define('for_remote_server', "for the remote server.");
+define('for_remote_server', "a távoli szerverhez.");
 define('failed_add_ip', "Nem sikerült az IP hozzáadása");
 define('timeout', "Időtúllépés");
 define('timeout_info', "Másodperc. A határidőt kap választ az ügynök.");
@@ -134,4 +134,6 @@ define('firewall_status', "Tűzfal állapota");
 define('save_firewall_settings', "Tűzfal beállítások mentése");
 define('reset_firewall', "Tűzfal visszaállítása");
 define('firewall_settings', "Tűzfal beállítások");
+define('default_public_ip', "Alapértelmezett nyilvános IP");
+define('display_public_ip', "Nyilvános IP megjelenítése");
 ?>

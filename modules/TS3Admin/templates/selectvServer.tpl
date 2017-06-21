@@ -18,7 +18,7 @@
 			<td><input type="radio" name="vserver" value="{$curvServer.virtualserver_id}" /></td>
 			<td>{$curvServer.virtualserver_id}</td>
 			<td>{$curvServer.virtualserver_name}</td>
-			<td>{$IP}:{$curvServer.virtualserver_port}</td>
+			<td>{$display_public_ip}:{$curvServer.virtualserver_port}</td>
 			<td><span id="serverstatus{$curvServer.virtualserver_id}" class="{if $curvServer.virtualserver_status=="none"}offline{else}{$curvServer.virtualserver_status}{/if}">{if $curvServer.virtualserver_status=="none"}offline{else}{$curvServer.virtualserver_status}{/if}</span></td>
 			<td>{$curvServer.virtualserver_clientsonline}/{$curvServer.virtualserver_maxclients}</td>
 			<td><!--'.TS3webinterface::parseTime($data[$i]['virtualserver_uptime']).'--><!--{$curvServer.virtualserver_uptime}-->{$webinterface->parseTime($curvServer.virtualserver_uptime)}</td>
