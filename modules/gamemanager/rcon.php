@@ -5,7 +5,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -24,6 +24,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 function send_command($command, $remote, $server_xml, $home_info, $home_id, $ip, $port )
 {
 	if( $server_xml->gameq_query_name and $server_xml->gameq_query_name == "minecraft" )

@@ -25,7 +25,7 @@ td.actions{
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -44,6 +44,7 @@ td.actions{
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 function exec_ogp_module() {
     global $db, $loggedInUserInfo;
 	

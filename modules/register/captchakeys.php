@@ -1,8 +1,8 @@
-<?php 
+<?php
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 $sitekey = "6Lc4osYSAAAAAHtYbHvsXIl0h1auXeiqPhagTXAj"; // you got this KEYS from the signup page: http://www.google.com/recaptcha/whyrecaptcha
 $secretkey = "6Lc4osYSAAAAAHK56NE9ZHLgw3ZuESHhF26bMoNx";
 ?>
