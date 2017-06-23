@@ -9,7 +9,7 @@ $(document).ready(function(){
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -28,6 +28,7 @@ $(document).ready(function(){
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 require_once("modules/mysql/functions.php");
 require_once('includes/form_table_class.php');
 require_once('includes/lib_remote.php');
