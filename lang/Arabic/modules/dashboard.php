@@ -30,7 +30,7 @@ define('welcome_text', "مرحبا بك إلى لوحة تحكم (OGP).
 OGP هو مشروع مفتوح المصدر ـ والذى يتيح لك تثبيت وبدأ ومراقبة مختلف سيرفرات الألعاب.");
 define('any_server_is_online', "أى سيرفر أونلاين");
 define('current_map', "الخريطة الحالية");
-define('server_ip_port', "IP:Port");
+define('server_ip_port', "الأيبي:بورت");
 define('statistics', "الإحصائيات");
 define('servers', "السيرفرات");
 define('players', "اللاعبين");
@@ -40,5 +40,5 @@ define('online_servers', "السيرفرات الأونلاين");
 define('add_games_in', "إذا كنت ترغب في إضافة ألعاب يمكنك أن تفعل ذلك في %s");
 define('currently_online', "متاح حاليا");
 define('game_servers', "سيرفرات الألعاب");
-define('select_remote_server', "Select remote server");
+define('select_remote_server', "حدد سيرفر التحكم");
 ?>

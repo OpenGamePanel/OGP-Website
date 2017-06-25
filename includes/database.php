@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -63,7 +63,7 @@ abstract class OGPDatabase {
 
     abstract public function getUserList();
     
-    abstract public function getUserList_limit($page_user,$limit_user);
+    abstract public function getUserList_limit($page_user,$limit_user,$search_field);
 
     abstract public function getGroupList();
 
@@ -178,7 +178,7 @@ abstract class OGPDatabase {
 
     abstract public function getHomesFor($id_type,$assign_id);
     
-    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id);
+    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id,$search_field);
 
     abstract public function getHomeMods($home_id);
 
@@ -256,7 +256,7 @@ abstract class OGPDatabase {
 
     abstract public function getGameHomes();
     
-    abstract public function getGameHomes_limit($page_gameHomes,$limit_gameHomes);
+    abstract public function getGameHomes_limit($page_gameHomes,$limit_gameHomes,$search_field);
 
     /// \return true If username and password match.
     /// \return false If username and password does not match

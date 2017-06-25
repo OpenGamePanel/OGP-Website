@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -134,4 +134,6 @@ define('firewall_status', "Status zapory");
 define('save_firewall_settings', "Zapisz ustawienia zapory");
 define('reset_firewall', "Restart zapory");
 define('firewall_settings', "Ustawienia Zapory");
+define('default_public_ip', "Default Public IP");
+define('display_public_ip', "Display Public IP");
 ?>

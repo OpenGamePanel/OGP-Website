@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2015 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -253,29 +253,33 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $results;
 	}
 	
-	public function getUserList_limit($page_user,$limit_user) {
+	public function getUserList_limit($page_user,$limit_user,$search_field) {
 		
        $user_get_id = ($page_user - 1) * $limit_user;		
 	
 		if ( !$this->link ) return;
 		$query = sprintf("SELECT user_id,users_login,users_lang,
 			users_role,users_fname,users_lname,users_email,user_expires,users_parent
-			FROM %susers ORDER BY users_login ASC LIMIT $user_get_id,$limit_user",
+			FROM %susers 
+			".($search_field ? "WHERE `user_id` = '$search_field' OR `users_login` = '$search_field' OR `users_lang` = '$search_field'
+			OR `users_role` = '$search_field' OR `users_fname` = '$search_field' OR `users_lname` = '$search_field' OR `users_email` = '$search_field'
+			OR `user_expires` = '$search_field' OR `users_parent` = '$search_field' " : "" )."
+			ORDER BY users_login ASC LIMIT $user_get_id,$limit_user",
 			$this->table_prefix);
-
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
-
 		$results = array();
-
 		while ( $row = mysqli_fetch_assoc( $result ) )
 			array_push($results,$row);
-
 		return $results;
 	}
 	
-	public function get_user_count(){
-		return $this->resultQuery("SELECT COUNT(user_id) AS total FROM `".$this->table_prefix."users`;");
+	public function get_user_count($search_field){
+		return $this->resultQuery("SELECT COUNT(user_id) AS total FROM `".$this->table_prefix."users` 
+		".($search_field ? "WHERE `user_id` = '$search_field' OR `users_login` = '$search_field' OR `users_lang` = '$search_field'
+			OR `users_role` = '$search_field' OR `users_fname` = '$search_field' OR `users_lname` = '$search_field' OR `users_email` = '$search_field'
+			OR `user_expires` = '$search_field' OR `users_parent` = '$search_field' " : "" )."
+		;");
 	}
 
 	public function getGroupList() {
@@ -1395,27 +1399,98 @@ class OGPDatabaseMySQL extends OGPDatabase
 		}
 	}
 	
-	public function getHomesFor_count($id_type,$assign_id,$home_cfg_id){
+	public function getHomesFor_count($id_type,$assign_id,$home_cfg_id,$search_field){
 		if ( $id_type == "admin" )
 		{
-			return $this->resultQuery('SELECT COUNT(home_id) AS total FROM `'.$this->table_prefix.'server_homes`' . ($home_cfg_id ?' WHERE home_cfg_id = '.$home_cfg_id : ''));
+			return $this->resultQuery('SELECT COUNT('.($search_field ?'distinct':'').' home_id) AS total FROM `'.$this->table_prefix.'server_homes`
+			'.($search_field ? '
+			NATURAL JOIN `'.$this->table_prefix.'user_homes`
+			NATURAL JOIN `'.$this->table_prefix.'remote_servers` 
+ 			NATURAL JOIN `'.$this->table_prefix.'home_ip_ports`
+			' : '').'
+			'
+ 			.($home_cfg_id ?" WHERE home_cfg_id = '$home_cfg_id'
+ 			".($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
+ 								OR home_name = '$search_field' 
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR user_id = '$search_field'
+ 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR agent_ip = '$search_field' OR port = '$search_field'
+ 								" : '')." ": '
+ 			'.($search_field ?" WHERE home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
+ 								OR home_name = '$search_field' 
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR user_id = '$search_field'
+								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+								OR agent_ip = '$search_field' OR port = '$search_field'
+								" : '').'
+								'));
 		}
 		else if ( $id_type == "user_and_group" )
 		{
-			return $this->resultQuery('SELECT COUNT(home_id) AS total FROM `'.$this->table_prefix.'user_homes` WHERE user_id = '.$assign_id.' ' .($home_cfg_id ? 'AND `home_id` IN (SELECT `home_id` FROM `'.$this->table_prefix.'server_homes` WHERE home_cfg_id = '.$home_cfg_id.' )': ''));
+			return $this->resultQuery('SELECT COUNT('.($search_field ?'distinct':'').' home_id) AS total FROM `'.$this->table_prefix.'user_homes`
+			'.($search_field ? '
+			NATURAL JOIN `'.$this->table_prefix.'server_homes`
+			NATURAL JOIN `'.$this->table_prefix.'remote_servers` 
+ 			NATURAL JOIN `'.$this->table_prefix.'home_ip_ports`
+			' : '').'
+			WHERE user_id = '.$assign_id.' ' .($home_cfg_id ? 'AND `home_id`
+			IN (SELECT `home_id` FROM `'.$this->table_prefix.'server_homes` WHERE home_cfg_id = '.$home_cfg_id.'
+			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
+ 								OR home_name = '$search_field' 
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR user_id = '$search_field'
+ 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR agent_ip = '$search_field' OR port = '$search_field'
+ 								" : '').')'
+								: 
+								'
+				 			'.($search_field ?" AND home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
+ 								OR home_name = '$search_field' 
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR user_id = '$search_field'
+								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+								OR agent_ip = '$search_field' OR port = '$search_field'
+								" : '').'				
+								' 
+								));
+		
+		
 		}
 		else if ( $id_type == "subuser" )
 		{
-			return $this->resultQuery('SELECT COUNT(home_id) AS total FROM `'.$this->table_prefix.'user_group_homes` WHERE group_id IN (SELECT group_id FROM `'.$this->table_prefix.'user_groups` WHERE user_id = '.$assign_id.' )' .($home_cfg_id ? 'AND `home_id` IN (SELECT `home_id` FROM `'.$this->table_prefix.'server_homes` WHERE home_cfg_id = '.$home_cfg_id.' )': ''));
+			return $this->resultQuery('SELECT COUNT('.($search_field ?'distinct':'').' home_id) AS total FROM `'.$this->table_prefix.'user_group_homes`
+			'.($search_field ? '
+			NATURAL JOIN `'.$this->table_prefix.'user_homes`
+			NATURAL JOIN `'.$this->table_prefix.'server_homes`
+			NATURAL JOIN `'.$this->table_prefix.'remote_servers` 
+ 			NATURAL JOIN `'.$this->table_prefix.'home_ip_ports`
+			' : '').'			
+			WHERE group_id IN (SELECT group_id FROM `'.$this->table_prefix.'user_groups` WHERE user_id = '.$assign_id.' )
+			
+			' .($home_cfg_id ? 'AND `home_id` IN (SELECT `home_id` FROM `'.$this->table_prefix.'server_homes` WHERE home_cfg_id = '.$home_cfg_id.'
+			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
+ 								OR home_name = '$search_field' 
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR agent_ip = '$search_field' OR port = '$search_field'
+ 								" : '').')'
+			:'
+			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
+ 								OR home_name = '$search_field' 
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR agent_ip = '$search_field' OR port = '$search_field'
+ 								" : '').'
+			'));
 		}		
 		
 	}
 	
-	public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id){
+	public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id,$search_field){
 	$gethome_page_forlimit = ($home_page - 1) * $home_limit;	
 		if ( $id_type == "admin" )
 		{
-			$template = 'SELECT	%1$sserver_homes.*, 
+			$template = 'SELECT '.($search_field ?'distinct':'').' 
+								%1$sserver_homes.*, 
 								%1$sremote_servers.*, 
 								%1$sconfig_homes.*, 
 								%1$shome_ip_ports.port,
@@ -1436,6 +1511,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_mods.def_postcmd,
 								%1$sconfig_mods.mod_cfg_id
 						FROM %1$sserver_homes
+						'.($search_field ?'NATURAL JOIN `%1$suser_homes`':'').'
 						NATURAL JOIN %1$sremote_servers
 						NATURAL JOIN %1$sconfig_homes
 						LEFT JOIN %1$sgame_mods 
@@ -1450,8 +1526,30 @@ class OGPDatabaseMySQL extends OGPDatabase
 							FROM `%1$shome_ip_ports`
 							WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 						)
-						'.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').'
-						OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+						'.($home_cfg_id ? '
+						AND %1$sserver_homes.home_cfg_id = \''.$home_cfg_id.'\'
+						'.($search_field ?'
+						AND %1$sserver_homes.home_id = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR home_name = \''.$search_field.'\'
+						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
+						' : '').'
+						'
+						: 
+						'
+						'.($search_field ?'
+						AND %1$sserver_homes.home_id = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR home_name = \''.$search_field.'\'
+						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
+						' : '').'
+						').' OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 						
 			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d;';
 			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
@@ -1478,7 +1576,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		}
 		else if ( $id_type == "user_and_group" )
 		{
-			$template = 'SELECT	%1$suser_homes.*, 
+			$template = 'SELECT	'.($search_field ?'distinct':'').'
+								%1$suser_homes.*, 
 								%1$sserver_homes.*, 
 								%1$sremote_servers.*, 
 								%1$sconfig_homes.*, 
@@ -1516,11 +1615,32 @@ class OGPDatabaseMySQL extends OGPDatabase
 								FROM `%1$shome_ip_ports`
 								WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 							)
-							'.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').'
+						'.($home_cfg_id ? '
+						AND %1$sserver_homes.home_cfg_id = \''.$home_cfg_id.'\'
+						'.($search_field ?'
+						AND %1$sserver_homes.home_id = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR home_name = \''.$search_field.'\'
+						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
+						' : '').' ' : '
+						'.($search_field ?'
+						AND %1$sserver_homes.home_id = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR home_name = \''.$search_field.'\'
+						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
+						' : '').'
+						').'
 							OR %1$shome_ip_ports.force_mod_id IS NULL
 						)
 						UNION
-						SELECT	%1$suser_group_homes.*,
+						SELECT	'.($search_field ?'distinct':'').'
+								%1$suser_group_homes.*,
 								%1$sserver_homes.*, 
 								%1$sremote_servers.*, 
 								%1$sconfig_homes.*, 
@@ -1541,7 +1661,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_mods.def_precmd,
 								%1$sconfig_mods.def_postcmd,
 								%1$sconfig_mods.mod_cfg_id
-						FROM %1$sremote_servers 
+						FROM %1$sremote_servers
 						NATURAL JOIN %1$suser_group_homes 
 						NATURAL JOIN %1$sserver_homes 
 						NATURAL JOIN %1$sconfig_homes
@@ -1563,8 +1683,24 @@ class OGPDatabaseMySQL extends OGPDatabase
 								FROM `%1$shome_ip_ports`
 								WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 							)
-							'.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').'
-							OR %1$shome_ip_ports.force_mod_id IS NULL
+						'.($home_cfg_id ? '
+						AND %1$sserver_homes.home_cfg_id = \''.$home_cfg_id.'\'
+						'.($search_field ?'
+						AND %1$sserver_homes.home_id = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR home_name = \''.$search_field.'\'
+						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
+						' : '').' ' : '
+						'.($search_field ?'
+						AND %1$sserver_homes.home_id = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR home_name = \''.$search_field.'\'
+						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
+						' : '').'
+						').'
+							OR %1$shome_ip_ports.force_mod_id IS NULL 
 						) 
 						LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
@@ -2535,16 +2671,28 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $this->listQuery($query);
 	}
 	
-	public function getGameHomes_limit($page_gameHomes,$limit_gameHomes){
+	public function getGameHomes_limit($page_gameHomes,$limit_gameHomes,$search_field){
 		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
 		$query = sprintf('SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.*
-			FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers` ORDER BY home_id ASC LIMIT '.$game_home_id.','.$limit_gameHomes.'; ',
+			FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers` 
+			'.($search_field ? "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
+			OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
+			OR home_name = '$search_field' OR agent_ip = '$search_field' OR remote_server_name = '$search_field'
+			OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+			" : "").'
+			ORDER BY home_id ASC LIMIT '.$game_home_id.','.$limit_gameHomes.'; ',
 			$this->table_prefix);
 		return $this->listQuery($query);
 	}
 	
-   public function get_GameHomes_count(){
-      return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."server_homes`;");
+   public function get_GameHomes_count($search_field){
+      return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."server_homes` NATURAL JOIN `".$this->table_prefix."remote_servers`
+	  ".($search_field ? "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
+			OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
+			OR home_name = '$search_field' OR agent_ip = '$search_field' OR remote_server_name = '$search_field'
+			OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+			" : "")."
+	  ;");
    }
 	
 	public function changeLastParam($home_id,$json) {
@@ -2795,13 +2943,24 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$this->query("INSERT INTO OGP_DB_PREFIXlogger (date, user_id, ip, message) VALUE (FROM_UNIXTIME(UNIX_TIMESTAMP(), '%d-%m-%Y %H:%i:%s'), $user_id, '$client_ip', '$message');");
 	}
 
-	public function get_logger_count(){
-		return $this->resultQuery("SELECT COUNT(log_id) AS total FROM `".$this->table_prefix."logger`;");
+	public function get_logger_count($search_field){
+		return $this->resultQuery("SELECT COUNT(log_id) AS total FROM `".$this->table_prefix."logger` 
+		".($search_field ? " WHERE log_id = '$search_field' OR user_id = '$search_field' 
+		 OR ip = '$search_field' OR message = '$search_field' OR user_id
+		 IN 
+		 (SELECT user_id FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')" : "")."
+		;");
 	}
 	
-	public function read_logger($page,$limit){
+	public function read_logger($page,$limit,$search_field){
 		$log_id = ($page - 1) * $limit;
-		return $this->resultQuery("SELECT * FROM `".$this->table_prefix."logger` ORDER BY log_id DESC LIMIT $log_id,$limit;");
+		return $this->resultQuery("SELECT * FROM `".$this->table_prefix."logger` 
+		".($search_field ? " WHERE log_id = '$search_field' OR date = '$search_field'
+		 OR user_id = '$search_field' OR ip = '$search_field' OR message = '$search_field' OR user_id 
+		 IN 
+		 (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')" : "")." 
+		ORDER BY log_id DESC LIMIT $log_id,$limit;
+		");
 	}
 	
 	public function del_logger_log($log_id){

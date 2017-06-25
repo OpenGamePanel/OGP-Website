@@ -22,19 +22,19 @@
  *
  */
 
-define('system_uptime', "System Uptime");
-define('system_up_time', "Up Time");
-define('system_up_since', "Since");
-define('cpu_usage', "CPU Usage");
-define('cpu_load', "Load");
-define('ram_usage', "RAM Usage");
-define('ram_used', "Memory Used");
-define('ram_of', "of");
-define('storage_space', "Storage Space");
-define('storage_total', "Disk Space");
-define('storage_used', "Used");
-define('storage_free', "Free Space");
-define('process_monitor', "Process Monitor");
-define('status_extension_required', "Extension Required");
-define('gd_info', "PHP Extension <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> is required to generate these bar images!");
+define('system_uptime', "مدة تشغيل النظام");
+define('system_up_time', "مدة التشغيل");
+define('system_up_since', "منذ");
+define('cpu_usage', "استخدام المعالج");
+define('cpu_load', "حمل");
+define('ram_usage', "استخدام ذاكرة الوصول العشوائي");
+define('ram_used', "الذاكرة المستخدمة");
+define('ram_of', "من");
+define('storage_space', "مساحة التخزين");
+define('storage_total', "مساحة القرص");
+define('storage_used', "مستخدم");
+define('storage_free', "مساحة فارغة");
+define('process_monitor', "مراقبة العمليات");
+define('status_extension_required', "تمديد مطلوب");
+define('gd_info', "تمديدGD<a href=\"http://php.net/manual/en/image.installation.php\"> PHP</a> هو المطلوب لتوليد شريط الصور!");
 ?>

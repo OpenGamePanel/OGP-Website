@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2014 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -83,8 +83,9 @@ if( !isset( $_POST['start_server'] ) )
 		echo "<span class='info'>(". max .": ".
 			$max_players.")</span></td></tr>\n";
 	}
+	$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip']);
 	echo "<tr><td class='right'>". ip_and_port .
-		":</td><td class='left'>".$server_home['ip'] . ":" . $server_home['port']."<input name='ip_port' type='hidden' value='".$server_home['ip'] . ":" . $server_home['port']."'/></td></tr>";
+		":</td><td class='left'>".$display_ip . ":" . $server_home['port']."<input name='ip_port' type='hidden' value='".$server_home['ip'] . ":" . $server_home['port']."'/></td></tr>";
 
 	list($list_type,) = explode(":", $server_xml->map_list);
 
@@ -162,7 +163,7 @@ if( !isset( $_POST['start_server'] ) )
 		}
 		else
 		{
-			echo "<tr><td>";
+			echo "<tr><td colspan='2'>";
 			print_failure( failed_to_read_maps_error_code .": $map_array");
 			echo "</td></tr>";
 			$check_ok = FALSE;

@@ -25,7 +25,7 @@ td.actions{
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -44,25 +44,33 @@ td.actions{
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 function exec_ogp_module() {
     global $db, $loggedInUserInfo;
 	
 	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
 	$limit_user = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$limit_user = $loggedInUserInfo["users_page_limit"];
 	}
 	
     echo '<h2>'.get_lang('users')."</h2>";
-	echo "<p><a href='?m=user_admin&amp;p=add'>".get_lang('add_new_user')."</a></p>";
-    echo '<table class="userListTable center" style="width: 100%;">';
+	echo '<form action="home.php" method="GET" style="float:left;">
+		<p><a href="?m=user_admin&amp;p=add">'.get_lang("add_new_user").'</a></p>
+		<input type ="hidden" name="m" value="user_admin" />
+		<input name="search" type="text" id="search" />
+		<input type="submit" value="search" />
+		</form>';
+    echo '<table class="userListTable center" style="width: 100%;margin-top:100px;">';
     echo '<tr><th>'.get_lang('actions')."</th><th>".get_lang('username')."</th>";
     echo "<th>".get_lang('user_role')."</th>";
     echo "<th>".get_lang('email_address')."</th>";
     echo "<th>".get_lang('expires')."</th>";
     echo "<th class='subuserColumn'>".get_lang('subusers')."</th></tr>";
-    $result = $db->getUserList_limit($page_user,$limit_user);
+
+    $result = $db->getUserList_limit($page_user,$limit_user,$search_field);
     $i = 0;
     foreach ( $result as $row )
     {
@@ -100,9 +108,14 @@ function exec_ogp_module() {
     }
     echo '</table><br>';
 
-	$count_users = $db->get_user_count();
+	$count_users = $db->get_user_count($search_field);
 	
+	if(isset($_GET['search']) && !empty($_GET['search'])){
+	$uri = '?m=user_admin&search='.$_GET['search'].'&limit='.$limit_user.'&page=';
+	}
+	else{
 	$uri = '?m=user_admin&limit='.$limit_user.'&page=';
+	}
 	echo paginationPages($count_users[0]['total'], $page_user, $limit_user, $uri, 3, 'userManager');
 	
 }

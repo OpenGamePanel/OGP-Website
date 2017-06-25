@@ -31,7 +31,7 @@ define('execute_permission_required', "صلاحية التنفيذ مطلوبة"
 define('create_an_empty_file', "أنشأ ملف فارغ");
 define('found', "وجد");
 define('not_found', "لم يتم إيجاد");
-define('pear_xxtea_info', "Pear Crypt_XXTEA is required for OGP usage. In most of the Linux systems this module can be installed with pear with the following command 'pear install Crypt_XXTEA-beta'.");
+define('pear_xxtea_info', "Pear Crypt_XXTEA مطلوب للاستخدام OGP. في معظم أنظمة لينكس يمكن تثبيت هذه الوحدة مع pear مع الأمر التالي \"pear install Crypt_XXTEA-beta\".");
 define('refresh', "تحديث");
 define('checking_required_modules', "التحقق من الموديولات المطلوبة");
 define('database_type', "نوع قاعدة البيانات");
@@ -40,7 +40,7 @@ define('database_hostname', "اسم مضيف قاعدة البيانات");
 define('database_username', "إسم مستخدم قاعدة البيانات");
 define('database_password', "كلمة مرور قاعدة البيانات");
 define('database_name', "اسم قاعدة البيانات");
-define('database_prefix', "Database Prefix");
+define('database_prefix', "بادئة قاعدة البيانات");
 define('next', "التالى");
 define('encryption_key', "مفتاح التشفير (Agent)");
 define('agent_port', "بورت (Agent)");
@@ -60,9 +60,9 @@ define('password_too_short', "كلمة المرور قصيرة جدا ، يجب 
 define('password_contains_invalid_characters', "تحتوي كلمة المرور على أحرف غير صالحة.");
 define('invalid_email_address', "لقد أدخلت عنوان بريد إلكتروني غير صالح.");
 define('setup_complete', "اكتمل التثبيت بنجاح. لوحة التحكم OGP جاهزة الآن للاستخدام.");
-define('remove_install_and_secure_config', "You should delete install.php from your server and chmod your includes/config.inc.php back to 644 for security purposes.");
+define('remove_install_and_secure_config', "يجب حذف install.php من الخادم الخاص بك و عمل شمود لمجلد includes/config.inc.php وذالك بالعودة إلى 644 لأغراض أمنية.");
 define('go_to_panel', "انقر هنا للدخول إلى لوحة OGP الخاصة بك.");
 define('unable_to_resolve', "إذا لم تتمكن من حل هذه المشكلة، يرجى زيارة موقع OGP");
-define('slogan', "The Open-Source one!");
+define('slogan', "المصدر المفتوح واحد!");
 define('default_welcome_title_message', "مرحبا! <b style='font-size:12px; font-weight:normal;'>يمكنك تغير هذا العنوان من '<a href='?m=settings&p=themes'>إعدادات المظهر</a>' تحت '<a href='?m=administration&p=main'>الإدارة</a>' tab.</b>");
 ?>

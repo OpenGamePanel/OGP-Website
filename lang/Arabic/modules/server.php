@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,45 +22,45 @@
  *
  */
 
-define('add_new_remote_host', "Add New Remote Host");
-define('configured_remote_hosts', "Configured Remote Host");
-define('remote_host', "Remote Host");
-define('remote_host_info', "The remote host must be a pingable hostname!");
-define('remote_host_port', "Remote Host Port");
-define('remote_host_port_info', "The port that is listened by the OGP agent on remote host. Default: 12679.");
-define('remote_host_name', "Remote Host Name");
-define('ogp_user', "OGP Agent Username");
-define('remote_host_name_info', "Remote host name is used to help users to identify their servers.");
-define('add_remote_host', "Add Remote Host");
-define('remote_encryption_key', "Remote Encryption Key");
-define('remote_encryption_key_info', "Remote encryption key is used to encrypt the data between the Panel and Agent. This key must be same in both sides.");
-define('server_name', "Server Name");
-define('agent_ip_port', "Agent IP:Port");
-define('agent_status', "Agent Status");
-define('ips', "IPs");
-define('add_more_ips', "If you want to enter more IPs press 'Set IPs' when all fields are full and an empty field will appear.");
-define('encryption_key_mismatch', "Encryption key does not match with the Agent. Please recheck your Agent configuration.");
+define('add_new_remote_host', "إضافة مضيف بعيد جديد");
+define('configured_remote_hosts', "تكوين المضيف البعيد");
+define('remote_host', "المضيف البعيد");
+define('remote_host_info', "يجب أن يكون المضيف البعيد اسم مضيف قابل للتوسيع!");
+define('remote_host_port', "بورت المضيف البعيد");
+define('remote_host_port_info', "البورت الذي يستمع إليه وكيل OGP على المضيف البعيد. الأصلي:12679");
+define('remote_host_name', "إسم المضيف البعيد");
+define('ogp_user', "اسم مستخدم وكيل OGP");
+define('remote_host_name_info', "يستخدم اسم المضيف البعيد لمساعدة المستخدمين على تحديد خوادمهم.");
+define('add_remote_host', "إضافة المضيف البعيد");
+define('remote_encryption_key', "مفتاح التشفير عن بعد");
+define('remote_encryption_key_info', "يستخدم مفتاح التشفير عن بعد لتشفير البيانات بين الفريق والوكيل. يجب أن يكون هذا المفتاح نفسه في كلا الجانبين.");
+define('server_name', "إسم السيرفر");
+define('agent_ip_port', "وكيل أيبي:بورت");
+define('agent_status', "حالة الوكيل");
+define('ips', "الأيبيهات");
+define('add_more_ips', "إذا كنت ترغب في إدخال المزيد من الأيبيهات اضغط على \"تعيين الأيبي\" عندما تكون جميع الحقول ممتلئة وسوف يظهر حقل فارغ.");
+define('encryption_key_mismatch', "لا يتطابق مفتاح التشفير مع الوكيل. يرجى إعادة التحقق من تهيئة الوكيل.");
 define('no_ip_for_remote_host', "You need to add at least one (1) IP address for each remote host.");
 define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
 define('ip_administration', "Server &amp; IP Administration :: Open Game Panel");
 define('unknown_error', "Unknown error - status_chk returned");
 define('remote_host_user_name', "UNIX user");
 define('remote_host_user_name_info', "Username where the Agent is running. Example: Jonhy");
-define('remote_host_ftp_ip', "FTP IP");
-define('remote_host_ftp_ip_info', "The FTP server <b>IP</b> for the current agent.");
-define('remote_host_ftp_port', "FTP port");
-define('remote_host_ftp_port_info', "The FTP server <b>port</b> for the current agent.");
-define('view_log', "View log");
-define('status', "Status");
-define('stop_firewall', "Stop Firewall");
-define('start_firewall', "Start Firewall");
+define('remote_host_ftp_ip', "أيبي الأف تي بي");
+define('remote_host_ftp_ip_info', "سيرفر الأف تي بي <b>الأيبي</b> للوكيل الحالي.");
+define('remote_host_ftp_port', "بورت الأف تي بي");
+define('remote_host_ftp_port_info', "سيرفر الأف تي بي <b>بورت</b> للوكيل الحالي.");
+define('view_log', "عرض السجل");
+define('status', "الحالة");
+define('stop_firewall', "إيقاف جدار الحماية");
+define('start_firewall', "تشغيل جدار الحماية");
 define('seconds', "Seconds");
-define('reboot', "Remote Server Reboot");
-define('restart', "Restart Agent");
+define('reboot', "إعادة تشغيل سيرفر التحكم");
+define('restart', "إعادة تشغبل الوكيل");
 define('confirm_reboot', "Are you sure you want to remotely reboot the entire physical server named '%s'?");
 define('confirm_restart', "Are you sure you want to restart the agent named '%s'?");
-define('restarting', "Restarting agent... Please wait.");
-define('restarted', "Agent successfully restarted.");
+define('restarting', "إعادة تشغيل الوكيل... الرجاء الإنتظار");
+define('restarted', "تم إعادة تشغيل الوكيل بنجاح");
 define('reboot_success', "Server named '%s' was successfully rebooted. You will not be able to access the server until it has successfully booted.");
 define('invalid_remote_host_id', "Invalid remote host id '%s' given.");
 define('remote_host_removed', "Remote host called '%s' removed successfully.");
@@ -134,4 +134,6 @@ define('firewall_status', "Firewall status");
 define('save_firewall_settings', "Save firewall settings");
 define('reset_firewall', "Reset Firewall");
 define('firewall_settings', "Firewall Settings");
+define('default_public_ip', "Default Public IP");
+define('display_public_ip', "Display Public IP");
 ?>

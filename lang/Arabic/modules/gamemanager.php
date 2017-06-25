@@ -23,9 +23,9 @@
  */
 
 define('game_manager', "مدير اللعبة");
-define('no_games_to_monitor', "You do not have any games configured to you that can be monitored.");
+define('no_games_to_monitor', "لم يكن لديك أي ألعاب تكوين لك التي يمكن رصدها.");
 define('status', "الحالة");
-define('fail_no_mods', "No mods enabled for this game! You need to ask your OGP admin to add mod(s) for the game assigned for you.");
+define('fail_no_mods', "لا يوجد وحدات لهذه اللعبة! يجب أن تطلب من مشرف أوغب إضافة وحدة (وحدات) مود للعبة المخصصة لك.");
 define('no_game_homes_assigned', "No game servers assigned for you. You need to ask your OGP admin to assign games for you.");
 define('select_game_home_to_configure', "Select a game server that you want to configure");
 define('file_manager', "مدير الملفات");

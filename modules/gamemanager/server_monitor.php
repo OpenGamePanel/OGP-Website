@@ -3,7 +3,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -129,6 +129,9 @@ function exec_ogp_module() {
 	$home_limit = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
 	$home_cfg_id = (isset($_GET['home_cfg_id']) && (int)$_GET['home_cfg_id'] > 0) ? (int)$_GET['home_cfg_id'] : false;
 	
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
+	
+	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$home_limit = $loggedInUserInfo["users_page_limit"];
 	}
@@ -141,7 +144,7 @@ function exec_ogp_module() {
 			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
 				$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
 			else
-				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id);
+				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id,$search_field);
 	
 		}
 		else
@@ -150,7 +153,7 @@ function exec_ogp_module() {
 			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
 				$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 			else			
-				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id);
+				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id,$search_field);
 		}
 
 	if( $server_homes === FALSE )
@@ -165,9 +168,12 @@ function exec_ogp_module() {
 		return;
 	}
 	?>
-		<form onsubmit="event.preventDefault();" style="float:right;">
+		<form action="home.php" style="float:right;">
 			<b><?php print_lang('search'); ?>:</b>
-			<input type="text" id="search">
+			<input type ="hidden" name="m" value="gamemanager" />
+			<input type ="hidden" name="p" value="game_monitor" />
+			<input name="search" type="text" id="search">
+			<input type="submit" value="search" />
 		</form>
 	<?php
 	foreach($_POST as $key => $value)
@@ -503,9 +509,8 @@ function exec_ogp_module() {
 				}else{
 					$query_ip = $server_home['ip'];
 				}
-				if(ip2long($server_home['display_public_ip'])){
-					$query_ip = $server_home['display_public_ip'];
-				}
+
+				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$query_ip);
 				$address = $query_ip . ":" . $server_home['port'];
 
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;
@@ -627,23 +632,23 @@ function exec_ogp_module() {
 	echo "</table>";
 
 	if ($isAdmin) {	
-		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id'], $home_cfg_id);
+		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id'], $home_cfg_id,$search_field);
 	} else {
 		$isSubUser = $db->isSubUser($_SESSION['user_id']);
 
 		if ($isSubUser) {
-			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id'], $home_cfg_id);
+			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id'], $home_cfg_id,$search_field);
 		} else {
-			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id'], $home_cfg_id);
+			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id'], $home_cfg_id,$search_field);
 		}	
 	}
 
 
 	if(isset($_GET['home_cfg_id']) && !empty($_GET['home_cfg_id'])){
-	$uri = '?m=gamemanager&p=game_monitor&home_cfg_id='.$_GET['home_cfg_id'].'&limit='.$home_limit.'&page=';
+	$uri = '?m=gamemanager&p=game_monitor&home_cfg_id='.$_GET['home_cfg_id'].''.($search_field ? "&search=$search_field" : "").'&limit='.$home_limit.'&page=';
 	}
 	else{
-	$uri = '?m=gamemanager&p=game_monitor&limit='.$home_limit.'&page=';	
+	$uri = '?m=gamemanager&p=game_monitor'.($search_field ? "&search=$search_field" : "").'&limit='.$home_limit.'&page=';	
 	}
 	
 	if(!isset($_GET['home_id-mod_id-ip-port']) && !isset($_GET['home_id']))
