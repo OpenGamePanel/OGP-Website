@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -125,5 +125,4 @@ define('admin_dsi', "Configurações DSi");
 define('user_dsi', "DSi");
 define('list_dsi', "Lista DSi");
 define('no_remote_servers', "Não há servidores remotos conhecidos! Adicione um servidor para usar esta função.");
-
 ?>

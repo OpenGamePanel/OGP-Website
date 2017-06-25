@@ -134,6 +134,5 @@ define('firewall_status', "Firewall status");
 define('save_firewall_settings', "Save firewall settings");
 define('reset_firewall', "Reset Firewall");
 define('firewall_settings', "Firewall Settings");
-define('default_public_ip', "Default Public IP");
 define('display_public_ip', "Display Public IP");
 ?>

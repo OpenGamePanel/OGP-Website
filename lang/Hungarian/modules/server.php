@@ -134,6 +134,5 @@ define('firewall_status', "Tűzfal állapota");
 define('save_firewall_settings', "Tűzfal beállítások mentése");
 define('reset_firewall', "Tűzfal visszaállítása");
 define('firewall_settings', "Tűzfal beállítások");
-define('default_public_ip', "Alapértelmezett nyilvános IP");
 define('display_public_ip', "Nyilvános IP megjelenítése");
 ?>

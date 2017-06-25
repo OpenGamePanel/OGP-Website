@@ -134,6 +134,5 @@ define('firewall_status', "Estado del cortafuegos");
 define('save_firewall_settings', "Guardar configuración del cortafuegos");
 define('reset_firewall', "Restablecer cortafuegos");
 define('firewall_settings', "Configuración del cortafuegos");
-define('default_public_ip', "Default Public IP");
 define('display_public_ip', "Display Public IP");
 ?>

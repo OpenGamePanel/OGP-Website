@@ -134,6 +134,5 @@ define('firewall_status', "Status zapory");
 define('save_firewall_settings', "Zapisz ustawienia zapory");
 define('reset_firewall', "Restart zapory");
 define('firewall_settings', "Ustawienia Zapory");
-define('default_public_ip', "Default Public IP");
 define('display_public_ip', "Display Public IP");
 ?>
