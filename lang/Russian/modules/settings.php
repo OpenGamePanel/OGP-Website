@@ -125,7 +125,7 @@ define('custom_tab_sub_link3', "Суб-вкладка #3 Ссылка");
 define('custom_tab_sub_name4', "Суб-вкладка #4 Название");
 define('custom_tab_sub_link4', "Суб-вкладка #4 Ссылка");
 define('custom_tab_target_blank', "Цель пользовательской вкладки");
-define('custom_tab_target_blank_info', "Устанавливает цель всех вкладок. <b style='font-size:10px; font-weight:normal;'>('_self' = Открывает ссылку на одной странице. '_blank'  =  Открывает ссылку на новой странице.)</b>");
+define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Opens link on same page. New_Page  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Задний фон");
 define('bg_wrapper_info', "Картинка заднего фона. <b style='font-size:10px; font-weight:normal;'>(Только для темы Revolution.)</b>");
 define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");

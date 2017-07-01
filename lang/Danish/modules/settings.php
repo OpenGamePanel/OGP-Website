@@ -125,7 +125,7 @@ define('custom_tab_sub_link3', "Under-Fane #3 Link");
 define('custom_tab_sub_name4', "Under-Fane #4 Name");
 define('custom_tab_sub_link4', "Under-Fane #4 Link");
 define('custom_tab_target_blank', "Tilpasset Fane-blade henvisning");
-define('custom_tab_target_blank_info', "Sæt alle fane-blade til henvisning. <b style='font-size:10px; font-weight:normal;'>('_self' = Åben links på samme side. '_blank'  =  Åben link på en ny tab tab.)</b>");
+define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Opens link on same page. New_Page  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Indpaknings Baggrund");
 define('bg_wrapper_info', "Indpaknings baggrunds billed. <b style='font-size:10px; font-weight:normal;'>(Fungere kun på nogle temaer.)</b>");
 define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");
