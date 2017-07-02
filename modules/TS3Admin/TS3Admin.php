@@ -33,7 +33,7 @@ function exec_ogp_module()
 		if( isset($_GET['changeRemoteServer']) )
 			unset($_SESSION['ts3_ip']);
 
-		if( isset( $_GET['changevServer'] ) OR  !isset( $_SESSION['ts3_ip'] ))
+		if( isset( $_GET['changevServer'] ) ||  !isset( $_SESSION['ts3_ip'] ))
 		{
 			if(!$isAdmin)
 			$remote_servers = $db->getRemoteServers_ts3($_SESSION['user_id']);
@@ -81,7 +81,7 @@ function exec_ogp_module()
 				$remote_server = $db->getRemoteServer($_SESSION['rserver_id']);
 				$_SESSION['remote_key'] = $remote_server['encryption_key'];
 
-				if( isset( $_POST['vserver_id'] ) AND !$isAdmin )
+				if( isset( $_POST['vserver_id'] ) && !$isAdmin )
 				{
 					foreach($TS3_list as $TS3)
 					{
@@ -90,6 +90,7 @@ function exec_ogp_module()
 							$_SESSION['ts3_ip'] = $TS3['ip'];
 							$_SESSION['ts3_pwd'] = $TS3['pwd'];
 							$_SESSION['ts3_vserver_id'] = $TS3['vserver_id'];
+							$_SESSION['ts3_port'] = $TS3['port'];
 							break;
 						}
 					}
@@ -100,6 +101,7 @@ function exec_ogp_module()
 					$TS3 = $TS3_list[0];
 					$_SESSION['ts3_ip'] = $TS3['ip'];
 					$_SESSION['ts3_pwd'] = $TS3['pwd'];
+					$_SESSION['ts3_port'] = $TS3['port'];
 				}
 				else
 				{
@@ -151,7 +153,7 @@ function exec_ogp_module()
 		}
 
 		define('TS3WEBINTERFACE_IP', $_SESSION['ts3_ip']);	// edit server ip
-		define('TS3WEBINTERFACE_PORT', "10011");	// edit server query port
+		define('TS3WEBINTERFACE_PORT', $_SESSION['ts3_port']);	// edit server query port
 		define('TS3WEBINTERFACE_NAME', "serveradmin");
 		define('TS3WEBINTERFACE_PWD', $_SESSION['ts3_pwd']);
 		if ( !$isAdmin )
