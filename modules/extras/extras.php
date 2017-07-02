@@ -523,7 +523,7 @@ function exec_ogp_module()
 		
 	echo "<table style=\"width:100%;\">";
 
-	echo "<tr><td style=\"width:50%;\">";
+	echo "<tr><td style=\"width:50%; vertical-align:top;\">";
 	# MODULES
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
 		 "<h4>".extra_modules."</h4>".
@@ -574,7 +574,7 @@ function exec_ogp_module()
 		echo '<b>'.$module['title']."</b> - $installed_str$updated_str <span id='loading' class='$folder' ></span><br>";
 	}
 	
-	echo "</div></td><td></div>";
+	echo "</div></div></td><td style=\"width:50%; vertical-align:top;\">";
 	
 	# THEMES
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
