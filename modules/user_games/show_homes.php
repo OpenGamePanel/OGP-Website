@@ -39,7 +39,7 @@ function exec_ogp_module()
 		<p><a href="?m=user_games&amp;p=add">'.get_lang("add_new_game_home").'</a></p>
 		<input type ="hidden" name="m" value="user_games" />
 		<input name="search" type="text" id="search" />
-		<input type="submit" value="search" />
+		<input type="submit" value="'.get_lang('search').'" />
 		</form>';	
 
 	$game_homes = $db->getGameHomes_limit($page_GameHomes,$limit_GameHomes,$search_field);

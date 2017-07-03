@@ -32,11 +32,10 @@ function exec_ogp_module() {
 		<tr>
 			<td style="width: 50%; vertical-align: middle; text-align: left;">
 				<form action="home.php" method="GET" style="display: inline;">
-					<b><?php print_lang('search'); ?>:</b>
 					<input type ="hidden" name="m" value="administration" />
 					<input type ="hidden" name="p" value="watch_logger" />
 					<input name="search" type="text" id="search">
-					<input type="submit" value="search" />
+					<input type="submit" value="<?php echo get_lang('search'); ?>" />
 				</form>
 				<form method=POST style="display: inline;">
 					<input type="submit" name="empty_logger" value="<?php print_lang('empty_logger'); ?>" >
