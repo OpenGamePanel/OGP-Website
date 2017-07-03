@@ -173,7 +173,7 @@ function exec_ogp_module() {
 			<input type ="hidden" name="m" value="gamemanager" />
 			<input type ="hidden" name="p" value="game_monitor" />
 			<input name="search" type="text" id="search">
-			<input type="submit" value="search" />
+			<input type="submit" value="<?php echo get_lang('search'); ?>" />
 		</form>
 	<?php
 	foreach($_POST as $key => $value)

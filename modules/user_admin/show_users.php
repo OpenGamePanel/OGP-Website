@@ -61,7 +61,7 @@ function exec_ogp_module() {
 		<p><a href="?m=user_admin&amp;p=add">'.get_lang("add_new_user").'</a></p>
 		<input type ="hidden" name="m" value="user_admin" />
 		<input name="search" type="text" id="search" />
-		<input type="submit" value="search" />
+		<input type="submit" value="'.get_lang('search').'" />
 		</form>';
     echo '<table class="userListTable center" style="width: 100%;margin-top:100px;">';
     echo '<tr><th>'.get_lang('actions')."</th><th>".get_lang('username')."</th>";
