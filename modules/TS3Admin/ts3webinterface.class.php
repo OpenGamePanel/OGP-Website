@@ -21,8 +21,6 @@
 
 define('TS3WEBINTERFACE_VERSION', '0.3.6');
 
-error_reporting(E_ALL);
-
 require_once('ts3remote.class.php');
 
 function getAssignedServerUsers()
@@ -181,6 +179,9 @@ class TS3webinterface
 		$this->template = new Smarty();
 		$this->template->compile_check = true;
 		$this->template->debugging = false;
+
+		$this->template->template_dir = dirname(__FILE__) .'/templates';
+		$this->template->compile_dir = dirname(__FILE__) .'/templates_c';
 		
 		if( is_array($this->language) )
 		{

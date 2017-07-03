@@ -43,4 +43,7 @@ UNIQUE KEY user_id (user_id,vserver_id)) ENGINE=MyISAM DEFAULT CHARSET=latin1;")
 $install_queries[1] = array(
 "ALTER TABLE `".OGP_DB_PREFIX."ts3_homes` DROP INDEX `user_id` ,
  ADD UNIQUE `rserver_id` ( `rserver_id` , `vserver_id` , `user_id` );");
+$install_queries[2] = array(
+"ALTER TABLE `".OGP_DB_PREFIX."ts3_homes` ADD `port` int(11) DEFAULT '10011'"
+);
 ?>

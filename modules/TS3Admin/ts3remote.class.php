@@ -21,11 +21,7 @@
 
 define('TS3REMOTE_VERSION', '0.9.0');
 
-
-
 require_once('ts3lib.class.php');
-
-
 
 class TS3remote extends TS3lib
 {
