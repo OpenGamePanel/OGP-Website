@@ -721,20 +721,13 @@ function checkDisplayPublicIP($display_public_ip,$internal_ip){
 		$_SESSION['gethostbyname_cache'] = array();
 	}
 	
-	$ipcheck = $internal_ip;
-
 	if(filter_var($display_public_ip, FILTER_VALIDATE_IP)){
 		return $display_public_ip;
 	}else{
 		if(!array_key_exists($display_public_ip, $_SESSION['gethostbyname_cache'])){
 			$_SESSION['gethostbyname_cache'][$display_public_ip] = array();
-			$dns_check = dns_get_record($display_public_ip, DNS_CNAME + DNS_A);
-			foreach($dns_check AS $dc){
-				if(isset($dc['ip'])){
-					$ipcheck = $dc['ip'];
-					break;
-				}
-			}
+			$dns_check = dns_get_record($display_public_ip, DNS_A);
+			$ipcheck = isset($dns_check[0]['ip']) ? $dns_check[0]['ip'] : $internal_ip;
 			if($ipcheck!=$display_public_ip){
 				$_SESSION['gethostbyname_cache'][$display_public_ip]['ip'] = $ipcheck;
 				$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'] = time();
@@ -744,12 +737,8 @@ function checkDisplayPublicIP($display_public_ip,$internal_ip){
 			}
 		}else{
 			if((time()-$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'])>=$cache_timer){
-				$dns_check = dns_get_record($display_public_ip, DNS_CNAME + DNS_A);
-				foreach($dns_check AS $dc){
-					if(isset($dc['ip'])){
-						$ipcheck = $dc['ip'];
-					}
-				}
+				$dns_check = dns_get_record($display_public_ip, DNS_A);
+				$ipcheck = isset($dns_check[0]['ip']) ? $dns_check[0]['ip'] : $internal_ip;
 				if($ipcheck!=$display_public_ip){
 					$_SESSION['gethostbyname_cache'][$display_public_ip]['ip'] = $ipcheck;
 					$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'] = time();
