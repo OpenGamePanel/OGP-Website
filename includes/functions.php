@@ -710,21 +710,28 @@ function paginationPages($pageResults, $currentPage, $perPage, $pageUri, $pagesS
 function checkDisplayPublicIP($display_public_ip,$internal_ip){
 
 	// Set Cache Timer in Seconds
-	$cache_timer = 600;
+	$cache_timer = 15;
+	
+	// Exit Function when External IP is Internal IP
+	if($display_public_ip==$internal_ip){
+		return $internal_ip;
+	}
 
 	if(!isset($_SESSION['gethostbyname_cache'])){
 		$_SESSION['gethostbyname_cache'] = array();
 	}
+	
+	$ipcheck = $internal_ip;
 
-	if(filter_var($display_public_ip, FILTER_VALIDATE_IP) && $display_public_ip!=$internal_ip){
+	if(filter_var($display_public_ip, FILTER_VALIDATE_IP)){
 		return $display_public_ip;
 	}else{
 		if(!array_key_exists($display_public_ip, $_SESSION['gethostbyname_cache'])){
 			$_SESSION['gethostbyname_cache'][$display_public_ip] = array();
-			foreach(array('DNS_CNAME', 'DNS_A') AS $dt){
-				$dns_check = array_pop(dns_get_record($display_public_ip, $dt));
-				if(isset($dns_check['ip'])){
-					$ipcheck = $dns_check['ip'];
+			$dns_check = dns_get_record($display_public_ip, DNS_CNAME + DNS_A);
+			foreach($dns_check AS $dc){
+				if(isset($dc['ip'])){
+					$ipcheck = $dc['ip'];
 					break;
 				}
 			}
@@ -737,11 +744,10 @@ function checkDisplayPublicIP($display_public_ip,$internal_ip){
 			}
 		}else{
 			if((time()-$_SESSION['gethostbyname_cache'][$display_public_ip]['stamp'])>=$cache_timer){
-				foreach(array('DNS_CNAME', 'DNS_A') AS $dt){
-					$dns_check = array_pop(dns_get_record($display_public_ip, $dt));
-					if(isset($dns_check['ip'])){
-						$ipcheck = $dns_check['ip'];
-						break;
+				$dns_check = dns_get_record($display_public_ip, DNS_CNAME + DNS_A);
+				foreach($dns_check AS $dc){
+					if(isset($dc['ip'])){
+						$ipcheck = $dc['ip'];
 					}
 				}
 				if($ipcheck!=$display_public_ip){
