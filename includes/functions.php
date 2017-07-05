@@ -710,7 +710,7 @@ function paginationPages($pageResults, $currentPage, $perPage, $pageUri, $pagesS
 function checkDisplayPublicIP($display_public_ip,$internal_ip){
 
 	// Set Cache Timer in Seconds
-	$cache_timer = 15;
+	$cache_timer = 600;
 	
 	// Exit Function when External IP is Internal IP
 	if($display_public_ip==$internal_ip){
