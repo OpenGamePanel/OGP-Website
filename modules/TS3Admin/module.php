@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "TS3Admin";
 $module_version = "0.2";
-$db_version = 1;
+$db_version = 2;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => '', 'name'=>'ts3admin', 'group'=>'user' ) );
 $install_queries = array();
