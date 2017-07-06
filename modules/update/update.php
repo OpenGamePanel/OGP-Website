@@ -48,15 +48,20 @@ function check_file($local_path, $remote_url)
 
 function exec_ogp_module()
 {
+	global $db, $settings;
+	define('REPONAME', 'OGP-Website');
+
 	if ($_SESSION['users_group'] != "admin") 
 	{
 		print_failure(get_lang('no_access'));
 		return;
 	}
 
-	global $db, $settings;
-	
-	define('REPONAME', 'OGP-Website');
+	// Check if PHP-ZIP is installed, otherwise we won't be able to extract the downloaded update.
+	if (extension_loaded('zip') === false) {
+		print_failure(get_lang('missing_zip_extension'));
+		return;
+	}
 	
 	// GitHub URL
 	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict") && function_exists("getGitHubOrganization")){

@@ -24,9 +24,28 @@
  */
 
 function exec_ogp_module() {
-	global $db, $loggedInUserInfo;
+	global $db, $view, $loggedInUserInfo;
+
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
+	$p = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
+	$l = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+		$l = $loggedInUserInfo["users_page_limit"];
+	}
+
 	echo "<h2>".get_lang('watch_logger')."</h2>";
-	?>
+
+	$logs = $db->read_logger($p, $l, $search_field);
+
+	if (empty($logs)) {
+		print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
+
+		$view->refresh("?m=administration&p=watch_logger", 5);
+		return;
+	}
+
+?>
 	<!-- Search, Empty Logger, and Paging Options Table -->
 	<table style="width: 100%;">
 		<tr>
@@ -64,16 +83,6 @@ function exec_ogp_module() {
 		$db->del_logger_log($_POST['log_id']);
 	if( isset( $_POST['empty_logger'] ) )
 		$db->empty_logger();
-	
-	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
-	$p = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
-	$l = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
-	
-	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
-		$l = $loggedInUserInfo["users_page_limit"];
-	}
-	
-	$logs = $db->read_logger($p,$l,$search_field);
 	
 	if($logs)
 	{

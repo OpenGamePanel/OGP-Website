@@ -159,7 +159,13 @@ function exec_ogp_module() {
 	if( $server_homes === FALSE )
 	{
 		// If there are no games, then there can not be any mods either.
-		print_failure( no_game_homes_assigned );
+
+		if (!empty($search_field)) {
+			print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
+		} else {
+			print_failure(get_lang('no_game_homes_assigned'));
+		}
+
 		if ( $isAdmin )
 		{
 			echo "<p><a href='?m=user_games&amp;p=assign&amp;user_id=$_SESSION[user_id]'>".
