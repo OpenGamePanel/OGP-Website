@@ -100,7 +100,7 @@ function exec_ogp_module() {
         $user_expires = read_expire($row['user_expires']);
         print "<tr class='tr".($i++%2)." ";
         print $row['users_role'] . " ";
-        if(!empty($ownedBy)){
+        if(!empty($ownedBy) && empty($search_field)){
 			print "hide";
 		}else{
 			print "subusersShowHide";
