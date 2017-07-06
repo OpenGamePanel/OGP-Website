@@ -267,7 +267,7 @@ function exec_ogp_module()
 			return;
 		}
 		
-		$back_compatibility = [ 'Util',
+		$back_compatibility = array ( 'Util',
 								'RCON',
 								'DSi',
 								'Cron',
@@ -282,7 +282,7 @@ function exec_ogp_module()
 								'Light',
 								'Silver',
 								'Soft',
-								'Uprise' ];
+								'Uprise' );
 		
 		$installed = rglob('*/*/install.nfo');
 		
