@@ -35,12 +35,20 @@ function exec_ogp_module()
 	}
 	
 	echo "<h2>".get_lang('game_servers')."</h2>";
-	echo '<form action="home.php" method="GET" style="margin-bottom:10px;float:left;">
-		<p><a href="?m=user_games&amp;p=add">'.get_lang("add_new_game_home").'</a></p>
-		<input type ="hidden" name="m" value="user_games" />
-		<input name="search" type="text" id="search" />
-		<input type="submit" value="'.get_lang('search').'" />
-		</form>';	
+	echo '<table style="width: 100%; margin-bottom: 50px;">
+			<tr>
+				<td style="width: 50%; vertical-align: middle; text-align: left;">
+					<p><a href="?m=user_games&amp;p=add">'.get_lang("add_new_game_home").'</a></p>
+				</td>
+				<td style="width: 50%; vertical-align: middle; text-align: right;">
+					<form action="home.php" method="GET" style="float:right;">
+					<input type ="hidden" name="m" value="user_games" />
+					<input name="search" type="text" id="search" />
+					<input type="submit" value="'.get_lang('search').'" />
+					</form>
+				</td>
+			</tr>
+		</table>';	
 
 	$game_homes = $db->getGameHomes_limit($page_GameHomes,$limit_GameHomes,$search_field);
 	if ( empty($game_homes) )
