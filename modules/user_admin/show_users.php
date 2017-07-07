@@ -82,7 +82,7 @@ function exec_ogp_module() {
 			</tr>
 		</table>';
 
-    echo '<table class="userListTable center" style="width: 100%;margin-top:100px;">';
+    echo '<table class="userListTable center" style="width: 100%;margin-top:50px;">';
     echo '<tr><th>'.get_lang('actions')."</th><th>".get_lang('username')."</th>";
     echo "<th>".get_lang('user_role')."</th>";
     echo "<th>".get_lang('email_address')."</th>";
