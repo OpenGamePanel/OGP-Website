@@ -257,33 +257,42 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getUserList_limit($page_user,$limit_user,$search_field) {
-		
-       $user_get_id = ($page_user - 1) * $limit_user;		
-	
-		if ( !$this->link ) return;
-		$query = sprintf("SELECT user_id,users_login,users_lang,
-			users_role,users_fname,users_lname,users_email,user_expires,users_parent
-			FROM %susers 
-			".($search_field ? "WHERE `user_id` = '$search_field' OR `users_login` = '$search_field' OR `users_lang` = '$search_field'
-			OR `users_role` = '$search_field' OR `users_fname` = '$search_field' OR `users_lname` = '$search_field' OR `users_email` = '$search_field'
-			OR `user_expires` = '$search_field' OR `users_parent` = '$search_field' " : "" )." 
-			ORDER BY users_login ASC LIMIT $user_get_id,$limit_user",
-			$this->table_prefix);
+		$user_get_id = ($page_user - 1) * $limit_user;
+
+		$sql = "SELECT
+					user_id, users_login, users_lang,
+					users_role, users_fname, users_lname,
+					users_email, user_expires, users_parent
+			FROM ".$this->table_prefix."users ";
+
+		if (!empty($search_field)) {
+			$sql .= "WHERE user_id = '$search_field' OR users_login LIKE '%$search_field%' OR users_lang = '$search_field'
+						OR users_role = '$search_field' OR users_fname LIKE '%$search_field%' OR users_lname LIKE '%$search_field%' OR users_email LIKE '%$search_field%' ";
+		}
+
+		$sql .= "ORDER BY users_login ASC LIMIT $user_get_id, $limit_user";
 		++$this->queries_;
-		$result = mysql_query($query,$this->link);
+
+		$result = mysql_query($sql, $this->link);
 		$results = array();
-		while ( $row = mysql_fetch_assoc( $result ) )
+
+		while ( $row = mysql_fetch_assoc($result)) {
 			array_push($results,$row);
+		}
+
 		return $results;
 	}
 	
 	public function get_user_count($search_field){
-		return $this->resultQuery("SELECT COUNT(user_id) AS total FROM `".$this->table_prefix."users`
-		".($search_field ? "WHERE `user_id` = '$search_field' OR `users_login` = '$search_field' OR `users_lang` = '$search_field'
-			OR `users_role` = '$search_field' OR `users_fname` = '$search_field' OR `users_lname` = '$search_field' OR `users_email` = '$search_field'
-			OR `user_expires` = '$search_field' OR `users_parent` = '$search_field' " : "" )."
-		
-		;");
+		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."users ";
+
+		if (!empty($search_field)) {
+			$sql .= "WHERE user_id = '$search_field' OR users_login LIKE '%$search_field%' OR users_lang = '$search_field'
+						OR users_role = '$search_field' OR users_fname LIKE '%$search_field%' OR users_lname LIKE '%$search_field%' OR users_email LIKE '%$search_field%'";
+		}
+
+		++$this->queries_;
+		return $this->resultQuery($sql);
 	}
 
 	public function getGroupList() {
@@ -1414,18 +1423,18 @@ class OGPDatabaseMySQL extends OGPDatabase
 			' : '').'
 			'
  			.($home_cfg_id ?" WHERE home_cfg_id = '$home_cfg_id'
- 			".($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
- 								OR home_name = '$search_field' 
- 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 			".($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+ 								OR home_name LIKE '%".$search_field."%'
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR user_id = '$search_field'
- 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR agent_ip = '$search_field' OR port = '$search_field'
  								" : '')." ": '
- 			'.($search_field ?" WHERE home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
- 								OR home_name = '$search_field' 
- 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 			'.($search_field ?" WHERE home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+ 								OR home_name LIKE '%".$search_field."%'
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR user_id = '$search_field'
-								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
 								OR agent_ip = '$search_field' OR port = '$search_field'
 								" : '').'
 								'));
@@ -1440,20 +1449,20 @@ class OGPDatabaseMySQL extends OGPDatabase
 			' : '').'
 			WHERE user_id = '.$assign_id.' ' .($home_cfg_id ? 'AND `home_id`
 			IN (SELECT `home_id` FROM `'.$this->table_prefix.'server_homes` WHERE home_cfg_id = '.$home_cfg_id.'
-			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
- 								OR home_name = '$search_field' 
- 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+ 								OR home_name LIKE '%".$search_field."%'
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR user_id = '$search_field'
- 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+ 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR agent_ip = '$search_field' OR port = '$search_field'
  								" : '').')'
 								: 
 								'
-				 			'.($search_field ?" AND home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
- 								OR home_name = '$search_field' 
- 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+				 			'.($search_field ?" AND home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+ 								OR home_name LIKE '%".$search_field."%'
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR user_id = '$search_field'
-								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
 								OR agent_ip = '$search_field' OR port = '$search_field'
 								" : '').'				
 								' 
@@ -1473,15 +1482,15 @@ class OGPDatabaseMySQL extends OGPDatabase
 			WHERE group_id IN (SELECT group_id FROM `'.$this->table_prefix.'user_groups` WHERE user_id = '.$assign_id.' )
 			
 			' .($home_cfg_id ? 'AND `home_id` IN (SELECT `home_id` FROM `'.$this->table_prefix.'server_homes` WHERE home_cfg_id = '.$home_cfg_id.'
-			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
- 								OR home_name = '$search_field' 
- 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+ 								OR home_name LIKE '%".$search_field."%'
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR agent_ip = '$search_field' OR port = '$search_field'
  								" : '').')'
 			:'
-			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path = '$search_field' 
- 								OR home_name = '$search_field' 
- 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
+			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+ 								OR home_name LIKE '%".$search_field."%'
+ 								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR agent_ip = '$search_field' OR port = '$search_field'
  								" : '').'
 			'));
@@ -1515,7 +1524,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_mods.def_postcmd,
 								%1$sconfig_mods.mod_cfg_id
 						FROM %1$sserver_homes
-						'.($search_field ?'NATURAL JOIN `%1$suser_homes` ':'').'
+						'.($search_field ?'NATURAL JOIN `%1$suser_homes`':'').'
 						NATURAL JOIN %1$sremote_servers
 						NATURAL JOIN %1$sconfig_homes
 						LEFT JOIN %1$sgame_mods 
@@ -1534,20 +1543,23 @@ class OGPDatabaseMySQL extends OGPDatabase
 						AND %1$sserver_homes.home_cfg_id = \''.$home_cfg_id.'\'
 						'.($search_field ?'
 						AND %1$sserver_homes.home_id = \''.$search_field.'\'
-						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
-						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id_main = \''.$search_field.'\' OR home_path LIKE \'%%'.$search_field.'%%\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
 						OR user_id = \''.$search_field.'\'
-						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
-						OR home_name = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
+						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
-						' : '').' ' : '
+						' : '').'
+						'
+						: 
+						'
 						'.($search_field ?'
 						AND %1$sserver_homes.home_id = \''.$search_field.'\'
-						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
-						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id_main = \''.$search_field.'\' OR home_path LIKE \'%%'.$search_field.'%%\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
 						OR user_id = \''.$search_field.'\'
-						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
-						OR home_name = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
+						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
 						' : '').'
 						').' OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
@@ -1620,20 +1632,20 @@ class OGPDatabaseMySQL extends OGPDatabase
 						AND %1$sserver_homes.home_cfg_id = \''.$home_cfg_id.'\'
 						'.($search_field ?'
 						AND %1$sserver_homes.home_id = \''.$search_field.'\'
-						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
-						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id_main = \''.$search_field.'\' OR home_path LIKE \'%%'.$search_field.'%%\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
 						OR user_id = \''.$search_field.'\'
-						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
-						OR home_name = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
+						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
 						' : '').' ' : '
 						'.($search_field ?'
 						AND %1$sserver_homes.home_id = \''.$search_field.'\'
-						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
-						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
+						OR user_id_main = \''.$search_field.'\' OR home_path LIKE \'%%'.$search_field.'%%\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
 						OR user_id = \''.$search_field.'\'
-						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
-						OR home_name = \''.$search_field.'\'
+						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
+						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
 						' : '').'
 						').'
@@ -1662,7 +1674,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_mods.def_precmd,
 								%1$sconfig_mods.def_postcmd,
 								%1$sconfig_mods.mod_cfg_id
-						FROM %1$sremote_servers 
+						FROM %1$sremote_servers
 						NATURAL JOIN %1$suser_group_homes 
 						NATURAL JOIN %1$sserver_homes 
 						NATURAL JOIN %1$sconfig_homes
@@ -1689,15 +1701,15 @@ class OGPDatabaseMySQL extends OGPDatabase
 						'.($search_field ?'
 						AND %1$sserver_homes.home_id = \''.$search_field.'\'
 						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
-						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
-						OR home_name = \''.$search_field.'\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
+						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
 						' : '').' ' : '
 						'.($search_field ?'
 						AND %1$sserver_homes.home_id = \''.$search_field.'\'
-						OR user_id_main = \''.$search_field.'\' OR home_path = \''.$search_field.'\'
-						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login = \''.$search_field.'\')
-						OR home_name = \''.$search_field.'\'
+						OR user_id_main = \''.$search_field.'\' OR home_path LIKE \'%%'.$search_field.'%%\'
+						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
+						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
 						' : '').'
 						').'
@@ -2661,19 +2673,36 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$this->table_prefix);
 		return $this->listQuery($query);
 	}
-	
-	public function getGameHomes_limit($page_gameHomes,$limit_gameHomes,$search_field){
+
+	public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $search_field) {
 		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
-		$query = sprintf('SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.*
-			FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers` 
-			'.($search_field ? "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
-			OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
-			OR home_name = '$search_field' OR agent_ip = '$search_field' OR remote_server_name = '$search_field'
-			OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')
-			" : "").'
-			ORDER BY home_id ASC LIMIT '.$game_home_id.','.$limit_gameHomes.'; ',
-			$this->table_prefix);
-		return $this->listQuery($query);
+
+		$sql = sprintf('SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.* 
+					FROM %1$sserver_homes NATURAL JOIN %1$sconfig_homes NATURAL JOIN %1$sremote_servers ', $this->table_prefix);
+
+		if (!empty($search_field)) {
+			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
+					OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
+					OR home_name LIKE '%$search_field%' OR agent_ip = '$search_field' OR remote_server_name LIKE '%$search_field%'
+					OR user_id_main IN (SELECT user_id FROM ".$this->table_prefix."users WHERE users_login LIKE '%$search_field%') ";
+		}
+
+		$sql .= "ORDER BY home_id ASC LIMIT $game_home_id, $limit_gameHomes;";
+
+		return $this->listQuery($sql);
+	}
+	
+	public function get_GameHomes_count($search_field) {
+		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."server_homes NATURAL JOIN ".$this->table_prefix."remote_servers ";
+
+		if (!empty($search_field)) {
+			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
+					OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
+					OR home_name LIKE '%$search_field%' OR agent_ip = '$search_field' OR remote_server_name LIKE '%$search_field%'
+					OR user_id_main IN (SELECT user_id FROM ".$this->table_prefix."users WHERE users_login LIKE '%$search_field%')";
+		}
+
+		return $this->resultQuery($sql);
 	}
 	
    public function get_GameHomes_count($search_field){
@@ -2934,24 +2963,30 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$this->query("INSERT INTO OGP_DB_PREFIXlogger (date, user_id, ip, message) VALUE (FROM_UNIXTIME(UNIX_TIMESTAMP(), '%d-%m-%Y %H:%i:%s'), $user_id, '$client_ip', '$message');");
 	}
 
-	public function get_logger_count($search_field){
-		return $this->resultQuery("SELECT COUNT(log_id) AS total FROM `".$this->table_prefix."logger` 
-		".($search_field ? " WHERE log_id = '$search_field' OR user_id = '$search_field' 
-		 OR ip = '$search_field' OR message = '$search_field' OR user_id
-		 IN 
-		 (SELECT user_id FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')" : "")."
-		;");
+	public function get_logger_count($search_field) {
+		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."logger ";
+
+		if (!empty($search_field)) {
+			$sql .= "WHERE ip = '$search_field' OR message LIKE '%$search_field%'
+				OR user_id IN (SELECT user_id FROM `".$this->table_prefix."users` WHERE users_login LIKE '%$search_field%')";
+		}
+
+		return $this->resultQuery($sql);
 	}
 	
-	public function read_logger($page,$limit,$search_field){
+	public function read_logger($page,$limit, $search_field) {
 		$log_id = ($page - 1) * $limit;
-		return $this->resultQuery("SELECT * FROM `".$this->table_prefix."logger` 
-		".($search_field ? " WHERE log_id = '$search_field' OR date = '$search_field'
-		 OR user_id = '$search_field' OR ip = '$search_field' OR message = '$search_field' OR user_id 
-		 IN 
-		 (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login = '$search_field')" : "")." 
-		ORDER BY log_id DESC LIMIT $log_id,$limit;
-		");
+
+		$sql = "SELECT * FROM ".$this->table_prefix."logger ";
+
+		if (!empty($search_field)) {
+			$sql .= "WHERE ip = '$search_field' OR message LIKE '%$search_field%'
+				OR user_id IN (SELECT user_id FROM `".$this->table_prefix."users` WHERE users_login LIKE '%$search_field%') ";
+		}
+
+		$sql .= "ORDER BY log_id DESC LIMIT $log_id, $limit;";
+
+		return $this->resultQuery($sql);
 	}
 	
 	public function del_logger_log($log_id){

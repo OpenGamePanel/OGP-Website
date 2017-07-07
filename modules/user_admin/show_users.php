@@ -46,7 +46,7 @@ td.actions{
  */
 
 function exec_ogp_module() {
-    global $db, $loggedInUserInfo;
+    global $db, $view, $loggedInUserInfo;
 	
 	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
 	$limit_user = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
@@ -55,22 +55,40 @@ function exec_ogp_module() {
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$limit_user = $loggedInUserInfo["users_page_limit"];
 	}
-	
-    echo '<h2>'.get_lang('users')."</h2>";
-	echo '<form action="home.php" method="GET" style="float:left;">
-		<p><a href="?m=user_admin&amp;p=add">'.get_lang("add_new_user").'</a></p>
-		<input type ="hidden" name="m" value="user_admin" />
-		<input name="search" type="text" id="search" />
-		<input type="submit" value="'.get_lang('search').'" />
-		</form>';
-    echo '<table class="userListTable center" style="width: 100%;margin-top:100px;">';
+
+	echo '<h2>'.get_lang('users')."</h2>";
+
+	$result = $db->getUserList_limit($page_user, $limit_user, $search_field);
+
+	if (empty($result) && $search_field !== false) {
+		print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
+
+		$view->refresh("?m=user_admin", 5);
+		return;
+	}
+
+	echo '<table style="width: 100%;">
+			<tr>
+				<td style="width: 50%; vertical-align: middle; text-align: left;">
+					<p><a href="?m=user_admin&amp;p=add">'.get_lang("add_new_user").'</a></p>
+				</td>
+				<td style="width: 50%; vertical-align: middle; text-align: right;">
+					<form action="home.php" method="GET" style="float:right;">
+					<input type ="hidden" name="m" value="user_admin" />
+					<input name="search" type="text" id="search" />
+					<input type="submit" value="'.get_lang('search').'" />
+					</form>
+				</td>
+			</tr>
+		</table>';
+
+    echo '<table class="userListTable center" style="width: 100%;margin-top:50px;">';
     echo '<tr><th>'.get_lang('actions')."</th><th>".get_lang('username')."</th>";
     echo "<th>".get_lang('user_role')."</th>";
     echo "<th>".get_lang('email_address')."</th>";
     echo "<th>".get_lang('expires')."</th>";
     echo "<th class='subuserColumn'>".get_lang('subusers')."</th></tr>";
 
-    $result = $db->getUserList_limit($page_user,$limit_user,$search_field);
     $i = 0;
     foreach ( $result as $row )
     {
@@ -82,7 +100,7 @@ function exec_ogp_module() {
         $user_expires = read_expire($row['user_expires']);
         print "<tr class='tr".($i++%2)." ";
         print $row['users_role'] . " ";
-        if(!empty($ownedBy)){
+        if(!empty($ownedBy) && empty($search_field)){
 			print "hide";
 		}else{
 			print "subusersShowHide";
