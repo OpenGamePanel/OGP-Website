@@ -998,7 +998,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$encryption_key = trim($encryption_key);
 		$rhost_timeout = trim($rhost_timeout);
 		$use_nat = trim($use_nat);
-		$display_public_up = trim($display_public_ip);
+		$display_public_ip = trim($display_public_ip);
 
 		if ( empty($rhost_ip) )
 			return false;

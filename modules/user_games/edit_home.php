@@ -815,9 +815,13 @@ function exec_ogp_module()
 
 				foreach($avail_ips as $value)
 				{
-					$avail_display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$value['ip']);
 					$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
-					echo "<option value='".$value['ip_id']."' $selected >".$avail_display_ip."</option>\n";
+					if(isset($home_info['display_public_ip']) && !empty($home_info['display_public_ip'])){
+						$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$home_info['agent_ip']);
+					}else{
+						$display_ip = $value['ip'];
+					}
+					echo "<option value='".$value['ip_id']."' $selected >".$display_ip."</option>\n";
 				}
 
 				echo "</select>";
