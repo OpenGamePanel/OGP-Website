@@ -178,7 +178,7 @@ function exec_ogp_module() {
 			<b><?php print_lang('search'); ?>:</b>
 			<input type ="hidden" name="m" value="gamemanager" />
 			<input type ="hidden" name="p" value="game_monitor" />
-			<input name="search" type="text" id="search">
+			<input name="search" type="text" id="search" value="<?php if(hasValue($search_field)){ echo $search_field; } ?>" />
 			<input type="submit" value="<?php echo get_lang('search'); ?>" />
 		</form>
 	<?php
