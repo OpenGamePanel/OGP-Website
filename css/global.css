@@ -71,3 +71,7 @@ table.tablesorter thead tr .header.sorter-false{ /* No background image for non-
 	background-image: none;
 	cursor: auto;
 }
+
+table.hundred{
+	width: 100%;
+}
