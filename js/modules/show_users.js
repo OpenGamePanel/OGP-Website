@@ -25,6 +25,9 @@ $(document).ready(function() {
 	$('td.actions').click(function(e){
 		e.stopPropagation();
 	});
+	
+	// Trigger click on all subuser sections twice due to new search functionality which I do not like.
+	$(".subusersShowHide").trigger("click").trigger("click");
 });
 
 function moveSubuserRowsAndShow(td, tr, uid){
