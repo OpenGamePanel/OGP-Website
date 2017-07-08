@@ -35,18 +35,6 @@ function exec_ogp_module()
 	}
 
 	$game_homes = $db->getGameHomes_limit($page_GameHomes,$limit_GameHomes,$search_field);
-	
-	if (empty($game_homes)) {
-		if (!empty($search_field)) {
-			print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
-
-			$view->refresh("?m=user_games", 5);
-		} else {
-			print_failure(get_lang('no_game_homes_found'));
-		}
-
-		return;
-	}
 
 	echo "<h2>".get_lang('game_servers')."</h2>";
 	echo '<table style="width: 100%; margin-bottom: 50px;">
@@ -62,7 +50,19 @@ function exec_ogp_module()
 					</form>
 				</td>
 			</tr>
-		</table>';	
+		</table>';
+	
+	if (empty($game_homes)) {
+		if (!empty($search_field)) {
+			print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
+
+			$view->refresh("?m=user_games", 5);
+		} else {
+			print_failure(get_lang('no_game_homes_found'));
+		}
+
+		return;
+	}
 
 	echo "<h2>".get_lang('available_game_homes')."</h2>";
 	echo '<table class="center">';
