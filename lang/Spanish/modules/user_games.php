@@ -216,4 +216,5 @@ define('set_affinity', "Establecer afinidad del servidor");
 define('cpu_affinity_info', "Seleccione los núcleo(s) de CPU que quiera asignar al servidor de juego.");
 define('expiration_date_changed', "Expiration date for selected home has been changed.");
 define('expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
+define('search', "Search");
 ?>

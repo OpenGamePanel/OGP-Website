@@ -125,4 +125,5 @@ define('admin_dsi', "Ustawienia DSi");
 define('user_dsi', "DSi");
 define('list_dsi', "Lista DSi");
 define('no_remote_servers', "Nie ma znanych serwerów zdalnych! Dodać serwer do korzystania z tej funkcji.");
+define('no_results_found', "No search results found for %s");
 ?>

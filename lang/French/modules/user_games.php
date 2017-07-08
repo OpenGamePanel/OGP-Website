@@ -216,4 +216,5 @@ define('set_affinity', "Définir l'affinité du CPU");
 define('cpu_affinity_info', "Sélectionnez le(s) cœur(s) de CPU à assigner au serveur de jeu.");
 define('expiration_date_changed', "La date d&apos;expiration pour ce serveur a bien été changée.");
 define('expiration_date_could_not_be_changed', "La date d&apos;expiration pour ce serveur n&apos;a pas pu être changée.");
+define('search', "Rechercher");
 ?>

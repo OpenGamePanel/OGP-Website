@@ -125,4 +125,5 @@ define('admin_dsi', "DSi beállítások");
 define('user_dsi', "DSi");
 define('list_dsi', "DSi lista");
 define('no_remote_servers', "Nincs ismert távoli szerver! Adj szervert hozzá a funkció használatához.");
+define('no_results_found', "No search results found for %s");
 ?>

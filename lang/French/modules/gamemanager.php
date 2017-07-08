@@ -106,7 +106,7 @@ define('server_not_running', "Ce serveur n'est pas démarré.");
 define('address', "Adresse");
 define('owner', "Propriétaire");
 define('operations', "Opérations");
-define('search', "Recherche");
+define('search', "Rechercher");
 define('maps_read_from', "Cartes lues depuis ");
 define('file', "Fichier");
 define('folder', "Dossier");

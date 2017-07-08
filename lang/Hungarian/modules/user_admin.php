@@ -108,4 +108,5 @@ define('editing_profile', "Profil szerkesztése: %s");
 define('valid_user', "Kérlek, adj meg egy érvényes felhasználót.");
 define('enter_valid_username', "Kérlek, adj meg egy érvényes felhasználónevet.");
 define('unexpected_role', "Váratlan felhasználói szerepet kapott.");
+define('search', "Search");
 ?>

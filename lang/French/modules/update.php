@@ -53,4 +53,8 @@ define('blacklist_files', "Liste Noire des fichiers");
 define('blacklist_files_info', "Tous les fichiers marqués ne seront pas mis à jour.");
 define('save_to_blacklist', "Enregistrer dans la Liste Noire");
 define('no_new_updates', "Pas de nouvelles mises à jour");
+define('module_file_missing', "Le fichier module.php est manquant dans le dossier.");
+define('query_failed', "Impossible d’exécuter la requête");
+define('query_failed_2', "sur la base de données.");
+define('missing_zip_extension', "L'extension php-zip n'est pas chargée. Veuillez l'activer pour utiliser le module de mise à jour.");
 ?>

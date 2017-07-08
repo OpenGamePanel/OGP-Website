@@ -125,4 +125,5 @@ define('admin_dsi', "إعدادات DSi");
 define('user_dsi', "DSi");
 define('list_dsi', "قائمة DSi");
 define('no_remote_servers', "لا توجد خوادم بعيدة معروفة! إضافة خادم لاستخدام هذه الوظيفة.");
+define('no_results_found', "No search results found for %s");
 ?>

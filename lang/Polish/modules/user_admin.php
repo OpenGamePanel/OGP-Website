@@ -108,4 +108,5 @@ define('editing_profile', "Edycja profilu: %s");
 define('valid_user', "Proszę podać prawidłowego użytkownika.");
 define('enter_valid_username', "Proszę podać poprawną nazwę użytkownika.");
 define('unexpected_role', "Nieoczekiwana rola użytkownika.");
+define('search', "Search");
 ?>
