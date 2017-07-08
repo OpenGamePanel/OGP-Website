@@ -2700,7 +2700,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
 
 		$sql = sprintf('SELECT *
-					FROM %1$sserver_homes NATURAL JOIN %1$sconfig_homes NATURAL JOIN %1$sremote_servers NATURAL JOIN %1$shome_ip_ports NATURAL JOIN %1$sremote_server_ips', $this->table_prefix);
+					FROM %1$sserver_homes NATURAL JOIN %1$sconfig_homes NATURAL JOIN %1$sremote_servers NATURAL JOIN %1$shome_ip_ports NATURAL JOIN %1$sremote_server_ips ', $this->table_prefix);
 
 		if (!empty($search_field)) {
 			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
@@ -2716,7 +2716,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function get_GameHomes_count($search_field) {
-		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."server_homes NATURAL JOIN ".$this->table_prefix."remote_servers NATURAL JOIN ".$this->table_prefix."home_ip_ports NATURAL JOIN ".$this->table_prefix."remote_server_ips";
+		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."server_homes NATURAL JOIN ".$this->table_prefix."remote_servers NATURAL JOIN ".$this->table_prefix."home_ip_ports NATURAL JOIN ".$this->table_prefix."remote_server_ips ";
 
 		if (!empty($search_field)) {
 			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
