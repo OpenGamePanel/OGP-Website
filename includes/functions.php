@@ -712,8 +712,8 @@ function checkDisplayPublicIP($display_public_ip,$internal_ip){
 	// Set Cache Timer in Seconds
 	$cache_timer = 600;
 	
-	// Exit Function when External IP is Internal IP
-	if($display_public_ip==$internal_ip){
+	// Exit Function when External IP is Internal IP or when Display Public IP is not set
+	if($display_public_ip==$internal_ip || empty($display_public_ip)){
 		return $internal_ip;
 	}
 
