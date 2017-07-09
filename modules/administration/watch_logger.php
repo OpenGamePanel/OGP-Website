@@ -53,7 +53,7 @@ function exec_ogp_module() {
 				<form action="home.php" method="GET" style="display: inline;">
 					<input type ="hidden" name="m" value="administration" />
 					<input type ="hidden" name="p" value="watch_logger" />
-					<input name="search" type="text" id="search">
+					<input name="search" type="text" id="search" value="<?php if(hasValue($search_field)){ echo $search_field; } ?>" />
 					<input type="submit" value="<?php echo get_lang('search'); ?>" />
 				</form>
 				<form method=POST style="display: inline;">

@@ -57,7 +57,7 @@ function exec_ogp_module()
 				<td style="width: 50%; vertical-align: middle; text-align: right;">
 					<form action="home.php" method="GET" style="float:right;">
 					<input type ="hidden" name="m" value="user_games" />
-					<input name="search" type="text" id="search" />
+					<input name="search" type="text" id="search" value="' . $search_field . '" />
 					<input type="submit" value="'.get_lang('search').'" />
 					</form>
 				</td>
