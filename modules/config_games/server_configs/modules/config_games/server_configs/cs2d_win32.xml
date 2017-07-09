@@ -1,0 +1,22 @@
+<game_config>
+  <game_key>cs2d_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>cs2d</lgsl_query_name>
+  <game_name>CS2D</game_name>
+  <server_exec_name>cs2d_dedicated.exe</server_exec_name>
+  <cli_template>%PORT% %PLAYERS% %CONTROL_PASSWORD% %HOSTNAME% %MAP%</cli_template>
+  <cli_params>
+    <cli_param id="PORT" cli_string="-port" options="s" />
+    <cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="-rcon" options="s" />
+    <cli_param id="HOSTNAME" cli_string="-name" options="sq" />
+    <cli_param id="MAP" cli_string="-map" options="s" />
+  </cli_params>
+  <map_list>sys/mapcycle.cfg</map_list>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+</game_config>
