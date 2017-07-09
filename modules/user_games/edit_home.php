@@ -44,8 +44,6 @@ function exec_ogp_module()
 	$home_id = $home_info['home_id'];
 	$enabled_mods = $db->getHomeMods($home_id);
 
-	$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$home_info['agent_ip']);
-
 	if( $isAdmin and isset( $_POST['change_home_cfg_id'] ) )
 	{
 		if( !empty($enabled_mods) )
@@ -778,6 +776,8 @@ function exec_ogp_module()
 					$port = (int)(trim($port));
 					$home_id = $_POST['home_id'];
 
+					$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$ip);
+
 					if ( !isPortValid($port) ) 
 					{
 						print_failure( port_range_error );
@@ -816,11 +816,7 @@ function exec_ogp_module()
 				foreach($avail_ips as $value)
 				{
 					$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
-					if(isset($home_info['display_public_ip']) && !empty($home_info['display_public_ip'])){
-						$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$home_info['agent_ip']);
-					}else{
-						$display_ip = $value['ip'];
-					}
+					$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$display_ip = $value['ip']);
 					echo "<option value='".$value['ip_id']."' $selected >".$display_ip."</option>\n";
 				}
 
