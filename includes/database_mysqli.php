@@ -1568,7 +1568,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
 						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
-						OR ip LIKE \'%%'.$search_fields.'%%\'
+						OR ip LIKE \'%%'.$search_field.'%%\'
 						' : '').'
 						').' OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 						
@@ -1656,7 +1656,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						OR user_id IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
 						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
-						OR ip LIKE \'%%'.$search_fields.'%%\'
+						OR ip LIKE \'%%'.$search_field.'%%\'
 						' : '').'
 						').'
 							OR %1$shome_ip_ports.force_mod_id IS NULL
@@ -1714,7 +1714,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
 						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
-						OR ip LIKE \'%%'.$search_fields.'%%\'
+						OR ip LIKE \'%%'.$search_field.'%%\'
 						' : '').' ' : '
 						'.($search_field ?'
 						AND %1$sserver_homes.home_id = \''.$search_field.'\'
@@ -1722,7 +1722,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						OR user_id_main IN (SELECT `user_id` FROM `%1$susers` WHERE users_login LIKE \'%%'.$search_field.'%%\')
 						OR home_name LIKE \'%%'.$search_field.'%%\'
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
-						OR ip LIKE \'%%'.$search_fields.'%%\'
+						OR ip LIKE \'%%'.$search_field.'%%\'
 						' : '').'
 						').'
 							OR %1$shome_ip_ports.force_mod_id IS NULL 
