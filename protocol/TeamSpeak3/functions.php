@@ -142,6 +142,7 @@ try
 		{
 			if(isset($_POST['assign_to_user']) && $_POST['vserver_id'] == $ts3_ServerInstance->getId() AND $server_home['remote_server_id'] == $_POST['remote_server_id'] )
 			{
+				$query_ip = $server_home['use_nat'] == 1 ? $server_home['agent_ip'] : $server_home['ip'];
 				$db->query("INSERT INTO OGP_DB_PREFIXts3_homes (`rserver_id`, `ip`, `pwd`, `vserver_id`, `user_id`, `port`) VALUES ('".$server_home['remote_server_id']."', '".$query_ip."', '".$cfg["pass"]."', '".$_POST['vserver_id']."', '".$_POST['assign_to_user']."', '".$cfg['query']."');");
 			}
 			if(isset($_POST['remove_vuser_id']) && $_POST['vserver_id'] == $ts3_ServerInstance->getId() AND $server_home['remote_server_id'] == $_POST['remote_server_id'] )
