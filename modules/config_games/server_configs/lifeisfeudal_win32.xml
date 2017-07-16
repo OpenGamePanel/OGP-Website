@@ -1,7 +1,7 @@
 <game_config>
-  <game_key>lifeisfedual_win32</game_key>
+  <game_key>lifeisfeudal_win32</game_key>
   <protocol>lgsl</protocol>
-  <lgsl_query_name>lifeisfedual</lgsl_query_name>
+  <lgsl_query_name>lifeisfeudal</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Life is Feudal</game_name>
   <server_exec_name>ddctd_cm_yo_server.exe</server_exec_name>
