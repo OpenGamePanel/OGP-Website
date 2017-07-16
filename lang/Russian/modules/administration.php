@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -32,18 +32,18 @@ define('download_db_backup', "Скачать бэкап БД");
 define('restore_db_backup', "Восстановить БД из бэкапа");
 define('sql_file', "файл(.sql)");
 define('change_buttons_order', "Изменение порядка кнопки");
-define('when', "Date/Time");
-define('who', "Username");
-define('where', "IP address");
+define('when', "Дата/Время");
+define('who', "Имя пользователя");
+define('where', "IP адрес");
 define('what', "Action");
 define('search', "Поиск");
-define('empty_logger', "Empty Logger");
-define('ban_list', "Ban list");
+define('empty_logger', "Очистить Логи");
+define('ban_list', "Бан Лист");
 define('no_banned_ips', "There are no banned IPs");
-define('unban', "Unban IP");
-define('client_ip', "Client IP");
+define('unban', "Разбанить IP");
+define('client_ip', "Клиентский IP-адрес");
 define('banned_until', "Banned until");
-define('unban_selected_ips', "Unban selected IPs");
-define('view', "View");
-define('per_page', "log entries per page");
+define('unban_selected_ips', "Разбанить выбранные IP");
+define('view', "Показать");
+define('per_page', "записей в журнале, на страницу");
 ?>

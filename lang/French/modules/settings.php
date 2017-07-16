@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -125,7 +125,7 @@ define('custom_tab_sub_link3', "Lien du sous-onglet #3");
 define('custom_tab_sub_name4', "Nom du sous-onglet #4");
 define('custom_tab_sub_link4', "Lien du sous-onglet #4");
 define('custom_tab_target_blank', "Cible des sous-onglets personnalisés");
-define('custom_tab_target_blank_info', "Définit la cible de tous les onglets. <b style='font-size:10px; font-weight:normal;'>('_self' = le lien s&apos;ouvre dans la même page. '_blank'  =  le lien s&apos;ouvre dans un nouvel onglet.)</b>");
+define('custom_tab_target_blank_info', "Définit la cible de tous les onglets. <b style=\"font-size:10px; font-weight:normal;\">(Self_Page = le lien s'ouvre dans la même page. New_Page = le lien s'ouvre dans un nouvel onglet.)</b>");
 define('bg_wrapper', "Image de fond du Panneau");
 define('bg_wrapper_info', "L&apos;image de fond du Panneau. <b style='font-size:10px; font-weight:normal;'>(Pas disponible sur tous les thèmes.)</b>");
 define('show_server_id_game_monitor', "Voir les IDs des Serveurs dans la  Gestion des Serveurs");

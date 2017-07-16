@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -108,4 +108,5 @@ define('editing_profile', "Profil szerkesztése: %s");
 define('valid_user', "Kérlek, adj meg egy érvényes felhasználót.");
 define('enter_valid_username', "Kérlek, adj meg egy érvényes felhasználónevet.");
 define('unexpected_role', "Váratlan felhasználói szerepet kapott.");
+define('search', "Search");
 ?>

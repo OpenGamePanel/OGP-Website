@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -55,7 +55,7 @@ define('no', "Nem");
 define('on', "Be");
 define('off', "Ki");
 define('db_error_invalid_host', "Érvénytelen adatbázis név beírva.");
-define('db_error_invalid_user_and_pass', "Hibás adatbázis név és/vagy jelszó.");
+define('db_error_invalid_user_and_pass', "Érvénytelen adatbázis-felhasználónév és/vagy jelszó.");
 define('db_error_invalid_database', "Hibás adatbázis.");
 define('db_unknown_error', "Ismeretlen adatbázis hiba.");
 define('db_error_module_missing', "A szükséges PHP adatbázis modul hiányzik.");
@@ -63,7 +63,7 @@ define('db_error_invalid_db_type', "Érvénytelen adatbázis típus a konfigurá
 define('invalid_login_information', "Érvénytelen a megadott bejelentkezési informácó.");
 define('failed_to_read_config', "Hiba a konfigurációs fájl olvasásakor.");
 define('account_expired', "Lejárt a fiókod.");
-define('contact_admin_to_enable_account', "Vedd fel a kapcsolatot az adminisztrátorral a hozzáférésed meghosszabbításához.");
+define('contact_admin_to_enable_account', "A fiók újbóli engedélyezéséhez lépj kapcsolatba az adminisztrátorral.");
 define('maintenance_mode_on', "Karbantartás mód be van kapcsolva");
 define('logging_out_10', "Kijelentkezés 10 másodperc múlva");
 define('invalid_redirect', "Átírányítás");
@@ -110,7 +110,7 @@ define('show_version', "Verzió mutatása");
 define('queries_executed', "SQL lekérdezés(ek)");
 define('lang', "Nyelv");
 define('get_size', "Méret megnézése");
-define('total_size', "Összes méret");
+define('total_size', "Teljes méret");
 define('lgsl', "Referencia");
 define('lgsl_admin', "Lgsl admin");
 define('rcon', "RCON");
@@ -125,5 +125,5 @@ define('admin_dsi', "DSi beállítások");
 define('user_dsi', "DSi");
 define('list_dsi', "DSi lista");
 define('no_remote_servers', "Nincs ismert távoli szerver! Adj szervert hozzá a funkció használatához.");
-
+define('no_results_found', "No search results found for %s");
 ?>

@@ -24,7 +24,7 @@
 
 function exec_ogp_module()
 {
-	global $db, $loggedInUserInfo;
+	global $db, $view, $loggedInUserInfo;
 	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
 	
 	$page_GameHomes = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
@@ -33,19 +33,34 @@ function exec_ogp_module()
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$limit_GameHomes = $loggedInUserInfo["users_page_limit"];
 	}
-	
-	echo "<h2>".get_lang('game_servers')."</h2>";
-	echo '<form action="home.php" method="GET" style="margin-bottom:10px;float:left;">
-		<p><a href="?m=user_games&amp;p=add">'.get_lang("add_new_game_home").'</a></p>
-		<input type ="hidden" name="m" value="user_games" />
-		<input name="search" type="text" id="search" />
-		<input type="submit" value="search" />
-		</form>';	
 
 	$game_homes = $db->getGameHomes_limit($page_GameHomes,$limit_GameHomes,$search_field);
-	if ( empty($game_homes) )
-	{
-		echo "<p>".get_lang('no_game_homes_found')."</p>";
+
+	echo "<h2>".get_lang('game_servers')."</h2>";
+	echo '<table style="width: 100%; margin-bottom: 50px;">
+			<tr>
+				<td style="width: 50%; vertical-align: middle; text-align: left;">
+					<p><a href="?m=user_games&amp;p=add">'.get_lang("add_new_game_home").'</a></p>
+				</td>
+				<td style="width: 50%; vertical-align: middle; text-align: right;">
+					<form action="home.php" method="GET" style="float:right;">
+					<input type ="hidden" name="m" value="user_games" />
+					<input name="search" type="text" id="search" value="' . $search_field . '" />
+					<input type="submit" value="'.get_lang('search').'" />
+					</form>
+				</td>
+			</tr>
+		</table>';
+	
+	if (empty($game_homes)) {
+		if (!empty($search_field)) {
+			print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
+
+			$view->refresh("?m=user_games", 5);
+		} else {
+			print_failure(get_lang('no_game_homes_found'));
+		}
+
 		return;
 	}
 

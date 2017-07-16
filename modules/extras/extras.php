@@ -267,7 +267,7 @@ function exec_ogp_module()
 			return;
 		}
 		
-		$back_compatibility = [ 'Util',
+		$back_compatibility = array ( 'Util',
 								'RCON',
 								'DSi',
 								'Cron',
@@ -282,7 +282,7 @@ function exec_ogp_module()
 								'Light',
 								'Silver',
 								'Soft',
-								'Uprise' ];
+								'Uprise' );
 		
 		$installed = rglob('*/*/install.nfo');
 		
@@ -305,7 +305,7 @@ function exec_ogp_module()
 	#return;
 	define('REPO_FILE', DATA_PATH . "repos" . "_" . strtolower($gitHubOrganization));
 	define('URL', 'https://api.github.com/' . $gitAPICont . '/' . $gitHubOrganization . '/repos'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
-	if(!file_exists(REPO_FILE) or isset($_GET['searchForUpdates']) or isset($_POST['update']) or filesize(REPO_FILE) == 0 or filesize(REPO_FILE) == 1)
+	if(!file_exists(REPO_FILE) || isset($_GET['searchForUpdates']) || isset($_POST['update']) || filesize(REPO_FILE) == 0 || filesize(REPO_FILE) == 1 || (time() - filemtime(REPO_FILE)) >= 86400)
 	{
 		# Without this $context the file_get_contents function was returning HTTP/1.0 403 Forbidden
 		# Thanks: https://github.com/philsturgeon/codeigniter-oauth2/issues/57#issuecomment-29306192 
@@ -523,7 +523,7 @@ function exec_ogp_module()
 		
 	echo "<table style=\"width:100%;\">";
 
-	echo "<tr><td style=\"width:50%;\">";
+	echo "<tr><td style=\"width:50%; vertical-align:top;\">";
 	# MODULES
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
 		 "<h4>".extra_modules."</h4>".
@@ -574,7 +574,7 @@ function exec_ogp_module()
 		echo '<b>'.$module['title']."</b> - $installed_str$updated_str <span id='loading' class='$folder' ></span><br>";
 	}
 	
-	echo "</div></td><td></div>";
+	echo "</div></div></td><td style=\"width:50%; vertical-align:top;\">";
 	
 	# THEMES
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".

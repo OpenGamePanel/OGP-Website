@@ -33,8 +33,8 @@ if(isset($server_home['control_password']) && $server_home['control_password'] !
 			$cfg["user"] = "serveradmin";
 			$cfg["pass"] = $server_home['control_password'];
 			$cfg["voice"] = $server_home['port'];
-			$cfg["query"] = $cfg["voice"] + 24;
-			
+			$ts3Ports = $db->getHomeIpPorts($server_home['home_id']);
+			$cfg["query"] = $ts3Ports[0]['port'] + 24;
 			if ( $server_home['use_nat'] == 1 )
 				$cfg["host"] = $server_home['agent_ip'];
 			else

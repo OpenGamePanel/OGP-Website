@@ -159,7 +159,13 @@ function exec_ogp_module() {
 	if( $server_homes === FALSE )
 	{
 		// If there are no games, then there can not be any mods either.
-		print_failure( no_game_homes_assigned );
+
+		if (!empty($search_field)) {
+			print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
+		} else {
+			print_failure(get_lang('no_game_homes_assigned'));
+		}
+
 		if ( $isAdmin )
 		{
 			echo "<p><a href='?m=user_games&amp;p=assign&amp;user_id=$_SESSION[user_id]'>".
@@ -172,8 +178,8 @@ function exec_ogp_module() {
 			<b><?php print_lang('search'); ?>:</b>
 			<input type ="hidden" name="m" value="gamemanager" />
 			<input type ="hidden" name="p" value="game_monitor" />
-			<input name="search" type="text" id="search">
-			<input type="submit" value="search" />
+			<input name="search" type="text" id="search" value="<?php if(hasValue($search_field)){ echo $search_field; } ?>" />
+			<input type="submit" value="<?php echo get_lang('search'); ?>" />
 		</form>
 	<?php
 	foreach($_POST as $key => $value)
@@ -447,6 +453,8 @@ function exec_ogp_module() {
 				$query_name = $server_xml->gameq_query_name;
 			elseif ($server_xml->protocol == "lgsl")
 				$query_name = $server_xml->lgsl_query_name;
+			elseif ($server_xml->protocol == "teamspeak3")
+				$query_name = 'ts3';
 			else
 				$query_name = $mod;
 			

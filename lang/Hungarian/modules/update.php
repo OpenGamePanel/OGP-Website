@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -53,4 +53,8 @@ define('blacklist_files', "Feketelistás fájlok");
 define('blacklist_files_info', "Az összes megjelölt fájl nem kerül frissítésre.");
 define('save_to_blacklist', "Mentés a feketelistába");
 define('no_new_updates', "Nincsenek új frissítések");
+define('module_file_missing', "directory is missing the module.php file.");
+define('query_failed', "Sikertelen a lekérdezések végrehajtása");
+define('query_failed_2', "to database.");
+define('missing_zip_extension', "The php-zip extension is not loaded. Please enable it to use the update module.");
 ?>

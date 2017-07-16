@@ -45,7 +45,7 @@ function exec_ogp_module() {
 	$ft->add_field('string','remote_encryption_key',"");
 	$ft->add_field('string','timeout',"5");
 	$ft->add_field('on_off','use_nat',"0");
-	$ft->add_field('string','default_public_ip',"");
+	$ft->add_field('string','display_public_ip',"");
 	$ft->end_table();
 	$ft->add_button('submit','add_remote_host', add_remote_host );
 	$ft->end_form();
@@ -117,7 +117,9 @@ function exec_ogp_module() {
 					<b>". timeout .":</b> ".$server_row['timeout']."&nbsp;". seconds ."<br />
 					<b>". encryption_key .":</b> ".$server_row['encryption_key']."<br />
 				   </td>
-				   <td><b>".  ips .": </b><br>";
+				   <td>
+				   	<b>". display_public_ip .":</b><br />".checkDisplayPublicIP($server_row['display_public_ip'], $server_row['agent_ip'])."<br />
+				   	<b>".  ips .": </b><br>";
 		
 		// Next we print the IP addresses and one empty field.
 		$remote_server_ips = $db->getRemoteServerIPs($server_row['remote_server_id']);

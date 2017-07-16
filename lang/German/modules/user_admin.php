@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -108,4 +108,5 @@ define('editing_profile', "Editing Profile: %s");
 define('valid_user', "Please specify a valid user.");
 define('enter_valid_username', "Please enter a valid username.");
 define('unexpected_role', "Unexpected user role received.");
+define('search', "Search");
 ?>

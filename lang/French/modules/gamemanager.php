@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -106,7 +106,7 @@ define('server_not_running', "Ce serveur n'est pas démarré.");
 define('address', "Adresse");
 define('owner', "Propriétaire");
 define('operations', "Opérations");
-define('search', "Recherche");
+define('search', "Rechercher");
 define('maps_read_from', "Cartes lues depuis ");
 define('file', "Fichier");
 define('folder', "Dossier");

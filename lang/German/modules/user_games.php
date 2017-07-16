@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -216,4 +216,5 @@ define('set_affinity', "Set Server Affinity");
 define('cpu_affinity_info', "Select the CPU core(s) you want to assign to the game server.");
 define('expiration_date_changed', "Expiration date for selected home has been changed.");
 define('expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
+define('search', "Search");
 ?>

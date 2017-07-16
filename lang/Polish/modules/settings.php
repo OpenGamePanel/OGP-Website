@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -125,7 +125,7 @@ define('custom_tab_sub_link3', "Sub-Tab #3 Link");
 define('custom_tab_sub_name4', "Sub-Tab #4 Name");
 define('custom_tab_sub_link4', "Sub-Tab #4 Link");
 define('custom_tab_target_blank', "Custom Tabs Target");
-define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>('_self' = Opens link on same page. '_blank'  =  Opens link on new tab.)</b>");
+define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Opens link on same page. New_Page  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Wrapper Background");
 define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
 define('show_server_id_game_monitor', "Pokaż id serwera na stronie Monitor Gier");

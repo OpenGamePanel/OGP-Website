@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -125,7 +125,7 @@ define('custom_tab_sub_link3', "#3 Allap linkje");
 define('custom_tab_sub_name4', "#4 Allap neve");
 define('custom_tab_sub_link4', "#4 Allap linkje");
 define('custom_tab_target_blank', "Egyéni lapok célpontja");
-define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>('_self' = Opens link on same page. '_blank'  =  Opens link on new tab.)</b>");
+define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Opens link on same page. New_Page  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Burkolat háttér");
 define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
 define('show_server_id_game_monitor', "Szerver ID mutatása a Szerver felügyelet oldalon");

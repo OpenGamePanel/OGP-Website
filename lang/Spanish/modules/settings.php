@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -125,7 +125,7 @@ define('custom_tab_sub_link3', "Enlace del botón #3");
 define('custom_tab_sub_name4', "Nombre del botón #4");
 define('custom_tab_sub_link4', "Enlace del botón #4");
 define('custom_tab_target_blank', "Comportamiento de los botones");
-define('custom_tab_target_blank_info', "Ajusta el comportamiento de todos los botones personalizados. <b style='font-size:10px; font-weight:normal;'>('_self' = Abre el enlace en la misma pagina. '_blank'  =  Abre el enlace en una pestaña o ventana nueva.)</b>");
+define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Opens link on same page. New_Page  =  Opens link on new tab.)</b>");
 define('bg_wrapper', "Imagen de fondo");
 define('bg_wrapper_info', "La imagen de fondo del panel. <b style='font-size:10px; font-weight:normal;'>(Solo funciona con algunos temas.)</b>");
 define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");

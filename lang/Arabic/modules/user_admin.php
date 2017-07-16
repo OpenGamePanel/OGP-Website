@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,25 +22,25 @@
  *
  */
 
-define('your_profile', "Your profile");
-define('new_password', "New password");
-define('retype_new_password', "Retype new password");
-define('login_name', "Login name");
-define('language', "Language");
-define('first_name', "First name");
-define('page_limit', "Items per Page");
-define('page_limit_info', "Number of items shown per page. The number of items cannot be less than 10.");
-define('last_name', "Last name");
-define('phone_number', "Phone number");
-define('email_address', "Email address");
-define('city', "City");
+define('your_profile', "ملفك الشخصي");
+define('new_password', "كلمة السر الجديدة");
+define('retype_new_password', "أعد كتابة كلمة السر الجديدة");
+define('login_name', "اسم الدخول");
+define('language', "اللغة");
+define('first_name', "الاسم الاول");
+define('page_limit', "مواد لكل صفحة");
+define('page_limit_info', "عدد العناصر المعروضة في الصفحة. لا يمكن أن يكون عدد العناصر أقل من 10.");
+define('last_name', "الاسم الاخير");
+define('phone_number', "رقم الهاتف");
+define('email_address', "عنوان البريد الإلكتروني");
+define('city', "المدينة");
 define('province', "Province");
-define('country', "Country");
-define('comment', "Comments");
-define('expires', "Expires");
+define('country', "البلد");
+define('comment', "التعليقات");
+define('expires', "تنتهي في");
 define('save_profile', "Save profile");
 define('new_password_info', "When password field is empty the password will not be updated.");
-define('theme', "Theme");
+define('theme', "القالب");
 define('theme_info', "If theme is empty the global value is used.");
 define('expires_info', "Date when the user account expires. The account is not deleted, but user can not login anymore.");
 define('password_mismatch', "Passwords did not match.");
@@ -50,7 +50,7 @@ define('current_password_mismatch', "Your current password did not match to the 
 define('add_new_user', "Add a new user");
 define('edit_user_groups', "Edit User Groups");
 define('users', "Users");
-define('user_role', "User role");
+define('user_role', "دور المستخدم");
 define('full_name', "Full Name");
 define('edit_games', "Edit Games");
 define('edit_profile', "Edit Profile");
@@ -108,4 +108,5 @@ define('editing_profile', "Editing Profile: %s");
 define('valid_user', "Please specify a valid user.");
 define('enter_valid_username', "Please enter a valid username.");
 define('unexpected_role', "Unexpected user role received.");
+define('search', "Search");
 ?>

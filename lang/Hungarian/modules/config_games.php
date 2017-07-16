@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -32,7 +32,7 @@ define('config_reset_warning', "Régi konfigok törlésekor probléma adódhat a
 define('modify_configs_info', "Ha módosítani akarod a játék konfigurációt, módosíthatod a fájlokat a(z) %s mappában.");
 define('updating_config_from_file', "Konfiguráció frissítése a(z) %s fájlból.");
 define('error_when_handling_file', "Hiba történt a(z) %s fájl kezelése során.");
-define('error_while_adding_cfg_to_db', "Hiba történt adathozzáadás közben a(z) %s az adatbázisba.");
+define('error_while_adding_cfg_to_db', "Hiba lépett fel az adatok hozzáadása során a(z)%s-ból az adatbázisba.");
 define('no_configs_found', "Nem található konfiguráció a(z) %s fájlban.");
 define('select_game', "Válassz játékot");
 define('create_xml_configs', "XML konfiguráció létrehozása");
