@@ -174,7 +174,7 @@ $(document).ready(function() {
 			time = now_str[1].split(':'),
 			now  = new Date(date[2], date[1]-1, date[0], time[0], time[1], time[2], 0);
 		$('#datetimepicker').datetimepicker({
-			format: 'd/m/Y h:m:s',
+			format: 'd/m/Y H:i:s',
 			startDate: now,
 			onChangeDateTime: function(e, obj) {
 				if(e == null)
@@ -208,7 +208,7 @@ $(document).ready(function() {
 		datePickerInput.on('change', function() {
 			if(this.value.match(/^\d{1,2}\/\d{1,2}\/\d{4}\s\d{1,2}:\d{1,2}:\d{1,2}$/g) == null || this.value == "X")
 			{
-				this.value = "";
+				this.value = "X";
 			}
 			else
 			{
@@ -219,7 +219,7 @@ $(document).ready(function() {
 				if( selected <= now )
 				{
 					alert('The selected date has already passed.');
-					this.value = "";
+					this.value = "X";
 				}
 			}
 		});
