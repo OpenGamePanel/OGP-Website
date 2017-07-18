@@ -34,10 +34,10 @@ define('updating_config_from_file', "Обновление файла  %s.");
 define('error_when_handling_file', "Ошибка при чтении файла %s.");
 define('error_while_adding_cfg_to_db', "Ошибка при добавлении информации из %s в базу данных.");
 define('no_configs_found', "Конфигурационных файлов в %s обнаружено не было.");
-define('select_game', "Select Game");
+define('select_game', "Выберите игру");
 define('create_xml_configs', "Создать XML конфиг");
-define('failed_to_delete_config_from_db', "Failed to delete %s config from database");
-define('failed_removing_file', "Falied removing the file %s.");
-define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from disk and database.");
-define('delete_game_config_for', "Delete game configuration for %s from disk and database.");
+define('failed_to_delete_config_from_db', "Ну удалось удалить %s конфигурацию из Базы Данных");
+define('failed_removing_file', "Ошибка удаления файла %s");
+define('removed_game_cfg_from_disk_and_datbase', "Конфигурацию для %s удалена с диска и Базы Данных");
+define('delete_game_config_for', "Удалить конфигурацию игры %sс диска и Базы Данных");
 ?>

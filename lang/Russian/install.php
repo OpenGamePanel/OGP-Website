@@ -25,7 +25,7 @@
 define('install_lang', "Выберите нужный язык");
 define('install_welcome', "Добро пожаловать в меню установки Open Game Panel");
 define('file_permission_check', "Проверка файлов на права доступа");
-define('OK', "OK");
+define('OK', "Ок");
 define('write_permission_required', "Требуется права на запись");
 define('execute_permission_required', "Требуются права на выполнение");
 define('create_an_empty_file', "Создать пустой файл.");
@@ -63,6 +63,6 @@ define('setup_complete', "Установка закончена успешно. 
 define('remove_install_and_secure_config', "Вы должны удалить install.php и выставить права доступа 644 на includes/config.inc.php из соображений безопасности.");
 define('go_to_panel', "Нажмите здесь, чтобы перейти к панели.");
 define('unable_to_resolve', "Если вы не можете решить проблему, посетите сайт OGP");
-define('slogan', "The Open-Source one!");
+define('slogan', "Open-Source!");
 define('default_welcome_title_message', "Добро пожаловать! <b style='font-size:12px; font-weight:normal;'>Вы можете сменить этот заголовок в '<a href='?m=settings&p=themes'>Настройках темы</a>' в меню '<a href='?m=administration&p=main'>Админка</a>'.</b>");
 ?>

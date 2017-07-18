@@ -25,12 +25,12 @@
 define('login_name', "Имя пользователя");
 define('users_fname', "Имя");
 define('users_lname', "Фамилия");
-define('users_passwd', "Password");
-define('users_cpasswd', "Verify password");
-define('passwd_len', "Password must be longer than 6 characters");
-define('err_password', "Password cannot be empty");
-define('err_confirm_password', "Verify password field cannot be empty");
-define('err_password_mismatch', "Passwords do not match");
+define('users_passwd', "Пароль");
+define('users_cpasswd', "Повторите пароль");
+define('passwd_len', "Пароль должен быть не меньше 6-ти символов");
+define('err_password', "Пароль не может быть пустым");
+define('err_confirm_password', "Подтверждение пароля не может быть пустым");
+define('err_password_mismatch', "Пароли не совпадают");
 define('phone_number', "Телефон");
 define('users_email', "Отправить");
 define('register_a_new_user', "Регистрация нового пользователя");
@@ -50,6 +50,6 @@ define('err_email_address', "Адрес электронной почты пус
 define('err_email_address_already_in_use_by', "адрес электронной почты уже используется пользователем <b>%s</b>.");
 define('user_registration', "Регистрация пользователя");
 define('your_account_details_has_been_sent_by_email_to', "Ваши данные были отправлены по электронной почте <b>%s</b>.");
-define('account_created', "Your account has been created.");
-define('subject', "%s :: Account Information");
+define('account_created', "Ваш аккаунт создан.");
+define('subject', "%s:: Информация об аккаунте ");
 ?>

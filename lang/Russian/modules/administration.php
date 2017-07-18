@@ -35,14 +35,14 @@ define('change_buttons_order', "Изменение порядка кнопки")
 define('when', "Дата/Время");
 define('who', "Имя пользователя");
 define('where', "IP адрес");
-define('what', "Action");
+define('what', "Действие");
 define('search', "Поиск");
 define('empty_logger', "Очистить Логи");
 define('ban_list', "Бан Лист");
-define('no_banned_ips', "There are no banned IPs");
+define('no_banned_ips', "Нет забаненных  IP-адресов");
 define('unban', "Разбанить IP");
 define('client_ip', "Клиентский IP-адрес");
-define('banned_until', "Banned until");
+define('banned_until', "Забанен до");
 define('unban_selected_ips', "Разбанить выбранные IP");
 define('view', "Показать");
 define('per_page', "записей в журнале, на страницу");
