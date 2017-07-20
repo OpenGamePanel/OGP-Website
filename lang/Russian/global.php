@@ -80,7 +80,7 @@ define('gamemanager', "Управление");
 define('game_monitor', "Мониторинг");
 define('dashboard', "Главная");
 define('user_addons', "Аддоны");
-define('ftp', "ФТП");
+define('ftp', "FTP");
 define('shop', "Магазин");
 define('TS3Admin', "TS3 Админ");
 define('administration', "Админка");
