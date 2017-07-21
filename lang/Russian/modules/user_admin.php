@@ -28,7 +28,7 @@ define('retype_new_password', "Повторите новый пароль");
 define('login_name', "Имя пользователя");
 define('language', "Язык");
 define('first_name', "Имя");
-define('page_limit', "элементов на Страницу");
+define('page_limit', "Элементов на страницу");
 define('page_limit_info', "Количество позиций, отображаемых на странице. Количество позиций  не может быть меньше 10.");
 define('last_name', "Фамилия");
 define('phone_number', "Номер телефона");

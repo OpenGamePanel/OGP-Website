@@ -31,7 +31,7 @@ define('db_backup', "Бэкап БД");
 define('download_db_backup', "Скачать бэкап БД");
 define('restore_db_backup', "Восстановить БД из бэкапа");
 define('sql_file', "файл(.sql)");
-define('change_buttons_order', "Изменение порядка кнопки");
+define('change_buttons_order', "Изменить порядок кнопом главного меню");
 define('when', "Дата/Время");
 define('who', "Имя пользователя");
 define('where', "IP адрес");
