@@ -23,22 +23,22 @@
  */
 
 define('recover', "Recover a forgotten password");
-define('back', "Back");
-define('incomplete', "Please go back and complete all the fields in the form.");
-define('subject', "Password request");
-define('password_message', "Hello,<br><br>Your password has been successfully reseted.<br><br>New Password: %s<br><br>Remember to change your password often.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
-define('send', "Your password has been sent! Please check your email!");
-define('here', "Here");
-define('to_login', "to login");
-define('errormail', "Your email address is not correct.");
-define('submit', "Submit");
-define('click', "Click");
-define('mail_settings_missing', "Panel mail settings are not complete so it can not send your password. Contact your OGP admin.");
-define('mail_failed', "Failed to send email.");
-define('email', "Email");
-define('enter_email', "Please enter your email address");
-define('webmaster', "Webmaster");
-define('confirm_send', "For security reasons we have sent you a confirmation link before you restart your password.<br><b style='color:red;'>Please check your inbox.</b>");
-define('confirm_change_subject', "Password reset, confirmation email");
-define('confirm_change_password_message', "Hello,<br><br>Please click on the link below to reset your password:<br><br>%s<br><br>Note: If you do not have requested the reset of your password, you can ignore this email.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('back', "بازگشت");
+define('incomplete', "لطفا به عقب برگردید و تمام فیلد ها را پر کنید.");
+define('subject', "درخواست گذرواژه");
+define('password_message', "درود،<br><br>گذرواژه شما با موفقیت به بازنشانی شد.<br><br>گذرواژه جدید شما: %s<br><br>پس از ورود، حتما گذرواژه خود را تغییر دهید.<br><br>لطفا به این ایمیل پاسخ ندهید!<br><br>______________________________<br>ایمیل OGP");
+define('send', "گذرواژه برایتان ارسال شد! ایمیل خود را بررسی کنید!");
+define('here', "اینجا");
+define('to_login', "برای ورود");
+define('errormail', "آدرس ایمیل شما اشتباه است.");
+define('submit', "تایید");
+define('click', "کلیک");
+define('mail_settings_missing', "پیکربندی ایمیل های پنل تکمیل نشده است، بازنشانی گذرواژه امکان پذیر نیست، با مدیریت تماس بگیرید.");
+define('mail_failed', "ارسال ایمیل با شکست مواجه شد.");
+define('email', "ایمیل");
+define('enter_email', "لطفا آدرس ایمیل خود را وارد کنید");
+define('webmaster', "وبمستر");
+define('confirm_send', "به دلایل امنیتی، لینک تایید بازنشانی گذرواژه برایتان ارسال شد.<br><b style='color:red;'>لطفا ایمیل خود را بررسی کنید.</b>");
+define('confirm_change_subject', "ایمیل تایید بازنشانی گذرواژه");
+define('confirm_change_password_message', "درود،<br><br>برای بازنشانی گذرواژه خود روی لینک زیر کلیک کنید:<br><br>%s<br><br>درصورتی که شما درخواست بازنشانی گذرواژه را ارسال نکرده اید می توانید این ایمیل را نادیده بگیرید.<br><br>لطفا به این ایمیل پاسخ ندهید!<br><br>______________________________<br>ایمیل OGP");
 ?>

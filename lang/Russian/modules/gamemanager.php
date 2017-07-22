@@ -155,7 +155,7 @@ define('presets_for_game_and_mod', "RCON команды для %s и мода %s
 define('name', "Название");
 define('command', "RCON&nbsp;команда");
 define('add_preset', "Добавить команду");
-define('edit_presets', "Реадктировать команды");
+define('edit_presets', "Редактировать команды");
 define('del_preset', "Удалить");
 define('change_preset', "Изменить");
 define('send_command', "Послать команду");

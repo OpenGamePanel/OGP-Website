@@ -22,11 +22,11 @@
  *
  */
 
-define('module_id', "Module ID");
-define('module_name', "Module Name");
-define('module_folder', "Module Folder");
-define('module_version', "Module Version");
-define('db_version', "DB Version");
+define('module_id', "ID ماژول");
+define('module_name', "نام ماژول");
+define('module_folder', "پوشه ماژول");
+define('module_version', "نسخه ماژول");
+define('db_version', "نسخه پایگاه داده");
 define('modules_available_for_install', "Custom Modules Available for Installation:");
 define('install', "Install");
 define('uninstall', "Uninstall");

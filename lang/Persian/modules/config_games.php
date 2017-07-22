@@ -22,22 +22,22 @@
  *
  */
 
-define('resetting_configs', "Resetting all configs");
-define('updating_configs', "Updating old configs.");
+define('resetting_configs', "تمام Config ها در حال بازنشانی هستند.");
+define('updating_configs', "تمام Config ها درحال به روزرسانی هستند");
 define('configs_updated_ok', "Configurations reread successfully.");
-define('reset_old_configs', "Reset old configs");
-define('update_configs', "Update Configs");
-define('game_config_setup', "Setup Game Configs");
+define('reset_old_configs', "بازنشانی Config های قدیمی");
+define('update_configs', "به روزرسانی Config ها");
+define('game_config_setup', "پیکربندی Config بازی ها");
 define('config_reset_warning', "When you clear old configs there might be issues with the assigned game servers, because the identification numbers might not match with the new configurations.");
-define('modify_configs_info', "If you want to modify the game configuration, you can modify the files located in %s.");
-define('updating_config_from_file', "Updating config from %s file.");
+define('modify_configs_info', "اگر قصد ویرایش پیکربندی بازی ها را دارید، فایل های مربوط به پیکربندی در \"%s\" قرار دارند.");
+define('updating_config_from_file', "به روزرسانی Config از فایل %s.");
 define('error_when_handling_file', "Error occurred when handling file %s.");
 define('error_while_adding_cfg_to_db', "Error occurred when adding data from %s to database.");
-define('no_configs_found', "No configuration found from %s file.");
-define('select_game', "Select Game");
-define('create_xml_configs', "Create XML Configs");
-define('failed_to_delete_config_from_db', "Failed to delete %s config from database");
-define('failed_removing_file', "Falied removing the file %s.");
-define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from disk and database.");
-define('delete_game_config_for', "Delete game configuration for %s from disk and database.");
+define('no_configs_found', "پیکربندی در فایل \"%s\" پیدا نشد.");
+define('select_game', "انتخاب بازی");
+define('create_xml_configs', "ساخت فایل XML برای Config");
+define('failed_to_delete_config_from_db', "حذف \"%s\" از پایگاه داده با شکست مواجه شد.");
+define('failed_removing_file', "حذف فایل \"%s\" با شکست مواجه شد.");
+define('removed_game_cfg_from_disk_and_datbase', "Config %s با موفقیت از پایگاه داده و دیسک حذف شد.");
+define('delete_game_config_for', "حذف پیکربندی بازی %s از دیسک و پایگاه داده.");
 ?>

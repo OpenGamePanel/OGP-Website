@@ -22,28 +22,28 @@
  *
  */
 
-define('external_links', "External Links");
-define('url', "URL");
-define('name', "Name");
-define('add_it', "Add");
-define('link_has_been_removed', "%s link has been removed.");
-define('db_backup', "DB Backup");
-define('download_db_backup', "Download DB Backup");
-define('restore_db_backup', "Restore DB Backup");
+define('external_links', "لینک های خارجی");
+define('url', "آدرس");
+define('name', "نام");
+define('add_it', "اضافه کردن");
+define('link_has_been_removed', "لینک %s با موفقیت حذف شد.");
+define('db_backup', "Backup پایگاه داده");
+define('download_db_backup', "دانلود Backup پایگاه داده");
+define('restore_db_backup', "استفاده از Backup پایگاه داده");
 define('sql_file', "file(.sql)");
-define('change_buttons_order', "Change buttons order");
-define('when', "Date/Time");
-define('who', "Username");
-define('where', "IP address");
+define('change_buttons_order', "ویرایش ترتیب دکمه ها");
+define('when', "تاریخ/زمان");
+define('who', "نام کاربری");
+define('where', "آدرس IP");
 define('what', "Action");
-define('search', "Search");
-define('empty_logger', "Empty Logger");
-define('ban_list', "Ban list");
-define('no_banned_ips', "There are no banned IPs");
-define('unban', "Unban IP");
-define('client_ip', "Client IP");
-define('banned_until', "Banned until");
-define('unban_selected_ips', "Unban selected IPs");
-define('view', "View");
-define('per_page', "log entries per page");
+define('search', "جست و جو");
+define('empty_logger', "پاک کردن Log");
+define('ban_list', "لیست Ban شده ها");
+define('no_banned_ips', "هیچ IP در  لیست Ban شده ها وجود ندارد");
+define('unban', "حذف IP از لیست Ban ها");
+define('client_ip', "IP کاربر");
+define('banned_until', "Ban شده تا");
+define('unban_selected_ips', "حذف IP های انتخاب شده از لیست Ban ها");
+define('view', "مشاهده");
+define('per_page', "Log ها در هر صفحه");
 ?>

@@ -23,21 +23,21 @@
  */
 
 include 'update.php';
-define('unable_download', "Unable to download %s.");
-define('md5_failed', "MD5 test failed for %s, try again.");
-define('uninstall', "Uninstall");
-define('install', "Install");
-define('uptodate', "Up-to-date");
-define('update_available', "Update available");
-define('not_installed', "Not installed");
-define('installed', "Installed");
-define('download_update', "Download/Update");
-define('are_you_sure', "Are you sure");
-define('uninstalling_module_dataloss', "By uninstalling a module you will lose all data related to it.");
-define('remove_files_for', "Would you like to remove all files for");
-define('confirm', "Confirm");
-define('cancel', "Cancel");
-define('extra_themes', "Extra themes");
-define('extra_modules', "Extra modules");
-define('search_for_updates', "Check for updates");
+define('unable_download', "دانلود %s امکان پذیر نیست.");
+define('md5_failed', "تست MD5 برای %s با شکست مواجه شد، لطفا مجددا تلاش کنید.");
+define('uninstall', "حذف");
+define('install', "نصب");
+define('uptodate', "به روز است");
+define('update_available', "به روزرسانی در دسترس است");
+define('not_installed', "نصب نشده");
+define('installed', "نصب شده");
+define('download_update', "دانلود/به روز رسانی");
+define('are_you_sure', "آیا مطمئن هستید ؟");
+define('uninstalling_module_dataloss', "با حذف یک ماژول، تمام اطلاعات آن از بین می رود.");
+define('remove_files_for', "حذف تمام فایل های مربوط به");
+define('confirm', "تایید");
+define('cancel', "لغو");
+define('extra_themes', "پوسته های اضافی");
+define('extra_modules', "ماژول های اضافی");
+define('search_for_updates', "بررسی به روزرسانی");
 ?>

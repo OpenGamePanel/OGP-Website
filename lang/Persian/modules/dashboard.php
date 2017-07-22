@@ -22,22 +22,22 @@
  *
  */
 
-define('dashboard_ftp_text', "The FTP client can compress files and send them via email, can uncompress too, edit text files and much more.");
+define('dashboard_ftp_text', "FTP میتواند فایل ها را Compress و از طریق پست الکترونیک آن ها را ارسال کند، همچنین امکان UnCompress، ویرایش و ... فایل ها برای شما وجود دارد.");
 define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 70 servers supplied directly by OGP.");
 define('dashboard_game_monitor_text', "Watch and monitor your traffic & logs quickly. You can see what servers are up and down.");
 define('dashboard_support_text', "Get support from the OGP Professional Team on the forum. Fast response and great attention.");
 define('welcome_text', "Welcome to the Open Game Panel (OGP). OGP is an open-source software, that allows you to install, start and monitor different game servers.");
 define('any_server_is_online', "Any server is Online");
-define('current_map', "Current Map");
+define('current_map', "Map فعلی");
 define('server_ip_port', "IP:Port");
-define('statistics', "Statistics");
-define('servers', "Servers");
-define('players', "Players");
-define('server_status', "Server Status");
-define('no_games_to_monitor', "There are currently no online/offline game servers");
-define('online_servers', "Online Servers");
-define('add_games_in', "If you want to add games you can do it in %s");
-define('currently_online', "Currently Online");
-define('game_servers', "Game Servers");
-define('select_remote_server', "Select remote server");
+define('statistics', "آمار");
+define('servers', "سرور ها");
+define('players', "بازیکنان");
+define('server_status', "وضعیت سرور");
+define('no_games_to_monitor', "درحال حاضر هیچ سرور Online یا Offline ای وجود ندارد");
+define('online_servers', "سرور های آنلاین");
+define('add_games_in', "اگر میخواهید بازی ای اضافه کنید، از طریق %s می توانید انجام دهید.");
+define('currently_online', "آنلاین");
+define('game_servers', "Game Server ها");
+define('select_remote_server', "سرور Remote را انتخاب کنید");
 ?>

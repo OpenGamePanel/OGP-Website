@@ -26,7 +26,7 @@ include 'update.php';
 define('unable_download', "Невозможно загрузить %s.");
 define('md5_failed', "Тест MD5 не удалось по %s, попробуйте еще раз.");
 define('uninstall', "Отключить");
-define('install', "устанавливать");
+define('install', "Установить");
 define('uptodate', "Современных");
 define('update_available', "Обновление доступно");
 define('not_installed', "Не установлен");
