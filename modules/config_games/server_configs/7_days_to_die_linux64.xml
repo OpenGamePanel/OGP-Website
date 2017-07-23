@@ -278,27 +278,15 @@
       <options>tagValueByName</options>
       <desc>Looting Timers</desc>
     </field>
-    <field key="EnemySenseMemory" type="text">
-      <default>property</default>
-      <default_value>60</default_value>
-      <var>EnemySenseMemory</var>
-      <filepath>serverconfig.xml</filepath>
-      <options>tagValueByName</options>
-      <desc>Time, in seconds, that a zombie will pursue something that has been sensed.</desc>
-    </field>
     <field key="EnemySpawnMode" type="select">
-      <option value="0">Disabled (0%)</option>
-      <option value="1">Very Low (50%)</option>
-      <option value="2">Low (75%)</option>
-      <option value="3">Medium (100%)</option>
-      <option value="4">High (125%)</option>
-      <option value="5">Very high (150%)</option>
+      <option value="true">yes</option>
+      <option value="false">no</option>
       <default>property</default>
-      <default_value>3</default_value>
+      <default_value>true</default_value>
       <var>EnemySpawnMode</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
-      <desc>Zombie Spawn Frequency</desc>
+      <desc>Enable/Disable enemy spawning</desc>
     </field>
     <field key="EnemyDifficulty" type="select">
       <option value="0">Normal</option>
@@ -402,6 +390,14 @@
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
       <desc>Max Spawned Animals</desc>
+    </field>
+    <field key="ServerPassword" type="text">
+      <default>property</default>
+      <default_value></default_value>
+      <var>ServerPassword</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Sets the server password</desc>
     </field>
   </custom_fields>
   <post_install>
