@@ -35,7 +35,7 @@ define('latest_version', "Последняя версия");
 define('panel_version', "Версия панели");
 define('update_now', "Обновить сейчас");
 define('the_panel_is_up_to_date', "Панель обновлена!");
-define('files_overwritten', "Перезаписано %s файлов");
+define('files_overwritten', "Перезаписано файлов - %s");
 define('files_not_overwritten', "%sфайл НЕ перезаписан, так как он в черном списке");
 define('can_not_update_non_writable_files', "Не возможно выполнить Обновление так как файл/папка не доступны для записи");
 define('dwl_failed', "Ссылка для скачивания недоступна.: \"%s\".<br> Попробуйте позже. ");
@@ -49,7 +49,7 @@ define('get_x_revison_messages_may_take_some_time', "Получение %sмож
 define('updating_modules', "Обновление модулей");
 define('updating_finished', "Обновление завершено");
 define('updated_module', "Модуль обовлён: '%s'.");
-define('blacklist_files', "Черный списки файлов");
+define('blacklist_files', "Черный список файлов");
 define('blacklist_files_info', "Все отмеченные файлы не будут обновляться.");
 define('save_to_blacklist', "Сохранить Черный список");
 define('no_new_updates', "Обновлений не обнаружено.");

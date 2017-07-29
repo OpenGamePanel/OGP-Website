@@ -27,7 +27,7 @@ define('unable_download', "Невозможно загрузить %s.");
 define('md5_failed', "Тест MD5 не удалось по %s, попробуйте еще раз.");
 define('uninstall', "Отключить");
 define('install', "Установить");
-define('uptodate', "Современных");
+define('uptodate', "Актуальное");
 define('update_available', "Обновление доступно");
 define('not_installed', "Не установлен");
 define('installed', "Установлен");

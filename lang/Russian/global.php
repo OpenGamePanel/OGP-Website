@@ -86,7 +86,7 @@ define('TS3Admin', "TS3 Админ");
 define('administration', "Админка");
 define('config_games', "Игры/Моды конфигурация");
 define('modulemanager', "Управление Модулями");
-define('server', "Управление Физическими серверами");
+define('server', "Управление Физ. серверами");
 define('settings', "Настройки Панели");
 define('themes', "Настройки Темы");
 define('user_admin', "Управление Пользователями");
