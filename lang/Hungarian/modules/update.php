@@ -35,7 +35,7 @@ define('latest_version', "Legújabb verzió");
 define('panel_version', "Panel verzió");
 define('update_now', "Frissítés most");
 define('the_panel_is_up_to_date', "A Panel naprakész.");
-define('files_overwritten', "%s fájl felülírva");
+define('files_overwritten', "%s fájl felülíródott");
 define('files_not_overwritten', "%s fájl NEM került felülírásra a fekete lista miatt");
 define('can_not_update_non_writable_files', "Nem lehet frissíteni, mert az alábbi fájlok/mappák nem írhatóak");
 define('dwl_failed', "A letöltési link nem elérhető: \"%s\".<br>Próbáld újra később.");
@@ -55,6 +55,6 @@ define('save_to_blacklist', "Mentés a feketelistába");
 define('no_new_updates', "Nincsenek új frissítések");
 define('module_file_missing', "directory is missing the module.php file.");
 define('query_failed', "Sikertelen a lekérdezések végrehajtása");
-define('query_failed_2', "to database.");
-define('missing_zip_extension', "The php-zip extension is not loaded. Please enable it to use the update module.");
+define('query_failed_2', "az adatbázisba.");
+define('missing_zip_extension', "A php-zip kiterjesztés nincs betöltve. Kérlek, engedélyezd, mert az Update modulnak szüksége van rá.");
 ?>

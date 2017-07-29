@@ -37,7 +37,7 @@ define('e_conn_serverquery', "Nem sikerült létrehozni a ServerQuery hozzáfér
 define('e_conn_vserver', "Nem sikerült választani virtuális szervert.");
 define('e_session_timedout', "A munkamenet lejárt.");
 define('js_error', "Hiba");
-define('js_ajax_error', "Egy AJAX hiba történt. %1");
+define('js_ajax_error', "Egy AJAX hiba történt: %1.");
 define('js_confirm_server_stop', "Tényleg le akarod állítani a(z) #%1 szervert?");
 define('js_confirm_server_delete', "Tényleg TÖRÖLNI akarod a(z) #%1 szervert?");
 define('js_notice_server_deleted', "A(z) %1 szerver sikeresen törölve.\nAz áttekintő oldal most újratöltődik.");

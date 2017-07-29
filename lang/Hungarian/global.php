@@ -109,7 +109,7 @@ define('version', "Verzió");
 define('show_version', "Verzió mutatása");
 define('queries_executed', "SQL lekérdezés(ek)");
 define('lang', "Nyelv");
-define('get_size', "Méret megnézése");
+define('get_size', "Méret megjelenítése");
 define('total_size', "Teljes méret");
 define('lgsl', "Referencia");
 define('lgsl_admin', "Lgsl admin");

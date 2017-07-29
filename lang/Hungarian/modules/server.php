@@ -29,7 +29,7 @@ define('remote_host_info', "A távoli kiszolgálónak pingelhető állomásnévn
 define('remote_host_port', "Távoli kiszolgáló port");
 define('remote_host_port_info', "A port amit az OGP Agent figyel a távoli kiszolgálón. Alapértelmezett: 12679.");
 define('remote_host_name', "Távoli kiszolgáló név");
-define('ogp_user', "OGP Agent Username");
+define('ogp_user', "OGP Agent felhasználó");
 define('remote_host_name_info', "Távoli állomásnév szokott segíteni a felhasználóknak beazonosítani a szervereiket.");
 define('add_remote_host', "Távoli kiszolgáló hozzáadása");
 define('remote_encryption_key', "Távoli titkosítási kulcs");
@@ -125,7 +125,7 @@ define('default_allowed', "Alapértelmezetten engedélyezve");
 define('allow_port_command', "Port engedélyezése parancs");
 define('deny_port_command', "Port tiltása parancs");
 define('allow_ip_port_command', "IP:Port engedélyezése parancs");
-define('deny_ip_port_command', "IP:Port tiltása parancs");
+define('deny_ip_port_command', "IP:Port parancs tíltása");
 define('enable_firewall_command', "Tűzfal engedélyezése parancs");
 define('disable_firewall_command', "Tűzfal tiltása parancs");
 define('get_firewall_status_command', "Tűzfal állapot lekérése parancs");
