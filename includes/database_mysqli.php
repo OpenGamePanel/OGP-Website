@@ -1380,6 +1380,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$user_group_expiration_dates = $this->listQuery($query3);
 				foreach($servers as $key => $server)
 				{
+					$servers[$key]['access_rights'] = "ufpetc";
 					if($user_expiration_dates)
 					{
 						foreach($user_expiration_dates as $user_expiration_date)
@@ -1752,6 +1753,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$user_group_expiration_dates = $this->listQuery($query3);
 				foreach($servers as $key => $server)
 				{
+					$servers[$key]['access_rights'] = "ufpetc";
 					if($user_expiration_dates)
 					{
 						foreach($user_expiration_dates as $user_expiration_date)

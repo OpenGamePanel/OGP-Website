@@ -26,8 +26,8 @@ include 'update.php';
 define('unable_download', "Невозможно загрузить %s.");
 define('md5_failed', "Тест MD5 не удалось по %s, попробуйте еще раз.");
 define('uninstall', "Отключить");
-define('install', "устанавливать");
-define('uptodate', "Современных");
+define('install', "Установить");
+define('uptodate', "Актуальное");
 define('update_available', "Обновление доступно");
 define('not_installed', "Не установлен");
 define('installed', "Установлен");
@@ -39,5 +39,5 @@ define('confirm', "Подтвердите");
 define('cancel', "Отменить");
 define('extra_themes', "Дополнительные темы");
 define('extra_modules', "Дополнительные модули");
-define('search_for_updates', "Check for updates");
+define('search_for_updates', "Проверить наличие обновления");
 ?>

@@ -25,7 +25,7 @@
 define('recover', "Восстановление пароля");
 define('back', "Назад");
 define('incomplete', "Пожалуйста, заполните все поля.");
-define('subject', "Password request");
+define('subject', "Запрос пароля");
 define('password_message', "Здравствуйте!<br><br>Вы (или кто-то другой) запросили сброс пароля.<br><br>Новый пароль: %s<br>После авторизации в системе Вы сможете изменить свой пароль.<br><br>С уважением,<br>Администрация<br><br>Это автоматическое сообщение. Пожалуйста, не отвечайте на него!");
 define('send', "Ваш пароль был отправлен Вам на почту!");
 define('here', "здесь");
@@ -37,8 +37,8 @@ define('mail_settings_missing', "Настройки панели не позво
 define('mail_failed', "Ошибка при отправке e-mail.");
 define('email', "Email адрес");
 define('enter_email', "введите email");
-define('webmaster', "Webmaster");
+define('webmaster', "Веб-мастер");
 define('confirm_send', "По соображениям безопасности, мы отправили Вам ссылку для подтверждения, прежде чем сбросить пароль.<br><b style='color:red;'>Пожалуйста, проверьте Ваш почтовый ящик.</b>");
-define('confirm_change_subject', "Password reset, confirmation email");
+define('confirm_change_subject', "Восстановление пароля, подтверждение email");
 define('confirm_change_password_message', "Здравствуйте!<br><br>Вы (или кто-то другой) запросили восстановление пароля.<br>Если Вы действительно хотите сбросить пароль, перейдите по ссылке:<br>%s<br><br>После перехода по ссылке Вам будет отправлено сообщение с новым паролем.<br><br>С уважением,<br>Администрация<br><br>Это автоматическое сообщение. Пожалуйста, не отвечайте на него!");
 ?>

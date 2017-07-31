@@ -37,7 +37,7 @@ define('e_conn_serverquery', "Impossible de créer l'accès ServerQuery.");
 define('e_conn_vserver', "Impossible de choisir le serveur virtuel.");
 define('e_session_timedout', "Session expirée.");
 define('js_error', "Erreur");
-define('js_ajax_error', "Une erreur AJAX est survenue. %1");
+define('js_ajax_error', "Une erreur AJAX s&apos;est produite: %1.");
 define('js_confirm_server_stop', "Voulez-vous vraiment arrêter le serveur #%1 ?");
 define('js_confirm_server_delete', "Voulez-vous vraiment SUPPRIMER le serveur #%1 ?");
 define('js_notice_server_deleted', "Le serveur %1 a été supprimé avec succès.\nLa vue d'ensemble va être rechargée maintenant.");

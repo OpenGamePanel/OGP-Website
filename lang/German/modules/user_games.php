@@ -52,7 +52,7 @@ define('change_home', "Home speichern");
 define('change_control_password', "Control Passwort speichern");
 define('change_name', "Name speichern");
 define('add_mod', "Mod hinzufügen");
-define('set_ip', "Set IP");
+define('set_ip', "IP setzen");
 define('ips_and_ports', "IPs und Ports");
 define('mod_name', "Mod Name");
 define('max_players', "Max Spieler");

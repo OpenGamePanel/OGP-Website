@@ -37,7 +37,7 @@ define('e_conn_serverquery', "Nie można utworzyć dostępu do ServerQuery.");
 define('e_conn_vserver', "Nie można wybrać serwera wirtualnego.");
 define('e_session_timedout', "Sesja wygasła.");
 define('js_error', "Bład");
-define('js_ajax_error', "Wystąpił błąd AJAX. %1");
+define('js_ajax_error', "An AJAX error has occurred: %1.");
 define('js_confirm_server_stop', "Czy naprawdę chcesz zatrzymać serwer #%1?");
 define('js_confirm_server_delete', "Czy na pewno chcesz usunąć serwer #% 1?");
 define('js_notice_server_deleted', "Serwer %1 został usunięty pomyślnie.\n Ładowanie strony głównej.");

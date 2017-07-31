@@ -574,20 +574,6 @@ function exec_ogp_module()
 	<script src="js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 	<script type="text/javascript" src="js/modules/user_games.js"></script>
 	<?php
-	if($isAdmin){
-		$expiration_date = $home_info['server_expiration_date'] == "X" ? "X" : date('d/m/Y H:i:s', $home_info['server_expiration_date']);
-	?>
-	<script>
-	$(window).load(function(){
-		$('input[name="expiration_date"]').datetimepicker({
-			value: '<?php echo $expiration_date;?>',
-			format: 'd/m/Y H:i:s'
-		});
-	});
-	</script>
-	<?php
-	}
-
 	echo "<h2>". editing_home_called ." \"".htmlentities($home_info['home_name'])."\"</h2><div id='result' >";
 	if(isset($result))
 	{
@@ -746,7 +732,8 @@ function exec_ogp_module()
 		echo "<tr><td class='right'>".get_lang('server_expiration_date').":</td>\n".
 			 "<td class='left'><form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>".
 			 "<div id='datetimepicker' class='input-append date'>".
-			 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='".$expiration_date."'>".
+			 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='".$expiration_date.
+			 "' data-today='".date('d/m/Y H:i:s')."' >\n".
 			 "</div>".
 			 "<input type='submit' name='set_expiration_date' value='". set_expiration_date ."' />".
 			 "</form></td></tr>\n".

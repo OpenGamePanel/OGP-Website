@@ -37,7 +37,7 @@ define('e_conn_serverquery', "ServerQuery Zugriff konnte nicht erstellt werden."
 define('e_conn_vserver', "Der virtuelle Server konnte nicht ausgewählt werden.");
 define('e_session_timedout', "Sitzung abgelaufen.");
 define('js_error', "Fehler");
-define('js_ajax_error', "Ein AJAX fehler ist aufgetreten. %1");
+define('js_ajax_error', "An AJAX error has occurred: %1.");
 define('js_confirm_server_stop', "Möchten Sie Server #%1 wirklich beenden?");
 define('js_confirm_server_delete', "Wollen Sie den Server #%1 wirklich LÖSCHEN?");
 define('js_notice_server_deleted', "Server %1 wurde erfolgreich gelöscht.\nDie Übersichtsseite wird jetzt neu geladen.");

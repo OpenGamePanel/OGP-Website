@@ -22,19 +22,19 @@
  *
  */
 
-define('system_uptime', "System Uptime");
-define('system_up_time', "Up Time");
-define('system_up_since', "Since");
-define('cpu_usage', "CPU Usage");
-define('cpu_load', "Load");
-define('ram_usage', "RAM Usage");
-define('ram_used', "Memory Used");
-define('ram_of', "of");
-define('storage_space', "Storage Space");
-define('storage_total', "Disk Space");
-define('storage_used', "Used");
-define('storage_free', "Free Space");
-define('process_monitor', "Process Monitor");
-define('status_extension_required', "Extension Required");
-define('gd_info', "PHP Extension <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> is required to generate these bar images!");
+define('system_uptime', "Время работы системы");
+define('system_up_time', "Работает");
+define('system_up_since', "Запущен");
+define('cpu_usage', "Использование процессора");
+define('cpu_load', "Нагрузка");
+define('ram_usage', "Использование ОЗУ");
+define('ram_used', "Используемая память");
+define('ram_of', "из");
+define('storage_space', "Место для хранения");
+define('storage_total', "Дисковое пространство");
+define('storage_used', "Использовано");
+define('storage_free', "Свободно");
+define('process_monitor', "Монитор процессов");
+define('status_extension_required', "Требуется расширение");
+define('gd_info', "Требуется  PHP расширение <a href=\"http://php.net/manual/en/image.installation.php\">GD</a>для создания этих изображений");
 ?>
