@@ -117,7 +117,7 @@ define('vstoken_token_type', "Group type");
 define('vstoken_token_id1', "Server Group/<br />Channel Group");
 define('vstoken_token_id2', "(Channel)");
 define('vstoken_token_tokencode', "Token Code");
-define('vstoken_token_delete', "delete");
+define('vstoken_token_delete', "Delete");
 define('vstoken_new_head', "Create a new token");
 define('vstoken_new_create', "Generate");
 define('vstoken_new_tokentype', "Token type:");
