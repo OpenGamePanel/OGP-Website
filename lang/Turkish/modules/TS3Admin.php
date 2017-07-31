@@ -37,7 +37,7 @@ define('e_conn_serverquery', "Could not create ServerQuery access.");
 define('e_conn_vserver', "Could not choose virtual server.");
 define('e_session_timedout', "Session expired.");
 define('js_error', "Error");
-define('js_ajax_error', "An AJAX error has occurred. %1");
+define('js_ajax_error', "An AJAX error has occurred: %1.");
 define('js_confirm_server_stop', "Do you really want to stop server #%1?");
 define('js_confirm_server_delete', "Do you really want to DELETE server #%1?");
 define('js_notice_server_deleted', "Server %1 was deleted successfully.\nThe overview page will be getting reloaded now.");

@@ -37,7 +37,7 @@ define('e_conn_serverquery', "No se pudo obtener acceso al servicio de peticione
 define('e_conn_vserver', "No se puede elegir el servido virtual.");
 define('e_session_timedout', "Sesión caducada.");
 define('js_error', "Error");
-define('js_ajax_error', "Error de Ajax. %1");
+define('js_ajax_error', "An AJAX error has occurred: %1.");
 define('js_confirm_server_stop', "Seguro que quieres parar el servidor #%1?");
 define('js_confirm_server_delete', "Seguro que quiere eliminar el servidor #%1?");
 define('js_notice_server_deleted', "El servidor %1 ha sido eliminado.");

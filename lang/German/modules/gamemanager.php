@@ -149,8 +149,8 @@ define('player', "Spieler");
 define('port', "Port");
 define('rcon_presets', "RCON Voreinstellungen
 ");
-define('update_from_local_master_server', "Update from local master server");
-define('update_from_selected_rsync_server', "Update from selected rsync server");
+define('update_from_local_master_server', "Update from local Master Server");
+define('update_from_selected_rsync_server', "Update from selected Rsync server");
 define('execute_selected_server_operations', "Execute selected server operations");
 define('execute_operations', "Operationen ausführen");
 define('account_expiration', "Kontoablauf");

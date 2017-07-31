@@ -37,7 +37,7 @@ define('e_conn_serverquery', "Kunne ikke oprette ServerQuery adgang.");
 define('e_conn_vserver', "Kunne ikke vælge virtual server.");
 define('e_session_timedout', "Session udløb.");
 define('js_error', "Fejl");
-define('js_ajax_error', "En AJAX fejl er opstået. %1");
+define('js_ajax_error', "An AJAX error has occurred: %1.");
 define('js_confirm_server_stop', "Vil du virkelig stoppe serveren #%1?");
 define('js_confirm_server_delete', "Vil du virkelig slette serveren #%1?");
 define('js_notice_server_deleted', "Server %1 blev slettet successfuldt.\nSelve oversigts siden, bliver genindlæst nu.");

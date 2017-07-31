@@ -142,7 +142,7 @@ define('steamid', "Steam azonosító");
 define('player', "Játékos");
 define('port', "Port");
 define('rcon_presets', "Előre beállított RCON");
-define('update_from_local_master_server', "Frissítés a helyi mester szerverről");
+define('update_from_local_master_server', "Frissítés a helyi Mester szerverről");
 define('update_from_selected_rsync_server', "Frissítés a kiválasztott Rsync szerverről");
 define('execute_selected_server_operations', "A kiválasztott szerver műveletek végrehajtása");
 define('execute_operations', "Műveletek végrehajtása");
