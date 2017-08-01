@@ -96,7 +96,7 @@ define('vsoverview_info_antiflood_warning', "Warning on");
 define('vsoverview_info_antiflood_kick', "Kick on");
 define('vsoverview_info_antiflood_ban', "Ban on");
 define('vsoverview_info_antiflood_banduration', "Ban length");
-define('vsoverview_info_antiflood_decrease', "decrease");
+define('vsoverview_info_antiflood_decrease', "Decrease");
 define('vsoverview_info_antiflood_points', "points");
 define('vsoverview_info_antiflood_in_seconds', "seconds");
 define('vsoverview_info_antiflood_points_per_tick', "Points per tick");

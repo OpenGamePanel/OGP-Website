@@ -31,7 +31,7 @@ define('execute_permission_required', "Execute permission required");
 define('create_an_empty_file', "Create an empty file.");
 define('found', "Found");
 define('not_found', "Not found");
-define('pear_xxtea_info', "Pear Crypt_XXTEA is required for OGP usage. In most of the Linux systems this module can be installed with the following pear command 'pear install Crypt_XXTEA-beta'.");
+define('pear_xxtea_info', "Pear Crypt_XXTEA is required for OGP usage. In the most of the Linux distributions this module can be installed with the following Pear command 'pear install Crypt_XXTEA-beta'.");
 define('refresh', "Refresh");
 define('checking_required_modules', "Checking required modules");
 define('database_type', "Database type");
