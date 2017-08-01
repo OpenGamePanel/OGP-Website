@@ -150,7 +150,7 @@ define('vsoverview_banlist_end', "Ends");
 define('vsoverview_banlist_unlimited', "unlimited");
 define('vsoverview_banlist_never', "never");
 define('vsoverview_banlist_new_head', "Create new ban");
-define('vsoverview_banlist_new_create', "create");
+define('vsoverview_banlist_new_create', "Create");
 define('vsliveview_channelbackup_head', "Channel Backup");
 define('vsliveview_channelbackup_get', "Create and Download");
 define('vsliveview_channelbackup_load', "Upload Channel Backup");
