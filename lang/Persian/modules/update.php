@@ -39,7 +39,7 @@ define('files_overwritten', "%s فایل Overwrite شدند.");
 define('files_not_overwritten', "%s فایل از لیست سیاه Overwrite نشد.");
 define('can_not_update_non_writable_files', "امکان به روزرسانی وجود ندارد، فایل ها یا دایرکتوری های مورد نظر Writable نیستند.");
 define('dwl_failed', "لینک دانلود درحال حاضر در دسترس نیست: \"%s\".<br> بعدا سعی کنید.");
-define('temp_folder_not_writable', "فایل دانلودی ذخیره نشد، Apache دست رسی Write کردن بر روی (%s) را ندارد.");
+define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permission at the system temporary folder (%s).");
 define('base_dir_not_writable', "پنل نمیتواند به روزرسانی شود، Apache دست رسی Write کردن بر روی \"%s\" را ندارد.");
 define('new_files', "%s فایل جدید.");
 define('updated_files', "فایل های به روز شده:<br>%s");

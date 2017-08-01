@@ -39,7 +39,7 @@ define('smtp_server_info', "Este é o servidor de correio de saída (servidor SM
 define('panel_email_address', "Endereço de email de saída");
 define('panel_email_address_info', "Este é o endereço de e-mail que está no campo de quando as senhas são enviadas para os usuários.");
 define('panel_name', "nome Panel");
-define('panel_name_info', "Nome do painel que é mostrado no título da página Este valor irá rejeitar todos os títulos da página, se não está vazio..");
+define('panel_name_info', "Name of the Panel that is shown in the page title. This value will overrule all page titles, if it's not empty.");
 define('feed_enable', "Feed Habilitar LGSL");
 define('feed_enable_info', "Se o seu webhost tem um firewall bloqueando a porta de consulta que você precisa ativá-lo.");
 define('feed_url', "URL do feed");

@@ -39,7 +39,7 @@ define('files_overwritten', "%s ملف استبدل");
 define('files_not_overwritten', "%s لم يتم استبداله لانه بالقائمة السوداء");
 define('can_not_update_non_writable_files', "لايمكن تحديث الملفات/المجلدات التالية لانها غير قابلة لإستبدال");
 define('dwl_failed', "رابط التحميل غير متوفر: \"%s\".<br>جرب مجدداً في وقت لاحق.");
-define('temp_folder_not_writable', "لا يمكن وضع التنزيل، لأن أباتشي ليس لديه إذن الكتابة في مجلد النظام المؤقت (%s).");
+define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permission at the system temporary folder (%s).");
 define('base_dir_not_writable', "لا يمكن تحديث اللوحة، لأن أباتشي ليس لديه إذن الكتابة على مجلد \"%s\".");
 define('new_files', "%s ملف جديد");
 define('updated_files', "تحديث الملفات:<br>%s");

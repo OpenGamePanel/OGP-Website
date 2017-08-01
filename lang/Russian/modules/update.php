@@ -39,7 +39,7 @@ define('files_overwritten', "Перезаписано файлов - %s");
 define('files_not_overwritten', "%sфайл НЕ перезаписан, так как он в черном списке");
 define('can_not_update_non_writable_files', "Не возможно выполнить Обновление так как файл/папка не доступны для записи");
 define('dwl_failed', "Ссылка для скачивания недоступна.: \"%s\".<br> Попробуйте позже. ");
-define('temp_folder_not_writable', "Не возможно выполнить загрузку, потому что Apache не имеет права на запись во временную директорию(%s).");
+define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permission at the system temporary folder (%s).");
 define('base_dir_not_writable', "Панель не обновлена, потому что Apache не имеет права на запись в папку \"%s\".");
 define('new_files', "Новых файлов %s");
 define('updated_files', "Обновленные файлы:<br>%s");

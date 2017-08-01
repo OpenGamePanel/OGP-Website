@@ -39,7 +39,7 @@ define('smtp_server_info', "Este es el servidor de correo saliente (servidor SMT
 define('panel_email_address', "Email del administrador");
 define('panel_email_address_info', "Esta es la direccion de email para el remitente en las comunicaciones de OGP.");
 define('panel_name', "Nombre del panel");
-define('panel_name_info', "Nombre que se muestra en el titulo de la pagina del panel.");
+define('panel_name_info', "Name of the Panel that is shown in the page title. This value will overrule all page titles, if it's not empty.");
 define('feed_enable', "Activar Feed LGSL");
 define('feed_enable_info', "Sí tu alojamiento web tiene el cortafuegos bloqueando el puerto Query deberas activarlo.");
 define('feed_url', "URL del Feed");

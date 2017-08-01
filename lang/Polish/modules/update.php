@@ -39,7 +39,7 @@ define('files_overwritten', "%s nadpisane pliki");
 define('files_not_overwritten', "%s pliki nienadpisane, znajdujące się czarnej liście");
 define('can_not_update_non_writable_files', "Nie można zaktualizować, ponieważ następujące pliki/foldery nie mają praw do zapisu.");
 define('dwl_failed', "Adres pobierania nie jest dostepny: \"%s\".<br> Spróbuj ponownie później.");
-define('temp_folder_not_writable', "Nie można umieścić pliku do pobrania, ponieważ Apache nie ma uprawnień do zapisu w folderze tymczasowym systemu (%s).");
+define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permission at the system temporary folder (%s).");
 define('base_dir_not_writable', "Panel nie może zostać zaktualizowany, ponieważ Apache nie ma uprawnień do zapisu w folderze \"%s\".");
 define('new_files', "%s nowych plików.");
 define('updated_files', "Zaktualizowane pliki:<br>%s");

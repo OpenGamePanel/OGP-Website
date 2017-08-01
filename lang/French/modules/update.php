@@ -39,7 +39,7 @@ define('files_overwritten', "%s fichiers remplacés");
 define('files_not_overwritten', "%s fichiers NON remplacés à cause de la liste noire");
 define('can_not_update_non_writable_files', "Impossible de mettre à jour car les fichiers/dossiers suivants ne peuvent pas être modifiés");
 define('dwl_failed', "L'URL de téléchargement n'est pas accessible : \"%s\".<br>Réessayer plus tard.");
-define('temp_folder_not_writable', "Le téléchargement ne peut démarré car le serveur Web n'a pas la permission d'écrire dans le dossier temporaire système (%s).");
+define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permission at the system temporary folder (%s).");
 define('base_dir_not_writable', "Le panneau ne peut être mis à jour car le serveur Web n'a pas les droits d'écriture sur le dossier \"%s\".");
 define('new_files', "%s nouveaux fichiers.");
 define('updated_files', "Fichiers mis à jour:<br>%s");

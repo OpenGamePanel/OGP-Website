@@ -39,7 +39,7 @@ define('smtp_server_info', "Ez a kimenő levelek (SMTP) szervere használt, pél
 define('panel_email_address', "Kimenő e-mail címe");
 define('panel_email_address_info', "Ez az email cím lesz használva a kimeno levelek küldojeként.");
 define('panel_name', "Panel neve");
-define('panel_name_info', "Name of the panel that is shown in the page title. This value will overrule all page titles, if not empty.");
+define('panel_name_info', "A Panel neve, amely az oldal címében látható. Ez az érték felülbírálja az összes oldal címét, ha nem üres.");
 define('feed_enable', "LGSL Feed engedélyezése");
 define('feed_enable_info', "If your webhost has a firewall blocking the query port you need enable it.");
 define('feed_url', "Feed link");

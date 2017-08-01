@@ -39,7 +39,7 @@ define('smtp_server_info', "SMTP сервер исходящей почты, о�
 define('panel_email_address', "Исходящий адрес почты");
 define('panel_email_address_info', "Адрес откуда будет высылаться почта.");
 define('panel_name', "Название панели");
-define('panel_name_info', "Название которое будет показывается в названии страницы.");
+define('panel_name_info', "Name of the Panel that is shown in the page title. This value will overrule all page titles, if it's not empty.");
 define('feed_enable', "Включить LGSL Feed");
 define('feed_enable_info', "Если ваш брандмауэр блокирует query port вам надо разрешить его.");
 define('feed_url', "Feed URL");

@@ -39,7 +39,7 @@ define('files_overwritten', "%s files overwritten");
 define('files_not_overwritten', "%s files NOT overwritten due to blacklist");
 define('can_not_update_non_writable_files', "Kan ikke opdatere, på grund af følgende filer/mapper ikke er har skriverettigheder");
 define('dwl_failed', "Den download URL er ikke tilgængelig: \"%s\".<br>Prøv igen senere.");
-define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permision at the system temporary folder(%s).");
+define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permission at the system temporary folder (%s).");
 define('base_dir_not_writable', "The Panel can not update, because Apache does not have write permission on \"%s\" folder.");
 define('new_files', "%s nye filer.");
 define('updated_files', "Opdateret filer:<br>%s");

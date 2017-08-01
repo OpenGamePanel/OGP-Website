@@ -39,7 +39,7 @@ define('smtp_server_info', "Dette er en udgående mail server (SMTP server), som
 define('panel_email_address', "Udgående E-Mail Addresse");
 define('panel_email_address_info', "Dette er e-mail adressen, som er fra feltet, hvor adgangskoder bliver sendt til brugerne.");
 define('panel_name', "Panel navn");
-define('panel_name_info', "Navnet på panelet, som bliver vist på title siden. Denne værdi, vil overskrive alle siders titler, hvis det er tomt.");
+define('panel_name_info', "Name of the Panel that is shown in the page title. This value will overrule all page titles, if it's not empty.");
 define('feed_enable', "Aktivere LGSL Feed");
 define('feed_enable_info', "Hvis din udbyder, har firewall til at blokere query port, så må der åbnes for den.");
 define('feed_url', "Feed URL");

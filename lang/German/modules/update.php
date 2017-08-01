@@ -39,7 +39,7 @@ define('files_overwritten', "%s Dateien überschrieben");
 define('files_not_overwritten', "%s Dateien, die aufgrund der Blacklist NICHT überschrieben werden");
 define('can_not_update_non_writable_files', "Kann nicht aktualisiert werden, da die folgenden Dateien/Ordner nicht beschreibbar sind");
 define('dwl_failed', "Der Download-Link ist nicht verfügbar: \"%s\".<br>Versuchen Sie es später erneut.");
-define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permision at the system temporary folder(%s).");
+define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permission at the system temporary folder (%s).");
 define('base_dir_not_writable', "The Panel can not update, because Apache does not have write permission on \"%s\" folder.");
 define('new_files', "%s neue Dateien.");
 define('updated_files', "Aktualisierte Dateien:<br>%s");
