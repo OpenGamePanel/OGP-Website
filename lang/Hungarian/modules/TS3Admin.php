@@ -132,7 +132,7 @@ define('vstoken_new_added_ok', "Token generálása sikeres.");
 define('vsliveview_server_virtualserver', "Virtuális szerver");
 define('vsliveview_server_head', "Élő nézet");
 define('vsliveview_liveview_enable_autorefresh', "Automatikus frissítés");
-define('vsliveview_liveview_tooltip_to_channel', "to channel #");
+define('vsliveview_liveview_tooltip_to_channel', "csatorna #");
 define('vsliveview_liveview_tooltip_switch', "Átvált");
 define('vsliveview_liveview_tooltip_send_msg', "Üzenet küldése");
 define('vsliveview_liveview_tooltip_poke', "Bökés");

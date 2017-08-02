@@ -39,7 +39,7 @@ define('smtp_server_info', "C&apos;est le serveur sortant pour les e-mails (serv
 define('panel_email_address', "Adresse e-mail sortante");
 define('panel_email_address_info', "C&apos;est l&apos;adresse e-mail qui est utilisée pour envoyer les e-mails.");
 define('panel_name', "Nom du Panneau");
-define('panel_name_info', "Name of the Panel that is shown in the page title. This value will overrule all page titles, if it's not empty.");
+define('panel_name_info', "Le nom du Panneau qui est affiché dans le titre des pages. Cette valeur écrase les titres des pages si elle est définie.");
 define('feed_enable', "Activer LGSL Feed");
 define('feed_enable_info', "Si votre hébergement web a un pare-feu (firewall) bloquant les requêtes sur les ports, vous devez l&apos;activer.");
 define('feed_url', "URL de Feed");

@@ -126,8 +126,8 @@ define('custom_tab_sub_name4', "#4 Allap neve");
 define('custom_tab_sub_link4', "#4 Allap linkje");
 define('custom_tab_target_blank', "Egyéni lapok célpontja");
 define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Opens link on same page. New_Page  =  Opens link on new tab.)</b>");
-define('bg_wrapper', "Burkolat háttér");
-define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
-define('show_server_id_game_monitor', "Szerver ID mutatása a Szerver felügyelet oldalon");
-define('show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
+define('bg_wrapper', "Borítólap háttér");
+define('bg_wrapper_info', "A borítólap háttérképe. (Csak egyes témákban érhető el.)");
+define('show_server_id_game_monitor', "Szerver IDk mutatása a Játékfigyelő oldalon");
+define('show_server_id_game_monitor_info', "Mutassa a játékszerver azonosító oszlopát a Játékfigyelőben az Agent által létrehozott fájlok egyeztetéséhez az aktuális játék szerverhez.");
 ?>

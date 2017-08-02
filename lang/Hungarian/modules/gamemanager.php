@@ -113,7 +113,7 @@ define('folder', "könyvtár");
 define('unable_retrieve_mod_info', "Nem sikerült lekérdezni a mod információt az adatbázisból.");
 define('unexpected_result_libremote', "Váratlan eredmény a libremote-val, kérlek, tájékoztasd a fejlesztőket.");
 define('unable_get_info', "Nem sikerült megkapni a szükséges információt az indításhoz, az indítás blokkolása.");
-define('server_already_running', "A szerver már fut. Ha nem látod a szervert a Szerver felügyeletben, előfordulhat, hogy valamilyen probléma merült fel és");
+define('server_already_running', "A szerver már fut. Ha nem látod a szervert a Játékfigyelőben, előfordulhat, hogy valamilyen probléma merült fel és");
 define('already_running_stop_server', "Szerver leállítása.");
 define('error_server_already_running', "HIBA: már fut szerver ezen a porton");
 define('failed_start_server_code', "Nem sikerült elindítani a távoli szervert. Hibakód: %s");

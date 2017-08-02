@@ -77,7 +77,7 @@ define('invalid_url', "Ismeretlen URL");
 define('xml_file_not_valid', "A(z) '%s' XML fájlt nem lehetett érvényesíteni a(z) '%s' sémával.");
 define('unable_to_load_xml', "Nem lehet betölteni a(z) '%s' XML fájlt. Engedély probléma?");
 define('gamemanager', "Szerver kezelő");
-define('game_monitor', "Szerver felügyelet");
+define('game_monitor', "Játékfigyelő");
 define('dashboard', "Kezdőlap");
 define('user_addons', "Kiegészítések");
 define('ftp', "FTP");

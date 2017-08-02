@@ -71,7 +71,7 @@ define('port_range_error', "A portnak 0 és 65535 között kell lennie.");
 define('failed_to_assing_mod_to_home', "Nem sikerült hozzáadni a modot %d azonosítóval a szerverhez.");
 define('successfully_assigned_mod_to_home', "Mod sikeresen hozzárendelve %d azonosítóval a szerverhez.");
 define('successfully_modified_mod', "A mod információk sikeresen módosítva.");
-define('back_to_game_monitor', "Vissza a játék felügyeléshez");
+define('back_to_game_monitor', "Vissza a Játékfigyelőbe");
 define('back_to_game_servers', "Vissza a játék szerverekhez");
 define('user_id_main', "Fő tulajdonos");
 define('change_user_id_main', "Fő tulajdonos váltás");
