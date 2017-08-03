@@ -43,7 +43,7 @@ define('wine_games', "Wine játékok");
 define('home_path', "Home path");
 define('change_home_info', "A telepített játék szerver elérési útvonala. Példa: /home/ogp/szerverem/");
 define('game_server_name', "Játék szerver neve");
-define('change_name_info', "The name of the server to help users to identify it.");
+define('change_name_info', "A szerver neve ami segít a felhasználóknak az azonosításban.");
 define('game_control_password', "Játékvezérlő jelszó");
 define('change_control_password_info', "Vezérlő jelszó, mint például az RCON jelszó.");
 define('available_mods', "Elérhető modok");
