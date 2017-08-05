@@ -22,7 +22,7 @@
  *
  */
 
-define('recover', "Recover a forgotten password");
+define('recover', "بازیابی گذرواژه فراموش شده");
 define('back', "بازگشت");
 define('incomplete', "لطفا به عقب برگردید و تمام فیلد ها را پر کنید.");
 define('subject', "درخواست گذرواژه");
