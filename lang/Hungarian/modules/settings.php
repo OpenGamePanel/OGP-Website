@@ -47,7 +47,7 @@ define('feed_url_info', "GrayCube.com megosztja a LGSL feed URL:<br><b>http://ww
 define('charset', "Karakterkódolás");
 define('charset_info', "UTF8, ISO, ASCII, stb... Hagyd üresen az ISO kódolás használatához.");
 define('steam_user', "Steam felhasználó");
-define('steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
+define('steam_user_info', "Ennek a felhasználónak be kell jelentkeznie a Steam letölteni néhány új játékot pl. CS:GO.");
 define('steam_pass', "Steam jelszó");
 define('steam_pass_info', "Állítsd be itt a Steam fiók jelszavát.");
 define('steam_guard', "Steam Guard");
@@ -125,7 +125,7 @@ define('custom_tab_sub_link3', "#3 Allap linkje");
 define('custom_tab_sub_name4', "#4 Allap neve");
 define('custom_tab_sub_link4', "#4 Allap linkje");
 define('custom_tab_target_blank', "Egyéni lapok célpontja");
-define('custom_tab_target_blank_info', "Sets all the tabs target. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Opens link on same page. New_Page  =  Opens link on new tab.)</b>");
+define('custom_tab_target_blank_info', "Beállítja az összes fül célpontját. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Ugyanazon az oldalon nyitja meg a linket. New_Page  =  Új lapon nyitja meg a linket.)</b>");
 define('bg_wrapper', "Borítólap háttér");
 define('bg_wrapper_info', "A borítólap háttérképe. (Csak egyes témákban érhető el.)");
 define('show_server_id_game_monitor', "Szerver IDk mutatása a Játékfigyelő oldalon");

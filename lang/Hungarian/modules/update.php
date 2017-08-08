@@ -53,7 +53,7 @@ define('blacklist_files', "Feketelistás fájlok");
 define('blacklist_files_info', "Az összes megjelölt fájl nem kerül frissítésre.");
 define('save_to_blacklist', "Mentés a feketelistába");
 define('no_new_updates', "Nincsenek új frissítések");
-define('module_file_missing', "directory is missing the module.php file.");
+define('module_file_missing', "hián");
 define('query_failed', "Sikertelen a lekérdezések végrehajtása");
 define('query_failed_2', "az adatbázisba.");
 define('missing_zip_extension', "A php-zip kiterjesztés nincs betöltve. Kérlek, engedélyezd, mert az Update modulnak szüksége van rá.");
