@@ -44,7 +44,7 @@ define('module_already_installed', "A(z) úgynevezett '%s' modul már telepítve
 define('uninstalling_module', "A(z) '%s' modul eltávolítása");
 define('successfully_uninstalled_module', "A(z) %s modul sikeresen eltávolítva.");
 define('failed_to_uninstall_module', "A(z) %s modul eltávolítása sikertelen.");
-define('module_file_missing', "directory is missing the module.php file.");
+define('module_file_missing', "könyvtárban hiányzik a module.php fájl.");
 define('module_file_missing_info', "is missing the required information.");
 define('query_failed', "Nem sikerült végrehajtani a lekérdezést");
 define('query_failed_2', "az adatbázisba.");

@@ -37,7 +37,7 @@ define('page_auto_refresh_info', "Az oldal automatikus frissítése kikapcsolhat
 define('smtp_server', "Kimenő e-mail szerver");
 define('smtp_server_info', "Ez a kimenő levelek (SMTP) szervere használt, például az elfelejtett jelszavak kiküldéséhez, localhost alapértelmezés szerint.");
 define('panel_email_address', "Kimenő e-mail címe");
-define('panel_email_address_info', "Ez az email cím lesz használva a kimeno levelek küldojeként.");
+define('panel_email_address_info', "Ez az e-mail cím lesz használva a kimenő levelek küldőjeként.");
 define('panel_name', "Panel neve");
 define('panel_name_info', "A Panel neve, amely az oldal címében látható. Ez az érték felülbírálja az összes oldal címét, ha nem üres.");
 define('feed_enable', "LGSL Feed engedélyezése");
