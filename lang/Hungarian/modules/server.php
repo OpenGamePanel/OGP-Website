@@ -83,7 +83,7 @@ define('wrote_changes', "Változások mentése sikeres.");
 define('there_are_servers_running_on_this_ip', "Vannak szerverek ami fut az IP-címen.");
 define('enter_ip_host', "Meg kell adnod az IPt a távoli kiszolgálóhoz.");
 define('enter_valid_ip', "You must enter valid port for the remote host. The port value can be between 0 and 65535, however recommendation is between 1024 and 65535.");
-define('could_not_add_server', "Nem lehet hozzáadni a szervert");
+define('could_not_add_server', "Nem sikerült hozzáadni a szervert");
 define('to_db', "az adatbázisba.");
 define('added_server', "Szerver hozzáadva");
 define('with_port', "porttal");
@@ -121,7 +121,7 @@ define('ports_range_added_successfull_for', "A(z) %s portok tartományának a ho
 define('ports_range_deleted_successfull', "Portok tartományának törlése sikeres.");
 define('ports_range_edited_successfull_for', "A(z) %s portok tartománya szerkesztése sikeres.");
 define('editing_firewall_for_remote_server', "Tűzfal szerkesztése a(z) '%s' nevű távoli szerveren.");
-define('default_allowed', "Alapértelmezetten engedélyezve");
+define('default_allowed', "Alapértelmezés szerint engedélyezve");
 define('allow_port_command', "Port engedélyezése parancs");
 define('deny_port_command', "Port tiltása parancs");
 define('allow_ip_port_command', "IP:Port engedélyezése parancs");

@@ -93,7 +93,7 @@ define('user_admin', "Felhasználók");
 define('sub_users', "Alfelhasználók");
 define('show_groups', "Csoportok");
 define('user_games', "Játék szerverek");
-define('addons_manager', "Kiegészítők kezelő");
+define('addons_manager', "Kiegészítő kezelő");
 define('ftp_admin', "FTP felhasználók");
 define('orders', "Rendelések");
 define('services', "Szolgáltatások");
