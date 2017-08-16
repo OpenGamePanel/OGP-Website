@@ -174,7 +174,7 @@ function exec_ogp_module()
 								echo '<b>'.$v['commit']['message'] .'</b></li><br>';
 								++$commitsStart;
 							}
-							echo '</ul>';
+							echo '</ul><a href="https://github.com/OpenGamePanel/OGP-Website/commits/master" target="_blank">View more commits...</a>';
 						}
 					}
 				}
