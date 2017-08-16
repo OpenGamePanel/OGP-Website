@@ -166,11 +166,11 @@ function exec_ogp_module()
 					if (!empty($json[0]['commit'])) {
 						echo '<ul>';
 						foreach ($json as $k=>$v) {
-							echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v[sha],0,7).'...</a><br>';
-							echo '<b>'.$v['commit']['message'] .'</b></li><br>';
 							if ($commitsStart >= $commitsToShow) {
 								break;
 							}
+							echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v[sha],0,7).'...</a><br>';
+							echo '<b>'.$v['commit']['message'] .'</b></li><br>';
 							++$commitsStart;
 						}
 						echo '</ul>';
