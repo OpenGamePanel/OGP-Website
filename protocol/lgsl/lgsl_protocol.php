@@ -2,7 +2,7 @@
 error_reporting(E_ERROR);
  /*----------------------------------------------------------------------------------------------------------\
  |																											|
- |					  [ LIVE GAME SERVER LIST ] [ © RICHARD PERRY FROM GREYCUBE.COM ]						|
+ |					  [ LIVE GAME SERVER LIST ] [ Â© RICHARD PERRY FROM GREYCUBE.COM ]						|
  |																											|
  |	Released under the terms and conditions of the GNU General Public License Version 3 (http://gnu.org)	|
  |																											|
@@ -51,7 +51,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"conanexiles"	=> "Conan Exiles",
 		"crysis"		=> "Crysis",
 		"crysiswars"	=> "Crysis Wars",
-		"cs2d"			=> "Counter-Strike 2D",
+		"cs2d"			=> "CS2D",
 		"cube"			=> "Cube Engine",
 		"dayzmod"          => "DayZ Mod",
 		"doomskulltag"	=> "Doom - Skulltag",
