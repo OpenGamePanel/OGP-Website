@@ -146,6 +146,38 @@ function exec_ogp_module()
 			else
 				echo "<form action='?m=".$_GET['m']."&amp;p=updating&amp;version=".$seed."' method='post'>\n".
 					 "<input type='submit' value='".get_lang('update_now')."' /></form><br><br>\n";
+				
+				if(function_exists('curl_version')){
+					echo "<h2>Latest Changes</h2>";
+					
+					$commitsStart = 0;
+					$commitsToShow = 5;
+					
+					$gitHubUpdateName = (!empty($settings['custom_github_update_username']) ? $settings['custom_github_update_username'] : 'OpenGamePanel');
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits');
+					curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0');
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+					$data = curl_exec($ch);
+					
+					if ($data) {
+						$json = json_decode($data, true);
+						
+						if (!empty($json[0]['commit'])) {
+							echo '<ul>';
+							foreach ($json as $k=>$v) {
+								if ($commitsStart >= $commitsToShow) {
+									break;
+								}
+								echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v[sha],0,7).'...</a><br>';
+								echo '<b>'.$v['commit']['message'] .'</b></li><br>';
+								++$commitsStart;
+							}
+							echo '</ul><a href="https://github.com/OpenGamePanel/OGP-Website/commits/master" target="_blank">View more commits...</a>';
+						}
+					}
+				}
 		}
 		else
 		{
