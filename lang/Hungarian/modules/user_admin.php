@@ -92,7 +92,7 @@ define('available_groups', "Elérhető csoportok");
 define('assign_homes', "Assign Homes");
 define('successfully_added_group', "Sikeresen hozzáadva a %s csoporthoz.");
 define('group_name_empty', "A csoport neve nem lehet üres.");
-define('failed_to_add_group', "Nem sikerült hozzáadni a %s csoporthoz.");
+define('failed_to_add_group', "Nem sikerült hozzáadni a(z) %s csoportot.");
 define('could_not_add_user_to_group', "Could not add user %s to group %s, because already belongs.");
 define('successfully_added_to_group', ">Successfully added %s to group <em>%s</em>.");
 define('could_not_add_server_to_group', "Nem sikerült hozzáadni a szervert a(z) %s csoporthoz, mert már hozzátartozik.");

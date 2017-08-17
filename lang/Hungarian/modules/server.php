@@ -49,7 +49,7 @@ define('remote_host_user_name_info', "Felhasználó neve, ahol az Agent fut. Pé
 define('remote_host_ftp_ip', "FTP IP");
 define('remote_host_ftp_ip_info', "Az FTP szerver <b>IPje</b> a jelenlegi Agentnek.");
 define('remote_host_ftp_port', "FTP port");
-define('remote_host_ftp_port_info', "Az FTP szerver <b>port</b> az aktuális agent.");
+define('remote_host_ftp_port_info', "Az FTP szerver <b>portja</b> az aktuális Agenthez.");
 define('view_log', "Napló megtekintése");
 define('status', "Állapot");
 define('stop_firewall', "Tűzfal leállítása");
@@ -80,7 +80,7 @@ define('add_ip', "IP hozzáadása");
 define('remove_ip', "IP eltávolítása");
 define('edit_ip', "IP szerkesztése");
 define('wrote_changes', "Változások mentése sikeres.");
-define('there_are_servers_running_on_this_ip', "Vannak szerverek ami fut az IP-címen.");
+define('there_are_servers_running_on_this_ip', "Ezen az IP-címen futnak szerverek.");
 define('enter_ip_host', "Meg kell adnod az IPt a távoli kiszolgálóhoz.");
 define('enter_valid_ip', "You must enter valid port for the remote host. The port value can be between 0 and 65535, however recommendation is between 1024 and 65535.");
 define('could_not_add_server', "Nem sikerült hozzáadni a szervert");
@@ -124,8 +124,8 @@ define('editing_firewall_for_remote_server', "Tűzfal szerkesztése a(z) '%s' ne
 define('default_allowed', "Alapértelmezés szerint engedélyezve");
 define('allow_port_command', "Port engedélyezése parancs");
 define('deny_port_command', "Port tiltása parancs");
-define('allow_ip_port_command', "IP:Port engedélyezése parancs");
-define('deny_ip_port_command', "IP:Port parancs tíltása");
+define('allow_ip_port_command', "IP:Port engedélyezésének a parancsa");
+define('deny_ip_port_command', "IP:Port tiltásának a parancsa");
 define('enable_firewall_command', "Tűzfal engedélyezése parancs");
 define('disable_firewall_command', "Tűzfal tiltása parancs");
 define('get_firewall_status_command', "Tűzfal állapot lekérése parancs");

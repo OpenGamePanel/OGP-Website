@@ -78,7 +78,7 @@ define('xml_file_not_valid', "A(z) '%s' XML fájlt nem lehetett érvényesíteni
 define('unable_to_load_xml', "Nem lehet betölteni a(z) '%s' XML fájlt. Engedély probléma?");
 define('gamemanager', "Szerver kezelő");
 define('game_monitor', "Játékfigyelő");
-define('dashboard', "Kezdőlap");
+define('dashboard', "Műszerfal");
 define('user_addons', "Kiegészítések");
 define('ftp', "FTP");
 define('shop', "Bolt");
