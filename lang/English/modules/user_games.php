@@ -25,7 +25,7 @@
 define('add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
 define('game_servers', "Game Servers");
 define('game_path', "Game Path");
-define('game_path_info', "An absolute server path. Example: /home/ogp/my_server/");
+define('game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
 define('game_server_name_info', "Server name helps users to identify their servers.");
 define('control_password', "Control password");
 define('control_password_info', "This password is used for server control, such as RCON password. If the password is empty then other means are used.");
