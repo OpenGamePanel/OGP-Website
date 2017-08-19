@@ -40,7 +40,7 @@ define('agent_status', "Agent státusz");
 define('ips', "IP-k");
 define('add_more_ips', "Ha több IP-t akarsz megadni akkor kattints az 'IP-k beállítása' gombra miután minden mezot kitöltöttél, ezután megjelenik egy üres mezo a kövezkeo IP hozzáadásához.");
 define('encryption_key_mismatch', "A titkosítási kulcs nem egyezik meg az Agentel. Kérlek, ellenőrizd az Agented konfigurációját.");
-define('no_ip_for_remote_host', "Legalább 1 IP-t meg kell adnod minden egyes távoli kiszolgálóhoz.");
+define('no_ip_for_remote_host', "Minden egyes távoli állomáshoz legalább egy (1) IP címet kell megadnod.");
 define('note_remote_host', "A remote host is a server where the OGP agent is running on. Each host can have multiple number of IP addresses on which users can bind servers to.");
 define('ip_administration', "Szerver és IP adminisztráció :: Open Game Panel");
 define('unknown_error', "Ismeretlen hiba - status_chk visszaérkezett");
@@ -121,7 +121,7 @@ define('ports_range_added_successfull_for', "A(z) %s portok tartományának a ho
 define('ports_range_deleted_successfull', "Portok tartományának törlése sikeres.");
 define('ports_range_edited_successfull_for', "A(z) %s portok tartománya szerkesztése sikeres.");
 define('editing_firewall_for_remote_server', "Tűzfal szerkesztése a(z) '%s' nevű távoli szerveren.");
-define('default_allowed', "Alapértelmezés szerint engedélyezve");
+define('default_allowed', "Alapértelmezés szerint engedélyezett");
 define('allow_port_command', "Port engedélyezése parancs");
 define('deny_port_command', "Port tiltása parancs");
 define('allow_ip_port_command', "IP:Port engedélyezésének a parancsa");

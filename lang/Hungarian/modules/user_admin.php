@@ -62,7 +62,7 @@ define('successfully_added_user', "A(z) <em>%s</em> felhasználó sikeresen hozz
 define('add_a_new_user', "Új felhasználó hozzáadása");
 define('admin', "Adminisztrátor");
 define('user', "Felhasználó");
-define('user_with_id_does_not_exist', "Felhasználó a(z) %s ID-vel nem létezik.");
+define('user_with_id_does_not_exist', "A(z) %s azonosítóval rendelkező felhasználó nem létezik.");
 define('are_you_sure_you_want_to_delete_user', "Biztosan törölni akarod a(z) <em>%s</em> felhasználót?");
 define('unable_to_delete_user', "Nem sikerült törölni a(z) %s felhasználót.");
 define('successfully_deleted_user', "A(z) <b>%s</b> felhasználó sikeresen törölve.");

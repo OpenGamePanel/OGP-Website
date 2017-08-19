@@ -47,7 +47,7 @@ define('delete', "Törlés");
 define('edit', "Szerkesztés");
 define('actions', "Műveletek");
 define('invalid_subpage', "Érvénytelen aloldal.");
-define('invalid_home_id', "Érvénytelen vezérlő azonosító.");
+define('invalid_home_id', "Érvénytelen azonosító.");
 define('note', "MEGJEGYZÉS");
 define('hint', "TIPP");
 define('yes', "Igen");
