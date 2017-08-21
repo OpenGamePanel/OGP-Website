@@ -67,7 +67,7 @@
       <option value="true">Yes</option>
       <option value="false">No</option>
       <default>enable-rcon=.*</default>
-      <default_value>Yes</default_value>
+      <default_value>true</default_value>
       <var>enable-rcon=</var>
       <filepath>server.properties</filepath>
       <desc>Enables remote access to the server console.</desc>
