@@ -65,6 +65,7 @@
       <default_value>21114</default_value>
       <var>Port=</var>
       <filepath>Squad/ServerConfig/Rcon.cfg</filepath>
+      <desc>Sets the port to RCON.</desc>
     </field>
   </custom_fields>
   <post_install>
