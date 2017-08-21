@@ -73,9 +73,9 @@
       <desc>Enables remote access to the server console.</desc>
     </field>
     <field key="RCON Port" type="text">
-      <default>Port=.*</default>
+      <default>rcon.port=.*</default>
       <default_value>25575</default_value>
-      <var>Port=</var>
+      <var>rcon.port=</var>
       <filepath>server.properties</filepath>
       <desc>Sets the port to RCON.</desc>
     </field>
