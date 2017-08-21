@@ -49,6 +49,11 @@
       <var>server-name=</var>
       <filepath>server.properties</filepath>
     </text>
+    <text key="home_name">
+      <default>motd=.*</default>
+      <var>motd=</var>
+      <filepath>server.properties</filepath>
+    </text>
   </replace_texts>
   <server_params>
   <param key="-Xms" type="text" id="XMS">
