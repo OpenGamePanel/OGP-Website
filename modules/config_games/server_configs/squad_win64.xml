@@ -28,31 +28,26 @@
       <default>ServerName=.*</default>
       <var>ServerName=</var>
       <filepath>Squad/ServerConfig/Server.cfg</filepath>
-      <options></options>
     </text>
     <text key="max_players">
       <default>MaxPlayers=.*</default>
       <var>MaxPlayers=</var>
       <filepath>Squad/ServerConfig/Server.cfg</filepath>
-      <options></options>
     </text>
     <text key="ip">
       <default>Ip=.*</default>
       <var>Ip=</var>
       <filepath>Squad/ServerConfig/Rcon.cfg</filepath>
-      <options></options>
     </text>
     <text key="control_password">
       <default>Password=.*</default>
       <var>Password=</var>
       <filepath>Squad/ServerConfig/Rcon.cfg</filepath>
-      <options></options>
     </text>
   </replace_texts>
   <server_params>
   <param key="FIXEDMAXTICKRATE=" type="text" id="TICKRATE">
       <default>50</default>
-      <caption></caption>
       <desc>MAX server tickrate.</desc>
       <options>ns</options>
     </param>
@@ -60,7 +55,6 @@
       <option value="ALWAYS">Always</option>
       <option value="FIRST">First</option>
       <option value="NONE">None</option>
-      <caption></caption>
       <desc>Randomize map rotation.</desc>
       <options>ns</options>
     </param>
@@ -71,8 +65,6 @@
       <default_value>21114</default_value>
       <var>Port=</var>
       <filepath>Squad/ServerConfig/Rcon.cfg</filepath>
-      <options></options>
-      <desc></desc>
     </field>
   </custom_fields>
   <post_install>
