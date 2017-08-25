@@ -1,0 +1,125 @@
+<game_config>
+  <game_key>spigot_linux32</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>minecraft</gameq_query_name>
+  <game_name>Spigot Server</game_name>
+  <server_exec_name>spigot_run</server_exec_name>
+  <cli_template>-Xincgc %XMX% -XX:MaxPermSize=128M -jar spigot.jar nogui</cli_template>
+  <max_user_amount>32</max_user_amount>
+  <!-- <control_protocol>lcon</control_protocol> Enables legacy console, the output will be shown in the log file-->
+  <mods>
+    <mod key="spigot">
+      <name>none</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+	  <default>server-ip=.*</default>
+	  <var>server-ip=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="port">
+	  <default>server-port=.*</default>
+	  <var>server-port=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="max_players">
+	  <default>max-players=.*</default>
+	  <var>max-players=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="true">
+	  <default>enable-query=.*</default>
+	  <var>enable-query=true</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="port">
+	  <default>query.port=.*</default>
+	  <var>query.port=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="true">
+	  <default>enable-rcon=.*</default>
+	  <var>enable-rcon=true</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="control_password">
+	  <default>rcon.password=.*</default>
+	  <var>rcon.password=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+	<text key="home_name">
+	  <default>motd=.*</default>
+	  <var>motd=</var>
+	  <filepath>server.properties</filepath>
+	  <options></options>
+	</text>
+  </replace_texts>
+  <server_params>
+	<param id="XMX" key="-Xmx" type="text">
+	  <option>ns</option>
+	  <default>1024M</default>
+	  <caption>Max RAM</caption>
+	  <desc>How much memory? for example: 1024M</desc>
+	</param>
+	<param key="-autoupdate" type="checkbox_key_value">
+	  <caption>Update the server before starting</caption>
+	  <desc>Will compile the server from source, this process may take some minutes.</desc>
+	</param>
+	<param key="-updateBuildTools" type="checkbox_key_value">
+	  <caption>Downlad latest BuildTools.jar</caption>
+	  <desc>Download latest BuildTools.jar before updating the server.</desc>
+	</param>
+  </server_params>
+  <post_install>echo &apos;#!/bin/bash
+cd &quot;`dirname \&quot;$0\&quot;`&quot;
+ARGS=&quot;&quot;
+while test $# -gt 0; do
+	case &quot;$1&quot; in
+	&quot;-autoupdate&quot;)
+		AUTO_UPDATE=&quot;yes&quot; ;;
+	&quot;-updateBuildTools&quot;)
+		UPDBT=&quot;yes&quot; ;;
+	*)
+		ARGS=&quot;$ARGS $1&quot; ;;
+	esac
+	shift
+done
+# java -Xincgc -Xmx1024M -XX:MaxPermSize=128M -jar spigot.jar nogui
+RUNCMD=&quot;java$ARGS&quot;
+BTURL=&quot;https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar&quot;
+BT=&quot;BuildTools.jar&quot;
+if test -n &quot;$UPDBT&quot;; then
+	HEAD=$(curl -I &quot;$BTURL&quot; 2&gt;/dev/null | head -n 1 | cut -d$&quot; &quot; -f2)
+	if [ &quot;$HEAD&quot; == &quot;200&quot; ]; then
+		rm -f &quot;$BT&quot;
+		echo &quot;Downloading $BT from $BTURL, please wait&quot;
+		curl -s &quot;$BTURL&quot; -o &quot;$BT&quot;
+	else
+		echo &quot;Error: Unable to download $BT from $BTURL, Response: $HEAD&quot;
+	fi
+fi
+if test -n &quot;$AUTO_UPDATE&quot;; then
+	if test -f &quot;$BT&quot;; then
+		echo &quot;Buiding jar files&quot;
+		java -jar &quot;$BT&quot;
+		mv spigot-*.jar spigot.jar
+		echo eula=true &gt; eula.txt
+	else
+		echo &quot;Error: $BT not found. &quot;
+		if test -z &quot;$UPDBT&quot;; then
+			echo &quot;Use -updateBuildTools to download it. &quot;
+		fi
+	fi
+fi
+echo &quot;Starting server with command: $RUNCMD&quot;
+$RUNCMD
+exit $?&apos; &gt; spigot_run</post_install>
+</game_config>
