@@ -9,7 +9,7 @@
   <console_log>logs/latest.log</console_log>
   <max_user_amount>250</max_user_amount>
   <mods>
-    <mod key="none">
+    <mod key="bukkit">
       <name>None</name>
     </mod>
   </mods>
