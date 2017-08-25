@@ -45,11 +45,6 @@
       <filepath>server.properties</filepath>
     </text>
     <text key="home_name">
-      <default>server-name=.*</default>
-      <var>server-name=</var>
-      <filepath>server.properties</filepath>
-    </text>
-    <text key="home_name">
       <default>motd=.*</default>
       <var>motd=</var>
       <filepath>server.properties</filepath>
