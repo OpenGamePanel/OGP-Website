@@ -111,7 +111,7 @@ define('assign_range', "Tartomány hozzárendelése");
 define('edit_range', "Tartomány szerkesztése");
 define('delete_range', "Tartomány törlése");
 define('home_id', "Azonosító");
-define('home_path', "Elérési útvonal");
+define('home_path', "Szerver elérési útja");
 define('game_type', "Játék típus");
 define('port', "Port");
 define('invalid_values', "Érvénytelen értékek.");

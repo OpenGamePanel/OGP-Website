@@ -52,7 +52,7 @@ define('starting_server_settings', "Szerver indítása a következő beállítá
 define('startup_params', "Indítási paraméterek");
 define('startup_cpu', "CPU amelyen a szerver fut");
 define('startup_nice', "Nice értéke a szervernek");
-define('game_home', "játék szerver");
+define('game_home', "Szerver elérési útja");
 define('server_started', "Szerver sikeresen elindult.");
 define('no_parameter_access', "Nincs hozzáférésed a paraméterekhez.");
 define('extra_parameters', "Extra paraméterek");

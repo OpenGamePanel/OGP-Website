@@ -30,7 +30,7 @@ define('dwl_complete', "Загрузка завершена");
 define('install_update', "Установка обновления...");
 define('update_complete', "Обновление установлено");
 define('ignored_files', "Исключенных файлов - %s");
-define('not_updated_files_blacklisted', "Установленные файлы/Не обновляются (Черный список): <br>%s");
+define('not_updated_files_blacklisted', "Not updated/installed files (blacklisted):<br>%s");
 define('latest_version', "Последняя версия");
 define('panel_version', "Версия панели");
 define('update_now', "Обновить сейчас");

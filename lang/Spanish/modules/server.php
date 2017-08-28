@@ -121,7 +121,7 @@ define('ports_range_added_successfull_for', "Rango de puertos añadidos correcta
 define('ports_range_deleted_successfull', "Rango de puertos eliminados correctamente.");
 define('ports_range_edited_successfull_for', "Rango de puertos editados correctamente a %s.");
 define('editing_firewall_for_remote_server', "Editando el cortafuegos para el servidor remoto llamado \"%s\"");
-define('default_allowed', "Permitido por defecto");
+define('default_allowed', "Allowed by default");
 define('allow_port_command', "Permitir el comando de puerto");
 define('deny_port_command', "Denegar el comando de puerto");
 define('allow_ip_port_command', "Permitir IP: comando de puerto");

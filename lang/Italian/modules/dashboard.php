@@ -23,7 +23,7 @@
  */
 
 define('dashboard_ftp_text', "Il client FTP può comprimere i file e mandarli tramite email, può anche decomprimere, modificare documenti di testo e molto altro.");
-define('dashboard_addons_manager_text', "Gestisci tutti i tipi di servizio con OGP. Scegli tra oltre 70 server forniti direttamente da OGP.");
+define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
 define('dashboard_game_monitor_text', "Quarda e monitora i log e il traffico di rete velocemente. Puoi vedere quali server sono attivi e quali no.");
 define('dashboard_support_text', "Ricevi supporto dal Team Professionale di OGP sul forum. Risposte rapide ed alta attenzione");
 define('welcome_text', "Benvenuto in Open Game Panel (OGP). OGP è un software open-source che ti permette di installare, avviare e monitare diversi tipo di server di gioco.");

@@ -38,6 +38,6 @@ define('select_game', "انتخاب بازی");
 define('create_xml_configs', "ساخت فایل XML برای Config");
 define('failed_to_delete_config_from_db', "حذف \"%s\" از پایگاه داده با شکست مواجه شد.");
 define('failed_removing_file', "حذف فایل \"%s\" با شکست مواجه شد.");
-define('removed_game_cfg_from_disk_and_datbase', "Config %s با موفقیت از پایگاه داده و دیسک حذف شد.");
+define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from storage and database.");
 define('delete_game_config_for', "حذف پیکربندی بازی %s از دیسک و پایگاه داده.");
 ?>

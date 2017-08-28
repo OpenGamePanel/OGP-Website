@@ -22,7 +22,7 @@
  *
  */
 
-define('lang_charset', "ISO");
+define('lang_charset', "UTF-8");
 define('already_logged_in_redirecting_to_dashboard', "You are already logged in, redirecting to Dashboard.");
 define('logging_in', "Logging in");
 define('redirecting_in', "Redirecting in");

@@ -30,7 +30,7 @@ define('dwl_complete', "Descarga completa");
 define('install_update', "Instalando actualización...");
 define('update_complete', "<b>Actualización completa.</b>");
 define('ignored_files', "%s archivos ignorados.");
-define('not_updated_files_blacklisted', "Archivos no actualizados/instalados (En la lista negra):<br>%s");
+define('not_updated_files_blacklisted', "Not updated/installed files (blacklisted):<br>%s");
 define('latest_version', "Última versión");
 define('panel_version', "Versión del panel");
 define('update_now', "Actualizar Ahora");

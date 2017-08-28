@@ -30,7 +30,7 @@ define('dwl_complete', "دانلود به پایان رسید");
 define('install_update', "بروزرسانی در حال نصب است...");
 define('update_complete', "بروزرسانی به پایان رسید");
 define('ignored_files', "%s نادیده گرفته شدند.");
-define('not_updated_files_blacklisted', "فایل های بروزرسانی نشده (لیست سیاه):<br>%s");
+define('not_updated_files_blacklisted', "Not updated/installed files (blacklisted):<br>%s");
 define('latest_version', "نسخه آخر");
 define('panel_version', "نسخه پنل");
 define('update_now', "بروزرسانی");

@@ -24,14 +24,14 @@
 
 define('add_mods_note', "Vous devez ajouter des mods après avoir assigné le serveur à un utilisateur. Cela peut être fait en éditant le serveur.");
 define('game_servers', "Serveurs de Jeux");
-define('game_path', "Chemin du Jeu");
+define('game_path', "Chemin du Serveur de Jeu");
 define('game_path_info', "Le chemin absolu du serveur. Exemple: /home/ogp_agent/OGP_User_Files/my_server/");
 define('game_server_name_info', "Le nom du serveur aide les utilisateurs à identifier leurs serveurs.");
 define('control_password', "Mot de passe de contrôle");
 define('control_password_info', "Ce mot de passe est utilisé pour le contrôle du serveur, comme le RCON. Si le mot de passe est vide, d'autres moyens seront utilisés.");
-define('add_game_home', "Ajouter un serveur de jeu");
-define('game_path_empty', "Le chemin du Jeu ne peut être vide.");
-define('game_home_added', "Serveur de jeu ajouté avec succès. Redirection vers la page d'édition du serveur.");
+define('add_game_home', "Ajouter un Serveur de Jeu");
+define('game_path_empty', "Le chemin du Serveur de Jeu ne peut être vide.");
+define('game_home_added', "Serveur de Jeu ajouté avec succès. Redirection vers la page d'édition du serveur.");
 define('failed_to_add_home_to_db', "Impossible d'ajouter le serveur à la base de données. Erreur: %s");
 define('caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Attention!</b> L'Agent est hors ligne, impossible de connaître l'OS et l'architecture,<br> Serveurs pour toutes les plateformes:");
 define('select_remote_server', "Sélectionner le Serveur Distant");
@@ -129,8 +129,8 @@ define('available_game_homes', "Serveurs de jeux disponibles");
 define('home_id', "ID Serveur");
 define('game_server', "Serveur de Jeu");
 define('game_type', "Type de Jeu");
-define('game_home', "serveur de jeu");
-define('game_home_name', "Nom du serveur de jeu");
+define('game_home', "Chemin du serveur");
+define('game_home_name', "Nom du serveur");
 define('clone', "Cloner");
 define('unassign', "Désassigner");
 define('access_rights', "Droits d'accès");
@@ -192,7 +192,7 @@ define('failed_to_remove_ftp_account_from_remote_server', "Impossible de supprim
 define('remove_it_anyway', "Voulez-vous le supprimer quand même?");
 define('sucessfully_deleted', "%s supprimé avec succès");
 define('the_agent_had_a_problem_deleting', "L'Agent a eu un problème en supprimant %s, vérifiez le log de l'Agent");
-define('connection_timeout_or_problems_reaching_the_agent', "Timeout sur la connexion ou problèmes en se connectant à l'Agent");
+define('connection_timeout_or_problems_reaching_the_agent', "Délai dépassé lors de la connexion ou problèmes en se connectant à l'Agent");
 define('does_not_exist_yet', "N'existe pas encore.");
 define('go_to_custom_fields', "Aller aux Champs Personnalisés");
 define('back_to_edit_server', "Retour à l'édition du serveur");

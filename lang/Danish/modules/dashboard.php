@@ -23,7 +23,7 @@
  */
 
 define('dashboard_ftp_text', "FTP klienten kan komprimere filer,sende dem via email, det har også mulighed for, at pakke ud, editere filer og meget mere.");
-define('dashboard_addons_manager_text', "Håndterer alle forskellige typer af services med OGP. Vælg over 70 forskellige servere, direkte fra OGP.");
+define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
 define('dashboard_game_monitor_text', "Overvåg og kontrollere din traik og logs hurtigt. Du ka se, hvilke servere, der er oppe og nede.");
 define('dashboard_support_text', "Få support fra OGP's proffesionel Team på deres forum. Hurtig respons, og god opmærksom.");
 define('welcome_text', "Velkommen til Open Game Panel (OGP). Open Game Panel er et åben software projekt, hvilket giver muligheder for, at starte, overvåge og installere forskellige spillere servere.");

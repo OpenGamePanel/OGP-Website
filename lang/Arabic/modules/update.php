@@ -30,7 +30,7 @@ define('dwl_complete', "تم التحميل");
 define('install_update', "تثبيت التحديث...");
 define('update_complete', "تم التحديث");
 define('ignored_files', "%s ملف تم تجاهله");
-define('not_updated_files_blacklisted', "لم يتم تحديث / تثبيت ملفات (القائمة السوداء):<br>%s");
+define('not_updated_files_blacklisted', "Not updated/installed files (blacklisted):<br>%s");
 define('latest_version', "احدث اصدار");
 define('panel_version', "نسخة اللوحة");
 define('update_now', "تحديث الان");
