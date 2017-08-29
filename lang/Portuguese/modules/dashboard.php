@@ -23,7 +23,7 @@
  */
 
 define('dashboard_ftp_text', "O cliente FTP pode comprimir arquivos e enviá-los via e-mail, pode descompactar também, editar arquivos de texto e muito mais.");
-define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
+define('dashboard_addons_manager_text', "Gerencie todos os diferentes tipos de serviços com o painel. Escolha entre mais de 115 servidores, que são fornecidos diretamente pela empresa.");
 define('dashboard_game_monitor_text', "Você pode iniciar e parar servidores, ou ver o estado e registros de forma rápida e fácil.");
 define('dashboard_support_text', "Obtenha suporte da Equipe Profissional da OGP no fórum. Resposta rápida e grande atenção.");
 define('welcome_text', "Seja bem vindo ao painel de controle <a href='http://www.opengamepanel.org/'>O G P</a>");

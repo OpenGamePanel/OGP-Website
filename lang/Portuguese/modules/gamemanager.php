@@ -52,7 +52,7 @@ define('starting_server_settings', "Iniciando servidor com a seguinte configura�
 define('startup_params', "Parâmetros de inicialização");
 define('startup_cpu', "CPU em que o servidor está executando");
 define('startup_nice', "Valor da prioridade nice do servidor");
-define('game_home', "Home Path");
+define('game_home', "Caminho raiz");
 define('server_started', "Servidor iniciado com sucesso.");
 define('no_parameter_access', "Você não tem acesso aos parâmetros");
 define('extra_parameters', "Parâmetros Adicionais");
@@ -191,11 +191,11 @@ define('auto_update_title_popup', "STEAM - atualização automática de Link");
 define('auto_update_popup_html', "<p>Use o link abaixo para verificar e atualizar automaticamente seu servidor de jogos via Steam, se necessário.&nbsp; Você pode consultá-lo usando um cronjob ou iniciar manualmente o processo.</p>");
 define('auto_update_copy_me', "Copia");
 define('auto_update_copy_me_success', "Copiado!");
-define('auto_update_copy_me_fail', "Failed to copy. Please, manually copy the link.");
+define('auto_update_copy_me_fail', "Falha ao copiar. Por favor, copie manualmente o link.");
 define('get_steam_autoupdate_api_link', "Link de atualização automática");
 define('update_attempt_from_nonmaster_server', "Usuario %s tentou atualizar home_id %d De um servidor Non-Master. (Home ID: %d)");
 define('attempting_nonmaster_update', "Você está tentando atualizar este servidor a partir de um servidor Non-Master.");
-define('cannot_update_from_own_self', "Local server update may not run on a Master server.");
+define('cannot_update_from_own_self', "A atualização do servidor local pode não ser executada em um Master Server");
 define('show_server_id', "Mostrar IDs do servidor");
 define('hide_server_id', "Ocultar IDs de servidor");
 ?>
