@@ -36,7 +36,7 @@ define('panel_version', "Panel verzió");
 define('update_now', "Frissítés most");
 define('the_panel_is_up_to_date', "A Panel naprakész.");
 define('files_overwritten', "%s fájl felülíródott");
-define('files_not_overwritten', "%s fájl NEM került felülírásra a fekete lista miatt");
+define('files_not_overwritten', "%s fájl NEM került felülírásra a feketelista miatt");
 define('can_not_update_non_writable_files', "Nem lehet frissíteni, mert az alábbi fájlok/mappák nem írhatóak");
 define('dwl_failed', "A letöltési link nem elérhető: \"%s\".<br>Próbáld újra később.");
 define('temp_folder_not_writable', "A letöltést nem lehet elhelyezni, mert az Apachenak nincs írási engedélye a rendszer ideiglenes mappájába (%s).");

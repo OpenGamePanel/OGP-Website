@@ -38,6 +38,6 @@ define('select_game', "Выберите игру");
 define('create_xml_configs', "Создать XML конфиг");
 define('failed_to_delete_config_from_db', "Ну удалось удалить %s конфигурацию из Базы Данных");
 define('failed_removing_file', "Ошибка удаления файла %s");
-define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from storage and database.");
+define('removed_game_cfg_from_disk_and_datbase', "Удалить конфигурацию для%sс Диска и Базы Данных.");
 define('delete_game_config_for', "Удалить конфигурацию игры %sс диска и Базы Данных");
 ?>

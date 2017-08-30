@@ -25,7 +25,7 @@
 define('add_mods_note', "Você precisa adicionar mods depois de adicionar qualquer servidor ao usuário. Isso pode ser feito editando o servidor.");
 define('game_servers', "Game Servers");
 define('game_path', "Caminho do jogo");
-define('game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
+define('game_path_info', "Um caminho absoluto do servidor. Exemplo: /home/panelbot/panel_User_Files/My_Server");
 define('game_server_name_info', "O nome de cada servidor ajuda os usuários a identificar seus servidores.");
 define('control_password', "Control password");
 define('control_password_info', "Esta senha é usada para o controle do servidor, como a senha do RCON. Se a senha estiver vazia, outros meios serão usados.");
@@ -129,8 +129,8 @@ define('available_game_homes', "Servidores de jogos disponíveis");
 define('home_id', "Home ID");
 define('game_server', "Game Server");
 define('game_type', "Tipo de jogo");
-define('game_home', "Home Path");
-define('game_home_name', "Game Server Name");
+define('game_home', "Caminho Raiz");
+define('game_home_name', "Nome do Servidor do Jogo");
 define('clone', "Clone");
 define('unassign', "Desatribuir");
 define('access_rights', "Direitos de acesso");
@@ -192,7 +192,7 @@ define('failed_to_remove_ftp_account_from_remote_server', "Falha ao remover a co
 define('remove_it_anyway', "Gostaria de removê-lo de qualquer maneira?");
 define('sucessfully_deleted', "Excluido com sucesso %s");
 define('the_agent_had_a_problem_deleting', "O agente teve um problema ao excluir %s, verifique o registro do agente");
-define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
+define('connection_timeout_or_problems_reaching_the_agent', "Tempo limite de conexão ou problemas com o alcance do agente");
 define('does_not_exist_yet', "Ainda não existe.");
 define('go_to_custom_fields', "Ir para campos personalizados");
 define('back_to_edit_server', "Voltar ao servidor de edição");

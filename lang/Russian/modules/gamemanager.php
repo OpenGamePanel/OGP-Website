@@ -52,7 +52,7 @@ define('starting_server_settings', "Запуск сервера со следу�
 define('startup_params', "Параметры запуска");
 define('startup_cpu', "Ядро процессора, на котором будет запущен сервер");
 define('startup_nice', "Приоритетное значение сервера");
-define('game_home', "Home Path");
+define('game_home', "Путь к серверу");
 define('server_started', "Сервер запущен успешно.");
 define('no_parameter_access', "У Вас нет доступа к этим параметрам.");
 define('extra_parameters', "Дополнительные параметры");
@@ -94,7 +94,7 @@ define('no_ogp_lgsl_support', "Этот сервер (%s)не поддержив
 define('server_status', "Статус сервера");
 define('server_stopped', "Сервер '%s' был остановлен.");
 define('if_want_to_start_homes', "Запускайте сервера из %s.");
-define('view_log', "Log Viewer");
+define('view_log', "Просмотр журнала");
 define('if_want_manage', "Настроить сервера можно здесь");
 define('columns', "столбцов");
 define('group_users', "Группа:");
@@ -142,8 +142,8 @@ define('steamid', "Steam ID");
 define('player', "игрок");
 define('port', "Порт");
 define('rcon_presets', "RCON команды");
-define('update_from_local_master_server', "Update from local Master Server");
-define('update_from_selected_rsync_server', "Update from selected Rsync server");
+define('update_from_local_master_server', "Обновление с локального Мастер Сервера");
+define('update_from_selected_rsync_server', "Обновление с выбранного сервера-rsync");
 define('execute_selected_server_operations', "Выполнить операции на выбранных серверах");
 define('execute_operations', "Выполнение операций");
 define('account_expiration', "Истечение срока действия учетной записи");
@@ -191,11 +191,11 @@ define('auto_update_title_popup', "Ссылка для автоматическ�
 define('auto_update_popup_html', "<p>Используйте приведенную ниже ссылку, чтобы проверить и автоматически обновить игровой сервер через Steam, если необходимо.&nbsp; Вы можете это сделать через планировщик задач-cron или вручную выполнив это. </p>");
 define('auto_update_copy_me', "Копировать");
 define('auto_update_copy_me_success', "Скопировано!");
-define('auto_update_copy_me_fail', "Failed to copy. Please, manually copy the link.");
+define('auto_update_copy_me_fail', "Ошибка копирования. Пожалуйста, скопируйте линк вручную.");
 define('get_steam_autoupdate_api_link', "Ссылка на автообновление");
 define('update_attempt_from_nonmaster_server', "Пользователь %sпопытался обновить home_id %dс сервер,  не являющегося мастером. (Home ID: %d)");
 define('attempting_nonmaster_update', "Вы пытаетесь обновить этот сервер с не мастера сервера.");
-define('cannot_update_from_own_self', "Local server update may not run on a Master server.");
+define('cannot_update_from_own_self', "Обновление с локального сервера не может выполняться на мастер-сервере.");
 define('show_server_id', "Показать ID серверов");
 define('hide_server_id', "Скрыть ID серверов");
 ?>

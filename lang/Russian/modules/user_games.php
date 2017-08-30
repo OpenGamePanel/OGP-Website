@@ -25,7 +25,7 @@
 define('add_mods_note', "Вам нужно добавить конфигурации для сервера. Это можно сделать в настройках сервера.");
 define('game_servers', "Игровые Сервера");
 define('game_path', "Путь");
-define('game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
+define('game_path_info', "Полный и абсолютный путь к серверу. Пример /home/ogpbot/OGP_User_Files/My_Server");
 define('game_server_name_info', "Название может помочь определить сервер.");
 define('control_password', "Пароль управления");
 define('control_password_info', "Пароль используется для управления сервером, как RCON например. Если оставить пустым, то будут использоваться другие методы.");
@@ -129,8 +129,8 @@ define('available_game_homes', "Доступные игровые сервера
 define('home_id', "ID Сервера");
 define('game_server', "Игровой сервер");
 define('game_type', "Игра");
-define('game_home', "Home Path");
-define('game_home_name', "Game Server Name");
+define('game_home', "Путь к серверу");
+define('game_home_name', "Название игрового сервера");
 define('clone', "Копировать");
 define('unassign', "Отменить");
 define('access_rights', "Права доступа");
@@ -192,7 +192,7 @@ define('failed_to_remove_ftp_account_from_remote_server', "Ну удалось �
 define('remove_it_anyway', "Вы все равно хотите его удалить?");
 define('sucessfully_deleted', "Успешное удаление %s");
 define('the_agent_had_a_problem_deleting', "У агента возникла проблема с удалением %s, посмотрите логи Агента");
-define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
+define('connection_timeout_or_problems_reaching_the_agent', "Время соединения вышло или проблемы связи с Агентом");
 define('does_not_exist_yet', "Пока не существует.");
 define('go_to_custom_fields', "Перейти к настраиваемым поля");
 define('back_to_edit_server', "Вернутся к редактированию сервера");

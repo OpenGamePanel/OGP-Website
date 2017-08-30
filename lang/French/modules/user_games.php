@@ -127,7 +127,7 @@ define('add_new_game_home', "Ajouter un nouveau serveur de jeu");
 define('no_game_homes_found', "Aucun serveur de jeu trouvé");
 define('available_game_homes', "Serveurs de jeux disponibles");
 define('home_id', "ID Serveur");
-define('game_server', "Serveur de Jeu");
+define('game_server', "Machine de Jeu");
 define('game_type', "Type de Jeu");
 define('game_home', "Chemin du serveur");
 define('game_home_name', "Nom du serveur");
