@@ -44,7 +44,7 @@ define('js_notice_server_deleted', "A(z) %1 szerver sikeresen törölve.\nAz át
 define('js_prompt_banduration', "Időtartam órában (0=korlátlan):");
 define('js_prompt_banreason', "Ok (opcionális):");
 define('js_prompt_msg_to', "Szöveges üzenet %1 #%2:");
-define('js_prompt_poke_to', "Pokemessage to Client #%1: ");
+define('js_prompt_poke_to', "Bökő üzenet a(z) #%1 kliensnek:");
 define('js_prompt_new_propvalue', "Új érték a(z) '%1':");
 define('n_server_responded', "A szerver válasza:");
 define('login_serverquery', "ServerQuery bejelentkezés");

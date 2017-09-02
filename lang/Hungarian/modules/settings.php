@@ -41,7 +41,7 @@ define('panel_email_address_info', "Ez az e-mail cím lesz használva a kimenő 
 define('panel_name', "Panel neve");
 define('panel_name_info', "A Panel neve, amely az oldal címében látható. Ez az érték felülbírálja az összes oldal címét, ha nem üres.");
 define('feed_enable', "LGSL Feed engedélyezése");
-define('feed_enable_info', "If your webhost has a firewall blocking the query port you need enable it.");
+define('feed_enable_info', "Ha a webtárhelyednek van tűzfala, amely blokkolja a lekérdező portot, akkor meg kell nyitnod manuálisan a portot.");
 define('feed_url', "Feed link");
 define('feed_url_info', "GrayCube.com megosztja a LGSL feed URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Karakterkódolás");
@@ -115,7 +115,7 @@ define('custom_tab_name_info', "Az allap neve.");
 define('custom_tab_link', "Egyéni lap linkje");
 define('custom_tab_link_info', "Az allap hivatkozása.");
 define('custom_tab_sub', "Egyéni allap neve");
-define('custom_tab_sub_info', "Adds customisable sub-tabs when hovering over the 'Custom Tab'.");
+define('custom_tab_sub_info', "Testreszabható al-lapokat hozzáadása, amikor lebeg az \"Egyéni lap\" felett.");
 define('custom_tab_sub_name', "#1 Allap neve");
 define('custom_tab_sub_link', "#1 Allap linkje");
 define('custom_tab_sub_name2', "#2 Allap neve");

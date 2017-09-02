@@ -45,7 +45,7 @@ define('new_files', "%s új fájlok.");
 define('updated_files', "Frissített fájlok:<br>%s");
 define('select_mirror', "Válassz tükröt");
 define('view_changes', "Változások megtekintése");
-define('get_x_revison_messages_may_take_some_time', "Get %s revison messages may take some time.");
+define('get_x_revison_messages_may_take_some_time', "A(z) %s revíziós üzenet(ek) beszerzése időbe telhet.");
 define('updating_modules', "Modulok frissítése");
 define('updating_finished', "A frissítés befejezve");
 define('updated_module', "Frissített modul: '%s'.");

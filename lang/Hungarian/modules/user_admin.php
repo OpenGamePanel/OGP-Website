@@ -98,8 +98,8 @@ define('successfully_added_to_group', ">Successfully added %s to group <em>%s</e
 define('could_not_add_server_to_group', "Nem sikerült hozzáadni a szervert a(z) %s csoporthoz, mert már hozzátartozik.");
 define('successfully_added_server_to_group', "Successfully added server to group <em>%s</em>.");
 define('successfully_removed_from_group', "A(z) %s sikeresen eltávolítva a(z) <em>%s</em> csoportból.");
-define('could_not_delete_server_from_group', "Could not delete server %s from group <em>%s</em>.");
-define('successfully_removed_server_from_group', "Successfully removed server %s from group <em>%s</em>.");
+define('could_not_delete_server_from_group', "Nem sikerült törölni a(z) %s szervert a(z) %s csoportból.");
+define('successfully_removed_server_from_group', "Sikeresen eltávolítva a(z) %s szerver a(z) %s csoportból.");
 define('group_with_id_does_not_exist', "A(z) %s csoport nem létezik.");
 define('are_you_sure_you_want_to_delete_group', "Biztosan törölni akarod a(z) <em>%s</em> csoportot?");
 define('unable_to_delete_group', "Nem lehet törölni a(z) %s csoportot.");
