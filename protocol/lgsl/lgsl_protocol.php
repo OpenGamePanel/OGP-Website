@@ -2,7 +2,7 @@
 error_reporting(E_ERROR);
  /*----------------------------------------------------------------------------------------------------------\
  |																											|
- |					  [ LIVE GAME SERVER LIST ] [ © RICHARD PERRY FROM GREYCUBE.COM ]						|
+ |					  [ LIVE GAME SERVER LIST ] [ Â© RICHARD PERRY FROM GREYCUBE.COM ]						|
  |																											|
  |	Released under the terms and conditions of the GNU General Public License Version 3 (http://gnu.org)	|
  |																											|
@@ -41,17 +41,17 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"bf2"			=> "Battlefield 2",
 		"bf3"			=> "Battlefield 3",
 		"bf2142"		=> "Battlefield 2142",
-		"callofduty"	=> "Call Of Duty",
-		"callofdutyuo"	=> "Call Of Duty: United Offensive",
-		"callofdutywaw"	=> "Call Of Duty: World at War",
-		"callofduty2"	=> "Call Of Duty 2",
-		"callofduty4"	=> "Call Of Duty 4",
-		"callofdutymw2"	=> "Call of Duty Modern Warfare 2",
+		"callofduty"	=> "Call of Duty",
+		"callofdutyuo"	=> "Call of Duty: United Offensive",
+		"callofduty2"	=> "Call of Duty 2",
+		"callofduty4mw"	=> "Call of Duty 4: Modern Warfare",
+		"callofdutywaw"	=> "Call of Duty: World at War",
+		"callofdutymw2"	=> "Call of Duty: Modern Warfare 2",
 		"cncrenegade"	=> "Command and Conquer: Renegade",
 		"conanexiles"	=> "Conan Exiles",
 		"crysis"		=> "Crysis",
 		"crysiswars"	=> "Crysis Wars",
-		"cs2d"			=> "Counter-Strike 2D",
+		"cs2d"			=> "CS2D",
 		"cube"			=> "Cube Engine",
 		"dayzmod"          => "DayZ Mod",
 		"doomskulltag"	=> "Doom - Skulltag",
@@ -183,9 +183,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"bf2142"		=> "06",
 		"callofduty"	=> "02",
 		"callofdutyuo"	=> "02",
-		"callofdutywaw"	=> "02",
 		"callofduty2"	=> "02",
-		"callofduty4"	=> "02",
+		"callofduty4mw"	=> "02",
+		"callofdutywaw"	=> "02",
 		"callofdutymw2"	=> "02",
 		"cncrenegade"	=> "03",
 		"conanexiles"	=> "05",
@@ -331,9 +331,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"bf2142"		=> "qtracker://{IP}:{S_PORT}?game=Battlefield2142&action=show",
 		"callofduty"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty&action=show",
 		"callofdutyuo"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDutyUnitedOffensive&action=show",
-		"callofdutywaw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDutyWorldAtWar&action=show",
 		"callofduty2"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty2&action=show",
-		"callofduty4"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty4&action=show",
+		"callofduty4mw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty4&action=show",
+		"callofdutywaw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDutyWorldAtWar&action=show",
 		"callofdutymw2"	=> "aiw://connect/{IP}:{S_PORT}",
 		"cncrenegade"	=> "qtracker://{IP}:{S_PORT}?game=CommandConquerRenegade&action=show",
 		"conanexiles"	=> "steam://connect/{IP}:{S_PORT}",
