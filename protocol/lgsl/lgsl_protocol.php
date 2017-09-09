@@ -47,6 +47,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofduty4mw"	=> "Call of Duty 4: Modern Warfare",
 		"callofdutywaw"	=> "Call of Duty: World at War",
 		"callofdutymw2"	=> "Call of Duty: Modern Warfare 2",
+		"callofdutymw3"	=> "Call of Duty: Modern Warfare 3",
 		"cncrenegade"	=> "Command and Conquer: Renegade",
 		"conanexiles"	=> "Conan Exiles",
 		"crysis"		=> "Crysis",
@@ -85,7 +86,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor2"	=> "Killing Floor 2",
 		"kingpin"		=> "Kingpin: Life of Crime",
 		"lifeisfeudal"	=> "Life is Feudal",
-		"modernwarfare3"=> "CoD: Modern Warfare 3",
 		"moh"			=> "Medal of Honor",
 		"mohaa"			=> "Medal of Honor: Allied Assault",
 		"mohaab"		=> "Medal of Honor: Allied Assault Breakthrough",
@@ -187,6 +187,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofduty4mw"	=> "02",
 		"callofdutywaw"	=> "02",
 		"callofdutymw2"	=> "02",
+		"callofdutymw3"	=> "31",
 		"cncrenegade"	=> "03",
 		"conanexiles"	=> "05",
 		"crysis"		=> "06",
@@ -225,7 +226,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor2"	=> "05",
 		"kingpin"		=> "03",
 		"lifeisfeudal"	=> "05",
-		"modernwarfare3"=> "31",
 		"moh"			=> "30",
 		"mohaa"			=> "03",
 		"mohaab"		=> "03",
@@ -335,6 +335,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofduty4mw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty4&action=show",
 		"callofdutywaw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDutyWorldAtWar&action=show",
 		"callofdutymw2"	=> "aiw://connect/{IP}:{S_PORT}",
+		"callofdutymw3"	=> "steam://connect/{IP}:{Q_PORT}",
 		"cncrenegade"	=> "qtracker://{IP}:{S_PORT}?game=CommandConquerRenegade&action=show",
 		"conanexiles"	=> "steam://connect/{IP}:{S_PORT}",
 		"crysis"		=> "qtracker://{IP}:{S_PORT}?game=Crysis&action=show",
@@ -373,7 +374,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor2" => "steam://connect/{IP}:{S_PORT}",
 		"kingpin"		=> "qtracker://{IP}:{S_PORT}?game=Kingpin&action=show",
 		"lifeisfeudal"	=> "steam://connect/{IP}:{Q_PORT}",
-		"modernwarfare3"=> "http://en.wikipedia.org/wiki/Call_of_Duty:_Modern_Warfare_3",
 		"mohaa"			=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssault&action=show",
 		"mohaab"		=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssaultBreakthrough&action=show",
 		"mohaas"		=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssaultSpearhead&action=show",
@@ -472,9 +472,10 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "bf2"				: $c_to_q = 13333;	$c_def = 16567;	$q_def = 29900;	$c_to_s = 0;	break;
 			case "bf3"				: $c_to_q = 22000;	$c_def = 25200;	$q_def = 47200;	$c_to_s = 0;	break;
 			case "bf2142"			: $c_to_q = 0;		$c_def = 17567;	$q_def = 29900;	$c_to_s = 0;	break;
+			case "callofdutymw3"	: $c_to_q = -1;		$c_def = 27015;	$q_def = 27014;	$c_to_s = 0;	break;
 			case "conanexiles"		: $c_to_q = 2;		$c_def = 24000;	$q_def = 24002;	$c_to_s = 0;	break;
 			case "cube"				: $c_to_q = 1;		$c_def = 28785;	$q_def = 28786;	$c_to_s = 0;	break;
-			case "dayzmod"                     : $c_to_q = 1;	  	$c_def = 2302;  $q_def = 2303;  $c_to_s = 0;    break;
+			case "dayzmod"			: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
 			case "dh2005"			: $c_to_q = 0;		$c_def = 23459;	$q_def = 34567;	$c_to_s = 0;	break;
 			case "farcry"			: $c_to_q = 123;	$c_def = 49001;	$q_def = 49124;	$c_to_s = 0;	break;
 			case "flashpoint"		: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
@@ -487,7 +488,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "killingfloor"		: $c_to_q = 1;		$c_def = 7708;	$q_def = 7709;	$c_to_s = 0;	break;
 			case "killingfloor2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "lifeisfeudal"		: $c_to_q = 2;		$c_def = 28000; $q_def = 28002; $c_to_s = 0;	break;
-			case "modernwarfare3"	: $c_to_q = -1;		$c_def = 27015;	$q_def = 27014;	$c_to_s = 0;	break;
 			case "mohaa"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
 			case "mohaab"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
 			case "mohaas"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
