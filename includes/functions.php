@@ -90,6 +90,7 @@ function get_map_path($query_name,$mod,$map) {
 	$mod_gt = $mod == "redorchestra2" ? "ro2" : $mod_gt;
 	$mod_gt = $mod == "killingfloor2" ? "kf2" : $mod_gt;
 	$mod_gt = $query_name == "callofduty" ? "cod" : $mod_gt;
+	$mod_gt = $query_name == "callofdutyuo" ? "uo" : $mod_gt;
 	$mod_gt = $query_name == "callofduty2" ? "cod2" : $mod_gt;
 	$mod_gt = $query_name == "callofduty4mw" ? "cod4" : $mod_gt;
 	$mod_gt = $query_name == "callofdutywaw" ? "codww" : $mod_gt;
