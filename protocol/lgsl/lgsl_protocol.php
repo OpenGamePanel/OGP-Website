@@ -476,7 +476,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "bf3"				: $c_to_q = 22000;	$c_def = 25200;	$q_def = 47200;	$c_to_s = 0;	break;
 			case "bf2142"			: $c_to_q = 0;		$c_def = 17567;	$q_def = 29900;	$c_to_s = 0;	break;
 			case "callofdutymw3"	: $c_to_q = -1;		$c_def = 27015;	$q_def = 27014;	$c_to_s = 0;	break;
-			case "conanexiles"		: $c_to_q = 2;		$c_def = 24000;	$q_def = 24002;	$c_to_s = 0;	break;
+			case "conanexiles"		: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "cube"				: $c_to_q = 1;		$c_def = 28785;	$q_def = 28786;	$c_to_s = 0;	break;
 			case "dayzmod"			: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
 			case "egs"				: $c_to_q = 1;		$c_def = 30000;	$q_def = 30001; $c_to_s = 0;	break;
