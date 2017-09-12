@@ -51,7 +51,7 @@ define('err_parent_user', "The parent user ID must reference a valid pre-existin
 define('err_email_address_already_in_use_by', "Email address already in use by <b>%s</b>.");
 define('user_registration', "User Registration");
 define('your_account_details_has_been_sent_by_email_to', "Your account details has been sent by email to <b>%s</b>.");
-define('subject', "Hello %s, welcome to %s.");
+define('subject', "Hello %s, welcome to %s!");
 define('sub_user', "Sub Users");
 define('create_sub_user', "Add Sub User");
 define('listdel_sub_user', "List, Modify Sub User Account Information, or Delete Sub User");
