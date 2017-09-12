@@ -23,7 +23,7 @@
  */
 
 define('dashboard_ftp_text', "يمكن لعميل ال FTP ضغط الملفات وإرسالها عبر البريد الإلكتروني ، يمكنه فك الضغط أيضا ، وتعديل الملفات النصية والمزيد");
-define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
+define('dashboard_addons_manager_text', "إدارة جميع أنواع مختلفة من الخدمات مع أوبن قيم بانل. الاختيار من بين أكثر من 115 خوادم، التي زودت مباشرة من أوبن قيم بانل.");
 define('dashboard_game_monitor_text', "مشاهدة ورصد الترافيك والسجلات الخاصة بك بسرعة. يمكنك رؤية أى السيرفرات يعمل وأيها مغلق.");
 define('dashboard_support_text', "إحصل على الدعم من فريق OGP فى المنتديات . رد سريع واهتمام عظيم.");
 define('welcome_text', "مرحبا بك إلى لوحة تحكم (OGP). 

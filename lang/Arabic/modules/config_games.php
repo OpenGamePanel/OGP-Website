@@ -38,6 +38,6 @@ define('select_game', "اختر اللعبة");
 define('create_xml_configs', "إنشاء اعدادات XML ");
 define('failed_to_delete_config_from_db', "فشل حذف الإعداد %s من قاعدة البيانات");
 define('failed_removing_file', "فشل حذف الملف %s");
-define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from storage and database.");
+define('removed_game_cfg_from_disk_and_datbase', "تمت إزالة التهيئة ل%sمن وحدة التخزين وقاعدة البيانات. ");
 define('delete_game_config_for', "حذف إعدادات اللعبة ل%s من القرص الصلب وقاعدة البيانات.");
 ?>

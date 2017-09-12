@@ -61,7 +61,7 @@ define('confirm_reboot', "Biztos vagy benne, hogy távolról újra akarod indít
 define('confirm_restart', "Biztos vagy benne, hogy újra akarod indítani a(z) %s nevű Agentet?");
 define('restarting', "Agent újraindítása... Kérlek várj.");
 define('restarted', "Agent sikeresen újraindítva.");
-define('reboot_success', "Server named '%s' was successfully rebooted. You will not be able to access the server until it has successfully booted.");
+define('reboot_success', "A(z) %s nevű szerver sikeresen újraindítva. Nem férhetsz hozzá a szerverhez, amíg az sikeresen fel nem áll.");
 define('invalid_remote_host_id', "Invalid remote host id '%s' given.");
 define('remote_host_removed', "A(z) %s nevű távoli kiszolgálót sikeresen eltávolítottuk.");
 define('editing_remote_server', "Az úgynevezett '%s' távoli szerver szerkesztése");

@@ -38,7 +38,7 @@ define('level_up', "^Egy szinttel feljebb^");
 define('unallowed_char', "Nem megengedett karakterek találhatóak az útvonalban.");
 define('button_edit', "[Szerkesztés]");
 define('save', "Mentés");
-define('home_id_missing', "Home ID is missing.");
+define('home_id_missing', "A szerver azonosító hiányzik.");
 define('upload', "Feltöltés");
 define('upload_failed', "Feltöltés nem sikerült, a hiba: %s.");
 define('can_not_create_upload_folder_path', "Nem lehet létrehozni a(z) %s feltöltési útvonalat");
