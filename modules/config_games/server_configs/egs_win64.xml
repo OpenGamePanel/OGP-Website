@@ -1,7 +1,7 @@
 <game_config>
   <game_key>egs_win64</game_key>
   <protocol>lgsl</protocol>
-  <lgsl_query_name>source</lgsl_query_name>
+  <lgsl_query_name>egs</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Empyrion – Galactic Survival</game_name>
   <server_exec_name>EmpyrionLauncher.exe</server_exec_name>
