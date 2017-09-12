@@ -42,7 +42,7 @@ define('home_id_missing', "Home ID is missing.");
 define('upload', "Upload");
 define('upload_failed', "Upload failed, the error was: %s.");
 define('can_not_create_upload_folder_path', "Can not create upload folder path %s");
-define('url_is_not_accesible_from_agent', "URL %s is not accesible from agent");
+define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
 define('upload_file', "Upload file");
 define('uncompress', "Uncompress");
 define('create_folder', "Create folder");
