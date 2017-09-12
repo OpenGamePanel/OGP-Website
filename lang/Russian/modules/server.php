@@ -121,7 +121,7 @@ define('ports_range_added_successfull_for', "Диапазон портов, ус
 define('ports_range_deleted_successfull', "Диапазон портов, успешно Удален.");
 define('ports_range_edited_successfull_for', "Диапазон портов, успешно отредактирован для %s.");
 define('editing_firewall_for_remote_server', "Редактирование Firewall для удаленного сервер '%s'");
-define('default_allowed', "По умолчанию разрешено");
+define('default_allowed', "Разрешено по умолчанию");
 define('allow_port_command', "Разрешение на порт - команда:");
 define('deny_port_command', "Запрет на порт - команда:");
 define('allow_ip_port_command', "Разрешение на IP и порт - команда:");

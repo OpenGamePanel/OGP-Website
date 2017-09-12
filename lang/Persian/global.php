@@ -22,7 +22,7 @@
  *
  */
 
-define('lang_charset', "ISO");
+define('lang_charset', "UTF-8");
 define('already_logged_in_redirecting_to_dashboard', "شما وارد شده اید، در حال انتقال به پیشخوان...");
 define('logging_in', "درحال ورود");
 define('redirecting_in', "انتقال در");

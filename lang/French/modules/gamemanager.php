@@ -52,7 +52,7 @@ define('starting_server_settings', "Démarrage du serveur avec les paramètres s
 define('startup_params', "Paramètres de démarrage");
 define('startup_cpu', "CPU assigné au serveur de jeu");
 define('startup_nice', "Priorité (nice) assignée au serveur de jeu");
-define('game_home', "Serveur de Jeu");
+define('game_home', "Chemin du serveur");
 define('server_started', "Serveur démarré avec succès.");
 define('no_parameter_access', "Vous n'avez pas accès aux paramètres.");
 define('extra_parameters', "Paramètres Supplémentaires");

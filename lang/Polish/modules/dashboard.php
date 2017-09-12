@@ -23,7 +23,7 @@
  */
 
 define('dashboard_ftp_text', "FTP Klient może kompresować pliki i wysyłać je przez e-mail, może też rozpakować, edytować pliki tekstowe i wiele więcej.");
-define('dashboard_addons_manager_text', "Zarządzaj wszystkimi rożnymi usługami wraz z OGP. Wybierz jedną z ponad 70 dostarczane bezpośrednio przez serwery OGP.");
+define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
 define('dashboard_game_monitor_text', "Zobacz oraz monitoruj swój transfer. Możesz zobaczyć, jakie serwery są w ONLINE lub OFFLINE.");
 define('dashboard_support_text', "Uzyskaj wsparcie z OGP Professional Team na forum. Szybka pomoc oraz przydatne uwagi.");
 define('welcome_text', "Witaj w Open Game Panel. Dzięki panelowi możesz włączać/wyłączać serwer, monitorować serwer a także zarządzać plikami na nim się znajdującymi przez przeglądarkę.");

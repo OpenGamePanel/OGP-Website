@@ -39,7 +39,7 @@ define('smtp_server_info', "This is the outgoing mail server (SMTP server) that 
 define('panel_email_address', "Outgoing E-Mail Address");
 define('panel_email_address_info', "This is the e-mail address that is in from field when passwords are sent to users.");
 define('panel_name', "Panel name");
-define('panel_name_info', "Name of the panel that is shown in the page title. This value will overrule all page titles, if not empty.");
+define('panel_name_info', "Name of the Panel that is shown in the page title. This value will overrule all page titles, if it's not empty.");
 define('feed_enable', "Enable LGSL Feed");
 define('feed_enable_info', "If your webhost has a firewall blocking the query port you need enable it.");
 define('feed_url', "Feed URL");

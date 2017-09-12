@@ -122,7 +122,7 @@ define('ports_range_added_successfull_for', "Ports range added successfully for 
 define('ports_range_deleted_successfull', "Ports range deleted successfully.");
 define('ports_range_edited_successfull_for', "Ports range edited successfully for %s.");
 define('editing_firewall_for_remote_server', "Editing Firewall for remote server named '%s'");
-define('default_allowed', "Default allowed");
+define('default_allowed', "Allowed by default");
 define('allow_port_command', "Allow port command");
 define('deny_port_command', "Deny port command");
 define('allow_ip_port_command', "Allow IP:port command");

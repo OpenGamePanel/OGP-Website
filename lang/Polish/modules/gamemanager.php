@@ -52,7 +52,7 @@ define('starting_server_settings', "Uruchamianie serwera z następującymi ustaw
 define('startup_params', "Parametry startowe");
 define('startup_cpu', "CPU na którym uruchomiony jest serwer");
 define('startup_nice', "NICE wartość serwera");
-define('game_home', "Strona główna gry");
+define('game_home', "Home Path");
 define('server_started', "Serwer został uruchomiony pomyślnie.");
 define('no_parameter_access', "Nie masz dostępu do ustawień.");
 define('extra_parameters', "Parametry dodatkowe");
@@ -94,7 +94,7 @@ define('no_ogp_lgsl_support', "Ten serwer. (działa: %s) nie ma LGSL wsparcia w 
 define('server_status', "Serwer na %s jest %s.");
 define('server_stopped', "Server '%s' został zatrzymany.");
 define('if_want_to_start_homes', "Jeśli chcesz rozpocząć grę przejdź do %s.");
-define('view_log', "Logi");
+define('view_log', "Log Viewer");
 define('if_want_manage', "Jeśli chcesz zarządzać grą możesz to zrobić w");
 define('columns', "kolumny");
 define('group_users', "Grupa użytkowników:");
@@ -191,11 +191,11 @@ define('auto_update_title_popup', "Auto Aktualizacja Steam Link");
 define('auto_update_popup_html', "<p>Skorzystaj z poniższego linku, aby sprawdzić i automatycznie aktualizować serwer gry poprzez Steam, jeśli to konieczne.&nbsp; Można ją zapytać przy użyciu narzędzia CRON lub ręcznie zainicjować proces.</p>");
 define('auto_update_copy_me', "Kopiuj");
 define('auto_update_copy_me_success', "Skopiowano!");
-define('auto_update_copy_me_fail', "Błąd kopiowania. Proszę skopiuj link ręcznie.");
+define('auto_update_copy_me_fail', "Failed to copy. Please, manually copy the link.");
 define('get_steam_autoupdate_api_link', "Auto Aktualizacja Link");
 define('update_attempt_from_nonmaster_server', "Użytkownik %s próbował zaktualizować home_id %d z serwera innego niż serwer źródłowy. (Home ID: %d)");
 define('attempting_nonmaster_update', "Próbujesz zaktualizować ten serwer z serwera innego niż źródłowy.");
-define('cannot_update_from_own_self', "Lokalna aktualizacja serwera może nie działać na źródłowym serwerze.");
+define('cannot_update_from_own_self', "Local server update may not run on a Master server.");
 define('show_server_id', "Pokaż ID Serwerów");
 define('hide_server_id', "Ukryj ID Serwerów");
 ?>

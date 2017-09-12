@@ -25,7 +25,7 @@
 define('add_mods_note', "Du er nødtil at tilføje mods efter en server er tildelt en bruger. Dette ka gøres, ved at redigere serveren.");
 define('game_servers', "Spil Servere");
 define('game_path', "Spil Sti");
-define('game_path_info', "En fuldstændig server sti. Eksempel: /home/ogp/my_server/");
+define('game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
 define('game_server_name_info', "Server navn hjælper brugere til at genkende deres servere.");
 define('control_password', "Kontrol kodeord");
 define('control_password_info', "Denne adgangskode bliver brugt til server kontrol, så som RCON kodeord. Hvis feltet hvor adgangskoden er tom, er der andre muligheder.");
@@ -129,8 +129,8 @@ define('available_game_homes', "Tilgængelige spil servere");
 define('home_id', "Hjemme ID");
 define('game_server', "Spil Server");
 define('game_type', "Spil Type");
-define('game_home', "spil server");
-define('game_home_name', "spil server Navn");
+define('game_home', "Home Path");
+define('game_home_name', "Game Server Name");
 define('clone', "Klone");
 define('unassign', "Fjern");
 define('access_rights', "Adgangs Rettigheder");
@@ -192,7 +192,7 @@ define('failed_to_remove_ftp_account_from_remote_server', "Fejlet I at fjerne FT
 define('remove_it_anyway', "Vil du gerne fjerne det alligevel?");
 define('sucessfully_deleted', "Slettet successfuldt %s");
 define('the_agent_had_a_problem_deleting', "Agenten havde problemer med at slette %s, Tjek agent loggen");
-define('connection_timeout_or_problems_reaching_the_agent', "Forbindelse tidsfrist udløb, eller problemet ligger hos agenten");
+define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
 define('does_not_exist_yet', "Does not exist yet.");
 define('go_to_custom_fields', "Go to Custom Fields");
 define('back_to_edit_server', "Back to edit server");

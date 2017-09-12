@@ -28,10 +28,10 @@ define('md5_failed', "Тест MD5 не удалось по %s, попробуй
 define('uninstall', "Отключить");
 define('install', "Установить");
 define('uptodate', "Актуальное");
-define('update_available', "Обновление доступно");
+define('update_available', "Доступно Обновление");
 define('not_installed', "Не установлен");
 define('installed', "Установлен");
-define('download_update', "Скачать/Обновление");
+define('download_update', "Скачать и Обновить");
 define('are_you_sure', "Вы уверены");
 define('uninstalling_module_dataloss', "Отключение модуля включает в себя потерю всех данных, связанных.");
 define('remove_files_for', "Хотите удалить все файлы для");

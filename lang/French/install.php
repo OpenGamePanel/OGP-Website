@@ -44,7 +44,7 @@ define('database_prefix', "Préfixe");
 define('next', "Suivant");
 define('encryption_key', "Clé de chiffrement (Agent)");
 define('agent_port', "Port (Agent)");
-define('unable_to_write_config', "Impossible d'écrire la configuration. Veuillez re-vérifier les permissions d'écriture.");
+define('unable_to_write_config', "Impossible d'écrire la configuration. Veuillez revérifier les permissions d'écriture.");
 define('admin_login_details', "Détails du compte Administrateur");
 define('config_written', "Les fichiers de configuration ont été créés avec succès.");
 define('database_created', "Les tables de la base de données ont été créées avec succès.");
