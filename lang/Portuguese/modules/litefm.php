@@ -42,7 +42,7 @@ define('home_id_missing', "O ID inicial está em falta.");
 define('upload', "Enviar");
 define('upload_failed', "O carregamento falhou, o erro foi: %s .");
 define('can_not_create_upload_folder_path', "Não é possível criar o caminho da pasta de upload %s");
-define('url_is_not_accesible_from_agent', "URL %s não é acessível pelo agente");
+define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
 define('upload_file', "Enviar arquivo");
 define('uncompress', "Descompactar");
 define('create_folder', "Criar pasta");

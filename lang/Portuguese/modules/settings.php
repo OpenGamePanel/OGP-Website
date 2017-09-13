@@ -41,7 +41,7 @@ define('panel_email_address_info', "Este é o endereço de e-mail que está no c
 define('panel_name', "nome Panel");
 define('panel_name_info', "Nome do painel que é mostrado no título da página. Esse valor irá anular todos os títulos das páginas, se não estiver vazio.");
 define('feed_enable', "Feed Habilitar LGSL");
-define('feed_enable_info', "Se o seu webhost tem um firewall bloqueando a porta de consulta que você precisa ativá-lo.");
+define('feed_enable_info', "If your webhost has a firewall which is blocking the query port, then you need to open the port manually.");
 define('feed_url', "URL do feed");
 define('feed_url_info', "GrayCube.com está compartilhando um feed LGSL na URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Codificação de Caracteres");

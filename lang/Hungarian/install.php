@@ -24,7 +24,7 @@
 
 define('install_lang', "Válasszd ki a kívánt nyelvet");
 define('install_welcome', "Üdvözöllek az Open Game Panel telepítőben");
-define('file_permission_check', "Szükséges jogosultságok ellenorzése");
+define('file_permission_check', "A szükséges jogosultságok ellenőrzése");
 define('OK', "Rendben");
 define('write_permission_required', "Írási jogosultság szükséges");
 define('execute_permission_required', "Futtatási jogosultság szükséges");
@@ -33,7 +33,7 @@ define('found', "Talált");
 define('not_found', "Nem található");
 define('pear_xxtea_info', "A Pear Crypt_XXTEA szükséges az OGP használatához. A legtöbb Linux disztribúción ez a modul a következő Pear paranccsal telepíthető 'pear install Crypt_XXTEA-beta'.");
 define('refresh', "Frissítés");
-define('checking_required_modules', "Szükséges modulok ellenőrzése:");
+define('checking_required_modules', "A szükséges modulok ellenőrzése:");
 define('database_type', "Adatbázis típusa");
 define('database_settings', "Adatbázis hozzáférésének beállítása");
 define('database_hostname', "Adatbázis kiszolgáló neve");

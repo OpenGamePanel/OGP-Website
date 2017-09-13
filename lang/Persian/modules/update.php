@@ -36,7 +36,7 @@ define('panel_version', "نسخه پنل");
 define('update_now', "بروزرسانی");
 define('the_panel_is_up_to_date', "پنل به روز است.");
 define('files_overwritten', "%s فایل Overwrite شدند.");
-define('files_not_overwritten', "%s فایل از لیست سیاه Overwrite نشد.");
+define('files_not_overwritten', "%s files are NOT overwritten due to blacklist");
 define('can_not_update_non_writable_files', "امکان به روزرسانی وجود ندارد، فایل ها یا دایرکتوری های مورد نظر Writable نیستند.");
 define('dwl_failed', "لینک دانلود درحال حاضر در دسترس نیست: \"%s\".<br> بعدا سعی کنید.");
 define('temp_folder_not_writable', "The download can not be placed, because Apache does not have write permission at the system temporary folder (%s).");
@@ -45,7 +45,7 @@ define('new_files', "%s فایل جدید.");
 define('updated_files', "فایل های به روز شده:<br>%s");
 define('select_mirror', "انتخاب میرور");
 define('view_changes', "مشاهده تغییرا");
-define('get_x_revison_messages_may_take_some_time', "Get %s revison messages may take some time.");
+define('get_x_revison_messages_may_take_some_time', "Get %s revision message(s) may take some time.");
 define('updating_modules', "به روزرسانی ماژول ها");
 define('updating_finished', "به روزرسانی به پایان رسید");
 define('updated_module', "ماژول \"%s\" به روزرسانی شد.");
@@ -56,5 +56,5 @@ define('no_new_updates', "به روزرسانی جدیدی موجود نیست")
 define('module_file_missing', "دایرکتوری فایل module.php را پیدا نمی کند.");
 define('query_failed', "اجرای Query با شکست مواجه شد");
 define('query_failed_2', "به پایگاه داده.");
-define('missing_zip_extension', "PHP-Zip بارگذاری نشد، لطفا PHP-Zip را فعال کنید تا ماژول به روزرسانی به درستی کار خود را انجام دهد.");
+define('missing_zip_extension', "The php-zip extension is not loaded. Please, enable it to use the Update module.");
 ?>

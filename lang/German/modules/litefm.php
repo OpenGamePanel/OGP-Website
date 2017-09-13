@@ -42,7 +42,7 @@ define('home_id_missing', "Home ID fehlt");
 define('upload', "Hochladen");
 define('upload_failed', "Hochladen fehlgeschlagen. Der Fehler lautet: %s.");
 define('can_not_create_upload_folder_path', "Kann den Order zum hochladen nicht erstellen: %s");
-define('url_is_not_accesible_from_agent', "Die URL %s ist vom agent nicht erreichbar");
+define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
 define('upload_file', "Datei hochladen");
 define('uncompress', "Dekomprimieren");
 define('create_folder', "Ordner erstellen");

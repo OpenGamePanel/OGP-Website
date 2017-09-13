@@ -42,7 +42,7 @@ define('home_id_missing', "ID Serveur manquante.");
 define('upload', "Uploader");
 define('upload_failed', "Upload impossible, l'erreur est : %s.");
 define('can_not_create_upload_folder_path', "Impossible de créer le chemin %s");
-define('url_is_not_accesible_from_agent', "L'URL %s n'est pas accessible depuis l'Agent");
+define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
 define('upload_file', "Uploader un fichier");
 define('uncompress', "Décompresser");
 define('create_folder', "Créer un Dossier");

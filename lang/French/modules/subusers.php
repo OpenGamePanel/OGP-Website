@@ -51,7 +51,7 @@ define('err_parent_user', "L'ID de l'utilisateur parent doit être l'ID d'un uti
 define('err_email_address_already_in_use_by', "L'adresse e-mail est déjà utilisée par <b>%s</b>.");
 define('user_registration', "Enregistrement de l'Utilisateur");
 define('your_account_details_has_been_sent_by_email_to', "Les détails de votre compte ont été envoyés par e-mail à <b>%s</b>.");
-define('subject', "Bonjour %s, bienvenue sur %s.");
+define('subject', "Hello %s, welcome to %s!");
 define('sub_user', "Utilisateurs Secondaires");
 define('create_sub_user', "Ajouter un Utilisateur Secondaire");
 define('listdel_sub_user', "Lister ou supprimer un Utilisateur Secondaire");
