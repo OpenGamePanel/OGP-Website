@@ -460,7 +460,7 @@ pre {
 }
 .admin_menu_link_selected{
 	background-color:#494949;
-	background-image:url("hover.gif");
+	background-image:url("images/hover.gif");
 	background-position:bottom center;
 	background-repeat:no-repeat;
 }
