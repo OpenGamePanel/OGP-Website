@@ -61,6 +61,6 @@ define('post-script', "Telepítés utáni szkript (bash)");
 define('replacements', "Pótlások:");
 define('addon_name_info', "Add meg ennek a kiegészítőnek a nevét, ez az a név amit a felhasználók látnak.");
 define('url_info', "Adj meg egy webcímet ami tartalmazza a fájlt a letöltéshez, ha tömörítve van zip vagy tar.gz arhívumba, az ki lesz csomagolva a szerveren az alul megadott könyvtárba.");
-define('path_info', "A könyvár mindenképpen relatív útvonal kell legyen a szerver mappájához, es nem tartalmazhat törtvonalat (/) az elején és a végén, pl: cstrike/cfg. Ha üresen hagyod a mezőt akkor a szerver gyökérkönyvtárját fogja használni.");
+define('path_info', "Az elérési útnak relatívnak kell lennie a szerver mappához és nem tartalmazhat perjeleket az elején és a végén, pl.: cstrike/cfg. Ha üresen hagyod, akkor a szerver gyökérkönyvtárának az útvonalát fogja használni.");
 define('post-script_info', "Írd be a Bash nyelvi kódot, ez skriptként fog végrehajtódni, a szövegcserék használatával testre szabhatod a telepítést, azok helyettesítve lesznek a szerver adataival, amelyek a bővítményt telepíti. A parancsfájl a szerver gyökérmappájából vagy a megadott elérési útból indul.");
 ?>

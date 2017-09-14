@@ -42,7 +42,7 @@ define('home_id_missing', "Hjemme ID mangler.");
 define('upload', "Upload");
 define('upload_failed', "Upload fejlet, fejlen var: %s.");
 define('can_not_create_upload_folder_path', "Kan ikke bygge mappe sti %s");
-define('url_is_not_accesible_from_agent', "URL %s adgang er ikke muligt fra agent");
+define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
 define('upload_file', "Upload fil");
 define('uncompress', "Udpakning");
 define('create_folder', "Oprette mappe");

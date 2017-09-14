@@ -1,0 +1,83 @@
+<game_config>
+  <game_key>minecraft_win32</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>minecraft</gameq_query_name>
+  <game_name>Minecraft</game_name>
+  <server_exec_name>minecraft_server.jar</server_exec_name>
+  <query_port type="add">1</query_port>
+  <cli_template>java %XMS% %XMX% -jar minecraft_server.jar nogui</cli_template>
+  <console_log>logs/latest.log</console_log>
+  <max_user_amount>250</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+      <default>server-ip=.*</default>
+      <var>server-ip=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="port">
+      <default>server-port=.*</default>
+      <var>server-port=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="true">
+      <default>enable-query=.*</default>
+      <var>enable-query=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="query_port">
+      <default>query.port=.*</default>
+      <var>query.port=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="max_players">
+      <default>max-players=.*</default>
+      <var>max-players=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="control_password">
+      <default>rcon.password=.*</default>
+      <var>rcon.password=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="home_name">
+      <default>motd=.*</default>
+      <var>motd=</var>
+      <filepath>server.properties</filepath>
+    </text>
+  </replace_texts>
+  <server_params>
+  <param key="-Xms" type="text" id="XMS">
+      <default>1024M</default>
+      <options>ns</options>
+      <desc>Initial memory size for Java can be specified.</desc>
+    </param>
+    <param key="-Xmx" type="text" id="XMX">
+      <default>1024M</default>
+      <options>ns</options>
+      <desc>Maximum memory size for Java can be specified.</desc>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="RCON Enabled" type="select">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+      <default>enable-rcon=.*</default>
+      <default_value>true</default_value>
+      <var>enable-rcon=</var>
+      <filepath>server.properties</filepath>
+      <desc>Enables remote access to the server console.</desc>
+    </field>
+    <field key="RCON Port" type="text">
+      <default>rcon.port=.*</default>
+      <default_value>25575</default_value>
+      <var>rcon.port=</var>
+      <filepath>server.properties</filepath>
+      <desc>Sets the port to RCON.</desc>
+    </field>
+  </custom_fields>
+</game_config>

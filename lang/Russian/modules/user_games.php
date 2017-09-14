@@ -25,7 +25,7 @@
 define('add_mods_note', "Вам нужно добавить конфигурации для сервера. Это можно сделать в настройках сервера.");
 define('game_servers', "Игровые Сервера");
 define('game_path', "Путь");
-define('game_path_info', "Полный путь к серверу. Пример /home/ogp/my_server/");
+define('game_path_info', "Полный и абсолютный путь к серверу. Пример /home/ogpbot/OGP_User_Files/My_Server");
 define('game_server_name_info', "Название может помочь определить сервер.");
 define('control_password', "Пароль управления");
 define('control_password_info', "Пароль используется для управления сервером, как RCON например. Если оставить пустым, то будут использоваться другие методы.");
@@ -129,8 +129,8 @@ define('available_game_homes', "Доступные игровые сервера
 define('home_id', "ID Сервера");
 define('game_server', "Игровой сервер");
 define('game_type', "Игра");
-define('game_home', "Путь к директории сервера");
-define('game_home_name', "Имя сервера");
+define('game_home', "Путь к серверу");
+define('game_home_name', "Название игрового сервера");
 define('clone', "Копировать");
 define('unassign', "Отменить");
 define('access_rights', "Права доступа");

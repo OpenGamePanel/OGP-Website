@@ -22,19 +22,19 @@
  *
  */
 
-define('system_uptime', "System Uptime");
-define('system_up_time', "Up Time");
-define('system_up_since', "Since");
-define('cpu_usage', "CPU Usage");
-define('cpu_load', "Load");
-define('ram_usage', "RAM Usage");
-define('ram_used', "Memory Used");
-define('ram_of', "of");
-define('storage_space', "Storage Space");
-define('storage_total', "Disk Space");
-define('storage_used', "Used");
-define('storage_free', "Free Space");
-define('process_monitor', "Process Monitor");
-define('status_extension_required', "Extension Required");
+define('system_uptime', "آپتایم سیستم");
+define('system_up_time', "آپتایم");
+define('system_up_since', "از");
+define('cpu_usage', "مصرف پردازنده");
+define('cpu_load', "بارگذاری");
+define('ram_usage', "مصرف RAM");
+define('ram_used', "مصرف مموری");
+define('ram_of', "از");
+define('storage_space', "فضای ذخیره سازی");
+define('storage_total', "فضای دیسک");
+define('storage_used', "مصرف شده");
+define('storage_free', "فضای خالی");
+define('process_monitor', "مانیتور پردازش");
+define('status_extension_required', "Extension های مورد نیاز");
 define('gd_info', "PHP Extension <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> is required to generate these bar images!");
 ?>

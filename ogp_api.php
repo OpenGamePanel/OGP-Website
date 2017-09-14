@@ -122,7 +122,9 @@ if(isset($_REQUEST["action"])){
 				if(hasValue($server_home) && is_array($server_home) && count($server_home) > 0){
 					if(trim($server_home["control_password"]) == trim(strip_tags($controlPass))){
 						// Key matches what is stored in the database.
-						$home_ip_ports = $db->getHomeIpPorts($homeId)[0];
+						$getIpPorts = $db->getHomeIpPorts($homeId);
+						$home_ip_ports = $getIpPorts[0];
+						
 						$server_xml = read_server_config(SERVER_CONFIG_LOCATION . '/' . $server_home['home_cfg_file']);
 						if($server_xml->installer == 'steamcmd') {
 							$remote = new OGPRemoteLibrary($server_home['agent_ip'], $server_home['agent_port'], $server_home['encryption_key'], $server_home['timeout']);

@@ -51,7 +51,7 @@ define('err_parent_user', "Die übergeordnete Benutzer-ID muss einem bereits exi
 define('err_email_address_already_in_use_by', "Diese E-Mail-Adresse ist bereits in Verwendung durch <b>%s</b>.");
 define('user_registration', "Benutzerregistrierung");
 define('your_account_details_has_been_sent_by_email_to', "Ihre Kontodaten wurden per E-Mail wurde an <b>%s</b> versendet.");
-define('subject', "Hallo %s, willkommen bei %s.");
+define('subject', "Hello %s, welcome to %s!");
 define('sub_user', "Subbenutzer");
 define('create_sub_user', "Subbenutzer hinzufügen");
 define('listdel_sub_user', "Auflisten, bearbeiten und löschen von Subbenutzern");

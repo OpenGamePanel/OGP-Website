@@ -102,7 +102,7 @@ define('db_passwd', "Adatbázis jelszó");
 define('db_name', "Adatbázis név");
 define('enabled', "Engedélyezve");
 define('game_server', "Játék szerver");
-define('there_are_no_databases_assigned_for', "There are no databases assigned for <b>%s</b>.");
+define('there_are_no_databases_assigned_for', "Nincsenek hozzárendelt adatbázisok a %s-hez.");
 define('unable_to_connect_to_mysql_server_as', "Unable to connect to MySQL server as %s.");
 define('unable_to_create_db', "Nem sikerült létrehozni az adatbázist.");
 define('unable_to_select_db', "Nem lehet kiválasztani a(z) %s adatbázist.");

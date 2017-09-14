@@ -39,9 +39,9 @@ define('smtp_server_info', "SMTP сервер исходящей почты, о�
 define('panel_email_address', "Исходящий адрес почты");
 define('panel_email_address_info', "Адрес откуда будет высылаться почта.");
 define('panel_name', "Название панели");
-define('panel_name_info', "Название которое будет показывается в названии страницы.");
+define('panel_name_info', "Название Панели которое будет показано в Заголовке. ");
 define('feed_enable', "Включить LGSL Feed");
-define('feed_enable_info', "Если ваш брандмауэр блокирует query port вам надо разрешить его.");
+define('feed_enable_info', "If your webhost has a firewall which is blocking the query port, then you need to open the port manually.");
 define('feed_url', "Feed URL");
 define('feed_url_info', "GrayCube.com распространяет LGSL feed через URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Кодировка текста");

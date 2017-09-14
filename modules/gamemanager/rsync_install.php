@@ -151,10 +151,10 @@ function exec_ogp_module() {
 		$lgslname = $server_xml->gameq_query_name;
 		if($lgslname == "minecraft")
 		{
-			if($server_xml->game_name == "Minecraft Tekkit")
-				$lgslname = "tekkit";
-			elseif($server_xml->game_name == "Minecraft Bukkit")
+			if($server_xml->game_name == "Bukkit")
 				$lgslname = "bukkit";
+			elseif($server_xml->game_name == "Tekkit")
+				$lgslname = "tekkit";
 		}
 	}
 	elseif( isset($server_xml->protocol) )

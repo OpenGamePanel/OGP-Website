@@ -42,7 +42,7 @@ define('home_id_missing', "Nie znaleziono Home ID.");
 define('upload', "Wyślij");
 define('upload_failed', "Przesyłanie nie powiodło się, błąd był następujący: %s.");
 define('can_not_create_upload_folder_path', "Nie można utworzyć folderu wysyłania %s");
-define('url_is_not_accesible_from_agent', "Adres URL %s nie jest dostępny od agenta");
+define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
 define('upload_file', "Wyślij plik");
 define('uncompress', "Rozpakuj");
 define('create_folder', "Stwórz folder");
