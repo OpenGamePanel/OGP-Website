@@ -43,8 +43,8 @@ define('js_confirm_server_delete', "Voulez-vous vraiment SUPPRIMER le serveur #%
 define('js_notice_server_deleted', "Le serveur %1 a été supprimé avec succès.\nLa vue d'ensemble va être rechargée maintenant.");
 define('js_prompt_banduration', "Durée en heures (0=illimitée): ");
 define('js_prompt_banreason', "Raison (optionel) : ");
-define('js_prompt_msg_to', "Text Message to %1 #%2: ");
-define('js_prompt_poke_to', "Poke Message to Client #%1: ");
+define('js_prompt_msg_to', "Message texte à %1 #%2: ");
+define('js_prompt_poke_to', "Message Poke au client #%1: ");
 define('js_prompt_new_propvalue', "Nouvelle valeur pour '%1': ");
 define('n_server_responded', "Le serveur a répondu: ");
 define('login_serverquery', "Connexion ServerQuery");
