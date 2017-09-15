@@ -1,43 +1,34 @@
 <game_config>
-  <game_key>cod_mw2_win32</game_key>
+  <game_key>callofdutymw2_win32</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>callofdutymw2</lgsl_query_name>
-  <game_name>CoD: Modern Warfare 2</game_name>
-  <server_exec_name>iw4m.exe</server_exec_name>
-  <cli_template>-dedicated 1 %MASTER% %EXEC% %GAMETYPE% %IP% %PLAYERS% %PORT% %FSGAME% +map_rotate</cli_template>
+  <game_name>Call of Duty: Modern Warfare 2 (IW4x)</game_name>
+  <server_exec_name>iw4x.exe</server_exec_name>
+  <cli_template>-dedicated -stdout %IP% %PORT% %FS_GAME% %EXEC% %CONTROL_PASSWORD% %PLAYERS% +set party_enable 0 +map_rotate</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="+set net_ip" options="s" />
     <cli_param id="PORT" cli_string="+set net_port" options="s" />
-    <cli_param id="PLAYERS" cli_string="+set party_maxplayers" options="s" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="+set rcon_password" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
   </cli_params>
+  <console_log>userraw/logs/console_mp.log</console_log>
   <max_user_amount>18</max_user_amount>
   <control_protocol>rcon</control_protocol>
   <control_protocol_type>old</control_protocol_type>
   <mods>
     <mod key="default">
-      <name>none</name>
+      <name>None</name>
     </mod>
   </mods>
   <server_params>
-	<param id="GAMETYPE" key="+set gametype" type="text">
-      <default>war</default>
-      <caption>+set g_gametype</caption>
-      <desc>"tdm" Team deathmatch|"war" War Mode|"dm" Free-for-all|"sab" Sabotage|"dem" Demolition|"ctf" Capture the flag|"sd" Search and destroy|"dom" Domination|"koth" Headquarters.</desc>
-	</param>
-    <param id="EXEC" key="+exec" type="text">
-      <default>server.cfg</default>
-      <caption>+exec</caption>
-      <desc>Exec a server configuratipon file on startup.</desc>
+    <param key="+set fs_game " type="text" id="FS_GAME">
+      <options>ns</options>
+      <desc>Set the server to run a mod. For example: mods/my_mod</desc>
     </param>
-	<param id="MASTER" key="+sv_master1" type="text">
-      <default>176.57.141.201</default>
-      <caption>+sv_master1</caption>
-      <desc>Master server IP address.</desc>
-	</param>
-	<param id="FSGAME" key="+set fs_game" type="text">
-      <default></default>
-      <caption>+set fs_game</caption>
-      <desc>Set the mod path if any.</desc>
-	</param>
+    <param key="+exec " type="text" id="EXEC">
+      <default>server.cfg</default>
+      <options>ns</options>
+      <desc>Set the name of your server configuration file.</desc>
+    </param>
   </server_params>
 </game_config>
