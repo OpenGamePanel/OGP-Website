@@ -51,7 +51,7 @@ define('err_parent_user', "The parent user ID must reference a valid pre-existin
 define('err_email_address_already_in_use_by', "Az e-mail cím már használatban van <b>%s</b> által.");
 define('user_registration', "Felhasználó regisztrálás");
 define('your_account_details_has_been_sent_by_email_to', "A fiók adataid e-mailben elküldve a(z) <b>%s</b> címre.");
-define('subject', "Helló %s, üdvözöllek a %s.");
+define('subject', "Helló %s, üdvözöllek a(z) %s!");
 define('sub_user', "Alfelhasználók");
 define('create_sub_user', "Alfelhasználó hozzáadása");
 define('listdel_sub_user', "Lista, al-felhasználói fiók információk módosítása vagy al-felhasználó törlése");

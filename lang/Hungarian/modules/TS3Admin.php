@@ -142,7 +142,7 @@ define('vsoverview_banlist_head', "Kitiltási lista");
 define('vsoverview_banlist_id', "ID #");
 define('vsoverview_banlist_ip', "IP");
 define('vsoverview_banlist_name', "Név");
-define('vsoverview_banlist_uid', "Egyedi ID");
+define('vsoverview_banlist_uid', "Egyedi azonosító");
 define('vsoverview_banlist_reason', "Ok");
 define('vsoverview_banlist_created', "Létrehozva");
 define('vsoverview_banlist_duration', "Időtartam");

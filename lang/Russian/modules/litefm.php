@@ -42,7 +42,7 @@ define('home_id_missing', "Home ID отсутствует.");
 define('upload', "Загрузить");
 define('upload_failed', "Ошибка загрузки, ошибка была: %s.");
 define('can_not_create_upload_folder_path', "Не возможно создать путь для загрузки папки %s");
-define('url_is_not_accesible_from_agent', "УРЛ %sНе является доступным от агента");
+define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
 define('upload_file', "Загрузить файл");
 define('uncompress', "Распаковать");
 define('create_folder', "Создать папку");
