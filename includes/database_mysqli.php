@@ -1504,8 +1504,7 @@ class OGPDatabaseMySQL extends OGPDatabase
  								" : '').')'
 								: 
 								'
-				 			'.($search_field ?" AND home_id IN (SELECT `home_id` FROM `".$this->table_prefix."server_homes` WHERE home_id = '.$search_field.'
-								AND home_cfg_id = '$home_cfg_id' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+				 			'.($search_field ?" AND home_id IN ( home_cfg_id = '$home_cfg_id' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
  								OR home_name LIKE '%".$search_field."%'
  								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR user_id = '$search_field'
