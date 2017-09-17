@@ -42,7 +42,7 @@ define('home_id_missing', "Home ID no encontrada.");
 define('upload', "Subir");
 define('upload_failed', "Falló la subida, el error fue: %s.");
 define('can_not_create_upload_folder_path', "No se pudo crear la ruta a la carpeta de subidas %s.");
-define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
+define('url_is_not_accesible_from_agent', "URL %s no es accesible desde el agente");
 define('upload_file', "Subir archivos");
 define('uncompress', "Descomprimir");
 define('create_folder', "Crear carpeta");

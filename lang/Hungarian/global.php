@@ -23,7 +23,7 @@
  */
 
 define('lang_charset', "UTF-8");
-define('already_logged_in_redirecting_to_dashboard', "Te már be vagy jelentkezve, átirányítás a főoldalra.");
+define('already_logged_in_redirecting_to_dashboard', "Te már be vagy jelentkezve, átirányítás az Irányítópultba.");
 define('logging_in', "Bejelentkezés");
 define('redirecting_in', "Átírányítás");
 define('refresh_page', "Oldal frissítés");
@@ -78,7 +78,7 @@ define('xml_file_not_valid', "A(z) '%s' XML fájlt nem lehetett érvényesíteni
 define('unable_to_load_xml', "Nem lehet betölteni a(z) '%s' XML fájlt. Engedély probléma?");
 define('gamemanager', "Szerver kezelő");
 define('game_monitor', "Játékfigyelő");
-define('dashboard', "Műszerfal");
+define('dashboard', "Irányítópult");
 define('user_addons', "Kiegészítések");
 define('ftp', "FTP");
 define('shop', "Bolt");
