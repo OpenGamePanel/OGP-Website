@@ -107,7 +107,7 @@ define('welcome_title_info', "Engedélyezi az Irányítópult tetején megjelen�
 define('welcome_title_message', "Üdvözlő felirat üzenete");
 define('welcome_title_message_info', "Az Irányítópult tetején megjelenő címszó (HTML kód engedélyezett).");
 define('logo_link', "Logo linkje");
-define('logo_link_info', "A logók hiperhivatkozása. <b style='font-size:10px; font-weight:normal;'>(Üresen hagyva, az Irányítópulthoz irányít át)</b>");
+define('logo_link_info', "A logó hiperhivatkozása. <b style='font-size:10px; font-weight:normal;'>(Üresen hagyva, az Irányítópulthoz irányít át)</b>");
 define('custom_tab', "Custom Tab");
 define('custom_tab_info', "Adds a customisable tab at the end of the menu. <b style='font-size:10px; font-weight:normal;'>(Apply and refresh this page to edit tab settings)</b>");
 define('custom_tab_name', "Egyéni lap neve");
