@@ -145,6 +145,7 @@
         echo ScorchedEarth_P> $maplist
         echo TheCenter>> $maplist
         echo TheIsland>> $maplist
+        echo Ragnarok>> $maplist
     fi
     if [ -f "Engine/Binaries/ThirdParty/SteamCMD/Linux/linux32/steamcmd" ]
       then
