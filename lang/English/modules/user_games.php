@@ -138,7 +138,7 @@ define('assigned_homes', "Currently Assigned Homes");
 define('assign', "Assign");
 define('allow_updates', "Allow Game Updates");
 define('allow_updates_info', "Allows user to update the game installation if that is possible.");
-define('allow_file_management', "File Management");
+define('allow_file_management', "Allow File Management");
 define('allow_file_management_info', "Allows user to access the game server with file management modules.");
 define('allow_parameter_usage', "Allow Parameter Usage");
 define('allow_parameter_usage_info', "Allows user to change available command line parameters.");
