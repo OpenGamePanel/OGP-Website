@@ -32,7 +32,7 @@ define('control_password_info', "Ez a jelszó a szerver vezérléséhez használ
 define('add_game_home', "Játék szerver hozzáadása");
 define('game_path_empty', "Játék elérési útja nem lehet üres.");
 define('game_home_added', "A játékszerver sikeresen hozzáadva. Átirányítás a szerkesztési oldalra.");
-define('failed_to_add_home_to_db', "Failed to add home to database. Error: %s");
+define('failed_to_add_home_to_db', "Nem sikerült a szerver hozzáadása az adatbázisba. Hiba: %s");
 define('caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Vigyázat!</b> Az Agent nem elérhető, nem kapható meg az operációs rendszer típusa és architektúrája,<br> A szerverek bemutatása az összes platformhoz:");
 define('select_remote_server', "Válassz távoli szervert");
 define('no_remote_servers_configured', "Nincs távoli szerver az Open Game Panelhoz.<br>Adj hozzá távoli szervert mielőtt játékszervereket adnál a felhasználóknak.");
@@ -172,7 +172,7 @@ define('cloning_home', "Cloning home called '%s'");
 define('current_home_path', "Az aktuális szerver elérési útja");
 define('current_home_path_info', "The current location of the copied home on remote server.");
 define('clone_home', "Szerver klónozása");
-define('new_home_name', "New Home Name");
+define('new_home_name', "Új szerver név");
 define('new_home_path', "Új elérési útja a szervernek");
 define('agent_ip', "Agent IP");
 define('game_server_copy_is_running', "A játék szerver másolás folyamatban...");
@@ -181,7 +181,7 @@ define('game_server_copy_failed_with_return_code', "Játékszerver másolása si
 define('clone_mods', "Modok klónozása");
 define('game_server_owner', "Játékszerver tulajdonos");
 define('the_name_of_the_server_to_help_users_to_identify_it', "A szerver neve segít a felhasználóknak az azonosítani.");
-define('ips_and_ports_used_in_this_home', "IPs and Ports used in this home");
+define('ips_and_ports_used_in_this_home', "Az IP-k és portok ehhez a szerverhez használva");
 define('note_ips_and_ports_are_not_cloned', "Megjegyzés - az IPk és a portok nincsenek klónozva");
 define('mods_and_settings_for_this_game_server', "Modok és beállítások ehhez a játékszerverhez");
 define('sure_to_delete_serverid_from_remoteip_and_directory', "Biztosan törölni akarod a játékszervert (ID: %s) a(z) %s szerverről és a(z) %s mappából.");
