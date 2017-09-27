@@ -142,6 +142,7 @@
         echo "File $maplist not found."
         echo "Generating new maplist file in $maplist!"
         touch $maplist
+        echo Ragnarok>> $maplist
         echo ScorchedEarth_P> $maplist
         echo TheCenter>> $maplist
         echo TheIsland>> $maplist
