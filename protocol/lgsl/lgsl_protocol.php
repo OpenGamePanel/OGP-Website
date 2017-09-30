@@ -24,6 +24,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"7dtd"			=> "7 Days To Die",
 		"aarmy"			=> "Americas Army",
 		"aarmy3"		=> "Americas Army 3",
+		"aliensvspredator"	=> "Aliens vs Predator",
 		"arcasimracing"	=> "Arca Sim Racing",
 		"arkse"			=> "ARK: Survival Evolved",
 		"arma"			=> "ArmA: Armed Assault",
@@ -34,7 +35,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"arma3alpha"	=> "ArmA 3 Alpha",
 		"avorion"		=> "Avorion",
 		"avp2"			=> "Aliens VS. Predator 2",
-		"avp2010"		=> "Aliens VS. Predator ( 2010 By Rebellion )",
 		"bfbc2"			=> "Battlefield Bad Company 2",
 		"bfvietnam"		=> "Battlefield Vietnam",
 		"bf1942"		=> "Battlefield 1942",
@@ -165,6 +165,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy"			=> "09",
 		"aarmy_"		=> "03",
 		"aarmy3"		=> "26",
+		"aliensvspredator"	=> "31",
 		"arcasimracing"	=> "16",
 		"arkse"			=> "05",
 		"arma"			=> "09",
@@ -175,7 +176,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"arma3alpha"	=> "09",
 		"avorion"		=> "05",
 		"avp2"			=> "03",
-		"avp2010"		=> "31",
 		"bfbc2"			=> "30",
 		"bfvietnam"		=> "09",
 		"bf1942"		=> "03",
@@ -314,6 +314,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"7dtd"			=> "http://7daystodie.com/",
 		"aarmy"			=> "qtracker://{IP}:{S_PORT}?game=ArmyOperations&action=show",
 		"aarmy3"		=> "qtracker://{IP}:{S_PORT}?game=AmericasArmy3&action=show",
+		"aliensvspredator"	=> "steam://connect/{IP}:{Q_PORT}",
 		"arcasimracing"	=> "http://en.wikipedia.org/wiki/ARCA_Sim_Racing",
 		"arkse"			=> "steam://connect/{IP}:{Q_PORT}",
 		"arma"			=> "qtracker://{IP}:{S_PORT}?game=ArmedAssault&action=show",
@@ -324,7 +325,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"arma3alpha"	=> "http://en.wikipedia.org/wiki/ARMA_2",
 		"avorion"		=> "steam://connect/{IP}:{S_PORT}",
 		"avp2"			=> "qtracker://{IP}:{S_PORT}?game=AliensversusPredator2&action=show",
-		"avp2010"		=> "http://en.wikipedia.org/wiki/Aliens_vs._Predator_%28video_game%29",
 		"bfbc2"			=> "http://en.wikipedia.org/wiki/Battlefield_bad_company_2",
 		"bfvietnam"		=> "qtracker://{IP}:{S_PORT}?game=BattlefieldVietnam&action=show",
 		"bf1942"		=> "qtracker://{IP}:{S_PORT}?game=Battlefield1942&action=show",
@@ -465,6 +465,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "7dtd"				: $c_to_q = 1;		$c_def = 25000;	$q_def = 25001;	$c_to_s = 0;	break;
 			case "aarmy"			: $c_to_q = 1;		$c_def = 1716;	$q_def = 1717;	$c_to_s = 0;	break;
 			case "aarmy3"			: $c_to_q = 0;		$c_def = 8777;	$q_def = 39300;	$c_to_s = 0;	break;
+			case "aliensvspredator"	: $c_to_q = -23357;	$c_def = 27015;	$q_def = 3658;	$c_to_s = 0;	break;
 			case "arcasimracing"	: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
 			case "arkse"			: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "arma3"			: $c_to_q = 1; 		$c_def = 2302; 	$q_def = 2303; 	$c_to_s = 0; 	break;
