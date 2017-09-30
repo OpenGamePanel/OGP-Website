@@ -935,7 +935,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				
 				if($match == 0){
 					// This game mod is no longer valid, so delete it
-					$query = sprintf("DELETE FROM `%sgame_mods` WHERE `mod_id` = %d",
+					$query = sprintf("DELETE FROM `%sgame_mods` WHERE `mod_cfg_id` = %d",
 					$this->table_prefix,
 					mysql_real_escape_string($oldModId, $this->link));
 					
