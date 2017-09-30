@@ -892,6 +892,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			foreach($oldModStructure as $oldEntry){
 				$oldModId = $oldEntry["mod_cfg_id"];
 				$oldCFGId = $oldEntry["home_cfg_id"];
+				$oldHomeId = $oldEntry["home_id"];
 								
 				$match = 0;
 				$cfgMatch = 0;
@@ -902,10 +903,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 						$newCFGId = $newEntry["home_cfg_id"];
 						$query = sprintf("UPDATE `%sserver_homes` 
 						  SET home_cfg_id='%d'
-						  WHERE home_cfg_id = '%d';",
+						  WHERE home_cfg_id = '%d'
+						  AND home_id = '%d';",
 						  $this->table_prefix,
 						  mysqli_real_escape_string($this->link,$newCFGId),
-						  mysqli_real_escape_string($this->link,$oldCFGId) );
+						  mysqli_real_escape_string($this->link,$oldCFGId),
+						  mysqli_real_escape_string($this->link,$oldHomeId) );
 						++$this->queries_;
 						mysqli_query($this->link,$query);
 						
@@ -916,10 +919,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 							$map[$oldModId] = $newModId;
 							$query = sprintf("UPDATE `%sgame_mods` 
 							  SET mod_cfg_id='%d'
-							  WHERE mod_cfg_id = '%d';",
+							  WHERE mod_cfg_id = '%d'
+							  AND home_id = '%d';",
 							  $this->table_prefix,
 							  mysqli_real_escape_string($this->link,$newModId),
-							  mysqli_real_escape_string($this->link,$oldModId) );
+							  mysqli_real_escape_string($this->link,$oldModId),
+							  mysqli_real_escape_string($this->link,$oldHomeId) );
 							++$this->queries_;
 							mysqli_query($this->link,$query);
 						}
@@ -932,9 +937,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 				
 				if($match == 0){
 					// This game mod is no longer valid, so delete it
-					$query = sprintf("DELETE FROM `%sgame_mods` WHERE `mod_cfg_id` = %d",
+					$query = sprintf("DELETE FROM `%sgame_mods` WHERE `mod_cfg_id` = '%d' AND `home_id` = '%d'",
 					$this->table_prefix,
-					mysqli_real_escape_string($this->link,$oldModId));
+					mysqli_real_escape_string($this->link,$oldModId),
+					mysqli_real_escape_string($this->link,$oldHomeId));
 					
 					++$this->queries_;
 					mysqli_query($this->link,$query);
@@ -942,9 +948,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 				
 				if($cfgMatch == 0){
 					// Old game config file doesn't exist anymore, so delete the server home entry
-					$query = sprintf("DELETE FROM `%sserver_homes` WHERE `home_cfg_id` = %d",
+					$query = sprintf("DELETE FROM `%sserver_homes` WHERE `home_cfg_id` = '%d' AND `home_id` = '%d'",
 					$this->table_prefix,
-					mysqli_real_escape_string($this->link,$oldCFGId));
+					mysqli_real_escape_string($this->link,$oldCFGId),
+					mysqli_real_escape_string($this->link,$oldHomeId));
 					
 					++$this->queries_;
 					mysqli_query($this->link,$query);
