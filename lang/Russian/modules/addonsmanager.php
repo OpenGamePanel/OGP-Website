@@ -59,8 +59,8 @@ define('select_a_game_type', "Пожалуйста, выберите тип иг
 define('edit_addon', "Редактировать аддон");
 define('post-script', "После установки сценария(bash)");
 define('replacements', "Замены:");
-define('addon_name_info', "Enter a name for this addon, this is the name that the user sees.");
-define('url_info', "Enter a web address that contains a file to download, if compressed in zip or tar.gz will be unpacked in the root directory of the server or on the path given below.");
-define('path_info', "The path must be relative to the server folder and contain no slashes at the beginning or end, eg: cstrike/cfg. If left blank will use the server root path.");
-define('post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
+define('addon_name_info', "Введите имя для этого аддона, это имя, которое видит пользователь.");
+define('url_info', "Введите веб-адрес, содержащий файл для загрузки. Если сжато в zip или tar.gz, тогда оно будет распаковано в корневом каталоге сервера или по пути, указанному ниже.");
+define('path_info', "Путь должен быть относительно папки сервера и не содержать нити в начале или конце cstrike/cfg. Если в пустом поле будет использоваться корневой путь сервера.");
+define('post-script_info', "Введите код языка Bash, это будет выполняться как скрипт, вы можете использовать текстовые замены для настройки установки, они будут заменены данными с сервера, на котором вы устанавливаете аддон. Сценарий начнется с корневой папки сервера или указанного пути.");
 ?>

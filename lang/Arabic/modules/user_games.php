@@ -25,7 +25,7 @@
 define('add_mods_note', "تحتاج إضافة مودز بعد إضافة سيرفر إلى مستخدم . يمكنك عمل ذلك بتعديل السيرفر.");
 define('game_servers', "سيرفرات الألعاب");
 define('game_path', "مسار اللعبة");
-define('game_path_info', "مسار السيرفر المطلق. مثال: /home/ogp/my_server/");
+define('game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
 define('game_server_name_info', "اسم السيرفر يساعد المستخدمين على معرفة سيرفراتهم");
 define('control_password', "التحكم في كلمة المرور");
 define('control_password_info', "كلمةالمرور هذه تستخدم للتحكم فى السيرفر . مثل كلمة السر RCON . إذا كانت خانة كلمة المرور فارغة هذا يعنى أنها مستخدمة.");
@@ -129,8 +129,8 @@ define('available_game_homes', "Available game servers");
 define('home_id', "Home ID");
 define('game_server', "Game Server");
 define('game_type', "Game Type");
-define('game_home', "game server");
-define('game_home_name', "game server Name");
+define('game_home', "Home Path");
+define('game_home_name', "Game Server Name");
 define('clone', "Clone");
 define('unassign', "Unassign");
 define('access_rights', "Access Rights");
@@ -192,7 +192,7 @@ define('failed_to_remove_ftp_account_from_remote_server', "Failed to remove FTP 
 define('remove_it_anyway', "Would you like to remove it anyway?");
 define('sucessfully_deleted', "Sucessfully deleted %s");
 define('the_agent_had_a_problem_deleting', "The agent had a problem deleting %s, check the agent log");
-define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems reaching the agent");
+define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
 define('does_not_exist_yet', "Does not exist yet.");
 define('go_to_custom_fields', "Go to Custom Fields");
 define('back_to_edit_server', "Back to edit server");

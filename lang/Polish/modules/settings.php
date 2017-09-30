@@ -39,9 +39,9 @@ define('smtp_server_info', "This is the outgoing mail server (SMTP server) that 
 define('panel_email_address', "Email Panelu");
 define('panel_email_address_info', "Jest to adres e-mail, który jest w polu, podczas kontaktu z użytkownikami.");
 define('panel_name', "Nazwa Panelu");
-define('panel_name_info', "Nazwa panelu wyświetlanego w tytule strony. Ta wartość spowoduje usunięcie wszystkich tytułów stron, jeśli nie jest puste.");
+define('panel_name_info', "Name of the Panel that is shown in the page title. This value will overrule all page titles, if it's not empty.");
 define('feed_enable', "Enable LGSL Feed");
-define('feed_enable_info', "Jeśli twój hosting blokuje port query. Włącz tą opcję.");
+define('feed_enable_info', "If your webhost has a firewall which is blocking the query port, then you need to open the port manually.");
 define('feed_url', "Feed URL");
 define('feed_url_info', "GrayCube.com dzieli LGSL paszy na adres:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Kodowanie znaków");

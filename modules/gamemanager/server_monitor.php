@@ -102,10 +102,10 @@ function get_sync_name($server_xml)
 		$sync_name = $server_xml->gameq_query_name;
 		if($sync_name == "minecraft")
 		{
-			if($server_xml->game_name == "Minecraft Tekkit")
-				$sync_name = "tekkit";
-			elseif($server_xml->game_name == "Minecraft Bukkit")
+			if($server_xml->game_name == "Bukkit")
 				$sync_name = "bukkit";
+			elseif($server_xml->game_name == "Tekkit")
+				$sync_name = "tekkit";
 		}
 	}
 	elseif( isset($server_xml->protocol) )
@@ -453,6 +453,8 @@ function exec_ogp_module() {
 				$query_name = $server_xml->gameq_query_name;
 			elseif ($server_xml->protocol == "lgsl")
 				$query_name = $server_xml->lgsl_query_name;
+			elseif ($server_xml->protocol == "teamspeak3")
+				$query_name = 'ts3';
 			else
 				$query_name = $mod;
 			

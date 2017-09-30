@@ -23,13 +23,13 @@
  */
 
 define('dashboard_ftp_text', "FTP клиент может архивировать и разахрхивировать, отправлять файлы по email, редактировать текстовые файлы, и многое другое...");
-define('dashboard_addons_manager_text', "Менеджер аддонов от DieFeM");
+define('dashboard_addons_manager_text', "Управляйте различными видами услуг с помощью OGP. Выбирайте из более чем 115 серверов, которые поставляются в OGP.");
 define('dashboard_game_monitor_text', "Наблюдайте и контролируйте свои серверы. Также вы можете просматривать консоль сервера и логи.");
 define('dashboard_support_text', "Получите поддержку от профессиональной команды OGP на форуме. Большое внимание к проблемам и их оперативное решение.");
 define('welcome_text', "Добро пожаловать в панель управления игровыми серверами Open Game Panel!");
 define('any_server_is_online', "Любой Online сервер");
 define('current_map', "Текущая карта");
-define('server_ip_port', "IP:Port");
+define('server_ip_port', "IP:port");
 define('statistics', "Статистика");
 define('servers', "Серверы");
 define('players', "Игроки");
@@ -38,6 +38,6 @@ define('no_games_to_monitor', "Сейчас нет ни одного online/offl
 define('online_servers', "Online серверы");
 define('add_games_in', "Добавить новые сервера можно здесь: %s");
 define('currently_online', "Пользователей online");
-define('game_servers', "игровые серверы");
-define('select_remote_server', "Select remote server");
+define('game_servers', "Игровые Сервера");
+define('select_remote_server', "Выбрать удаленный сервер");
 ?>

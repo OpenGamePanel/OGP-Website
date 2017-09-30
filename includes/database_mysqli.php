@@ -271,9 +271,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		++$this->queries_;
 		$result = mysqli_query($this->link, $sql);
-
 		$results = array();
-		while ($row = mysqli_fetch_assoc($result)) {
+		
+		while ( $row = mysqli_fetch_assoc($result)) {
 			array_push($results, $row);
 		}
 
@@ -298,6 +298,28 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$this->table_prefix);
 		return $this->listQuery($query);
 	}
+	
+	public function get_group_count($search_field){
+		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."user_group_info ";
+		if (!empty($search_field)) {
+			$sql .= "WHERE main_user_id = '$search_field' OR group_id = '$search_field' OR group_name LIKE '%$search_field%'";
+		}		
+		++$this->queries_;
+		return $this->resultQuery($sql);
+	}
+	
+	public function getGroupList_limit($page_user,$limit_user,$search_field) {
+		$user_get_id = ($page_user - 1) * $limit_user;
+		$query = sprintf("SELECT group_id,group_name
+			FROM %suser_group_info
+			
+			".($search_field ? "WHERE main_user_id = '$search_field' OR group_id = '$search_field' OR group_name LIKE \"%%".$search_field."%%\" " : "")."
+			
+			ORDER BY group_id ASC LIMIT $user_get_id, $limit_user
+			",
+			$this->table_prefix);
+		return $this->listQuery($query);
+	}
 
 	public function getUsersGroups($user_id) {
 		$query = sprintf("SELECT *
@@ -312,6 +334,27 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("SELECT *
 			FROM %suser_group_info
 			WHERE `main_user_id` = %d",
+			$this->table_prefix,
+			mysqli_real_escape_string($this->link,$main_user_id));
+		return $this->listQuery($query);
+	}
+	
+	public function getUserGroupList_count($main_user_id,$search_field) {
+		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."user_group_info WHERE `main_user_id` = $main_user_id ";
+		if (!empty($search_field)) {
+			$sql .= "AND group_id = '$search_field' OR group_name LIKE '%$search_field%' ";
+		}		
+		++$this->queries_;
+		return $this->resultQuery($sql);
+	}
+	
+	public function getUserGroupList_limit($main_user_id,$page_user,$limit_user,$search_field) {
+		$user_get_id = ($page_user - 1) * $limit_user;
+		$query = sprintf("SELECT *
+			FROM %suser_group_info
+			WHERE `main_user_id` = %d 
+			".($search_field ? "AND group_id = '$search_field' OR group_name LIKE \"%%".$search_field."%%\" " : "")."
+			ORDER BY group_id ASC LIMIT $user_get_id, $limit_user",
 			$this->table_prefix,
 			mysqli_real_escape_string($this->link,$main_user_id));
 		return $this->listQuery($query);
@@ -1478,6 +1521,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$user_group_expiration_dates = $this->listQuery($query3);
 				foreach($servers as $key => $server)
 				{
+					$servers[$key]['access_rights'] = "ufpetc";
 					if($user_expiration_dates)
 					{
 						foreach($user_expiration_dates as $user_expiration_date)
@@ -1558,14 +1602,14 @@ class OGPDatabaseMySQL extends OGPDatabase
  								" : '').')'
 								: 
 								'
-				 			'.($search_field ?" AND home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+				 			'.($search_field ?" AND home_id IN ( home_cfg_id = '$home_cfg_id' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
  								OR home_name LIKE '%".$search_field."%'
  								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR user_id = '$search_field'
 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
 								OR agent_ip = '$search_field' OR port = '$search_field'
 								OR ip LIKE '%" . $search_field . "%' 
-								" : '').'				
+								)" : '').'				
 								' 
 								));
 		
@@ -1850,6 +1894,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$user_group_expiration_dates = $this->listQuery($query3);
 				foreach($servers as $key => $server)
 				{
+					$servers[$key]['access_rights'] = "ufpetc";
 					if($user_expiration_dates)
 					{
 						foreach($user_expiration_dates as $user_expiration_date)
@@ -2796,34 +2841,35 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $search_field) {
 		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
-
-		$sql = sprintf('SELECT *
-					FROM %1$sserver_homes NATURAL JOIN %1$sconfig_homes NATURAL JOIN %1$sremote_servers NATURAL JOIN %1$shome_ip_ports NATURAL JOIN %1$sremote_server_ips ', $this->table_prefix);
-
+		
+		$sql = 'SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.* FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers` NATURAL JOIN %1$sremote_server_ips ';
+		
 		if (!empty($search_field)) {
 			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
 					OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
-					OR home_name LIKE '%$search_field%' OR agent_ip = '$search_field' OR remote_server_name LIKE '%$search_field%'
-					OR user_id_main IN (SELECT user_id FROM ".$this->table_prefix."users WHERE users_login LIKE '%$search_field%') 
-					OR ip LIKE '%$search_field%'";
+					OR home_name LIKE '%%$search_field%%' OR agent_ip = '$search_field' OR remote_server_name LIKE '%%$search_field%%'
+					OR user_id_main IN (SELECT user_id FROM %1\$susers WHERE users_login LIKE '%%$search_field%%') 
+					OR ip LIKE '%%$search_field%% '";
 		}
 
 		$sql .= "ORDER BY home_id ASC LIMIT $game_home_id, $limit_gameHomes;";
 
+		$sql = sprintf($sql, $this->table_prefix);
 		return $this->listQuery($sql);
 	}
 	
 	public function get_GameHomes_count($search_field) {
-		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."server_homes NATURAL JOIN ".$this->table_prefix."remote_servers NATURAL JOIN ".$this->table_prefix."home_ip_ports NATURAL JOIN ".$this->table_prefix."remote_server_ips ";
+		$sql = 'SELECT COUNT(1) AS total FROM %1$sserver_homes NATURAL JOIN %1$sremote_servers NATURAL JOIN %1$sremote_server_ips ';
 
 		if (!empty($search_field)) {
 			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
 					OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
-					OR home_name LIKE '%$search_field%' OR agent_ip = '$search_field' OR remote_server_name LIKE '%$search_field%'
-					OR user_id_main IN (SELECT user_id FROM ".$this->table_prefix."users WHERE users_login LIKE '%$search_field%') 
-					OR ip LIKE '%$search_field%'";
+					OR home_name LIKE '%%$search_field%%' OR agent_ip = '$search_field' OR remote_server_name LIKE '%%$search_field%%'
+					OR user_id_main IN (SELECT user_id FROM %1\$susers WHERE users_login LIKE '%%$search_field%%') 
+					OR ip LIKE '%%$search_field%% '";
 		}
 
+		$sql = sprintf($sql, $this->table_prefix);
 		return $this->resultQuery($sql);
 	}
 	

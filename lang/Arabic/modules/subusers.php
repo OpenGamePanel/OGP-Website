@@ -51,7 +51,7 @@ define('err_parent_user', "يجب أن يشير معرف مستخدم الأصل
 define('err_email_address_already_in_use_by', "عنوان البريد الإلكتروني قيد الاستخدام من قبل <b>%s</b>.");
 define('user_registration', "تسجيل المستخدم");
 define('your_account_details_has_been_sent_by_email_to', "تم إرسال تفاصيل حسابك عبر البريد الإلكتروني إلى <b>%s</b>.");
-define('subject', "مرحبا %s, مرحبا بك في %s.");
+define('subject', "مرحبا %s, مرحبا بك في%s!");
 define('sub_user', "المستخدمين الفرعيين");
 define('create_sub_user', "إضافة مستخدم فرعي");
 define('listdel_sub_user', "قائمة، تعديل معلومات حساب المستخدم الفرعي، أو حذف المستخدم الفرعي");

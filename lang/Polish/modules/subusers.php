@@ -51,7 +51,7 @@ define('err_parent_user', "ID użytkownika nadrzędnego musi odwoływać się do
 define('err_email_address_already_in_use_by', "Adres e-mail jest już w użyciu przez użytkownika <b>%s</b>.");
 define('user_registration', "Rejestracja Użytkownika");
 define('your_account_details_has_been_sent_by_email_to', "Dane konta zostały wysłane pocztą do <b>%s</b>.");
-define('subject', "Witaj %s, witamy na %s.");
+define('subject', "Hello %s, welcome to %s!");
 define('sub_user', "Pod-użytkownicy");
 define('create_sub_user', "Dodaj SubUser");
 define('listdel_sub_user', "Lista lub Usuń Sub User");

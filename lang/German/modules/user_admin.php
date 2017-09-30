@@ -81,7 +81,7 @@ define('add_group', "Gruppe hinzufügen");
 define('no_groups_available', "Keine Gruppen verfügbar.");
 define('delete_group', "Gruppe löschen");
 define('add_user_to_group', "Benutzer zur Gruppe hinzufügen");
-define('add_user', "Add User");
+define('add_user', "Benutzer hinzufügen");
 define('remove_from_group', "Benutzer von Gruppe entfernen");
 define('add_server_to_group', "Add server to group");
 define('add_server', "Add Server");

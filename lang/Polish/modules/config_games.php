@@ -38,6 +38,6 @@ define('select_game', "Wybierz Grę");
 define('create_xml_configs', "Stwórz konfiguracyjne XML");
 define('failed_to_delete_config_from_db', "Nie udało się usunąć %s konfiguracji z bazy danych");
 define('failed_removing_file', "Nie powiodło się usunięcie pliku %s.");
-define('removed_game_cfg_from_disk_and_datbase', "Usunięto config %s z dysku oraz bazy danych.");
+define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from storage and database.");
 define('delete_game_config_for', "Usuń konfigurację gry dla %s z dysku oraz bazy danych.");
 ?>
