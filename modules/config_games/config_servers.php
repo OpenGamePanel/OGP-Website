@@ -62,6 +62,8 @@ function exec_ogp_module() {
         {
             echo "<p class='info'>".get_lang('updating_configs')."</p>";
         }
+        
+        $oldStructure = $db->getCurrentHomeConfigMods();
 
         $db->clearGameCfgs($clear_old);
 
@@ -81,6 +83,11 @@ function exec_ogp_module() {
                 continue;
             }
         }
+        
+        // Update and remove invalid old game mod ids
+        if($clear_old){
+			$db->updateOGPGameModsWithNewIDs($oldStructure);
+		}
 
         print_success(get_lang('configs_updated_ok'));
     }

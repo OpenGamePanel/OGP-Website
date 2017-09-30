@@ -132,6 +132,10 @@ abstract class OGPDatabase {
 
     abstract public function addGameModCfg($game_id,$mod_key,$mod_name);
 
+	abstract public function getCurrentHomeConfigMods($clear_all);
+	
+	abstract public function updateOGPGameModsWithNewIDs($oldModStructure);
+
     abstract public function clearGameCfgs($clear_all);
 
     abstract public function addGameCfg($config);
