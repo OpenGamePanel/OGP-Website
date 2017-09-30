@@ -359,7 +359,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			".($search_field ? "AND group_id = '$search_field' OR group_name LIKE \"%%".$search_field."%%\" " : "")."
 			ORDER BY group_id ASC LIMIT $user_get_id, $limit_user",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$main_user_id));
+			mysql_real_escape_string($main_user_id, $this->link));
 		return $this->listQuery($query);
 	}
 
@@ -858,6 +858,112 @@ class OGPDatabaseMySQL extends OGPDatabase
 		++$this->queries_;
 		$result = mysql_query($query,$this->link);
 	}
+	
+	public function getCurrentHomeConfigMods($joinGameMods = true){
+		// Build query
+		$qStr = 'SELECT * FROM `%1$sconfig_homes` NATURAL JOIN `%1$sconfig_mods`';
+		if($joinGameMods){
+			$qStr .= ' NATURAL JOIN `%1$sgame_mods`';
+		}
+		$qStr .= ';';
+		
+		$query = sprintf($qStr,
+		$this->table_prefix);
+
+		++$this->queries_;
+		$result = mysql_query($query, $this->link);
+		if ( mysql_num_rows($result) != 0 )
+		{
+			while ($oldConfigStructure = mysql_fetch_assoc($result))
+			{
+				$results[] = $oldConfigStructure;
+			}
+			
+			if(isset($results) && is_array($results)){
+				return $results;
+			}
+		}
+		
+		return false;
+	}
+	
+	public function updateOGPGameModsWithNewIDs($oldModStructure){
+		$currentStructure = $this->getCurrentHomeConfigMods(false);
+		
+		if(isset($oldModStructure) && is_array($oldModStructure) && isset($currentStructure) && is_array($currentStructure)){
+			
+			foreach($oldModStructure as $oldEntry){
+				$oldModId = $oldEntry["mod_cfg_id"];
+				$oldCFGId = $oldEntry["home_cfg_id"];
+				$oldHomeId = $oldEntry["home_id"];
+								
+				$match = 0;
+				$cfgMatch = 0;
+				foreach($currentStructure as $newEntry){
+					if($newEntry["game_key"] == $oldEntry["game_key"]){
+						// Update server home home_cfg_id
+						$cfgMatch++;
+						$newCFGId = $newEntry["home_cfg_id"];
+						$query = sprintf("UPDATE `%sserver_homes` 
+						  SET home_cfg_id='%d'
+						  WHERE home_cfg_id = '%d'
+						  AND home_id = '%d';",
+						  $this->table_prefix,
+						  mysql_real_escape_string($newCFGId, $this->link),
+						  mysql_real_escape_string($oldCFGId, $this->link),
+						  mysql_real_escape_string($oldHomeId, $this->link));
+						++$this->queries_;
+						mysql_query($query, $this->link);
+						
+						// Update game_mods mod_cfg_id
+						if($newEntry["mod_name"] == $oldEntry["mod_name"]){
+							$match++;
+							$newModId = $newEntry["mod_cfg_id"];
+							$map[$oldModId] = $newModId;
+							$query = sprintf("UPDATE `%sgame_mods` 
+							  SET mod_cfg_id='%d'
+							  WHERE mod_cfg_id = '%d'
+							  AND home_id = '%d';",
+							  $this->table_prefix,
+							  mysql_real_escape_string($newModId, $this->link),
+							  mysql_real_escape_string($oldModId, $this->link),
+							  mysql_real_escape_string($oldHomeId, $this->link) );
+							++$this->queries_;
+							mysql_query($query, $this->link);
+						}
+						
+						if($match > 0){
+							break;
+						}
+					}
+				}
+				
+				if($match == 0){
+					// This game mod is no longer valid, so delete it
+					$query = sprintf("DELETE FROM `%sgame_mods` WHERE `mod_cfg_id` = '%d' AND `home_id` = '%d'",
+					$this->table_prefix,
+					mysql_real_escape_string($oldModId, $this->link),
+					mysql_real_escape_string($oldHomeId, $this->link));
+					
+					++$this->queries_;
+					mysql_query($query, $this->link);
+				}
+				
+				if($cfgMatch == 0){
+					// Old game config file doesn't exist anymore, so delete the server home entry
+					$query = sprintf("DELETE FROM `%sserver_homes` WHERE `home_cfg_id` = '%d' AND `home_id` = '%d'",
+					$this->table_prefix,
+					mysql_real_escape_string($oldCFGId, $this->link),
+					mysql_real_escape_string($oldHomeId, $this->link));
+					
+					++$this->queries_;
+					mysql_query($query, $this->link);
+				}
+			}
+		}
+		
+		return true;
+	}
 
 	public function clearGameCfgs($clear_all)
 	{
@@ -868,7 +974,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 			++$this->queries_;
 			mysql_query("TRUNCATE `".$this->table_prefix."config_mods`;");
 		}
-		// mysql_query("TRUNCATE config_homes;");
 	}
 
 	public function addGameCfg($config)
