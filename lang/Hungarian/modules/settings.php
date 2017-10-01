@@ -108,7 +108,7 @@ define('welcome_title_message', "Üdvözlő felirat üzenete");
 define('welcome_title_message_info', "Az Irányítópult tetején megjelenő címszó (HTML kód engedélyezett).");
 define('logo_link', "Logo linkje");
 define('logo_link_info', "A logó hiperhivatkozása. <b style='font-size:10px; font-weight:normal;'>(Üresen hagyva, az Irányítópulthoz irányít át)</b>");
-define('custom_tab', "Custom Tab");
+define('custom_tab', "Egyéni lap");
 define('custom_tab_info', "Adds a customisable tab at the end of the menu. <b style='font-size:10px; font-weight:normal;'>(Apply and refresh this page to edit tab settings)</b>");
 define('custom_tab_name', "Egyéni lap neve");
 define('custom_tab_name_info', "Az allap neve.");
@@ -128,6 +128,6 @@ define('custom_tab_target_blank', "Egyéni lapok célpontja");
 define('custom_tab_target_blank_info', "Beállítja az összes fül célpontját. <b style='font-size:10px; font-weight:normal;'>(Self_Page = Ugyanazon az oldalon nyitja meg a linket. New_Page  =  Új lapon nyitja meg a linket.)</b>");
 define('bg_wrapper', "Borítólap háttér");
 define('bg_wrapper_info', "A borítólap háttérképe. (Csak egyes témákban érhető el.)");
-define('show_server_id_game_monitor', "Szerver IDk mutatása a Játékfigyelő oldalon");
+define('show_server_id_game_monitor', "A szerver azonosítók mutatása a Játékfigyelő oldalon");
 define('show_server_id_game_monitor_info', "Mutassa a játékszerver azonosító oszlopát a Játékfigyelőben az Agent által létrehozott fájlok egyeztetéséhez az aktuális játék szerverhez.");
 ?>
