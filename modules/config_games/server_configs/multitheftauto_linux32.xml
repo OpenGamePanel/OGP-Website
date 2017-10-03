@@ -1,37 +1,45 @@
 <game_config>
-  <game_key>MultiTheftAuto_linux32</game_key>
+  <game_key>multitheftauto_linux32</game_key>
   <protocol>lgsl</protocol>
-  <lgsl_query_name>mta</lgsl_query_name>
-  <game_name>MultiTheftAuto</game_name>
+  <lgsl_query_name>multitheftauto</lgsl_query_name>
+  <game_name>Multi Theft Auto</game_name>
   <server_exec_name>mta-server</server_exec_name>
-  <query_port type="add">123</query_port>
-  <cli_template>%IP% --port %PORT% %PLAYERS% --httpport %PORT%</cli_template>
-  <cli_params>
-    <cli_param id="IP" cli_string="--ip" options="s" />
-    <cli_param id="PORT" cli_string="" />
-    <cli_param id="PLAYERS" cli_string="--maxplayers" options="s" />
-  </cli_params>
   <console_log>mods/deathmatch/logs/server.log</console_log>
   <max_user_amount>1024</max_user_amount>
-  <control_protocol>lcon</control_protocol>
   <mods>
-    <mod key="mta">
-      <name>none</name>
-      <installer_name>MultiTheftAuto</installer_name>
+    <mod key="default">
+      <name>None</name>
     </mod>
   </mods>
   <replace_texts>
-   <text key="home_name">
-     <default>servername</default>
-     <var></var>
-     <filepath>mods/deathmatch/mtaserver.conf</filepath>
-     <options>tags</options>
-   </text>
+    <text key="home_name">
+      <default>servername</default>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+    </text>
+    <text key="ip">
+      <default>serverip</default>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+    </text>
+    <text key="port">
+      <default>serverport</default>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+    </text>
+    <text key="max_players">
+      <default>maxplayers</default>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+    </text>
   </replace_texts>
-  <server_params>
-    <param key="--novoice" type="checkbox_key_value">
-      <caption>--novoice</caption>
-      <desc>Disable Voice Communication</desc>
-    </param>
-  </server_params>
+  <custom_fields>
+    <field key="httpport" type="text">
+      <default>httpport</default>
+      <default_value>22005</default_value>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+      <desc>Port of the http server (it could be same as server port).</desc>
+    </field>
+  </custom_fields>
 </game_config>
