@@ -1,11 +1,12 @@
 <game_config>
   <game_key>multitheftauto_win32</game_key>
   <protocol>lgsl</protocol>
-  <lgsl_query_name>multitheftauto</lgsl_query_name>
+  <lgsl_query_name>mta</lgsl_query_name>
   <game_name>Multi Theft Auto</game_name>
   <server_exec_name>MTA Server.exe</server_exec_name>
   <console_log>mods/deathmatch/logs/server.log</console_log>
   <max_user_amount>1024</max_user_amount>
+  <control_protocol>lcon</control_protocol>
   <mods>
     <mod key="default">
       <name>None</name>
