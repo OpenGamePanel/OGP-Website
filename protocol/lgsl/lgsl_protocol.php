@@ -432,7 +432,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ut2003"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2003&action=show",
 		"ut2004"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2004&action=show",
 		"ut3"			=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament3&action=show",
-		"vcmp"			=> "http://vicecitymultiplayer.com",
+		"vcmp"			=> "http://vc-mp.org",
 		"vietcong"		=> "qtracker://{IP}:{S_PORT}?game=Vietcong&action=show",
 		"vietcong2"		=> "qtracker://{IP}:{S_PORT}?game=Vietcong2&action=show",
 		"warsow"		=> "warsow://{IP}:{S_PORT}",
