@@ -4,11 +4,22 @@
   <gameq_query_name>ventrilo</gameq_query_name>
   <game_name>Ventrilo</game_name>
   <server_exec_name>ventrilo_srv.exe</server_exec_name>
-  <exe_location>ventsrv</exe_location>
-  <max_user_amount>32</max_user_amount>
+  <console_log>ventrilo_srv.log</console_log>
   <mods>
-    <mod key="ventrilo">
-      <name>none</name>
+    <mod key="default">
+      <name>None</name>
     </mod>
   </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>Name=.*</default>
+      <var>Name=</var>
+      <filepath>ventrilo_srv.ini</filepath>
+    </text>
+    <text key="control_password">
+      <default>AdminPassword=.*</default>
+      <var>AdminPassword=</var>
+      <filepath>ventrilo_srv.ini</filepath>
+    </text>
+  </replace_texts>
 </game_config>
