@@ -191,7 +191,7 @@ define('successfully_deleted_game_server_with_id', "Successfully deleted game se
 define('failed_to_remove_ftp_account_from_remote_server', "Failed to remove FTP account from remote server.");
 define('remove_it_anyway', "Would you like to remove it anyway?");
 define('sucessfully_deleted', "Sucessfully deleted %s");
-define('the_agent_had_a_problem_deleting', "The agent had a problem deleting %s, check the agent log");
+define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
 define('does_not_exist_yet', "Does not exist yet.");
 define('go_to_custom_fields', "Go to Custom Fields");
