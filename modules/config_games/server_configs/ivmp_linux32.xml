@@ -1,33 +1,42 @@
 <game_config>
   <game_key>ivmp_linux32</game_key>
-  <protocol>lgsl</protocol>
-  <lgsl_query_name>ivmp</lgsl_query_name>
-  <game_name>GTA IV:MP</game_name>
-  <server_exec_name>IVMP-Server</server_exec_name>
-  <max_user_amount>128</max_user_amount>
+  <game_name>IV Multiplayer</game_name>
+  <server_exec_name>ivmp-svr</server_exec_name>
+  <max_user_amount>32</max_user_amount>
   <mods>
     <mod key="ivmp">
-      <name>none</name>
+      <name>None</name>
     </mod>
   </mods>
   <replace_texts>
-	<text key="port">
-	  <default>port</default>
-	  <var></var>
-	  <filepath>settings.xml</filepath>
-	  <options>tags</options>
-	</text>
-    <text key="home_name">
-      <default>hostname</default>
-      <var></var>
+    <text key="port">
+      <default>port</default>
       <filepath>settings.xml</filepath>
       <options>tags</options>
     </text>
-	<text key="max_players">
+    <text key="max_players">
       <default>maxplayers</default>
-      <var></var>
+      <filepath>settings.xml</filepath>
+      <options>tags</options>
+    </text>
+    <text key="home_name">
+      <default>hostname</default>
+      <filepath>settings.xml</filepath>
+      <options>tags</options>
+    </text>
+    <text key="ip">
+      <default>hostaddress</default>
       <filepath>settings.xml</filepath>
       <options>tags</options>
     </text>
   </replace_texts>
- </game_config>
+  <custom_fields>
+    <field key="httpport" type="text">
+      <default>httpport</default>
+      <default_value>9998</default_value>
+      <filepath>settings.xml</filepath>
+      <options>tags</options>
+      <desc>The port the webserver listens on.</desc>
+    </field>
+  </custom_fields>
+</game_config>
