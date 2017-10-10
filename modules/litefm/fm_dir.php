@@ -460,7 +460,7 @@ function exec_ogp_module()
 							 "</td>".
 							 "<td align=left>".
 							 "<img class=\"viewitem\" src=\"" . check_theme_image("images/folder.png") . "\" alt=\"Directory\" /> ".
-							 "<a href=\"?m=litefm&amp;home_id=$home_id&amp;item=$i\">". 
+							 "<a href=\"?m=litefm&amp;home_id=$home_id&amp;item=$i&amp;name=" . urlencode($directory['filename']) . "&amp;type=directory\">". 
 							 $directory['filename'] . "</a></td>";
 						if( $os == "linux" )
 							echo "<td>-</td>";
@@ -505,7 +505,7 @@ function exec_ogp_module()
 							 "</td>".
 							 "<td align=left id='fileid$i' >";
 						echo "<img class=\"viewitem\" src=\"" . check_theme_image("images/txt.png") . "\" alt=\"Text file\" /> ".
-							 "<a href=\"?m=litefm&amp;home_id=$home_id&amp;item=$i&amp;p=read_file\">". button_edit ."</a>".
+							 "<a href=\"?m=litefm&amp;home_id=$home_id&amp;item=$i&amp;p=read_file&amp;name=" . urlencode($file['filename']) . "&amp;type=file\">". button_edit ."</a>".
 							 "<a href=\"javascript:downloadFile($home_id, $i, {$file['size']}, '".str_replace("'", "\'", $file['filename'])."');\" id=\"jsDwl$i\" >" .$file['filename'] . "</a>&nbsp;".
 							 "</td>$secureFile<td>" . $file['size'] . "</td> <td>" . $file['user'] . " " . $file['group']. "</td>\n";
 						echo "</tr>\n";
