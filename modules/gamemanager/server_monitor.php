@@ -432,6 +432,13 @@ function exec_ogp_module() {
 						}
 					}
 				}
+
+				if ($db->isModuleInstalled("editConfigFiles") && !empty($server_xml->configuration_files)) {
+					$manager .= "<a href=\"?m=editConfigFiles&home_id=".(int)$server_home['home_id']."\" class=\"monitorbutton\">
+									<img src='" . check_theme_image("images/txt.png") . "' title='". edit_configuration_files ."'>
+									<span>". edit_configuration_files ."</span>
+					</a>";
+				}
 			}
 
 			if( $isAdmin )
