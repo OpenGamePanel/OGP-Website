@@ -2,7 +2,7 @@
   <game_key>ivmp_linux32</game_key>
   <game_name>IV Multiplayer</game_name>
   <server_exec_name>ivmp-svr</server_exec_name>
-  <max_user_amount>32</max_user_amount>
+  <max_user_amount>48</max_user_amount>
   <mods>
     <mod key="ivmp">
       <name>None</name>
