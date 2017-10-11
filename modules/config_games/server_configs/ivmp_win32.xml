@@ -2,6 +2,7 @@
   <game_key>ivmp_win32</game_key>
   <game_name>IV Multiplayer</game_name>
   <server_exec_name>ivmp-svr.exe</server_exec_name>
+  <console_log>ivmp-svr.log</console_log>
   <max_user_amount>48</max_user_amount>
   <mods>
     <mod key="ivmp">
