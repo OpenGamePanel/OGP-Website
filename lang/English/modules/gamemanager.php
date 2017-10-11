@@ -198,6 +198,7 @@ define('attempting_nonmaster_update', "You are attempting to update this server 
 define('cannot_update_from_own_self', "Local server update may not run on a Master server.");
 define('show_server_id', "Show Server IDs");
 define('hide_server_id', "Hide Server IDs");
+define('edit_configuration_files', "Edit Configuration Files");
 define('admin', "Admin");
 define('cid', "CID");
 define('phan', "Phantom");
