@@ -1,8 +1,8 @@
 <game_config>
-  <game_key>trackmanianations_linux32</game_key>
+  <game_key>trackmanianations_win32</game_key>
   <game_name>TrackMania Nations</game_name>
-  <server_exec_name>TrackManiaServer</server_exec_name>
-  <cli_template>/game=nations /internet /nodaemons %MS% /dedicated_cfg=dedicated.cfg %HOSTNAME%</cli_template>
+  <server_exec_name>TrackManiaServer.exe</server_exec_name>
+  <cli_template>/game=nations /internet %MS% /dedicated_cfg=dedicated.cfg %HOSTNAME%</cli_template>
   <cli_params>
     <cli_param id="HOSTNAME" cli_string="/servername=" />
   </cli_params>
