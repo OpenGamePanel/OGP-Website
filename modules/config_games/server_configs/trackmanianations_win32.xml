@@ -4,15 +4,20 @@
   <server_exec_name>TrackManiaServer.exe</server_exec_name>
   <cli_template>/game=nations /internet %MS% /dedicated_cfg=dedicated.cfg %HOSTNAME%</cli_template>
   <cli_params>
-    <cli_param id="HOSTNAME" cli_string="/servername=" />
+    <cli_param id="HOSTNAME" cli_string="/servername=" options="q" />
   </cli_params>
-  <max_user_amount>250</max_user_amount>
+  <max_user_amount>255</max_user_amount>
   <mods>
     <mod key="tmn">
       <name>None</name>
     </mod>
   </mods>
   <replace_texts>
+    <text key="max_players">
+      <default>max_players</default>
+      <filepath>dedicated.cfg</filepath>
+      <options>tags</options>
+    </text>
     <text key="port">
       <default>server_port</default>
       <filepath>dedicated.cfg</filepath>
@@ -25,7 +30,7 @@
     </text>
   </replace_texts>
   <server_params>
-    <param key="/game_settings=MatchSettings\Internet\" type="text" id="MS">
+    <param key="/game_settings=MatchSettings/Internet/" type="text" id="MS">
       <default>BeginnerTraining.txt</default>
       <options>ns</options>
       <desc>Set the match settings file (available files are BeginnerTraining.txt, AdvancedTraining.txt, ExpertTraining.txt and ProRace.txt).</desc>
