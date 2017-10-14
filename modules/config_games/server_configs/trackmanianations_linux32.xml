@@ -46,7 +46,7 @@
     </field>
     <field key="xmlrpc_allowremote" type="text">
       <default>xmlrpc_allowremote</default>
-      <default_value>5000</default_value>
+      <default_value>False</default_value>
       <filepath>dedicated.cfg</filepath>
       <options>tags</options>
       <desc>Enables/Disables remote connections. You can either set it to True or False or specify an IP (or a symbolic name): in that case only connections from that IP and localhost will be accepted.</desc>
