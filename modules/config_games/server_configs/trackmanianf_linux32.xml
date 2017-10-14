@@ -33,7 +33,7 @@
     <param key="/game_settings=MatchSettings/Nations/" type="text" id="MS">
       <default>NationsWhite.txt</default>
       <options>ns</options>
-      <desc>Set the match settings file (available files are NationsWhite.txt, NationsGreen.txt, NationsBlue.txt and NationsRed.txt).</desc>
+      <desc>Set the match settings file (default files are NationsWhite.txt, NationsGreen.txt, NationsBlue.txt and NationsRed.txt).</desc>
     </param>
   </server_params>
   <custom_fields>

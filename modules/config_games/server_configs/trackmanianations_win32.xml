@@ -33,7 +33,7 @@
     <param key="/game_settings=MatchSettings/Internet/" type="text" id="MS">
       <default>BeginnerTraining.txt</default>
       <options>ns</options>
-      <desc>Set the match settings file (available files are BeginnerTraining.txt, AdvancedTraining.txt, ExpertTraining.txt and ProRace.txt).</desc>
+      <desc>Set the match settings file (default files are BeginnerTraining.txt, AdvancedTraining.txt, ExpertTraining.txt and ProRace.txt).</desc>
     </param>
   </server_params>
   <custom_fields>
