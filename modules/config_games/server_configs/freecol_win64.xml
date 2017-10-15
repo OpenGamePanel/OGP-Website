@@ -1,0 +1,25 @@
+<game_config>
+  <game_key>freecol_win64</game_key>
+  <game_name>FreeCol</game_name>
+  <server_exec_name>FreeCol.jar</server_exec_name>
+  <cli_template>java %XMX% -jar FreeCol.jar --server %HOSTNAME% %PORT% --log-console -d64</cli_template>
+  <cli_params>
+    <cli_param id="HOSTNAME" cli_string="--server-name" options="qs" />
+    <cli_param id="PORT" cli_string="--server-port" options="s" />
+  </cli_params>
+  <mods>
+    <mod key="freecol">
+      <name>None</name>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="-Xmx" type="text" id="XMX">
+      <default>512M</default>
+      <options>ns</options>
+      <desc>Maximum memory size for Java can be specified.</desc>
+    </param>
+    <param key="--private" type="checkbox_key_value">
+      <desc>The game server runs as private server.</desc>
+    </param>
+  </server_params>
+</game_config>
