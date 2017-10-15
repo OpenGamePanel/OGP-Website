@@ -23,7 +23,7 @@
  */
 
 define('dashboard_ftp_text', "El cliente FTP puede comprimir archivos y enviarlos por correo electrónico, modificar texto, y mucho más.");
-define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
+define('dashboard_addons_manager_text', "Administre todos los diferentes tipos de servicios con OGP. Elija entre más de 115 servidores, suministrados directamente por OGP.");
 define('dashboard_game_monitor_text', "Puede iniciar y parar los servidores, o ver su estado y registros de una forma rápida y sencilla.");
 define('dashboard_support_text', "Utilice el soporte profesional del equipo de OGP en el foro. Obtendrá una gran atención y respuestas rápidas.");
 define('welcome_text', "Bienvenido al panel.<br><br><b>Open Game Panel</b> es un proyecto de código abierto.<br>OGP le permitirá instalar, iniciar, parar y supervisar<br>servidores de juegos y voz.");

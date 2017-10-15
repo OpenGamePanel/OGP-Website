@@ -32,7 +32,7 @@ define('control_password_info', "Ez a jelszó a szerver vezérléséhez használ
 define('add_game_home', "Játék szerver hozzáadása");
 define('game_path_empty', "Játék elérési útja nem lehet üres.");
 define('game_home_added', "A játékszerver sikeresen hozzáadva. Átirányítás a szerkesztési oldalra.");
-define('failed_to_add_home_to_db', "Failed to add home to database. Error: %s");
+define('failed_to_add_home_to_db', "Nem sikerült a szerver hozzáadása az adatbázisba. Hiba: %s");
 define('caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Vigyázat!</b> Az Agent nem elérhető, nem kapható meg az operációs rendszer típusa és architektúrája,<br> A szerverek bemutatása az összes platformhoz:");
 define('select_remote_server', "Válassz távoli szervert");
 define('no_remote_servers_configured', "Nincs távoli szerver az Open Game Panelhoz.<br>Adj hozzá távoli szervert mielőtt játékszervereket adnál a felhasználóknak.");
@@ -93,7 +93,7 @@ define('ip_port_already_in_use', "Az %s:%s már használatban van. Válassz más
 define('successfully_assigned_ip_port_to_server_id', "Successfully assigned %s:%s to home with ID %s.");
 define('no_ip_addresses_configured', "Your game server does not have any IP-addresses configured to it. You can configure them from ");
 define('server_page', "szerver oldal");
-define('successfully_removed_mod', "Játék mod sikeresen eltávolítva.");
+define('successfully_removed_mod', "A játékmód sikeresen eltávolítva.");
 define('warning_agent_offline_defaulting_CPU_count_to_1', "Figyelem - Az Agent nem elérhető, defaulting CPU count to 1.");
 define('mod_install_cmds', "Mod telepítési parancsok");
 define('cmds_for', "Parancsok a");
@@ -172,7 +172,7 @@ define('cloning_home', "Cloning home called '%s'");
 define('current_home_path', "Az aktuális szerver elérési útja");
 define('current_home_path_info', "The current location of the copied home on remote server.");
 define('clone_home', "Szerver klónozása");
-define('new_home_name', "New Home Name");
+define('new_home_name', "Új szerver név");
 define('new_home_path', "Új elérési útja a szervernek");
 define('agent_ip', "Agent IP");
 define('game_server_copy_is_running', "A játék szerver másolás folyamatban...");
@@ -180,8 +180,8 @@ define('game_server_copy_was_successful', "A játék szerver sikeresen átmásol
 define('game_server_copy_failed_with_return_code', "Játékszerver másolása sikertelen a(z) %s visszatérési kóddal.");
 define('clone_mods', "Modok klónozása");
 define('game_server_owner', "Játékszerver tulajdonos");
-define('the_name_of_the_server_to_help_users_to_identify_it', "A szerver neve segít a felhasználóknak az azonosítani.");
-define('ips_and_ports_used_in_this_home', "IPs and Ports used in this home");
+define('the_name_of_the_server_to_help_users_to_identify_it', "A szerver neve segít a felhasználóknak a szerver azonosításában.");
+define('ips_and_ports_used_in_this_home', "Az IP-k és portok ehhez a szerverhez használva");
 define('note_ips_and_ports_are_not_cloned', "Megjegyzés - az IPk és a portok nincsenek klónozva");
 define('mods_and_settings_for_this_game_server', "Modok és beállítások ehhez a játékszerverhez");
 define('sure_to_delete_serverid_from_remoteip_and_directory', "Biztosan törölni akarod a játékszervert (ID: %s) a(z) %s szerverről és a(z) %s mappából.");
@@ -191,7 +191,7 @@ define('successfully_deleted_game_server_with_id', "Sikeresen törölt játékki
 define('failed_to_remove_ftp_account_from_remote_server', "Nem sikerült eltávolítani az FTP fiókot a távoli szerverről.");
 define('remove_it_anyway', "Szeretnéd ezt egyébként eltávolítani?");
 define('sucessfully_deleted', "A(z) %s sikeresen törölve.");
-define('the_agent_had_a_problem_deleting', "Az Agentnek problémája volt a(z) %s törlésével. Kérlek, ellenőrizd az Agent naplóját.");
+define('the_agent_had_a_problem_deleting', "Az Agentnek problémája volt a(z) %s törlése közben. Kérlek, ellenőrizd az ügynök naplóját.");
 define('connection_timeout_or_problems_reaching_the_agent', "Kapcsolat időtúllépés vagy problémák az Agent elérésével");
 define('does_not_exist_yet', "Még nem létezik.");
 define('go_to_custom_fields', "Tovább az egyéni mezőkhöz");

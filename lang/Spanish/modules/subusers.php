@@ -51,7 +51,7 @@ define('err_parent_user', "La ID del usuario padre debe referenciar a un usuario
 define('err_email_address_already_in_use_by', "La dirección de email esta en uso por <b>%s</b>.");
 define('user_registration', "Registro de Usuario");
 define('your_account_details_has_been_sent_by_email_to', "Los detalles de su cuenta han sido enviados a <b>%s</b>.");
-define('subject', "Hello %s, welcome to %s!");
+define('subject', "Hola %s, bienvenido a %s!");
 define('sub_user', "Subusuarios");
 define('create_sub_user', "Añadir subusuario");
 define('listdel_sub_user', "Lista, modifica o elimina información de las cuentas de subusuario.");

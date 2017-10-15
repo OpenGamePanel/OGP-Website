@@ -64,5 +64,5 @@ define('remove_install_and_secure_config', "Biztonsági okokból törölnöd kel
 define('go_to_panel', "Kattints ide az OGP-be való belépéshez.");
 define('unable_to_resolve', "Ha nem tudod megoldani ezt a problémát, kérlek, látogasd meg az OGP weboldalát");
 define('slogan', "A nyílt forráskódú!");
-define('default_welcome_title_message', "Üdvözöllek! <b style='font-size:12px; font-weight:normal;'>Ezt a feliratot megváltoztathatod a '<a href='?m=settings&p=themes'>Téma beállításokban</a>' az '<a href='?m=administration&p=main'>Adminisztráció</a>' fül alatt.</b>");
+define('default_welcome_title_message', "Üdvözöljük! <b style='font-size:12px; font-weight:normal;'>Ezt az üzenetet megváltoztathatod a '<a href='?m=settings&p=themes'>Téma beállításokban</a>' az '<a href='?m=administration&p=main'>Adminisztráció</a>' fül alatt.</b>");
 ?>

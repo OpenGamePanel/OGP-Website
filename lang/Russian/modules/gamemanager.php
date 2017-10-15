@@ -198,4 +198,5 @@ define('attempting_nonmaster_update', "Вы пытаетесь обновить 
 define('cannot_update_from_own_self', "Обновление с локального сервера не может выполняться на мастер-сервере.");
 define('show_server_id', "Показать ID серверов");
 define('hide_server_id', "Скрыть ID серверов");
+define('edit_configuration_files', "Edit Configuration Files");
 ?>

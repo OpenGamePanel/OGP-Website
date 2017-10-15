@@ -146,6 +146,7 @@
         echo ScorchedEarth_P> $maplist
         echo TheCenter>> $maplist
         echo TheIsland>> $maplist
+        echo Ragnarok>> $maplist    
     fi
   </post_install>
 </game_config>

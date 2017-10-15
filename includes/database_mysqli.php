@@ -271,9 +271,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		++$this->queries_;
 		$result = mysqli_query($this->link, $sql);
-
 		$results = array();
-		while ($row = mysqli_fetch_assoc($result)) {
+		
+		while ( $row = mysqli_fetch_assoc($result)) {
 			array_push($results, $row);
 		}
 
@@ -298,6 +298,28 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$this->table_prefix);
 		return $this->listQuery($query);
 	}
+	
+	public function get_group_count($search_field){
+		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."user_group_info ";
+		if (!empty($search_field)) {
+			$sql .= "WHERE main_user_id = '$search_field' OR group_id = '$search_field' OR group_name LIKE '%$search_field%'";
+		}		
+		++$this->queries_;
+		return $this->resultQuery($sql);
+	}
+	
+	public function getGroupList_limit($page_user,$limit_user,$search_field) {
+		$user_get_id = ($page_user - 1) * $limit_user;
+		$query = sprintf("SELECT group_id,group_name
+			FROM %suser_group_info
+			
+			".($search_field ? "WHERE main_user_id = '$search_field' OR group_id = '$search_field' OR group_name LIKE \"%%".$search_field."%%\" " : "")."
+			
+			ORDER BY group_id ASC LIMIT $user_get_id, $limit_user
+			",
+			$this->table_prefix);
+		return $this->listQuery($query);
+	}
 
 	public function getUsersGroups($user_id) {
 		$query = sprintf("SELECT *
@@ -312,6 +334,27 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("SELECT *
 			FROM %suser_group_info
 			WHERE `main_user_id` = %d",
+			$this->table_prefix,
+			mysqli_real_escape_string($this->link,$main_user_id));
+		return $this->listQuery($query);
+	}
+	
+	public function getUserGroupList_count($main_user_id,$search_field) {
+		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."user_group_info WHERE `main_user_id` = $main_user_id ";
+		if (!empty($search_field)) {
+			$sql .= "AND group_id = '$search_field' OR group_name LIKE '%$search_field%' ";
+		}		
+		++$this->queries_;
+		return $this->resultQuery($sql);
+	}
+	
+	public function getUserGroupList_limit($main_user_id,$page_user,$limit_user,$search_field) {
+		$user_get_id = ($page_user - 1) * $limit_user;
+		$query = sprintf("SELECT *
+			FROM %suser_group_info
+			WHERE `main_user_id` = %d 
+			".($search_field ? "AND group_id = '$search_field' OR group_name LIKE \"%%".$search_field."%%\" " : "")."
+			ORDER BY group_id ASC LIMIT $user_get_id, $limit_user",
 			$this->table_prefix,
 			mysqli_real_escape_string($this->link,$main_user_id));
 		return $this->listQuery($query);
@@ -812,17 +855,122 @@ class OGPDatabaseMySQL extends OGPDatabase
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 	}
+	
+	public function getCurrentHomeConfigMods($joinGameMods = true){
+		// Build query
+		$qStr = 'SELECT * FROM `%1$sconfig_homes` NATURAL JOIN `%1$sconfig_mods`';
+		if($joinGameMods){
+			$qStr .= ' NATURAL JOIN `%1$sgame_mods`';
+		}
+		$qStr .= ';';
+		
+		$query = sprintf($qStr,
+		$this->table_prefix);
+
+		++$this->queries_;
+		$result = mysqli_query($this->link,$query);
+		if ( mysqli_num_rows($result) != 0 )
+		{
+			while ($oldConfigStructure = mysqli_fetch_assoc($result))
+			{
+				$results[] = $oldConfigStructure;
+			}
+			
+			if(isset($results) && is_array($results)){
+				return $results;
+			}
+		}
+		
+		return false;
+	}
+	
+	public function updateOGPGameModsWithNewIDs($oldModStructure){
+		$currentStructure = $this->getCurrentHomeConfigMods(false);
+		
+		if(isset($oldModStructure) && is_array($oldModStructure) && isset($currentStructure) && is_array($currentStructure)){
+			
+			foreach($oldModStructure as $oldEntry){
+				$oldModId = $oldEntry["mod_cfg_id"];
+				$oldCFGId = $oldEntry["home_cfg_id"];
+				$oldHomeId = $oldEntry["home_id"];
+								
+				$match = 0;
+				$cfgMatch = 0;
+				foreach($currentStructure as $newEntry){
+					if($newEntry["game_key"] == $oldEntry["game_key"]){
+						// Update server home home_cfg_id
+						$cfgMatch++;
+						$newCFGId = $newEntry["home_cfg_id"];
+						$query = sprintf("UPDATE `%sserver_homes` 
+						  SET home_cfg_id='%d'
+						  WHERE home_cfg_id = '%d'
+						  AND home_id = '%d';",
+						  $this->table_prefix,
+						  mysqli_real_escape_string($this->link,$newCFGId),
+						  mysqli_real_escape_string($this->link,$oldCFGId),
+						  mysqli_real_escape_string($this->link,$oldHomeId) );
+						++$this->queries_;
+						mysqli_query($this->link,$query);
+						
+						// Update game_mods mod_cfg_id
+						if($newEntry["mod_name"] == $oldEntry["mod_name"]){
+							$match++;
+							$newModId = $newEntry["mod_cfg_id"];
+							$map[$oldModId] = $newModId;
+							$query = sprintf("UPDATE `%sgame_mods` 
+							  SET mod_cfg_id='%d'
+							  WHERE mod_cfg_id = '%d'
+							  AND home_id = '%d';",
+							  $this->table_prefix,
+							  mysqli_real_escape_string($this->link,$newModId),
+							  mysqli_real_escape_string($this->link,$oldModId),
+							  mysqli_real_escape_string($this->link,$oldHomeId) );
+							++$this->queries_;
+							mysqli_query($this->link,$query);
+						}
+						
+						if($match > 0){
+							break;
+						}
+					}
+				}
+				
+				if($match == 0){
+					// This game mod is no longer valid, so delete it
+					$query = sprintf("DELETE FROM `%sgame_mods` WHERE `mod_cfg_id` = '%d' AND `home_id` = '%d'",
+					$this->table_prefix,
+					mysqli_real_escape_string($this->link,$oldModId),
+					mysqli_real_escape_string($this->link,$oldHomeId));
+					
+					++$this->queries_;
+					mysqli_query($this->link,$query);
+				}
+				
+				if($cfgMatch == 0){
+					// Old game config file doesn't exist anymore, so delete the server home entry
+					$query = sprintf("DELETE FROM `%sserver_homes` WHERE `home_cfg_id` = '%d' AND `home_id` = '%d'",
+					$this->table_prefix,
+					mysqli_real_escape_string($this->link,$oldCFGId),
+					mysqli_real_escape_string($this->link,$oldHomeId));
+					
+					++$this->queries_;
+					mysqli_query($this->link,$query);
+				}
+			}
+		}
+		
+		return true;
+	}
 
 	public function clearGameCfgs($clear_all)
 	{
 		if ( $clear_all == TRUE )
-		{
+		{			
 			++$this->queries_;
 			mysqli_query($this->link,"TRUNCATE `".$this->table_prefix."config_homes`;");
 			++$this->queries_;
 			mysqli_query($this->link,"TRUNCATE `".$this->table_prefix."config_mods`;");
 		}
-		// mysqli_query($this->link,"TRUNCATE config_homes;");
 	}
 
 	public function addGameCfg($config)
@@ -1461,14 +1609,14 @@ class OGPDatabaseMySQL extends OGPDatabase
  								" : '').')'
 								: 
 								'
-				 			'.($search_field ?" AND home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
+				 			'.($search_field ?" AND home_id IN ( home_cfg_id = '$home_cfg_id' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
  								OR home_name LIKE '%".$search_field."%'
  								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR user_id = '$search_field'
 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
 								OR agent_ip = '$search_field' OR port = '$search_field'
 								OR ip LIKE '%" . $search_field . "%' 
-								" : '').'				
+								)" : '').'				
 								' 
 								));
 		
