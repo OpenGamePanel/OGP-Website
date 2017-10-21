@@ -37,9 +37,9 @@ abstract class OGPDatabase {
 		$inClause = "IN ('";
 		for($i = 0; $i < count($arrayOfInputs); $i++){
 			if($i == 0){
-				$inClause .= $arrayOfInputs[$i];
+				$inClause .= $this->realEscapeSingle($arrayOfInputs[$i]);
 			}else{
-				$inClause .= "','" . $arrayOfInputs[$i];
+				$inClause .= "','" . $this->realEscapeSingle($arrayOfInputs[$i]);
 			}
 		}
 		$inClause .= "')";
@@ -55,6 +55,9 @@ abstract class OGPDatabase {
 
     /// Get all available settings
     abstract public function getSettings();
+    
+    // Real escape
+    abstract public function realEscapeSingle();
 
     /// Get one setting value
     /// \return FALSE if setting does not exist.

@@ -30,9 +30,9 @@ function real_escape_string_recursive(&$item, $key, $link){
 
 class OGPDatabaseMySQL extends OGPDatabase
 {
-	private $link;
+	protected $link;
 
-	private $table_prefix;
+	protected $table_prefix;
 
 	function __construct()
 	{
@@ -72,6 +72,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 		array_walk_recursive($_REQUEST, 'real_escape_string_recursive', $this->link);
 		
 		return TRUE;
+	}
+	
+	public function realEscapeSingle($string){
+		return mysql_real_escape_string($string, $this->link);
 	}
 
 	private function listQuery($query) {
@@ -868,7 +872,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf($qStr,	
 				$this->table_prefix,
 				mysql_real_escape_string($game_id,$this->link),
-				mysql_real_escape_string($inClause,$this->link));
+				$inClause);
 		++$this->queries_;
 		$result = mysql_query($query, $this->link);
 		if ( mysql_num_rows($result) != 0 )
@@ -884,7 +888,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$query = sprintf('DELETE FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;',
 					$this->table_prefix,
 					mysql_real_escape_string($game_id,$this->link),
-					mysql_real_escape_string($inClause,$this->link));
+					$inClause);
 			++$this->queries_;
 			$result = mysql_query($query,$this->link);
 			
@@ -892,7 +896,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$inClause = parent::generateMySQLInClause($delVals);
 			$query = sprintf('DELETE FROM `%1$sgame_mods` WHERE `mod_cfg_id` %2$s;',
 				$this->table_prefix,
-				mysql_real_escape_string($inClause,$this->link));
+				$inClause);
 			++$this->queries_;
 			$result = mysql_query($query,$this->link);
 		}
