@@ -1,0 +1,32 @@
+<game_config>
+  <game_key>vicecitymp_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>vcmp</lgsl_query_name>
+  <game_name>Vice City Multiplayer</game_name>
+  <server_exec_name>mpsvrrel32</server_exec_name>
+  <max_user_amount>100</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="port">
+      <default>port .*</default>
+      <var>port</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>maxplayers .*</default>
+      <var>maxplayers</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="home_name">
+      <default>ServerName</default>
+      <filepath>server.conf</filepath>
+      <options>tags</options>
+    </text>
+  </replace_texts>
+</game_config>

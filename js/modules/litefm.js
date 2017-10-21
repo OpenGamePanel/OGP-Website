@@ -234,7 +234,7 @@ function downloadFile(home_id, file_id, file_size, file_name)
 	function getFilePart()
 	{
 		var xhr = new XMLHttpRequest();
-		xhr.open('POST', "home.php?m=litefm&home_id="+home_id+"&item="+file_id+"&p=get&type=cleared&size="+file_size+"&did="+did, true);
+		xhr.open('POST', "home.php?m=litefm&home_id="+home_id+"&item="+file_id+"&name="+file_name+"&p=get&type=cleared&size="+file_size+"&did="+did, true);
 		xhr.responseType = 'arraybuffer';
 		xhr.onload = function(e) {
 			if(this.response.byteLength != 0)

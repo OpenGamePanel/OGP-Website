@@ -1,0 +1,56 @@
+<game_config>
+  <game_key>assettocorsa_win32</game_key>
+  <installer>steamcmd</installer>
+  <game_name>Assetto Corsa</game_name>
+  <server_exec_name>acServer.exe</server_exec_name>
+  <max_user_amount>22</max_user_amount>
+  <mods>
+    <mod key="assettocorsa">
+      <name>None</name>
+      <installer_name>302550</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>NAME=.*</default>
+      <var>NAME=</var>
+      <filepath>cfg/server_cfg.ini</filepath>
+    </text>
+    <text key="control_password">
+      <default>ADMIN_PASSWORD=.*</default>
+      <var>ADMIN_PASSWORD=</var>
+      <filepath>cfg/server_cfg.ini</filepath>
+    </text>
+    <text key="port">
+      <default>UDP_PORT=.*</default>
+      <var>UDP_PORT=</var>
+      <filepath>cfg/server_cfg.ini</filepath>
+    </text>
+    <text key="port">
+      <default>TCP_PORT=.*</default>
+      <var>TCP_PORT=</var>
+      <filepath>cfg/server_cfg.ini</filepath>
+    </text>
+    <text key="max_players">
+      <default>MAX_CLIENTS=.*</default>
+      <var>MAX_CLIENTS=</var>
+      <filepath>cfg/server_cfg.ini</filepath>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="HTTP_PORT" type="text">
+      <default>HTTP_PORT=.*</default>
+      <default_value>8081</default_value>
+      <var>HTTP_PORT=</var>
+      <filepath>cfg/server_cfg.ini</filepath>
+      <desc>Lobby port number.</desc>
+    </field>
+    <field key="CLIENT_SEND_INTERVAL_HZ" type="text">
+      <default>CLIENT_SEND_INTERVAL_HZ=.*</default>
+      <default_value>18</default_value>
+      <var>CLIENT_SEND_INTERVAL_HZ=</var>
+      <filepath>cfg/server_cfg.ini</filepath>
+      <desc>Refresh rate of packet sending by the server.</desc>
+    </field>
+  </custom_fields>
+</game_config>

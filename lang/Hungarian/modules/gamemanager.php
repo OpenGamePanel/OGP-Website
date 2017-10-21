@@ -198,4 +198,5 @@ define('attempting_nonmaster_update', "Megpróbálod frissíteni ezt a szervert 
 define('cannot_update_from_own_self', "A helyi szerver frissítés nem működik Mester szerveren.");
 define('show_server_id', "Szerver ID mutatása");
 define('hide_server_id', "Szerver ID elrejtése");
+define('edit_configuration_files', "Edit Configuration Files");
 ?>

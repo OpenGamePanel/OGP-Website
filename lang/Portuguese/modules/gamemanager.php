@@ -198,4 +198,5 @@ define('attempting_nonmaster_update', "Você está tentando atualizar este servi
 define('cannot_update_from_own_self', "A atualização do servidor local pode não ser executada em um Master Server");
 define('show_server_id', "Mostrar IDs do servidor");
 define('hide_server_id', "Ocultar IDs de servidor");
+define('edit_configuration_files', "Editar arquivos de configuração");
 ?>

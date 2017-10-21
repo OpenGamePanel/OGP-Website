@@ -72,6 +72,8 @@
 		echo KF-Farmhouse >> maplist.txt
 		echo KF-HostileGrounds >> maplist.txt
 		echo KF-InfernalRealm >> maplist.txt
+		echo KF-Nightmare >> maplist.txt
+		echo KF-Nuked >> maplist.txt
 		echo KF-Outpost >> maplist.txt
 		echo KF-Prison >> maplist.txt
 		echo KF-TheDescent >> maplist.txt
