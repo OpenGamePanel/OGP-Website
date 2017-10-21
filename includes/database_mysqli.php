@@ -1043,7 +1043,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		foreach ( $config->mods->mod as $mod )
 		{
 			$this->addGameModCfg($config_id,$mod['key'],$mod->name);
-			$validMods[] = $mod['key'];			
+			$validMods[] = (string)$mod['key'];	// https://stackoverflow.com/questions/2867575/get-value-from-simplexmlelement-object [strange]		
 		}
 		
 		// Remove mods that have been renamed or deleted.
