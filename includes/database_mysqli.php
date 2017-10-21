@@ -859,12 +859,41 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function removeInvalidModCfgIDs($game_id, $validModIDs)
 	{
 		$inClause = parent::generateMySQLInClause($validModIDs);
-		$query = sprintf('DELETE FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;',
+		
+		// Get records we're going to delete
+		$qStr = 'SELECT * FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;';
+		$query = sprintf($qStr,	
 				$this->table_prefix,
 				mysqli_real_escape_string($this->link,$game_id),
 				mysqli_real_escape_string($this->link,$inClause));
 		++$this->queries_;
-		$result = mysqli_query($this->link,$query);
+		$result = mysqli_query($this->link, $query);
+		if ( mysqli_num_rows($result) != 0 )
+		{
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				$delVals[] = $row["mod_cfg_id"];
+			}
+		}
+		
+		if(isset($delVals) && is_array($delVals) && count($delVals) > 0){
+			// Delete the invalid mods
+			$query = sprintf('DELETE FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;',
+					$this->table_prefix,
+					mysqli_real_escape_string($this->link,$game_id),
+					mysqli_real_escape_string($this->link,$inClause));
+			++$this->queries_;
+			$result = mysqli_query($this->link,$query);
+		
+			// Cleanup invalid mod assignments to current homes
+			$inClause = parent::generateMySQLInClause($delVals);
+			$query = sprintf('DELETE FROM `%1$sgame_mods` WHERE `mod_cfg_id` %2$s;',
+				$this->table_prefix,
+				mysqli_real_escape_string($this->link,$inClause));
+			++$this->queries_;
+			$result = mysqli_query($this->link, $query);
+		}
+		
 	}
 	
 	public function getCurrentHomeConfigMods($joinGameMods = true){
