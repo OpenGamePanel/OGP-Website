@@ -9,7 +9,7 @@
   <cli_template>-batchmode -nographics -silent-crashes</cli_template>
   <max_user_amount>64</max_user_amount>
   <mods>
-    <mod key="reignofkings">
+    <mod key="default">
       <name>None</name>
       <installer_name>381690</installer_name>
     </mod>
