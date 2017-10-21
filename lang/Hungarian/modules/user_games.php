@@ -138,7 +138,7 @@ define('assigned_homes', "Társított játék szerverek");
 define('assign', "Hozzárendelés");
 define('allow_updates', "Játék frissítés engedélyezése");
 define('allow_updates_info', "Engedélyezi a felhasználónak, hogy frissítse a játék telepítését, ha az lehetséges.");
-define('allow_file_management', "Fájlkezelés");
+define('allow_file_management', "Fájlkezelés engedélyezése");
 define('allow_file_management_info', "Engedélyezi a felhasználónak, hogy hozzáférjen a játék szerverhez a fájlkezelő modullal.");
 define('allow_parameter_usage', "Paraméter használat engedélyezése");
 define('allow_parameter_usage_info', "Engedélyezi a felhasználónak, hogy megváltoztathassa az elérhető parancssori paramétereket.");
@@ -191,7 +191,7 @@ define('successfully_deleted_game_server_with_id', "Sikeresen törölt játékki
 define('failed_to_remove_ftp_account_from_remote_server', "Nem sikerült eltávolítani az FTP fiókot a távoli szerverről.");
 define('remove_it_anyway', "Szeretnéd ezt egyébként eltávolítani?");
 define('sucessfully_deleted', "A(z) %s sikeresen törölve.");
-define('the_agent_had_a_problem_deleting', "Az Agentnek problémája volt a(z) %s törlése közben. Kérlek, ellenőrizd az ügynök naplóját.");
+define('the_agent_had_a_problem_deleting', "Az Agentnek problémája volt a(z) %s törlése közben. Kérlek, ellenőrizd az Agent naplóját.");
 define('connection_timeout_or_problems_reaching_the_agent', "Kapcsolat időtúllépés vagy problémák az Agent elérésével");
 define('does_not_exist_yet', "Még nem létezik.");
 define('go_to_custom_fields', "Tovább az egyéni mezőkhöz");

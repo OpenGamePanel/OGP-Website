@@ -138,7 +138,7 @@ define('assigned_homes', "Homes asignadas actualmente");
 define('assign', "Asignar");
 define('allow_updates', "Permitir actualizar");
 define('allow_updates_info', "Permite al usuario lanzar una actualizacion si cabe.");
-define('allow_file_management', "Permitir explorar archivos");
+define('allow_file_management', "Allow File Management");
 define('allow_file_management_info', "Permite que el usuario modifique archivos a traves del modulo de gestion de archivos");
 define('allow_parameter_usage', "Permitir comandos personalizados");
 define('allow_parameter_usage_info', "Permite el uso de comandos personalizados en el arranque.");
@@ -191,7 +191,7 @@ define('successfully_deleted_game_server_with_id', "Se elimino el servidor con I
 define('failed_to_remove_ftp_account_from_remote_server', "No se pudo eliminar la cuenta FTP del servidor remoto.");
 define('remove_it_anyway', "Eliminar de todos modos");
 define('sucessfully_deleted', "Eliminado correctamente.");
-define('the_agent_had_a_problem_deleting', "El agente tuvo un problema al eliminar.");
+define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Tiempo de espera de la conexión o problemas al llegar al agente");
 define('does_not_exist_yet', "No existe todavia.");
 define('go_to_custom_fields', "Ir a campos personalizados");

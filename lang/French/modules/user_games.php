@@ -138,7 +138,7 @@ define('assigned_homes', "Serveurs déjà assignés");
 define('assign', "Assigner");
 define('allow_updates', "Autoriser les mises à jour");
 define('allow_updates_info', "Autorise l'utilisateur à mettre à jour le serveur de jeu.");
-define('allow_file_management', "Gestionnaire de Fichiers");
+define('allow_file_management', "Autoriser le Gestionnaire de Fichiers");
 define('allow_file_management_info', "Donne l'accès à l'utilisateur au gestionnaire de fichiers.");
 define('allow_parameter_usage', "Autoriser l'usage des Paramètres");
 define('allow_parameter_usage_info', "Autorise l'utilisateur à changer les paramètres de la ligne de commande.");

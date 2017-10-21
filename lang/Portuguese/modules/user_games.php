@@ -138,7 +138,7 @@ define('assigned_homes', "Locais atualmente atribuídos");
 define('assign', "Atribuir");
 define('allow_updates', "Permitir atualizações de jogos");
 define('allow_updates_info', "Permite ao usuário atualizar a instalação do jogo se for possível.");
-define('allow_file_management', "Gerenciamento de arquivos");
+define('allow_file_management', "Permitir a gestão de arquivos");
 define('allow_file_management_info', "Permite ao usuário acessar o servidor do jogo com módulos de gerenciamento de arquivos.");
 define('allow_parameter_usage', "Permitir o uso de parâmetros");
 define('allow_parameter_usage_info', "Permite que o usuário altere os parâmetros da linha de comando disponíveis.");
@@ -191,7 +191,7 @@ define('successfully_deleted_game_server_with_id', "Servidor de jogo excluído c
 define('failed_to_remove_ftp_account_from_remote_server', "Falha ao remover a conta FTP do servidor remoto.");
 define('remove_it_anyway', "Gostaria de removê-lo de qualquer maneira?");
 define('sucessfully_deleted', "Excluido com sucesso %s");
-define('the_agent_had_a_problem_deleting', "O agente teve um problema ao excluir %s, verifique o registro do agente");
+define('the_agent_had_a_problem_deleting', "O Agente do painel detectou um problema ao excluir %s. Por favor, verifique os Logs de registo do Agente.");
 define('connection_timeout_or_problems_reaching_the_agent', "Tempo limite de conexão ou problemas com o alcance do agente");
 define('does_not_exist_yet', "Ainda não existe.");
 define('go_to_custom_fields', "Ir para campos personalizados");

@@ -199,4 +199,8 @@ define('cannot_update_from_own_self', "La actualización del servidor local pued
 define('show_server_id', "Mostrar ID de servidor");
 define('hide_server_id', "Ocultar ID de servidor");
 define('edit_configuration_files', "Edit Configuration Files");
+define('admin', "Admin");
+define('cid', "CID");
+define('phan', "Phantom");
+define('sec', "Seconds");
 ?>

@@ -199,4 +199,8 @@ define('cannot_update_from_own_self', "La mise à jour à partir du Serveur Maî
 define('show_server_id', "Voir les IDs des Serveurs");
 define('hide_server_id', "Cacher les IDs des Serveurs");
 define('edit_configuration_files', "Editer les Fichiers de Configuration");
+define('admin', "Admin");
+define('cid', "CID");
+define('phan', "Phantom");
+define('sec', "Seconds");
 ?>
