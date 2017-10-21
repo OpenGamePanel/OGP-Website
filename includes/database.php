@@ -57,7 +57,7 @@ abstract class OGPDatabase {
     abstract public function getSettings();
     
     // Real escape
-    abstract public function realEscapeSingle();
+    abstract public function realEscapeSingle($string);
 
     /// Get one setting value
     /// \return FALSE if setting does not exist.
