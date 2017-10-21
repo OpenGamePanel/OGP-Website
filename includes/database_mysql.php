@@ -30,9 +30,9 @@ function real_escape_string_recursive(&$item, $key, $link){
 
 class OGPDatabaseMySQL extends OGPDatabase
 {
-	private $link;
+	protected $link;
 
-	private $table_prefix;
+	protected $table_prefix;
 
 	function __construct()
 	{
@@ -72,6 +72,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 		array_walk_recursive($_REQUEST, 'real_escape_string_recursive', $this->link);
 		
 		return TRUE;
+	}
+	
+	public function realEscapeSingle($string){
+		return mysql_real_escape_string($string, $this->link);
 	}
 
 	private function listQuery($query) {
@@ -859,6 +863,45 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$result = mysql_query($query,$this->link);
 	}
 	
+	public function removeInvalidModCfgIDs($game_id, $validModIDs)
+	{
+		$inClause = parent::generateMySQLInClause($validModIDs);
+		
+		// Get records we're going to delete
+		$qStr = 'SELECT * FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;';
+		$query = sprintf($qStr,	
+				$this->table_prefix,
+				mysql_real_escape_string($game_id,$this->link),
+				$inClause);
+		++$this->queries_;
+		$result = mysql_query($query, $this->link);
+		if ( mysql_num_rows($result) != 0 )
+		{
+			while ($row = mysql_fetch_assoc($result))
+			{
+				$delVals[] = $row["mod_cfg_id"];
+			}
+		}
+		
+		if(isset($delVals) && is_array($delVals) && count($delVals) > 0){
+			// Delete the invalid mods
+			$query = sprintf('DELETE FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;',
+					$this->table_prefix,
+					mysql_real_escape_string($game_id,$this->link),
+					$inClause);
+			++$this->queries_;
+			$result = mysql_query($query,$this->link);
+			
+			// Cleanup invalid mod assignments to current homes
+			$inClause = parent::generateMySQLInClause($delVals);
+			$query = sprintf('DELETE FROM `%1$sgame_mods` WHERE `mod_cfg_id` %2$s;',
+				$this->table_prefix,
+				$inClause);
+			++$this->queries_;
+			$result = mysql_query($query,$this->link);
+		}
+	}
+	
 	public function getCurrentHomeConfigMods($joinGameMods = true){
 		// Build query
 		$qStr = 'SELECT * FROM `%1$sconfig_homes` NATURAL JOIN `%1$sconfig_mods`';
@@ -1002,9 +1045,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$config_id = $id_result['home_cfg_id'];
 
 		// Adding mods.
+		$validMods = array();
 		foreach ( $config->mods->mod as $mod )
 		{
 			$this->addGameModCfg($config_id,$mod['key'],$mod->name);
+			$validMods[] = (string)$mod['key'];  // https://stackoverflow.com/questions/2867575/get-value-from-simplexmlelement-object [strange]
+		}
+		
+		// Remove mods that have been renamed or deleted.
+		if(count($validMods) > 0){
+			$this->removeInvalidModCfgIDs($config_id, $validMods); 
 		}
 
 		return TRUE;

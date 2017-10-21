@@ -32,6 +32,20 @@ abstract class OGPDatabase {
     {
         return $this->queries_;
     }
+    
+    public function generateMySQLInClause($arrayOfInputs){
+		$inClause = "IN ('";
+		for($i = 0; $i < count($arrayOfInputs); $i++){
+			if($i == 0){
+				$inClause .= $this->realEscapeSingle($arrayOfInputs[$i]);
+			}else{
+				$inClause .= "','" . $this->realEscapeSingle($arrayOfInputs[$i]);
+			}
+		}
+		$inClause .= "')";
+			
+		return $inClause;
+	}
 
     /// \return TRUE if connection was created successfully.
     /// \return -1 When host is invalid.
@@ -41,6 +55,9 @@ abstract class OGPDatabase {
 
     /// Get all available settings
     abstract public function getSettings();
+    
+    // Real escape
+    abstract public function realEscapeSingle($string);
 
     /// Get one setting value
     /// \return FALSE if setting does not exist.

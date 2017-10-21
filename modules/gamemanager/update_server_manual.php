@@ -71,11 +71,12 @@ function exec_ogp_module() {
 
 	if ( !empty($state) )
 	{
+		$server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$home_info['home_cfg_file']);
 		$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
 		if ( $state == "start" )
 		{
-			$server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$home_info['home_cfg_file']);
 			$postinstall = $server_xml->post_install ? $server_xml->post_install : "";
+			
 			$pid = $remote->start_file_download($_REQUEST['url'],$home_info['home_path'],
 				$filename,"uncompress",$postinstall);
 
@@ -117,6 +118,9 @@ function exec_ogp_module() {
 
 		if ( $remote->is_file_download_in_progress($pid) == 0 )
 		{
+			// Lock the executable when done
+			$remote->secure_path("chattr+i", $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name);
+			
 			print_success( finished_manual_update );
 		}
 		else
