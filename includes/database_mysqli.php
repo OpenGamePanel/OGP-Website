@@ -856,6 +856,17 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$result = mysqli_query($this->link,$query);
 	}
 	
+	public function removeInvalidModCfgIDs($game_id, $validModIDs)
+	{
+		$inClause = parent::generateMySQLInClause($validModIDs);
+		$query = sprintf('DELETE FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;',
+				$this->table_prefix,
+				mysqli_real_escape_string($this->link,$game_id),
+				mysqli_real_escape_string($this->link,$inClause));
+		++$this->queries_;
+		$result = mysqli_query($this->link,$query);
+	}
+	
 	public function getCurrentHomeConfigMods($joinGameMods = true){
 		// Build query
 		$qStr = 'SELECT * FROM `%1$sconfig_homes` NATURAL JOIN `%1$sconfig_mods`';
@@ -999,9 +1010,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$config_id = $id_result['home_cfg_id'];
 
 		// Adding mods.
+		$validMods = array();
 		foreach ( $config->mods->mod as $mod )
 		{
 			$this->addGameModCfg($config_id,$mod['key'],$mod->name);
+			$validMods[] = $mod['key'];			
+		}
+		
+		// Remove mods that have been renamed or deleted.
+		if(count($validMods) > 0){
+			$this->removeInvalidModCfgIDs($config_id, $validMods); 
 		}
 
 		return TRUE;

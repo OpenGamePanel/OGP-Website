@@ -32,6 +32,20 @@ abstract class OGPDatabase {
     {
         return $this->queries_;
     }
+    
+    public function generateMySQLInClause($arrayOfInputs){
+		$inClause = "IN ('";
+		for($i = 0; $i < count($arrayOfInputs); $i++){
+			if($i == 0){
+				$inClause .= $arrayOfInputs[$i];
+			}else{
+				$inClause .= "','" . $arrayOfInputs[$i];
+			}
+		}
+		$inClause .= "')";
+			
+		return $inClause;
+	}
 
     /// \return TRUE if connection was created successfully.
     /// \return -1 When host is invalid.
