@@ -199,4 +199,8 @@ define('cannot_update_from_own_self', "Обновление с локально�
 define('show_server_id', "Показать ID серверов");
 define('hide_server_id', "Скрыть ID серверов");
 define('edit_configuration_files', "Edit Configuration Files");
+define('admin', "Admin");
+define('cid', "CID");
+define('phan', "Phantom");
+define('sec', "Seconds");
 ?>

@@ -110,7 +110,7 @@ define('version', "Versión");
 define('show_version', "Mostrar versión");
 define('queries_executed', "consultas ejecutadas.");
 define('lang', "Idioma");
-define('get_size', "Obtener tamaño");
+define('get_size', "Show Size");
 define('total_size', "Tamaño total");
 define('lgsl', "LGSL");
 define('lgsl_admin', "LGSL Admin");

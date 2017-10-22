@@ -138,7 +138,7 @@ define('assigned_homes', "Currently Assigned Homes");
 define('assign', "Assign");
 define('allow_updates', "Allow Game Updates");
 define('allow_updates_info', "Allows user to update the game installation if that is possible.");
-define('allow_file_management', "File Management");
+define('allow_file_management', "Allow File Management");
 define('allow_file_management_info', "Allows user to access the game server with file management modules.");
 define('allow_parameter_usage', "Allow Parameter Usage");
 define('allow_parameter_usage_info', "Allows user to change available command line parameters.");
@@ -191,7 +191,7 @@ define('successfully_deleted_game_server_with_id', "Successfully deleted game se
 define('failed_to_remove_ftp_account_from_remote_server', "Failed to remove FTP account from remote server.");
 define('remove_it_anyway', "Would you like to remove it anyway?");
 define('sucessfully_deleted', "Sucessfully deleted %s");
-define('the_agent_had_a_problem_deleting', "The agent had a problem deleting %s, check the agent log");
+define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
 define('does_not_exist_yet', "Does not exist yet.");
 define('go_to_custom_fields', "Go to Custom Fields");

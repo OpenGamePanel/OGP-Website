@@ -138,7 +138,7 @@ define('assigned_homes', "Уже назначенные сервера");
 define('assign', "Назначить");
 define('allow_updates', "Разрешить обновление игры");
 define('allow_updates_info', "Разрешить пользователю обновлять игу, если это доступно.");
-define('allow_file_management', "Доступ к файлам");
+define('allow_file_management', "Allow File Management");
 define('allow_file_management_info', "Разрешить пользователю доступ к файлам сервера через модуль.");
 define('allow_parameter_usage', "Разрешить использование параметров запуска");
 define('allow_parameter_usage_info', "Разрешить пользователю использовать заданные параметры запуска.");
@@ -191,7 +191,7 @@ define('successfully_deleted_game_server_with_id', "Игровой сервер 
 define('failed_to_remove_ftp_account_from_remote_server', "Ну удалось удалить FTP аккаунт из удаленного сервера.");
 define('remove_it_anyway', "Вы все равно хотите его удалить?");
 define('sucessfully_deleted', "Успешное удаление %s");
-define('the_agent_had_a_problem_deleting', "У агента возникла проблема с удалением %s, посмотрите логи Агента");
+define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Время соединения вышло или проблемы связи с Агентом");
 define('does_not_exist_yet', "Пока не существует.");
 define('go_to_custom_fields', "Перейти к настраиваемым поля");

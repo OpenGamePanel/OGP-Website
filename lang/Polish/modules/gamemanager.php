@@ -199,4 +199,8 @@ define('cannot_update_from_own_self', "Local server update may not run on a Mast
 define('show_server_id', "Pokaż ID Serwerów");
 define('hide_server_id', "Ukryj ID Serwerów");
 define('edit_configuration_files', "Edit Configuration Files");
+define('admin', "Admin");
+define('cid', "CID");
+define('phan', "Phantom");
+define('sec', "Seconds");
 ?>
