@@ -15,21 +15,27 @@
     </mod>
   </mods>
   <replace_texts>
+    <text key="control_password">
+      <default>(rConPassword\s*=\s*')(.*)(')</default>
+      <var>rConPassword = '%key%'</var>
+      <filepath>Configuration/ConsoleSettings.cfg</filepath>
+      <options>key-regex</options>
+    </text>
     <text key="home_name">
       <default>(serverName\s*=\s*')(.*)(')</default>
       <var>serverName = '%key%'</var>
       <filepath>Configuration/ServerSettings.cfg</filepath>
       <options>key-regex</options>
     </text>
-    <text key="ip">
-      <default>(bindIP\s*=\s*')(.*)(')</default>
-      <var>bindIP = '%key%'</var>
-      <filepath>Configuration/ServerSettings.cfg</filepath>
-      <options>key-regex</options>
-    </text>
     <text key="max_players">
       <default>(maxPlayers\s*=\s*')(.*)(')</default>
       <var>maxPlayers = '%key%'</var>
+      <filepath>Configuration/ServerSettings.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="ip">
+      <default>(bindIP\s*=\s*')(.*)(')</default>
+      <var>bindIP = '%key%'</var>
       <filepath>Configuration/ServerSettings.cfg</filepath>
       <options>key-regex</options>
     </text>
@@ -45,14 +51,26 @@
       <filepath>Configuration/ServerSettings.cfg</filepath>
       <options>key-regex</options>
     </text>
-    <text key="control_password">
-      <default>(rConPassword\s*=\s*')(.*)(')</default>
-      <var>rConPassword = '%key%'</var>
-      <filepath>Configuration/ConsoleSettings.cfg</filepath>
-      <options>key-regex</options>
-    </text>
   </replace_texts>
   <custom_fields>
+    <field key="Enable RCON" type="select">
+      <option value="False">False</option>
+      <option value="True">True</option>
+      <default>(enableRCon\s*=\s*')(.*)(')</default>
+      <default_value>False</default_value>
+      <var>enableRCon = '%key%'</var>
+      <filepath>Configuration/ConsoleSettings.cfg</filepath>
+      <options>key-regex</options>
+      <desc>Enables remote access to the server console.</desc>
+    </field>
+    <field key="RCON Port" type="text">
+      <default>(rConPort\s*=\s*')(.*)(')</default>
+      <default_value>9350</default_value>
+      <var>rConPort = '%key%'</var>
+      <filepath>Configuration/ConsoleSettings.cfg</filepath>
+      <options>key-regex</options>
+      <desc>Sets the port to RCON.</desc>
+    </field>
     <field key="Private" type="select">
       <option value="False">False</option>
       <option value="True">True</option>
@@ -72,24 +90,6 @@
       <filepath>Configuration/ServerSettings.cfg</filepath>
       <options>key-regex</options>
       <desc>Defines the map of the server.</desc>
-    </field>
-    <field key="Enable RCON" type="select">
-      <option value="False">False</option>
-      <option value="True">True</option>
-      <default>(enableRCon\s*=\s*')(.*)(')</default>
-      <default_value>False</default_value>
-      <var>enableRCon = '%key%'</var>
-      <filepath>Configuration/ConsoleSettings.cfg</filepath>
-      <options>key-regex</options>
-      <desc>Enables remote access to the server console.</desc>
-    </field>
-    <field key="RCON Port" type="text">
-      <default>(rConPort\s*=\s*')(.*)(')</default>
-      <default_value>9350</default_value>
-      <var>rConPort = '%key%'</var>
-      <filepath>Configuration/ConsoleSettings.cfg</filepath>
-      <options>key-regex</options>
-      <desc>Sets the port to RCON.</desc>
     </field>
   </custom_fields>
 </game_config>
