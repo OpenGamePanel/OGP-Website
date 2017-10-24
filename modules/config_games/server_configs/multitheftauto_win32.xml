@@ -25,6 +25,7 @@
     </text>
     <text key="port">
       <default>serverport</default>
+      <default>httpport</default>
       <filepath>mods/deathmatch/mtaserver.conf</filepath>
       <options>tags</options>
     </text>
@@ -34,13 +35,4 @@
       <options>tags</options>
     </text>
   </replace_texts>
-  <custom_fields>
-    <field key="httpport" type="text">
-      <default>httpport</default>
-      <default_value>22005</default_value>
-      <filepath>mods/deathmatch/mtaserver.conf</filepath>
-      <options>tags</options>
-      <desc>Port of the http server (it could be same as server port).</desc>
-    </field>
-  </custom_fields>
 </game_config>
