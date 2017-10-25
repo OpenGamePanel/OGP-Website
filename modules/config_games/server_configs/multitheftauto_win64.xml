@@ -1,9 +1,9 @@
 <game_config>
-  <game_key>multitheftauto_linux32</game_key>
+  <game_key>multitheftauto_win64</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>mta</lgsl_query_name>
   <game_name>Multi Theft Auto</game_name>
-  <server_exec_name>mta-server</server_exec_name>
+  <server_exec_name>MTA Server64.exe</server_exec_name>
   <console_log>mods/deathmatch/logs/server.log</console_log>
   <max_user_amount>4096</max_user_amount>
   <control_protocol>lcon</control_protocol>

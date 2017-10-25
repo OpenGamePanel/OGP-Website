@@ -35,7 +35,7 @@
     </text>
   </replace_texts>
   <custom_fields>
-    <field key="httpport" type="text">
+    <field key="HTTP Port" type="text">
       <default>httpport</default>
       <default_value>22005</default_value>
       <filepath>mods/deathmatch/mtaserver.conf</filepath>
