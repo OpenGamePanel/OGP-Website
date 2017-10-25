@@ -21,7 +21,7 @@
   <exe_location>ShooterGame/Binaries/Win64</exe_location>
   <max_user_amount>127</max_user_amount>
   <mods>
-    <mod key="arkse">
+    <mod key="default">
       <name>None</name>
       <installer_name>376030</installer_name>
       <installer_login>anonymous</installer_login>
@@ -142,11 +142,10 @@
         echo "File $maplist not found."
         echo "Generating new maplist file in $maplist!"
         touch $maplist
-        echo Ragnarok>> $maplist
-        echo ScorchedEarth_P> $maplist
+        echo Ragnarok> $maplist
+        echo ScorchedEarth_P>> $maplist
         echo TheCenter>> $maplist
         echo TheIsland>> $maplist
-        echo Ragnarok>> $maplist    
     fi
   </post_install>
 </game_config>
