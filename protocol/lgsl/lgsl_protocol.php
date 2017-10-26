@@ -21,7 +21,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	function lgsl_type_list()
 	{
 		return array(
-		"7dtd"			=> "7 Days To Die",
+		"7dtd"			=> "7 Days to Die",
 		"aarmy"			=> "Americas Army",
 		"aarmy3"		=> "Americas Army 3",
 		"aliensvspredator"	=> "Aliens vs Predator",
@@ -313,7 +313,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	function lgsl_software_link($type, $ip, $c_port, $q_port, $s_port)
 	{
 		$lgsl_software_link = array(
-		"7dtd"			=> "http://7daystodie.com/",
+		"7dtd"			=> "steam://connect/{IP}:{S_PORT}",
 		"aarmy"			=> "qtracker://{IP}:{S_PORT}?game=ArmyOperations&action=show",
 		"aarmy3"		=> "qtracker://{IP}:{S_PORT}?game=AmericasArmy3&action=show",
 		"aliensvspredator"	=> "steam://connect/{IP}:{Q_PORT}",
@@ -465,7 +465,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	{
 		switch ($type) // GAMES WHERE Q_PORT IS NOT EQUAL TO C_PORT
 		{
-			case "7dtd"				: $c_to_q = 1;		$c_def = 25000;	$q_def = 25001;	$c_to_s = 0;	break;
+			case "7dtd"				: $c_to_q = 1;		$c_def = 26900;	$q_def = 26901;	$c_to_s = 0;	break;
 			case "aarmy"			: $c_to_q = 1;		$c_def = 1716;	$q_def = 1717;	$c_to_s = 0;	break;
 			case "aarmy3"			: $c_to_q = 0;		$c_def = 8777;	$q_def = 39300;	$c_to_s = 0;	break;
 			case "aliensvspredator"	: $c_to_q = -23357;	$c_def = 27015;	$q_def = 3658;	$c_to_s = 0;	break;

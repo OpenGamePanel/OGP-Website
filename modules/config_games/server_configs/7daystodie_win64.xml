@@ -1,10 +1,10 @@
 <game_config>
-  <game_key>7daystodie_linux32</game_key>
+  <game_key>7daystodie_win64</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>7dtd</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>7 Days to Die</game_name>
-  <server_exec_name>7DaysToDieServer.x86</server_exec_name>
+  <server_exec_name>7DaysToDieServer.exe</server_exec_name>
   <cli_template>-logfile 7DaysToDieServer_Data/output_log.txt -quit -batchmode -nographics -configfile=serverconfig.xml -dedicated</cli_template>
   <maps_location>Data/Worlds</maps_location>
   <console_log>7DaysToDieServer_Data/output_log.txt</console_log>
