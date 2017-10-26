@@ -42,7 +42,7 @@ define('panel_name', "Panel neve");
 define('panel_name_info', "A Panel neve, amely az oldal címében látható. Ez az érték felülbírálja az összes oldal címét, ha nem üres.");
 define('feed_enable', "LGSL Feed engedélyezése");
 define('feed_enable_info', "Ha a webtárhelyednek van tűzfala ami blokkolja a lekérdező portot, akkor meg kell nyitnod manuálisan.");
-define('feed_url', "Feed link");
+define('feed_url', "Feed URL");
 define('feed_url_info', "GrayCube.com megosztja a LGSL feed URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Karakterkódolás");
 define('charset_info', "UTF8, ISO, ASCII, stb... Hagyd üresen az ISO kódolás használatához.");
@@ -69,8 +69,8 @@ define('query_num_servers_stop_info', "Use this setting to disable queries if a 
 define('editable_email', "Szerkeszthető e-mail cím");
 define('editable_email_info', "Válaszd ki, hogy a felhasználók szerkeszthetik a saját e-mail címüket vagy nem.");
 define('old_dashboard_behavior', "Régi Irányítópult viselkedés");
-define('old_dashboard_behavior_info', "The old Dashboard was running slower, but shows more server informations (e.g. current players and maps).");
-define('rsync_available', "Available Rsync servers");
+define('old_dashboard_behavior_info', "A régi Irányítópult lassabban futott, de több szerver információt mutat (pl. aktuális játékosokat és pályákat).");
+define('rsync_available', "Elérhető Rsync szerverek");
 define('rsync_available_info', "Select what servers list will be shown in the rsync installation.");
 define('all_available_servers', "Összes elérhető szerverek (rsync_sites.list és rsync_sites_local.list)");
 define('only_remote_servers', "Csak távoli szerverek (rsync_sites.list)");
@@ -80,7 +80,7 @@ define('header_code_info', "Here you can write your own header code (like HTML c
 define('support_widget_title', "Támogatási widget címe");
 define('support_widget_title_info', "Egy egyedi cím a támogatási widgetnek az Irányítópultban.");
 define('support_widget_content', "Támogatási widget tartalma");
-define('support_widget_content_info', "The content of the support widget (HTML code allowed).");
+define('support_widget_content_info', "A támogatási widget tartalma (HTML kód engedélyezett).");
 define('support_widget_link', "Támogatási widget link");
 define('support_widget_link_info', "A támogatási oldalad linkje.");
 define('recaptcha_site_key', "Recaptcha oldal kulcs");

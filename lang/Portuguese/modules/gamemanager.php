@@ -36,7 +36,7 @@ define('assign_game_homes', "Associar servidores");
 define('user', "Usuário");
 define('group', "Grupo");
 define('start', "Iniciar");
-define('ogp_agent_ip', "IP do Agente");
+define('ogp_agent_ip', "IP do Server Agent");
 define('max_players', "Máx. Jogadores");
 define('max', "Máx.");
 define('ip_and_port', "IP e Porta");

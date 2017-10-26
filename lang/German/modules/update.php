@@ -45,7 +45,6 @@ define('new_files', "%s neue Dateien.");
 define('updated_files', "Aktualisierte Dateien:<br>%s");
 define('select_mirror', "Mirror wählen");
 define('view_changes', "Änderungen anzeigen");
-define('get_x_revison_messages_may_take_some_time', "Get %s revision message(s) may take some time.");
 define('updating_modules', "Aktualisierung der Module");
 define('updating_finished', "Aktualisierung abgeschlossen");
 define('updated_module', "Aktualisierte Module: '%s'.");
