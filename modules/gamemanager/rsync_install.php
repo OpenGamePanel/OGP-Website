@@ -110,20 +110,31 @@ require_once("modules/config_games/server_config_parser.php");
 function exec_ogp_module() {
 //update_local_copies(); #Disabled until the rsync_sites.list file from master servers is corrected.
 	global $db,$view,$settings;
-
-	if(isset($_REQUEST['url'])) $url = $_REQUEST['url']; else $url = "";
 	
 	$home_id = isset($_REQUEST['home_id']) ? $_REQUEST['home_id'] : "";
 	$mod_id = isset($_REQUEST['mod_id']) ? $_REQUEST['mod_id'] : "";
 	$state = isset($_POST['state']) ? $_POST['state'] : "";
 	$update = isset($_GET['update']) ? $_GET['update'] : "";
+
+	$rsync_remote_sites = file("modules/gamemanager/rsync_sites.list"); #load offical rsync sites
+	$rsync_local_sites = file("modules/gamemanager/rsync_sites_local.list"); #load user custom sites
+	$settings['rsync_available'] = isset($settings['rsync_available']) ? $settings['rsync_available'] : "1";
+
+	if(is_array($rsync_local_sites) && $settings['rsync_available'] == "1") {
+		$rsync_sites = array_merge($rsync_remote_sites, $rsync_local_sites);
+	} elseif($settings['rsync_available'] == "2") {
+		$rsync_sites = $rsync_remote_sites;
+	} elseif( $settings['rsync_available'] == "3") {
+		$rsync_sites = $rsync_local_sites;
+	}
+
+	$isAdmin = $db->isAdmin($_SESSION['user_id']);
 	
-	
-	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
-	if($isAdmin)
+	if ($isAdmin) {
 		$home_info = $db->getGameHome($home_id);
-	else
+	} else {
 		$home_info = $db->getUserGameHome($_SESSION['user_id'],$home_id);
+	}
 
 	if ( $home_info === FALSE || preg_match("/u/",$home_info['access_rights']) != 1 )
 	{
@@ -167,8 +178,6 @@ function exec_ogp_module() {
 	elseif( preg_match("/linux/", $server_xml->game_key) )
 		$os = "linux";
 		
-	$full_url = $url."/ogp_game_installer/$lgslname/$os/";
-		
 	echo "<h2>Update $home_info[home_name]</h2>";
 	
 	if ( $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_id) == 1 )
@@ -199,6 +208,16 @@ function exec_ogp_module() {
 		
 		$exec_folder_path = clean_path($home_info['home_path'] . "/" . $server_xml->exe_location );
 		$exec_path = clean_path($exec_folder_path . "/" . $server_xml->server_exec_name );
+
+		$url_id = (isset($_POST['url_id']) && (int)$_POST['url_id'] > 0 ? (int)$_POST['url_id'] -1 : null);
+		if (!is_null($url_id) && array_key_exists($url_id, $rsync_sites)) {
+			$urlArr = explode('|', $rsync_sites[$url_id]);
+			$url = $urlArr[0] . "/ogp_game_installer/$lgslname/$os/";
+		} else {
+			print_failure(get_lang('unknown_rsync_mirror'));
+			$view->refresh('?m=gamemanager&p=game_monitor');
+			return;
+		}
 		
 		if( isset( $_REQUEST['master_server_home_id'] ) )
 		{
@@ -227,7 +246,7 @@ function exec_ogp_module() {
 		}
 		else
 		{
-			print_success(get_lang_f("starting_sync_with", $full_url));
+			print_success(get_lang_f("starting_sync_with", $url));
 			
 			// Additional files to lock
 			if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
@@ -235,8 +254,8 @@ function exec_ogp_module() {
 			}else{
 				$lockFiles = "";
 			}
-			
-			$rsync = $remote->start_rsync_install($home_id,$home_info['home_path'],"$full_url",$exec_folder_path,$exec_path,$precmd,$postcmd,$lockFiles);
+
+			$rsync = $remote->start_rsync_install($home_id, $home_info['home_path'], $url, $exec_folder_path, $exec_path, $precmd, $postcmd, $lockFiles);
 			$master = "";
 		}
 		if( $rsync === 0 )
@@ -313,21 +332,6 @@ function exec_ogp_module() {
 	}
 	else
 	{		
-		$rsync_remote_sites = file("modules/gamemanager/rsync_sites.list"); #load offical rsync sites
-		$rsync_local_sites = file("modules/gamemanager/rsync_sites_local.list"); #load user custom sites
-		$settings['rsync_available'] = isset($settings['rsync_available']) ? $settings['rsync_available'] : "1";
-		if(is_array($rsync_local_sites) and $settings['rsync_available'] == "1")
-		{
-			$rsync_sites = array_merge($rsync_remote_sites, $rsync_local_sites); #merge arrays
-		}
-		elseif( $settings['rsync_available'] == "2" )
-		{
-			$rsync_sites = $rsync_remote_sites;
-		}
-		elseif( $settings['rsync_available'] == "3" )
-		{
-			$rsync_sites = $rsync_local_sites;
-		}
 		#echo "LGSL or GameQ query name is $server_xml->lgsl_query_name$server_xml->gameq_query_name";
 		$sync_list = @file("modules/gamemanager/rsync.list", FILE_IGNORE_NEW_LINES);
 
@@ -365,7 +369,7 @@ function exec_ogp_module() {
 				 <tr><td align='right'>Remoteserver:</td>
 				 <td align='left'>$home_info[remote_server_name] ($home_info[agent_ip]:$home_info[agent_port])</td></tr>
 				 <tr><td align='right'>Rsync Server:</td>
-				 <td align='left'>".create_drop_box_from_array_rsync($rsync_sites,"url")."<br>";
+				 <td align='left'>".create_drop_box_from_array_rsync($rsync_sites,"url_id")."<br>";
 			if( $master_server_home_id != FALSE AND $master_server_home_id != $home_id )
 			{
 				echo "<input type='checkbox' name='master_server_home_id' value='$master_server_home_id' /><b>". update_from_local_master_server ."</b>";
