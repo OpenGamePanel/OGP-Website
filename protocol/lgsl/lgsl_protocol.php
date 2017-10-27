@@ -21,7 +21,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	function lgsl_type_list()
 	{
 		return array(
-		"7dtd"			=> "7 Days To Die",
+		"7dtd"			=> "7 Days to Die",
 		"aarmy"			=> "Americas Army",
 		"aarmy3"		=> "Americas Army 3",
 		"aliensvspredator"	=> "Aliens vs Predator",
@@ -111,6 +111,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ravenshield"	=> "Raven Shield",
 		"redorchestra"	=> "Red Orchestra",
 		"redorchestra2"	=> "Red Orchestra 2 & Rising Storm",
+		"reignofkings"	=> "Reign of Kings",
 		"rfactor"		=> "RFactor",
 		"risingstorm2"	=> "Rising Storm 2: Vietnam",
 		"ror"			=> "Rigs of Rods",
@@ -257,6 +258,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ravenshield"	=> "04",
 		"redorchestra"	=> "13",
 		"redorchestra2"	=> "05",
+		"reignofkings"	=> "05",
 		"rfactor"		=> "16",
 		"risingstorm2"	=> "05",
 		"ror"			=> "36",
@@ -311,7 +313,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	function lgsl_software_link($type, $ip, $c_port, $q_port, $s_port)
 	{
 		$lgsl_software_link = array(
-		"7dtd"			=> "http://7daystodie.com/",
+		"7dtd"			=> "steam://connect/{IP}:{S_PORT}",
 		"aarmy"			=> "qtracker://{IP}:{S_PORT}?game=ArmyOperations&action=show",
 		"aarmy3"		=> "qtracker://{IP}:{S_PORT}?game=AmericasArmy3&action=show",
 		"aliensvspredator"	=> "steam://connect/{IP}:{Q_PORT}",
@@ -402,6 +404,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"redorchestra2"	=> "steam://connect/{IP}:{S_PORT}",
 		"rfactor"		=> "rfactor://{IP}:{S_PORT}",
 		"risingstorm2"	=> "steam://connect/{IP}:{S_PORT}",
+		"reignofkings"	=> "steam://connect/{IP}:{Q_PORT}",
 		"ror"			=> "http://www.rigsofrods.com/servers/",
 		"rust"			=> "steam://connect/{IP}:{S_PORT}",
 		"samp"			=> "samp://{IP}:{C_PORT}",
@@ -462,7 +465,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	{
 		switch ($type) // GAMES WHERE Q_PORT IS NOT EQUAL TO C_PORT
 		{
-			case "7dtd"				: $c_to_q = 1;		$c_def = 25000;	$q_def = 25001;	$c_to_s = 0;	break;
+			case "7dtd"				: $c_to_q = 1;		$c_def = 26900;	$q_def = 26901;	$c_to_s = 0;	break;
 			case "aarmy"			: $c_to_q = 1;		$c_def = 1716;	$q_def = 1717;	$c_to_s = 0;	break;
 			case "aarmy3"			: $c_to_q = 0;		$c_def = 8777;	$q_def = 39300;	$c_to_s = 0;	break;
 			case "aliensvspredator"	: $c_to_q = -23357;	$c_def = 27015;	$q_def = 3658;	$c_to_s = 0;	break;
@@ -504,6 +507,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "ravenshield"		: $c_to_q = 1000;	$c_def = 7777;	$q_def = 8777;	$c_to_s = 0;	break;
 			case "redorchestra"		: $c_to_q = 1;		$c_def = 7758;	$q_def = 7759;	$c_to_s = 0;	break;
 			case "redorchestra2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
+			case "reignofkings"		: $c_to_q = 19665;	$c_def = 7350;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "rfactor"			: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
 			case "risingstorm2"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "serioussam"		: $c_to_q = 1;		$c_def = 25600;	$q_def = 25601;	$c_to_s = 0;	break;
