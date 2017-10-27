@@ -159,4 +159,8 @@
         tar -xf steamcmd_linux.tar.gz
     fi
   </post_install>
+  <configuration_files>
+    <file description="Server Configurations">ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini</file>
+    <file description="Advanced Modifications">ShooterGame/Saved/Config/LinuxServer/Game.ini</file>
+  </configuration_files>
 </game_config>

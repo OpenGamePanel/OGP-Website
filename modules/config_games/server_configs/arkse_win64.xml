@@ -148,4 +148,8 @@
         echo TheIsland>> $maplist
     fi
   </post_install>
+  <configuration_files>
+    <file description="Server Configuration">ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</file>
+    <file description="Advanced Modifications">ShooterGame/Saved/Config/WindowsServer/Game.ini</file>
+  </configuration_files>
 </game_config>
