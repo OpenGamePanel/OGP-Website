@@ -82,7 +82,7 @@
       <desc>Unique identifier of your Cluster.</desc>
     </param>
     <param key="-ClusterDirOverride=" type="text" id="CDO">
-      <default>/home/ogpbot/OGP_User_Files/HOMEID/ShooterGame/Saved</default>
+      <default>C:\OGP64/home/ogpbot/OGP_User_Files/HOMEID/ShooterGame/Saved</default>
       <options>ns</options>
       <desc>Specify a common cross-server storage location that functions between multiple servers running on the same machine.</desc>
     </param>
