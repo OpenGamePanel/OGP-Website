@@ -131,7 +131,7 @@
     </field>
   </custom_fields>
   <configuration_files>
-    <file description="Server Configuration">serverconfig.xml</file>
-    <file description="Admin Configuration">Saves/serveradmin.xml</file>
+    <file description="Server Configurations">serverconfig.xml</file>
+    <file description="Admin Configurations">Saves/serveradmin.xml</file>
   </configuration_files>
 </game_config>
