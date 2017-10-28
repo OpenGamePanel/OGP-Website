@@ -45,7 +45,6 @@ define('new_files', "%s nowych plików.");
 define('updated_files', "Zaktualizowane pliki:<br>%s");
 define('select_mirror', "Wybierz żródło");
 define('view_changes', "Pokaż zmiany");
-define('get_x_revison_messages_may_take_some_time', "Get %s revision message(s) may take some time.");
 define('updating_modules', "Aktualizacja modułów");
 define('updating_finished', "Aktualizacja zakończona");
 define('updated_module', "Zaktualizowany moduł: '%s'.");

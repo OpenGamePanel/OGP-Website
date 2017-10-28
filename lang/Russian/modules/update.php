@@ -45,7 +45,6 @@ define('new_files', "Новых файлов %s");
 define('updated_files', "Обновленные файлы:<br>%s");
 define('select_mirror', "Выбор зеркала");
 define('view_changes', "Посмотреть изменения");
-define('get_x_revison_messages_may_take_some_time', "Получение %sможет занять некоторое время");
 define('updating_modules', "Обновление модулей");
 define('updating_finished', "Обновление завершено");
 define('updated_module', "Модуль обовлён: '%s'.");

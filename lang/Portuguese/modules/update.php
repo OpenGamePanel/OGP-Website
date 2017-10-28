@@ -45,7 +45,6 @@ define('new_files', "%s novos arquivos.");
 define('updated_files', "Arquivos atualizados:<br>%s");
 define('select_mirror', "Selecione o espelho");
 define('view_changes', "Ver alterações");
-define('get_x_revison_messages_may_take_some_time', "Obter %s A(s) mensagem(s) de revisão podem demorar algum tempo.");
 define('updating_modules', "Módulos de atualização");
 define('updating_finished', "Atualização concluída");
 define('updated_module', "Módulo atualizado: '%s'.");

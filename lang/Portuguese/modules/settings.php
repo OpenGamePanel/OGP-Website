@@ -38,7 +38,7 @@ define('smtp_server', "Servidor de E-Mail de saída");
 define('smtp_server_info', "Este é o servidor de correio de saída (servidor SMTP) que é usado, por exemplo, enviou senhas esquecidas para os usuários, localhost por padrão..");
 define('panel_email_address', "Endereço de email de saída");
 define('panel_email_address_info', "Este é o endereço de e-mail que está no campo de quando as senhas são enviadas para os usuários.");
-define('panel_name', "nome Panel");
+define('panel_name', "Nome do Painel, nome que será visível para todos os utilizadores");
 define('panel_name_info', "Nome do painel que é mostrado no título da página. Esse valor irá anular todos os títulos das páginas, se não estiver vazio.");
 define('feed_enable', "Feed Habilitar LGSL");
 define('feed_enable_info', "Se o seu webhost tiver um firewall que esteja bloqueando a porta da consulta, então você precisa abrir a porta manualmente.");

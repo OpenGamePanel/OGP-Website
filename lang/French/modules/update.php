@@ -45,7 +45,6 @@ define('new_files', "%s nouveaux fichiers.");
 define('updated_files', "Fichiers mis à jour:<br>%s");
 define('select_mirror', "Sélectionner le mirroir");
 define('view_changes', "Voir les changements");
-define('get_x_revison_messages_may_take_some_time', "Récupérer %s messages de révision peut prendre du temps.");
 define('updating_modules', "Mise à jour des modules");
 define('updating_finished', "Mise à jour terminée");
 define('updated_module', "Module mis à jour: '%s'.");

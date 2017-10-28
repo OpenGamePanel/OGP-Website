@@ -85,7 +85,7 @@ define('shop', "Bolt");
 define('shop_guest', "Bolt");
 define('TS3Admin', "TS3 adminisztrátor");
 define('administration', "Adminisztráció");
-define('config_games', "Játék/Mod konfig");
+define('config_games', "Játék konfigurációk");
 define('modulemanager', "Modulok");
 define('server', "Szerverek");
 define('settings', "Panel beállítások");

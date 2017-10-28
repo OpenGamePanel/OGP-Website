@@ -168,16 +168,19 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 			if ( $overwritten > 0 )
 			{
 				echo get_lang_f('files_overwritten',$overwritten).":\n\n".$overwritten_files;
+				echo "\n\n";
 			}
 			
 			if ( $new > 0 )
 			{
 				echo get_lang_f('new_files',$new).":\n\n".$new_files;
+				echo "\n\n";
 			}
 			
 			if ( $not_overwritten > 0 )
 			{
 				echo get_lang_f('files_not_overwritten',$not_overwritten).":\n\n".$not_overwritten_files;
+				echo "\n\n";
 			}
 						
 			// Add install.nfo file to the module/theme directory so we can remove the installed files later and check the installed files timestamp.

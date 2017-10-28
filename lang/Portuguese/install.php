@@ -22,18 +22,18 @@
  *
  */
 
-define('install_lang', "Selecione seu idioma preferido");
+define('install_lang', "Seleccione o idioma da sua preferência");
 define('install_welcome', "Seja bem vindo ao instalador do painel de controle Open Game Panel");
 define('file_permission_check', "Checando as permissões exigidas para os arquivos");
 define('OK', "OK");
 define('write_permission_required', "Permissão de escrita exigida");
 define('execute_permission_required', "Permissão de execução exigida");
 define('create_an_empty_file', "Criar um arquivo vazio.");
-define('found', "encontrado");
+define('found', "Encontrado");
 define('not_found', "Não encontrado");
 define('pear_xxtea_info', "Pear Crypt_XXTEA  é necessário para o uso do painel. Na maioria das distribuições Linux, este módulo pode ser instalado com o seguinte comando Pear 'pear install Crypt_XXTEA-beta'.");
 define('refresh', "Atualizar");
-define('checking_required_modules', "Verificando os módulos necessários:");
+define('checking_required_modules', "A verificar os módulos necessários:");
 define('database_type', "Tipo de banco de dados");
 define('database_settings', "Configurações do banco de dados");
 define('database_hostname', "Hostname do banco de dados");
@@ -42,27 +42,27 @@ define('database_password', "Senha do banco de dados");
 define('database_name', "Nome do banco de dados");
 define('database_prefix', "Prefixo do banco de dados");
 define('next', "Próximo");
-define('encryption_key', "Chave de segurança (Agente)");
+define('encryption_key', "Chave de encriptação referente ao (Agent)");
 define('agent_port', "Porta (Agente)");
 define('unable_to_write_config', "Não é possível escrever no arquivo de configuração. Verifique novamente a permissão de gravação.");
 define('admin_login_details', "Detalhes do login do Administrador");
 define('config_written', "Arquivos de configuração criados com sucesso.");
 define('database_created', "Tabelas do banco de dados criadas com sucesso.");
-define('admin_login_details_info', "Agora criaremos um usuário administrador para seu painel de controle Open Game Panel.");
+define('admin_login_details_info', "Agora iremos criaremos um usuário de administrador para seu Painel de Controle ");
 define('username', "Nome de usuário");
 define('repeat_password', "Repita a senha");
 define('email', "Endereço de e-mail");
 define('back', "Voltar");
 define('database_setup_failure', "O instalador não conseguiu criar o banco de dados. Por favor verifique os dados inseridos.");
-define('php_version_check', "Verificando a versão do PHP:");
+define('php_version_check', "A verificar a versão do PHP:");
 define('invalid_username', "Você digitou um usuário inválido.");
 define('password_too_short', "Sua senha é muito curta. A senha deve conter pelo menos '%d' caracteres.");
 define('password_contains_invalid_characters', "Sua senha contém caracteres inválidos.");
 define('invalid_email_address', "Você digitou o endereço de e-mail inválido.");
 define('setup_complete', "Instalação concluída com sucesso. Seu Open Game Panel está pronto para uso.");
 define('remove_install_and_secure_config', "Por razões de segurança, você deve excluir o arquivo install.php de sua instalação e configurar as permissões do arquivo includes/config.inc.php para o modo 644.");
-define('go_to_panel', "Clique aqui para entrar em seu painel de controle OGP.");
-define('unable_to_resolve', "Se você não conseguir resolver este problema visite o site do OGP");
-define('slogan', "De Código Aberto!");
+define('go_to_panel', "Clique aqui para entrar em seu painel de controle.");
+define('unable_to_resolve', "Se você não conseguir resolver este problema visite o site de desenvolvedores do apoio técnico do seu painel.");
+define('slogan', "A única de código aberto! ");
 define('default_welcome_title_message', "Bem Vindo! <b style='font-size:12px; font-weight:normal;'>Você pode alterar essa mensagem em '<a href='?m=settings&p=themes'>Definições de tema</a>' no menu de '<a href='?m=administration&p=main'>Administração</a>'.</b>");
 ?>
