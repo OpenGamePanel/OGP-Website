@@ -67,14 +67,6 @@
     </text>
   </replace_texts>
   <custom_fields>
-    <field key="Game Name" type="text">
-      <default>property</default>
-      <default_value>My Game</default_value>
-      <var>GameName</var>
-      <filepath>serverconfig.xml</filepath>
-      <options>tagValueByName</options>
-      <desc>Whatever you want the game name to be (this controls the random generation seed as well).</desc>
-    </field>
     <field key="Control Panel Enabled" type="select">
       <option value="false">False</option>
       <option value="true">True</option>
@@ -111,14 +103,6 @@
       <options>tagValueByName</options>
       <desc>Port of the Telnet server.</desc>
     </field>
-    <field key="Max Spawned Zombies" type="text">
-      <default>property</default>
-      <default_value>60</default_value>
-      <var>MaxSpawnedZombies</var>
-      <filepath>serverconfig.xml</filepath>
-      <options>tagValueByName</options>
-      <desc>Making this number too large (more than about 80) may cause servers to run at poor framerates which will effect lag and play quality for clients.</desc>
-    </field>
     <field key="EAC Enabled" type="select">
       <option value="false">False</option>
       <option value="true">True</option>
@@ -128,6 +112,22 @@
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
       <desc>Enables/Disables EasyAntiCheat.</desc>
+    </field>
+    <field key="Game Name" type="text">
+      <default>property</default>
+      <default_value>My Game</default_value>
+      <var>GameName</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Whatever you want the game name to be (this controls the random generation seed as well).</desc>
+    </field>
+    <field key="Max Spawned Zombies" type="text">
+      <default>property</default>
+      <default_value>60</default_value>
+      <var>MaxSpawnedZombies</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Making this number too large (more than about 80) may cause servers to run at poor framerates which will effect lag and play quality for clients.</desc>
     </field>
   </custom_fields>
   <configuration_files>
