@@ -51,7 +51,7 @@
     </text>
   </replace_texts>
   <custom_fields>
-    <field key="authport" type="text">
+    <field key="Auth Port" type="text">
       <default>authport.*</default>
       <default_value>8766</default_value>
       <var>authport</var>
@@ -59,7 +59,7 @@
    	  <options>s</options>
       <desc>Port of Auth.</desc>
     </field>
-    <field key="gameport" type="text">
+    <field key="Game Port" type="text">
       <default>gameport.*</default>
       <default_value>27016</default_value>
       <var>gameport</var>
@@ -88,4 +88,7 @@
         echo host>> $config
     fi
   </post_install>
+  <configuration_files>
+    <file description="Server Configurations">default.cfg</file>
+  </configuration_files>
 </game_config>
