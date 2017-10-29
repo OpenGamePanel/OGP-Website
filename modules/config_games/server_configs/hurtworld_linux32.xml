@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Hurtworld</game_name>
   <server_exec_name>Hurtworld.x86</server_exec_name>
-  <cli_template>-batchmode -nographics -exec "%PORT% %MAP%;%QUERY_PORT%;%PLAYERS%;%HOSTNAME%" -logfile "output.txt"</cli_template>
+  <cli_template>-batchmode -nographics -exec "%PORT% %MAP%;%QUERY_PORT%;%PLAYERS%;%HOSTNAME%" -logfile "gamelog.txt"</cli_template>
   <cli_params>
     <cli_param id="PORT" cli_string="host" options="s" />
     <cli_param id="MAP" cli_string="" />
@@ -16,7 +16,7 @@
     <port type="add" id="QUERY_PORT" cli_string="queryport" options="s">10</port>
   </reserve_ports>
   <maps_location>Hurtworld_Data/maps</maps_location>
-  <console_log>output.txt</console_log>
+  <console_log>gamelog.txt</console_log>
   <max_user_amount>60</max_user_amount>
   <mods>
     <mod key="default">
@@ -25,4 +25,7 @@
       <installer_login>anonymous</installer_login>
     </mod>
   </mods>
+  <configuration_files>
+    <file description="Server Configurations">autoexec.cfg</file>
+  </configuration_files>
 </game_config>
