@@ -1617,7 +1617,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `'.$this->table_prefix.'user_homes`
 			NATURAL JOIN `'.$this->table_prefix.'remote_servers` 
  			NATURAL JOIN `'.$this->table_prefix.'home_ip_ports`
- 			NATURAL JOIN `'.$this->table_prefix.'remote_server_ips`
 			' : '').'
 			'
  			.($home_cfg_id ?" WHERE home_cfg_id = '$home_cfg_id'
@@ -1646,7 +1645,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `'.$this->table_prefix.'server_homes`
 			NATURAL JOIN `'.$this->table_prefix.'remote_servers` 
  			NATURAL JOIN `'.$this->table_prefix.'home_ip_ports`
- 			NATURAL JOIN `'.$this->table_prefix.'remote_server_ips`
 			' : '').'
 			WHERE user_id = '.$assign_id.' ' .($home_cfg_id ? 'AND `home_id`
 			IN (SELECT `home_id` FROM `'.$this->table_prefix.'server_homes` WHERE home_cfg_id = '.$home_cfg_id.'
@@ -1681,7 +1679,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `'.$this->table_prefix.'server_homes`
 			NATURAL JOIN `'.$this->table_prefix.'remote_servers` 
  			NATURAL JOIN `'.$this->table_prefix.'home_ip_ports`
- 			NATURAL JOIN `'.$this->table_prefix.'remote_server_ips`
 			' : '').'			
 			WHERE group_id IN (SELECT group_id FROM `'.$this->table_prefix.'user_groups` WHERE user_id = '.$assign_id.' )
 			
@@ -2900,7 +2897,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $search_field) {
 		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
 		
-		$sql = 'SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.* FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers` NATURAL JOIN %1$sremote_server_ips ';
+		$sql = 'SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.* FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers` ';
 		
 		if (!empty($search_field)) {
 			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
@@ -2917,7 +2914,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function get_GameHomes_count($search_field) {
-		$sql = 'SELECT COUNT(1) AS total FROM %1$sserver_homes NATURAL JOIN %1$sremote_servers NATURAL JOIN %1$sremote_server_ips ';
+		$sql = 'SELECT COUNT(1) AS total FROM %1$sserver_homes NATURAL JOIN %1$sremote_servers ';
 
 		if (!empty($search_field)) {
 			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
