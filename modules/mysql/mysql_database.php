@@ -24,9 +24,8 @@
 
 class MySQLModuleDatabase extends OGPDatabaseMySQL
 {
-	private $link;
-
-    private $table_prefix;
+	protected $link;
+	protected $table_prefix;
 	
 	public function __construct() {
         

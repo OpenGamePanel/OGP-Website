@@ -5,7 +5,7 @@
   <game_name>Multi Theft Auto</game_name>
   <server_exec_name>mta-server</server_exec_name>
   <console_log>mods/deathmatch/logs/server.log</console_log>
-  <max_user_amount>1024</max_user_amount>
+  <max_user_amount>4096</max_user_amount>
   <control_protocol>lcon</control_protocol>
   <mods>
     <mod key="default">
@@ -35,7 +35,7 @@
     </text>
   </replace_texts>
   <custom_fields>
-    <field key="httpport" type="text">
+    <field key="HTTP Port" type="text">
       <default>httpport</default>
       <default_value>22005</default_value>
       <filepath>mods/deathmatch/mtaserver.conf</filepath>

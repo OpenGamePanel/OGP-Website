@@ -1,0 +1,137 @@
+<game_config>
+  <game_key>7daystodie_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>7dtd</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>7 Days to Die</game_name>
+  <server_exec_name>7DaysToDieServer.x86</server_exec_name>
+  <cli_template>-logfile logs/output_log.txt -quit -batchmode -nographics -configfile=serverconfig.xml -dedicated</cli_template>
+  <maps_location>Data/Worlds</maps_location>
+  <console_log>logs/output_log.txt</console_log>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="7daystodie1">
+      <name>Stable</name>
+      <installer_name>294420</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+    <mod key="7daystodie2">
+      <name>Latest Experimental</name>
+      <installer_name>294420</installer_name>
+      <installer_login>anonymous</installer_login>
+      <betaname>latest_experimental</betaname>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="port">
+      <default>property</default>
+      <var>ServerPort</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+    </text>
+    <text key="home_name">
+      <default>property</default>
+      <var>ServerName</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+    </text>
+    <text key="max_players">
+      <default>property</default>
+      <var>ServerMaxPlayerCount</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+    </text>
+    <text key="map">
+      <default>property</default>
+      <var>GameWorld</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+    </text>
+    <text key="control_password">
+      <default>property</default>
+      <var>ControlPanelPassword</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+    </text>
+    <text key="control_password">
+      <default>property</default>
+      <var>TelnetPassword</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+    </text>
+    <text key="home_path">
+      <default>(.*)(property\s+name=&quot;SaveGameFolder&quot;\s+value=&quot;)(.*)(&quot;)(.*&gt;)(.*&lt;.*&gt;.*)</default>
+      <var>  &lt;${2}%key%/Saves${4}/&gt;${6}</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>key-regex</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Game Name" type="text">
+      <default>property</default>
+      <default_value>My Game</default_value>
+      <var>GameName</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Whatever you want the game name to be (this controls the random generation seed as well).</desc>
+    </field>
+    <field key="Control Panel Enabled" type="select">
+      <option value="false">False</option>
+      <option value="true">True</option>
+      <default>property</default>
+      <default_value>false</default_value>
+      <var>ControlPanelEnabled</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Enable/Disable the control panel.</desc>
+    </field>
+    <field key="Control Panel Port" type="text">
+      <default>property</default>
+      <default_value>8080</default_value>
+      <var>ControlPanelPort</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Port of the control panel webpage.</desc>
+    </field>
+    <field key="Telnet Enabled" type="select">
+      <option value="false">False</option>
+      <option value="true">True</option>
+      <default>property</default>
+      <default_value>true</default_value>
+      <var>TelnetEnabled</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Enable/Disable the Telnet.</desc>
+    </field>
+    <field key="Telnet Port" type="text">
+      <default>property</default>
+      <default_value>8081</default_value>
+      <var>TelnetPort</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Port of the Telnet server.</desc>
+    </field>
+    <field key="Max Spawned Zombies" type="text">
+      <default>property</default>
+      <default_value>60</default_value>
+      <var>MaxSpawnedZombies</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Making this number too large (more than about 80) may cause servers to run at poor framerates which will effect lag and play quality for clients.</desc>
+    </field>
+    <field key="EAC Enabled" type="select">
+      <option value="false">False</option>
+      <option value="true">True</option>
+      <default>property</default>
+      <default_value>true</default_value>
+      <var>EACEnabled</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Enables/Disables EasyAntiCheat.</desc>
+    </field>
+  </custom_fields>
+  <configuration_files>
+    <file description="Server Configurations">serverconfig.xml</file>
+    <file description="Admin Configurations">Saves/serveradmin.xml</file>
+  </configuration_files>
+</game_config>

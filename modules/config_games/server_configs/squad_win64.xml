@@ -17,7 +17,7 @@
   <console_log>Squad/Saved/Logs/Squad.log</console_log>
   <max_user_amount>80</max_user_amount>
   <mods>
-    <mod key="squad">
+    <mod key="default">
       <name>None</name>
       <installer_name>403240</installer_name>
       <installer_login>anonymous</installer_login>

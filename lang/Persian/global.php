@@ -110,7 +110,7 @@ define('version', "نسخه");
 define('show_version', "نمایش نسخه");
 define('queries_executed', "Query اجرا شده");
 define('lang', "زبان");
-define('get_size', "نمایش سایز");
+define('get_size', "Show Size");
 define('total_size', "سایز کلی");
 define('lgsl', "LGSL");
 define('lgsl_admin', "مدیریت LGSL");

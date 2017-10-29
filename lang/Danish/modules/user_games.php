@@ -138,7 +138,7 @@ define('assigned_homes', "Nuværrende Hjem tildelt");
 define('assign', "Tildel");
 define('allow_updates', "Tillad Spil opdateringer");
 define('allow_updates_info', "Giv brugeren tilladelse til at opdatere spil installtions, hvis det er muligt.");
-define('allow_file_management', "Filhåndtering");
+define('allow_file_management', "Allow File Management");
 define('allow_file_management_info', "Giver brugeren tilladelse til, at tilgå spil server, med filhåndtering moduler.");
 define('allow_parameter_usage', "Tillad Parameter brug");
 define('allow_parameter_usage_info', "Tillader bruger til at ændre tilgængelig kommando linje parameter.");
@@ -191,7 +191,7 @@ define('successfully_deleted_game_server_with_id', "Succesfuldt slettet spil ser
 define('failed_to_remove_ftp_account_from_remote_server', "Fejlet I at fjerne FTP konto fra fjern server.");
 define('remove_it_anyway', "Vil du gerne fjerne det alligevel?");
 define('sucessfully_deleted', "Slettet successfuldt %s");
-define('the_agent_had_a_problem_deleting', "Agenten havde problemer med at slette %s, Tjek agent loggen");
+define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
 define('does_not_exist_yet', "Does not exist yet.");
 define('go_to_custom_fields', "Go to Custom Fields");

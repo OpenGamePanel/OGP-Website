@@ -42,7 +42,7 @@ define('panel_name', "Panel neve");
 define('panel_name_info', "A Panel neve, amely az oldal címében látható. Ez az érték felülbírálja az összes oldal címét, ha nem üres.");
 define('feed_enable', "LGSL Feed engedélyezése");
 define('feed_enable_info', "Ha a webtárhelyednek van tűzfala ami blokkolja a lekérdező portot, akkor meg kell nyitnod manuálisan.");
-define('feed_url', "Feed link");
+define('feed_url', "Feed URL");
 define('feed_url_info', "GrayCube.com megosztja a LGSL feed URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('charset', "Karakterkódolás");
 define('charset_info', "UTF8, ISO, ASCII, stb... Hagyd üresen az ISO kódolás használatához.");
@@ -69,7 +69,7 @@ define('query_num_servers_stop_info', "Use this setting to disable queries if a 
 define('editable_email', "Szerkeszthető e-mail cím");
 define('editable_email_info', "Válaszd ki, hogy a felhasználók szerkeszthetik a saját e-mail címüket vagy nem.");
 define('old_dashboard_behavior', "Régi Irányítópult viselkedés");
-define('old_dashboard_behavior_info', "A régi Irányítópult lassabban fut, de több szerver információt mutat (például aktuális játékosokat és pályákat).");
+define('old_dashboard_behavior_info', "A régi Irányítópult lassabban futott, de több szerver információt mutat (pl. aktuális játékosokat és pályákat).");
 define('rsync_available', "Elérhető Rsync szerverek");
 define('rsync_available_info', "Select what servers list will be shown in the rsync installation.");
 define('all_available_servers', "Összes elérhető szerverek (rsync_sites.list és rsync_sites_local.list)");

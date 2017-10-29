@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Rust</game_name>
   <server_exec_name>RustDedicated</server_exec_name>
-  <cli_template>-batchmode +server.ip %IP% %PORT% %PLAYERS% %HOSTNAME% %IDENTITY% %WORLDSIZE% %SEED% %SALT% %TICKRATE% %MAP% %SAVEINTERNAL% %SECURE% +rcon.ip %IP% %RCON_PORT% %RCONWEB% %CONTROL_PASSWORD% -logfile output.txt</cli_template>
+  <cli_template>-batchmode +server.ip %IP% %PORT% %PLAYERS% %HOSTNAME% %IDENTITY% %WORLDSIZE% %SEED% %SALT% %TICKRATE% %MAP% %BCK% %SAVEINTERNAL% %SECURE% +rcon.ip %IP% %RCON_PORT% %RCONWEB% %CONTROL_PASSWORD% -logfile output.txt</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="" />
     <cli_param id="PORT" cli_string="+server.port" options="s" />
@@ -58,6 +58,9 @@
       <option value="SavasIsland">Savas Island</option>
       <option value="SavasIsland_koth">Savas Island KoTH</option>
       <desc>Defines the map of the server.</desc>
+    </param>
+    <param key="+backup" type="checkbox_key_value" id="BCK">
+      <desc>Enable automatic backups.</desc>
     </param>
     <param key="+server.saveinterval" type="text" id="SAVEINTERNAL">
       <default>600</default>

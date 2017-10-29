@@ -34,7 +34,7 @@ define('modules', "Módulos");
 define('update_modules', "Atualizar módulos");
 define('no_installed_modules', "Não foram encontrados módulos instalados.");
 define('not_complete', "O recurso de instalação/desinstalação não está completo e pode não funcionar corretamente. AVISO: perda de dados pode ocorrer no banco de dados do painel!");
-define('core_mods_installed', "Módulos de núcleo instalados:");
+define('core_mods_installed', "Módulos principais instalados:");
 define('custom_mods_installed', "Módulos personalizados instalados:");
 define('installing_module', "Módulo de instalação '%s'");
 define('successfully_installed_module', "Módulo instalado com sucesso %s.");

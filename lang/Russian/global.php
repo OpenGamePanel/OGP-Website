@@ -110,7 +110,7 @@ define('version', "Версия");
 define('show_version', "Показать версию");
 define('queries_executed', "запросов к базе");
 define('lang', "Язык");
-define('get_size', "Получить размер");
+define('get_size', "Show Size");
 define('total_size', "Общий размер");
 define('lgsl', "LGSL");
 define('lgsl_admin', "Настройки LGSL");

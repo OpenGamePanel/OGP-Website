@@ -56,4 +56,7 @@
   <pre_start>
     ls -t save/autosave | head -n1 | xargs -I {} cp -f save/autosave/{} save/autosave/latest_autosave.sav
   </pre_start>
+  <configuration_files>
+    <file description="Server Configurations">openttd.cfg</file>
+  </configuration_files>
 </game_config>

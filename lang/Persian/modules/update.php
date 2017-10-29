@@ -45,7 +45,6 @@ define('new_files', "%s فایل جدید.");
 define('updated_files', "فایل های به روز شده:<br>%s");
 define('select_mirror', "انتخاب میرور");
 define('view_changes', "مشاهده تغییرا");
-define('get_x_revison_messages_may_take_some_time', "Get %s revision message(s) may take some time.");
 define('updating_modules', "به روزرسانی ماژول ها");
 define('updating_finished', "به روزرسانی به پایان رسید");
 define('updated_module', "ماژول \"%s\" به روزرسانی شد.");

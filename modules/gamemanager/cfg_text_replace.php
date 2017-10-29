@@ -33,6 +33,8 @@ $server_home["webhost_ip"] = $_SERVER['SERVER_ADDR'];
 $server_home["incremental"] = $db->incrementalNumByHomeId( $server_home["home_id"], $server_home["mod_cfg_id"], $server_home["remote_server_id"] );
 $server_home["map"] = isset($cli_param_data['MAP']) ? $cli_param_data['MAP'] : $last_param['map'];
 
+$isWin = preg_match('/CYGWIN/', $remote->what_os());
+
 if(	isset($server_xml->gameq_query_name) )
 {
 	$server_home["query_port"] = get_query_port($server_xml, $server_home['port']);
@@ -49,8 +51,15 @@ if($replace_texts)
 {
 	foreach ($replace_texts as $text => $array )
 	{
-		$param = $array['key'];
-		$replacements[$replace_id]['info_param'] = $server_home["$param"];
+		$param = (string)$array['key'];
+		
+		if ($param == 'home_path' && $isWin) {
+			$info_param = rtrim($remote->exec('cygpath -w /')) . $server_home[$param];
+		} else {
+			$info_param = $server_home[$param];
+		}
+		
+		$replacements[$replace_id]['info_param'] = $info_param;
 		
 		foreach ($array as $key => $value )
 		{

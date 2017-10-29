@@ -45,7 +45,6 @@ define('new_files', "%s nye filer.");
 define('updated_files', "Opdateret filer:<br>%s");
 define('select_mirror', "Select mirror");
 define('view_changes', "View changes");
-define('get_x_revison_messages_may_take_some_time', "Get %s revision message(s) may take some time.");
 define('updating_modules', "Opdatere moduler");
 define('updating_finished', "Opdatering Færdig");
 define('updated_module', "Opdatere modul: '%s'.");

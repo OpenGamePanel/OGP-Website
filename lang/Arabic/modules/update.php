@@ -45,7 +45,6 @@ define('new_files', "%s ملف جديد");
 define('updated_files', "تحديث الملفات:<br>%s");
 define('select_mirror', "إختر مرآه");
 define('view_changes', "شاهد التغيرات");
-define('get_x_revison_messages_may_take_some_time', "Get %s revision message(s) may take some time.");
 define('updating_modules', "تحديث الموديولات");
 define('updating_finished', "انتهى التحديث");
 define('updated_module', "تحديث الموديول : '%s'.");

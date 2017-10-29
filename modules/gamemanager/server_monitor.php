@@ -370,9 +370,7 @@ function exec_ogp_module() {
 
 				if ( $isAdmin )
 				{
-					$ministart .= "<a class='monitorbutton' href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>
-        	                                <span>" . configure_mods . "</span>
-	                                </a>";
+					$ministart .= " <a href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>" . configure_mods . "</a>";
 				}
 			}
 
