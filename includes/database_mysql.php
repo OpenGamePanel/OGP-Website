@@ -1628,7 +1628,6 @@ class OGPDatabaseMySQL extends OGPDatabase
  								OR user_id = '$search_field'
  								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR agent_ip = '$search_field' OR port = '$search_field'
- 								OR ip LIKE '%" . $search_field . "%' 
  								" : '')." ": '
  			'.($search_field ?" WHERE home_cfg_id = '$home_cfg_id' OR home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
  								OR home_name LIKE '%".$search_field."%'
@@ -1636,7 +1635,6 @@ class OGPDatabaseMySQL extends OGPDatabase
  								OR user_id = '$search_field'
 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
 								OR agent_ip = '$search_field' OR port = '$search_field'
-								OR ip LIKE '%" . $search_field . "%' 
 								" : '').'
 								'));
 		}
@@ -1656,7 +1654,6 @@ class OGPDatabaseMySQL extends OGPDatabase
  								OR user_id = '$search_field'
  								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR agent_ip = '$search_field' OR port = '$search_field'
- 								OR ip LIKE '%" . $search_field . "%' 
  								" : '').')'
 								: 
 								'
@@ -1666,7 +1663,6 @@ class OGPDatabaseMySQL extends OGPDatabase
  								OR user_id = '$search_field'
 								OR user_id IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
 								OR agent_ip = '$search_field' OR port = '$search_field'
-								OR ip LIKE '%" . $search_field . "%' 
 								)" : '').'				
 								' 
 								));
@@ -1689,14 +1685,12 @@ class OGPDatabaseMySQL extends OGPDatabase
  								OR home_name LIKE '%".$search_field."%'
  								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR agent_ip = '$search_field' OR port = '$search_field'
- 								OR ip LIKE '%" . $search_field . "%'
  								" : '').')'
 			:'
 			'.($search_field ?" AND home_id = '$search_field' OR user_id_main = '$search_field' OR home_path LIKE '%".$search_field."%'
  								OR home_name LIKE '%".$search_field."%'
  								OR user_id_main IN (SELECT `user_id` FROM `".$this->table_prefix."users` WHERE users_login LIKE '%".$search_field."%')
  								OR agent_ip = '$search_field' OR port = '$search_field'
- 								OR ip LIKE '%" . $search_field . "%'
  								" : '').'
 			'));
 		}		
@@ -2886,34 +2880,67 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $this->listQuery($query);
 	}
 
-	public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $search_field) {
+	public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $searchType, $searchString) {
 		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
 		
-		$sql = 'SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.* FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers` ';
+		$sql = 'SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.*, %1$shome_ip_ports.port
+					FROM `%1$sserver_homes`
+						NATURAL JOIN `%1$sconfig_homes`
+						NATURAL JOIN `%1$sremote_servers`
+						LEFT JOIN %1$shome_ip_ports 
+							NATURAL JOIN %1$sremote_server_ips ON %1$sserver_homes.home_id=%1$shome_ip_ports.home_id ';
 		
-		if (!empty($search_field)) {
-			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
-					OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
-					OR home_name LIKE '%%$search_field%%' OR agent_ip = '$search_field' OR remote_server_name LIKE '%%$search_field%%'
-					OR user_id_main IN (SELECT user_id FROM %1\$susers WHERE users_login LIKE '%%$search_field%%') 
-					OR ip LIKE '%%$search_field%% '";
+		if (!empty($searchString)) {
+			if ($searchType == 'ip_port') {
+				$sql .= "WHERE CONCAT_WS(':', %1\$sremote_server_ips.ip, %1\$shome_ip_ports.port) = '$searchString'
+							OR agent_ip = '$searchString' ";
+			}
+
+			if ($searchType == 'home_name') {
+				$sql .= "WHERE home_name LIKE '%%$searchString%%' ";
+			}
+			
+			if ($searchType == 'ownedBy') {
+				$sql .= "WHERE user_id_main IN (SELECT user_id FROM %1\$susers WHERE users_login LIKE '%%$searchString%%')
+							OR user_id_main = '$searchString' ";
+			}
+
+			if ($searchType == 'rserver') {
+				$sql .= "WHERE remote_server_name LIKE '%%$searchString%%'
+							OR %1\$sserver_homes.remote_server_id = '$searchString' ";
+			}
 		}
 
 		$sql .= "ORDER BY home_id ASC LIMIT $game_home_id, $limit_gameHomes;";
-
 		$sql = sprintf($sql, $this->table_prefix);
+
 		return $this->listQuery($sql);
 	}
 	
-	public function get_GameHomes_count($search_field) {
-		$sql = 'SELECT COUNT(1) AS total FROM %1$sserver_homes NATURAL JOIN %1$sremote_servers ';
+	public function get_GameHomes_count($searchType, $searchString) {
+		$sql = 'SELECT COUNT(1) AS total FROM %1$sserver_homes NATURAL JOIN %1$sremote_servers
+					LEFT JOIN %1$shome_ip_ports 
+						NATURAL JOIN %1$sremote_server_ips ON %1$sserver_homes.home_id=%1$shome_ip_ports.home_id ';
 
-		if (!empty($search_field)) {
-			$sql .= "WHERE home_id = '$search_field' OR remote_server_id = '$search_field'
-					OR user_id_main = '$search_field' OR home_path = '$search_field' OR home_cfg_id = '$search_field'
-					OR home_name LIKE '%%$search_field%%' OR agent_ip = '$search_field' OR remote_server_name LIKE '%%$search_field%%'
-					OR user_id_main IN (SELECT user_id FROM %1\$susers WHERE users_login LIKE '%%$search_field%%') 
-					OR ip LIKE '%%$search_field%% '";
+		if (!empty($searchString)) {
+			if ($searchType == 'ip_port') {
+				$sql .= "WHERE CONCAT_WS(':', %1\$sremote_server_ips.ip, %1\$shome_ip_ports.port) = '$searchString'
+							OR agent_ip = '$searchString' ";
+			}
+
+			if ($searchType == 'home_name') {
+				$sql .= "WHERE home_name LIKE '%%$searchString%%' ";
+			}
+			
+			if ($searchType == 'ownedBy') {
+				$sql .= "WHERE user_id_main IN (SELECT user_id FROM %1\$susers WHERE users_login LIKE '%%$searchString%%')
+							OR user_id_main = '$searchString' ";
+			}
+
+			if ($searchType == 'rserver') {
+				$sql .= "WHERE remote_server_name LIKE '%%$searchString%%'
+							OR %1\$sserver_homes.remote_server_id = '$searchString' ";
+			}
 		}
 
 		$sql = sprintf($sql, $this->table_prefix);
