@@ -25,6 +25,9 @@
       <installer_login>anonymous</installer_login>
     </mod>
   </mods>
+  <lock_files>
+    Hurtworld.x86
+  </lock_files>
   <configuration_files>
     <file description="Server Configurations">autoexec.cfg</file>
   </configuration_files>

@@ -25,6 +25,19 @@
       <installer_login>anonymous</installer_login>
     </mod>
   </mods>
+  <post_install>
+    if [ -f "Hurtworld_Data/Plugins/x86/steamclient.so" ]
+      then
+        echo "steamclient.so found. OK!"
+      else
+        echo "steamclient.so not found."
+        echo "Fixing steamclient.so!"
+        mv -f steamclient.so Hurtworld_Data/Plugins/x86
+    fi
+  </post_install>
+  <lock_files>
+    Hurtworld.x86_64
+  </lock_files>
   <configuration_files>
     <file description="Server Configurations">autoexec.cfg</file>
   </configuration_files>
