@@ -130,6 +130,9 @@
       <desc>Making this number too large (more than about 80) may cause servers to run at poor framerates which will effect lag and play quality for clients.</desc>
     </field>
   </custom_fields>
+  <lock_files>
+    7DaysToDieServer.x86_64
+  </lock_files>
   <configuration_files>
     <file description="Server Configurations">serverconfig.xml</file>
     <file description="Admin Configurations">Saves/serveradmin.xml</file>
