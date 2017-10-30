@@ -277,7 +277,7 @@ abstract class OGPDatabase {
 
     abstract public function getGameHomes();
     
-    abstract public function getGameHomes_limit($page_gameHomes,$limit_gameHomes,$search_field);
+    abstract public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $searchType, $searchString);
 
     /// \return true If username and password match.
     /// \return false If username and password does not match

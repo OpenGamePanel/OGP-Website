@@ -25,16 +25,19 @@
 function exec_ogp_module()
 {
 	global $db, $view, $loggedInUserInfo;
-	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
 	
 	$page_GameHomes = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
 	$limit_GameHomes = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+
+	$searchString = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
+	$searchTypes = array('ip_port' => 'IP / Port', 'ownedBy' => 'Server Owner', 'rserver' => 'Remote Server', 'home_name' => 'Server Name');
+	$searchType = isset($_GET['searchType']) ? $_GET['searchType'] : false;
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$limit_GameHomes = $loggedInUserInfo["users_page_limit"];
 	}
 
-	$game_homes = $db->getGameHomes_limit($page_GameHomes,$limit_GameHomes,$search_field);
+	$game_homes = $db->getGameHomes_limit($page_GameHomes, $limit_GameHomes, $searchType, $searchString);
 
 	echo "<h2>".get_lang('game_servers')."</h2>";
 	echo '<table style="width: 100%; margin-bottom: 50px;">
@@ -45,7 +48,8 @@ function exec_ogp_module()
 				<td style="width: 50%; vertical-align: middle; text-align: right;">
 					<form action="home.php" method="GET" style="float:right;">
 					<input type ="hidden" name="m" value="user_games" />
-					<input name="search" type="text" id="search" value="' . $search_field . '" />
+					'. create_drop_box_from_array($searchTypes, 'searchType', $searchType, false) .'
+					<input name="search" type="text" id="search" value="' . $searchString . '" />
 					<input type="submit" value="'.get_lang('search').'" />
 					</form>
 				</td>
@@ -97,14 +101,12 @@ function exec_ogp_module()
 	
 	echo "</table>";
 
-	$count_GameHomes = $db->get_GameHomes_count($search_field);
+	$count_GameHomes = $db->get_GameHomes_count($searchType, $searchString);
 	
-	if(isset($_GET['search']) && !empty($_GET['search'])){
-	$uri = '?m=user_games&search='.$_GET['search'].'&limit='.$limit_GameHomes.'&page=';
-	}
-	else
-	{
-	$uri = '?m=user_games&limit='.$limit_GameHomes.'&page=';
+	if (isset($_GET['search']) && !empty($_GET['search'])) {
+		$uri = '?m=user_games&search='.$_GET['search'].'&limit='.$limit_GameHomes.'&page=';
+	} else {
+		$uri = '?m=user_games&limit='.$limit_GameHomes.'&page=';
 	}
 	
 	echo paginationPages($count_GameHomes[0]['total'], $page_GameHomes, $limit_GameHomes, $uri, 3, 'userGames');
