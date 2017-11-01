@@ -1,5 +1,5 @@
 <game_config>
-	<game_key>bb2_win32</game_key>
+	<game_key>brainbread2_win32</game_key>
 	<protocol>lgsl</protocol>
 	<lgsl_query_name>source</lgsl_query_name>
 	<installer>steamcmd</installer>
