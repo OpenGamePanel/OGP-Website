@@ -1,0 +1,36 @@
+<game_config>
+  <game_key>mafia2online_linux32</game_key>
+  <game_name>Mafia 2 Online</game_name>
+  <server_exec_name>m2online-svr</server_exec_name>
+  <max_user_amount>1000</max_user_amount>
+  <mods>
+    <mod key="m2o">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>hostname</default>
+      <filepath>config.xml</filepath>
+      <options>tags</options>
+    </text>
+    <text key="ip">
+      <default>serverip</default>
+      <filepath>config.xml</filepath>
+      <options>tags</options>
+    </text>
+    <text key="port">
+      <default>port</default>
+      <filepath>config.xml</filepath>
+      <options>tags</options>
+    </text>
+    <text key="max_players">
+      <default>maxplayers</default>
+      <filepath>config.xml</filepath>
+      <options>tags</options>
+    </text>
+  </replace_texts>
+  <configuration_files>
+    <file description="Server Configurations">config.xml</file>
+  </configuration_files>
+</game_config>
