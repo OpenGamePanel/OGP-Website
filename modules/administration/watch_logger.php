@@ -38,10 +38,10 @@ function exec_ogp_module() {
 
 	$logs = $db->read_logger($p, $l, $search_field);
 
-	if (empty($logs)) {
+	if (empty($logs) && !empty($search_field)) {
 		print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
-
 		$view->refresh("?m=administration&p=watch_logger", 5);
+
 		return;
 	}
 
@@ -130,11 +130,10 @@ function exec_ogp_module() {
 	echo "</table>\n";
 	$count_logs = $db->get_logger_count($search_field);
 	
-	if(isset($_GET['search']) && !empty($_GET['search'])){
-	$uri = '?m=administration&p=watch_logger&search='.$_GET['search'].'&limit='.$l.'&page=';
-	}
-	else{
-	$uri = '?m=administration&p=watch_logger&limit='.$l.'&page=';
+	if (isset($_GET['search']) && !empty($_GET['search'])) {
+		$uri = '?m=administration&p=watch_logger&search='.$_GET['search'].'&limit='.$l.'&page=';
+	} else {
+		$uri = '?m=administration&p=watch_logger&limit='.$l.'&page=';
 	}
 	echo paginationPages($count_logs[0]['total'], $p, $l, $uri, 3, 'watchLogger');
 }
