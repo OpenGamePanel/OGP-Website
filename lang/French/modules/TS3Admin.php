@@ -105,7 +105,7 @@ define('vsoverview_conn_total_packets', "paquets");
 define('vsoverview_conn_total_bytes', "octets");
 define('vsoverview_conn_total_send', "envoyés");
 define('vsoverview_conn_total_received', "reçus");
-define('vsoverview_conn_bandwidth_head', "Bande passane");
+define('vsoverview_conn_bandwidth_head', "Bande passante");
 define('vsoverview_conn_bandwidth_last', "dernière");
 define('vsoverview_conn_bandwidth_second', "seconde");
 define('vsoverview_conn_bandwidth_minute', "minute");
