@@ -203,4 +203,5 @@ define('admin', "Admin");
 define('cid', "CID");
 define('phan', "Phantom");
 define('sec', "Seconds");
+define('unknown_rsync_mirror', "Vous avez tenté de faire une mise à jour à partir d'un miroir qui n'existe pas.");
 ?>

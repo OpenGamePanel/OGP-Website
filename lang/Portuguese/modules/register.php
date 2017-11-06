@@ -48,7 +48,7 @@ define('err_last_name', "Deve especificar o seu Sobrenome.");
 define('err_phone_number', "Número de telefone está vazia.");
 define('err_email_address', "Endereço de e-mail está vazio ou incorreto.");
 define('err_email_address_already_in_use_by', "O e-mail já está em uso por <b>%s</b>.");
-define('user_registration', "Registro de Usuário");
+define('user_registration', "Registo de usuário");
 define('your_account_details_has_been_sent_by_email_to', "Detalhes de sua conta foi enviado por e-mail para <b>%s</b>.");
 define('account_created', "Sua conta foi criada.");
 define('subject', "%s :: Informações da conta");
