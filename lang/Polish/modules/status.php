@@ -25,6 +25,14 @@
 define('system_uptime', "Czas Działania Serwera");
 define('system_up_time', "Uruchomiony Od");
 define('system_up_since', "Uruchomiony");
+define('day_word', "Day");
+define('days_word', "Days");
+define('hour_word', "Hour");
+define('hours_word', "Hours");
+define('minute_word', "Minute");
+define('minutes_word', "Minutes");
+define('second_word', "Second");
+define('seconds_word', "Seconds");
 define('cpu_usage', "Użycie Rdzeni Procesora");
 define('cpu_load', "Użycie");
 define('ram_usage', "Wykorzystanie Pamięci");

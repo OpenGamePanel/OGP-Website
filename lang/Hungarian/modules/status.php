@@ -25,6 +25,14 @@
 define('system_uptime', "Rendszer üzemidő");
 define('system_up_time', "Újraindítás óta eltelt idő");
 define('system_up_since', "Mióta");
+define('day_word', "Day");
+define('days_word', "Days");
+define('hour_word', "Hour");
+define('hours_word', "Hours");
+define('minute_word', "Minute");
+define('minutes_word', "Minutes");
+define('second_word', "Second");
+define('seconds_word', "Seconds");
 define('cpu_usage', "Processor használat");
 define('cpu_load', "terhelése");
 define('ram_usage', "Memória használat");
