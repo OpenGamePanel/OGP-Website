@@ -313,7 +313,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	function lgsl_software_link($type, $ip, $c_port, $q_port, $s_port)
 	{
 		$lgsl_software_link = array(
-		"7dtd"			=> "steam://connect/{IP}:{S_PORT}",
+		"7dtd"			=> "steam://connect/{IP}:{Q_PORT}",
 		"aarmy"			=> "qtracker://{IP}:{S_PORT}?game=ArmyOperations&action=show",
 		"aarmy3"		=> "qtracker://{IP}:{S_PORT}?game=AmericasArmy3&action=show",
 		"aliensvspredator"	=> "steam://connect/{IP}:{Q_PORT}",

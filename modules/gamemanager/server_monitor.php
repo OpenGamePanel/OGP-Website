@@ -327,7 +327,7 @@ function exec_ogp_module() {
 			if ( preg_match("/f/",$server_home['access_rights']) > 0 && $litefm_installed )
 			{
 				$lite_fm = "<a class='monitorbutton' href='?m=litefm&amp;home_id=".$server_home['home_id']."'>
-					<img src='" . check_theme_image("images/txt.png") . "' title='". file_manager ."'>
+					<img src='" . check_theme_image("images/filemanager.png") . "' title='". file_manager ."'>
 					<span>". file_manager ."</span>
 				</a>";
 			}
@@ -433,7 +433,7 @@ function exec_ogp_module() {
 
 				if ($db->isModuleInstalled("editconfigfiles") && !empty($server_xml->configuration_files)) {
 					$manager .= "<a href=\"?m=editconfigfiles&home_id=".(int)$server_home['home_id']."\" class=\"monitorbutton\">
-									<img src='" . check_theme_image("images/txt.png") . "' title='". edit_configuration_files ."'>
+									<img src='" . check_theme_image("images/editconfig.png") . "' title='". edit_configuration_files ."'>
 									<span>". edit_configuration_files ."</span>
 					</a>";
 				}

@@ -80,7 +80,7 @@ define('header_code_info', "Здесь вы можете написать соб
 define('support_widget_title', "Название виджета поддержки");
 define('support_widget_title_info', "Пользовательский заголовок для виджета поддержки в панели.");
 define('support_widget_content', "Содержимое виджета поддержки");
-define('support_widget_content_info', "The content of the support widget (HTML code allowed).");
+define('support_widget_content_info', "Содержимое виджета поддержки  (HTML-код разрешено использовать).");
 define('support_widget_link', "Ссылка на виджет поддержки");
 define('support_widget_link_info', "URL вашего сайта поддержки.");
 define('recaptcha_site_key', "Ключ - Recaptcha Site Key");

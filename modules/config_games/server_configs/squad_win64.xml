@@ -71,4 +71,11 @@
   <post_install>
     sed -i '4s/IP/Ip/g' Squad/ServerConfig/Rcon.cfg
   </post_install>
+  <configuration_files>
+    <file description="Server Configurations">Squad/ServerConfig/Server.cfg</file>
+    <file description="RCON Configurations">Squad/ServerConfig/Rcon.cfg</file>
+    <file description="Admin Configurations">Squad/ServerConfig/Admins.cfg</file>
+    <file description="Map Rotation Configurations">Squad/ServerConfig/MapRotation.cfg</file>
+    <file description="Server Messages Configurations">Squad/ServerConfig/ServerMessages.cfg</file>
+  </configuration_files>
 </game_config>

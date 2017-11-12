@@ -49,23 +49,35 @@
     </param>
   </server_params>
   <custom_fields>
-    <field key="VAC Secured" type="select">
-      <option value="True">True</option>
-      <option value="False">False</option>
-      <default>bVAC=.*</default>
-      <default_value>True</default_value>
-      <var>bVAC=</var>
-      <filepath>GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</filepath>
-      <desc>Allow or disallow any VAC banned players from joining.</desc>
-    </field>
     <field key="Cheat Detection" type="select">
-      <option value="True">True</option>
       <option value="False">False</option>
+      <option value="True">True</option>
       <default>bEnableCheatDetection=.*</default>
       <default_value>False</default_value>
       <var>bEnableCheatDetection=</var>
       <filepath>GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</filepath>
       <desc>Enable/Disable cheat detection.</desc>
     </field>
+    <field key="VAC Secured" type="select">
+      <option value="False">False</option>
+      <option value="True">True</option>
+      <default>bVAC=.*</default>
+      <default_value>True</default_value>
+      <var>bVAC=</var>
+      <filepath>GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</filepath>
+      <desc>Allow or disallow any VAC banned players from joining.</desc>
+    </field>
   </custom_fields>
+  <post_install>
+    if [ -d "GCGame/Config/DedicatedProfile_DefaultProfile" ]
+      then
+        echo "DedicatedProfile_DefaultProfile found. OK!"
+      else
+        echo "DedicatedProfile_DefaultProfile not found."
+        echo "You need to run DedicatedServer.exe server tool first and create DedicatedProfile_DefaultProfile!"
+    fi
+</post_install>
+  <configuration_files>
+    <file description="Server Configurations">GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</file>
+  </configuration_files>
 </game_config>

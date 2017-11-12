@@ -208,16 +208,6 @@ function exec_ogp_module() {
 		
 		$exec_folder_path = clean_path($home_info['home_path'] . "/" . $server_xml->exe_location );
 		$exec_path = clean_path($exec_folder_path . "/" . $server_xml->server_exec_name );
-
-		$url_id = (isset($_POST['url_id']) && (int)$_POST['url_id'] > 0 ? (int)$_POST['url_id'] -1 : null);
-		if (!is_null($url_id) && array_key_exists($url_id, $rsync_sites)) {
-			$urlArr = explode('|', $rsync_sites[$url_id]);
-			$url = $urlArr[0] . "/ogp_game_installer/$lgslname/$os/";
-		} else {
-			print_failure(get_lang('unknown_rsync_mirror'));
-			$view->refresh('?m=gamemanager&p=game_monitor');
-			return;
-		}
 		
 		if( isset( $_REQUEST['master_server_home_id'] ) )
 		{
@@ -246,6 +236,16 @@ function exec_ogp_module() {
 		}
 		else
 		{
+			$url_id = (isset($_POST['url_id']) && (int)$_POST['url_id'] > 0 ? (int)$_POST['url_id'] -1 : null);
+			if (!is_null($url_id) && array_key_exists($url_id, $rsync_sites)) {
+				$urlArr = explode('|', $rsync_sites[$url_id]);
+				$url = $urlArr[0] . "/ogp_game_installer/$lgslname/$os/";
+			} else {
+				print_failure(get_lang('unknown_rsync_mirror'));
+				$view->refresh('?m=gamemanager&p=game_monitor');
+				return;
+			}
+
 			print_success(get_lang_f("starting_sync_with", $url));
 			
 			// Additional files to lock
