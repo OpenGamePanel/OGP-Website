@@ -768,4 +768,14 @@ function endsWith($haystack, $needle) {
 	// search forward starting from end minus needle length characters
 	return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
 }
+
+// Super ingenious function from https://stackoverflow.com/questions/5519630/php-preg-replace-x-occurence#answer-17047405
+function preg_replace_nth($pattern, $replacement, $subject, $nth=1) {
+    return preg_replace_callback($pattern,
+        function($found) use (&$pattern, &$replacement, &$nth) {
+                $nth--;
+                if ($nth==0) return preg_replace($pattern, $replacement, reset($found) );
+                return reset($found);
+        }, $subject,$nth);
+}
 ?>
