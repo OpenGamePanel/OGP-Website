@@ -25,6 +25,14 @@
 define('system_uptime', "Время работы системы");
 define('system_up_time', "Работает");
 define('system_up_since', "Запущен");
+define('day_word', "Day");
+define('days_word', "Days");
+define('hour_word', "Hour");
+define('hours_word', "Hours");
+define('minute_word', "Minute");
+define('minutes_word', "Minutes");
+define('second_word', "Second");
+define('seconds_word', "Seconds");
 define('cpu_usage', "Использование процессора");
 define('cpu_load', "Нагрузка");
 define('ram_usage', "Использование ОЗУ");

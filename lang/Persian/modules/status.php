@@ -25,6 +25,14 @@
 define('system_uptime', "آپتایم سیستم");
 define('system_up_time', "آپتایم");
 define('system_up_since', "از");
+define('day_word', "Day");
+define('days_word', "Days");
+define('hour_word', "Hour");
+define('hours_word', "Hours");
+define('minute_word', "Minute");
+define('minutes_word', "Minutes");
+define('second_word', "Second");
+define('seconds_word', "Seconds");
 define('cpu_usage', "مصرف پردازنده");
 define('cpu_load', "بارگذاری");
 define('ram_usage', "مصرف RAM");

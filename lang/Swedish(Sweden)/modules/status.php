@@ -25,6 +25,14 @@
 define('system_uptime', "System Uptime");
 define('system_up_time', "Up Time");
 define('system_up_since', "Since");
+define('day_word', "Day");
+define('days_word', "Days");
+define('hour_word', "Hour");
+define('hours_word', "Hours");
+define('minute_word', "Minute");
+define('minutes_word', "Minutes");
+define('second_word', "Second");
+define('seconds_word', "Seconds");
 define('cpu_usage', "CPU Usage");
 define('cpu_load', "Load");
 define('ram_usage', "RAM Usage");
