@@ -203,5 +203,5 @@ define('admin', "Administrador");
 define('cid', "CID");
 define('phan', "Fantasma");
 define('sec', "Segundos");
-define('unknown_rsync_mirror', "You attempted to start an update from a mirror which doesn't exist.");
+define('unknown_rsync_mirror', "Você tentou iniciar uma actualização de um destino que não existe.");
 ?>
