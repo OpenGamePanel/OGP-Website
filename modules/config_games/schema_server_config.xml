@@ -115,7 +115,6 @@
       <xs:element name="var" type="xs:string" />
       <xs:element name="filepath" type="xs:string" />
       <xs:element name="options" type="xs:string" />
-      <xs:element name="occurrence" type="xs:string" minOccurs="0" />
     </xs:choice>
     <xs:attribute name="key" type="xs:string" />
   </xs:complexType>
