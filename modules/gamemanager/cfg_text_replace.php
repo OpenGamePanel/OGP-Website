@@ -71,6 +71,8 @@ if($replace_texts)
 				$replacements[$replace_id]['filepath'] = (string)$value;
 			if ($key == "options")
 				$replacements[$replace_id]['options'] = (string)$value;
+			if ($key == "occurrence")
+				$replacements[$replace_id]['occurrence'] = (string)$value;
 		}
 		$replace_id++;
 	}
@@ -99,6 +101,8 @@ if($fields)
 				$replacements[$replace_id]['filepath'] = (string)$value;
 			if ($key == "options")
 				$replacements[$replace_id]['options'] = (string)$value;
+			if ($key == "occurrence")
+				$replacements[$replace_id]['occurrence'] = (string)$value;
 		}
 		$replace_id++;
 	}

@@ -202,6 +202,7 @@
       <xs:element name="var" type="xs:string" />
       <xs:element name="filepath" type="xs:string" />
       <xs:element name="options" type="xs:string" />
+      <xs:element name="occurrence" type="xs:string" minOccurs="0" />
       <xs:element name="desc" type="xs:string" maxOccurs="1" />
     </xs:choice>
     <xs:attribute name="id" type="xs:string" />
