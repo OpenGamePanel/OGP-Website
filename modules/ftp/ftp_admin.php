@@ -32,12 +32,25 @@ function exec_ogp_module()
 	
 	if(isset($_POST['add_ftp_user']))
 	{
+		$success = true;
 		$server_row = $db->getRemoteServer($_POST['remote_server_id']);
 		$remote = new OGPRemoteLibrary($server_row['agent_ip'],$server_row['agent_port'],$server_row['encryption_key'],$server_row['timeout']);
-		$post_ftp_login = strip_real_escape_string($_POST['ftp_login']);
+		$post_ftp_login = strip_real_escape_string($_POST['ftp_login']);		
 		$post_ftp_password = strip_real_escape_string($_POST['ftp_password']);
 		$post_full_path = strip_real_escape_string($_POST['full_path']);
 		$host_stat = $remote->status_chk();
+		
+		// Validation
+		if(strlen($post_ftp_login) > 20){
+			print_failure( ftp_account_username_too_long );
+			$success = false;
+		}
+		
+		if(strlen($post_ftp_password) > 20){
+			print_failure( ftp_account_password_too_long );
+			$success = false;
+		}
+		
 		$ftp_accounts_list = $remote->ftp_mgr("list");
 		$ftp_accounts = explode("\n",$ftp_accounts_list);
 		$user_exists = FALSE;
@@ -54,13 +67,15 @@ function exec_ogp_module()
 				}
 			}
 		}
+		
 		if( $user_exists === TRUE )
 		{
 			print_failure( ftp_account_already_exists );
 		}
 		else
 		{
-			$remote->ftp_mgr("useradd", $post_ftp_login, $post_ftp_password, $post_full_path);
+			if($success)
+				$remote->ftp_mgr("useradd", $post_ftp_login, $post_ftp_password, $post_full_path);
 		}
 	}
 

@@ -127,10 +127,17 @@ function exec_ogp_module()
 					return;
 				}
 				
+				// Validation
+				
 				// Is the same user old and new?
 				if($old_login == $post_ftp_login)
 				{
 					echo json_encode(array('result' => 'success', 'info' => ''));
+					return;
+				}
+				
+				if(strlen($post_ftp_login) > 20){
+					echo json_encode(array('result' => 'failure', 'info' => ftp_account_username_too_long));
 					return;
 				}
 					
@@ -215,10 +222,17 @@ function exec_ogp_module()
 					return;
 				}
 				
+				// Validation
+				
 				// Is the same password old and new?
 				if($home_info['ftp_password'] == $ftp_password)
 				{
 					echo json_encode(array('result' => 'success', 'info' => ''));
+					return;
+				}
+				
+				if(strlen($ftp_password) > 20){
+					echo json_encode(array('result' => 'failure', 'info' => ftp_account_password_too_long));
 					return;
 				}
 				
@@ -308,17 +322,27 @@ function exec_ogp_module()
 		if( isset( $_REQUEST['create_ftp']) )
 		{
 			$login = isset($home_info['ftp_login']) ? $home_info['ftp_login'] : $home_id;
-			if ($remote->ftp_mgr("useradd", $login, $home_info['ftp_password'], $home_info['home_path']) === 0)
-			{
-				$result = error_ocurred_on_remote_server ." ". ftp_can_not_be_switched_on;
+			
+			$success = true;
+			if(strlen($login) > 20){
+				$result = ftp_account_username_too_long;
 				$type = "failure";
+				$success = false;
 			}
-			else
-			{
-				$db->changeFtpStatus('enabled',$home_id);
-				$result = successfully_changed_game_server;
-				$type = "success";
-				$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_ftp_account_status .":enabled");
+			
+			if($success){
+				if ($remote->ftp_mgr("useradd", $login, $home_info['ftp_password'], $home_info['home_path']) === 0)
+				{
+					$result = error_ocurred_on_remote_server ." ". ftp_can_not_be_switched_on;
+					$type = "failure";
+				}
+				else
+				{
+					$db->changeFtpStatus('enabled',$home_id);
+					$result = successfully_changed_game_server;
+					$type = "success";
+					$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_ftp_account_status .":enabled");
+				}
 			}
 		}
 		else if( isset( $_REQUEST['delete_ftp']) )
