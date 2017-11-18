@@ -443,6 +443,10 @@ function exec_ogp_module()
 			{
 				if ( $db->changeHomePath($home_id,clean_path($home_path)) === TRUE )
 				{
+					// Create new home directory if it doesn't already exist
+					$remote->exec("mkdir -p " . clean_path($home_path));
+					
+					// If FTP is enabled, update the FTP info.
 					if($ftp_installed){
 						if ($db->IsFtpEnabled($home_id))
 						{

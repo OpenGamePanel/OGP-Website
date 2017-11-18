@@ -105,21 +105,29 @@ function exec_ogp_module()
 			$game_path = "/home/".$ogp_user."/OGP_User_Files/";
 			if ( ( $new_home_id = $db->addGameHome($rserver_id,$web_user_id,$home_cfg_id,
 				clean_path($game_path),$server_name,$control_password,$ftppassword) )!== FALSE )
-			{
-				$db->assignHomeTo("user",$web_user_id,$new_home_id,$access_rights);
-				if($ftp)
-				{
+			{				
+				$success = $db->assignHomeTo("user",$web_user_id,$new_home_id,$access_rights);
+				if($success){
 					$home_info = $db->getGameHomeWithoutMods($new_home_id);
 					require_once('includes/lib_remote.php');
 					$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
-					$host_stat = $remote->status_chk();
-					if( $host_stat === 1)
-						$remote->ftp_mgr("useradd", $home_info['home_id'], $home_info['ftp_password'], $home_info['home_path']);
-					$db->changeFtpStatus('enabled',$new_home_id);
+					
+					// Create new home directory if it doesn't already exist
+					$remote->exec("mkdir -p " . clean_path($game_path) . $new_home_id);
+					
+					if($ftp)
+					{
+						$host_stat = $remote->status_chk();
+						if( $host_stat === 1)
+							$remote->ftp_mgr("useradd", $home_info['home_id'], $home_info['ftp_password'], $home_info['home_path']);
+						$db->changeFtpStatus('enabled',$new_home_id);
+					}
+					print_success(get_lang('game_home_added'));
+					$db->logger(get_lang('game_home_added')." ($server_name)");
+					$view->refresh("?m=user_games&amp;p=edit&amp;home_id=$new_home_id", 0);
+				}else{
+					print_failure(get_lang_f("failed_to_assign_home_to_user", $new_home_id, $web_user . " " . $db->getError()));
 				}
-				print_success(get_lang('game_home_added'));
-				$db->logger(get_lang('game_home_added')." ($server_name)");
-				$view->refresh("?m=user_games&amp;p=edit&amp;home_id=$new_home_id", 0);
 			}
 			else
 			{
