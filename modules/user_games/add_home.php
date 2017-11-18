@@ -116,6 +116,8 @@ function exec_ogp_module()
 			if($game_path[strlen($game_path)-1] != "/"){ // Make sure the path ends with forward slash
 				$game_path .= "/";
 			}
+			
+			$game_path = clean_path($game_path); // Clean it
 			// End game path logic
 			
 			if ( ( $new_home_id = $db->addGameHome($rserver_id,$web_user_id,$home_cfg_id,
