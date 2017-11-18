@@ -30,10 +30,12 @@ function create_selection($selection,$flag)
 }
 function exec_ogp_module()
 {
-	global $db;
+	global $db, $settings;
 	global $view;
 	echo "<h2>".get_lang('add_new_game_home')."</h2>";
 	echo "<p><a href='?m=user_games'>&lt;&lt; ".get_lang('back_to_game_servers')."</a></p>";
+
+	$default_home_dir = $settings["default_game_server_home_path_prefix"];
 
 	$remote_servers = $db->getRemoteServers();
 	if( $remote_servers === FALSE )
@@ -102,7 +104,20 @@ function exec_ogp_module()
 				if($user['user_id'] == $web_user_id) $web_user = $user['users_login'];
 			}
 			$ftppassword = genRandomString(8);
-			$game_path = "/home/".$ogp_user."/OGP_User_Files/";
+			
+			// Game path logic
+			$game_path = "/home/".$ogp_user."/OGP_User_Files/"; // Default
+	
+			if(hasValue($default_home_dir)){
+				$game_path = $default_home_dir;			
+				$game_path = str_replace("{USERNAME}", $web_user,  $game_path); // Replace some user supported variables with actual value.
+			}
+			
+			if($game_path[strlen($game_path)-1] != "/"){ // Make sure the path ends with forward slash
+				$game_path .= "/";
+			}
+			// End game path logic
+			
 			if ( ( $new_home_id = $db->addGameHome($rserver_id,$web_user_id,$home_cfg_id,
 				clean_path($game_path),$server_name,$control_password,$ftppassword) )!== FALSE )
 			{				
