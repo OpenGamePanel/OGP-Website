@@ -24,9 +24,10 @@
 
 function exec_ogp_module()
 {
-	global $db;
+	global $db, $settings;
 
 	$home_id = $_REQUEST['home_id'];
+	$default_home_dir = $settings["default_game_server_home_path_prefix"];
 
 	$server_row = $db->getGameHomeWithoutMods($home_id);
 	if ( empty($server_row) )
@@ -45,11 +46,31 @@ function exec_ogp_module()
 	{
 		$server_name = $_POST['new_home_name'];
 		$user_group = $_POST['user_group'];
+		$web_user = $db->getUserById($server_row['user_id_main']);
+		$web_user = $web_user["users_login"];
+		
+		// Game path logic
+		$game_path = "/home/".$server_row['ogp_user']."/OGP_User_Files/"; // Default
+	
+		if(hasValue($default_home_dir)){
+			$game_path = $default_home_dir;			
+			$game_path = str_replace("{USERNAME}", $web_user,  $game_path); // Replace some user supported variables with actual value.
+		}
+			
+		if($game_path[strlen($game_path)-1] != "/"){ // Make sure the path ends with forward slash
+			$game_path .= "/";
+		}
+		
+		$game_path = clean_path($game_path); // Clean it
+		// End game path logic
 
 		$clone_home_id = $db->addGameHome($server_row['remote_server_id'], $server_row['user_id_main'],
-			$server_row['home_cfg_id'], "/home/".$server_row['ogp_user']."/OGP_User_Files/", $server_name, '', genRandomString(8));
+			$server_row['home_cfg_id'], $game_path, $server_name, '', genRandomString(8));
 		
-		$server_path = "/home/".$server_row['ogp_user']."/OGP_User_Files/".$clone_home_id;
+		$server_path = $game_path.$clone_home_id;
+		
+		// Create new home directory if it doesn't already exist
+		$remote->exec("mkdir -p " . $server_path);
 		
 		if ( $clone_home_id === FALSE )
 		{

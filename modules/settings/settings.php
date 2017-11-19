@@ -68,6 +68,7 @@ function exec_ogp_module()
 			"login_attempts_before_banned" => $_REQUEST['login_attempts_before_banned'],
 			"custom_github_update_username" => $_REQUEST['custom_github_update_username'],
 			"show_server_id_game_monitor" => $_REQUEST['show_server_id_game_monitor'],
+			"default_game_server_home_path_prefix" => $_REQUEST['default_game_server_home_path_prefix'],
 		);
 		
 		$db->setSettings($settings);
@@ -164,6 +165,8 @@ function exec_ogp_module()
 	$ft->add_field('string','custom_github_update_username',@$row['custom_github_update_username']);
 	
 	$ft->add_field('on_off','show_server_id_game_monitor',@$row['show_server_id_game_monitor']);
+	
+	$ft->add_field('string','default_game_server_home_path_prefix',@$row['default_game_server_home_path_prefix']);
 	
 	$ft->end_table();
 	$ft->add_button("submit","update_settings",get_lang('update_settings'));
