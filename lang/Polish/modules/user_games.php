@@ -152,6 +152,7 @@ define('select_home', "Strona główna wybrać, aby przypisać");
 define('assign_new_home_to_user', "Przypisywanie do użytkownika Nowy Dom %s");
 define('assign_new_home_to_group', "Przypisz do grupy New Home %s");
 define('assigned_home_to_user', "Pomyślnie przydzielony do domu (ID: %d) do gracza %s.");
+define('failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
 define('assigned_home_to_group', "Pomyślnie przydzielony do domu (ID: %d) do grupy %s.");
 define('unassigned_home_from_user', "Pomyślnie przydzielony do domu (ID: %d) z graczem %s.");
 define('unassigned_home_from_group', "Pomyślnie przydzielony do domu (ID: %d) z grupą %s.");
@@ -217,4 +218,6 @@ define('cpu_affinity_info', "Select the CPU core(s) you want to assign to the ga
 define('expiration_date_changed', "Expiration date for selected home has been changed.");
 define('expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
 define('search', "Search");
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 ?>

@@ -31,4 +31,6 @@ define('full_path', "Teljes útvonal");
 define('add_ftp_account', "Új fiók létrehozása");
 define('remote_server', "Távoli szerver");
 define('server_name', "Szerver neve");
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 ?>

@@ -152,6 +152,7 @@ define('select_home', "Seleccionar Home para asignar");
 define('assign_new_home_to_user', "Asignar nueva Home al usuario %s");
 define('assign_new_home_to_group', "Asignar nueva Home al grupo %s");
 define('assigned_home_to_user', "Asignado el home (ID: %d) al usuario %s.");
+define('failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
 define('assigned_home_to_group', "Asignado el home (ID: %d) al grupo %s.");
 define('unassigned_home_from_user', "Quitado el home (ID: %d) del usuario %s.");
 define('unassigned_home_from_group', "Quitado el home (ID: %d) del grupo %s.");
@@ -217,4 +218,6 @@ define('cpu_affinity_info', "Seleccione los núcleo(s) de CPU que quiera asignar
 define('expiration_date_changed', "Se ha cambiado la fecha de caducidad de la casa seleccionada.");
 define('expiration_date_could_not_be_changed', "La fecha de caducidad para el hogar seleccionado no se puede cambiar.");
 define('search', "Buscar");
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 ?>

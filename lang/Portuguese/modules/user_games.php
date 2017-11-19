@@ -152,6 +152,7 @@ define('select_home', "Selecione Home para atribuir");
 define('assign_new_home_to_user', "Atribuir novo diretório ao usuário %s");
 define('assign_new_home_to_group', "Atribuir novo diretório ao grupo %s");
 define('assigned_home_to_user', "Foi atribuido com sucesso um diretório (ID: %d) ao usuário %s.");
+define('failed_to_assign_home_to_user', "Ocorreu uma falha ao atribuir o directório raiz (ID: %d) ao usuário %s.");
 define('assigned_home_to_group', "Foi atribuido com sucesso um diretório (ID: %d) ao grupo %s.");
 define('unassigned_home_from_user', "Foi retirado com sucesso um diretório (ID: %d) ao usuário %s.");
 define('unassigned_home_from_group', "Foi retirado com sucesso um diretório (ID: %d) ao grupo %s.");
@@ -217,4 +218,6 @@ define('cpu_affinity_info', "Seleccione o(s) núcleos do CPU que deseja atribuir
 define('expiration_date_changed', "A data de validade para o directório seleccionado foi alterada.");
 define('expiration_date_could_not_be_changed', "A data de validade para o directório seleccionado não pôde ser alterado.");
 define('search', "Pesquisar");
+define('ftp_account_username_too_long', "O nome do usuário FTP é demasiado longo. Experimente um nome de usuário mais curto que não contenha mais de 20 caracteres.");
+define('ftp_account_password_too_long', "O nome do usuário FTP é demasiado longo. Experimente um nome de usuário mais curto que não contenha mais de 20 caracteres.");
 ?>
