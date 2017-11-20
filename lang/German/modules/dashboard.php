@@ -24,9 +24,9 @@
 
 define('dashboard_ftp_text', "Der FTP Client kann Dateien komprimieren und via Email versenden sowie dekomprimieren, Textdateien bearbeiten und vieles mehr.");
 define('dashboard_addons_manager_text', "Verwalten Sie alle verschiedenen Arten von Diensten mit OGP. Wählen Sie aus über 115 Servern, die direkt von OGP geliefert werden.");
-define('dashboard_game_monitor_text', "Überwache schnell deine Dienste. Außerdem kannst du sehen, welche Server laufen und welche nicht.");
+define('dashboard_game_monitor_text', "Überwache Traffic und logs. Außerdem kannst du sehen, welche Server laufen und welche nicht.");
 define('dashboard_support_text', "Das OGP Team bietet dir schnelle und professionelle Hilfe im Forum.");
-define('welcome_text', "Wilkommen im Open Game Panel (OGP). Open Game Panel ist ein Open-Source Projekt, welches das Starten, Überwachen und Installieren diverser Gameserver ermöglicht.");
+define('welcome_text', "Willkommen im Open Game Panel (OGP). Open Game Panel ist ein Open-Source Projekt, welches das Starten, Überwachen und Installieren diverser Gameserver ermöglicht.");
 define('any_server_is_online', "Alle Server sind online");
 define('current_map', "Aktuelle Map");
 define('server_ip_port', "IP:Port");
@@ -36,7 +36,7 @@ define('players', "Spieler");
 define('server_status', "Serverstatus");
 define('no_games_to_monitor', "Es gibt derzeit keine Gameserver die online/offline sind");
 define('online_servers', "Server Online");
-define('add_games_in', "Wenn du Spiele hinzufügen möchtest kannst du dies hier tun: %s");
+define('add_games_in', "Wenn du Spiele hinzufügen möchtest, kannst du dies hier tun: %s");
 define('currently_online', "Momentan Online");
 define('game_servers', "Game Server");
 define('select_remote_server', "Entfernten Server auswählen");
