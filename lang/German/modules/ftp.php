@@ -26,11 +26,11 @@ define('pure-ftpd_accounts_for_remote_server_named', "FTP Konten für Remote-Ser
 define('ftp_address', "FTP-Adresse: %s:%s");
 define('change_account_details', "Kontodaten ändern");
 define('remove_account', "Konto entfernen");
-define('ftp_account_already_exists', "Dieser FTP-Account existiert bereits.");
+define('ftp_account_already_exists', "Dieses FTP-Konto existiert bereits.");
 define('full_path', "Vollständiger Pfad");
-define('add_ftp_account', "FTP-Account hinzufügen");
+define('add_ftp_account', "FTP-Konto hinzufügen");
 define('remote_server', "Entfernter Server");
 define('server_name', "Servername");
-define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
-define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('ftp_account_username_too_long', "FTP Benutzername ist zu lang. Versuche einen Benutzernamen, der kürzer als 20 Zeichen ist.");
+define('ftp_account_password_too_long', "FTP Passwort ist zu lang. Versuche ein Passwort, das kürzer als 20 Zeichen ist.");
 ?>

@@ -22,10 +22,10 @@
  *
  */
 
-define('recover', "Passwort wiederherstellen");
+define('recover', "Passwort zurücksetzen");
 define('back', "Zurück");
 define('incomplete', "Bitte gehe zurück und vervollständige alle Formularfelder");
-define('subject', "Fach");
+define('subject', "Passwort zurückgesetzt");
 define('password_message', "Hi,<br>Du oder jemand anderes hat dein Passwort zurückgesetzt.<br><br>Neues Passwort: %s<br>Nachdem du dich mit diesem Passwort eingelogt hast kannst du es ändern.<br><br>Danke!<br>Site admin<br><br>Dies ist eine automatisch generierte eMail, bitte nicht antworten!");
 define('send', "Dein neues Passwort wurde versendet! Bitte überprüfe deine eMail's!");
 define('here', "Hier");
@@ -36,7 +36,7 @@ define('click', "Klick");
 define('mail_settings_missing', "Dein Passwort kann nicht gesendet werden da die Panel Mail Einstellungen nicht vollständig sind. Bitte kontaktiere den Administrator.");
 define('mail_failed', "Email senden fehlgeschlagen.");
 define('email', "Email-Adresse");
-define('enter_email', "Bitte fühge dein Email-Adresse ein");
+define('enter_email', "Bitte füge dein Email-Adresse ein");
 define('webmaster', "Webmaster");
 define('confirm_send', "Aus Sicherheitsgründen haben wir Ihnen einen Bestätigungs-Link gesendet, bevor Sie Ihr Passwort zurücksetzen.<br><b style='color:red;'>Bitte prüfen Sie Ihren Posteingang.</b>");
 define('confirm_change_subject', "Bestätigungsemail Passwort-Änderung");

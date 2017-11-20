@@ -24,7 +24,7 @@
 
 include 'update.php';
 define('unable_download', "Download von %s nicht möglich.");
-define('md5_failed', "MD5 test für %s fehlgeschlagen, versuchen Sie es erneut.");
+define('md5_failed', "MD5 Test für %s fehlgeschlagen, versuchen Sie es erneut.");
 define('uninstall', "Deinstallieren");
 define('install', "Installieren");
 define('uptodate', "Auf dem neuesten Stand");
@@ -38,6 +38,6 @@ define('remove_files_for', "Möchten Sie alle Dateien entfernen");
 define('confirm', "Bestätigen");
 define('cancel', "Abbrechen");
 define('extra_themes', "Extra Themes");
-define('extra_modules', "Extramodule");
+define('extra_modules', "Extra Module");
 define('search_for_updates', "Nach Updates suchen");
 ?>

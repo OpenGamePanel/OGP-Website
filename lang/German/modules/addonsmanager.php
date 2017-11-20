@@ -22,19 +22,19 @@
  *
  */
 
-define('install_plugin', "Installiere Plugin");
-define('install_mappack', "Installiere MapPack");
-define('install_config', "Installiere Config");
+define('install_plugin', "Installiere Plugins");
+define('install_mappack', "Installiere Maps");
+define('install_config', "Installiere Configs");
 define('game_name', "Spielname");
 define('directory', "Ordner-Pfad");
-define('remote_server', "Entfernter Server");
+define('remote_server', "Remote Server");
 define('select_addon', "Wähle Addon");
 define('install', "Installieren");
 define('failed_to_start_file_download', "Konnte Datei-Download nicht starten.");
 define('no_games_servers_available', "In deinem Account sind keine Gameserver verfügbar.");
 define('addon_installed_successfully', "Addon erfolgreich installiert");
 define('path', "Pfad");
-define('wait_while_decompressing', "Warten Sie, während die Datei %s dekomprimiert.");
+define('wait_while_decompressing', "Warten Sie, während die Datei %s dekomprimiert wird.");
 define('addon_name', "Addonname");
 define('url', "URL");
 define('select_game_type', "Wähle Game Typ");
@@ -49,7 +49,7 @@ define('show_addons_for_selected_game', "Zeige Addons für selektiertes Game");
 define('linux_games', "Linux Spiele: ");
 define('windows_games', "Windows Spiele: ");
 define('create_addon', "Erstelle Addon");
-define('addons_db', "Addons Datenbank");
+define('addons_db', "Addon Datenbank");
 define('addon_has_been_created', "Das Addon %s wurde erstellt.");
 define('remove_addon', "Entferne Addon");
 define('fill_the_url_address_to_a_compressed_file', "Bitte füge eine URL zur komprimierten Datei ein.");
@@ -60,7 +60,7 @@ define('edit_addon', "Addon bearbeiten");
 define('post-script', "Nach-Installationsscript (bash)");
 define('replacements', "Ersatz:");
 define('addon_name_info', "Geben Sie einen Namen für diesen addon ein, das ist der Name, den der Benutzer sieht.");
-define('url_info', "Bitte geben Sie eine Webadresse, die die zu herunterladende Datei enthält, ein. Wenn sich die Datei im zip oder tar.gz-Format befindet wird sie im Hauptverzeichnis oder im eingegebenen Pfad entpackt.");
+define('url_info', "Bitte geben Sie eine Webadresse, die die zu herunterladende Datei enthält, ein. Wenn sich die Datei im zip oder tar.gz-Format befindet wird sie im Hauptverzeichnis des Servers oder im eingegebenen Pfad entpackt.");
 define('path_info', "Der Pfad muss relativ zum Serverordner liegen und am Anfang oder Ende keine Schrägstriche enthalten, zB: cstrike/cfg. Wenn er leer ist, wird der Stammpfad verwendet.");
-define('post-script_info', "Geben Sie Bash-Code ein. Dieser wird als Script ausgeführt. Sie können Textersetzungen verwenden um die Installation zu personalisieren. Die Textersetzungen werden mit Daten vom Server ersetzt auf dem das Addon installiert wird. Das Script startet vom Hauptverzeichnis des entsprechenden Servers oder einem eingegebenen Pfad.");
+define('post-script_info', "Geben Sie Bash-Code ein, welcher als Script ausgeführt wird. Sie können Textersetzungen verwenden um die Installation zu personalisieren. Die Textersetzungen werden mit Daten vom Server ersetzt auf dem das Addon installiert wird. Das Script startet vom Hauptverzeichnis des entsprechenden Servers oder einem eingegebenen Pfad.");
 ?>
