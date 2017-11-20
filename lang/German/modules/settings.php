@@ -23,7 +23,7 @@
  */
 
 define('maintenance_mode', "Wartungsmodus");
-define('maintenance_mode_info', "Disable the Panel for normal users. Only administrators can access it during maintenance.");
+define('maintenance_mode_info', "Deaktiviert das Panel für Normale Benutzer. Nur Administratoren können während der Wartung darauf zugreifen.");
 define('maintenance_title', "Wartungsmodus Titel");
 define('maintenance_title_info', "Der Titel, der während der Wartung für normale Benutzer angezeigt wird.");
 define('maintenance_message', "Wartungsmodus Nachricht");
@@ -31,8 +31,8 @@ define('maintenance_message_info', "Die Meldung, die normale Benutzer während d
 define('update_settings', "Einstellungen speichern");
 define('settings_updated', "Einstellungen erfolgreich aktualisiert.");
 define('panel_language', "Panel Sprache");
-define('panel_language_info', "This language is the default language of the panel. Users can change their own language from their profile editing page.");
-define('page_auto_refresh', "Page Auto Refresh");
+define('panel_language_info', "Diese Sprache ist die Standart Sprache des Panels. Benutzer können Ihre eigene Sprache in Ihren Profil Einstellungen ändern.");
+define('page_auto_refresh', "Seite automatisch neuladen");
 define('page_auto_refresh_info', "Page Auto Refresh settings is mainly used in panel debugging. In normal usage this should be set to On.");
 define('smtp_server', "Ausgehender E-Mail Server");
 define('smtp_server_info', "This is the outgoing mail server (SMTP server) that is used, for example, to sent forgotten passwords to users, localhost by default.");
@@ -130,4 +130,6 @@ define('bg_wrapper', "Wrapper Hintergrund");
 define('bg_wrapper_info', "The wrappers background image. <b style='font-size:10px; font-weight:normal;'>(Only available on some themes.)</b>");
 define('show_server_id_game_monitor', "Show Server IDs on Game Monitor page");
 define('show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
+define('default_game_server_home_path_prefix', "Default game server home directory prefix");
+define('default_game_server_home_path_prefix_info', "Enter a path prefix for where you want game server homes to be created by default. You can use \"{USERNAME}\" in the path which will be replaced with the OGP username the game server is being assigned to.  Example: /ogp/games/{USERNAME} will become /ogp/games/username/1 where 1 is the game servers ID.  Example 2:  /ogp/games will become /ogp/games/1 where 1 is the game servers ID.");
 ?>
