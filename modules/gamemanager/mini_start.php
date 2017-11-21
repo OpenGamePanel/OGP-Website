@@ -405,7 +405,20 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 			foreach($server_xml->server_params->param as $param)
 			{		
 				foreach ( $_REQUEST['params'] as $paramKey => $paramValue )
-				{
+				{	
+					// Dependency fields...				
+					if(stripos($paramKey, "{DEPENDS") !== false){
+						$dependsSection = strrpos($paramKey, "{DEPENDS");
+						$realKey = substr($paramKey, 0, $dependsSection);
+						$dependsSection = substr($paramKey, $dependsSection);
+						$dependsKey = str_replace("{DEPENDS:", "", $dependsSection);
+						$dependsKey = str_replace("}", "", $dependsKey);
+						if(hasValue($_REQUEST['params'][$dependsKey])){
+							$paramValue .= $_REQUEST['params'][$dependsKey];
+						}
+						$paramKey = $realKey;
+					}
+					
 					if ($param['key'] == $paramKey)
 					{
 						if (0 == strlen($paramValue))
@@ -442,6 +455,8 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 						{
 							$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
 						}
+						
+						break; // More efficient
 					}			  
 				}
 				
