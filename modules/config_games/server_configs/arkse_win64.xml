@@ -81,8 +81,8 @@
       <options>ns</options>
       <desc>Unique identifier of your Cluster.</desc>
     </param>
-    <param key="-ClusterDirOverride=" type="text" id="CDO">
-      <default>{OGP_HOME_DIR}/ShooterGame/Saved</default>
+    <param key="-ClusterDirOverride=" type="other_game_server_path_additional" id="CDO">
+      <default></default>
       <options>ns</options>
       <desc>Specify a common cross-server storage location that functions between multiple servers running on the same machine.</desc>
     </param>
