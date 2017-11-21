@@ -2377,7 +2377,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getGameServersWithSamePath($remote_id, $home_path){
 		$query = sprintf('SELECT * FROM `%1$sserver_homes` 
-			WHERE `home_path` LIKE \'%%2$s%\' AND remote_server_id = \'%3$d\';',
+			WHERE `home_path` LIKE \'%%%2$s%%\' AND remote_server_id = \'%3$d\';',
 			$this->table_prefix,
 			mysqli_real_escape_string($this->link,$home_path),
 			mysqli_real_escape_string($this->link,$remote_id));
