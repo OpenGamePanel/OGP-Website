@@ -104,7 +104,6 @@ $install_queries[6] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` ADD `server_expiration_date` VARCHAR(21) NOT NULL default 'X';");
 
 $install_queries[7] = array(
-	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` drop index `remote_server_id`;",
-	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` drop index `home_path`;"
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` drop index `remote_server_id`;"
 	);
 ?>
