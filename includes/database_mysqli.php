@@ -2375,6 +2375,28 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $game_home;
 	}
 	
+	public function getGameServersWithSamePath($remote_id, $home_path){
+		$query = sprintf('SELECT * FROM `%1$sserver_homes` 
+			WHERE `home_path` LIKE \'%%2$s%\' AND remote_server_id = \'%3$d\';',
+			$this->table_prefix,
+			mysqli_real_escape_string($this->link,$home_path),
+			mysqli_real_escape_string($this->link,$remote_id));
+		++$this->queries_;
+		$result = mysqli_query($this->link,$query);
+		if ( mysqli_num_rows($result) > 0 ){
+			while ($row = mysqli_fetch_assoc($result))
+			{
+				$servers[] = $row;
+			}
+		}
+
+		if(isset($servers) && is_array($servers)){
+			return $servers;
+		}
+	
+		return false;
+	}
+	
 	public function getGameHomeWithoutMods($home_id) {
 		$query = sprintf('SELECT *
 			FROM `%1$sremote_servers` 

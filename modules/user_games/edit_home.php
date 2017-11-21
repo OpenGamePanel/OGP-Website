@@ -41,6 +41,9 @@ function exec_ogp_module()
 	$submit = isset($_REQUEST['submit']) ? $_REQUEST['submit'] : "";
 
 	$home_info = $db->getGameHomeWithoutMods($home_id);
+	$servers_with_same_path = $db->getGameServersWithSamePath($home_info['remote_server_id'], $home_info['home_path']); 
+	$servers_with_same_path = (is_array($servers_with_same_path) ? count($servers_with_same_path) : 0);
+	
 	$home_id = $home_info['home_id'];
 	$enabled_mods = $db->getHomeMods($home_id);
 
@@ -672,7 +675,11 @@ function exec_ogp_module()
 			 "<input type='text' size='30' name='home_path' value=\"".str_replace('"', "&quot;", $home_info['home_path'])."\" />".
 			 "<input type='submit' name='change_home' value='". change_home ."' id='change_home_path' />".
 			 "</form><button data-path=\"".str_replace('"', "&quot;", $home_info['home_path'])."\" data-home-id='".$home_id."' id='browse'>".
-			  browse ."</button></td></tr>".
+			  browse ."</button>";
+			  if($servers_with_same_path > 0){
+				print_failure(get_lang('other_servers_exist_with_path_please_change'));
+			  }
+		echo "</td></tr>".
 			 "<tr><td colspan='2' class='info'>". change_home_info ."</td></tr>";
 		
 		//Jquery path browser dialog
