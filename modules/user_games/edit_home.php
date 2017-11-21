@@ -676,7 +676,7 @@ function exec_ogp_module()
 			 "<input type='submit' name='change_home' value='". change_home ."' id='change_home_path' />".
 			 "</form><button data-path=\"".str_replace('"', "&quot;", $home_info['home_path'])."\" data-home-id='".$home_id."' id='browse'>".
 			  browse ."</button>";
-			  if($servers_with_same_path > 0){
+			  if($servers_with_same_path > 1){
 				print_failure(get_lang('other_servers_exist_with_path_please_change'));
 			  }
 		echo "</td></tr>".
