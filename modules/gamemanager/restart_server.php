@@ -406,7 +406,7 @@ function exec_ogp_module() {
 			$remote_retval = $remote->remote_restart_server($home_id,$ip,$port,$server_xml->control_protocol,
 															$home_info['control_password'],$control_type,$home_info['home_path'],
 															$server_xml->server_exec_name,$run_dir,$start_cmd,
-															$home_info['cpu_affinity'],$home_info['nice'],$preStart,$envVars);
+															$home_info['cpu_affinity'],$home_info['nice'],$preStart,$envVars, $server_xml->game_key);
 			
 			$db->logger(get_lang_f('server_restarted', $home_info['home_name']) . "($ip:$port)");
 				

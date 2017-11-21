@@ -316,7 +316,8 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 														$home_info['mods'][$mod_id]['cpu_affinity'],
 														$home_info['mods'][$mod_id]['nice'],
 														$preStart,
-														$envVars);
+														$envVars,
+														$server_xml->game_key);
 		$db->logger(get_lang_f('server_restarted', $home_info['home_name']) . "($ip:$port)");
 		if ( $remote_retval === -1 )
 			return FALSE;
@@ -374,12 +375,15 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 		
 		$start_retval = $remote->universal_start($home_info['home_id'],
 												 $home_info['home_path'],
-												 $server_xml->server_exec_name, $server_xml->exe_location,
+												 $server_xml->server_exec_name, 
+												 $server_xml->exe_location,
 												 $start_cmd, $port, $ip,
 												 $home_info['mods'][$mod_id]['cpu_affinity'],
 												 $home_info['mods'][$mod_id]['nice'],
 												 $preStart,
-												 $envVars);
+												 $envVars,
+												 $server_xml->game_key
+												 );
 		$db->logger(get_lang('server_started') . " (".$home_info['home_name']." $ip:$port)");
 		if( $start_retval == AGENT_ERROR_NOT_EXECUTABLE or $start_retval <= 0)
 			return FALSE;
