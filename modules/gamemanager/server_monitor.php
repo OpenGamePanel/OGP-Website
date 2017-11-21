@@ -61,7 +61,7 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 		$homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:other_game_server_path_additional}]'" . $disabledString . ">";
 		foreach($homes as $home){
-			if(stripos($home["home_path"] . "/", $paramValue) !== false){
+			if(stripos($paramValue, $home["home_path"] . "/") !== false){
 				$selectedString = "selected='selected'";
 				$selectedHome = $home["home_path"] . "/";
 			}else{
@@ -71,7 +71,7 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 		}
 		$inputElementString .="</select>";
 		if($paramType == "other_game_server_path_additional"){
-			$inputElementString .="<input type='text' value='" . (stripos($selectedHome, $paramValue) !== false ? substr($paramValue, strlen($selectedHome)) : "") . "' name='params[other_game_server_path_additional]'>";
+			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : "") . "' name='params[other_game_server_path_additional]'>";
 		}
 	}else{
 			if ($paramType == "checkbox_key_value") {
