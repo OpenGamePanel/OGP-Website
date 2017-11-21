@@ -677,7 +677,7 @@ function exec_ogp_module()
 			 "</form><button data-path=\"".str_replace('"', "&quot;", $home_info['home_path'])."\" data-home-id='".$home_id."' id='browse'>".
 			  browse ."</button>";
 			  if($servers_with_same_path > 1){
-				print_failure(get_lang('other_servers_exist_with_path_please_change'));
+				print_failure(get_lang('other_servers_exist_with_path_please_change'), "warning");
 			  }
 		echo "</td></tr>".
 			 "<tr><td colspan='2' class='info'>". change_home_info ."</td></tr>";

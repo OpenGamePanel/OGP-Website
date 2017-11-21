@@ -162,6 +162,9 @@ $(document).ready(function() {
 					}
 				}
 				$("#result").html('<p class="'+data.result+'">'+data.info+'</p>');
+				if(data.result == "success"){
+					$("p.warning").remove();
+				}
 			}, "json");
 		}
 	});
