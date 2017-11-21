@@ -130,4 +130,6 @@ define('bg_wrapper', "Image de fond du Panneau");
 define('bg_wrapper_info', "L&apos;image de fond du Panneau. <b style='font-size:10px; font-weight:normal;'>(Pas disponible sur tous les thèmes.)</b>");
 define('show_server_id_game_monitor', "Voir les IDs des Serveurs dans la  Gestion des Serveurs");
 define('show_server_id_game_monitor_info', "Afficher la colonne des IDs des Serveurs dans la page de Gestion des Serveurs qui correspondent aux IDs attribués lors de la création des Serveurs de Jeu.");
+define('default_game_server_home_path_prefix', "Dossier par défaut des serveurs de jeu");
+define('default_game_server_home_path_prefix_info', "Entrer le chemin vers lequel vous voulez que les dossiers des serveurs de jeu soient créés par défaut. Vous pouvez utiliser \"{USERNAME}\" dans le chemin, qui sera remplacé par le nom d'utilisateur OGP pour lequel le serveur sera assigné. Exemple: /ogp/games/{USERNAME} deviendra /ogp/games/username/1 où 1 sera l&apos;ID des serveurs de jeu. Exemple 2: /ogp/games deviendra /ogp/games/1 où 1 sera l&apos;ID des serveurs de jeu.");
 ?>

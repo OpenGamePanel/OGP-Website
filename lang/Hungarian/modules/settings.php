@@ -130,4 +130,6 @@ define('bg_wrapper', "Borítólap háttér");
 define('bg_wrapper_info', "A borítólap háttérképe. (Csak egyes témákban érhető el.)");
 define('show_server_id_game_monitor', "A szerver azonosítók mutatása a Játékfigyelő oldalon");
 define('show_server_id_game_monitor_info', "Mutassa a játékszerver azonosító oszlopát a Játékfigyelőben az Agent által létrehozott fájlok egyeztetéséhez az aktuális játék szerverhez.");
+define('default_game_server_home_path_prefix', "Default game server home directory prefix");
+define('default_game_server_home_path_prefix_info', "Enter a path prefix for where you want game server homes to be created by default. You can use \"{USERNAME}\" in the path which will be replaced with the OGP username the game server is being assigned to.  Example: /ogp/games/{USERNAME} will become /ogp/games/username/1 where 1 is the game servers ID.  Example 2:  /ogp/games will become /ogp/games/1 where 1 is the game servers ID.");
 ?>

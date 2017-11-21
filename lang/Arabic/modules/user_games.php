@@ -152,6 +152,7 @@ define('select_home', "Select Home to Assign");
 define('assign_new_home_to_user', "Assign New Home to user %s");
 define('assign_new_home_to_group', "Assign New Home to group %s");
 define('assigned_home_to_user', "Successfully assigned home (ID: %d) to user %s.");
+define('failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
 define('assigned_home_to_group', "Successfully assigned home (ID: %d) to group %s.");
 define('unassigned_home_from_user', "Successfully unassigned home (ID: %d) from user %s.");
 define('unassigned_home_from_group', "Successfully unassigned home (ID: %d) from group %s.");
@@ -217,4 +218,6 @@ define('cpu_affinity_info', "Select the CPU core(s) you want to assign to the ga
 define('expiration_date_changed', "Expiration date for selected home has been changed.");
 define('expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
 define('search', "Search");
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 ?>

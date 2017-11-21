@@ -31,4 +31,6 @@ define('full_path', "Fulde sti");
 define('add_ftp_account', "Tilføj FTP konto");
 define('remote_server', "Fjern server");
 define('server_name', "Server navn");
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 ?>

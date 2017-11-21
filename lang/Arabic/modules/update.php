@@ -55,5 +55,5 @@ define('no_new_updates', "لا توجد تحديثات جديدة");
 define('module_file_missing', "الدليل مفقود في ملف module.php.");
 define('query_failed', "أخفق تنفيذ طلب البحث");
 define('query_failed_2', "إلى قاعدة البيانات.");
-define('missing_zip_extension', "The php-zip extension is not loaded. Please, enable it to use the Update module.");
+define('missing_zip_extension', "لم يتم تحميل ملحق php-zip. الرجاء تفعيله لتمكينه من استخدام وحدة التحديث.");
 ?>

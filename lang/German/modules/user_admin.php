@@ -29,7 +29,7 @@ define('login_name', "Benutzername");
 define('language', "Sprache");
 define('first_name', "Vorname");
 define('page_limit', "Objekte pro Seite");
-define('page_limit_info', "Number of items shown per page. The number of items cannot be less than 10.");
+define('page_limit_info', "Anzahl der Items die pro Seite angezeigt werden. Die Nummer kann nicht kleiner als 10 sein.");
 define('last_name', "Nachname");
 define('phone_number', "Telefonnummer");
 define('email_address', "E-Mail Adresse");

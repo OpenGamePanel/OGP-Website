@@ -25,16 +25,16 @@
 define('add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
 define('game_servers', "Spielserver ");
 define('game_path', "Game Pfad");
-define('game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
+define('game_path_info', "Der absolute Server Pfad. Beispiel: /home/ogpbot/OGP_User_Files/My_Server");
 define('game_server_name_info', "Servername hilft Benutzern, ihre Server zu identifizieren. ");
 define('control_password', "Control Passwort");
-define('control_password_info', "This password is used for server control, such as RCON password. If the password is empty then other means are used.");
+define('control_password_info', "Dieses Passwort wird für die Serversteuerung verwendet, z. B. für das RCON-Passwort. Wenn das Passwort leer ist, werden andere Mittel verwendet.");
 define('add_game_home', "Game Server hinzufügen");
-define('game_path_empty', "Game path can not be empty.");
+define('game_path_empty', "Game Pfad kann nicht leer sein.");
 define('game_home_added', "Game server added successfully. Redirecting to home edit page.");
 define('failed_to_add_home_to_db', "Failed to add home to database. Error: %s");
-define('caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Caution!</b> The Agent is offline, can not get OS type and architecture,<br> Showing servers for all platforms:");
-define('select_remote_server', "Select Remote Server");
+define('caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Achtung!</b> Der Agent ist offline, kann keinen OS-Typ und keine Architektur erhalten, <br>Server für alle Plattformen anzeigen:");
+define('select_remote_server', "Auswählen des Remoteservers");
 define('no_remote_servers_configured', "No remote servers configured to the Open Game Panel.<br>You need to add remote servers before you can add servers for the users.");
 define('no_game_configurations_found', "No game configuration found. You need to add game configurations from the");
 define('game_configurations', ">Spiele Konfigurationsseite");
@@ -152,6 +152,7 @@ define('select_home', "Select Home to Assign");
 define('assign_new_home_to_user', "Assign New Home to user %s");
 define('assign_new_home_to_group', "Assign New Home to group %s");
 define('assigned_home_to_user', "Successfully assigned home (ID: %d) to user %s.");
+define('failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
 define('assigned_home_to_group', "Successfully assigned home (ID: %d) to group %s.");
 define('unassigned_home_from_user', "Successfully unassigned home (ID: %d) from user %s.");
 define('unassigned_home_from_group', "Successfully unassigned home (ID: %d) from group %s.");
@@ -217,4 +218,6 @@ define('cpu_affinity_info', "Select the CPU core(s) you want to assign to the ga
 define('expiration_date_changed', "Expiration date for selected home has been changed.");
 define('expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
 define('search', "Search");
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 ?>

@@ -27,7 +27,7 @@ define('configured_remote_hosts', "Entfernter Host konfiguriert");
 define('remote_host', "Entfernter Host");
 define('remote_host_info', "Der entfernte Host muss pingbar sein!");
 define('remote_host_port', "Entfernter Host Port");
-define('remote_host_port_info', "The port that is listened by the OGP Agent on remote host. Default: 12679.");
+define('remote_host_port_info', "Der Port, der vom OGP-Agent auf dem Remote-Host überwacht wird. Standard: 12679.");
 define('remote_host_name', "Entfernter Host Name");
 define('ogp_user', "OGP Agent Username");
 define('remote_host_name_info', "Der entfernte Hostname wird verwendet, um Benutzern zu helfen, ihre Server zu identifizieren.");

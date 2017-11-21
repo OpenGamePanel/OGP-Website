@@ -152,6 +152,7 @@ define('select_home', "Sélectionner un serveur à assigner");
 define('assign_new_home_to_user', "Assigner un nouveau serveur à l'Utilisateur %s");
 define('assign_new_home_to_group', "Assigner un nouveau serveur au Groupe %s");
 define('assigned_home_to_user', "Serveur (ID %d) assigné à l'Utilisateur %s avec succès.");
+define('failed_to_assign_home_to_user', "Impossible d'assigner le serveur (ID: %d) à l'utilisateur %s.");
 define('assigned_home_to_group', "Serveur (ID %d) assigné au Groupe %s avec succès.");
 define('unassigned_home_from_user', "Serveur (ID %d) désassigné de l'Utilisateur %s avec succès.");
 define('unassigned_home_from_group', "Serveur (ID %d) désassigné du Groupe %s avec succès.");
@@ -217,4 +218,6 @@ define('cpu_affinity_info', "Sélectionnez le(s) cœur(s) de CPU à assigner au 
 define('expiration_date_changed', "La date d&apos;expiration pour ce serveur a bien été changée.");
 define('expiration_date_could_not_be_changed', "La date d&apos;expiration pour ce serveur n&apos;a pas pu être changée.");
 define('search', "Rechercher");
+define('ftp_account_username_too_long', "Le nom d'utilisateur FTP est trop long. Veuillez entrer un nom d'utilisateur de 20 caractères maximum.");
+define('ftp_account_password_too_long', "Le mot de passe FTP est trop long. Veuillez entrer un mot de passe de 20 caractères maximum.");
 ?>
