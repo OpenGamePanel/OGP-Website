@@ -57,8 +57,23 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 			$inputElementString .= "<option $selectedString $valueString>$option</option>";
 		}
 		$inputElementString .="</select>";
-	} else
-		{
+	}else if($paramType == "other_game_server_path" || $paramType == "other_game_server_path_additional"){
+		$homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
+		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:other_game_server_path_additional}]'" . $disabledString . ">";
+		foreach($homes as $home){
+			if(stripos($paramValue, $home["home_path"] . "/") !== false){
+				$selectedString = "selected='selected'";
+				$selectedHome = $home["home_path"] . "/";
+			}else{
+				$selectedString = "";
+			}
+			$inputElementString .= '<option value="' . $home["home_path"] . '/" ' . $selectedString . '>' . $home["home_path"] . '/</option>';
+		}
+		$inputElementString .="</select>";
+		if($paramType == "other_game_server_path_additional"){
+			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : "") . "' name='params[other_game_server_path_additional]'>";
+		}
+	}else{
 			if ($paramType == "checkbox_key_value") {
 				if ($paramValue) // convert the XML object to string
 					$attributesString .= "checked='checked' ";
@@ -73,7 +88,7 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 			$inputElementString = "<input $idString $nameString ".
 				"type='$paramType' value=\"".str_replace('"', "&quot;", strip_real_escape_string($paramValue))."\" ".
 				"$disabledString $attributesString/>";
-		}
+	}
 
 	echo "<tr><td class='right'><label for='".clean_id_string($param['key'])."'>".$param['key'].
 		":</label></td><td class='left'>$inputElementString<label for='".clean_id_string($param['key'])."'>";
