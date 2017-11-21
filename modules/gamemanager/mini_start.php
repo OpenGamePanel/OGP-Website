@@ -587,12 +587,15 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	
 	$start_retval = $remote->universal_start($server_home['home_id'],
 		$server_home['home_path'],
-		$server_xml->server_exec_name, $server_xml->exe_location,
+		$server_xml->server_exec_name, 
+		$server_xml->exe_location,
 		$start_cmd, $port, $ip,
 		$server_home['cpu_affinity'],
 		$server_home['nice'],
 		$preStart,
-		$envVars);
+		$envVars,
+		$server_xml->game_key
+		);
 	$db->logger(  server_started  . " (".$server_home['home_name']." $ip:$port)" );
 	if ( $start_retval == AGENT_ERROR_NOT_EXECUTABLE )
 	{
