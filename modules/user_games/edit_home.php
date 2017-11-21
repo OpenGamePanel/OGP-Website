@@ -60,7 +60,18 @@ function exec_ogp_module()
 		$new_home_cfg_id = $_POST['home_cfg_id'];
 		if($db->updateHomeCfgId($home_id, $new_home_cfg_id))
 		{
-			echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
+			$home_info = $db->getGameHomeWithoutMods($home_id);
+			$servers_with_same_path = $db->getGameServersWithSamePath($home_info['remote_server_id'], $home_info['home_path']); 
+			$servers_with_same_path = (is_array($servers_with_same_path) ? count($servers_with_same_path) : 0);
+			$json_message = array('result' => 'success', 'info' => successfully_changed_game_server);
+			
+			if($servers_with_same_path > 1){
+				$json_message["warning_info"] = get_lang('other_servers_exist_with_path_please_change');
+			}
+			
+			echo json_encode($json_message);
+			
+			
 			$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_game_type .":old home_cfg_id:$home_cfg_id, new home_cfg_id:$new_home_cfg_id");
 		}
 		else
