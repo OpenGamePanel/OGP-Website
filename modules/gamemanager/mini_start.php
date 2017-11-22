@@ -31,7 +31,7 @@ $isAdmin = $db->isAdmin($_SESSION['user_id']);
 if (!function_exists('processParamValue')) {
 	function processParamValue($paramKey, $paramValue){
 		// Set globals
-		global $save_param, $start_cmd, $param;
+		global $save_param, $start_cmd, $param, $server_xml;
 		
 		if (0 == strlen($paramValue))
 			return false;
@@ -494,7 +494,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 				}
 				
 				// If the parameter wasn't posted (because it may have been disabled due to access param) or a sneaky user deleted it to circumvent security
-				if($found == 0){
+				if($found == 0 && !empty($origValue)){
 					processParamValue((string)$param['key'], $origValue);
 				}
 				
