@@ -432,6 +432,13 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 							if(!$isAdmin){
 								if (array_key_exists((string)$param['key'], $last_param)){
 									$paramValue = (string)$last_param[(string)$param['key']];
+									if(!hasValue($paramValue)){
+										if(hasValue((string)$param->default) && $param['type'] != "other_game_server_path" && $param['type'] != "other_game_server_path_additional"){
+											$paramValue = (string)$param->default;
+										}else{
+											$paramValue = "";
+										}
+									}
 								}else{
 									if(hasValue((string)$param->default) && $param['type'] != "other_game_server_path" && $param['type'] != "other_game_server_path_additional"){
 										$paramValue = (string)$param->default;
