@@ -72,7 +72,7 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 		}
 		$inputElementString .="</select>";
 		if($paramType == "other_game_server_path_additional"){
-			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : (hasValue((string)$param->default) ? (string)$param->default : "")) . "' name='params[other_game_server_path_additional]'" . $disabledString .">";
+			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : (hasValue((string)$param->default) ? (string)$param->default : "")) . "' name='params[other_game_server_path_additional]' " . $disabledString .">";
 		}
 	}else{
 			if ($paramType == "checkbox_key_value") {
