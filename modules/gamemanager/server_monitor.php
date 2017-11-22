@@ -59,16 +59,26 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 		}
 		$inputElementString .="</select>";
 	}else if($paramType == "other_game_server_path" || $paramType == "other_game_server_path_additional"){
-		$homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
+		if($isAdmin){
+			$dbTypeHomesStr = "admin";
+		}else{
+			$dbTypeHomesStr = "user_and_group";
+		}
+		
+		$homes = $db->getHomesFor($dbTypeHomesStr, $_SESSION['user_id']);
 		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:other_game_server_path_additional}]'" . $disabledString . ">";
 		foreach($homes as $home){
-			if(stripos($paramValue, $home["home_path"] . "/") !== false){
+			if($home["home_path"][strlen($home["home_path"])-1] != "/"){
+				$home["home_path"] = $home["home_path"] . "/";
+			}
+			
+			if(stripos($paramValue, $home["home_path"]) !== false){
 				$selectedString = "selected='selected'";
-				$selectedHome = $home["home_path"] . "/";
+				$selectedHome = $home["home_path"];
 			}else{
 				$selectedString = "";
 			}
-			$inputElementString .= '<option value="' . $home["home_path"] . '/" ' . $selectedString . '>' . $home["home_path"] . '/</option>';
+			$inputElementString .= '<option value="' . $home["home_path"] . '" ' . $selectedString . '>' . $home["home_path"] . '</option>';
 		}
 		$inputElementString .="</select>";
 		if($paramType == "other_game_server_path_additional"){
