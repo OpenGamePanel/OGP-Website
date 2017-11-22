@@ -144,6 +144,7 @@
       <xs:element name="caption" type="xs:string" maxOccurs="1" />
       <xs:element name="desc" type="xs:string" maxOccurs="1" />
       <xs:element name="options" type="xs:string" />
+      <xs:element name="access" type="xs:string" minOccurs="0" maxOccurs="1" />
     </xs:choice>
     <xs:attribute name="id" type="xs:string" />
     <xs:attribute name="key" type="xs:string" />

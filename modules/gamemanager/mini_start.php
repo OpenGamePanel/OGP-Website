@@ -26,6 +26,8 @@ $param_access_enabled = preg_match("/p/",$server_home['access_rights']) > 0 ? TR
 $extra_param_access_enabled = preg_match("/e/",$server_home['access_rights']) > 0 ? TRUE:FALSE;
 $last_param = json_decode($server_home['last_param'], True);
 
+$isAdmin = $db->isAdmin($_SESSION['user_id']);
+
 if( !isset( $_POST['start_server'] ) )
 {
 	$server_exec = clean_path($server_home['home_path']."/".$server_xml->exe_location."/".$server_xml->server_exec_name);
@@ -404,6 +406,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 		{
 			foreach($server_xml->server_params->param as $param)
 			{		
+				$found = 0;
 				foreach ( $_REQUEST['params'] as $paramKey => $paramValue )
 				{	
 					// Dependency fields...				
@@ -421,6 +424,24 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 					
 					if ($param['key'] == $paramKey)
 					{
+						// If locked by an admin, ignore the value posted by the user
+						$lockedByAdmin = false;
+						if(property_exists($param, 'access') && $param->access == "admin")
+						{
+							$lockedByAdmin = true;
+							if(!$isAdmin){
+								if (array_key_exists((string)$param['key'], $last_param)){
+									$paramValue = (string)$last_param[(string)$param['key']];
+								}else{
+									if(hasValue((string)$param->default) && $param['type'] != "other_game_server_path" && $param['type'] != "other_game_server_path_additional"){
+										$paramValue = (string)$param->default;
+									}else{
+										$paramValue = "";
+									}
+								}
+							}														
+						}
+						
 						if (0 == strlen($paramValue))
 							continue;
 						if ($paramKey == $paramValue) // it's a checkbox
@@ -456,6 +477,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 							$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
 						}
 						
+						$found++;
 						break; // More efficient
 					}			  
 				}

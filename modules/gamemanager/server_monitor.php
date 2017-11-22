@@ -32,11 +32,12 @@ require_once('includes/lib_remote.php');
 function renderParam($param, $last_param, $param_access_enabled, $home_id)
 {
 	global $db;
+	$isAdmin = $db->isAdmin($_SESSION['user_id']);
 	$attributesString = "";
 	foreach ($param->attribute as $attribute)
 		$attributesString .= $attribute['key']. "='$attribute' ";
 
-	$disabledString = ($param_access_enabled) ? "" : "disabled ";
+	$disabledString = ((($param_access_enabled) && (!property_exists($param, 'access') || $param->access != "admin")) || $isAdmin) ? "" : "disabled ";
 	
 	if (array_key_exists((string)$param['key'], $last_param))
 		$paramValue = (string)$last_param[(string)$param['key']];
@@ -71,7 +72,7 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 		}
 		$inputElementString .="</select>";
 		if($paramType == "other_game_server_path_additional"){
-			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : "") . "' name='params[other_game_server_path_additional]'>";
+			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : (hasValue((string)$param->default) ? (string)$param->default : "")) . "' name='params[other_game_server_path_additional]'" . $disabledString .">";
 		}
 	}else{
 			if ($paramType == "checkbox_key_value") {
