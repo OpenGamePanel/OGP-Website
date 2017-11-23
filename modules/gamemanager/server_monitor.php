@@ -452,6 +452,16 @@ function exec_ogp_module() {
 									<span>". edit_configuration_files ."</span>
 					</a>";
 				}
+
+				if (preg_match("/c/",$server_home['access_rights'])){
+					if( isset($server_xml->custom_fields) ) {
+						$manager .= "<a href=\"?m=user_games&p=custom_fields&home_id=".$server_home['home_id']."\" class=\"monitorbutton\">
+										<img src='" . check_theme_image("images/customfields.png") . "' title='". go_to_custom_fields ."'>
+										<span>". go_to_custom_fields ."</span>
+									</a>";
+					}
+				}
+
 			}
 
 			if( $isAdmin )
