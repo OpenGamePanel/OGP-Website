@@ -25,15 +25,17 @@
 require_once("modules/config_games/server_config_parser.php");
 require_once('includes/form_table_class.php');
 
+$custom_fields = array();
+$isAdmin = false;
 function renderCustomFields($field, $home_id)
 {
-	global $db;
+	global $db, $custom_fields, $isAdmin;
 	$attributesString = "";
+	$disabledString = ((!property_exists($field, 'access') || $field->access != "admin") || $isAdmin) ? "" : "disabled ";
+	
 	foreach ($field->attribute as $attribute)
 		$attributesString .= $attribute['key']. "='$attribute' ";
 
-	//get used custom value or get default
-	$custom_fields = json_decode($db->getCustomFields($home_id), True);
 	if (is_array($custom_fields) and array_key_exists((string)$field['key'], $custom_fields))
 		$fieldValue = (string)$custom_fields[(string)$field['key']];
 	else
@@ -44,7 +46,7 @@ function renderCustomFields($field, $home_id)
 	$fieldType = $field['type'];
 	if ($fieldType == "select")
 	{
-		$inputElementString = "<select $idString $nameString>";
+		$inputElementString = "<select $idString $nameString $disabledString>";
 		foreach ($field->option as $option)
 		{
 			$optionValue = (string)($option['value']);
@@ -67,7 +69,7 @@ function renderCustomFields($field, $home_id)
 					$attributesString .= "checked='checked' ";
 			}
 			$inputElementString = "<input $idString $nameString ".
-				"type='$fieldType' value=\"".str_replace('"', "&quot;", strip_real_escape_string($fieldValue))."\" $attributesString/>";
+				"type='$fieldType' value=\"".str_replace('"', "&quot;", strip_real_escape_string($fieldValue))."\" $attributesString $disabledString/>";
 		}
 
 	echo "<tr><td class='right'><label for='".clean_id_string($field['key'])."'>".$field['key'].
@@ -83,7 +85,7 @@ function renderCustomFields($field, $home_id)
 
 function exec_ogp_module()
 {
-    global $db,$view;
+    global $db,$view,$custom_fields,$isAdmin;
 		
 	$home_id = $_GET['home_id'];
 	
@@ -101,6 +103,9 @@ function exec_ogp_module()
 		
 	if( !$home_info OR !$custom_fileds_access_enabled )
 		return;
+		
+	//get used custom value or get default
+	$custom_fields = json_decode($db->getCustomFields($home_id), True);
 		
 	$server_xml = read_server_config(SERVER_CONFIG_LOCATION.$home_info['home_cfg_file']);
 	
@@ -123,7 +128,50 @@ function exec_ogp_module()
 	if(isset($_POST['update_settings']))
 	{
 		$save_field = $_POST['fields'];
-		$db->changeCustomFields($home_info['home_id'],json_encode($save_field));
+		$updatedSettings = array();
+		foreach($server_xml->custom_fields->field as $field)
+		{
+			if (array_key_exists((string)$field['key'], $custom_fields)){
+				$origValue = (string)$custom_fields[(string)$field['key']];
+			}else{
+				$origValue = "";
+			}
+			
+			$found = 0;
+			foreach ($save_field as $key => $value )
+			{
+				if($key == (string)$field['key']){
+					$found++;
+					
+					// If locked by an admin, ignore the value posted by the user
+					$lockedByAdmin = false;
+					if(property_exists($field, 'access') && $field->access == "admin")
+					{
+						$lockedByAdmin = true;
+						if(!$isAdmin){
+							$value = $origValue; // Set it to the old saved value (which was last set by an admin) or set it to its default value
+						}														
+					}
+					
+					if(!empty($value)){
+						$updatedSettings[$key] = $value;
+					}
+					
+					break;
+				}
+			}
+			
+			if($found == 0 && !empty($origValue)){
+				$updatedSettings[(string)$field['key']] = $origValue;
+			}
+		}
+		
+		if(is_array($updatedSettings) && count($updatedSettings) > 0){
+			$db->changeCustomFields($home_info['home_id'],json_encode($updatedSettings));
+		}else{
+			$db->changeCustomFields($home_info['home_id'],"");
+		}
+			
 		print_success(get_lang('settings_updated'));
 		$view->refresh("?m=user_games&p=custom_fields&home_id=".$home_id);
 	}

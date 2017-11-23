@@ -162,6 +162,13 @@ $(document).ready(function() {
 					}
 				}
 				$("#result").html('<p class="'+data.result+'">'+data.info+'</p>');
+				if(data.result == "success"){
+					$("p.warning").remove();
+				}
+				
+				if(data.hasOwnProperty("warning_info") && data.warning_info){
+					$("#result").html($("#result").html() + '<p class="warning">'+data.warning_info+'</p>');
+				}
 			}, "json");
 		}
 	});

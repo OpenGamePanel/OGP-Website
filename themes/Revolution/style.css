@@ -581,6 +581,11 @@ table.tablesorter tfoot td {
 	text-align:center;
 }
 
+.warning {
+	color: purple;
+	text-align:center;
+}
+
 .success {
 	color: green;
 	text-align:center;

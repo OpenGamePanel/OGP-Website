@@ -32,11 +32,12 @@ require_once('includes/lib_remote.php');
 function renderParam($param, $last_param, $param_access_enabled, $home_id)
 {
 	global $db;
+	$isAdmin = $db->isAdmin($_SESSION['user_id']);
 	$attributesString = "";
 	foreach ($param->attribute as $attribute)
 		$attributesString .= $attribute['key']. "='$attribute' ";
 
-	$disabledString = ($param_access_enabled) ? "" : "disabled ";
+	$disabledString = ((($param_access_enabled) && (!property_exists($param, 'access') || $param->access != "admin")) || $isAdmin) ? "" : "disabled ";
 	
 	if (array_key_exists((string)$param['key'], $last_param))
 		$paramValue = (string)$last_param[(string)$param['key']];
@@ -58,20 +59,35 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 		}
 		$inputElementString .="</select>";
 	}else if($paramType == "other_game_server_path" || $paramType == "other_game_server_path_additional"){
-		$homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
+		if($isAdmin){
+			$dbTypeHomesStr = "admin";
+		}else{
+			$dbTypeHomesStr = "user_and_group";
+		}
+		
+		// Get homes
+		$homes = $db->getHomesFor($dbTypeHomesStr, $_SESSION['user_id']);
+		
+		// Move current home_id home_path to the front of the array so that it is selected by default if no other option has been selected.
+		$homes = customShift($homes, "home_id", $home_id);
+		
 		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:other_game_server_path_additional}]'" . $disabledString . ">";
 		foreach($homes as $home){
-			if(stripos($paramValue, $home["home_path"] . "/") !== false){
+			if($home["home_path"][strlen($home["home_path"])-1] != "/"){
+				$home["home_path"] = $home["home_path"] . "/";
+			}
+			
+			if(stripos($paramValue, $home["home_path"]) !== false){
 				$selectedString = "selected='selected'";
-				$selectedHome = $home["home_path"] . "/";
+				$selectedHome = $home["home_path"];
 			}else{
 				$selectedString = "";
 			}
-			$inputElementString .= '<option value="' . $home["home_path"] . '/" ' . $selectedString . '>' . $home["home_path"] . '/</option>';
+			$inputElementString .= '<option value="' . $home["home_path"] . '" ' . $selectedString . '>' . $home["home_path"] . '</option>';
 		}
 		$inputElementString .="</select>";
 		if($paramType == "other_game_server_path_additional"){
-			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : "") . "' name='params[other_game_server_path_additional]'>";
+			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : (hasValue((string)$param->default) ? (string)$param->default : "")) . "' name='params[other_game_server_path_additional]' " . $disabledString .">";
 		}
 	}else{
 			if ($paramType == "checkbox_key_value") {

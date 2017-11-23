@@ -778,4 +778,15 @@ function preg_replace_nth($pattern, $replacement, $subject, $nth=1) {
                 return reset($found);
         }, $subject,$nth);
 }
+
+// https://stackoverflow.com/questions/12559878/multidimensional-array-find-item-and-move-to-the-top
+function customShift($array, $keyToMoveOn, $valueToMoveOn){
+    foreach($array as $key => $val){
+        if($val[$keyToMoveOn] == $valueToMoveOn){
+            unset($array[$key]); 
+            array_unshift($array, $val); 
+            return $array;               
+        }
+    }
+}
 ?>

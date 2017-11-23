@@ -93,7 +93,12 @@ function exec_ogp_module()
 		{
 			foreach ( $game_cfgs as $row )
 			{
-				if($row['home_cfg_id'] == $home_cfg_id) $server_name = $row['game_name'];
+				if($row['home_cfg_id'] == $home_cfg_id){
+					 $server_name = $row['game_name'];
+					 $game_key = $row['game_key'];
+					 $readable_game_key = substr($game_key, 0, stripos($game_key, "_"));
+					 $readable_game_key = strtolower($readable_game_key);
+				}
 			}
 			foreach ( $remote_servers as $server )
 			{
@@ -108,9 +113,16 @@ function exec_ogp_module()
 			// Game path logic
 			$game_path = "/home/".$ogp_user."/OGP_User_Files/"; // Default
 	
+			$skipId = false;
 			if(hasValue($default_home_dir)){
+				// Replace some user supported variables with actual value.
 				$game_path = $default_home_dir;			
-				$game_path = str_replace("{USERNAME}", $web_user,  $game_path); // Replace some user supported variables with actual value.
+				$game_path = str_replace("{USERNAME}", $web_user,  $game_path); 
+				if(stripos($game_path, "{SKIPID}") !== false){
+					$skipId = true;
+				}
+				$game_path = str_replace("{SKIPID}", "",  $game_path); 
+				$game_path = str_replace("{GAMEKEY}", $readable_game_key, $game_path);
 			}
 			
 			if($game_path[strlen($game_path)-1] != "/"){ // Make sure the path ends with forward slash
@@ -121,7 +133,7 @@ function exec_ogp_module()
 			// End game path logic
 			
 			if ( ( $new_home_id = $db->addGameHome($rserver_id,$web_user_id,$home_cfg_id,
-				clean_path($game_path),$server_name,$control_password,$ftppassword) )!== FALSE )
+				clean_path($game_path),$server_name,$control_password,$ftppassword,$skipId) )!== FALSE )
 			{				
 				$success = $db->assignHomeTo("user",$web_user_id,$new_home_id,$access_rights);
 				if($success){
@@ -130,7 +142,7 @@ function exec_ogp_module()
 					$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
 					
 					// Create new home directory if it doesn't already exist
-					$remote->exec("mkdir -p " . clean_path($game_path) . $new_home_id);
+					$remote->exec("mkdir -p " . clean_path($game_path) . (!$skipId ? $new_home_id : ""));
 					
 					if($ftp)
 					{
