@@ -195,7 +195,6 @@ define('sucessfully_deleted', "%s supprimé avec succès");
 define('the_agent_had_a_problem_deleting', "L'Agent a eu un problème en supprimant %s, vérifiez le log de l'Agent");
 define('connection_timeout_or_problems_reaching_the_agent', "Délai dépassé lors de la connexion ou problèmes en se connectant à l'Agent");
 define('does_not_exist_yet', "N'existe pas encore.");
-define('go_to_custom_fields', "Aller aux Champs Personnalisés");
 define('back_to_edit_server', "Retour à l'édition du serveur");
 define('update_settings', "Enregistrer les paramètres");
 define('settings_updated', "Paramètres mis à jour.");
@@ -220,4 +219,5 @@ define('expiration_date_could_not_be_changed', "La date d&apos;expiration pour c
 define('search', "Rechercher");
 define('ftp_account_username_too_long', "Le nom d'utilisateur FTP est trop long. Veuillez entrer un nom d'utilisateur de 20 caractères maximum.");
 define('ftp_account_password_too_long', "Le mot de passe FTP est trop long. Veuillez entrer un mot de passe de 20 caractères maximum.");
-?>
+define('other_servers_exist_with_path_please_change', "Un autre serveur existe avec le même chemin. Il est fortement recommandé (mais pas requis) que vous changiez le chemin pour quelque chose d'unique. Vous pourrez avoir des problèmes si vous ne le faites PAS.");
+ ?>

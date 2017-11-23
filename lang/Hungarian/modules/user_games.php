@@ -195,7 +195,6 @@ define('sucessfully_deleted', "A(z) %s sikeresen törölve.");
 define('the_agent_had_a_problem_deleting', "Az Agentnek problémája volt a(z) %s törlése közben. Kérlek, ellenőrizd az Agent naplóját.");
 define('connection_timeout_or_problems_reaching_the_agent', "Kapcsolat időtúllépés vagy problémák az Agent elérésével");
 define('does_not_exist_yet', "Még nem létezik.");
-define('go_to_custom_fields', "Tovább az egyéni mezőkhöz");
 define('back_to_edit_server', "Vissza a szerver szerkesztéshez");
 define('update_settings', "Beállítások frissítése");
 define('settings_updated', "Beállítások frissítve.");
@@ -220,4 +219,5 @@ define('expiration_date_could_not_be_changed', "Expiration date for selected hom
 define('search', "Keresés");
 define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
 define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
-?>
+define('other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
+ ?>

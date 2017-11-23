@@ -195,7 +195,6 @@ define('sucessfully_deleted', "Excluido com sucesso %s");
 define('the_agent_had_a_problem_deleting', "O Agente do painel detectou um problema ao excluir %s. Por favor, verifique os Logs de registo do Agente.");
 define('connection_timeout_or_problems_reaching_the_agent', "Tempo limite de conexão ou problemas com o alcance do agente");
 define('does_not_exist_yet', "Ainda não existe.");
-define('go_to_custom_fields', "Ir para campos personalizados");
 define('back_to_edit_server', "Voltar ao servidor de edição");
 define('update_settings', "Atualizar configurações");
 define('settings_updated', "Configurações atualizadas.");
@@ -220,4 +219,5 @@ define('expiration_date_could_not_be_changed', "A data de validade para o direct
 define('search', "Pesquisar");
 define('ftp_account_username_too_long', "O nome do usuário FTP é demasiado longo. Experimente um nome de usuário mais curto que não contenha mais de 20 caracteres.");
 define('ftp_account_password_too_long', "O nome do usuário FTP é demasiado longo. Experimente um nome de usuário mais curto que não contenha mais de 20 caracteres.");
-?>
+define('other_servers_exist_with_path_please_change', "Existem outros directórios com o mesmo caminho. É recomendado (mas não é necessário) que você altere esse caminho para algo único. Se não você poderá obter alguns erros de futuro.");
+ ?>
