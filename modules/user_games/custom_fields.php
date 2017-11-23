@@ -168,6 +168,8 @@ function exec_ogp_module()
 		
 		if(is_array($updatedSettings) && count($updatedSettings) > 0){
 			$db->changeCustomFields($home_info['home_id'],json_encode($updatedSettings));
+		}else{
+			$db->changeCustomFields($home_info['home_id'],"");
 		}
 			
 		print_success(get_lang('settings_updated'));
