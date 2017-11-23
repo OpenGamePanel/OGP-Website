@@ -117,7 +117,7 @@ function handleVersionClick(){
 			var msg = successful ? 'successful' : 'unsuccessful';
 			logToConsole('Copying text command was ' + msg);
 			if(successful){
-				$("span.copyVersionResult").text("Copied!").css("color", "#43ff0f").removeClass("hide");
+				$("span.copyVersionResult").text($("span.copyVersionResult").attr('lang')).css("color", "#43ff0f").removeClass("hide");
 				$("span.copyVersionResult").css("left", $("span.versionNumber").offset().left + $("span.versionNumber").width() + 5 + "px");
 				$("span.copyVersionResult").fadeIn('fast', function(e){  hideVLength(); }).delay(500).fadeOut('slow', function(e){  showVLength(); }).delay(500).fadeIn('slow', function(e){  hideVLength(); }).delay(500).fadeOut('slow', function(e){  showVLength(); }).delay(500).fadeIn('fast', function(e){  hideVLength(); }).delay(2000).fadeIn('fast',function() {
 					resetVersionView(true);
