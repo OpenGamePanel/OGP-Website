@@ -27,7 +27,7 @@ require_once('includes/form_table_class.php');
 
 function renderCustomFields($field, $home_id)
 {
-	global $db, $custom_fields;
+	global $db, $custom_fields, $isAdmin;
 	$attributesString = "";
 	$disabledString = ((!property_exists($field, 'access') || $field->access != "admin") || $isAdmin) ? "" : "disabled ";
 	
