@@ -25,7 +25,8 @@
 require_once("modules/config_games/server_config_parser.php");
 require_once('includes/form_table_class.php');
 
-$custom_fields=array();
+$custom_fields = array();
+$isAdmin = false;
 function renderCustomFields($field, $home_id)
 {
 	global $db, $custom_fields, $isAdmin;
@@ -84,7 +85,7 @@ function renderCustomFields($field, $home_id)
 
 function exec_ogp_module()
 {
-    global $db,$view,$custom_fields;
+    global $db,$view,$custom_fields,$isAdmin;
 		
 	$home_id = $_GET['home_id'];
 	
