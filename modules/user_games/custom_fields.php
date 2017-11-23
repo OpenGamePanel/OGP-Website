@@ -164,7 +164,10 @@ function exec_ogp_module()
 			}
 		}
 		
-		$db->changeCustomFields($home_info['home_id'],json_encode($updatedSettings));
+		if(is_array($updatedSettings) && count($updatedSettings) > 0){
+			$db->changeCustomFields($home_info['home_id'],json_encode($updatedSettings));
+		}
+			
 		print_success(get_lang('settings_updated'));
 		$view->refresh("?m=user_games&p=custom_fields&home_id=".$home_id);
 	}
