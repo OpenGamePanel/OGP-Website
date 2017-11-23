@@ -195,6 +195,7 @@ define('sucessfully_deleted', "Sucessfully deleted %s");
 define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
 define('does_not_exist_yet', "Does not exist yet.");
+define('go_to_custom_fields', "Go to Custom Fields");
 define('back_to_edit_server', "Back to edit server");
 define('update_settings', "Update settings");
 define('settings_updated', "Settings updated.");
@@ -219,5 +220,4 @@ define('expiration_date_could_not_be_changed', "Expiration date for selected hom
 define('search', "Search");
 define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
 define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
-define('other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
 ?>

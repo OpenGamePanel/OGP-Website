@@ -139,4 +139,6 @@ define('cron', "مدير الكرون");
 define('user_cron', "الكرون");
 define('faq', "التعليمات.");
 define('mysql_admin', "مدير قاعدة البيانات");
+define('copied', "Copied!");
+define('ticket_settings', "Ticket Settings");
 ?>

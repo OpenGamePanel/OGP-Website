@@ -139,4 +139,6 @@ define('cron', "Управление Заданиями");
 define('user_cron', "Задания");
 define('faq', "F.A.Q.");
 define('mysql_admin', "Управление MySQL");
+define('copied', "Copied!");
+define('ticket_settings', "Ticket Settings");
 ?>
