@@ -65,7 +65,12 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 			$dbTypeHomesStr = "user_and_group";
 		}
 		
+		// Get homes
 		$homes = $db->getHomesFor($dbTypeHomesStr, $_SESSION['user_id']);
+		
+		// Move current home_id home_path to the front of the array so that it is selected by default if no other option has been selected.
+		customShift($homes, "home_id", $home_id);
+		
 		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:other_game_server_path_additional}]'" . $disabledString . ">";
 		foreach($homes as $home){
 			if($home["home_path"][strlen($home["home_path"])-1] != "/"){
