@@ -626,18 +626,13 @@ function exec_ogp_module()
 	}
 	echo "</div>";
 	$home_info = $db->getGameHomeWithoutMods($home_id);
-	$custom_fileds_access_enabled = preg_match("/c/",$game_home['access_rights']) > 0 ? TRUE : FALSE;
 	echo "<p>";
 	echo "<a href='?m=gamemanager&p=game_monitor&home_id=$home_id'>&lt;&lt; ". back_to_game_monitor ."</a>";
 	if ( $isAdmin )
 	{
 		echo " &nbsp; ";
 		echo "<a href='?m=user_games'>&lt;&lt; ". back_to_game_servers ."</a>";
-		$custom_fileds_access_enabled = TRUE;
 	}
-	if( isset($server_xml->custom_fields) and $custom_fileds_access_enabled )
-		echo " &nbsp; <a href='?m=user_games&p=custom_fields&home_id=".$home_id."'>". go_to_custom_fields ." &gt;&gt;</a>";
-	
 	echo "</p>";
 	echo "<table class='center' id='main_settings' >";	
 	if ( $isAdmin )
