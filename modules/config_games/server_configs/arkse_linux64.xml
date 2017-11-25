@@ -82,7 +82,7 @@
       <desc>Unique identifier of your Cluster.</desc>
     </param>
     <param key="-ClusterDirOverride=" type="other_game_server_path_additional" id="CDO">
-      <default></default>
+      <default>ShooterGame/Saved</default>
       <options>ns</options>
       <desc>Specify a common cross-server storage location that functions between multiple servers running on the same machine.</desc>
     </param>
@@ -130,6 +130,7 @@
       <var>RCONPort=</var>
       <filepath>ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini</filepath>
    	  <options>sq</options>
+      <access>admin</access>
       <desc>Port of remote control.</desc>
     </field>
   </custom_fields>
