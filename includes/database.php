@@ -86,6 +86,8 @@ abstract class OGPDatabase {
 
     abstract public function getUsersGroups($user_id);
     
+    abstract public function getGameServersWithSamePath($remote_id, $home_path);
+    
     abstract public function getUserGroupList($user_id);
 
     /// \return array of users. Array is empty if there is no users available.

@@ -31,4 +31,6 @@ define('full_path', "Caminho completo do directório raiz");
 define('add_ftp_account', "Adicionar conta FTP");
 define('remote_server', "Servidor remoto");
 define('server_name', "Nome do servidor");
+define('ftp_account_username_too_long', "O nome do usuário  FTP é muito longo. Experimente usar um nome de usuário mais curto que não contenha mais de 20 caracteres.");
+define('ftp_account_password_too_long', "O nome do usuário FTP é muito longo. Experimente usar um nome de usuário mais curto que não contenha mais de 20 caracteres.");
 ?>

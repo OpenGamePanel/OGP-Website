@@ -138,7 +138,7 @@ define('assigned_homes', "Уже назначенные сервера");
 define('assign', "Назначить");
 define('allow_updates', "Разрешить обновление игры");
 define('allow_updates_info', "Разрешить пользователю обновлять игу, если это доступно.");
-define('allow_file_management', "Allow File Management");
+define('allow_file_management', "Разрешить доступ к Файловому менеджеру");
 define('allow_file_management_info', "Разрешить пользователю доступ к файлам сервера через модуль.");
 define('allow_parameter_usage', "Разрешить использование параметров запуска");
 define('allow_parameter_usage_info', "Разрешить пользователю использовать заданные параметры запуска.");
@@ -152,6 +152,7 @@ define('select_home', "Выбрать сервер для назначения")
 define('assign_new_home_to_user', "Назначить новый сервер пользователю  %s");
 define('assign_new_home_to_group', "Назначить новый сервер группе %s");
 define('assigned_home_to_user', "Сервер привязан (ID: %d) к пользователю %s.");
+define('failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
 define('assigned_home_to_group', "Сервер привязан(ID: %d) к группе %s.");
 define('unassigned_home_from_user', "Назначение сервера (ID: %d) отменено для пользователя%s.");
 define('unassigned_home_from_group', "Назначение сервера (ID: %d) отменено для группы %s.");
@@ -191,10 +192,9 @@ define('successfully_deleted_game_server_with_id', "Игровой сервер 
 define('failed_to_remove_ftp_account_from_remote_server', "Ну удалось удалить FTP аккаунт из удаленного сервера.");
 define('remove_it_anyway', "Вы все равно хотите его удалить?");
 define('sucessfully_deleted', "Успешное удаление %s");
-define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
+define('the_agent_had_a_problem_deleting', "У агента возникла проблема с удалением %s, посмотрите логи Агента");
 define('connection_timeout_or_problems_reaching_the_agent', "Время соединения вышло или проблемы связи с Агентом");
 define('does_not_exist_yet', "Пока не существует.");
-define('go_to_custom_fields', "Перейти к настраиваемым поля");
 define('back_to_edit_server', "Вернутся к редактированию сервера");
 define('update_settings', "Обновить настройки");
 define('settings_updated', "Настройки обновлены");
@@ -217,4 +217,7 @@ define('cpu_affinity_info', "Выберите Ядро (Ядра) процесс
 define('expiration_date_changed', "Дата истечения срока действия для выбранного сервера была изменена.");
 define('expiration_date_could_not_be_changed', "Дата истечения срока действия для выбранного дома не может быть изменена.");
 define('search', "Поиск");
-?>
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
+ ?>

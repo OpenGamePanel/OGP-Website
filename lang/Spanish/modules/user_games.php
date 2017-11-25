@@ -152,6 +152,7 @@ define('select_home', "Seleccionar Home para asignar");
 define('assign_new_home_to_user', "Asignar nueva Home al usuario %s");
 define('assign_new_home_to_group', "Asignar nueva Home al grupo %s");
 define('assigned_home_to_user', "Asignado el home (ID: %d) al usuario %s.");
+define('failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
 define('assigned_home_to_group', "Asignado el home (ID: %d) al grupo %s.");
 define('unassigned_home_from_user', "Quitado el home (ID: %d) del usuario %s.");
 define('unassigned_home_from_group', "Quitado el home (ID: %d) del grupo %s.");
@@ -194,7 +195,6 @@ define('sucessfully_deleted', "Eliminado correctamente.");
 define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Tiempo de espera de la conexión o problemas al llegar al agente");
 define('does_not_exist_yet', "No existe todavia.");
-define('go_to_custom_fields', "Ir a campos personalizados");
 define('back_to_edit_server', "Volver a edición del servidor");
 define('update_settings', "Actualizar configuración");
 define('settings_updated', "Configuración actualizada.");
@@ -217,4 +217,7 @@ define('cpu_affinity_info', "Seleccione los núcleo(s) de CPU que quiera asignar
 define('expiration_date_changed', "Se ha cambiado la fecha de caducidad de la casa seleccionada.");
 define('expiration_date_could_not_be_changed', "La fecha de caducidad para el hogar seleccionado no se puede cambiar.");
 define('search', "Buscar");
-?>
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
+ ?>

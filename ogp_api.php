@@ -68,7 +68,7 @@ function runSteamAutoUpdate(){
 		$appId, $modname, $betaname, $betapwd, $login, $pass, $settings['steam_guard'], $precmd, $postcmd, $cfg_os, $lockFiles,
 							  
 		//start
-		$startup_cmd, $server_home['mods'][$mod_id]['cpu_affinity'], $server_home['mods'][$mod_id]['nice'], $preStart, $envVars
+		$startup_cmd, $server_home['mods'][$mod_id]['cpu_affinity'], $server_home['mods'][$mod_id]['nice'], $preStart, $envVars, $server_xml->game_key
 	);
 
 	if($update == 1){

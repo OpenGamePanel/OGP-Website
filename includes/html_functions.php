@@ -22,9 +22,9 @@
  *
  */
 
-function print_failure($text)
+function print_failure($text, $class="failure")
 {
-    echo '<p class="failure">'.$text.'</p>';
+    echo '<p class="' . $class . '">'.$text.'</p>';
 }
 
 function print_success($text)

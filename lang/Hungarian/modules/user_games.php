@@ -152,6 +152,7 @@ define('select_home', "Válaszd ki a társítani kívánt szervert");
 define('assign_new_home_to_user', "Assign New Home to user %s");
 define('assign_new_home_to_group', "Assign New Home to group %s");
 define('assigned_home_to_user', "Sikeresen hozzáadott szerver (azonosító: %d) %s felhasználóhoz.");
+define('failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
 define('assigned_home_to_group', "Successfully assigned home (ID: %d) to group %s.");
 define('unassigned_home_from_user', "Sikeresen eltávolítva a játék szerver (azonosító: %d) %s felhasználótól.");
 define('unassigned_home_from_group', "Successfully unassigned home (ID: %d) from group %s.");
@@ -182,19 +183,18 @@ define('clone_mods', "Modok klónozása");
 define('game_server_owner', "Játékszerver tulajdonos");
 define('the_name_of_the_server_to_help_users_to_identify_it', "A szerver neve segít a felhasználóknak a szerver azonosításában.");
 define('ips_and_ports_used_in_this_home', "Az IP-k és portok ehhez a szerverhez használva");
-define('note_ips_and_ports_are_not_cloned', "Megjegyzés - az IPk és a portok nincsenek klónozva");
+define('note_ips_and_ports_are_not_cloned', "Megjegyzés - Az IP-címek és a portok nincsenek klónozva");
 define('mods_and_settings_for_this_game_server', "Modok és beállítások ehhez a játékszerverhez");
 define('sure_to_delete_serverid_from_remoteip_and_directory', "Biztosan törölni akarod a játékszervert (ID: %s) a(z) %s szerverről és a(z) %s mappából.");
 define('yes_and_delete_the_files', "Igen és töröld a fájlokat");
 define('failed_to_remove_gamehome_from_database', "Failed to remove gamehome from database.");
-define('successfully_deleted_game_server_with_id', "Sikeresen törölt játékkiszolgáló %s IDvel.");
+define('successfully_deleted_game_server_with_id', "Sikeresen törölted a játékszervert a(z) %s-es azonosítóval.");
 define('failed_to_remove_ftp_account_from_remote_server', "Nem sikerült eltávolítani az FTP fiókot a távoli szerverről.");
 define('remove_it_anyway', "Szeretnéd ezt egyébként eltávolítani?");
 define('sucessfully_deleted', "A(z) %s sikeresen törölve.");
 define('the_agent_had_a_problem_deleting', "Az Agentnek problémája volt a(z) %s törlése közben. Kérlek, ellenőrizd az Agent naplóját.");
 define('connection_timeout_or_problems_reaching_the_agent', "Kapcsolat időtúllépés vagy problémák az Agent elérésével");
 define('does_not_exist_yet', "Még nem létezik.");
-define('go_to_custom_fields', "Tovább az egyéni mezőkhöz");
 define('back_to_edit_server', "Vissza a szerver szerkesztéshez");
 define('update_settings', "Beállítások frissítése");
 define('settings_updated', "Beállítások frissítve.");
@@ -217,4 +217,7 @@ define('cpu_affinity_info', "Válaszd ki a játékszerverhez hozzárendelni kív
 define('expiration_date_changed', "Expiration date for selected home has been changed.");
 define('expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
 define('search', "Keresés");
-?>
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
+ ?>

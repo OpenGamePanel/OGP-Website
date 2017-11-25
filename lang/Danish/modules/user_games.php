@@ -152,6 +152,7 @@ define('select_home', "Vælg Hjem til tildeling");
 define('assign_new_home_to_user', "Tildel Ny Hjem til bruger %s");
 define('assign_new_home_to_group', "Tildel Ny Hjem til gruppe %s");
 define('assigned_home_to_user', "Tildelt hjem successfuldt (ID: %d) til bruger %s.");
+define('failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
 define('assigned_home_to_group', "Tildelt hjem successfuldt (ID: %d) til gruppe %s.");
 define('unassigned_home_from_user', "Fjernet hjem successfuldt (ID: %d) fra bruger %s.");
 define('unassigned_home_from_group', "Fjernet hjem successfuldtS (ID: %d) fra gruppe %s.");
@@ -194,7 +195,6 @@ define('sucessfully_deleted', "Slettet successfuldt %s");
 define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
 define('does_not_exist_yet', "Does not exist yet.");
-define('go_to_custom_fields', "Go to Custom Fields");
 define('back_to_edit_server', "Back to edit server");
 define('update_settings', "Update settings");
 define('settings_updated', "Settings updated.");
@@ -217,4 +217,7 @@ define('cpu_affinity_info', "Select the CPU core(s) you want to assign to the ga
 define('expiration_date_changed', "Expiration date for selected home has been changed.");
 define('expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
 define('search', "Search");
-?>
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
+ ?>

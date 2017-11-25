@@ -2308,7 +2308,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	/// \brief Adds game home to database.
 	/// \return FALSE if failure
 	/// \return id of the home in case of success.
-	public function addGameHome($rserver_id,$user_id_main,$home_cfg_id,$game_path,$server_name,$control_password,$ftp_password){
+	public function addGameHome($rserver_id,$user_id_main,$home_cfg_id,$game_path,$server_name,$control_password,$ftp_password,$skipId = false){
 		$query = sprintf("INSERT INTO `%sserver_homes`
 			( `home_id`, `remote_server_id`, `user_id_main`, `home_cfg_id`, `home_path`, `home_name`,`control_password`,`ftp_password`)
 			VALUES(NULL, '%d', '%d', '%d', '%s', '%s', '%s', '%s')",
@@ -2325,7 +2325,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( mysql_affected_rows($this->link) != 1 )
 			return FALSE;
 		$homeid = mysql_insert_id($this->link);
-		$this->changeHomePath($homeid,$game_path.$homeid);
+		if(!$skipId)
+			$this->changeHomePath($homeid,$game_path.$homeid);
 		return $homeid;
 	}
 
@@ -2369,6 +2370,28 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$game_home['access_rights'] = "ufpetc";
 		// Return the game home and mods.
 		return $game_home;
+	}
+	
+	public function getGameServersWithSamePath($remote_id, $home_path){
+		$query = sprintf('SELECT * FROM `%1$sserver_homes` 
+			WHERE `home_path` LIKE \'%%%2$s%%\' AND remote_server_id = \'%3$d\';',
+			$this->table_prefix,
+			mysql_real_escape_string($home_path, $this->link),
+			mysql_real_escape_string($remote_id, $this->link));
+		++$this->queries_;
+		$result = mysql_query($query,$this->link);
+		if ( mysql_num_rows($result) > 0 ){
+			while ($row = mysql_fetch_assoc($result))
+			{
+				$servers[] = $row;
+			}
+		}
+
+		if(isset($servers) && is_array($servers)){
+			return $servers;
+		}
+	
+		return false;
 	}
 	
 	public function getGameHomeWithoutMods($home_id) {

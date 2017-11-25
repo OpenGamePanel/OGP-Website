@@ -24,11 +24,16 @@
 
 function exec_ogp_module()
 {
-	global $db;
+	global $db, $settings;
 
 	$home_id = $_REQUEST['home_id'];
+	$default_home_dir = $settings["default_game_server_home_path_prefix"];
 
 	$server_row = $db->getGameHomeWithoutMods($home_id);
+	$game_key = $server_row["game_key"];
+	$readable_game_key = substr($game_key, 0, stripos($game_key, "_"));
+	$readable_game_key = strtolower($readable_game_key);
+	
 	if ( empty($server_row) )
 	{
 		print_failure(get_lang('invalid_home_id'));
@@ -45,11 +50,41 @@ function exec_ogp_module()
 	{
 		$server_name = $_POST['new_home_name'];
 		$user_group = $_POST['user_group'];
+		$web_user = $db->getUserById($server_row['user_id_main']);
+		$web_user = $web_user["users_login"];
+		
+		// Game path logic
+		$game_path = "/home/".$server_row['ogp_user']."/OGP_User_Files/"; // Default
+	
+		$skipId = false;
+		if(hasValue($default_home_dir)){
+			$game_path = $default_home_dir;			
+			$game_path = str_replace("{USERNAME}", $web_user,  $game_path); // Replace some user supported variables with actual value.
+			if(stripos($game_path, "{SKIPID}") !== false){
+				$skipId = true;
+			}
+			$game_path = str_replace("{SKIPID}", "",  $game_path); 
+			$game_path = str_replace("{GAMEKEY}", $readable_game_key, $game_path);
+		}
+			
+		if($game_path[strlen($game_path)-1] != "/"){ // Make sure the path ends with forward slash
+			$game_path .= "/";
+		}
+		
+		$game_path = clean_path($game_path); // Clean it
+		// End game path logic
 
 		$clone_home_id = $db->addGameHome($server_row['remote_server_id'], $server_row['user_id_main'],
-			$server_row['home_cfg_id'], "/home/".$server_row['ogp_user']."/OGP_User_Files/", $server_name, '', genRandomString(8));
+			$server_row['home_cfg_id'], $game_path, $server_name, '', genRandomString(8), $skipId);
 		
-		$server_path = "/home/".$server_row['ogp_user']."/OGP_User_Files/".$clone_home_id;
+		$server_path = $game_path;
+		
+		if(!$skipId)
+			$server_path .= $clone_home_id;
+		
+		// Create new home directory if it doesn't already exist		
+		$remote->exec("mkdir -p " . clean_path($server_path));
+		
 		
 		if ( $clone_home_id === FALSE )
 		{

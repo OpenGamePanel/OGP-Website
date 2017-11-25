@@ -36,7 +36,7 @@ define('panel_version', "نسخة اللوحة");
 define('update_now', "تحديث الان");
 define('the_panel_is_up_to_date', "اللوحة محدثة لاخر إصدار.");
 define('files_overwritten', "%s ملف استبدل");
-define('files_not_overwritten', "%s files are NOT overwritten due to blacklist");
+define('files_not_overwritten', "%s لا يتم الكتابة فوق الملفات بسبب القائمة السوداء");
 define('can_not_update_non_writable_files', "لايمكن تحديث الملفات/المجلدات التالية لانها غير قابلة لإستبدال");
 define('dwl_failed', "رابط التحميل غير متوفر: \"%s\".<br>جرب مجدداً في وقت لاحق.");
 define('temp_folder_not_writable', "لا يمكن وضع التنزيل، لأن أباتشي ليس لديه إذن كتابة في المجلد المؤقت للنظام (%s).");
@@ -55,5 +55,5 @@ define('no_new_updates', "لا توجد تحديثات جديدة");
 define('module_file_missing', "الدليل مفقود في ملف module.php.");
 define('query_failed', "أخفق تنفيذ طلب البحث");
 define('query_failed_2', "إلى قاعدة البيانات.");
-define('missing_zip_extension', "The php-zip extension is not loaded. Please, enable it to use the Update module.");
+define('missing_zip_extension', "لم يتم تحميل ملحق php-zip. الرجاء تفعيله لتمكينه من استخدام وحدة التحديث.");
 ?>

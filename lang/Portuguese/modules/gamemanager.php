@@ -203,4 +203,6 @@ define('admin', "Administrador");
 define('cid', "CID");
 define('phan', "Fantasma");
 define('sec', "Segundos");
+define('unknown_rsync_mirror', "Você tentou iniciar uma actualização de um destino que não existe.");
+define('go_to_custom_fields', "Vá para os campos personalizados");
 ?>

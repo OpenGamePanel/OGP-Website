@@ -130,4 +130,6 @@ define('bg_wrapper', "Fundo Completo");
 define('bg_wrapper_info', "A imagem de fundo completo. <b style='font-size:10px; font-weight:normal;'>(Apenas disponível em alguns temas.)</b>");
 define('show_server_id_game_monitor', "Mostrar ID do servidor na página do Monitor de jogos");
 define('show_server_id_game_monitor_info', "Mostre a coluna do ID do servidor do jogo no Game Monitor para fazer correspondência dos arquivos criados pelo agente no servidor do jogo real");
+define('default_game_server_home_path_prefix', "Prefixo do directório inicial do servidor de jogos padrão");
+define('default_game_server_home_path_prefix_info', "Digite um prefixo de caminho para onde você deseja que as casas do servidor do jogo sejam criadas por padrão. Você pode usar \"{USERNAME}\" no caminho que será substituído pelo nome de usuário Do seu Painel, o servidor do jogo está sendo atribuído a.  Você pode usar \"{GAMEKEY}\" no caminho que será substituído por um nome de minúscula.  Você pode usar \"{SKIPID}\" em qualquer lugar no caminho para pular anexando o ID inicial ao caminho.  Exemplo: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} irá se tornar /ogp/games/username/arkse/.  Exemplo2:  /ogp/games ira se tornar /ogp/games/2 onde 2 é a identificação dos servidores do jogo.");
 ?>

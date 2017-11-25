@@ -54,7 +54,7 @@ define('startup_params', "Startparameter");
 define('startup_cpu', "CPU auf dem der Server läuft");
 define('startup_nice', "Nice Wert des Servers
 ");
-define('game_home', "Home Path");
+define('game_home', "Game Pfad");
 define('server_started', "Server erfolgreich gestartet.");
 define('no_parameter_access', "Sie haben keinen Zugriff auf die Parameter.");
 define('extra_parameters', "Zusätzliche Parameter");
@@ -62,7 +62,7 @@ define('no_extra_param_access', "Sie haben keinen Zugriff auf die zusätzlichen 
 define('extra_parameters_info', "Diese Parameter werden am Ende der Befehlszeile gesetzt, wenn das Spiel gestartet wird.");
 define('game_exec_not_found', "Die ausführbare Datei %s wurde vom Remoteserver nicht gefunden.");
 define('select_params_and_start', "Wählen Sie die start parameter für den Server aus und drücken Sie '%s'.");
-define('no_ip_port_pairs_assigned', "No IP Port pairs assigned for this home. If you do not have access to home editing contact your admin.");
+define('no_ip_port_pairs_assigned', "Diesem home wurde keine IP und kein Port zugewiesen. Wenn du keinen Zugriff auf die Bearbeitung eines Homes hast, kontaktiere einen Admin");
 define('unable_to_get_log', "Log konnte nicht abgerufen werden, retval %s.");
 define('server_binary_not_executable', "Server binary is not executable. Check you have proper permissions in the server home directory.");
 define('server_not_running_log_found', "Server is not running, but log is found. NOTE: This log might not be related to the last server startup.");
@@ -211,4 +211,6 @@ define('admin', "Admin");
 define('cid', "CID");
 define('phan', "Phantom");
 define('sec', "Seconds");
+define('unknown_rsync_mirror', "You attempted to start an update from a mirror which doesn't exist.");
+define('go_to_custom_fields', "Go to Custom Fields");
 ?>

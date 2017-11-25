@@ -25,6 +25,14 @@
 define('system_uptime', "مدة تشغيل النظام");
 define('system_up_time', "مدة التشغيل");
 define('system_up_since', "منذ");
+define('day_word', "يوم");
+define('days_word', "أيام");
+define('hour_word', "ساعة");
+define('hours_word', "ساعات");
+define('minute_word', "دقيقة");
+define('minutes_word', "دقائق");
+define('second_word', "ثانية");
+define('seconds_word', "ثواني");
 define('cpu_usage', "استخدام المعالج");
 define('cpu_load', "حمل");
 define('ram_usage', "استخدام ذاكرة الوصول العشوائي");

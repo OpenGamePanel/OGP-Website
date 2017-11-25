@@ -110,7 +110,7 @@ define('version', "نسخة");
 define('show_version', "أظهر النسخة");
 define('queries_executed', "الاستعلامات التي تم تنفيذها");
 define('lang', "لغة");
-define('get_size', "Show Size");
+define('get_size', "عرض الحجم");
 define('total_size', "الحجم الإجمالي");
 define('lgsl', "LGSL");
 define('lgsl_admin', "أدمن LGSL");
@@ -139,4 +139,6 @@ define('cron', "مدير الكرون");
 define('user_cron', "الكرون");
 define('faq', "التعليمات.");
 define('mysql_admin', "مدير قاعدة البيانات");
+define('copied', "Copied!");
+define('ticket_settings', "Ticket Settings");
 ?>

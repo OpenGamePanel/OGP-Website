@@ -168,7 +168,7 @@ define('game_name', "Játék neve");
 define('dest_dir', "Cél könyvtár");
 define('remote_server', "Távoli szerver");
 define('file_url', "Fájl URL");
-define('file_url_info', "Az URL a fájl feltöltve és kicsomagolva a könyvtárba.");
+define('file_url_info', "A feltöltött és tömörítetlen fájl URL-címe a könyvtárhoz.");
 define('dest_filename', "Célfájlnév");
 define('dest_filename_info', "A célfájl fájlneve.");
 define('update_server', "Szerver frissítés");
@@ -203,4 +203,6 @@ define('admin', "Adminisztrátor");
 define('cid', "CID");
 define('phan', "Fantom");
 define('sec', "Másodpercek");
+define('unknown_rsync_mirror', "You attempted to start an update from a mirror which doesn't exist.");
+define('go_to_custom_fields', "Go to Custom Fields");
 ?>

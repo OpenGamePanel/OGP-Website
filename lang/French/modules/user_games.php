@@ -152,6 +152,7 @@ define('select_home', "Sélectionner un serveur à assigner");
 define('assign_new_home_to_user', "Assigner un nouveau serveur à l'Utilisateur %s");
 define('assign_new_home_to_group', "Assigner un nouveau serveur au Groupe %s");
 define('assigned_home_to_user', "Serveur (ID %d) assigné à l'Utilisateur %s avec succès.");
+define('failed_to_assign_home_to_user', "Impossible d'assigner le serveur (ID: %d) à l'utilisateur %s.");
 define('assigned_home_to_group', "Serveur (ID %d) assigné au Groupe %s avec succès.");
 define('unassigned_home_from_user', "Serveur (ID %d) désassigné de l'Utilisateur %s avec succès.");
 define('unassigned_home_from_group', "Serveur (ID %d) désassigné du Groupe %s avec succès.");
@@ -194,7 +195,6 @@ define('sucessfully_deleted', "%s supprimé avec succès");
 define('the_agent_had_a_problem_deleting', "L'Agent a eu un problème en supprimant %s, vérifiez le log de l'Agent");
 define('connection_timeout_or_problems_reaching_the_agent', "Délai dépassé lors de la connexion ou problèmes en se connectant à l'Agent");
 define('does_not_exist_yet', "N'existe pas encore.");
-define('go_to_custom_fields', "Aller aux Champs Personnalisés");
 define('back_to_edit_server', "Retour à l'édition du serveur");
 define('update_settings', "Enregistrer les paramètres");
 define('settings_updated', "Paramètres mis à jour.");
@@ -217,4 +217,7 @@ define('cpu_affinity_info', "Sélectionnez le(s) cœur(s) de CPU à assigner au 
 define('expiration_date_changed', "La date d&apos;expiration pour ce serveur a bien été changée.");
 define('expiration_date_could_not_be_changed', "La date d&apos;expiration pour ce serveur n&apos;a pas pu être changée.");
 define('search', "Rechercher");
-?>
+define('ftp_account_username_too_long', "Le nom d'utilisateur FTP est trop long. Veuillez entrer un nom d'utilisateur de 20 caractères maximum.");
+define('ftp_account_password_too_long', "Le mot de passe FTP est trop long. Veuillez entrer un mot de passe de 20 caractères maximum.");
+define('other_servers_exist_with_path_please_change', "Un autre serveur existe avec le même chemin. Il est fortement recommandé (mais pas requis) que vous changiez le chemin pour quelque chose d'unique. Vous pourrez avoir des problèmes si vous ne le faites PAS.");
+ ?>

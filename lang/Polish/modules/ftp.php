@@ -31,4 +31,6 @@ define('full_path', "Pełna ścieżka");
 define('add_ftp_account', "Dodaj konto FTP");
 define('remote_server', "Serwer Zdalny");
 define('server_name', "Nazwa Serwera");
+define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 ?>

@@ -41,6 +41,9 @@ function exec_ogp_module()
 	$submit = isset($_REQUEST['submit']) ? $_REQUEST['submit'] : "";
 
 	$home_info = $db->getGameHomeWithoutMods($home_id);
+	$servers_with_same_path = $db->getGameServersWithSamePath($home_info['remote_server_id'], $home_info['home_path']); 
+	$servers_with_same_path = (is_array($servers_with_same_path) ? count($servers_with_same_path) : 0);
+	
 	$home_id = $home_info['home_id'];
 	$enabled_mods = $db->getHomeMods($home_id);
 
@@ -57,7 +60,8 @@ function exec_ogp_module()
 		$new_home_cfg_id = $_POST['home_cfg_id'];
 		if($db->updateHomeCfgId($home_id, $new_home_cfg_id))
 		{
-			echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
+			$json_message = array('result' => 'success', 'info' => successfully_changed_game_server);
+			echo json_encode($json_message);			
 			$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_game_type .":old home_cfg_id:$home_cfg_id, new home_cfg_id:$new_home_cfg_id");
 		}
 		else
@@ -127,10 +131,17 @@ function exec_ogp_module()
 					return;
 				}
 				
+				// Validation
+				
 				// Is the same user old and new?
 				if($old_login == $post_ftp_login)
 				{
 					echo json_encode(array('result' => 'success', 'info' => ''));
+					return;
+				}
+				
+				if(strlen($post_ftp_login) > 20){
+					echo json_encode(array('result' => 'failure', 'info' => ftp_account_username_too_long));
 					return;
 				}
 					
@@ -215,10 +226,17 @@ function exec_ogp_module()
 					return;
 				}
 				
+				// Validation
+				
 				// Is the same password old and new?
 				if($home_info['ftp_password'] == $ftp_password)
 				{
 					echo json_encode(array('result' => 'success', 'info' => ''));
+					return;
+				}
+				
+				if(strlen($ftp_password) > 20){
+					echo json_encode(array('result' => 'failure', 'info' => ftp_account_password_too_long));
 					return;
 				}
 				
@@ -308,17 +326,27 @@ function exec_ogp_module()
 		if( isset( $_REQUEST['create_ftp']) )
 		{
 			$login = isset($home_info['ftp_login']) ? $home_info['ftp_login'] : $home_id;
-			if ($remote->ftp_mgr("useradd", $login, $home_info['ftp_password'], $home_info['home_path']) === 0)
-			{
-				$result = error_ocurred_on_remote_server ." ". ftp_can_not_be_switched_on;
+			
+			$success = true;
+			if(strlen($login) > 20){
+				$result = ftp_account_username_too_long;
 				$type = "failure";
+				$success = false;
 			}
-			else
-			{
-				$db->changeFtpStatus('enabled',$home_id);
-				$result = successfully_changed_game_server;
-				$type = "success";
-				$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_ftp_account_status .":enabled");
+			
+			if($success){
+				if ($remote->ftp_mgr("useradd", $login, $home_info['ftp_password'], $home_info['home_path']) === 0)
+				{
+					$result = error_ocurred_on_remote_server ." ". ftp_can_not_be_switched_on;
+					$type = "failure";
+				}
+				else
+				{
+					$db->changeFtpStatus('enabled',$home_id);
+					$result = successfully_changed_game_server;
+					$type = "success";
+					$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_ftp_account_status .":enabled");
+				}
 			}
 		}
 		else if( isset( $_REQUEST['delete_ftp']) )
@@ -419,6 +447,20 @@ function exec_ogp_module()
 			{
 				if ( $db->changeHomePath($home_id,clean_path($home_path)) === TRUE )
 				{
+					$home_info = $db->getGameHomeWithoutMods($home_id);
+					$servers_with_same_path = $db->getGameServersWithSamePath($home_info['remote_server_id'], $home_info['home_path']); 
+					$servers_with_same_path = (is_array($servers_with_same_path) ? count($servers_with_same_path) : 0);
+					
+					$success_json = array('result' => 'success', 'info' => successfully_changed_game_server);
+					
+					if($servers_with_same_path > 1){
+						$success_json["warning_info"] = get_lang('other_servers_exist_with_path_please_change');
+					}
+					
+					// Create new home directory if it doesn't already exist
+					$remote->exec("mkdir -p " . clean_path($home_path));
+					
+					// If FTP is enabled, update the FTP info.
 					if($ftp_installed){
 						if ($db->IsFtpEnabled($home_id))
 						{
@@ -431,7 +473,7 @@ function exec_ogp_module()
 							
 							if (isset($create_new_ftp_account) and $create_new_ftp_account !== 0)
 							{
-								echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
+								echo json_encode($success_json);
 								$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". home_path .":$home_path");
 							}
 							else
@@ -442,13 +484,13 @@ function exec_ogp_module()
 						}
 						else
 						{
-							echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
+							echo json_encode($success_json);
 							$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". home_path .":$home_path");
 						}
 					}
 					else
 					{
-						echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
+						echo json_encode($success_json);
 						$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". home_path .":$home_path");
 					}
 				}
@@ -584,18 +626,13 @@ function exec_ogp_module()
 	}
 	echo "</div>";
 	$home_info = $db->getGameHomeWithoutMods($home_id);
-	$custom_fileds_access_enabled = preg_match("/c/",$game_home['access_rights']) > 0 ? TRUE : FALSE;
 	echo "<p>";
 	echo "<a href='?m=gamemanager&p=game_monitor&home_id=$home_id'>&lt;&lt; ". back_to_game_monitor ."</a>";
 	if ( $isAdmin )
 	{
 		echo " &nbsp; ";
 		echo "<a href='?m=user_games'>&lt;&lt; ". back_to_game_servers ."</a>";
-		$custom_fileds_access_enabled = TRUE;
 	}
-	if( isset($server_xml->custom_fields) and $custom_fileds_access_enabled )
-		echo " &nbsp; <a href='?m=user_games&p=custom_fields&home_id=".$home_id."'>". go_to_custom_fields ." &gt;&gt;</a>";
-	
 	echo "</p>";
 	echo "<table class='center' id='main_settings' >";	
 	if ( $isAdmin )
@@ -644,7 +681,11 @@ function exec_ogp_module()
 			 "<input type='text' size='30' name='home_path' value=\"".str_replace('"', "&quot;", $home_info['home_path'])."\" />".
 			 "<input type='submit' name='change_home' value='". change_home ."' id='change_home_path' />".
 			 "</form><button data-path=\"".str_replace('"', "&quot;", $home_info['home_path'])."\" data-home-id='".$home_id."' id='browse'>".
-			  browse ."</button></td></tr>".
+			  browse ."</button>";
+			  if($servers_with_same_path > 1){
+				print_failure(get_lang('other_servers_exist_with_path_please_change'), "warning");
+			  }
+		echo "</td></tr>".
 			 "<tr><td colspan='2' class='info'>". change_home_info ."</td></tr>";
 		
 		//Jquery path browser dialog

@@ -26,6 +26,51 @@ $param_access_enabled = preg_match("/p/",$server_home['access_rights']) > 0 ? TR
 $extra_param_access_enabled = preg_match("/e/",$server_home['access_rights']) > 0 ? TRUE:FALSE;
 $last_param = json_decode($server_home['last_param'], True);
 
+$isAdmin = $db->isAdmin($_SESSION['user_id']);
+
+if (!function_exists('processParamValue')) {
+	function processParamValue($paramKey, $paramValue, &$save_param, &$start_cmd){
+		// Set globals
+		global $param, $server_xml;
+		
+		if (0 == strlen($paramValue))
+			return false;
+		
+		if ($paramKey == $paramValue) // it's a checkbox
+		{
+			$new_param = $paramKey;
+			$save_param[$paramKey] = True;
+		}
+		elseif($param->option == "ns" or $param->options == "ns")
+		{
+			$new_param = $paramKey.clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
+			$save_param[$paramKey] = $paramValue;
+		}
+		elseif($param->option == "q" or $param->options == "q"){
+			$new_param = $paramKey . '"' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
+			$save_param[$paramKey] = $paramValue;
+		}
+		elseif($param->option == "s" or $param->options == "s"){
+			$new_param = $paramKey . ' ' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
+			$save_param[$paramKey] = $paramValue;
+		}
+		else
+		{
+			$new_param = $paramKey.' "'.clean_server_param_value($paramValue, $server_xml->cli_allow_chars).'"';
+			$save_param[$paramKey] = $paramValue;
+		}
+						  
+		if ($param['id'] == NULL || $param['id'] == "")
+		{
+			$start_cmd .= ' '.$new_param;
+		}
+		else
+		{
+			$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
+		}
+	}
+}
+
 if( !isset( $_POST['start_server'] ) )
 {
 	$server_exec = clean_path($server_home['home_path']."/".$server_xml->exe_location."/".$server_xml->server_exec_name);
@@ -403,46 +448,61 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 		if ( $param_access_enabled && isset($_REQUEST['params']) )
 		{
 			foreach($server_xml->server_params->param as $param)
-			{		
+			{
+				// Get the last saved value of this param or its default value
+				if (array_key_exists((string)$param['key'], $last_param)){
+					$origValue = (string)$last_param[(string)$param['key']];
+				}else{
+					$origValue = "";
+				}
+				
+				// Loop through each posted param and process them
+				$found = 0;
 				foreach ( $_REQUEST['params'] as $paramKey => $paramValue )
-				{
+				{						
+					// Dependency fields...				
+					if(stripos($paramKey, "{DEPENDS") !== false){
+						$dependsSection = strrpos($paramKey, "{DEPENDS");
+						$realKey = substr($paramKey, 0, $dependsSection);
+						$dependsSection = substr($paramKey, $dependsSection);
+						$dependsKey = str_replace("{DEPENDS:", "", $dependsSection);
+						$dependsKey = str_replace("}", "", $dependsKey);
+						if(hasValue($_REQUEST['params'][$dependsKey])){
+							$additionalValue = $_REQUEST['params'][$dependsKey];
+							
+							// Remove leading slashes if there are any for additional game path
+							if($dependsKey == "other_game_server_path_additional"){
+								$additionalValue = ltrim($additionalValue,'/');
+							}
+							
+							$paramValue .= $additionalValue;
+						}
+						$paramKey = $realKey;
+					}
+					
 					if ($param['key'] == $paramKey)
 					{
-						if (0 == strlen($paramValue))
-							continue;
-						if ($paramKey == $paramValue) // it's a checkbox
+						// If locked by an admin, ignore the value posted by the user
+						$lockedByAdmin = false;
+						if(property_exists($param, 'access') && $param->access == "admin")
 						{
-							$new_param = $paramKey;
-							$save_param[$paramKey] = True;
+							$lockedByAdmin = true;
+							if(!$isAdmin){
+								$paramValue = $origValue; // Set it to the old saved value (which was last set by an admin) or set it to its default value
+							}														
 						}
-						elseif($param->option == "ns" or $param->options == "ns")
-						{
-							$new_param = $paramKey.clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
-							$save_param[$paramKey] = $paramValue;
-						}
-						elseif($param->option == "q" or $param->options == "q"){
-							$new_param = $paramKey . '"' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
-							$save_param[$paramKey] = $paramValue;
-						}
-						elseif($param->option == "s" or $param->options == "s"){
-							$new_param = $paramKey . ' ' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
-							$save_param[$paramKey] = $paramValue;
-						}
-						else
-						{
-							$new_param = $paramKey.' "'.clean_server_param_value($paramValue, $server_xml->cli_allow_chars).'"';
-							$save_param[$paramKey] = $paramValue;
-						}
-					  
-						if ($param['id'] == NULL || $param['id'] == "")
-						{
-							$start_cmd .= ' '.$new_param;
-						}
-						else
-						{
-							$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
-						}
+						
+						// Process the param value for the start command and for the save params
+						processParamValue($paramKey, $paramValue, $save_param, $start_cmd);
+						
+						$found++;
+						break; // More efficient
 					}			  
+				}
+				
+				// If the parameter wasn't posted (because it may have been disabled due to access param) or a sneaky user deleted it to circumvent security
+				if($found == 0 && !empty($origValue)){
+					processParamValue((string)$param['key'], $origValue, $save_param, $start_cmd);
 				}
 				
 				if ($param['id'] != NULL && $param['id'] != ""){
@@ -572,12 +632,15 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	
 	$start_retval = $remote->universal_start($server_home['home_id'],
 		$server_home['home_path'],
-		$server_xml->server_exec_name, $server_xml->exe_location,
+		$server_xml->server_exec_name, 
+		$server_xml->exe_location,
 		$start_cmd, $port, $ip,
 		$server_home['cpu_affinity'],
 		$server_home['nice'],
 		$preStart,
-		$envVars);
+		$envVars,
+		$server_xml->game_key
+		);
 	$db->logger(  server_started  . " (".$server_home['home_name']." $ip:$port)" );
 	if ( $start_retval == AGENT_ERROR_NOT_EXECUTABLE )
 	{

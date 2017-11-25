@@ -80,7 +80,7 @@ define('header_code_info', "Здесь вы можете написать соб
 define('support_widget_title', "Название виджета поддержки");
 define('support_widget_title_info', "Пользовательский заголовок для виджета поддержки в панели.");
 define('support_widget_content', "Содержимое виджета поддержки");
-define('support_widget_content_info', "The content of the support widget (HTML code allowed).");
+define('support_widget_content_info', "Содержимое виджета поддержки  (HTML-код разрешено использовать).");
 define('support_widget_link', "Ссылка на виджет поддержки");
 define('support_widget_link_info', "URL вашего сайта поддержки.");
 define('recaptcha_site_key', "Ключ - Recaptcha Site Key");
@@ -130,4 +130,6 @@ define('bg_wrapper', "Задний фон");
 define('bg_wrapper_info', "Картинка заднего фона. <b style='font-size:10px; font-weight:normal;'>(Только для темы Revolution.)</b>");
 define('show_server_id_game_monitor', "Показывать ID сервера на странице Игрового Мониторинга");
 define('show_server_id_game_monitor_info', "Показывает ID Игрового сервер на странице Мониторинга для сопоставления созданных файлов Агентом на Актуальном Игровом сервере.");
+define('default_game_server_home_path_prefix', "Default game server home directory prefix");
+define('default_game_server_home_path_prefix_info', "Enter a path prefix for where you want game server homes to be created by default. You can use \"{USERNAME}\" in the path which will be replaced with the OGP username the game server is being assigned to.  You can use \"{GAMEKEY}\" in the path which will be replaced with a friendly lowercase name.  You can use \"{SKIPID}\" anywhere in the path to skip appending the home ID to the path.  Example: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} will become /ogp/games/username/arkse/.  Example 2:  /ogp/games will become /ogp/games/1 where 1 is the game servers ID.");
 ?>

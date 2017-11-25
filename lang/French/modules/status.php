@@ -25,6 +25,14 @@
 define('system_uptime', "Temps de Disponibilité du Serveur");
 define('system_up_time', "Démarré depuis");
 define('system_up_since', "Démarré le");
+define('day_word', "Jour");
+define('days_word', "Jours");
+define('hour_word', "Heure");
+define('hours_word', "Heures");
+define('minute_word', "Minute");
+define('minutes_word', "Minutes");
+define('second_word', "Seconde");
+define('seconds_word', "Secondes");
 define('cpu_usage', "Utilisation du CPU");
 define('cpu_load', "Charge");
 define('ram_usage', "Utilisation de la RAM");
