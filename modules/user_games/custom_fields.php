@@ -116,13 +116,6 @@ function exec_ogp_module()
 
 	echo "<p>";
 	echo "<a href='?m=gamemanager&p=game_monitor&home_id=$home_id'>&lt;&lt; ".get_lang('back_to_game_monitor')."</a>";
-	if ( $isAdmin )
-	{
-		echo "  &nbsp; ";
-		echo "<a href='?m=user_games'>&lt;&lt; ".get_lang('back_to_game_servers')."</a>";
-	}
-	echo "  &nbsp; ";
-	echo "<a href='?m=user_games&p=edit&home_id=$home_id'>&lt;&lt; ".get_lang('back_to_edit_server')."</a>";
 	echo "</p>";
 	
 	if(isset($_POST['update_settings']))
