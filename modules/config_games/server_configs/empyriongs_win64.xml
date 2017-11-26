@@ -62,6 +62,7 @@
       <var>    ${2}%key%</var>
       <filepath>dedicated.yaml</filepath>
       <options>key-regex</options>
+      <access>admin</access>
       <desc>Port of Telnet.</desc>
     </field>
     <field key="Activate EAC" type="select">
