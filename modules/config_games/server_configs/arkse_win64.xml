@@ -129,7 +129,7 @@
       <default_value>27020</default_value>
       <var>RCONPort=</var>
       <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
-   	  <options>sq</options>
+      <options>sq</options>
       <access>admin</access>
       <desc>Port of remote control.</desc>
     </field>
