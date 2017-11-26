@@ -57,6 +57,7 @@
       <var>authport</var>
       <filepath>default.cfg</filepath>
    	  <options>s</options>
+      <access>admin</access>
       <desc>Port of Auth.</desc>
     </field>
     <field key="Game Port" type="text">
@@ -65,6 +66,7 @@
       <var>gameport</var>
       <filepath>default.cfg</filepath>
    	  <options>s</options>
+      <access>admin</access>
       <desc>Port of Game.</desc>
     </field>
   </custom_fields>
