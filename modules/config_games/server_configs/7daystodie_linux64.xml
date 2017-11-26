@@ -83,6 +83,7 @@
       <var>ControlPanelPort</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
+      <access>admin</access>
       <desc>Port of the control panel webpage.</desc>
     </field>
     <field key="Telnet Enabled" type="select">
@@ -101,6 +102,7 @@
       <var>TelnetPort</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
+      <access>admin</access>
       <desc>Port of the Telnet server.</desc>
     </field>
     <field key="EAC Enabled" type="select">
@@ -127,6 +129,7 @@
       <var>MaxSpawnedZombies</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
+      <access>admin</access>
       <desc>Making this number too large (more than about 80) may cause servers to run at poor framerates which will effect lag and play quality for clients.</desc>
     </field>
   </custom_fields>

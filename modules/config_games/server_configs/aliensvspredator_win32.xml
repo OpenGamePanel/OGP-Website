@@ -56,7 +56,8 @@
       <default_value>8766</default_value>
       <var>authport</var>
       <filepath>default.cfg</filepath>
-   	  <options>s</options>
+      <options>s</options>
+      <access>admin</access>
       <desc>Port of Auth.</desc>
     </field>
     <field key="Game Port" type="text">
@@ -64,7 +65,8 @@
       <default_value>27016</default_value>
       <var>gameport</var>
       <filepath>default.cfg</filepath>
-   	  <options>s</options>
+      <options>s</options>
+      <access>admin</access>
       <desc>Port of Game.</desc>
     </field>
   </custom_fields>

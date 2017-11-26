@@ -35,16 +35,19 @@
     <param key="-authport=" type="text" id="STEAM_PORT">
       <default>8770</default>
       <options>ns</options>
+      <access>admin</access>
       <desc>This is used to authenticate Steam accounts.</desc>
     </param>
     <param key="-rconport1=" type="text" id="RCON1_PORT">
       <default>27010</default>
       <options>ns</options>
+      <access>admin</access>
       <desc>The RCON port for remote admin connections.</desc>
     </param>
     <param key="-rconport2=" type="text" id="RCON2_PORT">
       <default>27011</default>
       <options>ns</options>
+      <access>admin</access>
       <desc>The RCON port for remote admin connections.</desc>
     </param>
   </server_params>
