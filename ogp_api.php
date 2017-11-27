@@ -111,8 +111,8 @@ function runRemoteAction($action){
 							$startup_cmd, 
 							$home_ip_ports['port'], 
 							$home_ip_ports['ip'],
-							$server_home['cpu_affinity'],
-							$server_home['nice'],
+							$server_home['mods'][$mod_id]['cpu_affinity'],
+							$server_home['mods'][$mod_id]['nice'],
 							$preStart,
 							$envVars,
 							$server_xml->game_key);
