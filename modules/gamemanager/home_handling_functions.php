@@ -36,7 +36,7 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$db)
 	$os = $remote->what_os();
 	
 	$isAdmin = false;
-	if(hasValue($_SESSION['user_id'])){
+	if(hasValue($_SESSION) && hasValue($_SESSION['user_id'])){
 		$isAdmin = $db->isAdmin($_SESSION['user_id']);
 	}
 	
