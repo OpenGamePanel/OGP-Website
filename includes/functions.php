@@ -788,6 +788,8 @@ function customShift($array, $keyToMoveOn, $valueToMoveOn){
             return $array;               
         }
     }
+    
+    return $array;
 }
 
 function getURLParam($param, $url){
