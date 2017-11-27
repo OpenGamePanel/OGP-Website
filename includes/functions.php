@@ -789,4 +789,18 @@ function customShift($array, $keyToMoveOn, $valueToMoveOn){
         }
     }
 }
+
+function getURLParam($param, $url){
+	if(stripos($url, $param) !== false){
+		
+		$param = substr($url, stripos($url, $param) + strlen($param));
+		if(stripos($param, "&")){
+			$param = substr($param, 0, stripos($param, "&"));
+		}
+	
+		return $param;
+	}
+	
+	return false;
+}
 ?>
