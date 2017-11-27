@@ -42,8 +42,12 @@ function read_server_config( $filename )
     }
 
     $xml = simplexml_load_file($filename);
-    $xml->addChild('home_cfg_file',basename($filename));
-    return $xml;
+    if($xml !== false){
+		$xml->addChild('home_cfg_file',basename($filename));
+		return $xml;
+	}
+	
+	return false;
 }
 
 function xml_get_mod( $server_xml, $mod_key )
