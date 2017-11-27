@@ -204,4 +204,5 @@ define('cid', "CID");
 define('phan', "Fantom");
 define('sec', "Másodpercek");
 define('unknown_rsync_mirror', "You attempted to start an update from a mirror which doesn't exist.");
+define('go_to_custom_fields', "Go to Custom Fields");
 ?>

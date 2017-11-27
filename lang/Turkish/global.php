@@ -139,4 +139,6 @@ define('cron', "Cron Admin");
 define('user_cron', "Cron");
 define('faq', "F.A.Q.");
 define('mysql_admin', "MySQL Admin");
+define('copied', "Copied!");
+define('ticket_settings', "Ticket Settings");
 ?>

@@ -195,7 +195,6 @@ define('sucessfully_deleted', "Успешное удаление %s");
 define('the_agent_had_a_problem_deleting', "У агента возникла проблема с удалением %s, посмотрите логи Агента");
 define('connection_timeout_or_problems_reaching_the_agent', "Время соединения вышло или проблемы связи с Агентом");
 define('does_not_exist_yet', "Пока не существует.");
-define('go_to_custom_fields', "Перейти к настраиваемым поля");
 define('back_to_edit_server', "Вернутся к редактированию сервера");
 define('update_settings', "Обновить настройки");
 define('settings_updated', "Настройки обновлены");
@@ -220,4 +219,5 @@ define('expiration_date_could_not_be_changed', "Дата истечения ср
 define('search', "Поиск");
 define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
 define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
-?>
+define('other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
+ ?>

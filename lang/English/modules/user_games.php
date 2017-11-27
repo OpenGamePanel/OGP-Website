@@ -220,4 +220,4 @@ define('search', "Search");
 define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
 define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 define('other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
-?>
+ ?>

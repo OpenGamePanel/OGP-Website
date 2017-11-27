@@ -48,15 +48,16 @@
   <server_params>
   <param key="FIXEDMAXTICKRATE=" type="text" id="TICKRATE">
       <default>50</default>
-      <desc>MAX server tickrate.</desc>
       <options>ns</options>
+      <access>admin</access>
+      <desc>MAX server tickrate.</desc>
     </param>
   <param key="RANDOM=" type="select" id="MAP">
       <option value="ALWAYS">Always</option>
       <option value="FIRST">First</option>
       <option value="NONE">None</option>
-      <desc>Randomize map rotation.</desc>
       <options>ns</options>
+      <desc>Randomize map rotation.</desc>
     </param>
   </server_params>
   <custom_fields>
@@ -65,6 +66,7 @@
       <default_value>21114</default_value>
       <var>Port=</var>
       <filepath>Squad/ServerConfig/Rcon.cfg</filepath>
+      <access>admin</access>
       <desc>Sets the port to RCON.</desc>
     </field>
   </custom_fields>
