@@ -170,11 +170,11 @@ function callRestartServer(){
 	global $settings, $db, $remote, $server_xml, $mod_xml, $server_home, $mod_key, $mod_id, $appId, $home_ip_ports, $resultOp;
 	
 	$success = runRemoteAction("restart_server");
-	if($success == 1){
+	if($success >= 0){
 		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully restarted.";
 		$resultOp["success"] = true;
 	}else{
-		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to restart.";
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to restart. Agent returned: " . (is_array($success) ? print_r($success, true) : $success);
 		$resultOp["success"] = false;
 	}
 }
@@ -187,7 +187,7 @@ function callStartServer(){
 		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully started.";
 		$resultOp["success"] = true;
 	}else{
-		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to start.";
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to start. Agent returned: " . (is_array($success) ? print_r($success, true) : $success);
 		$resultOp["success"] = false;
 	}
 }
@@ -200,7 +200,7 @@ function callStopServer(){
 		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has stopped successfully.";
 		$resultOp["success"] = true;
 	}else{
-		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to stop.";
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to stop. Agent returned: " . (is_array($success) ? print_r($success, true) : $success);
 		$resultOp["success"] = false;
 	}
 }
