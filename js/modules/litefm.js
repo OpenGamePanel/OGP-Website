@@ -825,6 +825,11 @@ $(document).ready(function(){
 			open: function(){
 				refresh = null;
 				resetUploadUI();
+			},
+			beforeClose: function(){
+				if(refresh != null){
+					return false;
+				}
 			}
 		});
 
@@ -937,6 +942,7 @@ $(document).ready(function(){
 							$(".uploadLiteFMStatus").html(successMess).removeClass('success').addClass('success');
 							$("form#upload input#files").val('');
 							clearInterval(refresh);
+							refresh = null;
 						}
 					}, 2000);
 				}
