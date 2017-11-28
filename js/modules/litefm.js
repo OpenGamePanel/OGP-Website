@@ -928,7 +928,7 @@ $(document).ready(function(){
 						if(stop_refresh == true)
 						{
 							resetUploadUI();
-							$(".uploadLiteFMStatus").html("File(s) successfully uploaded.").removeClass('success').addClass('success');
+							$(".uploadLiteFMStatus").html(langConsts.upload_complete).removeClass('success').addClass('success');
 							$("form#upload input#files").val('');
 							clearInterval(refresh);
 						}

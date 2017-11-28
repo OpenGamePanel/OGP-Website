@@ -153,6 +153,9 @@ class OGPView {
 		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>' . "\n";
 		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>' . "\n";
 		
+		// Dump defined constants to json (for language javascript)
+		$this->header_code .= '<script type="text/javascript">var langConsts = ' . json_encode(get_defined_constants()) . ';</script>' . "\n";
+		
 		// Include our global JS
 		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
 
