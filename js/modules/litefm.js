@@ -926,7 +926,7 @@ $(document).ready(function(){
 						
 						if(stop_refresh == true)
 						{
-							$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
+							resetUploadUI();
 							clearInterval(refresh);
 						}
 					}, 2000);
