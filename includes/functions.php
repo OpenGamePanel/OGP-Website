@@ -806,12 +806,15 @@ function getURLParam($param, $url){
 	return false;
 }
 
-function utf8ize($d) {
+function utf8ize($d, $htmlEntities = true) {
     if (is_array($d)) {
         foreach ($d as $k => $v) {
-            $d[$k] = utf8ize($v);
+            $d[$k] = utf8ize($v, $htmlEntities);
         }
     } else if (is_string ($d)) {
+		if($htmlEntities){
+			$d = htmlentities($d);
+		}
         return utf8_encode($d);
     }
     return $d;
