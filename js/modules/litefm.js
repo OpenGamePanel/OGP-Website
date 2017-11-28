@@ -808,6 +808,7 @@ $(document).ready(function(){
 		var percent2 = $('.percent2');
 		var bar2 = $('.bar2');
 		progress.hide();
+		var refresh = null;
 
 		$('#dialog').dialog({
 			autoOpen: true,
@@ -816,8 +817,12 @@ $(document).ready(function(){
 			close: function() {
 				$( this ).dialog( "close" );
 				window.location.href = window.location.href.replace('&back','');
+				if(refresh != null){
+					clearInterval(refresh);
+				}
 			}, 
 			open: function(){
+				refresh = null;
 				resetUploadUI();
 			}
 		});
@@ -878,7 +883,7 @@ $(document).ready(function(){
 						pVel = "",
 						rond_total = 0;
 
-					var refresh = setInterval(function(){
+					refresh = setInterval(function(){
 						$.each(files_info, function(index, file){
 							if(typeof file_complete[index] !== 'undefined' && file_complete[index] == true)
 							{
