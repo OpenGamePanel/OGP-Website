@@ -831,6 +831,9 @@ $(document).ready(function(){
 				if(refresh != null){
 					return false;
 				}
+			},
+			create: function(){
+				refresh = null;
 			}
 		});
 
@@ -863,6 +866,7 @@ $(document).ready(function(){
 			},
 			/* reset before submitting */
 			beforeSend: function() {
+				refresh = "YES";
 				progress.show();
 				percent.html('0%');
 				percent2.html('0%');
