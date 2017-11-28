@@ -824,7 +824,7 @@ $(document).ready(function(){
 			/* set data type json */
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
-				$(".uploadLiteFMStatus").html("");
+				$(".uploadLiteFMStatus").html("").removeClass('failure');
 				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
 					var i = 0;
 					$.each(arr, function(index, input) {
@@ -860,7 +860,7 @@ $(document).ready(function(){
 				percent.html(pVel);
 			},
 			error: function(jqXHR, textStatus, errorThrown){
-				$(".uploadLiteFMStatus").html(textStatus + " " + errorThrown);
+				$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
 				$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
 				progress.hide();
 				percent.html('0%');
