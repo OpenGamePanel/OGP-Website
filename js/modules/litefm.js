@@ -831,6 +831,9 @@ $(document).ready(function(){
 				if(refresh != null){
 					return false;
 				}
+			},
+			create: function(){
+				refresh = null;
 			}
 		});
 
