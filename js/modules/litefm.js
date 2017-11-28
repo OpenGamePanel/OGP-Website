@@ -816,6 +816,9 @@ $(document).ready(function(){
 			close: function() {
 				$( this ).dialog( "close" );
 				window.location.href = window.location.href.replace('&back','');
+			}, 
+			open: function(){
+				resetUploadUI();
 			}
 		});
 
@@ -824,7 +827,7 @@ $(document).ready(function(){
 			/* set data type json */
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
-				$(".uploadLiteFMStatus").html("").removeClass('failure');
+				resetUploadUI();
 				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
 					var i = 0;
 					$.each(arr, function(index, input) {
@@ -860,11 +863,7 @@ $(document).ready(function(){
 				percent.html(pVel);
 			},
 			error: function(jqXHR, textStatus, errorThrown){
-				$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
-				$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
-				progress.hide();
-				percent.html('0%');
-				percent2.html('0%');
+				resetUploadUI();
 			},
 			/* success call back */
 			success: function(data) {
@@ -1055,3 +1054,11 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function resetUploadUI(){
+	$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
+	$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
+	progress.hide();
+	percent.html('0%');
+	percent2.html('0%');
+}
