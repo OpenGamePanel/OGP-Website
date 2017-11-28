@@ -183,3 +183,10 @@ function toggleEvents(){
 		sortMultiSortKey: "shiftKey",
 	});
 }
+
+function getLang(key){
+	if(langConsts && langConsts.hasOwnProperty(key)){
+		return langConsts[key];
+	}
+	return false;
+}

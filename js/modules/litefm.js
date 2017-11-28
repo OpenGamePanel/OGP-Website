@@ -928,7 +928,13 @@ $(document).ready(function(){
 						if(stop_refresh == true)
 						{
 							resetUploadUI();
-							$(".uploadLiteFMStatus").html(langConsts.upload_complete).removeClass('success').addClass('success');
+							
+							var successMess = getLang("upload_complete");
+							if(!successMess){
+								successMess = "File(s) successfully uploaded.";
+							}
+							
+							$(".uploadLiteFMStatus").html(successMess).removeClass('success').addClass('success');
 							$("form#upload input#files").val('');
 							clearInterval(refresh);
 						}
