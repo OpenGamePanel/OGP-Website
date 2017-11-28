@@ -828,6 +828,7 @@ $(document).ready(function(){
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
 				resetUploadUI();
+				$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
 				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
 					var i = 0;
 					$.each(arr, function(index, input) {
@@ -864,6 +865,7 @@ $(document).ready(function(){
 			},
 			error: function(jqXHR, textStatus, errorThrown){
 				resetUploadUI();
+				$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
 			},
 			/* success call back */
 			success: function(data) {
@@ -1056,7 +1058,7 @@ $(document).ready(function(){
 });
 
 function resetUploadUI(){
-	$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
+	$(".uploadLiteFMStatus").html('');
 	$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
 	progress.hide();
 	percent.html('0%');
