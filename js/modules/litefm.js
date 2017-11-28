@@ -792,7 +792,7 @@ $(document).ready(function(){
 	// upload
 	$("#upload.operations-button").click(function(){
 		if(checkSession() == false) { return; }
-		$('#dialog').html('<div class="status"></div>\
+		$('#dialog').html('<div class="uploadLiteFMStatus status"></div>\
 						  <form id="upload" action="home.php?m=litefm&home_id='+home_id+'&type=cleared&data_type=json" method="post" enctype="multipart/form-data">\
 							<input type="file" name="files[]" multiple="multiple" id="files">\
 							<input type="submit" name="upload" id="uploadsubmit" value="'+upload+'" >\
@@ -857,6 +857,10 @@ $(document).ready(function(){
 				var pVel = percentComplete + '%';
 				bar.val(percentComplete);
 				percent.html(pVel);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				$(".uploadLiteFMStatus").html(textStatus + " " + errorThrown);
+				$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
 			},
 			/* success call back */
 			success: function(data) {
