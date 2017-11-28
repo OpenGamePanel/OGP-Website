@@ -792,10 +792,10 @@ $(document).ready(function(){
 	// upload
 	$("#upload.operations-button").click(function(){
 		if(checkSession() == false) { return; }
-		$('#dialog').html('<div class="status"></div>\
+		$('#dialog').html('<div class="uploadLiteFMStatus status"></div>\
 						  <form id="upload" action="home.php?m=litefm&home_id='+home_id+'&type=cleared&data_type=json" method="post" enctype="multipart/form-data">\
 							<input type="file" name="files[]" multiple="multiple" id="files">\
-							<input type="submit" name="upload" value="'+upload+'" >\
+							<input type="submit" name="upload" id="uploadsubmit" value="'+upload+'" >\
 						  </form>\
 						  <div class="progress">\
 							'+upload_to_web+':<br><progress class="bar" max="100" style="width:100%;" ></progress><div class="percent"></div >\
@@ -808,6 +808,7 @@ $(document).ready(function(){
 		var percent2 = $('.percent2');
 		var bar2 = $('.bar2');
 		progress.hide();
+		var refresh = null;
 
 		$('#dialog').dialog({
 			autoOpen: true,
@@ -816,6 +817,13 @@ $(document).ready(function(){
 			close: function() {
 				$( this ).dialog( "close" );
 				window.location.href = window.location.href.replace('&back','');
+				if(refresh != null){
+					clearInterval(refresh);
+				}
+			}, 
+			open: function(){
+				refresh = null;
+				resetUploadUI();
 			}
 		});
 
@@ -824,20 +832,25 @@ $(document).ready(function(){
 			/* set data type json */
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
-				var i = 0;
-				$.each(arr, function(index, input) {
-					if(typeof input.value.name !== 'undefined')
+				resetUploadUI();
+				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
+					var i = 0;
+					$.each(arr, function(index, input) {
+						if(typeof input.value.name !== 'undefined')
+						{
+							i++;
+						}
+					});
+					if( i > max_file_uploads )
 					{
-						i++;
+						alert("The upload exceeds the max_file_uploads directive in php.ini ("+max_file_uploads+" files).");
+						return false;
 					}
-				});
-				if( i > max_file_uploads )
-				{
-					alert("The upload exceeds the max_file_uploads directive in php.ini ("+max_file_uploads+" files).");
-					return false;
-				}
-				if( i == 0)
-				{
+					if( i == 0)
+					{
+						return false;
+					}
+				}else{
 					return false;
 				}
 			},
@@ -846,12 +859,17 @@ $(document).ready(function(){
 				progress.show();
 				percent.html('0%');
 				percent2.html('0%');
+				$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').addClass('disabled').prop('disabled', true);				
 			},
 			/* progress bar call back*/
 			uploadProgress: function(event, position, total, percentComplete) {
 				var pVel = percentComplete + '%';
 				bar.val(percentComplete);
 				percent.html(pVel);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				resetUploadUI();
+				$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
 			},
 			/* success call back */
 			success: function(data) {
@@ -865,7 +883,7 @@ $(document).ready(function(){
 						pVel = "",
 						rond_total = 0;
 
-					var refresh = setInterval(function(){
+					refresh = setInterval(function(){
 						$.each(files_info, function(index, file){
 							if(typeof file_complete[index] !== 'undefined' && file_complete[index] == true)
 							{
@@ -889,6 +907,10 @@ $(document).ready(function(){
 						});
 						
 						rond_total = parseInt(percent_total);
+						if(isNaN(rond_total)){
+							rond_total = Number(0);
+						}
+						
 						pVel = rond_total + '%';
 						bar2.val(rond_total);
 						percent2.html(pVel);
@@ -904,6 +926,7 @@ $(document).ready(function(){
 						
 						if(stop_refresh == true)
 						{
+							resetUploadUI();
 							clearInterval(refresh);
 						}
 					}, 2000);
@@ -1041,3 +1064,12 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function resetUploadUI(){
+	$(".uploadLiteFMStatus").html('');
+	$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
+	
+	$('.progress').hide();
+	$('.percent').html('0%');
+	$('.percent2').html('0%');
+}
