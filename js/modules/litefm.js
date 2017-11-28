@@ -832,8 +832,8 @@ $(document).ready(function(){
 			/* set data type json */
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
-				resetUploadUI();
 				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
+					resetUploadUI();
 					var i = 0;
 					$.each(arr, function(index, input) {
 						if(typeof input.value.name !== 'undefined')
@@ -927,6 +927,7 @@ $(document).ready(function(){
 						if(stop_refresh == true)
 						{
 							resetUploadUI();
+							$(".uploadLiteFMStatus").html("File(s) successfully uploaded.").removeClass('success').addClass('success');
 							clearInterval(refresh);
 						}
 					}, 2000);
@@ -1066,7 +1067,7 @@ $(document).ready(function(){
 });
 
 function resetUploadUI(){
-	$(".uploadLiteFMStatus").html('');
+	$(".uploadLiteFMStatus").html('').removeClass('success').removeClass('error');
 	$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
 	
 	$('.progress').hide();
