@@ -232,7 +232,7 @@ function exec_ogp_module() {
             <td align='left'>
 			<select name="addon_id">
 			<?php
-			$addons = $db->resultQuery("SELECT addon_id, name FROM OGP_DB_PREFIXaddons WHERE addon_type='".$addon_type."' AND home_cfg_id=" . $home_cfg_id);
+			$addons = $db->resultQuery("SELECT addon_id, name FROM OGP_DB_PREFIXaddons WHERE addon_type='".$addon_type."' AND home_cfg_id=" . $home_cfg_id . " ORDER BY name ASC");
 			foreach($addons as $addon) 
 			{
 			?>
