@@ -1060,7 +1060,8 @@ $(document).ready(function(){
 function resetUploadUI(){
 	$(".uploadLiteFMStatus").html('');
 	$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
-	progress.hide();
-	percent.html('0%');
-	percent2.html('0%');
+	
+	$('.progress').hide();
+	$('.percent').html('0%');
+	$('.percent2').html('0%');
 }
