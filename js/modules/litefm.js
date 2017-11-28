@@ -907,6 +907,10 @@ $(document).ready(function(){
 						});
 						
 						rond_total = parseInt(percent_total);
+						if(isNaN(rond_total)){
+							rond_total = Number(0);
+						}
+						
 						pVel = rond_total + '%';
 						bar2.val(rond_total);
 						percent2.html(pVel);
