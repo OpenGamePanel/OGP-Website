@@ -825,6 +825,11 @@ $(document).ready(function(){
 			open: function(){
 				refresh = null;
 				resetUploadUI();
+			},
+			beforeClose: function(){
+				if(refresh != null){
+					return false;
+				}
 			}
 		});
 
@@ -928,9 +933,16 @@ $(document).ready(function(){
 						if(stop_refresh == true)
 						{
 							resetUploadUI();
-							$(".uploadLiteFMStatus").html("File(s) successfully uploaded.").removeClass('success').addClass('success');
+							
+							var successMess = getLang("upload_complete");
+							if(!successMess){
+								successMess = "File(s) successfully uploaded.";
+							}
+							
+							$(".uploadLiteFMStatus").html(successMess).removeClass('success').addClass('success');
 							$("form#upload input#files").val('');
 							clearInterval(refresh);
+							refresh = null;
 						}
 					}, 2000);
 				}
