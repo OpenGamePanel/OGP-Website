@@ -813,6 +813,7 @@ $(document).ready(function(){
 		$('#dialog').dialog({
 			autoOpen: true,
 			width: 350,
+			resizable: true,
 			modal: true,
 			close: function() {
 				$( this ).dialog( "close" );
