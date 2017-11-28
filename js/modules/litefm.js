@@ -820,6 +820,7 @@ $(document).ready(function(){
 				window.location.href = window.location.href.replace('&back','');
 				if(refresh != null){
 					clearInterval(refresh);
+					refresh = null;
 				}
 			}, 
 			open: function(){
