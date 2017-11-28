@@ -828,7 +828,6 @@ $(document).ready(function(){
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
 				resetUploadUI();
-				$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
 				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
 					var i = 0;
 					$.each(arr, function(index, input) {
