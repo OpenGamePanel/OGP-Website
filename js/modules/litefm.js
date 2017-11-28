@@ -928,8 +928,7 @@ $(document).ready(function(){
 						{
 							resetUploadUI();
 							$(".uploadLiteFMStatus").html("File(s) successfully uploaded.").removeClass('success').addClass('success');
-							var control = $("form#upload input#files");
-							control.replaceWith( control = control.clone( true ) );
+							$("form#upload input#files").val('');
 							clearInterval(refresh);
 						}
 					}, 2000);
