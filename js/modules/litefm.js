@@ -862,6 +862,9 @@ $(document).ready(function(){
 			error: function(jqXHR, textStatus, errorThrown){
 				$(".uploadLiteFMStatus").html(textStatus + " " + errorThrown);
 				$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
+				progress.hide();
+				percent.html('0%');
+				percent2.html('0%');
 			},
 			/* success call back */
 			success: function(data) {
