@@ -795,7 +795,7 @@ $(document).ready(function(){
 		$('#dialog').html('<div class="status"></div>\
 						  <form id="upload" action="home.php?m=litefm&home_id='+home_id+'&type=cleared&data_type=json" method="post" enctype="multipart/form-data">\
 							<input type="file" name="files[]" multiple="multiple" id="files">\
-							<input type="submit" name="upload" value="'+upload+'" >\
+							<input type="submit" name="upload" id="uploadsubmit" value="'+upload+'" >\
 						  </form>\
 						  <div class="progress">\
 							'+upload_to_web+':<br><progress class="bar" max="100" style="width:100%;" ></progress><div class="percent"></div >\
@@ -824,20 +824,24 @@ $(document).ready(function(){
 			/* set data type json */
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
-				var i = 0;
-				$.each(arr, function(index, input) {
-					if(typeof input.value.name !== 'undefined')
+				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
+					var i = 0;
+					$.each(arr, function(index, input) {
+						if(typeof input.value.name !== 'undefined')
+						{
+							i++;
+						}
+					});
+					if( i > max_file_uploads )
 					{
-						i++;
+						alert("The upload exceeds the max_file_uploads directive in php.ini ("+max_file_uploads+" files).");
+						return false;
 					}
-				});
-				if( i > max_file_uploads )
-				{
-					alert("The upload exceeds the max_file_uploads directive in php.ini ("+max_file_uploads+" files).");
-					return false;
-				}
-				if( i == 0)
-				{
+					if( i == 0)
+					{
+						return false;
+					}
+				}else{
 					return false;
 				}
 			},
@@ -846,6 +850,7 @@ $(document).ready(function(){
 				progress.show();
 				percent.html('0%');
 				percent2.html('0%');
+				$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').addClass('disabled').prop('disabled', true);				
 			},
 			/* progress bar call back*/
 			uploadProgress: function(event, position, total, percentComplete) {
@@ -904,6 +909,7 @@ $(document).ready(function(){
 						
 						if(stop_refresh == true)
 						{
+							$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
 							clearInterval(refresh);
 						}
 					}, 2000);

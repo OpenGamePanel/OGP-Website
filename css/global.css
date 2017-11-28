@@ -75,3 +75,8 @@ table.tablesorter thead tr .header.sorter-false{ /* No background image for non-
 table.hundred{
 	width: 100%;
 }
+
+.disabled{
+	cursor: not-allowed;
+	opacity: .6;
+}
