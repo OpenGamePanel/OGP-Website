@@ -824,6 +824,7 @@ $(document).ready(function(){
 			/* set data type json */
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
+				$(".uploadLiteFMStatus").html("");
 				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
 					var i = 0;
 					$.each(arr, function(index, input) {

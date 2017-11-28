@@ -80,3 +80,8 @@ table.hundred{
 	cursor: not-allowed;
 	opacity: .6;
 }
+
+.uploadLiteFMStatus{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
