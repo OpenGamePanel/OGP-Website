@@ -1075,4 +1075,7 @@ function resetUploadUI(){
 	$('.progress').hide();
 	$('.percent').html('0%');
 	$('.percent2').html('0%');
+	
+	$('progress.bar').attr('value', '0');
+	$('progress.bar2').attr('value', '0');
 }
