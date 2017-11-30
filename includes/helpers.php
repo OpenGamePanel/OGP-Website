@@ -401,7 +401,8 @@ function getOGPLangConstantsJSON(){
 	$finalConsts = array();
 	$consts = get_defined_constants(true);
 	foreach($consts["user"] as $key => $value){
-		if(lcfirst($key) === $key[0]){
+		$firstCharLower = lcfirst($key);
+		if($firstCharLower[0] === $key[0]){
 			$finalConsts[$key] = $value;
 		}
 	}
