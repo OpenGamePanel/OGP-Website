@@ -49,7 +49,7 @@ function createDatabaseConnection($db_type,$db_host,$db_user,$db_pass,$db_name,$
 		if ( function_exists('mysqli_connect') )
 			require_once("includes/database_mysqli.php");
 		else
-			die("OGP requires the <a href='http://php.net/manual/en/book.mysqli.php' target='_blank'>mysqli PHP extension</a>. Please install it, and then try again.");
+			die("<p class='failure'>OGP requires the <a href='http://php.net/manual/en/book.mysqli.php' target='_blank'>mysqli PHP extension</a>. Please install it, and then try again.</p>");
         $database = new OGPDatabaseMysql();
         $connect_value = $database->connect($db_host,$db_user,$db_pass,$db_name,$table_prefix);
         
