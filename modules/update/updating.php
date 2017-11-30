@@ -244,8 +244,9 @@ function exec_ogp_module()
 				}
 				
 				// update version info in db
-								
-				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$_GET[version]' WHERE setting = 'ogp_version'");
+
+				$version = $db->real_escape_string($_GET['version']);
+				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$version' WHERE setting = 'ogp_version'");
 				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$vtype' WHERE setting = 'version_type'");
 
 				// Remove the downloaded package
