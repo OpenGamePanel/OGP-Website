@@ -39,7 +39,7 @@ function exec_ogp_module()
 
 		if(isset($_POST['edit_preinstall_cmds']))
 		{
-			$precmd = $_POST['edit_preinstall_cmds'];
+			$precmd = $db->real_escape_string($_POST['edit_preinstall_cmds']);
 			if( isset( $_POST['save_as_default'] ) )
 			{
 				$game_mod_query = "UPDATE OGP_DB_PREFIXconfig_mods SET def_precmd='$precmd' WHERE mod_cfg_id='$mod_cfg_id'";
@@ -55,7 +55,7 @@ function exec_ogp_module()
 
 		if(isset($_POST['edit_postinstall_cmds']))
 		{
-			$postcmd = $_POST['edit_postinstall_cmds'];
+			$postcmd = $db->real_escape_string($_POST['edit_postinstall_cmds']);
 			if( isset( $_POST['save_as_default'] ) )
 			{
 				$game_mod_query = "UPDATE OGP_DB_PREFIXconfig_mods SET def_postcmd='$postcmd' WHERE mod_cfg_id='$mod_cfg_id'";

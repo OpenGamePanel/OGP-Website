@@ -66,15 +66,26 @@ function exec_ogp_module() {
 	
 	$home_cfg_id = $home_info['home_cfg_id'];
 	$server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$home_info['home_cfg_file']);
+	
+	$addon_types = array('plugin', 'mappack', 'config');
 	$addon_type = isset($_REQUEST['addon_type']) ? $_REQUEST['addon_type'] : "";
+
     $state = isset($_REQUEST['state']) ? $_REQUEST['state'] : "";
     $pid = isset($_REQUEST['pid']) ? $_REQUEST['pid'] : -1;
 	
     if ( $state != "" )
     {
-        $addon_id = $_REQUEST['addon_id'];
+        $addon_id = (int)$_REQUEST['addon_id'];
+
 		$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
 		$addons_rows = $db->resultQuery("SELECT url, path, post_script FROM OGP_DB_PREFIXaddons WHERE addon_id=".$addon_id);
+
+		if (!$addons_rows) {
+			print_failure(get_lang('invalid_addon'));
+			$view->refresh('?m=addonsmanager&p=user_addons&home_id='. $home_id .'&mod_id='. $mod_id .'&ip='. $ip .'&port='.$port);
+			return;
+		}
+
 		$addon_info = $addons_rows[0];
 		$url = $addon_info['url'];
 		$filename = basename($url);
@@ -213,6 +224,14 @@ function exec_ogp_module() {
     }
     elseif( $addon_type != "" )
     {
+
+    	if (!in_array($addon_type, $addon_types)) {
+    		print_failure(get_lang('invalid_addon_type'));
+    		$view->refresh('?m=addonsmanager&p=user_addons&home_id='. $home_id .'&mod_id='. $mod_id .'&ip='. $ip .'&port='.$port);
+
+    		return;
+    	}
+
 		?>
 			<h2><?php echo htmlentities($home_info['home_name'])."&nbsp;".get_lang($addon_type) ;?></h2>
             <table class='center'>

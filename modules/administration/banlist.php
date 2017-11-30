@@ -33,6 +33,7 @@ function exec_ogp_module()
 		unset($_POST['unban']);
 		foreach($_POST as $name => $ip)
 		{
+			$ip = $db->real_escape_string($ip);
 			$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='0', banned_until='0' WHERE client_ip = '$ip';");
 		}
 	}
