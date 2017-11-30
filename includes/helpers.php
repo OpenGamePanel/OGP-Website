@@ -49,7 +49,7 @@ function createDatabaseConnection($db_type,$db_host,$db_user,$db_pass,$db_name,$
 		if ( function_exists('mysqli_connect') )
 			require_once("includes/database_mysqli.php");
 		else
-			require_once("includes/database_mysql.php");
+			die("<p class='failure'>OGP requires the <a href='http://php.net/manual/en/book.mysqli.php' target='_blank'>mysqli PHP extension</a>. Please install it, and then try again.</p>");
         $database = new OGPDatabaseMysql();
         $connect_value = $database->connect($db_host,$db_user,$db_pass,$db_name,$table_prefix);
         
@@ -337,14 +337,18 @@ function removeOldGameConfigs(){ // Wrote this function in-case we rename config
 	);
 	
 	foreach($oldConfigsToRemove as $config){
-		if(file_exists($config)){
-			unlink($config);
-		}else{
-			if(file_exists(__DIR__ . "/../" . $config)){
-				unlink($config);
-			}
-		}
+		recursiveDelete($config);
 	}	 
+}
+
+function removeOldPanelFiles(){ // Should run post panel update to remove old files that are no longer users
+	$oldFiles = array(
+		'includes/database_mysql.php', 
+	);
+	
+	foreach($oldFiles as $file){
+		recursiveDelete($file);
+	}	
 }
 
 function getOGPGitHubURL($gitHubUsername, $repo){
@@ -391,6 +395,23 @@ function getGitHubOrganization($gitHubURL){
 		$gitHubOrg = substr($gitHubOrg, 0, -1);
 	}
 	return $gitHubOrg;
+}
+
+function getOGPLangConstantsJSON(){
+	$finalConsts = array();
+	$consts = get_defined_constants(true);
+	foreach($consts["user"] as $key => $value){
+		$firstCharLower = lcfirst($key);
+		if($firstCharLower[0] === $key[0]){
+			$finalConsts[$key] = $value;
+		}
+	}
+	
+	if(count($finalConsts) > 0){
+		return json_encode(utf8ize($finalConsts));
+	}
+	
+	return false;
 }
 
 ?>

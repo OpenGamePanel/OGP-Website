@@ -25,7 +25,7 @@
 require_once("includes/database.php");
 
 function real_escape_string_recursive(&$item, $key, $link){
-    $item = mysqli_real_escape_string($link, $item);
+    $item = $this->realEscapeSingle($item);
 }
 
 class OGPDatabaseMySQL extends OGPDatabase
@@ -63,10 +63,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		if ( $this->link === FALSE )
 			return -11;
-			
-		array_walk_recursive($_POST, 'real_escape_string_recursive', $this->link);
-		array_walk_recursive($_GET, 'real_escape_string_recursive', $this->link);
-		array_walk_recursive($_REQUEST, 'real_escape_string_recursive', $this->link);
 
 		return TRUE;
 	}
@@ -123,7 +119,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("SELECT `value` FROM `%ssettings`
 			WHERE `setting` = '%s'",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$name));
+			$this->realEscapeSingle($name));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 
@@ -145,8 +141,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 				VALUES(\'%2$s\', \'%3$s\') ON DUPLICATE KEY
 				UPDATE value=\'%3$s\'',
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$s_key),
-				mysqli_real_escape_string($this->link,$s_value));
+				$this->realEscapeSingle($s_key),
+				$this->realEscapeSingle($s_value));
 			++$this->queries_;
 			mysqli_query($this->link,$query);
 		}
@@ -157,7 +153,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return array();
 		$query = sprintf("SELECT * FROM `%susers` WHERE `users_login` = '%s';",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$username));
+			$this->realEscapeSingle($username));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		return mysqli_fetch_assoc($result);
@@ -167,7 +163,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return array();
 		$query = sprintf("SELECT * FROM `%susers` WHERE `user_id` = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$user_id));
+			$this->realEscapeSingle($user_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		return mysqli_fetch_assoc($result);
@@ -179,7 +175,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN %1$suser_homes
 			WHERE home_id = %2$s',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		return $this->listQuery($query);
 	}
 	
@@ -190,7 +186,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN %1$suser_group_homes
 			WHERE home_id = %2$s',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		return $this->listQuery($query);
 	}
 	
@@ -199,7 +195,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM %1$suser_group_homes
 			WHERE home_id = %2$s',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		return $this->listQuery($query);
 	}
 	
@@ -207,7 +203,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return FALSE;
 		$query = sprintf("SELECT * FROM `%susers` WHERE `users_email` LIKE '%s';",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$email));
+			$this->realEscapeSingle($email));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if ( mysqli_num_rows($result) != 1 ) return FALSE;
@@ -220,8 +216,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("UPDATE %susers SET users_passwd='%s'
 			WHERE user_id = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$new_password),
-			mysqli_real_escape_string($this->link,$user_id));
+			$this->realEscapeSingle($new_password),
+			$this->realEscapeSingle($user_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if( mysqli_affected_rows($this->link) == '0' )
@@ -233,7 +229,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return array();
 		$query = sprintf("SELECT * FROM `%suser_group_info` WHERE `group_id` = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group_id));
+			$this->realEscapeSingle($group_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		return mysqli_fetch_assoc($result);
@@ -258,7 +254,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getUserList_limit($page_user, $limit_user, $search_field) {
+		$search_field = $this->realEscapeSingle($search_field);
 		$user_get_id = ($page_user - 1) * $limit_user;
+		
+		if(!is_numeric($user_get_id) || !is_numeric($limit_user)){
+			return false;
+		}
 
 		$sql = "SELECT
 					user_id, users_login, users_lang,
@@ -285,6 +286,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function get_user_count($search_field) {
+		$search_field = $this->realEscapeSingle($search_field);
+		
 		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."users ";
 
 		if (!empty($search_field)) {
@@ -304,6 +307,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function get_group_count($search_field){
+		$search_field = $this->realEscapeSingle($search_field);
+		
 		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."user_group_info ";
 		if (!empty($search_field)) {
 			$sql .= "WHERE main_user_id = '$search_field' OR group_id = '$search_field' OR group_name LIKE '%$search_field%'";
@@ -313,7 +318,15 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getGroupList_limit($page_user,$limit_user,$search_field) {
+		
+		$search_field = $this->realEscapeSingle($search_field);
+		
 		$user_get_id = ($page_user - 1) * $limit_user;
+		
+		if(!is_numeric($user_get_id) || !is_numeric($limit_user)){
+			return false;
+		}
+		
 		$query = sprintf("SELECT group_id,group_name
 			FROM %suser_group_info
 			
@@ -330,7 +343,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM %suser_groups
 			WHERE `user_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$user_id));
+			$this->realEscapeSingle($user_id));
 		return $this->listQuery($query);
 	}
 	
@@ -339,11 +352,14 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM %suser_group_info
 			WHERE `main_user_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$main_user_id));
+			$this->realEscapeSingle($main_user_id));
 		return $this->listQuery($query);
 	}
 	
 	public function getUserGroupList_count($main_user_id,$search_field) {
+		$search_field = $this->realEscapeSingle($search_field);
+		$main_user_id = $this->realEscapeSingle($main_user_id);
+		
 		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."user_group_info WHERE `main_user_id` = $main_user_id ";
 		if (!empty($search_field)) {
 			$sql .= "AND group_id = '$search_field' OR group_name LIKE '%$search_field%' ";
@@ -354,13 +370,20 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getUserGroupList_limit($main_user_id,$page_user,$limit_user,$search_field) {
 		$user_get_id = ($page_user - 1) * $limit_user;
+		
+		$search_field = $this->realEscapeSingle($search_field);
+		
+		if(!is_numeric($user_get_id) || !is_numeric($limit_user)){
+			return false;
+		}
+		
 		$query = sprintf("SELECT *
 			FROM %suser_group_info
 			WHERE `main_user_id` = %d 
 			".($search_field ? "AND group_id = '$search_field' OR group_name LIKE \"%%".$search_field."%%\" " : "")."
 			ORDER BY group_id ASC LIMIT $user_get_id, $limit_user",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$main_user_id));
+			$this->realEscapeSingle($main_user_id));
 		return $this->listQuery($query);
 	}
 
@@ -369,21 +392,21 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return false;
 		$query = "INSERT INTO `" . $this->table_prefix . "users` (`users_login`,`users_passwd`,
 			`users_lang`,`user_expires`,`users_role`,`users_email`, `users_parent`)
-			VALUES('" . mysqli_real_escape_string($this->link,$username) .
-			"', MD5('" . mysqli_real_escape_string($this->link,$password) .
-			"'),'" . mysqli_real_escape_string($this->link,$panel_language) .
-			"', 'X', '" . mysqli_real_escape_string($this->link,$user_role) . "', ";
+			VALUES('" . $this->realEscapeSingle($username) .
+			"', MD5('" . $this->realEscapeSingle($password) .
+			"'),'" . $this->realEscapeSingle($panel_language) .
+			"', 'X', '" . $this->realEscapeSingle($user_role) . "', ";
 
 		if(is_null($user_email)){
 			$query .= "NULL, ";
 		}else{
-			$query .= "'" . mysqli_real_escape_string($this->link,$user_email) . "', ";
+			$query .= "'" . $this->realEscapeSingle($user_email) . "', ";
 		}
 
 		if(is_null($user_parent)){
 			$query .= "NULL)";
 		}else{
-			$query .= "'" . mysqli_real_escape_string($this->link,$user_parent) . "')";
+			$query .= "'" . $this->realEscapeSingle($user_parent) . "')";
 		}
 				
 		++$this->queries_;
@@ -405,6 +428,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function createUserWidgets($user_id){
+		$user_id = $this->realEscapeSingle($user_id);
+		
 		$widgets = $this->resultQuery("SELECT * FROM `".$this->table_prefix."widgets`");
 		$query = "INSERT INTO `".$this->table_prefix."widgets_users` (`user_id`, `widget_id`, `column_id`, `sort_no`, `collapsed`, `title`) VALUES";
 		foreach($widgets as $widget){
@@ -427,12 +452,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 			if($value == "")
 				$query .= "`$key`=DEFAULT,";
 			else
-				$query .= "`$key`='".mysqli_real_escape_string($this->link,$value)."',";
+				$query .= "`$key`='".$this->realEscapeSingle($value)."',";
 		}
 		
 		$query = rtrim($query, ',');
 		
-		$query .= " WHERE `user_id`=".mysqli_real_escape_string($this->link,$user_id).";";
+		$query .= " WHERE `user_id`=".$this->realEscapeSingle($user_id).";";
 				
 		++$this->queries_;
 		
@@ -449,8 +474,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf("INSERT INTO `%suser_groups` (`user_id`,`group_id`) VALUES('%d', '%d')",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$user_id),
-			mysqli_real_escape_string($this->link,$group_id));
+			$this->realEscapeSingle($user_id),
+			$this->realEscapeSingle($group_id));
 
 		++$this->queries_;
 		mysqli_query($this->link,$query);
@@ -466,8 +491,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf("INSERT INTO `%suser_group_remote_servers` (`remote_server_id`,`group_id`) VALUES('%d', '%d')",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$rserver_id),
-			mysqli_real_escape_string($this->link,$group_id));
+			$this->realEscapeSingle($rserver_id),
+			$this->realEscapeSingle($group_id));
 		++$this->queries_;
 		mysqli_query($this->link,$query);
 
@@ -482,8 +507,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf("INSERT INTO `%suser_group_info` (`group_id`, `group_name`,`main_user_id` ) VALUES(NULL, '%s', '%d')",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group),
-			mysqli_real_escape_string($this->link,$main_user_id));
+			$this->realEscapeSingle($group),
+			$this->realEscapeSingle($main_user_id));
 		++$this->queries_;
 		mysqli_query($this->link,$query);
 
@@ -504,7 +529,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query = sprintf($query_template,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$group_id));
+				$this->realEscapeSingle($group_id));
 			++$this->queries_;
 			mysqli_query($this->link,$query)
 				or die("Failed to delete group from user_groups: ". mysqli_error($this->link));
@@ -518,8 +543,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("DELETE FROM `%suser_groups` WHERE `group_id` = '%d'
 			AND `user_id` = '%d'",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group_id),
-			mysqli_real_escape_string($this->link,$user_id));
+			$this->realEscapeSingle($group_id),
+			$this->realEscapeSingle($user_id));
 		++$this->queries_;
 		mysqli_query($this->link,$query)
 			or die("Failed to delete user from group:".mysqli_error($this->link));
@@ -533,8 +558,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("DELETE FROM `%suser_group_remote_servers` WHERE `group_id` = '%d'
 			AND `remote_server_id` = '%d'",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group_id),
-			mysqli_real_escape_string($this->link,$rserver_id));
+			$this->realEscapeSingle($group_id),
+			$this->realEscapeSingle($rserver_id));
 
 		++$this->queries_;
 		mysqli_query($this->link,$query)
@@ -557,7 +582,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			)
 			AND `users_parent` IS NULL;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group_id));
+			$this->realEscapeSingle($group_id));
 		return $this->listQuery($query);
 	}
 	
@@ -569,8 +594,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 				WHERE `group_id` = %2$d
 			) AND `users_parent` = %3$d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group_id),
-			mysqli_real_escape_string($this->link,$userID)
+			$this->realEscapeSingle($group_id),
+			$this->realEscapeSingle($userID)
 			);
 		return $this->listQuery($query);
 	}
@@ -579,14 +604,14 @@ class OGPDatabaseMySQL extends OGPDatabase
 	{
 		$query = sprintf("SELECT `user_id` FROM `%suser_groups` WHERE `group_id` = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group_id));
+			$this->realEscapeSingle($group_id));
 		return $this->listQuery($query);
 	}
 	
 	public function getUsersSubUsersIds($parent_id){
 		$query = sprintf("SELECT `user_id` FROM `%susers` WHERE `users_parent` = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link, $parent_id));
+			$this->realEscapeSingle($parent_id));
 		$results = $this->listQuery($query);
 		
 		if($results !== false){
@@ -611,7 +636,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$query = sprintf('SELECT COUNT(`home_id`)
 			FROM `%1$sserver_homes` WHERE `user_id_main` = %2$d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$userID));
+			$this->realEscapeSingle($userID));
 		}
 			
 		$result = mysqli_query($this->link,$query) or die("Query failed".mysqli_error($this->link));
@@ -629,7 +654,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM `%1$suser_group_remote_servers` NATURAL JOIN `%1$sremote_servers`
 			WHERE `group_id` = %2$d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group_id));
+			$this->realEscapeSingle($group_id));
 		return $this->listQuery($query);
 	}
 
@@ -645,7 +670,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		}
 		
 		// Optimization...
-		$user_id = mysqli_real_escape_string($this->link,$user_id);
+		$user_id = $this->realEscapeSingle($user_id);
 
 		$query = sprintf("SELECT user_id FROM `%susers` WHERE `user_id` = $user_id",
 			$this->table_prefix);
@@ -699,7 +724,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return false;
 		$query = sprintf("SELECT `users_role` FROM `%susers` WHERE `user_id` = %d AND `users_role` = 'admin'",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$user_id));
+			$this->realEscapeSingle($user_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query) or die("Query failed".mysqli_error($this->link));
 
@@ -730,7 +755,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return false;
 		$query = sprintf("SELECT `users_role` FROM `%susers` WHERE `user_id` = %d AND `users_role` = 'subuser'",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$user_id));
+			$this->realEscapeSingle($user_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query) or die("Query failed".mysqli_error($this->link));
 
@@ -745,10 +770,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return false;
 		$query = sprintf("INSERT INTO `%smodules` VALUES(NULL,'%s','%s','%s', '%d');",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$module_title),
-			mysqli_real_escape_string($this->link,$module),
-			mysqli_real_escape_string($this->link,$module_version),
-			mysqli_real_escape_string($this->link,$db_version));
+			$this->realEscapeSingle($module_title),
+			$this->realEscapeSingle($module),
+			$this->realEscapeSingle($module_version),
+			$this->realEscapeSingle($db_version));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		return mysqli_insert_id($this->link);
@@ -758,7 +783,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return false;
 		$query = sprintf("SELECT * FROM `%smodule_menus` WHERE `module_id` = '%d'",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$module_id));
+			$this->realEscapeSingle($module_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if($result && mysqli_num_rows($result) > 0){
@@ -773,11 +798,11 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return false;
 		$query = sprintf("INSERT INTO `%smodule_menus` VALUES( '%d','%s','%s','%s','%d');",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$module_id),
-			mysqli_real_escape_string($this->link,$subpage),
-			mysqli_real_escape_string($this->link,$group),
-			mysqli_real_escape_string($this->link,$name),
-			mysqli_real_escape_string($this->link,$pos));
+			$this->realEscapeSingle($module_id),
+			$this->realEscapeSingle($subpage),
+			$this->realEscapeSingle($group),
+			$this->realEscapeSingle($name),
+			$this->realEscapeSingle($pos));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 
@@ -792,7 +817,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return FALSE;
 		$query = sprintf("DELETE FROM `%smodule_menus` WHERE `module_id` = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$module_id));
+			$this->realEscapeSingle($module_id));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -805,13 +830,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return FALSE;
 		$query = sprintf("DELETE FROM `%smodules` WHERE `id` = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$module_id));
+			$this->realEscapeSingle($module_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 
 		$query = sprintf("DELETE FROM `%smodule_menus` WHERE `module_id` = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$module_id));
+			$this->realEscapeSingle($module_id));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -827,7 +852,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			AND `id` = `module_id`
 			ORDER BY `pos` ASC;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$group));
+			$this->realEscapeSingle($group));
 		return $this->listQuery($query);
 	}
 	
@@ -837,8 +862,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 						  SET pos='%d'
 						  WHERE module_id = '%d';",
 						  $this->table_prefix,
-						  mysqli_real_escape_string($this->link,$new_pos),
-						  mysqli_real_escape_string($this->link,$module_id) );
+						  $this->realEscapeSingle($new_pos),
+						  $this->realEscapeSingle($module_id) );
 		++$this->queries_;
 		mysqli_query($this->link,$query);
 
@@ -853,9 +878,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf('INSERT INTO `%1$sconfig_mods` (`mod_cfg_id`, `home_cfg_id`, `mod_key`, `mod_name`)
 			VALUES(NULL, \'%2$s\', \'%3$s\', \'%4$s\') ON DUPLICATE KEY UPDATE mod_name=\'%4$s\';',
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$game_id),
-				mysqli_real_escape_string($this->link,$mod_key),
-				mysqli_real_escape_string($this->link,$mod_name));
+				$this->realEscapeSingle($game_id),
+				$this->realEscapeSingle($mod_key),
+				$this->realEscapeSingle($mod_name));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 	}
@@ -868,7 +893,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$qStr = 'SELECT * FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;';
 		$query = sprintf($qStr,	
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$game_id),
+				$this->realEscapeSingle($game_id),
 				$inClause);
 		++$this->queries_;
 		$result = mysqli_query($this->link, $query);
@@ -884,7 +909,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			// Delete the invalid mods
 			$query = sprintf('DELETE FROM `%1$sconfig_mods` WHERE `home_cfg_id` = \'%2$s\' AND mod_key NOT %3$s;',
 					$this->table_prefix,
-					mysqli_real_escape_string($this->link,$game_id),
+					$this->realEscapeSingle($game_id),
 					$inClause);
 			++$this->queries_;
 			$result = mysqli_query($this->link,$query);
@@ -950,9 +975,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 						  WHERE home_cfg_id = '%d'
 						  AND home_id = '%d';",
 						  $this->table_prefix,
-						  mysqli_real_escape_string($this->link,$newCFGId),
-						  mysqli_real_escape_string($this->link,$oldCFGId),
-						  mysqli_real_escape_string($this->link,$oldHomeId) );
+						  $this->realEscapeSingle($newCFGId),
+						  $this->realEscapeSingle($oldCFGId),
+						  $this->realEscapeSingle($oldHomeId) );
 						++$this->queries_;
 						mysqli_query($this->link,$query);
 						
@@ -966,9 +991,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 							  WHERE mod_cfg_id = '%d'
 							  AND home_id = '%d';",
 							  $this->table_prefix,
-							  mysqli_real_escape_string($this->link,$newModId),
-							  mysqli_real_escape_string($this->link,$oldModId),
-							  mysqli_real_escape_string($this->link,$oldHomeId) );
+							  $this->realEscapeSingle($newModId),
+							  $this->realEscapeSingle($oldModId),
+							  $this->realEscapeSingle($oldHomeId) );
 							++$this->queries_;
 							mysqli_query($this->link,$query);
 						}
@@ -983,8 +1008,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 					// This game mod is no longer valid, so delete it
 					$query = sprintf("DELETE FROM `%sgame_mods` WHERE `mod_cfg_id` = '%d' AND `home_id` = '%d'",
 					$this->table_prefix,
-					mysqli_real_escape_string($this->link,$oldModId),
-					mysqli_real_escape_string($this->link,$oldHomeId));
+					$this->realEscapeSingle($oldModId),
+					$this->realEscapeSingle($oldHomeId));
 					
 					++$this->queries_;
 					mysqli_query($this->link,$query);
@@ -994,8 +1019,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 					// Old game config file doesn't exist anymore, so delete the server home entry
 					$query = sprintf("DELETE FROM `%sserver_homes` WHERE `home_cfg_id` = '%d' AND `home_id` = '%d'",
 					$this->table_prefix,
-					mysqli_real_escape_string($this->link,$oldCFGId),
-					mysqli_real_escape_string($this->link,$oldHomeId));
+					$this->realEscapeSingle($oldCFGId),
+					$this->realEscapeSingle($oldHomeId));
 					
 					++$this->queries_;
 					mysqli_query($this->link,$query);
@@ -1071,7 +1096,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf('SELECT * FROM `%sconfig_homes`
 			WHERE `home_cfg_id` = %d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_cfg_id));
+			$this->realEscapeSingle($home_cfg_id));
 		
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -1085,7 +1110,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function delGameCfgAndMods($home_cfg_id)
 	{
-		$home_cfg_id = mysqli_real_escape_string($this->link,$home_cfg_id);
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
 		
 		$queries = array("DELETE FROM `%sconfig_mods` WHERE `home_cfg_id` = %d",
 						 "DELETE FROM `%sconfig_homes` WHERE `home_cfg_id` = %d");
@@ -1107,7 +1132,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf('SELECT * FROM `%sconfig_mods`
 			WHERE `home_cfg_id` = %d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_cfg_id));
+			$this->realEscapeSingle($home_cfg_id));
 		return $this->listQuery($query);
 	}
 	
@@ -1117,8 +1142,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 						  SET home_cfg_id='%d'
 						  WHERE home_id = '%d';",
 						  $this->table_prefix,
-						  mysqli_real_escape_string($this->link,$new_home_cfg_id),
-						  mysqli_real_escape_string($this->link,$home_id) );
+						  $this->realEscapeSingle($new_home_cfg_id),
+						  $this->realEscapeSingle($home_id) );
 		++$this->queries_;
 		mysqli_query($this->link,$query);
 
@@ -1161,7 +1186,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		foreach($fields as $key => $val)
 		{
 			$keys .= "`$key`,";
-			$values .= "'".mysqli_real_escape_string($this->link,$val)."',";
+			$values .= "'".$this->realEscapeSingle($val)."',";
 		}
 		$keys = rtrim($keys,',');
 		$values = rtrim($values,',');
@@ -1210,16 +1235,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("INSERT INTO `%sremote_servers` (`agent_ip`,remote_server_name,ogp_user,agent_port,ftp_ip,ftp_port,`encryption_key`,timeout,use_nat,display_public_ip)
 			VALUES('%s','%s','%s','%d','%s','%s','%s','%s','%s','%s');",
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$rhost_ip),
-				mysqli_real_escape_string($this->link,$rhost_name),
-				mysqli_real_escape_string($this->link,$rhost_user_name),
-				mysqli_real_escape_string($this->link,$rhost_port),
-				mysqli_real_escape_string($this->link,$rhost_ftp_ip),
-				mysqli_real_escape_string($this->link,$rhost_ftp_port),
-				mysqli_real_escape_string($this->link,$encryption_key),
-				mysqli_real_escape_string($this->link,$rhost_timeout),
-				mysqli_real_escape_string($this->link,$use_nat),
-				mysqli_real_escape_string($this->link,$display_public_ip));
+				$this->realEscapeSingle($rhost_ip),
+				$this->realEscapeSingle($rhost_name),
+				$this->realEscapeSingle($rhost_user_name),
+				$this->realEscapeSingle($rhost_port),
+				$this->realEscapeSingle($rhost_ftp_ip),
+				$this->realEscapeSingle($rhost_ftp_port),
+				$this->realEscapeSingle($encryption_key),
+				$this->realEscapeSingle($rhost_timeout),
+				$this->realEscapeSingle($use_nat),
+				$this->realEscapeSingle($display_public_ip));
 		++$this->queries_;
 		mysqli_query($this->link,$query);
 
@@ -1236,7 +1261,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf("SELECT * FROM `%sremote_servers` WHERE `remote_server_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$id));
+			$this->realEscapeSingle($id));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -1256,12 +1281,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getRemoteServers_ts3($assign_id){
+		$assign_id = $this->realEscapeSingle($assign_id);
 		$query = sprintf("SELECT * FROM ".$this->table_prefix."remote_servers WHERE agent_ip IN (SELECT ip FROM `".$this->table_prefix."ts3_homes` WHERE user_id = $assign_id)");
 		return $this->listQuery($query);
 	}
 
 	public function removeRemoteServer($remote_server_id) {
-		$remote_server_id = mysqli_real_escape_string($this->link,$remote_server_id);
+		$remote_server_id = $this->realEscapeSingle($remote_server_id);
 
 		$return = TRUE;
 
@@ -1301,8 +1327,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("INSERT INTO `%sremote_server_ips`
 			VALUES (null ,'%d','%s');",
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$remote_server_id),
-				mysqli_real_escape_string($this->link,$ip) );
+				$this->realEscapeSingle($remote_server_id),
+				$this->realEscapeSingle($ip) );
 
 		++$this->queries_;
 		mysqli_query($this->link,$query);
@@ -1315,8 +1341,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function editRemoteServerIPs($ip_id, $ip)
 	{
-		$ip_id = mysqli_real_escape_string($this->link,$ip_id);
-		$ip = mysqli_real_escape_string($this->link,$ip);
+		$ip_id = $this->realEscapeSingle($ip_id);
+		$ip = $this->realEscapeSingle($ip);
 		
 		$return = TRUE;
 		
@@ -1338,12 +1364,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getRemoteServerIPs($server_id){
 		$query = sprintf("SELECT ip_id,ip FROM `%sremote_server_ips` WHERE remote_server_id = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$server_id));
+			$this->realEscapeSingle($server_id));
 		return $this->listQuery($query);
 	}
 
 	public function removeRemoteServerIPs($ip_id) {
-		$ip_id = mysqli_real_escape_string($this->link,$ip_id);
+		$ip_id = $this->realEscapeSingle($ip_id);
 		$return = TRUE;
 		
 		$queries = array("DELETE FROM `%sarrange_ports` WHERE ip_id = %d;",
@@ -1376,17 +1402,17 @@ class OGPDatabaseMySQL extends OGPDatabase
 			display_public_ip='%s'
 			WHERE remote_server_id = %d;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$agent_ip),
-			mysqli_real_escape_string($this->link,$agent_port),
-			mysqli_real_escape_string($this->link,$encryption_key),
-			mysqli_real_escape_string($this->link,$remote_server_name),
-			mysqli_real_escape_string($this->link,$remote_server_user_name),
-			mysqli_real_escape_string($this->link,$remote_host_ftp_ip),
-			mysqli_real_escape_string($this->link,$remote_host_ftp_port),
-			mysqli_real_escape_string($this->link,$remote_timeout),
-			mysqli_real_escape_string($this->link,$use_nat),
-			mysqli_real_escape_string($this->link,$display_public_ip),
-			mysqli_real_escape_string($this->link,$server_id));
+			$this->realEscapeSingle($agent_ip),
+			$this->realEscapeSingle($agent_port),
+			$this->realEscapeSingle($encryption_key),
+			$this->realEscapeSingle($remote_server_name),
+			$this->realEscapeSingle($remote_server_user_name),
+			$this->realEscapeSingle($remote_host_ftp_ip),
+			$this->realEscapeSingle($remote_host_ftp_port),
+			$this->realEscapeSingle($remote_timeout),
+			$this->realEscapeSingle($use_nat),
+			$this->realEscapeSingle($display_public_ip),
+			$this->realEscapeSingle($server_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -1401,7 +1427,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			WHERE home_id = %d;",
 			$this->table_prefix,
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		return $this->listQuery($query);
 	}
 
@@ -1565,13 +1591,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query1 = sprintf($template,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$this->realEscapeSingle($assign_id) );
 			$query2 = sprintf($template2,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$this->realEscapeSingle($assign_id) );
 			$query3 = sprintf($template3,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$this->realEscapeSingle($assign_id) );
 			$servers = $this->listQuery($query1);
 			if($servers)
 			{
@@ -1604,12 +1630,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query = sprintf($template,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$this->realEscapeSingle($assign_id) );
 			return $this->listQuery($query);
 		}
 	}
 	
 	public function getHomesFor_count($id_type,$assign_id,$home_cfg_id,$search_field){
+		$search_field = $this->realEscapeSingle($search_field);
+		$assign_id = $this->realEscapeSingle($assign_id);
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		
 		if ( $id_type == "admin" )
 		{
 			return $this->resultQuery('SELECT COUNT('.($search_field ?'distinct':'').' home_id) AS total FROM `'.$this->table_prefix.'server_homes`
@@ -1696,7 +1726,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id,$search_field){
-	$gethome_page_forlimit = ($home_page - 1) * $home_limit;	
+		$search_field = $this->realEscapeSingle($search_field);	
+		$assign_id = $this->realEscapeSingle($assign_id);
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		
+		$gethome_page_forlimit = ($home_page - 1) * $home_limit;	
+		
+		if(!is_numeric($gethome_page_forlimit) || !is_numeric($home_limit)){
+			return false;
+		}
+		
 		if ( $id_type == "admin" )
 		{
 			$template = 'SELECT '.($search_field ?'distinct':'').' 
@@ -1929,13 +1968,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query1 = sprintf($template,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$assign_id );
 			$query2 = sprintf($template2,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$assign_id );
 			$query3 = sprintf($template3,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$assign_id );
 			$servers = $this->listQuery($query1);
 			if($servers)
 			{
@@ -1968,7 +2007,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query = sprintf($template,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$assign_id);
 			return $this->listQuery($query);
 		}
 	}
@@ -1980,7 +2019,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN %1$sconfig_homes
 			WHERE %1$sgame_mods.home_id = %2$d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id) );
+			$this->realEscapeSingle($home_id) );
 		return $this->listQuery($query);
 	}
 
@@ -1992,9 +2031,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 			AND `port` = %3$d
 			AND `user_id` = %4$d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip),
-			mysqli_real_escape_string($this->link,$port),
-			mysqli_real_escape_string($this->link,$user_id) );
+			$this->realEscapeSingle($ip),
+			$this->realEscapeSingle($port),
+			$this->realEscapeSingle($user_id) );
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -2013,7 +2052,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM `%sconfig_homes`
 			WHERE `home_cfg_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$cfgid));
+			$this->realEscapeSingle($cfgid));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 
@@ -2028,7 +2067,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM `%sremote_servers`
 			WHERE `remote_server_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$remote_server_id));
+			$this->realEscapeSingle($remote_server_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if ( mysqli_num_rows($result) != 1 )
@@ -2070,7 +2109,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 					WHERE `force_mod_id` = %1$sgame_mods.mod_id OR `force_mod_id` = "0"
 				);',
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$user_id) );
+				$this->realEscapeSingle($user_id) );
 								
 			return $this->listQuery($query);
 		}else{
@@ -2081,6 +2120,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getIpPortsForUser_limit($user_id,$page_dashboardlist,$limit_dashboardlist) {
 		
 		$user_request_page = ($page_dashboardlist - 1) * $limit_dashboardlist;
+		
+		if(!is_numeric($user_request_page) || !is_numeric($limit_dashboardlist)){
+			return false;
+		}
 		
 		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
 			%1$sremote_servers.*,
@@ -2112,14 +2155,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 				WHERE `force_mod_id` = %1$sgame_mods.mod_id OR `force_mod_id` = "0"
 			) ORDER BY %1$shome_ip_ports.home_id ASC LIMIT '.$user_request_page.','.$limit_dashboardlist.';',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$user_id) );
+			$this->realEscapeSingle($user_id) );
 							
 		return $this->listQuery($query);
 	}
 	
 	public function getIpPorts( $ip_id = 0 ) {
 		
+		$ip_id = $this->realEscapeSingle($ip_id);
 		$ip_id_and = $ip_id == 0 ? "" : "`ip_id`='".$ip_id."' AND ";
+		
 		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
 			%1$sremote_servers.*,
 			%1$sconfig_homes.*,
@@ -2144,8 +2189,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getIpPorts_limit($ip_id = 0,$page_dashboardlist,$limit_dashboardlist) {
-		
+		$ip_id = $this->realEscapeSingle($ip_id);
 		$user_request_page = ($page_dashboardlist - 1) * $limit_dashboardlist;
+		
+		if(!is_numeric($user_request_page) || !is_numeric($limit_dashboardlist)){
+			return false;
+		}
 
 		$ip_id_and = $ip_id == 0 ? "" : "`ip_id`='".$ip_id."' AND ";
 		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
@@ -2174,14 +2223,15 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 	
 	public function getIpPorts_count($id_type,$assign_id){
+		$assign_id = $this->realEscapeSingle($assign_id);
 		if ( $id_type == "admin" ){
- 		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports`;");
+			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports`;");
 		}
 		else if ( $id_type == "user_and_group" ){
-		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT home_id FROM `".$this->table_prefix."user_homes` WHERE user_id = $assign_id);");
+			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT home_id FROM `".$this->table_prefix."user_homes` WHERE user_id = $assign_id);");
 		}
 		else if ( $id_type == "subuser" ){
-		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT group_id FROM `".$this->table_prefix."user_groups` WHERE user_id = $assign_id);");
+			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT group_id FROM `".$this->table_prefix."user_groups` WHERE user_id = $assign_id);");
 		}
 	}
 
@@ -2197,7 +2247,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getModule($id) {
 		$query = sprintf("SELECT `id`,`title`,`folder`,`version`,`db_version` FROM `%smodules` WHERE `id` = '%d'",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$id));
+			$this->realEscapeSingle($id));
 		$result = $this->listQuery($query);
 		return $result[0];
 	}
@@ -2205,7 +2255,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getModuleIDByName($name) {
 		$query = sprintf("SELECT `id` FROM `%smodules` WHERE `folder` = '%d'",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$name));
+			$this->realEscapeSingle($name));
 		$result = $this->listQuery($query);
 		return $result[0];
 	}
@@ -2215,7 +2265,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf('SELECT * FROM `%smodules`
 			WHERE `folder`="%s";',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$module_folder) );
+			$this->realEscapeSingle($module_folder) );
 		++$this->queries_;
 		mysqli_query($this->link,$query);
 		if ( mysqli_affected_rows($this->link) != 1 )
@@ -2230,9 +2280,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 						 SET `version`='%s', `db_version`='%d'
 						 WHERE `id` = '%d';",
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$version),
-				mysqli_real_escape_string($this->link,$db_version),
-				mysqli_real_escape_string($this->link,$id) );
+				$this->realEscapeSingle($version),
+				$this->realEscapeSingle($db_version),
+				$this->realEscapeSingle($id) );
 
 		++$this->queries_;
 		mysqli_query($this->link,$query);
@@ -2265,9 +2315,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf($template,
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$assign_id),
-			mysqli_real_escape_string($this->link,$home_id),
-			mysqli_real_escape_string($this->link,$access_rights));
+			$this->realEscapeSingle($assign_id),
+			$this->realEscapeSingle($home_id),
+			$this->realEscapeSingle($access_rights));
 
 		++$this->queries_;
 		mysqli_query($this->link,$query);
@@ -2297,8 +2347,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf($template,
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$assign_id),
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($assign_id),
+			$this->realEscapeSingle($home_id));
 
 		++$this->queries_;
 		mysqli_query($this->link,$query);
@@ -2317,13 +2367,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 			( `home_id`, `remote_server_id`, `user_id_main`, `home_cfg_id`, `home_path`, `home_name`,`control_password`,`ftp_password`)
 			VALUES(NULL, '%d', '%d', '%d', '%s', '%s', '%s', '%s')",
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$rserver_id),
-				mysqli_real_escape_string($this->link,$user_id_main),
-				mysqli_real_escape_string($this->link,$home_cfg_id),
-				mysqli_real_escape_string($this->link,$game_path),
-				mysqli_real_escape_string($this->link,$server_name),
-				mysqli_real_escape_string($this->link,$control_password),
-				mysqli_real_escape_string($this->link,$ftp_password));
+				$this->realEscapeSingle($rserver_id),
+				$this->realEscapeSingle($user_id_main),
+				$this->realEscapeSingle($home_cfg_id),
+				$this->realEscapeSingle($game_path),
+				$this->realEscapeSingle($server_name),
+				$this->realEscapeSingle($control_password),
+				$this->realEscapeSingle($ftp_password));
 		++$this->queries_;
 		mysqli_query($this->link,$query);
 		if ( mysqli_affected_rows($this->link) != 1 )
@@ -2341,7 +2391,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `%1$sconfig_homes`
 			WHERE `home_id` = %2$d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if ( mysqli_num_rows($result) == 0 )
@@ -2358,7 +2408,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM `%1$sgame_mods` NATURAL JOIN `%1$sconfig_mods`
 			WHERE `home_id` = %2$d',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 
@@ -2384,8 +2434,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf('SELECT * FROM `%1$sserver_homes` 
 			WHERE `home_path` LIKE \'%%%2$s%%\' AND remote_server_id = \'%3$d\';',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_path),
-			mysqli_real_escape_string($this->link,$remote_id));
+			$this->realEscapeSingle($home_path),
+			$this->realEscapeSingle($remote_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if ( mysqli_num_rows($result) > 0 ){
@@ -2409,7 +2459,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `%1$sconfig_homes`
 			WHERE `home_id` = %2$d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if ( mysqli_num_rows($result) == 0 )
@@ -2427,8 +2477,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `%1$sconfig_homes`
 			WHERE `remote_server_id` = "%2$d" AND `ftp_login` = "%3$s";',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$remote_server_id),
-			mysqli_real_escape_string($this->link,$ftp_login));
+			$this->realEscapeSingle($remote_server_id),
+			$this->realEscapeSingle($ftp_login));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if ( mysqli_num_rows($result) == 0 )
@@ -2439,7 +2489,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				NATURAL JOIN `%1$sconfig_homes`
 				WHERE `home_id` = %2$d;',
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$ftp_login));
+				$this->realEscapeSingle($ftp_login));
 			++$this->queries_;
 			$result = mysqli_query($this->link,$query);
 			if ( mysqli_num_rows($result) == 0 )
@@ -2462,8 +2512,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `%1$shome_ip_ports`
 			WHERE `ip` = \'%2$s\' AND `port` = \'%3$s\';',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip),
-			mysqli_real_escape_string($this->link,$port));
+			$this->realEscapeSingle($ip),
+			$this->realEscapeSingle($port));
 			
 		++$this->queries_;
 
@@ -2481,7 +2531,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM `%1$sgame_mods` NATURAL JOIN `%1$sconfig_mods`
 			WHERE `home_id` = %2$d',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 
 		++$this->queries_;
 
@@ -2523,8 +2573,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			WHERE `home_id` = %2$d
 			AND `user_id` = %3$d;',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id),
-			mysqli_real_escape_string($this->link,$user_id));
+			$this->realEscapeSingle($home_id),
+			$this->realEscapeSingle($user_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 		if ( mysqli_num_rows($result) == 0 )
@@ -2557,7 +2607,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM `%1$sgame_mods` NATURAL JOIN `%1$sconfig_mods`
 			WHERE `home_id` = %2$d',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
 
@@ -2580,7 +2630,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 	/// \brief Deletes the game home.
 	public function deleteGameHome($home_id){
-		$home_id = mysqli_real_escape_string($this->link,$home_id);
+		$home_id = $this->realEscapeSingle($home_id);
 		$return = TRUE;
 
 		$queries = array("DELETE FROM `%suser_homes` WHERE `home_id` = %d;",
@@ -2608,8 +2658,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf("INSERT INTO `%sgame_mods` (`mod_id`,`home_id`, `mod_cfg_id`)
 			VALUES(NULL,'%d','%d')",
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$home_id),
-				mysqli_real_escape_string($this->link,$mod_cfg_id));
+				$this->realEscapeSingle($home_id),
+				$this->realEscapeSingle($mod_cfg_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -2620,13 +2670,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function delGameMod($mod_id){
 		$query = sprintf("DELETE FROM `%sgame_mods` WHERE `mod_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$mod_id));
+			$this->realEscapeSingle($mod_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
 		$query = sprintf("UPDATE `%shome_ip_ports` SET `force_mod_id` = 0 WHERE `force_mod_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$mod_id));
+			$this->realEscapeSingle($mod_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -2636,8 +2686,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function changeHomePath($home_id,$path) {
 		$query = sprintf("UPDATE `%sserver_homes` SET `home_path` = '%s' WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$path),
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($path),
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -2648,8 +2698,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function changeUserIdMain($home_id,$userid) {
 		$query = sprintf("UPDATE `%sserver_homes` SET `user_id_main` = '%s' WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$userid),
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($userid),
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -2660,8 +2710,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function changeFtpLogin($home_id,$ftp_login) {
 		$query = sprintf("UPDATE `%sserver_homes` SET `ftp_login` = '%s' WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ftp_login),
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($ftp_login),
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -2672,8 +2722,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function changeFtpPassword($home_id,$password) {
 		$query = sprintf("UPDATE `%sserver_homes` SET `ftp_password` = '%s' WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$password),
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($password),
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -2685,8 +2735,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$status_val = $status == "enabled" ? 1 : 0;
 		$query = sprintf("UPDATE `%sserver_homes` SET `ftp_status` = '%d' WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$status_val),
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($status_val),
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -2697,7 +2747,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function IsFtpEnabled($home_id) {
 		$query = sprintf("SELECT `ftp_status` FROM `%sserver_homes` WHERE `home_id` = %d AND `ftp_status` = 1",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query) or die("Query failed".mysqli_error($this->link));
 
@@ -2712,17 +2762,17 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query = sprintf("INSERT INTO `%smaster_server_homes` (`home_id`,`home_cfg_id`, `remote_server_id`) VALUES('%d','%d','%d')",
 					$this->table_prefix,
-					mysqli_real_escape_string($this->link,$home_id),
-					mysqli_real_escape_string($this->link,$home_cfg_id),
-					mysqli_real_escape_string($this->link,$remote_server_id));
+					$this->realEscapeSingle($home_id),
+					$this->realEscapeSingle($home_cfg_id),
+					$this->realEscapeSingle($remote_server_id));
 		}
 		elseif($action == "remove")
 		{
 			$query = sprintf("DELETE FROM `%smaster_server_homes` WHERE `home_id` = %d AND `home_cfg_id` = %d AND `remote_server_id` = %d",
 					$this->table_prefix,
-					mysqli_real_escape_string($this->link,$home_id),
-					mysqli_real_escape_string($this->link,$home_cfg_id),
-					mysqli_real_escape_string($this->link,$remote_server_id));
+					$this->realEscapeSingle($home_id),
+					$this->realEscapeSingle($home_cfg_id),
+					$this->realEscapeSingle($remote_server_id));
 		}
 		++$this->queries_;
 			
@@ -2735,8 +2785,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getMasterServer( $remote_server_id, $home_cfg_id ){
 		$query = sprintf("SELECT home_id FROM `%smaster_server_homes` WHERE `home_cfg_id` = %d AND `remote_server_id` = %d",
 					$this->table_prefix,
-					mysqli_real_escape_string($this->link,$home_cfg_id),
-					mysqli_real_escape_string($this->link,$remote_server_id));
+					$this->realEscapeSingle($home_cfg_id),
+					$this->realEscapeSingle($remote_server_id));
 
 		$retval = $this->listQuery($query);
 		if( empty( $retval ) )
@@ -2754,19 +2804,19 @@ class OGPDatabaseMySQL extends OGPDatabase
 			WHERE `home_id` = %2$d
 			ORDER BY `mod_name` ASC',
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 		$retval = $this->listQuery($query);
 		print_r($this->getError());
 		return $retval;
 	}
 
 	public function updateGameModParams($max_players,$extra_params,$cpu_affinity,$nice,$home_id,$mod_cfg_id) {
-		$max_players = mysqli_real_escape_string($this->link,$max_players);
-		$extra_params = mysqli_real_escape_string($this->link,$extra_params);
-		$cpu_affinity = mysqli_real_escape_string($this->link,$cpu_affinity);
-		$nice = mysqli_real_escape_string($this->link,$nice);
-		$home_id = mysqli_real_escape_string($this->link,$home_id);
-		$mod = mysqli_real_escape_string($this->link,$mod_cfg_id);
+		$max_players = $this->realEscapeSingle($max_players);
+		$extra_params = $this->realEscapeSingle($extra_params);
+		$cpu_affinity = $this->realEscapeSingle($cpu_affinity);
+		$nice = $this->realEscapeSingle($nice);
+		$home_id = $this->realEscapeSingle($home_id);
+		$mod = $this->realEscapeSingle($mod_cfg_id);
 		$query = "UPDATE `".$this->table_prefix."game_mods` SET `max_players` = '$max_players',
 			`extra_params` = '$extra_params', `cpu_affinity` = '$cpu_affinity', `nice` = $nice
 			WHERE `home_id` = $home_id
@@ -2780,9 +2830,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 
 	public function addGameIpPort($home_id, $ip, $port) {
-		$home_id = mysqli_real_escape_string($this->link,$home_id);
-		$ip = mysqli_real_escape_string($this->link,$ip);
-		$port = mysqli_real_escape_string($this->link,$port);
+		$home_id = $this->realEscapeSingle($home_id);
+		$ip = $this->realEscapeSingle($ip);
+		$port = $this->realEscapeSingle($port);
 		$query = "INSERT INTO `".$this->table_prefix."home_ip_ports` (`ip_id`, `port`, `home_id` )
 			VALUES ( '$ip', '$port', '$home_id' );";
 
@@ -2794,9 +2844,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 
 	public function delGameIpPort($home_id, $ip, $port) {
-		$home_id = mysqli_real_escape_string($this->link,$home_id);
-		$ip = mysqli_real_escape_string($this->link,$ip);
-		$port = mysqli_real_escape_string($this->link,$port);
+		$home_id = $this->realEscapeSingle($home_id);
+		$ip = $this->realEscapeSingle($ip);
+		$port = $this->realEscapeSingle($port);
 		$query = "DELETE FROM `".$this->table_prefix."home_ip_ports`
 			WHERE `ip_id` = '$ip' AND `port` = '$port' AND `home_id` = '$home_id'";
 
@@ -2808,9 +2858,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 
 	public function forceModAtAddress($ip_id, $port, $force_mod_id) {
-		$force_mod_id = mysqli_real_escape_string($this->link,$force_mod_id);
-		$ip_id = mysqli_real_escape_string($this->link,$ip_id);
-		$port = mysqli_real_escape_string($this->link,$port);
+		$force_mod_id = $this->realEscapeSingle($force_mod_id);
+		$ip_id = $this->realEscapeSingle($ip_id);
+		$port = $this->realEscapeSingle($port);
 		$query = "UPDATE `".$this->table_prefix."home_ip_ports` SET `force_mod_id` = '$force_mod_id'
 				  WHERE `ip_id` = '$ip_id' AND `port` = '$port'";
 
@@ -2822,8 +2872,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function changeHomeName($home_id, $name) {
-		$home_id = mysqli_real_escape_string($this->link,$home_id);
-		$name = mysqli_real_escape_string($this->link,$name);
+		$home_id = $this->realEscapeSingle($home_id);
+		$name = $this->realEscapeSingle($name);
 		$query = "UPDATE `".$this->table_prefix."server_homes` SET `home_name` = '$name'
 			WHERE `home_id` = $home_id";
 
@@ -2836,8 +2886,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 	public function changeHomeControlPassword($home_id, $control_password)
 	{
-		$home_id = mysqli_real_escape_string($this->link,$home_id);
-		$control_password = mysqli_real_escape_string($this->link,$control_password);
+		$home_id = $this->realEscapeSingle($home_id);
+		$control_password = $this->realEscapeSingle($control_password);
 		$query = "UPDATE `".$this->table_prefix."server_homes` SET `control_password` = '$control_password'
 			WHERE `home_id` = $home_id";
 
@@ -2874,7 +2924,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf($template,
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$assign_id));
+			$this->realEscapeSingle($assign_id));
 
 		return $this->listQuery($query);
 	}
@@ -2903,8 +2953,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf($template,
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$assign_id),
-			mysqli_real_escape_string($this->link,$user_id));
+			$this->realEscapeSingle($assign_id),
+			$this->realEscapeSingle($user_id));
 
 		return $this->listQuery($query);
 	}
@@ -2917,7 +2967,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $searchType, $searchString) {
+		$searchString = $this->realEscapeSingle($searchString);
 		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
+		
+		if(!is_numeric($game_home_id) || !is_numeric($limit_gameHomes)){
+			return false;
+		}
 		
 		$sql = 'SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.*, %1$shome_ip_ports.port
 					FROM `%1$sserver_homes`
@@ -2954,6 +3009,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function get_GameHomes_count($searchType, $searchString) {
+		$searchString = $this->realEscapeSingle($searchString);
 		$sql = 'SELECT COUNT(1) AS total FROM %1$sserver_homes NATURAL JOIN %1$sremote_servers
 					LEFT JOIN %1$shome_ip_ports 
 						NATURAL JOIN %1$sremote_server_ips ON %1$sserver_homes.home_id=%1$shome_ip_ports.home_id ';
@@ -2986,8 +3042,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function changeLastParam($home_id,$json) {
 		$query = sprintf("UPDATE `%sserver_homes` SET `last_param` = '%s' WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$json),
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($json),
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -3000,7 +3056,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf("SELECT `last_param` FROM `%sserver_homes` WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -3016,8 +3072,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function saveServerStatusCache($ip_id,$port,$status) {
 		$query = sprintf("SELECT * FROM `%sstatus_cache` WHERE `ip_id` = %s AND `port` = %s;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip_id),
-			mysqli_real_escape_string($this->link,$port));
+			$this->realEscapeSingle($ip_id),
+			$this->realEscapeSingle($port));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -3026,8 +3082,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query = sprintf("DELETE FROM `%sstatus_cache` WHERE `ip_id` = %s AND `port` = %s;",
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$ip_id),
-				mysqli_real_escape_string($this->link,$port));
+				$this->realEscapeSingle($ip_id),
+				$this->realEscapeSingle($port));
 
 			++$this->queries_;
 			mysqli_query($this->link,$query);	
@@ -3037,10 +3093,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$json = json_encode($status);
 		$query = sprintf("INSERT INTO `%sstatus_cache` ( `date_timestamp`, `ip_id`, `port`, `server_status_cache` ) VALUES ( '%s', '%s', '%s', '%s' );",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$now),
-			mysqli_real_escape_string($this->link,$ip_id),
-			mysqli_real_escape_string($this->link,$port),
-			mysqli_real_escape_string($this->link,$json));
+			$this->realEscapeSingle($now),
+			$this->realEscapeSingle($ip_id),
+			$this->realEscapeSingle($port),
+			$this->realEscapeSingle($json));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -3053,8 +3109,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf("SELECT * FROM `%sstatus_cache` WHERE `ip_id` = %s AND `port` = %s;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip_id),
-			mysqli_real_escape_string($this->link,$port));
+			$this->realEscapeSingle($ip_id),
+			$this->realEscapeSingle($port));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -3076,8 +3132,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf("DELETE FROM `%sstatus_cache` WHERE `ip_id` = %s AND `port` = %s;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip_id),
-			mysqli_real_escape_string($this->link,$port));
+			$this->realEscapeSingle($ip_id),
+			$this->realEscapeSingle($port));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -3097,8 +3153,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			WHERE `user_id` = %d AND
 			`users_passwd` = MD5('%s');",
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$user_id),
-				mysqli_real_escape_string($this->link,$password));
+				$this->realEscapeSingle($user_id),
+				$this->realEscapeSingle($password));
 
 		$result = mysqli_query($this->link,$query);
 
@@ -3109,9 +3165,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function addAdminExternalLink($name, $url, $user_id) {
-		$name = mysqli_real_escape_string($this->link,$name);
-		$url = mysqli_real_escape_string($this->link,$url);
-		$user_id = mysqli_real_escape_string($this->link,$user_id);
+		$name = $this->realEscapeSingle($name);
+		$url = $this->realEscapeSingle($url);
+		$user_id = $this->realEscapeSingle($user_id);
 		$query = "INSERT INTO `".$this->table_prefix."adminExternalLinks` (	`link_id`, `name`, `url`, `user_id` )
 			VALUES ( NULL, '$name', '$url', '$user_id' );";
 
@@ -3123,6 +3179,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getAdminExternalLinks($user_id) {
+		$user_id = $this->realEscapeSingle($user_id);
 		if ( !$this->link ) return;
 		$query = sprintf("SELECT * FROM `%sadminExternalLinks` WHERE user_id=".$user_id,
 			$this->table_prefix);
@@ -3130,8 +3187,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function delAdminExternalLink($link_id, $user_id){
-		$user_id = mysqli_real_escape_string($this->link,$user_id);
-		$link_id = mysqli_real_escape_string($this->link,$link_id);
+		$user_id = $this->realEscapeSingle($user_id);
+		$link_id = $this->realEscapeSingle($link_id);
 		$query = "DELETE FROM `".$this->table_prefix."adminExternalLinks`
 			WHERE `link_id` = '$link_id' AND `user_id` = '$user_id'";
 		
@@ -3144,10 +3201,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function addRconPreset($name,$command,$home_cfg_id,$mod_cfg_id)
 	{
-		$name = mysqli_real_escape_string($this->link,$name);
-		$command = mysqli_real_escape_string($this->link,$command);
-		$home_cfg_id = mysqli_real_escape_string($this->link,$home_cfg_id);
-		$mod_cfg_id = mysqli_real_escape_string($this->link,$mod_cfg_id);
+		$name = $this->realEscapeSingle($name);
+		$command = $this->realEscapeSingle($command);
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		$mod_cfg_id = $this->realEscapeSingle($mod_cfg_id);
 		$query = "INSERT INTO `".$this->table_prefix."rcon_presets` (	`preset_id`, `name`, `command`, `home_cfg_id`, `mod_cfg_id` )
 			VALUES ( NULL, '$name', '$command', '$home_cfg_id', '$mod_cfg_id' );";
 
@@ -3160,7 +3217,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function delRconPreset($preset_id)
 	{
-		$preset_id = mysqli_real_escape_string($this->link,$preset_id);
+		$preset_id = $this->realEscapeSingle($preset_id);
 		$query = "DELETE FROM `".$this->table_prefix."rcon_presets`
 				  WHERE `preset_id` = '$preset_id'";
 
@@ -3173,9 +3230,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function changeRconPreset($name,$command,$preset_id)
 	{
-		$name = mysqli_real_escape_string($this->link,$name);
-		$command = mysqli_real_escape_string($this->link,$command);
-		$preset_id = mysqli_real_escape_string($this->link,$preset_id);
+		$name = $this->realEscapeSingle($name);
+		$command = $this->realEscapeSingle($command);
+		$preset_id = $this->realEscapeSingle($preset_id);
 		$query = "UPDATE `".$this->table_prefix."rcon_presets` SET `name` = '$name',
 																   `command` = '$command'
 															 WHERE `preset_id` = $preset_id";
@@ -3189,6 +3246,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getRconPresets($home_cfg_id,$mod_cfg_id)
 	{
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		$mod_cfg_id = $this->realEscapeSingle($mod_cfg_id);
+		
 		if ( !$this->link ) return;
 		$query = sprintf("SELECT * FROM `%srcon_presets` WHERE home_cfg_id=".$home_cfg_id." AND mod_cfg_id=".$mod_cfg_id,
 			$this->table_prefix);
@@ -3202,8 +3262,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 	public function incrementalNumByHomeId($home_id,$mod_cfg_id,$remote_server_id)
 	{
-		$mod_cfg_id = mysqli_real_escape_string($this->link,$mod_cfg_id);
-		$remote_server_id = mysqli_real_escape_string($this->link,$remote_server_id);
+		$mod_cfg_id = $this->realEscapeSingle($mod_cfg_id);
+		$remote_server_id = $this->realEscapeSingle($remote_server_id);
 		$query = "SELECT `home_id` FROM `".$this->table_prefix."server_homes` 
 				  NATURAL JOIN `".$this->table_prefix."game_mods`
 				  WHERE mod_cfg_id=".$mod_cfg_id." AND remote_server_id=".$remote_server_id;
@@ -3227,11 +3287,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function logger($message){
 		$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 0;
 		$client_ip = getClientIPAddress();
-		$message = mysqli_real_escape_string($this->link,$message);
+		$message = $this->realEscapeSingle($message);
 		$this->query("INSERT INTO OGP_DB_PREFIXlogger (date, user_id, ip, message) VALUE (FROM_UNIXTIME(UNIX_TIMESTAMP(), '%d-%m-%Y %H:%i:%s'), $user_id, '$client_ip', '$message');");
 	}
 
 	public function get_logger_count($search_field) {
+		$search_field = $this->realEscapeSingle($search_field);
+		
 		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."logger ";
 
 		if (!empty($search_field)) {
@@ -3243,7 +3305,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function read_logger($page,$limit, $search_field) {
+		$search_field = $this->realEscapeSingle($search_field);
+		
 		$log_id = ($page - 1) * $limit;
+
+		if(!is_numeric($log_id) || !is_numeric($limit)){
+			return false;
+		}
 
 		$sql = "SELECT * FROM ".$this->table_prefix."logger ";
 
@@ -3258,6 +3326,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function del_logger_log($log_id){
+		$log_id = $this->realEscapeSingle($log_id);
 		return $this->query("DELETE FROM `".$this->table_prefix."logger` WHERE log_id=$log_id;");
 	}
 	
@@ -3268,7 +3337,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getIpIdByIp($ip){
 		$query = sprintf("SELECT ip_id FROM `%sremote_server_ips` WHERE ip = '%s';",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip));
+			$this->realEscapeSingle($ip));
 		$result = $this->listQuery($query);
 		return $result[0]['ip_id'];
 	}
@@ -3276,7 +3345,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getIpById($ip_id){
 		$query = sprintf("SELECT ip FROM `%sremote_server_ips` WHERE ip_id = '%d';",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip_id));
+			$this->realEscapeSingle($ip_id));
 		$result = $this->listQuery($query);
 		return $result[0]['ip'];
 	}
@@ -3314,11 +3383,11 @@ class OGPDatabaseMySQL extends OGPDatabase
 		}
 		$query = sprintf("INSERT INTO `%sarrange_ports` (`ip_id`,`home_cfg_id`,`start_port`,`end_port`,`port_increment`) VALUES('%d','%d', '%d','%d', '%d')",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip_id),
-			mysqli_real_escape_string($this->link,$home_cfg_id),
-			mysqli_real_escape_string($this->link,$start_port),
-			mysqli_real_escape_string($this->link,$end_port),
-			mysqli_real_escape_string($this->link,$port_increment));
+			$this->realEscapeSingle($ip_id),
+			$this->realEscapeSingle($home_cfg_id),
+			$this->realEscapeSingle($start_port),
+			$this->realEscapeSingle($end_port),
+			$this->realEscapeSingle($port_increment));
 
 		++$this->queries_;
 		mysqli_query($this->link,$query);
@@ -3331,10 +3400,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getPortsRange($ip_id,$home_cfg_id = FALSE){
 		if ( !$this->link ) return false;
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		
 		$and_cfg_id = $home_cfg_id !== FALSE ? "AND home_cfg_id=$home_cfg_id":"";
 		$query = sprintf("SELECT * FROM `%sarrange_ports` WHERE ip_id=%d $and_cfg_id;",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$ip_id));
+			$this->realEscapeSingle($ip_id));
 
 		++$this->queries_;
 		
@@ -3342,7 +3413,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function delPortsRange($range_id){
-		$range_id = mysqli_real_escape_string($this->link,$range_id);
+		$range_id = $this->realEscapeSingle($range_id);
 		return $this->query("DELETE FROM `".$this->table_prefix."arrange_ports` WHERE range_id=$range_id;");
 	}
 	
@@ -3386,10 +3457,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 								 port_increment='%d'
 								 WHERE range_id='%d';",
 								 $this->table_prefix,
-								 mysqli_real_escape_string($this->link,$start_port),
-								 mysqli_real_escape_string($this->link,$end_port),
-								 mysqli_real_escape_string($this->link,$port_increment),
-								 mysqli_real_escape_string($this->link,$range_id));
+								 $this->realEscapeSingle($start_port),
+								 $this->realEscapeSingle($end_port),
+								 $this->realEscapeSingle($port_increment),
+								 $this->realEscapeSingle($range_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -3429,8 +3500,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function changeCustomFields($home_id,$json) {
 		$query = sprintf("UPDATE `%sserver_homes` SET `custom_fields` = '%s' WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$json),
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($json),
+			$this->realEscapeSingle($home_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -3443,7 +3514,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		$query = sprintf("SELECT `custom_fields` FROM `%sserver_homes` WHERE `home_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$home_id));
+			$this->realEscapeSingle($home_id));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -3461,7 +3532,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return FALSE;
 		$query = sprintf("SELECT `firewall_settings` FROM `%sremote_servers` WHERE `remote_server_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$remote_server_id));
+			$this->realEscapeSingle($remote_server_id));
 
 		++$this->queries_;
 		$result = mysqli_query($this->link,$query);
@@ -3516,8 +3587,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$settings = base64_encode(serialize($firewall_settings));
 		$query = sprintf("UPDATE `%sremote_servers` SET `firewall_settings` = '%s' WHERE `remote_server_id` = %d",
 			$this->table_prefix,
-			mysqli_real_escape_string($this->link,$settings),
-			mysqli_real_escape_string($this->link,$remote_server_id));
+			$this->realEscapeSingle($settings),
+			$this->realEscapeSingle($remote_server_id));
 		++$this->queries_;
 		if ( mysqli_query($this->link,$query) === FALSE )
 			return FALSE;
@@ -3525,7 +3596,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function real_escape_string($string) {
-		return mysqli_real_escape_string($this->link,$string);
+		return $this->realEscapeSingle($string);
 	}
 	
 	public function updateExpirationDate($home_id, $expiration_date, $type, $assign_id = NULL) {
@@ -3544,7 +3615,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$query = sprintf("UPDATE `%s${type}_homes` SET `${type}_expiration_date` = '%s' WHERE `home_id` = %d",
 				$this->table_prefix,
 				$ed,
-				mysqli_real_escape_string($this->link,$home_id));
+				$this->realEscapeSingle($home_id));
 			if($assign_id != NULL)
 			{
 				$id_type = $type == "user" ? "user_id" : "group_id";
@@ -3580,8 +3651,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$query = sprintf( $query,
 							  $this->table_prefix,
 							  $type,
-							  mysqli_real_escape_string($this->link,$home_id),
-							  mysqli_real_escape_string($this->link,$user_id));
+							  $this->realEscapeSingle($home_id),
+							  $this->realEscapeSingle($user_id));
 			++$this->queries_;
 			$result = mysqli_query($this->link,$query);
 			if($result === FALSE)
@@ -3651,6 +3722,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			return false;
 		}
+		$home_id = $this->realEscapeSingle($home_id);
 		
 		$query = 'SELECT `cpu_affinity` FROM `%sgame_mods` WHERE `home_id` = %2$d;';
 		$query = sprintf($query, $this->table_prefix, (int)$home_id);
