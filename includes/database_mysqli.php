@@ -63,10 +63,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		if ( $this->link === FALSE )
 			return -11;
-			
-		array_walk_recursive($_POST, 'real_escape_string_recursive', $this->link);
-		array_walk_recursive($_GET, 'real_escape_string_recursive', $this->link);
-		array_walk_recursive($_REQUEST, 'real_escape_string_recursive', $this->link);
 
 		return TRUE;
 	}
@@ -258,7 +254,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getUserList_limit($page_user, $limit_user, $search_field) {
+		$search_field = mysqli_real_escape_string($this->link, $search_field);
 		$user_get_id = ($page_user - 1) * $limit_user;
+		
+		if(!is_numeric($user_get_id) || !is_numeric($limit_user)){
+			return false;
+		}
 
 		$sql = "SELECT
 					user_id, users_login, users_lang,
@@ -285,6 +286,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function get_user_count($search_field) {
+		$search_field = mysqli_real_escape_string($this->link, $search_field);
+		
 		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."users ";
 
 		if (!empty($search_field)) {
@@ -304,6 +307,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function get_group_count($search_field){
+		$search_field = mysqli_real_escape_string($this->link, $search_field);
+		
 		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."user_group_info ";
 		if (!empty($search_field)) {
 			$sql .= "WHERE main_user_id = '$search_field' OR group_id = '$search_field' OR group_name LIKE '%$search_field%'";
@@ -313,7 +318,15 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getGroupList_limit($page_user,$limit_user,$search_field) {
+		
+		$search_field = mysqli_real_escape_string($this->link, $search_field);
+		
 		$user_get_id = ($page_user - 1) * $limit_user;
+		
+		if(!is_numeric($user_get_id) || !is_numeric($limit_user)){
+			return false;
+		}
+		
 		$query = sprintf("SELECT group_id,group_name
 			FROM %suser_group_info
 			
@@ -344,6 +357,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getUserGroupList_count($main_user_id,$search_field) {
+		$search_field = mysqli_real_escape_string($this->link, $search_field);
+		$main_user_id = mysqli_real_escape_string($this->link, $main_user_id);
+		
 		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."user_group_info WHERE `main_user_id` = $main_user_id ";
 		if (!empty($search_field)) {
 			$sql .= "AND group_id = '$search_field' OR group_name LIKE '%$search_field%' ";
@@ -354,6 +370,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getUserGroupList_limit($main_user_id,$page_user,$limit_user,$search_field) {
 		$user_get_id = ($page_user - 1) * $limit_user;
+		
+		$search_field = mysqli_real_escape_string($this->link, $search_field);
+		
+		if(!is_numeric($user_get_id) || !is_numeric($limit_user)){
+			return false;
+		}
+		
 		$query = sprintf("SELECT *
 			FROM %suser_group_info
 			WHERE `main_user_id` = %d 
@@ -405,6 +428,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function createUserWidgets($user_id){
+		$user_id = mysqli_real_escape_string($this->link,$user_id);
+		
 		$widgets = $this->resultQuery("SELECT * FROM `".$this->table_prefix."widgets`");
 		$query = "INSERT INTO `".$this->table_prefix."widgets_users` (`user_id`, `widget_id`, `column_id`, `sort_no`, `collapsed`, `title`) VALUES";
 		foreach($widgets as $widget){
@@ -1256,6 +1281,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getRemoteServers_ts3($assign_id){
+		$assign_id = $this->realEscapeSingle($assign_id);
 		$query = sprintf("SELECT * FROM ".$this->table_prefix."remote_servers WHERE agent_ip IN (SELECT ip FROM `".$this->table_prefix."ts3_homes` WHERE user_id = $assign_id)");
 		return $this->listQuery($query);
 	}
@@ -1610,6 +1636,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getHomesFor_count($id_type,$assign_id,$home_cfg_id,$search_field){
+		$search_field = $this->realEscapeSingle($search_field);
+		$assign_id = $this->realEscapeSingle($assign_id);
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		
 		if ( $id_type == "admin" )
 		{
 			return $this->resultQuery('SELECT COUNT('.($search_field ?'distinct':'').' home_id) AS total FROM `'.$this->table_prefix.'server_homes`
@@ -1696,7 +1726,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id,$search_field){
-	$gethome_page_forlimit = ($home_page - 1) * $home_limit;	
+		$search_field = $this->realEscapeSingle($search_field);	
+		$assign_id = $this->realEscapeSingle($assign_id);
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		
+		$gethome_page_forlimit = ($home_page - 1) * $home_limit;	
+		
+		if(!is_numeric($gethome_page_forlimit) || !is_numeric($home_limit)){
+			return false;
+		}
+		
 		if ( $id_type == "admin" )
 		{
 			$template = 'SELECT '.($search_field ?'distinct':'').' 
@@ -1929,13 +1968,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			$query1 = sprintf($template,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$assign_id );
 			$query2 = sprintf($template2,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$assign_id );
 			$query3 = sprintf($template3,
 				$this->table_prefix,
-				mysqli_real_escape_string($this->link,$assign_id) );
+				$assign_id );
 			$servers = $this->listQuery($query1);
 			if($servers)
 			{
@@ -2082,6 +2121,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 		
 		$user_request_page = ($page_dashboardlist - 1) * $limit_dashboardlist;
 		
+		if(!is_numeric($user_request_page) || !is_numeric($limit_dashboardlist)){
+			return false;
+		}
+		
 		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
 			%1$sremote_servers.*,
 			%1$sconfig_homes.*,
@@ -2119,7 +2162,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getIpPorts( $ip_id = 0 ) {
 		
+		$ip_id = $this->realEscapeSingle($ip_id);
 		$ip_id_and = $ip_id == 0 ? "" : "`ip_id`='".$ip_id."' AND ";
+		
 		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
 			%1$sremote_servers.*,
 			%1$sconfig_homes.*,
@@ -2144,8 +2189,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getIpPorts_limit($ip_id = 0,$page_dashboardlist,$limit_dashboardlist) {
-		
+		$ip_id = $this->realEscapeSingle($ip_id);
 		$user_request_page = ($page_dashboardlist - 1) * $limit_dashboardlist;
+		
+		if(!is_numeric($user_request_page) || !is_numeric($limit_dashboardlist)){
+			return false;
+		}
 
 		$ip_id_and = $ip_id == 0 ? "" : "`ip_id`='".$ip_id."' AND ";
 		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
@@ -2174,14 +2223,15 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 	
 	public function getIpPorts_count($id_type,$assign_id){
+		$assign_id = $this->realEscapeSingle($assign_id);
 		if ( $id_type == "admin" ){
- 		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports`;");
+			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports`;");
 		}
 		else if ( $id_type == "user_and_group" ){
-		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT home_id FROM `".$this->table_prefix."user_homes` WHERE user_id = $assign_id);");
+			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT home_id FROM `".$this->table_prefix."user_homes` WHERE user_id = $assign_id);");
 		}
 		else if ( $id_type == "subuser" ){
-		return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT group_id FROM `".$this->table_prefix."user_groups` WHERE user_id = $assign_id);");
+			return $this->resultQuery("SELECT COUNT(home_id) AS total FROM `".$this->table_prefix."home_ip_ports` WHERE home_id IN (SELECT group_id FROM `".$this->table_prefix."user_groups` WHERE user_id = $assign_id);");
 		}
 	}
 
@@ -2917,7 +2967,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $searchType, $searchString) {
+		$searchString = $this->realEscapeSingle($searchString);
 		$game_home_id = ($page_gameHomes - 1) * $limit_gameHomes;
+		
+		if(!is_numeric($game_home_id) || !is_numeric($limit_gameHomes)){
+			return false;
+		}
 		
 		$sql = 'SELECT %1$sserver_homes.*, %1$sremote_servers.*, %1$sconfig_homes.*, %1$shome_ip_ports.port
 					FROM `%1$sserver_homes`
@@ -2954,6 +3009,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function get_GameHomes_count($searchType, $searchString) {
+		$searchString = $this->realEscapeSingle($searchString);
 		$sql = 'SELECT COUNT(1) AS total FROM %1$sserver_homes NATURAL JOIN %1$sremote_servers
 					LEFT JOIN %1$shome_ip_ports 
 						NATURAL JOIN %1$sremote_server_ips ON %1$sserver_homes.home_id=%1$shome_ip_ports.home_id ';
@@ -3123,6 +3179,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function getAdminExternalLinks($user_id) {
+		$user_id = $this->realEscapeSingle($user_id);
 		if ( !$this->link ) return;
 		$query = sprintf("SELECT * FROM `%sadminExternalLinks` WHERE user_id=".$user_id,
 			$this->table_prefix);
@@ -3189,6 +3246,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getRconPresets($home_cfg_id,$mod_cfg_id)
 	{
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		$mod_cfg_id = $this->realEscapeSingle($mod_cfg_id);
+		
 		if ( !$this->link ) return;
 		$query = sprintf("SELECT * FROM `%srcon_presets` WHERE home_cfg_id=".$home_cfg_id." AND mod_cfg_id=".$mod_cfg_id,
 			$this->table_prefix);
@@ -3232,6 +3292,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 
 	public function get_logger_count($search_field) {
+		$search_field = $this->realEscapeSingle($search_field);
+		
 		$sql = "SELECT COUNT(1) AS total FROM ".$this->table_prefix."logger ";
 
 		if (!empty($search_field)) {
@@ -3243,7 +3305,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function read_logger($page,$limit, $search_field) {
+		$search_field = $this->realEscapeSingle($search_field);
+		
 		$log_id = ($page - 1) * $limit;
+
+		if(!is_numeric($log_id) || !is_numeric($limit)){
+			return false;
+		}
 
 		$sql = "SELECT * FROM ".$this->table_prefix."logger ";
 
@@ -3258,6 +3326,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function del_logger_log($log_id){
+		$log_id = $this->realEscapeSingle($log_id);
 		return $this->query("DELETE FROM `".$this->table_prefix."logger` WHERE log_id=$log_id;");
 	}
 	
@@ -3331,6 +3400,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getPortsRange($ip_id,$home_cfg_id = FALSE){
 		if ( !$this->link ) return false;
+		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
+		
 		$and_cfg_id = $home_cfg_id !== FALSE ? "AND home_cfg_id=$home_cfg_id":"";
 		$query = sprintf("SELECT * FROM `%sarrange_ports` WHERE ip_id=%d $and_cfg_id;",
 			$this->table_prefix,
@@ -3651,6 +3722,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		{
 			return false;
 		}
+		$home_id = $this->realEscapeSingle($home_id);
 		
 		$query = 'SELECT `cpu_affinity` FROM `%sgame_mods` WHERE `home_id` = %2$d;';
 		$query = sprintf($query, $this->table_prefix, (int)$home_id);
