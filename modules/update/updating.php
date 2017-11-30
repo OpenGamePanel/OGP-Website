@@ -269,6 +269,7 @@ function exec_ogp_module()
 					update_module($db, $row['id'], $row['folder']);
 				}
 				print_success(update_complete); 
+				removeOldPanelFiles();
 			}
 			else
 			{
