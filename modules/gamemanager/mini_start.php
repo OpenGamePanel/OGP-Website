@@ -29,10 +29,7 @@ $last_param = json_decode($server_home['last_param'], True);
 $isAdmin = $db->isAdmin($_SESSION['user_id']);
 
 if (!function_exists('processParamValue')) {
-	function processParamValue($paramKey, $paramValue, &$save_param, &$start_cmd){
-		// Set globals
-		global $param, $server_xml;
-		
+	function processParamValue(&$param, &$server_xml, $paramKey, $paramValue, &$save_param, &$start_cmd){		
 		if (0 == strlen($paramValue))
 			return false;
 		
@@ -493,7 +490,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 						}
 						
 						// Process the param value for the start command and for the save params
-						processParamValue($paramKey, $paramValue, $save_param, $start_cmd);
+						processParamValue($param, $server_xml, $paramKey, $paramValue, $save_param, $start_cmd);
 						
 						$found++;
 						break; // More efficient
@@ -502,7 +499,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 				
 				// If the parameter wasn't posted (because it may have been disabled due to access param) or a sneaky user deleted it to circumvent security
 				if($found == 0 && !empty($origValue)){
-					processParamValue((string)$param['key'], $origValue, $save_param, $start_cmd);
+					processParamValue($param, $server_xml, (string)$param['key'], $origValue, $save_param, $start_cmd);
 				}
 				
 				if ($param['id'] != NULL && $param['id'] != ""){
