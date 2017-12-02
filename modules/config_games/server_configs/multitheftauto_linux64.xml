@@ -44,4 +44,7 @@
       <desc>Port of the http server (it could be same as server port).</desc>
     </field>
   </custom_fields>
+  <configuration_files>
+    <file description="Server Configurations">mods/deathmatch/mtaserver.conf</file>
+  </configuration_files>
 </game_config>
