@@ -22,6 +22,9 @@
  *
  */
 
+// Globals
+$OGPLangPre = "OGP_LANG_";
+
 // Ignore any request with unwanted values at 'm' or 'p'
 if( isset($_REQUEST['m']) and !preg_match("/^([a-z]|[0-9]|_|-)+$/i", $_REQUEST['m']) )
 	unset($_POST['m'], $_GET['m'], $_REQUEST['m']);
@@ -398,11 +401,12 @@ function getGitHubOrganization($gitHubURL){
 }
 
 function getOGPLangConstantsJSON(){
+	global $OGPLangPre;
 	$finalConsts = array();
+	
 	$consts = get_defined_constants(true);
 	foreach($consts["user"] as $key => $value){
-		$firstCharLower = lcfirst($key);
-		if($firstCharLower[0] === $key[0]){
+		if(startsWith($key, $OGPLangPre)){
 			$finalConsts[$key] = $value;
 		}
 	}
@@ -413,5 +417,4 @@ function getOGPLangConstantsJSON(){
 	
 	return false;
 }
-
 ?>

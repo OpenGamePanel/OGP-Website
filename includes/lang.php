@@ -23,7 +23,6 @@
  */
 
 $lang_modules = array();
-$OGPLangPre = "OGP_LANG_";
 
 function add_lang_module($lang_module)
 {
