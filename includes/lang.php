@@ -79,10 +79,20 @@ function ogpLang()
 
 function get_lang($lang_index)
 {
+	global $OGPLangPre;
+	
     if (defined($lang_index))
     {
         return constant($lang_index);
     }
+    
+    if(!startsWith($lang_index, $OGPLangPre)){
+		$newLangIndex = $OGPLangPre . $lang_index;
+		if (defined($newLangIndex))
+		{
+			return constant($newLangIndex);
+		}
+	}
 
     // Any other case is error.
     return "_".$lang_index."_";
@@ -90,6 +100,7 @@ function get_lang($lang_index)
 
 function get_lang_f()
 {
+	global $OGPLangPre;
     $args = func_get_args();
     $lang_index = array_shift($args);
 
@@ -97,6 +108,14 @@ function get_lang_f()
     {
         return vsprintf(constant($lang_index),$args);
     }
+    
+    if(!startsWith($lang_index, $OGPLangPre)){
+		$newLangIndex = $OGPLangPre . $lang_index;
+		if (defined($newLangIndex))
+		{
+			return vsprintf(constant($newLangIndex),$args);
+		}
+	}
 
     return "_".$lang_index."_".implode("_",$args)."_";
 }
