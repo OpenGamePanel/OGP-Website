@@ -130,8 +130,6 @@ define('no_results_found', "لم يتم العثور على نتائج بحث ل
 define('tickets', "تذاكر الدعم");
 define('news', "الأخبار");
 define('admin_news', "مدير الأخبار");
-define('rcon', "RCON");
-define('support', "الدعم");
 define('util', "خدمات");
 define('fast_download', "التحميل السريع");
 define('fd_user', "التحميل السريع");
@@ -139,6 +137,6 @@ define('cron', "مدير الكرون");
 define('user_cron', "الكرون");
 define('faq', "التعليمات.");
 define('mysql_admin', "مدير قاعدة البيانات");
-define('copied', "Copied!");
-define('ticket_settings', "Ticket Settings");
+define('copied', "نسخ!");
+define('ticket_settings', "إعدادات التذاكر");
 ?>

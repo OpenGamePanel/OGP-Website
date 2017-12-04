@@ -195,7 +195,6 @@ define('sucessfully_deleted', "Успешное удаление %s");
 define('the_agent_had_a_problem_deleting', "У агента возникла проблема с удалением %s, посмотрите логи Агента");
 define('connection_timeout_or_problems_reaching_the_agent', "Время соединения вышло или проблемы связи с Агентом");
 define('does_not_exist_yet', "Пока не существует.");
-define('back_to_edit_server', "Вернутся к редактированию сервера");
 define('update_settings', "Обновить настройки");
 define('settings_updated', "Настройки обновлены");
 define('selected_path_already_in_use', "Выбранный путь уже используется");

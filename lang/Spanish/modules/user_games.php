@@ -195,7 +195,6 @@ define('sucessfully_deleted', "Eliminado correctamente.");
 define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Tiempo de espera de la conexión o problemas al llegar al agente");
 define('does_not_exist_yet', "No existe todavia.");
-define('back_to_edit_server', "Volver a edición del servidor");
 define('update_settings', "Actualizar configuración");
 define('settings_updated', "Configuración actualizada.");
 define('selected_path_already_in_use', "La carpeta seleccionada está en uso.");

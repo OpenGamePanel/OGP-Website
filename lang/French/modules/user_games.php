@@ -195,7 +195,6 @@ define('sucessfully_deleted', "%s supprimé avec succès");
 define('the_agent_had_a_problem_deleting', "L'Agent a eu un problème en supprimant %s, vérifiez le log de l'Agent");
 define('connection_timeout_or_problems_reaching_the_agent', "Délai dépassé lors de la connexion ou problèmes en se connectant à l'Agent");
 define('does_not_exist_yet', "N'existe pas encore.");
-define('back_to_edit_server', "Retour à l'édition du serveur");
 define('update_settings', "Enregistrer les paramètres");
 define('settings_updated', "Paramètres mis à jour.");
 define('selected_path_already_in_use', "Le chemin spécifié est déjà utilisé.");

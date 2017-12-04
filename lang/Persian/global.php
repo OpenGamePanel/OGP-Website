@@ -130,8 +130,6 @@ define('no_results_found', "نتایجی برای %s پیدا نشد.");
 define('tickets', "Support Tickets");
 define('news', "News");
 define('admin_news', "News Admin");
-define('rcon', "RCON");
-define('support', "پشتیبانی");
 define('util', "Utilities");
 define('fast_download', "Fast Download");
 define('fd_user', "Fast Download");

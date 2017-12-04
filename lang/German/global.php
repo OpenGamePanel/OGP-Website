@@ -130,8 +130,6 @@ define('no_results_found', "Keine Suchergebnisse für '%s' gefunden");
 define('tickets', "Support Tickets");
 define('news', "News");
 define('admin_news', "News Admin");
-define('rcon', "RCON");
-define('support', "Support");
 define('util', "Werkzeug");
 define('fast_download', "Fast Download");
 define('fd_user', "Fast Download");

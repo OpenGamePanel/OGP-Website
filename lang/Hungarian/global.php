@@ -130,8 +130,6 @@ define('no_results_found', "Nincs találat erre %s");
 define('tickets', "Support Tickets");
 define('news', "Hírek");
 define('admin_news', "News Admin");
-define('rcon', "RCON");
-define('support', "Támogatás");
 define('util', "Segédprogramok");
 define('fast_download', "Gyors letöltés");
 define('fd_user', "Gyors letöltés");

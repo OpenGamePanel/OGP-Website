@@ -130,8 +130,6 @@ define('no_results_found', "Не найдено результатов поис�
 define('tickets', "Система поддержки");
 define('news', "Новости");
 define('admin_news', "Управление Новостями");
-define('rcon', "RCON команды");
-define('support', "Поддержка");
 define('util', "Утилиты");
 define('fast_download', "Быстрая Загрузка");
 define('fd_user', "Fast Download");

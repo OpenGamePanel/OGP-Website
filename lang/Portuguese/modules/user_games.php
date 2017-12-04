@@ -195,7 +195,6 @@ define('sucessfully_deleted', "Excluido com sucesso %s");
 define('the_agent_had_a_problem_deleting', "O Agente do painel detectou um problema ao excluir %s. Por favor, verifique os Logs de registo do Agente.");
 define('connection_timeout_or_problems_reaching_the_agent', "Tempo limite de conexão ou problemas com o alcance do agente");
 define('does_not_exist_yet', "Ainda não existe.");
-define('back_to_edit_server', "Voltar ao servidor de edição");
 define('update_settings', "Atualizar configurações");
 define('settings_updated', "Configurações atualizadas.");
 define('selected_path_already_in_use', "O caminho selecionado já está em uso.");

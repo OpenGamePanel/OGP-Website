@@ -195,7 +195,6 @@ define('sucessfully_deleted', "Erfolgreich gelöscht %s");
 define('the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
 define('connection_timeout_or_problems_reaching_the_agent', "Connection timeout or problems with reaching the Agent");
 define('does_not_exist_yet', "Gibt es noch nicht.");
-define('back_to_edit_server', "Back to edit server");
 define('update_settings', "Update settings");
 define('settings_updated', "Settings updated.");
 define('selected_path_already_in_use', "The selected path is already in use.");

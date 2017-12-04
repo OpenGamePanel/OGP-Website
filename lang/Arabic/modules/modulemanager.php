@@ -46,7 +46,7 @@ define('successfully_uninstalled_module', "تم إلغاء تثبيت الوحد
 define('failed_to_uninstall_module', "أخفقت إزالة الوحدة %s.");
 define('module_file_missing', "الدليل مفقود في ملف module.php.");
 define('module_file_missing_info', "يفتقد المعلومات المطلوبة.");
-define('query_failed', "Failed to execute query");
+define('query_failed', "أخفق تنفيذ طلب الquery");
 define('query_failed_2', "إلى قاعدة البيانات.");
 define('failed_del_db', "أخفق حذف الوحدة من قاعدة البيانات.");
 define('updated_module', "الوحدة المحدثة: '%s'.");

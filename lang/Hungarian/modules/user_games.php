@@ -195,7 +195,6 @@ define('sucessfully_deleted', "A(z) %s sikeresen törölve.");
 define('the_agent_had_a_problem_deleting', "Az Agentnek problémája volt a(z) %s törlése közben. Kérlek, ellenőrizd az Agent naplóját.");
 define('connection_timeout_or_problems_reaching_the_agent', "Kapcsolat időtúllépés vagy problémák az Agent elérésével");
 define('does_not_exist_yet', "Még nem létezik.");
-define('back_to_edit_server', "Vissza a szerver szerkesztéshez");
 define('update_settings', "Beállítások frissítése");
 define('settings_updated', "Beállítások frissítve.");
 define('selected_path_already_in_use', "A kiválasztott útvonal már használatban van.");
