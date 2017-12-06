@@ -69,17 +69,8 @@
       <var>rConPort = '%key%'</var>
       <filepath>Configuration/ConsoleSettings.cfg</filepath>
       <options>key-regex</options>
+      <access>admin</access>
       <desc>Sets the port to RCON.</desc>
-    </field>
-    <field key="Private" type="select">
-      <option value="False">False</option>
-      <option value="True">True</option>
-      <default>(isPrivate\s*=\s*')(.*)(')</default>
-      <default_value>False</default_value>
-      <var>isPrivate = '%key%'</var>
-      <filepath>Configuration/ServerSettings.cfg</filepath>
-      <options>key-regex</options>
-      <desc>Enables/disables the display in the public server browser.</desc>
     </field>
     <field key="Level Name" type="select">
       <option value="CrownLand">CrownLand</option>
@@ -92,4 +83,10 @@
       <desc>Defines the map of the server.</desc>
     </field>
   </custom_fields>
+  <configuration_files>
+    <file description="Server Configurations">Configuration/ServerSettings.cfg</file>
+    <file description="Console Configurations">Configuration/ConsoleSettings.cfg</file>
+    <file description="User Configurations">Configuration/Users.cfg</file>
+    <file description="Whitelist Configurations">Configuration/Whitelist.cfg</file>
+  </configuration_files>
 </game_config>
