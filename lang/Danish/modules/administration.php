@@ -22,28 +22,28 @@
  *
  */
 
-define('external_links', "Externe Links");
-define('url', "URL");
-define('name', "Navn");
-define('add_it', "Tilføj en");
-define('link_has_been_removed', "%s link er bleven fjernet.");
-define('db_backup', "DB Backup");
-define('download_db_backup', "Download DB Backup");
-define('restore_db_backup', "Genskab DB Backup");
-define('sql_file', "fil(.sql)");
-define('change_buttons_order', "Skifte knap ordre");
-define('when', "Når");
-define('who', "Hvem");
-define('where', "Hvor");
-define('what', "Hvad");
-define('search', "Søg");
-define('empty_logger', "Tom Logger");
-define('ban_list', "Ban list");
-define('no_banned_ips', "There are no banned IPs");
-define('unban', "Unban IP");
-define('client_ip', "Client IP");
-define('banned_until', "Banned until");
-define('unban_selected_ips', "Unban selected IPs");
-define('view', "View");
-define('per_page', "log entries per page");
+define('OGP_LANG_external_links', "Externe Links");
+define('OGP_LANG_url', "URL");
+define('OGP_LANG_name', "Navn");
+define('OGP_LANG_add_it', "Tilføj en");
+define('OGP_LANG_link_has_been_removed', "%s link er bleven fjernet.");
+define('OGP_LANG_db_backup', "DB Backup");
+define('OGP_LANG_download_db_backup', "Download DB Backup");
+define('OGP_LANG_restore_db_backup', "Genskab DB Backup");
+define('OGP_LANG_sql_file', "fil(.sql)");
+define('OGP_LANG_change_buttons_order', "Skifte knap ordre");
+define('OGP_LANG_when', "Når");
+define('OGP_LANG_who', "Hvem");
+define('OGP_LANG_where', "Hvor");
+define('OGP_LANG_what', "Hvad");
+define('OGP_LANG_search', "Søg");
+define('OGP_LANG_empty_logger', "Tom Logger");
+define('OGP_LANG_ban_list', "Ban list");
+define('OGP_LANG_no_banned_ips', "There are no banned IPs");
+define('OGP_LANG_unban', "Unban IP");
+define('OGP_LANG_client_ip', "Client IP");
+define('OGP_LANG_banned_until', "Banned until");
+define('OGP_LANG_unban_selected_ips', "Unban selected IPs");
+define('OGP_LANG_view', "View");
+define('OGP_LANG_per_page', "log entries per page");
 ?>

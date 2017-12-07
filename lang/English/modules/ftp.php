@@ -22,15 +22,15 @@
  *
  */
 
-define('pure-ftpd_accounts_for_remote_server_named', "FTP accounts for remote server named %s");
-define('ftp_address', "FTP address: %s:%s");
-define('change_account_details', "Change account details");
-define('remove_account', "Delete account");
-define('ftp_account_already_exists', "This FTP account already exists.");
-define('full_path', "Home directory");
-define('add_ftp_account', "Add FTP account");
-define('remote_server', "Remote server");
-define('server_name', "Server name");
-define('ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
-define('ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "FTP accounts for remote server named %s");
+define('OGP_LANG_ftp_address', "FTP address: %s:%s");
+define('OGP_LANG_change_account_details', "Change account details");
+define('OGP_LANG_remove_account', "Delete account");
+define('OGP_LANG_ftp_account_already_exists', "This FTP account already exists.");
+define('OGP_LANG_full_path', "Home directory");
+define('OGP_LANG_add_ftp_account', "Add FTP account");
+define('OGP_LANG_remote_server', "Remote server");
+define('OGP_LANG_server_name', "Server name");
+define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
+define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 ?>

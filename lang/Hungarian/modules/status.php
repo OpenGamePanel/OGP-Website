@@ -22,27 +22,27 @@
  *
  */
 
-define('system_uptime', "Rendszer üzemidő");
-define('system_up_time', "Újraindítás óta eltelt idő");
-define('system_up_since', "Mióta");
-define('day_word', "napja");
-define('days_word', "napja");
-define('hour_word', "órája");
-define('hours_word', "órája");
-define('minute_word', "perce");
-define('minutes_word', "perce");
-define('second_word', "másodperce");
-define('seconds_word', "másodperce");
-define('cpu_usage', "Processor használat");
-define('cpu_load', "terhelése");
-define('ram_usage', "Memória használat");
-define('ram_used', "Felhasznált memória");
-define('ram_of', "a");
-define('storage_space', "Tárhely");
-define('storage_total', "Lemez terület");
-define('storage_used', "Felhasznált");
-define('storage_free', "Szabad hely");
-define('process_monitor', "Háttérfolyamatok");
-define('status_extension_required', "Kiterjesztés szükséges");
-define('gd_info', "<a href=\"http://php.net/manual/en/image.installation.php\">PHP GD kiterjesztés</a> szükséges ezeknek a tár képeknek a generálásához!");
+define('OGP_LANG_system_uptime', "Rendszer üzemidő");
+define('OGP_LANG_system_up_time', "Újraindítás óta eltelt idő");
+define('OGP_LANG_system_up_since', "Mióta");
+define('OGP_LANG_day_word', "napja");
+define('OGP_LANG_days_word', "napja");
+define('OGP_LANG_hour_word', "órája");
+define('OGP_LANG_hours_word', "órája");
+define('OGP_LANG_minute_word', "perce");
+define('OGP_LANG_minutes_word', "perce");
+define('OGP_LANG_second_word', "másodperce");
+define('OGP_LANG_seconds_word', "másodperce");
+define('OGP_LANG_cpu_usage', "Processor használat");
+define('OGP_LANG_cpu_load', "terhelése");
+define('OGP_LANG_ram_usage', "Memória használat");
+define('OGP_LANG_ram_used', "Felhasznált memória");
+define('OGP_LANG_ram_of', "a");
+define('OGP_LANG_storage_space', "Tárhely");
+define('OGP_LANG_storage_total', "Lemez terület");
+define('OGP_LANG_storage_used', "Felhasznált");
+define('OGP_LANG_storage_free', "Szabad hely");
+define('OGP_LANG_process_monitor', "Háttérfolyamatok");
+define('OGP_LANG_status_extension_required', "Kiterjesztés szükséges");
+define('OGP_LANG_gd_info', "<a href=\"http://php.net/manual/en/image.installation.php\">PHP GD kiterjesztés</a> szükséges ezeknek a tár képeknek a generálásához!");
 ?>

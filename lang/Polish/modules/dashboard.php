@@ -22,22 +22,22 @@
  *
  */
 
-define('dashboard_ftp_text', "FTP Klient może kompresować pliki i wysyłać je przez e-mail, może też rozpakować, edytować pliki tekstowe i wiele więcej.");
-define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
-define('dashboard_game_monitor_text', "Zobacz oraz monitoruj swój transfer. Możesz zobaczyć, jakie serwery są w ONLINE lub OFFLINE.");
-define('dashboard_support_text', "Uzyskaj wsparcie z OGP Professional Team na forum. Szybka pomoc oraz przydatne uwagi.");
-define('welcome_text', "Witaj w Open Game Panel. Dzięki panelowi możesz włączać/wyłączać serwer, monitorować serwer a także zarządzać plikami na nim się znajdującymi przez przeglądarkę.");
-define('any_server_is_online', "Wszystkie serwery są ONLINE");
-define('current_map', "Aktualna Mapa");
-define('server_ip_port', "IP:Port");
-define('statistics', "Statystyki");
-define('servers', "Serwery");
-define('players', "Gracze");
-define('server_status', "Status Serwera");
-define('no_games_to_monitor', "Obecnie nie ma żadnych serwerów");
-define('online_servers', "Serwery ONLINE");
-define('add_games_in', "Jeśli chcesz dodać gry można to zrobić w %s");
-define('currently_online', "Aktualnie ONLINE");
-define('game_servers', "Serwery gier");
-define('select_remote_server', "Wybierz serwer hosta");
+define('OGP_LANG_dashboard_ftp_text', "FTP Klient może kompresować pliki i wysyłać je przez e-mail, może też rozpakować, edytować pliki tekstowe i wiele więcej.");
+define('OGP_LANG_dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
+define('OGP_LANG_dashboard_game_monitor_text', "Zobacz oraz monitoruj swój transfer. Możesz zobaczyć, jakie serwery są w ONLINE lub OFFLINE.");
+define('OGP_LANG_dashboard_support_text', "Uzyskaj wsparcie z OGP Professional Team na forum. Szybka pomoc oraz przydatne uwagi.");
+define('OGP_LANG_welcome_text', "Witaj w Open Game Panel. Dzięki panelowi możesz włączać/wyłączać serwer, monitorować serwer a także zarządzać plikami na nim się znajdującymi przez przeglądarkę.");
+define('OGP_LANG_any_server_is_online', "Wszystkie serwery są ONLINE");
+define('OGP_LANG_current_map', "Aktualna Mapa");
+define('OGP_LANG_server_ip_port', "IP:Port");
+define('OGP_LANG_statistics', "Statystyki");
+define('OGP_LANG_servers', "Serwery");
+define('OGP_LANG_players', "Gracze");
+define('OGP_LANG_server_status', "Status Serwera");
+define('OGP_LANG_no_games_to_monitor', "Obecnie nie ma żadnych serwerów");
+define('OGP_LANG_online_servers', "Serwery ONLINE");
+define('OGP_LANG_add_games_in', "Jeśli chcesz dodać gry można to zrobić w %s");
+define('OGP_LANG_currently_online', "Aktualnie ONLINE");
+define('OGP_LANG_game_servers', "Serwery gier");
+define('OGP_LANG_select_remote_server', "Wybierz serwer hosta");
 ?>

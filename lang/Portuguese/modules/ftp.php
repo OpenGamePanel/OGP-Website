@@ -22,15 +22,15 @@
  *
  */
 
-define('pure-ftpd_accounts_for_remote_server_named', "Contas de FTP para o servidor remoto chamado %s");
-define('ftp_address', "Endereço FTP: %s:%s");
-define('change_account_details', "Alterar detalhes da conta");
-define('remove_account', "Apagar conta");
-define('ftp_account_already_exists', "A respectiva conta FTP já existe.");
-define('full_path', "Caminho completo do directório raiz");
-define('add_ftp_account', "Adicionar conta FTP");
-define('remote_server', "Servidor remoto");
-define('server_name', "Nome do servidor");
-define('ftp_account_username_too_long', "O nome do usuário  FTP é muito longo. Experimente usar um nome de usuário mais curto que não contenha mais de 20 caracteres.");
-define('ftp_account_password_too_long', "O nome do usuário FTP é muito longo. Experimente usar um nome de usuário mais curto que não contenha mais de 20 caracteres.");
+define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "Contas de FTP para o servidor remoto chamado %s");
+define('OGP_LANG_ftp_address', "Endereço FTP: %s:%s");
+define('OGP_LANG_change_account_details', "Alterar detalhes da conta");
+define('OGP_LANG_remove_account', "Apagar conta");
+define('OGP_LANG_ftp_account_already_exists', "A respectiva conta FTP já existe.");
+define('OGP_LANG_full_path', "Caminho completo do directório raiz");
+define('OGP_LANG_add_ftp_account', "Adicionar conta FTP");
+define('OGP_LANG_remote_server', "Servidor remoto");
+define('OGP_LANG_server_name', "Nome do servidor");
+define('OGP_LANG_ftp_account_username_too_long', "O nome do usuário  FTP é muito longo. Experimente usar um nome de usuário mais curto que não contenha mais de 20 caracteres.");
+define('OGP_LANG_ftp_account_password_too_long', "O nome do usuário FTP é muito longo. Experimente usar um nome de usuário mais curto que não contenha mais de 20 caracteres.");
 ?>
