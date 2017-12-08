@@ -91,8 +91,8 @@ function exec_ogp_module() {
     {
         if ( !isset($_REQUEST['y'] ) )
         {
-            echo "<p>". areyousure_removeagent ." <b>\"".
-                $remote_server['remote_server_name']."\"</b> ". areyousure_removeagent2 ."</p>
+            echo "<p>". get_lang("areyousure_removeagent") ." <b>\"".
+                $remote_server['remote_server_name']."\"</b> ". get_lang("areyousure_removeagent2") ."</p>
                 <p><a href='?m=server&amp;p=edit&amp;rhost_id=".$rhost_id."&amp;delete&amp;y=y'>".
                  yes ."</a> <a href='?m=server'>".
                  no ."</a></p>";
@@ -144,17 +144,17 @@ function exec_ogp_module() {
 		$ft->add_field('on_off','use_nat',$remote_server['use_nat']);
 		$ft->add_field('string','display_public_ip',$remote_server['display_public_ip']);
         $ft->end_table();
-        $ft->add_button('submit','save_settings', save_settings );
+        $ft->add_button('submit','save_settings', get_lang("save_settings") );
         $ft->end_form();
         echo create_back_button('server');
 
         echo "<h2>".get_lang_f('remote_ips_for',$remote_server['remote_server_name'])."</h2>";
-        echo "<p class='info'>". hint .": ". add_more_ips ."</p>";
+        echo "<p class='info'>". get_lang("hint") .": ". get_lang("add_more_ips") ."</p>";
 		
         $remote_server_ips = $db->getRemoteServerIPs($remote_server['remote_server_id']);
         if ( !empty($remote_server_ips) )
         {
-			echo "<h1>". edit_ip ."s</h1>";
+			echo "<h1>". get_lang("edit_ip") ."s</h1>";
 			
 			include('includes/lib_remote.php');
 			
@@ -177,20 +177,20 @@ function exec_ogp_module() {
 				}
 				
 				$disabled = $servers_running ? "disabled" : "";
-				$warning = $servers_running ? "<b class='failure' >". there_are_servers_running_on_this_ip ."<b>" : "";
+				$warning = $servers_running ? "<b class='failure' >". get_lang("there_are_servers_running_on_this_ip") ."<b>" : "";
 				echo "<table style='width:auto;'>
 					 <tr>
 					 <td align='left' >
 					 <form method='post' action=''>
 					 <input name='ip_id' type='hidden' value='".$ip_row['ip_id']."'/>
 					 <input name='ip' type='text' value='".$ip_row['ip']."'/>
-					 <input type='submit' name='edit_ip' value='". edit_ip ."' $disabled/>
-					 <input type='submit' name='remove_ip' value='". remove_ip ."' $disabled/> $warning
+					 <input type='submit' name='edit_ip' value='". get_lang("edit_ip") ."' $disabled/>
+					 <input type='submit' name='remove_ip' value='". get_lang("remove_ip") ."' $disabled/> $warning
 					 </form>
 					 </td>
 					 <td style='text-align:left;'>
 					 <form method='post' action='?m=server&p=arrange_ports&rserver_id=".$rhost_id."&ip_id=".$ip_row['ip_id']."'>
-					 <input type='submit' name='arrange_ports' value='". arrange_ports ."'/>
+					 <input type='submit' name='arrange_ports' value='". get_lang("arrange_ports") ."'/>
 					 </form>
 					 </td>
 					 </tr>
@@ -198,7 +198,7 @@ function exec_ogp_module() {
             }
         }
  
-		echo "<h1>". add_ip ."s</h1>";
+		echo "<h1>". get_lang("add_ip") ."s</h1>";
 		
         $ft = new FormTable();
         $ft->start_form('');
@@ -206,7 +206,7 @@ function exec_ogp_module() {
         $ft->start_table();
         $ft->add_field('string','remote_ip','');
         $ft->end_table();
-        $ft->add_button('submit','add_ip', add_ip );
+        $ft->add_button('submit','add_ip', get_lang("add_ip") );
         $ft->end_form();
     }
     else
