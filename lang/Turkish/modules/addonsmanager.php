@@ -36,8 +36,7 @@ define('OGP_LANG_addon_installed_successfully', "Eklenti başarıyla yüklendi")
 define('OGP_LANG_path', "Yol");
 define('OGP_LANG_wait_while_decompressing', "%s dosyası açıldığında bekleyin");
 define('OGP_LANG_addon_name', "Ekleni Adı");
-define('OGP_LANG_url', "URL
-");
+define('OGP_LANG_url', "URL");
 define('OGP_LANG_select_game_type', "Oyun Türünü Seçiniz");
 define('OGP_LANG_plugin', "Eklenti");
 define('OGP_LANG_mappack', "Harita Paketi");
