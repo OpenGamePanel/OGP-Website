@@ -94,7 +94,7 @@ function exec_ogp_module()
 		$folder_name = stripslashes($_GET['folder_name']);
 		$folder_path = clean_path( $path . "/" . $folder_name );
 		$remote->shell_action('create_dir', $folder_path);
-		$db->logger( create_folder . ": " . $folder_path );
+		$db->logger( get_lang("create_folder") . ": " . $folder_path );
 	}
 		
 	$dirlist = $remote->remote_dirlistfm($path);

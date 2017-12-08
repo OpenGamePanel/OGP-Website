@@ -84,7 +84,7 @@ function exec_ogp_module() {
 			}
 		}
 		else
-			print_failure(agent_offline . " " . remove_it_anyway . "?");
+			print_failure(get_lang("agent_offline") . " " . remove_it_anyway . "?");
 		echo "<a href=\"?m=user_games&amp;p=del&amp;y=y&amp;home_id=$home_id\">".
 		yes . "</a> | <a href=\"?m=user_games\">".
 		no . "</a></p>";
@@ -115,7 +115,7 @@ function exec_ogp_module() {
 		if ( $remote->ftp_mgr("userdel", $ftp_login) === 0 )
 		{
 			$del_files = $files == 'y' ? '&amp;files=y' : '';
-			print_failure(failed_to_remove_ftp_account_from_remote_server);
+			print_failure(get_lang("failed_to_remove_ftp_account_from_remote_server"));
 			echo "<p>" . remove_it_anyway . "<p>
 				<a href=\"?m=user_games&amp;p=del&amp;y=y&amp;force=y&amp;home_id=$home_id$del_files\">".
 				yes . "</a> | <a href=\"?m=user_games\">".
@@ -151,7 +151,7 @@ function exec_ogp_module() {
 		
 		if ( $db->deleteGameHome($home_id) === FALSE )
 		{
-			print_failure(failed_to_remove_gamehome_from_database);
+			print_failure(get_lang("failed_to_remove_gamehome_from_database"));
 			return;
 		}
 		else

@@ -73,7 +73,13 @@ function exec_ogp_module()
 			}
 			else
 			{
-				$TS3_list = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXts3_homes WHERE user_id='".$_SESSION['user_id']."' AND rserver_id='".$_SESSION['rserver_id']."'");
+				$sql = "SELECT * FROM OGP_DB_PREFIXts3_homes WHERE";
+				if(!$isAdmin){
+					$sql .= " user_id='".$_SESSION['user_id']."' AND";
+				}	
+				$sql .= " rserver_id='".$_SESSION['rserver_id']."'";
+				
+				$TS3_list = $db->resultQuery($sql);
 			}
 
 			if( !empty( $TS3_list ) )

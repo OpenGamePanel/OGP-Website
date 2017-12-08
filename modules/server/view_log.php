@@ -27,7 +27,7 @@ function exec_ogp_module() {
 
     global $view;
     global $db;
-	echo "<h2>". view_log ."</h2>";
+	echo "<h2>". get_lang("view_log") ."</h2>";
 	$rhost_id = @$_REQUEST['rhost_id'];
     $remote_server = $db->getRemoteServer($rhost_id);
 	$remote = new OGPRemoteLibrary($remote_server['agent_ip'], $remote_server['agent_port'], $remote_server['encryption_key'], $remote_server['timeout'] );
@@ -36,30 +36,30 @@ function exec_ogp_module() {
 		$file_info = $remote->remote_writefile('./ogp_agent.log', strip_real_escape_string($_REQUEST['file_content']));
 		if ( $file_info === 1 )
 		{
-            print_success( wrote_changes );
+            print_success( get_lang("wrote_changes") );
 		}
         else if ( $file_info === 0 )
-            print_failure( failed_write );
+            print_failure( get_lang("failed_write") );
         else
 		{
-            print_failure( agent_offline );
+            print_failure( get_lang("agent_offline") );
 		}
 	}
     $data = "";
     $file_info =  $remote->remote_readfile('./ogp_agent.log',$data);
     if ( $file_info === 0 )
     {
-        print_failure( not_found );
+        print_failure( get_lang("not_found") );
         return;
     }
     else if ( $file_info === -1 )
     {
-        print_failure( agent_offline );
+        print_failure( get_lang("agent_offline") );
         return;
     }
     else if ( $file_info === -2 )
     {
-        print_failure( failed_read );
+        print_failure( get_lang("failed_read") );
         return;
     }
     echo "<form action='?m=server&amp;p=log&amp;rhost_id=".$rhost_id."' method='post'>";

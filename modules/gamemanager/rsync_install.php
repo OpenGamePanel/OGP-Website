@@ -138,7 +138,7 @@ function exec_ogp_module() {
 
 	if ( $home_info === FALSE || preg_match("/u/",$home_info['access_rights']) != 1 )
 	{
-		print_failure( no_rights );
+		print_failure( get_lang("no_rights") );
 		echo create_back_button("gamemanager","game_monitor");
 		return;
 	}
@@ -182,7 +182,7 @@ function exec_ogp_module() {
 	
 	if ( $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_id) == 1 )
 	{
-		print_failure( server_running_cant_update );
+		print_failure( get_lang("server_running_cant_update") );
 		return;
 	}
 	$update_active = $remote->get_log(OGP_SCREEN_TYPE_UPDATE,
@@ -191,7 +191,7 @@ function exec_ogp_module() {
 		$log_txt,30);
 	if ($update_active === 0)
 	{
-		print_failure( agent_offline );
+		print_failure( get_lang("agent_offline") );
 		$view->refresh("{CURRENT_PAGE}", 5);
 		return;
 	}
@@ -260,12 +260,12 @@ function exec_ogp_module() {
 		}
 		if( $rsync === 0 )
 		{
-			print_failure( failed_to_start_rsync_update );
+			print_failure( get_lang("failed_to_start_rsync_update") );
 			return;
 		}
 		else if ( $rsync === 1 )
 		{
-			print_success( update_started );
+			print_success(get_lang("update_started"));
 			echo "<p><a href=\"?m=gamemanager&amp;p=rsync_install&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id$master\">".
 				 refresh_rsync_status ."</a></p>";
 			$view->refresh("?m=gamemanager&amp;p=rsync_install&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id$master",5);
@@ -273,7 +273,7 @@ function exec_ogp_module() {
 		}
 		elseif( $rsync === 0 )
 		{
-			print_failure( agent_offline );
+			print_failure( get_lang("agent_offline") );
 			return;
 		}
 	}
@@ -324,7 +324,7 @@ function exec_ogp_module() {
 	elseif($update != "update")
 	{
 		$view->refresh("{CURRENT_PAGE}", 60);
-		print_success( update_completed );
+		print_success(get_lang("update_completed") );
 		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
 		echo "<pre>".$log_txt."</pre>\n";
 		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";

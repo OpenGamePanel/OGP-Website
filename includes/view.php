@@ -48,7 +48,7 @@ class OGPView {
 	function menu(){}
 	
     function printView($cleared = false, $dataType = "html") {
-        global $db;
+        global $db, $OGPLangPre;
 
         if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
             $panel_settings = $db->getSettings();
@@ -156,7 +156,7 @@ class OGPView {
 		// Dump defined constants to json (for language javascript)
 		$jsonStrConsts = getOGPLangConstantsJSON();
 		if($jsonStrConsts !== false){
-			$this->header_code .= '<script type="text/javascript">var langConsts = ' . $jsonStrConsts . ';</script>' . "\n";
+			$this->header_code .= '<script type="text/javascript">var langConsts = ' . $jsonStrConsts . ';' . "\n" . 'var langConstPrefix = "' . $OGPLangPre . '";</script>' . "\n";
 		}
 		
 		// Include our global JS
