@@ -284,7 +284,7 @@ function ogpHome()
 				$_SESSION['users_lang'] = isset( $_GET['lang'] ) ? $_GET['lang'] : $userInfo['users_lang'];
 				$_SESSION['users_theme'] = $userInfo['users_theme'];
 				print_success( get_lang("logging_in") ."...");
-				$db->logger( logging_in ."...");
+				$db->logger( get_lang("logging_in") ."...");
 				$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='0', banned_until='0' WHERE client_ip = '$client_ip';");
 				$view->refresh("home.php?$default_page",2);
 			}
@@ -296,13 +296,13 @@ function ogpHome()
 				{
 					$banned_until = time() + 300; // Five minutes banned from the panel.
 					$banlist_info['0']['banned_until'] = $banned_until;
-					$db->logger( bad_login . " ( Banned until " . date("r", $banned_until) . " ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
+					$db->logger( get_lang("bad_login") . " ( Banned until " . date("r", $banned_until) . " ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts', banned_until='$banned_until' WHERE client_ip='$client_ip';");
 					print_failure("Banned until " . date("r",$banlist_info['0']['banned_until']));
 				}
 				else
 				{
-					$db->logger( bad_login . " ( $login_attempts ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
+					$db->logger( get_lang("bad_login") . " ( $login_attempts ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts' WHERE client_ip='$client_ip';");
 					$view->refresh("index.php",2);
 				}

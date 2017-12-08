@@ -638,7 +638,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 		$envVars,
 		$server_xml->game_key
 		);
-	$db->logger(  server_started  . " (".$server_home['home_name']." $ip:$port)" );
+	$db->logger(  get_lang("server_started")  . " (".$server_home['home_name']." $ip:$port)" );
 	if ( $start_retval == AGENT_ERROR_NOT_EXECUTABLE )
 	{
 		print_failure( get_lang("server_binary_not_executable") );

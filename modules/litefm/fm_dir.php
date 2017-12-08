@@ -113,7 +113,7 @@ function exec_ogp_module()
 			$directory->close();
 			if( $directory_empty )
 				rmdir( $upload_folder_path );
-			$db->logger(upload_complete . ": " . clean_path( $path . "/" . $filename ));
+			$db->logger(get_lang("upload_complete") . ": " . clean_path( $path . "/" . $filename ));
 			$complete = true;
 		}
 		echo json_encode(array('pct' => $pct,
@@ -186,7 +186,7 @@ function exec_ogp_module()
 		$folder_name = stripslashes($_POST['folder_name']);
 		$folder_path = clean_path( $path . "/" . $folder_name );
 		$remote->shell_action('create_dir', $folder_path);
-		$db->logger( create_folder . ": " . $folder_path );
+		$db->logger( get_lang("create_folder") . ": " . $folder_path );
 	}
 	// Delete File(s)
 	elseif( isset( $_POST['remove'] ) and $fo['remove'] == "1" )
@@ -207,7 +207,7 @@ function exec_ogp_module()
 			{
 				$remote->shell_action('remove_recursive', $files);
 				$files = str_replace('" "','"<br>"',$files);
-				$db->logger( remove . ": ${files}" );
+				$db->logger( get_lang("remove") . ": ${files}" );
 			}
 		}
 	}
@@ -226,7 +226,7 @@ function exec_ogp_module()
 					if ($item_path != $new_item_path)
 					{
 						$remote->shell_action('move', "$item_path;$new_item_path");
-						$db->logger( rename . ": $item_path " . to . " $new_item_path" );
+						$db->logger( get_lang("rename") . ": $item_path " . to . " $new_item_path" );
 					}
 				}
 			}
@@ -248,7 +248,7 @@ function exec_ogp_module()
 						$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 						$destination = clean_path($destination . "/.");
 						$remote->shell_action('move', "$item_path;$destination");
-						$db->logger( move . ": $item_path " . to . " $destination" );
+						$db->logger( get_lang("move") . ": $item_path " . get_lang("to") . " $destination" );
 					}
 				}
 			}
@@ -270,7 +270,7 @@ function exec_ogp_module()
 						$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 						$destination = clean_path($destination . "/.");
 						$remote->shell_action('copy', "$item_path;$destination");
-						$db->logger( copy . ": $item_path " . to . " $destination" );
+						$db->logger( get_lang("copy") . ": $item_path " . get_lang("to") . " $destination" );
 					}
 				}
 			}
@@ -293,7 +293,7 @@ function exec_ogp_module()
 		if($items != '')
 		{
 			$remote->compress_files($items,$path,$_POST['archive_name'],$_POST['archive_type']);
-			$db->logger( compress . " " . $_POST['archive_type'] . ":<br>$files_w_path" );
+			$db->logger( get_lang("compress") . " " . $_POST['archive_type'] . ":<br>$files_w_path" );
 		}
 	}
 	// uncompress
@@ -309,7 +309,7 @@ function exec_ogp_module()
 				{
 					$file_location = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 					$remote->uncompress_file($file_location, $destination);
-					$db->logger( uncompress . ": $file_location " . to . " $destination." );
+					$db->logger( get_lang("uncompress") . ": $file_location " . to . " $destination." );
 				}
 			}
 		}
@@ -320,7 +320,7 @@ function exec_ogp_module()
 		$file_name = stripslashes($_POST['file_name']);
 		$destination = clean_path( $path . "/" . $file_name);
 		$remote->shell_action('touch', $destination);
-		$db->logger( create_file . ": $destination" );
+		$db->logger( get_lang("create_file") . ": $destination" );
 	}
 	// Send by email
 	elseif( isset( $_POST['send_by_email'] ) and $fo['send_by_email'] == "1" )
@@ -356,8 +356,8 @@ function exec_ogp_module()
 				$mail_retval = $remote->exec( "(echo '" . esc_squote($message) . "' | mutt -a '" . esc_squote($archive) . "' -s '" . esc_squote($subject) . "' -- '" . esc_squote($dest_email) . "');echo \$?" );
 				if($mail_retval == 0)
 				{
-					echo mail_sent_successfully;
-					$db->logger( send_by_email . ": '$archive'<br>Subject: '$subject'<br>to: '$dest_email'" );
+					echo get_lang("mail_sent_successfully");
+					$db->logger( get_lang("send_by_email") . ": '$archive'<br>Subject: '$subject'<br>to: '$dest_email'" );
 				}
 				else
 				{
