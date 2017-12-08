@@ -48,7 +48,7 @@ class OGPView {
 	function menu(){}
 	
     function printView($cleared = false, $dataType = "html") {
-        global $db;
+        global $db, $OGPLangPre;
 
         if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
             $panel_settings = $db->getSettings();
