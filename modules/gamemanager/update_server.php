@@ -42,7 +42,7 @@ function exec_ogp_module() {
 	if ( $home_info === FALSE || preg_match("/u/",$home_info['access_rights']) != 1 )
 	{
 		print_failure( get_lang("no_rights") );
-		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
+		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
 		return;
 	}
 	
@@ -191,18 +191,18 @@ function exec_ogp_module() {
 			$update_complete = false;
 			if ( $update_active == 1 )
 			{
-				echo "<p class='note'>". update_in_progress ."</p>\n";
-				echo "<form method=POST><input type='image' name='stop_update' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". stop_update ."</input></form>";
+				echo "<p class='note'>". get_lang("update_in_progress") ."</p>\n";
+				echo "<form method=POST><input type='image' name='stop_update' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". get_lang("stop_update") ."</input></form>";
 			}
 			else
 			{
 				$view->refresh("{CURRENT_PAGE}", 60);
 				print_success( get_lang("update_completed") );
-				echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
+				echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
 				$update_complete = true;
 			}
 			if (empty($log_txt))
-				$log_txt = not_available;
+				$log_txt = get_lang("not_available");
 
 			echo "<pre>".$log_txt."</pre>\n";
 
@@ -210,7 +210,7 @@ function exec_ogp_module() {
 				return;
 		}
 		echo "<p><a href=\"?m=gamemanager&amp;p=update&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id\">";
-		echo refresh_steam_status ."</a></p>";
+		echo get_lang("refresh_steam_status") ."</a></p>";
 		$view->refresh("?m=gamemanager&amp;p=update&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id",5);
 		return;
 	}
