@@ -24,7 +24,7 @@
  
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
+use PHPMailer\PHPMailer\SMTP;
 #functions go here
 
 //read_expire() converts a time stamp to a human readable form
@@ -287,6 +287,7 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 	// PHP Mailer
 	require_once("PHPMailer/Exception.php");
 	require_once("PHPMailer/PHPMailer.php");
+	require_once("PHPMailer/SMTP.php");
 	
 	// Create the mail object using the Mail::factory method
 	$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
