@@ -40,7 +40,7 @@ define('OGP_LANG_database_hostname', "Nom d'hôte (hostname)");
 define('OGP_LANG_database_username', "Nom d'utilisateur");
 define('OGP_LANG_database_password', "Mot de passe");
 define('OGP_LANG_database_name', "Nom de la base de données");
-define('OGP_LANG_database_prefix', "Préfixe");
+define('OGP_LANG_database_prefix', "Préfixe de la base de données");
 define('OGP_LANG_next', "Suivant");
 define('OGP_LANG_encryption_key', "Clé de chiffrement (Agent)");
 define('OGP_LANG_agent_port', "Port (Agent)");
