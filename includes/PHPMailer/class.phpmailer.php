@@ -4036,7 +4036,7 @@ class phpmailerException extends Exception
      */
     public function errorMessage()
     {
-        $errorMsg = '<strong>' . htmlspecialchars($this->getMessage()) . "</strong><br />\n";
+        $errorMsg = '<p>' . htmlspecialchars($this->getMessage()) . "</p><br />\n";
         return $errorMsg;
     }
 }
