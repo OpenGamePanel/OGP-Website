@@ -283,6 +283,7 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 	
 	// PHP Mailer
 	require_once("PHPMailer/class.phpmailer.php");
+	require_once("PHPMailer/class.smtp.php");
 	
 	// Create the mail object using the Mail::factory method
 	$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
