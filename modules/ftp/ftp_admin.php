@@ -116,7 +116,7 @@ function exec_ogp_module()
 		echo "<tr><td colspan='3' >
 			<form method=POST >
 			<table class='center' style='width:100%' ><tr>
-			<td>". remote_server ." <select style='width:250px' name='remote_server_id' >";
+			<td>". get_lang("remote_server") ." <select style='width:250px' name='remote_server_id' >";
 
 		foreach ( $servers as $server_row )
 		{
