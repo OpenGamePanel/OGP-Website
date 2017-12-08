@@ -258,7 +258,7 @@ if( !isset( $_POST['start_server'] ) )
 	}
 
 	echo "</table>";
-	echo  start_wait_note;
+	echo  get_lang("start_wait_note");
 
 	if ( $check_ok )
 	{
