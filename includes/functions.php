@@ -281,8 +281,6 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 	else
 		$panel_name = $panel_settings['panel_name'];
 		
-	include('PHPMailer/class.phpmailer.php');
-		
 	// Create the mail object using the Mail::factory method
 	$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 
@@ -357,6 +355,15 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 		$mail->Subject = $subject;
 		$mail->MsgHTML($message);
 		$mail->Send();
+		
+		$mail->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+        );
+		
 	}
 	catch (phpmailerException $e) 
 	{

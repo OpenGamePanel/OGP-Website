@@ -32,6 +32,12 @@ define("MODULES", "modules/");
 
 define("CONFIG_FILE","includes/config.inc.php");
 
+// PHP Mailer
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+require_once("includes/PHPMailer/Exception.php");
+require_once("includes/PHPMailer/PHPMailer.php");
+
 require_once("includes/functions.php");
 require_once("includes/helpers.php");
 require_once("includes/html_functions.php");
