@@ -362,8 +362,6 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 		$mail->CharSet = $view->charset;
 		$mail->Subject = $subject;
 		$mail->MsgHTML($message);
-		$mail->Send();
-		
 		$mail->SMTPOptions = array(
                     'ssl' => array(
                         'verify_peer' => false,
@@ -371,6 +369,7 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
                         'allow_self_signed' => true
                     )
         );
+		$mail->Send();
 		
 	}
 	catch (phpmailerException $e) 
