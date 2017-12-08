@@ -156,7 +156,7 @@ class OGPView {
 		// Dump defined constants to json (for language javascript)
 		$jsonStrConsts = getOGPLangConstantsJSON();
 		if($jsonStrConsts !== false){
-			$this->header_code .= '<script type="text/javascript">var langConsts = ' . $jsonStrConsts . ';</script>' . "\n";
+			$this->header_code .= '<script type="text/javascript">var langConsts = ' . $jsonStrConsts . ';' . "\n" . 'var langConstPrefix = "' . $OGPLangPre . '";</script>' . "\n";
 		}
 		
 		// Include our global JS

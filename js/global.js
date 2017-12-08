@@ -185,8 +185,13 @@ function toggleEvents(){
 }
 
 function getLang(key){
+	if(!key.startsWith(langConstPrefix)){
+		key = langConstPrefix + key;
+	}
+	
 	if(langConsts && langConsts.hasOwnProperty(key)){
 		return langConsts[key];
 	}
+	
 	return false;
 }
