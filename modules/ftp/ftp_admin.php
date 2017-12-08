@@ -108,7 +108,7 @@ function exec_ogp_module()
 		$remote->ftp_mgr("usermod", $ftp_login, $account_settings );
 	}
 
-	echo "<h2>" . ftp_admin . "</h2>";
+	echo "<h2>" . get_lang("ftp_admin") . "</h2>";
 	
 	$servers = $db->getRemoteServers();
 
@@ -125,12 +125,12 @@ function exec_ogp_module()
 		}
 		echo "</select>
 				</td>
-				<td>". login ."<input type=text name='ftp_login' /></td>
-				<td>". password ."<input type=text name='ftp_password' /></td>
-				<td>". full_path ."<input type=text name='full_path' /></td>
+				<td>". get_lang("login") ."<input type=text name='ftp_login' /></td>
+				<td>". get_lang("password") ."<input type=text name='ftp_password' /></td>
+				<td>". get_lang("full_path") ."<input type=text name='full_path' /></td>
 			  </tr>
 			  <tr>
-				<td colspan=4 ><input style='width:100%;' type=submit name='add_ftp_user' value='". add_ftp_account ."' /></td>
+				<td colspan=4 ><input style='width:100%;' type=submit name='add_ftp_user' value='". get_lang("add_ftp_account") ."' /></td>
 			  </tr>
 			 </table>
 			 </form>
@@ -151,7 +151,7 @@ function exec_ogp_module()
 
 			$host_stat = $remote->status_chk();
 			
-			$status = ( $host_stat === 0 or  $host_stat === -1 ) ? "<span class='failure'>". offline ."</span>" : "<span class='success'>". online ."</span>";
+			$status = ( $host_stat === 0 or  $host_stat === -1 ) ? "<span class='failure'>". get_lang("offline") ."</span>" : "<span class='success'>". get_lang("online") ."</span>";
 					
 			if( $host_stat === 1)
 			{			
@@ -236,11 +236,11 @@ function exec_ogp_module()
 								 <center>
 								  <input type=hidden name='remote_server_id' value='".$server_row['remote_server_id']."'/>
 								  <input type=hidden name='ftp_login' value=\"" . str_replace('"', '&quot;', $ftp_login) . "\"/>
-								  <input type=submit name='edit_ftp_user' value='". change_account_details ."' />
+								  <input type=submit name='edit_ftp_user' value='". get_lang("change_account_details") ."' />
 								 </center>
 								</td>
 								<td>
-								   <input type='image' name='del_ftp_user' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". remove_account ."</input>
+								   <input type='image' name='del_ftp_user' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". get_lang("remove_account") ."</input>
 								</td>
 							  </tr>
 							 </table>

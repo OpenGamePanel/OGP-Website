@@ -57,7 +57,7 @@ function exec_ogp_module()
 	
 	if ( isset( $_REQUEST['user_id'] ) && !$isAdmin )
 	{
-		echo "<p class='note'>".not_available."</p>";
+		echo "<p class='note'>".get_lang("not_available")."</p>";
 		return;
 	}
 	
@@ -75,7 +75,7 @@ function exec_ogp_module()
 	
 	if( !$isAdmin && !isset($own_group) ) 
 	{
-		echo "<p class='note'>".not_available."</p>";
+		echo "<p class='note'>".get_lang("not_available")."</p>";
 		return;
 	}
 
@@ -172,7 +172,7 @@ function exec_ogp_module()
 	if ( empty($remote_servers) )
 	{
 		print_failure(get_lang("no_remote_servers_available_please_add_at_least_one"));
-		echo "<p><a href='?m=server'>".add_remote_server."</a></p>";
+		echo "<p><a href='?m=server'>".get_lang("add_remote_server")."</a></p>";
 		return;
 	}
 
@@ -186,7 +186,7 @@ function exec_ogp_module()
 		echo "<h2>".get_lang_f('assign_new_home_to_'.$id_type,$assign_name)."</h2>";
 		echo "<form action='?m=user_games&amp;p=assign' method='post'>";
 		echo "<input name='".$id_type."_id' value='".$assign_id."' type='hidden' />\n";
-		echo "<table class='center'><tr><td align='right'><label for='home_id'>".select_home.":</label></td>";
+		echo "<table class='center'><tr><td align='right'><label for='home_id'>".get_lang("select_home").":</label></td>";
 		echo '<td align="left"><select id="home_id" name="home_id" onchange="this.form.submit();">';
 		echo "<option></option>\n";
 		foreach ( $available_homes as $home )
@@ -218,15 +218,15 @@ function exec_ogp_module()
 			{
 				echo create_selection($selection,$flag,$access_rights);
 			}
-			echo "<tr><td class='right'>".assign_expiration_date.":</td>\n".
+			echo "<tr><td class='right'>".get_lang("assign_expiration_date").":</td>\n".
 				 "<td class='left'>\n".
-				 "<tr><td class='right'>".server_expiration_date.":</td>\n".
+				 "<tr><td class='right'>".get_lang("server_expiration_date").":</td>\n".
 				 "<td class='left'>".
 				 "<div id='datetimepicker' class='input-append date'>".
 				 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='X' data-today='".date('d/m/Y H:i:s')."' >\n".
 				 "</div></td></tr>\n".
-				 "<tr><td  colspan='2' class='info'>". assign_expiration_date_info ."</td></tr>\n";
-			echo "<tr><td colspan='2'><input type='submit' name='assign' value='".assign."' /></td></tr>\n";
+				 "<tr><td  colspan='2' class='info'>". get_lang("assign_expiration_date_info") ."</td></tr>\n";
+			echo "<tr><td colspan='2'><input type='submit' name='assign' value='".get_lang("assign")."' /></td></tr>\n";
 		}
 		echo "</table></form>\n";
 	}
@@ -236,7 +236,7 @@ function exec_ogp_module()
 		//print_lang('you_can_add_a_new_game_server_from');
 		//echo "<a href='?m=user_games'>".game_servers."</a>.</p>";
 		if( $isAdmin )
-			echo get_lang_f("you_can_add_a_new_game_server_from","<a href='?m=user_games'>".game_servers."</a>")."</p>";
+			echo get_lang_f("you_can_add_a_new_game_server_from","<a href='?m=user_games'>".get_lang("game_servers")."</a>")."</p>";
 	}
 	// View servers for use if there are any.
 	$game_homes = $db->getHomesFor($id_type,$assign_id);
@@ -247,14 +247,14 @@ function exec_ogp_module()
 	}
 	else
 	{
-		echo "<h2>".assigned_homes."</h2>";
+		echo "<h2>".get_lang("assigned_homes")."</h2>";
 		echo '<table class="center">';
-		echo "<tr><th>".home_id."</th><th>".game_server."</th>
-			<th>".game_type."</th>
-			<th align='center'>".game_home."</th>
-			<th>".game_home_name."</th><th>".access_rights."</th>
-			<th>".assign_expiration_date."</th>
-			<th>".actions."</th></tr>";
+		echo "<tr><th>".get_lang("home_id")."</th><th>".get_lang("game_server")."</th>
+			<th>".get_lang("game_type")."</th>
+			<th align='center'>".get_lang("game_home")."</th>
+			<th>".get_lang("game_home_name")."</th><th>".get_lang("access_rights")."</th>
+			<th>".get_lang("assign_expiration_date")."</th>
+			<th>".get_lang("actions")."</th></tr>";
 		foreach( $game_homes as $row )
 		{
 			$access_rights = empty($row['access_rights']) ? "-" : $row['access_rights'];
@@ -271,7 +271,7 @@ function exec_ogp_module()
 				<form action='?m=user_games&amp;p=assign' method='post'>
 				<input name='".$id_type."_id' value='$assign_id' type='hidden' />
 				<input name='home_id' value='".$row['home_id']."' type='hidden' />
-				<input type='submit' name='unassign' value='".unassign."' /></form></td>
+				<input type='submit' name='unassign' value='".get_lang("unassign")."' /></form></td>
 				</tr>";
 		}
 		echo "</table>";

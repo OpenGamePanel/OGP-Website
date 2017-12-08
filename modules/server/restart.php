@@ -27,7 +27,7 @@ function exec_ogp_module() {
 
     global $view;
     global $db;
-	echo "<h2>". restart ."</h2>";
+	echo "<h2>". get_lang("restart") ."</h2>";
 	$rhost_id = @$_REQUEST['rhost_id'];
     $remote_server = $db->getRemoteServer($rhost_id);
 	$remote = new OGPRemoteLibrary($remote_server['agent_ip'], $remote_server['agent_port'], $remote_server['encryption_key'], $remote_server['timeout']);
@@ -40,7 +40,7 @@ function exec_ogp_module() {
 		$host_stat = $remote->status_chk();
 		if($host_stat === 0)
 		{
-			echo restarting; # "Restarting agent... Please wait."
+			echo get_lang("restarting"); # "Restarting agent... Please wait."
 			$view->refresh("?m=server&p=restart&rhost_id=".$rhost_id."&refresh",5);
 		}
 		else
@@ -76,7 +76,7 @@ function exec_ogp_module() {
 						"if [ -e 'screenlogs/screenlog.ogp_agent' ]; then rm -f 'screenlogs/screenlog.ogp_agent'; fi" );
 		$file_info =  $remote->agent_restart();		
 		// 5 seconds should be enough for the agent to come back up
-		echo restarting; # "Restarting agent... Please wait."
+		echo get_lang("restarting"); # "Restarting agent... Please wait."
 		$view->refresh("?m=server&p=restart&rhost_id=".$rhost_id."&refresh", 5);
 
 	} else if ($_POST['re_check'] == "no"){

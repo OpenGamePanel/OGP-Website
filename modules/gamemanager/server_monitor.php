@@ -148,7 +148,7 @@ function get_sync_name($server_xml)
 
 function exec_ogp_module() {
 	global $db, $settings, $loggedInUserInfo;
-	echo "<h2>". game_monitor ."</h2>";
+	echo "<h2>". get_lang("game_monitor") ."</h2>";
 	$refresh = new refreshed();
 	set_time_limit(0);
 	$stats_servers_online = 0;
