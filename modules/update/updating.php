@@ -105,7 +105,7 @@ function exec_ogp_module()
 		
 		if( $stat['size'] > 1500 )
 		{
-			print_success( dwl_complete );
+			print_success(get_lang("dwl_complete"));
 		}
 		else
 		{
