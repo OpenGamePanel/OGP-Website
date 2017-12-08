@@ -72,9 +72,9 @@ function exec_ogp_module() {
 		$host_stat = $remote->status_chk();
 
 		$buttons = "<a href='?m=server&amp;p=edit&amp;rhost_id=".
-					$server_row['remote_server_id']."&amp;delete'>[". delete ."]</a>\n".
+					$server_row['remote_server_id']."&amp;delete'>[". get_lang("delete") ."]</a>\n".
 					"<a href='?m=server&amp;p=edit&amp;rhost_id=".$server_row['remote_server_id'].
-					"&amp;edit'>[". edit ."]</a>\n";
+					"&amp;edit'>[". get_lang("edit") ."]</a>\n";
 
 		$tittle = "<b>ID#:</b>  <b style='color:red;'>".$server_row['remote_server_id']."</b></td>
 					<td class='collapsible' ><b>". get_lang("server_name") .":</b> ".$server_row['remote_server_name']."</td>
