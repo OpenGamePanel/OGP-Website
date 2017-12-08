@@ -845,7 +845,7 @@ function exec_ogp_module()
 
 				echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n";
 				echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
-				echo  ip .":<select name='ip' onchange='this.form.submit();'>";
+				echo  get_lang("ip") .":<select name='ip' onchange='this.form.submit();'>";
 
 				foreach($avail_ips as $value)
 				{
