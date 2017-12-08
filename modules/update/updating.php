@@ -57,7 +57,7 @@ function exec_ogp_module()
 	
 	$vtype = "HubGit";
 
-	echo "<h4>" . dwl_update . "</h4>\n";
+	echo "<h4>" . get_lang("dwl_update") . "</h4>\n";
 
 	//This is usefull when you are downloading big files, as it
 	//will prevent time out of the script
@@ -113,10 +113,10 @@ function exec_ogp_module()
 			return;
 		}
 		
-		echo "<h4>". install_update . "</h4>\n";
+		echo "<h4>". get_lang("install_update") . "</h4>\n";
 				
 		// Set default values for file checkings before installing
-		$not_writable = can_not_update_non_writable_files . " :<br>";
+		$not_writable = get_lang("can_not_update_non_writable_files") . " :<br>";
 		$filename = "";
 		$overwritten = 0;
 		$new = 0;
@@ -259,7 +259,7 @@ function exec_ogp_module()
 					rmdir_recurse( $baseDir . DIRECTORY_SEPARATOR . $unwanted_path );
 				}
 
-				echo "<br>\n<h4>" . updating_modules ."</h4>\n";
+				echo "<br>\n<h4>" . get_lang("updating_modules") ."</h4>\n";
 				
 				require_once('modules/modulemanager/module_handling.php');
 

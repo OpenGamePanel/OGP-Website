@@ -529,7 +529,7 @@ function exec_ogp_module()
 	echo "<tr><td style=\"width:50%; vertical-align:top;\">";
 	# MODULES
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
-		 "<h4>".extra_modules."</h4>".
+		 "<h4>".get_lang("extra_modules")."</h4>".
 		 "<div class=\"dragbox-content\" >";
 
 	if (!empty($moduleErrors['modules'])) {
@@ -581,7 +581,7 @@ function exec_ogp_module()
 	
 	# THEMES
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
-		 "<h4>".extra_themes."</h4>".
+		 "<h4>".get_lang("extra_themes")."</h4>".
 		 "<div class=\"dragbox-content\" >";
 
 	if (!empty($moduleErrors['themes'])) {
