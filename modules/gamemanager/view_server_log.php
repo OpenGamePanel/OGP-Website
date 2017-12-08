@@ -143,7 +143,7 @@ function exec_ogp_module()
 					$intSel .= "<input type='hidden' name='size' value='" . $_GET['size'] . "' />";
 				if(isset($_GET['view_player_commands']))
 					$intSel .= "<input type='hidden' name='view_player_commands' value='" . $_GET['view_player_commands'] . "' />";
-				$intSel .= refresh_interval . ':<select name="setInterval" onchange="this.form.submit();">';
+				$intSel .= get_lang("refresh_interval") . ':<select name="setInterval" onchange="this.form.submit();">';
 				foreach ($intervals as $interval => $value )
 				{
 					$selected = "";
