@@ -21,12 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
- 
-// PHP Mailer
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-require_once("includes/PHPMailer/Exception.php");
-require_once("includes/PHPMailer/PHPMailer.php");
 
 require_once("includes/functions.php");
 require_once("includes/helpers.php");

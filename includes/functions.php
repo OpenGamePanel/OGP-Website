@@ -280,7 +280,13 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 		$panel_name = "Open Game Panel";
 	else
 		$panel_name = $panel_settings['panel_name'];
-		
+	
+	// PHP Mailer
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+	require_once("includes/PHPMailer/Exception.php");
+	require_once("includes/PHPMailer/PHPMailer.php");
+	
 	// Create the mail object using the Mail::factory method
 	$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 
