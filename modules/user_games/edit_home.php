@@ -797,7 +797,7 @@ function exec_ogp_module()
 
 		if ( is_array($avail_ips) && !empty($avail_ips) )
 		{
-			echo "<h3>". ips_and_ports ."</h3>";
+			echo "<h3>". get_lang("ips_and_ports") ."</h3>";
 			$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_info['home_id']) === 1;
 			if( ! $screen_running )
 			{
@@ -918,7 +918,7 @@ function exec_ogp_module()
 			echo "<table class='center'>\n".
 				 "<tr>\n".
 				 "<td colspan='2' align='center'>".
-				 "<h3>". switch_mods ."</h3>".
+				 "<h3>". get_lang("switch_mods") ."</h3>".
 				 "</td>\n".
 				 "</tr>\n";
 			$force_mod = "";
