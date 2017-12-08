@@ -24,6 +24,14 @@
 
 $lang_modules = array();
 
+// Some modules do not follow the established pattern and therefore don't have the functions loaded :(
+if(file_exists('includes/functions.php'))
+	require_once('includes/functions.php');
+
+if(file_exists('functions.php'))
+	require_once('functions.php');
+
+
 function add_lang_module($lang_module)
 {
     global $lang_modules;
