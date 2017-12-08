@@ -257,7 +257,7 @@ if($server_xml->list_players_command)
 				echo $player_actions_table;
 			}
 			else
-				print_failure( no_online_players );
+				print_failure( get_lang("no_online_players") );
 		}
 		echo "<form method='GET' >".
 			 "<input type='hidden' name='m' value='gamemanager' />".

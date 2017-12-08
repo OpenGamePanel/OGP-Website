@@ -40,7 +40,7 @@ function exec_ogp_module()
 	define('REPONAME', 'OGP-Website');
 	if($_SESSION['users_group'] != "admin")
 	{
-		print_failure( no_access );
+		print_failure( get_lang("no_access") );
 		return;
 	}
 

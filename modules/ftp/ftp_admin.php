@@ -42,12 +42,12 @@ function exec_ogp_module()
 		
 		// Validation
 		if(strlen($post_ftp_login) > 20){
-			print_failure( ftp_account_username_too_long );
+			print_failure( get_lang("ftp_account_username_too_long") );
 			$success = false;
 		}
 		
 		if(strlen($post_ftp_password) > 20){
-			print_failure( ftp_account_password_too_long );
+			print_failure( get_lang("ftp_account_password_too_long") );
 			$success = false;
 		}
 		
@@ -70,7 +70,7 @@ function exec_ogp_module()
 		
 		if( $user_exists === TRUE )
 		{
-			print_failure( ftp_account_already_exists );
+			print_failure( get_lang("ftp_account_already_exists") );
 		}
 		else
 		{

@@ -30,7 +30,7 @@ function exec_ogp_module()
 
 	if (empty($home_id))
 	{
-		print_failure( home_id_missing );
+		print_failure( get_lang("home_id_missing") );
 		return;
 	}
 
@@ -44,7 +44,7 @@ function exec_ogp_module()
 	
 	if ($home_cfg === FALSE)
 	{
-		print_failure( no_access_to_home );
+		print_failure( get_lang("no_access_to_home") );
 		return;
 	}
 
@@ -424,7 +424,7 @@ function exec_ogp_module()
 				}
 				else
 				{
-					print_failure( failed_list );
+					print_failure( get_lang("failed_list") );
 					return;
 				}
 			}

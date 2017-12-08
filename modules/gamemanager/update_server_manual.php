@@ -56,7 +56,7 @@ function exec_ogp_module() {
 
 	if ( $home_info === FALSE || preg_match("/u/",$home_info['access_rights']) != 1 )
 	{
-		print_failure( no_rights );
+		print_failure( get_lang("no_rights") );
 		echo create_back_button("gamemanager","gamemanager");
 		return;
 	}
@@ -82,7 +82,7 @@ function exec_ogp_module() {
 
 			if ( $pid < 0 )
 			{
-				print_failure( failed_to_start_file_download );
+				print_failure( get_lang("failed_to_start_file_download") );
 				return;
 			}
 		}
@@ -121,7 +121,7 @@ function exec_ogp_module() {
 			// Lock the executable when done
 			$remote->secure_path("chattr+i", $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name);
 			
-			print_success( finished_manual_update );
+			print_success( get_lang("finished_manual_update") );
 		}
 		else
 		{

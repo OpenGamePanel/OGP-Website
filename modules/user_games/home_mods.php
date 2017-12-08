@@ -39,7 +39,7 @@ function exec_ogp_module()
 		$cpu_count = $remote->cpu_count();
 		if($cpu_count === -1)
 		{
-			print_failure( warning_agent_offline_defaulting_CPU_count_to_1 );
+			print_failure( get_lang("warning_agent_offline_defaulting_CPU_count_to_1") );
 			$cpu_count = 'NA';
 		}
 		else
@@ -77,7 +77,7 @@ function exec_ogp_module()
 		}
 		else
 		{
-			print_failure( note .":". note_no_mods );
+			print_failure( get_lang("note") .":". get_lang("note_no_mods") );
 			echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n";
 			echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
 			echo "<p>". available_mods .": <select name='mod_cfg_id'>\n";
@@ -97,7 +97,7 @@ function exec_ogp_module()
 		
 		if($cpu_count === -1)
 		{
-			print_failure( warning_agent_offline_defaulting_CPU_count_to_1 );
+			print_failure( get_lang("warning_agent_offline_defaulting_CPU_count_to_1") );
 			$cpu_count = 'NA';
 		} else {
 			// cpu numbering starts from 0 so lets remove the last cpu.

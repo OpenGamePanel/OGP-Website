@@ -41,17 +41,17 @@ function exec_ogp_module()
 	if(isset($_REQUEST['user_id'])){
 		if(empty($_REQUEST['user_id']) || $db->getUserById($_REQUEST['user_id']) == null)
 		{
-			print_failure(valid_user);
+			print_failure(get_lang("valid_user"));
 			return;
 		}
 	}else if(isset($_REQUEST['group_id'])){
 		if(empty($_REQUEST['group_id']) || $db->getGroupById($_REQUEST['group_id']) == null)
 		{
-			print_failure(valid_group);
+			print_failure(get_lang("valid_group"));
 			return;
 		}
 	}else{
-		print_failure(invalid_url);
+		print_failure(get_lang("invalid_url"));
 		return;
 	}
 	

@@ -45,7 +45,7 @@ function exec_ogp_module() {
 		$remote_ip = preg_replace("/[^0-9\.]/", "", $remote_ip);
         if ( $db->addRemoteServerIp($rhost_id, $remote_ip) === FALSE )
 		{       
-			print_failure( could_not_add_ip );
+			print_failure( get_lang("could_not_add_ip") );
 		}
 		else
 		{
@@ -60,7 +60,7 @@ function exec_ogp_module() {
 		
         if ( $db->removeRemoteServerIps($ip_id) === FALSE )
 		{
-            print_failure( could_not_remove_ip );
+            print_failure( get_lang("could_not_remove_ip") );
 		}
 		else
 		{
@@ -77,7 +77,7 @@ function exec_ogp_module() {
 		
         if ( $db->editRemoteServerIps($ip_id,$ip) === FALSE )
 		{
-            print_failure( could_not_edit_ip );
+            print_failure( get_lang("could_not_edit_ip") );
 		}
 		else
 		{
@@ -100,7 +100,7 @@ function exec_ogp_module() {
         }
 
         else if ( $db->removeRemoteServer($rhost_id) === FALSE )
-            print_failure( error_while_remove );
+            print_failure( get_lang("error_while_remove") );
 
         else
             print_success(get_lang_f('remote_host_removed',$remote_server['remote_server_name']));

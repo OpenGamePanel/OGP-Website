@@ -79,13 +79,13 @@ if( !isset( $_POST['start_server'] ) )
 	}
 	else if($r === -1)
 	{
-		print_failure( agent_offline );
+		print_failure( get_lang("agent_offline") );
 		return;
 	}
 	// If the result is something else than 1 here then there unexpected retval was received.
 	else if ($r !== 1 )
 	{
-		print_failure( unexpected_result_libremote );
+		print_failure( get_lang("unexpected_result_libremote") );
 		return;
 	}
 
@@ -93,7 +93,7 @@ if( !isset( $_POST['start_server'] ) )
 
 	if ( empty($ip_info) )
 	{
-		print_failure( no_ip_port_pairs_assigned );
+		print_failure( get_lang("no_ip_port_pairs_assigned") );
 		return;
 	}
 
@@ -206,7 +206,7 @@ if( !isset( $_POST['start_server'] ) )
 		else
 		{
 			echo "<tr><td colspan='2'>";
-			print_failure( failed_to_read_maps_error_code .": $map_array");
+			print_failure( get_lang("failed_to_read_maps_error_code") .": $map_array");
 			echo "</td></tr>";
 			$check_ok = FALSE;
 		}
@@ -267,7 +267,7 @@ if( !isset( $_POST['start_server'] ) )
 	}
 	else
 	{
-		print_failure( unable_get_info );
+		print_failure( get_lang("unable_get_info") );
 	}
 
 	echo "</form>";
@@ -641,7 +641,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	$db->logger(  server_started  . " (".$server_home['home_name']." $ip:$port)" );
 	if ( $start_retval == AGENT_ERROR_NOT_EXECUTABLE )
 	{
-		print_failure( server_binary_not_executable );
+		print_failure( get_lang("server_binary_not_executable") );
 		return;
 	}
 

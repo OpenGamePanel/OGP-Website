@@ -41,7 +41,7 @@ function exec_ogp_module() {
 
 	if ( $home_info === FALSE || preg_match("/u/",$home_info['access_rights']) != 1 )
 	{
-		print_failure( no_rights );
+		print_failure( get_lang("no_rights") );
 		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
 		return;
 	}
@@ -56,14 +56,14 @@ function exec_ogp_module() {
 
 	if ( $server_xml->installer != "steamcmd" )
 	{
-		print_failure( xml_steam_error );
+		print_failure( get_lang("xml_steam_error") );
 		return;
 	}
 	$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'], $home_info['timeout']);
 	$host_stat = $remote->status_chk();
 	if( $host_stat === 0 )
 	{
-		print_failure( agent_offline );
+		print_failure( get_lang("agent_offline") );
 		$view->refresh("?m=gamemanager&amp;p=update&amp;update=".$_GET['update']."&amp;home_id=$home_id&amp;mod_id=$mod_id",5);
 		return;
 	}
@@ -71,7 +71,7 @@ function exec_ogp_module() {
 	{
 		if ( $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_id) == 1 )
 		{
-			print_failure( server_running_cant_update );
+			print_failure( get_lang("server_running_cant_update") );
 			return;
 		}
 
@@ -170,12 +170,12 @@ function exec_ogp_module() {
 			
 			if( $steam_out === 0 )
 			{
-				print_failure( failed_to_start_steam_update );
+				print_failure( get_lang("failed_to_start_steam_update") );
 				return;
 			}
 			else if ( $steam_out === 1 )
 			{
-				print_success( update_started );
+				print_success( get_lang("update_started") );
 			}
 		}
 		// Refresh update page.
@@ -197,7 +197,7 @@ function exec_ogp_module() {
 			else
 			{
 				$view->refresh("{CURRENT_PAGE}", 60);
-				print_success( update_completed );
+				print_success( get_lang("update_completed") );
 				echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
 				$update_complete = true;
 			}

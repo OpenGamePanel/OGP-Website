@@ -814,7 +814,7 @@ function exec_ogp_module()
 
 					if ( !isPortValid($port) ) 
 					{
-						print_failure( port_range_error );
+						print_failure( get_lang("port_range_error") );
 					}
 					else
 					{
@@ -836,7 +836,7 @@ function exec_ogp_module()
 					
 					if ( $db->delGameIpPort($home_id,$del_ip,$del_port) )
 					{
-						print_success( successfully_assigned_ip_port );
+						print_success( get_lang("successfully_assigned_ip_port") );
 						$db->logger( successfully_assigned_ip_port ." [unassigned]");
 					}
 					else
@@ -865,7 +865,7 @@ function exec_ogp_module()
 				$assigned = $db->getHomeIpPorts($home_id);
 				if( empty($assigned) )
 				{
-					print_failure( no_ip_ports_assigned );
+					print_failure( get_lang("no_ip_ports_assigned") );
 				}
 				else
 				{
@@ -901,12 +901,12 @@ function exec_ogp_module()
 			}
 			else
 			{
-				print_failure(  server_is_running_change_addresses_not_available  );
+				print_failure(  get_lang("server_is_running_change_addresses_not_available")  );
 			}
 		}
 		else
 		{
-			print_failure(  no_ip_addresses_configured ."<a href='?m=server'>". server_page ."</a>." );
+			print_failure(  get_lang("no_ip_addresses_configured") ."<a href='?m=server'>". get_lang("server_page") ."</a>." );
 		}
 		echo "<div id='mods'></div>";
 	}

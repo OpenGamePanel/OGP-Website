@@ -55,7 +55,7 @@ function exec_ogp_module() {
 			else
 			{
 				echo "<pre class='log'><xmp>".$agent_log."</xmp></pre>";
-				print_success( restarted );
+				print_success( get_lang("restarted") );
 				echo create_back_button($_GET['m']);
 				$view->refresh("?m=server",15);
 			}
