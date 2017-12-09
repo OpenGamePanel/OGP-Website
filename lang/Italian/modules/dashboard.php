@@ -35,7 +35,7 @@ define('OGP_LANG_servers', "Servers");
 define('OGP_LANG_players', "Giocatori");
 define('OGP_LANG_server_status', "Stato del server");
 define('OGP_LANG_no_games_to_monitor', "Non ci sono attualmente server di gioco online/offline");
-define('OGP_LANG_online_servers', "Online Servers");
+define('OGP_LANG_online_servers', "Server online");
 define('OGP_LANG_add_games_in', "Se vuoi aggiungere dei giochi puoi farlo in %s");
 define('OGP_LANG_currently_online', "Attualmente online");
 define('OGP_LANG_game_servers', "Server di gioco");
