@@ -94,8 +94,8 @@ function exec_ogp_module() {
             echo "<p>". get_lang("areyousure_removeagent") ." <b>\"".
                 $remote_server['remote_server_name']."\"</b> ". get_lang("areyousure_removeagent2") ."</p>
                 <p><a href='?m=server&amp;p=edit&amp;rhost_id=".$rhost_id."&amp;delete&amp;y=y'>".
-                 yes ."</a> <a href='?m=server'>".
-                 no ."</a></p>";
+                 get_lang("yes") ."</a> <a href='?m=server'>".
+                 get_lang("no") ."</a></p>";
             return;
         }
 

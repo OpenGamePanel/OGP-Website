@@ -68,8 +68,8 @@ function exec_ogp_module() {
 			 get_lang_f('confirm_restart', $ipAndName) . "</td>" . "</tr><tr><td>".
 			 '<form method="post" >' . "\n" . '<input type="hidden" name="rhost_id" value="'.
 			 $rhost_id . '">' . "\n" . '<button name="re_check" value="yes" >'.
-			 yes . "</button>\n" . '<button name="re_check" value="no" >'.
-			 no . "</button>\n" . "</form>\n" . "</td>\n" . "</tr>\n" . "</table><br>\n";
+			 get_lang("yes") . "</button>\n" . '<button name="re_check" value="no" >'.
+			 get_lang("no") . "</button>\n" . "</form>\n" . "</td>\n" . "</tr>\n" . "</table><br>\n";
 	} else if($_POST['re_check'] == "yes") {
 		// Confirmed... so restart the agent
 		$remote->exec(  "if [ -e 'screenlogs/screenlog.agent_restart' ]; then rm -f 'screenlogs/screenlog.agent_restart'; fi && ".
