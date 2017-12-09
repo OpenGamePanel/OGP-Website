@@ -79,15 +79,15 @@ function exec_ogp_module() {
 			if($r == 1)
 			{
 				echo "<p><a href=\"?m=user_games&amp;p=del&amp;y=y&amp;home_id=$home_id&amp;files=y\" id=\"deleteLink\">" . 
-					 yes_and_delete_the_files . "</a> ";	
+					 get_lang("yes_and_delete_the_files") . "</a> ";	
 				echo '<input type="checkbox" name="logAction" id="doBackup"><label for="doBackup">Delete and Backup Logs</label> |';
 			}
 		}
 		else
-			print_failure(get_lang("agent_offline") . " " . remove_it_anyway . "?");
+			print_failure(get_lang("agent_offline") . " " . get_lang("remove_it_anyway") . "?");
 		echo "<a href=\"?m=user_games&amp;p=del&amp;y=y&amp;home_id=$home_id\">".
-		yes . "</a> | <a href=\"?m=user_games\">".
-		no . "</a></p>";
+		get_lang("yes") . "</a> | <a href=\"?m=user_games\">".
+		get_lang("no") . "</a></p>";
 		
 		// Not the prettiest way to do this...
 		echo '<script>
@@ -116,10 +116,10 @@ function exec_ogp_module() {
 		{
 			$del_files = $files == 'y' ? '&amp;files=y' : '';
 			print_failure(get_lang("failed_to_remove_ftp_account_from_remote_server"));
-			echo "<p>" . remove_it_anyway . "<p>
+			echo "<p>" . get_lang("remove_it_anyway") . "<p>
 				<a href=\"?m=user_games&amp;p=del&amp;y=y&amp;force=y&amp;home_id=$home_id$del_files\">".
-				yes . "</a> | <a href=\"?m=user_games\">".
-				no . "</a></p>";
+				get_lang("yes") . "</a> | <a href=\"?m=user_games\">".
+				get_lang("no") . "</a></p>";
 			return;
 		}
 	}
