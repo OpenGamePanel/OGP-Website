@@ -30,7 +30,7 @@ define('OGP_LANG_link_has_been_removed', "Il link %s è stato rimosso.");
 define('OGP_LANG_db_backup', "Backup del database");
 define('OGP_LANG_download_db_backup', "Scarica il backup del database");
 define('OGP_LANG_restore_db_backup', "Ripristina da un backup del database");
-define('OGP_LANG_sql_file', "File(.sql)");
+define('OGP_LANG_sql_file', "file(.sql)");
 define('OGP_LANG_change_buttons_order', "Cambia l'ordine dei bottoni");
 define('OGP_LANG_when', "Data/Ora");
 define('OGP_LANG_who', "Username");
