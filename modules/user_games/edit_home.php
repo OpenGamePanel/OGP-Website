@@ -277,7 +277,7 @@ function exec_ogp_module()
 					{
 						if($remote->ftp_mgr("useradd", $current_login, $ftp_password, $home_info['home_path']) !== 0)
 						{
-							echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
+							echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_changed_game_server")));
 							$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("server_ftp_password") .":$ftp_password");
 						}
 						else
@@ -349,7 +349,7 @@ function exec_ogp_module()
 				else
 				{
 					$db->changeFtpStatus('enabled',$home_id);
-					$result = successfully_changed_game_server;
+					$result = get_lang("successfully_changed_game_server");
 					$type = "success";
 					$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("change_ftp_account_status") .":enabled");
 				}
@@ -403,7 +403,7 @@ function exec_ogp_module()
 				else
 				{
 					$db->changeFtpStatus('disabled',$home_id);
-					$result = successfully_changed_game_server;
+					$result = get_lang("successfully_changed_game_server");
 					$type = "success";
 					$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("change_ftp_account_status") .":disabled");
 				}
@@ -598,7 +598,7 @@ function exec_ogp_module()
 
 			if ( $db->updateGameModParams($maxplayers,$cliopts,$cpus,$nice,$home_id,$mod_cfg_id) === TRUE )
 			{
-				echo json_encode(array('result' => 'success', 'info' => successfully_modified_mod));
+				echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_modified_mod")));
 				$db->logger( get_lang("successfully_modified_mod") ." [MOD CFG ID:$mod_cfg_id HOME ID:$home_id]");
 			}
 			else
