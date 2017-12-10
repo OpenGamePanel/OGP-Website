@@ -77,7 +77,7 @@ ogpLang();
 
 require_once("includes/view.php");
 $view = new OGPView();
-$view->setCharset( lang_charset );
+$view->setCharset( get_lang('lang_charset') );
 if(isset($_GET['type']) && $_GET['type'] == 'cleared')
 {
 	heading(true);
@@ -94,7 +94,7 @@ function heading()
 
 	global $db,$view,$settings;
 	
-	$view->setCharset( lang_charset );
+	$view->setCharset( get_lang('lang_charset') );
 	$view->setTimeZone($settings['time_zone']);
 	
 	if ( !file_exists(CONFIG_FILE) )
@@ -112,7 +112,7 @@ function heading()
 			echo "<h2>".$settings['maintenance_title']."</h2>";
 			echo "<p>".$settings['maintenance_message']."</p>";
 			$view->setTitle("OGP: Maintenance.");
-			echo "<p class='failure'>". logging_out_10 ."...</p>";
+			echo "<p class='failure'>". get_lang("logging_out_10") ."...</p>";
 			$view->refresh("index.php", 10);
 			session_destroy();
 			return;

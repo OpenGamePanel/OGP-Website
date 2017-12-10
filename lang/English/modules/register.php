@@ -52,4 +52,5 @@ define('OGP_LANG_user_registration', "User Registration");
 define('OGP_LANG_your_account_details_has_been_sent_by_email_to', "Your account details has been sent by email to <b>%s</b>.");
 define('OGP_LANG_account_created', "Your account has been created.");
 define('OGP_LANG_subject', "%s :: Account Information");
+define('OGP_LANG_form', "Register");
 ?>

@@ -36,9 +36,9 @@ function exec_ogp_module()
 		if( isset( $_GET['changevServer'] ) ||  !isset( $_SESSION['ts3_ip'] ))
 		{
 			if(!$isAdmin)
-			$remote_servers = $db->getRemoteServers_ts3($_SESSION['user_id']);
+				$remote_servers = $db->getRemoteServers_ts3($_SESSION['user_id']);
 			else
-			$remote_servers = $db->getRemoteServers();
+				$remote_servers = $db->getRemoteServers();
 
 			if ($remote_servers !== false) {
 				echo "<form action='home.php?m=TS3Admin' method='GET'>
