@@ -6,12 +6,12 @@
 	<table border="0" cellspacing="1" cellpadding="0">
 		<tr>
 			<td>&nbsp;</td>
-			<td class="table0"><b>{$lang.vsselect_id}</b></td>
-			<td class="table0"><b>{$lang.vsselect_name}</b></td>
-			<td class="table0"><b>{$lang.vsselect_ip}:{$lang.vsselect_port}</b></td>
-			<td class="table0"><b>{$lang.vsselect_state}</b></td>
-			<td class="table0"><b>{$lang.vsselect_clients}</b></td>
-			<td class="table0"><b>{$lang.vsselect_uptime}</b></td>
+			<td class="table0"><b>{$lang.OGP_LANG_vsselect_id}</b></td>
+			<td class="table0"><b>{$lang.OGP_LANG_vsselect_name}</b></td>
+			<td class="table0"><b>{$lang.OGP_LANG_vsselect_ip}:{$lang.OGP_LANG_vsselect_port}</b></td>
+			<td class="table0"><b>{$lang.OGP_LANG_vsselect_state}</b></td>
+			<td class="table0"><b>{$lang.OGP_LANG_vsselect_clients}</b></td>
+			<td class="table0"><b>{$lang.OGP_LANG_vsselect_uptime}</b></td>
 		</tr>
 {foreach from=$selectvServer item=curvServer}
 		<tr class="{cycle values="table2,table1"}">
@@ -27,7 +27,7 @@
 	</table>
 	<br /><br />
 	<span style="border-top:1px solid #CCCCCC;padding-top:13px;">
-		<input type="submit" name="vserverSubmit" value="{$lang.vsselect_choose}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="startvServer" onclick="setvserverstate('START');" value="{$lang.vsselect_start}" />&nbsp;&nbsp;<input type="button" name="stopvServer" onclick="setvserverstate('STOP');" value="{$lang.vsselect_stop}" />
+		<input type="submit" name="vserverSubmit" value="{$lang.OGP_LANG_vsselect_choose}" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="startvServer" onclick="setvserverstate('START');" value="{$lang.OGP_LANG_vsselect_start}" />&nbsp;&nbsp;<input type="button" name="stopvServer" onclick="setvserverstate('STOP');" value="{$lang.OGP_LANG_vsselect_stop}" />
 	</span>
 </form>
 <br />
