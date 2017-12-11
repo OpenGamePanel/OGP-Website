@@ -77,7 +77,7 @@ ogpLang();
 
 require_once("includes/view.php");
 $view = new OGPView();
-$view->setCharset( lang_charset );
+$view->setCharset( get_lang('lang_charset') );
 if(isset($_GET['type']) && $_GET['type'] == 'cleared')
 {
 	heading(true);
@@ -94,12 +94,12 @@ function heading()
 
 	global $db,$view,$settings;
 	
-	$view->setCharset( lang_charset );
+	$view->setCharset( get_lang('lang_charset') );
 	$view->setTimeZone($settings['time_zone']);
 	
 	if ( !file_exists(CONFIG_FILE) )
     {
-        print_failure( failed_to_read_config );
+        print_failure( get_lang("failed_to_read_config") );
         $view->refresh("index.php");
         return;
     }
@@ -112,7 +112,7 @@ function heading()
 			echo "<h2>".$settings['maintenance_title']."</h2>";
 			echo "<p>".$settings['maintenance_message']."</p>";
 			$view->setTitle("OGP: Maintenance.");
-			echo "<p class='failure'>". logging_out_10 ."...</p>";
+			echo "<p class='failure'>". get_lang("logging_out_10") ."...</p>";
 			$view->refresh("index.php", 10);
 			session_destroy();
 			return;
@@ -148,7 +148,7 @@ function ogpHome()
 	<div class="menu-bg">
 		<div class="menu">
 		<ul>
-		<li><a href="index.php<?php echo preg_replace( "/\&amp;/", "?", $lang_switch ); ?>" <?php if (!isset($_GET['m'])) echo 'class="admin_menu_link_selected"'; else echo 'class="admin_menu_link"'; ?> target="_self" ><span class="controlpanellogin"><?php echo login_title; ?></span></a></li>
+		<li><a href="index.php<?php echo preg_replace( "/\&amp;/", "?", $lang_switch ); ?>" <?php if (!isset($_GET['m'])) echo 'class="admin_menu_link_selected"'; else echo 'class="admin_menu_link"'; ?> target="_self" ><span class="controlpanellogin"><?php echo get_lang("login_title"); ?></span></a></li>
 <?php
 	$menus = $db->getMenusForGroup('guest');
 	if(!empty($menus))
@@ -210,7 +210,7 @@ function ogpHome()
 			$userInfo = $db->getUser($_SESSION['users_login']);
 			if( isset($_SESSION['users_passwd']) AND !empty($_SESSION['users_passwd']) AND $_SESSION['users_passwd'] == $userInfo['users_passwd'])
 			{
-				print_success( already_logged_in_redirecting_to_dashboard .".");
+				print_success( get_lang("already_logged_in_redirecting_to_dashboard") .".");
 				$view->refresh("home.php?$default_page",2);
 				echo "%botbody%
 					  %bottom%";
@@ -283,26 +283,26 @@ function ogpHome()
 				$_SESSION['users_group'] = $userInfo['users_role'];
 				$_SESSION['users_lang'] = isset( $_GET['lang'] ) ? $_GET['lang'] : $userInfo['users_lang'];
 				$_SESSION['users_theme'] = $userInfo['users_theme'];
-				print_success( logging_in ."...");
-				$db->logger( logging_in ."...");
+				print_success( get_lang("logging_in") ."...");
+				$db->logger( get_lang("logging_in") ."...");
 				$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='0', banned_until='0' WHERE client_ip = '$client_ip';");
 				$view->refresh("home.php?$default_page",2);
 			}
 			else
 			{
-				print_failure( bad_login );
+				print_failure( get_lang("bad_login") );
 				$login_attempts++;
 				if( $login_attempts == $settings["login_attempts_before_banned"] )
 				{
 					$banned_until = time() + 300; // Five minutes banned from the panel.
 					$banlist_info['0']['banned_until'] = $banned_until;
-					$db->logger( bad_login . " ( Banned until " . date("r", $banned_until) . " ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
+					$db->logger( get_lang("bad_login") . " ( Banned until " . date("r", $banned_until) . " ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts', banned_until='$banned_until' WHERE client_ip='$client_ip';");
 					print_failure("Banned until " . date("r",$banlist_info['0']['banned_until']));
 				}
 				else
 				{
-					$db->logger( bad_login . " ( $login_attempts ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
+					$db->logger( get_lang("bad_login") . " ( $login_attempts ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts' WHERE client_ip='$client_ip';");
 					$view->refresh("index.php",2);
 				}

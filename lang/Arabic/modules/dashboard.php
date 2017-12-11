@@ -22,23 +22,23 @@
  *
  */
 
-define('dashboard_ftp_text', "يمكن لعميل ال FTP ضغط الملفات وإرسالها عبر البريد الإلكتروني ، يمكنه فك الضغط أيضا ، وتعديل الملفات النصية والمزيد");
-define('dashboard_addons_manager_text', "إدارة جميع أنواع مختلفة من الخدمات مع أوبن قيم بانل. الاختيار من بين أكثر من 115 خوادم، التي زودت مباشرة من أوبن قيم بانل.");
-define('dashboard_game_monitor_text', "مشاهدة ورصد الترافيك والسجلات الخاصة بك بسرعة. يمكنك رؤية أى السيرفرات يعمل وأيها مغلق.");
-define('dashboard_support_text', "إحصل على الدعم من فريق OGP فى المنتديات . رد سريع واهتمام عظيم.");
-define('welcome_text', "مرحبا بك إلى لوحة تحكم (OGP). 
+define('OGP_LANG_dashboard_ftp_text', "يمكن لعميل ال FTP ضغط الملفات وإرسالها عبر البريد الإلكتروني ، يمكنه فك الضغط أيضا ، وتعديل الملفات النصية والمزيد");
+define('OGP_LANG_dashboard_addons_manager_text', "إدارة جميع أنواع مختلفة من الخدمات مع أوبن قيم بانل. الاختيار من بين أكثر من 115 خوادم، التي زودت مباشرة من أوبن قيم بانل.");
+define('OGP_LANG_dashboard_game_monitor_text', "مشاهدة ورصد الترافيك والسجلات الخاصة بك بسرعة. يمكنك رؤية أى السيرفرات يعمل وأيها مغلق.");
+define('OGP_LANG_dashboard_support_text', "إحصل على الدعم من فريق OGP فى المنتديات . رد سريع واهتمام عظيم.");
+define('OGP_LANG_welcome_text', "مرحبا بك إلى لوحة تحكم (OGP). 
 OGP هو مشروع مفتوح المصدر ـ والذى يتيح لك تثبيت وبدأ ومراقبة مختلف سيرفرات الألعاب.");
-define('any_server_is_online', "أى سيرفر أونلاين");
-define('current_map', "الخريطة الحالية");
-define('server_ip_port', "الأيبي:بورت");
-define('statistics', "الإحصائيات");
-define('servers', "السيرفرات");
-define('players', "اللاعبين");
-define('server_status', "حالة السيرفر");
-define('no_games_to_monitor', "لا يوجد حاليا أونلاين/أوفلاين سيرفرات ألعاب");
-define('online_servers', "السيرفرات الأونلاين");
-define('add_games_in', "إذا كنت ترغب في إضافة ألعاب يمكنك أن تفعل ذلك في %s");
-define('currently_online', "متاح حاليا");
-define('game_servers', "سيرفرات الألعاب");
-define('select_remote_server', "حدد سيرفر التحكم");
+define('OGP_LANG_any_server_is_online', "أى سيرفر أونلاين");
+define('OGP_LANG_current_map', "الخريطة الحالية");
+define('OGP_LANG_server_ip_port', "الأيبي:بورت");
+define('OGP_LANG_statistics', "الإحصائيات");
+define('OGP_LANG_servers', "السيرفرات");
+define('OGP_LANG_players', "اللاعبين");
+define('OGP_LANG_server_status', "حالة السيرفر");
+define('OGP_LANG_no_games_to_monitor', "لا يوجد حاليا أونلاين/أوفلاين سيرفرات ألعاب");
+define('OGP_LANG_online_servers', "السيرفرات الأونلاين");
+define('OGP_LANG_add_games_in', "إذا كنت ترغب في إضافة ألعاب يمكنك أن تفعل ذلك في %s");
+define('OGP_LANG_currently_online', "متاح حاليا");
+define('OGP_LANG_game_servers', "سيرفرات الألعاب");
+define('OGP_LANG_select_remote_server', "حدد سيرفر التحكم");
 ?>

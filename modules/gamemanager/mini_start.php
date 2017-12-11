@@ -29,10 +29,7 @@ $last_param = json_decode($server_home['last_param'], True);
 $isAdmin = $db->isAdmin($_SESSION['user_id']);
 
 if (!function_exists('processParamValue')) {
-	function processParamValue($paramKey, $paramValue, &$save_param, &$start_cmd){
-		// Set globals
-		global $param, $server_xml;
-		
+	function processParamValue(&$param, &$server_xml, $paramKey, $paramValue, &$save_param, &$start_cmd){		
 		if (0 == strlen($paramValue))
 			return false;
 		
@@ -82,13 +79,13 @@ if( !isset( $_POST['start_server'] ) )
 	}
 	else if($r === -1)
 	{
-		print_failure( agent_offline );
+		print_failure( get_lang("agent_offline") );
 		return;
 	}
 	// If the result is something else than 1 here then there unexpected retval was received.
 	else if ($r !== 1 )
 	{
-		print_failure( unexpected_result_libremote );
+		print_failure( get_lang("unexpected_result_libremote") );
 		return;
 	}
 
@@ -96,7 +93,7 @@ if( !isset( $_POST['start_server'] ) )
 
 	if ( empty($ip_info) )
 	{
-		print_failure( no_ip_port_pairs_assigned );
+		print_failure( get_lang("no_ip_port_pairs_assigned") );
 		return;
 	}
 
@@ -107,14 +104,14 @@ if( !isset( $_POST['start_server'] ) )
 		<input type='hidden' name='home_id' value='$server_home[home_id]' />\n
 		<input type='hidden' name='remote_server_id' value='".$server_home['remote_server_id']."' />\n
 		<table class='start-server'>
-		<tr><td class='right'>". ogp_agent_ip .
+		<tr><td class='right'>". get_lang("ogp_agent_ip") .
 		":</td><td class='left'>".$server_home['agent_ip']."</td></tr>";
 	
 	$max_players = $server_home['max_players'];
 
 	if ( $max_players > 0 )
 	{
-		echo "<tr><td class='right'>". max_players .
+		echo "<tr><td class='right'>". get_lang("max_players") .
 			":</td><td class='left'>";
 			
 		$players = array();
@@ -125,11 +122,11 @@ if( !isset( $_POST['start_server'] ) )
 		
 		echo create_drop_box_from_array($players,'max_players',$last_param['players']);
 		
-		echo "<span class='info'>(". max .": ".
+		echo "<span class='info'>(". get_lang("max") .": ".
 			$max_players.")</span></td></tr>\n";
 	}
 	$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip']);
-	echo "<tr><td class='right'>". ip_and_port .
+	echo "<tr><td class='right'>". get_lang("ip_and_port") .
 		":</td><td class='left'>".$display_ip . ":" . $server_home['port']."<input name='ip_port' type='hidden' value='".$server_home['ip'] . ":" . $server_home['port']."'/></td></tr>";
 
 	list($list_type,) = explode(":", $server_xml->map_list);
@@ -185,7 +182,7 @@ if( !isset( $_POST['start_server'] ) )
 	{
 		if ( is_array($map_array) )
 		{
-			echo "<tr><td class='right'>". available_maps .":</td><td class='left'>\n";
+			echo "<tr><td class='right'>". get_lang("available_maps") .":</td><td class='left'>\n";
 
 			// We remove all lines that start with // because we
 			// expect those lines to be comments.
@@ -195,21 +192,21 @@ if( !isset( $_POST['start_server'] ) )
 			echo create_drop_box_from_array($map_array,'map',$last_param['map']);
 			echo "</td></tr>";
 
-			echo "<tr><td colspan='2' class='info'>". maps_read_from ." ";
+			echo "<tr><td colspan='2' class='info'>". get_lang("maps_read_from") ." ";
 			if ( $maps_found == "DIR" )
 			{
-				echo directory ." ".clean_path($map_path).".";
+				echo get_lang("directory") ." ".clean_path($map_path).".";
 			}
 			else
 			{
-				echo  file ." ".clean_path($mapfile).".";
+				echo  get_lang("file") ." ".clean_path($mapfile).".";
 			}
 			echo "</td></tr>\n";
 		}
 		else
 		{
 			echo "<tr><td colspan='2'>";
-			print_failure( failed_to_read_maps_error_code .": $map_array");
+			print_failure( get_lang("failed_to_read_maps_error_code") .": $map_array");
 			echo "</td></tr>";
 			$check_ok = FALSE;
 		}
@@ -219,7 +216,7 @@ if( !isset( $_POST['start_server'] ) )
 	if($server_xml->server_params)
 	{
 		if (!$param_access_enabled)
-			echo "<span class='failure info'>". no_parameter_access ."</span>";
+			echo "<span class='failure info'>". get_lang("no_parameter_access") ."</span>";
 
 		foreach($server_xml->server_params->param as $param)
 		{
@@ -239,9 +236,9 @@ if( !isset( $_POST['start_server'] ) )
 
 	if (isset($server_home['extra_params']))
 	{
-		echo "<tr><td colspan='2'><h3>". extra_parameters ."</h3>";
+		echo "<tr><td colspan='2'><h3>". get_lang("extra_parameters") ."</h3>";
 		if (!$extra_param_access_enabled)
-			echo "<span class='failure info'>". no_extra_param_access ."</span>";
+			echo "<span class='failure info'>". get_lang("no_extra_param_access") ."</span>";
 
 		echo "</td></tr>\n";
 
@@ -257,20 +254,20 @@ if( !isset( $_POST['start_server'] ) )
 			echo 'disabled';
 
 		echo "/></td></tr>";
-		echo "<tr><td colspan='2' class='info'>". extra_parameters_info ."</td></tr>";
+		echo "<tr><td colspan='2' class='info'>". get_lang("extra_parameters_info") ."</td></tr>";
 	}
 
 	echo "</table>";
-	echo  start_wait_note;
+	echo  get_lang("start_wait_note");
 
 	if ( $check_ok )
 	{
 		echo "<div class='submit-start' ><input type='submit' name='start_server' value='".
-			 start_server ."' /></div>\n";
+			 get_lang("start_server") ."' /></div>\n";
 	}
 	else
 	{
-		print_failure( unable_get_info );
+		print_failure( get_lang("unable_get_info") );
 	}
 
 	echo "</form>";
@@ -493,7 +490,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 						}
 						
 						// Process the param value for the start command and for the save params
-						processParamValue($paramKey, $paramValue, $save_param, $start_cmd);
+						processParamValue($param, $server_xml, $paramKey, $paramValue, $save_param, $start_cmd);
 						
 						$found++;
 						break; // More efficient
@@ -502,7 +499,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 				
 				// If the parameter wasn't posted (because it may have been disabled due to access param) or a sneaky user deleted it to circumvent security
 				if($found == 0 && !empty($origValue)){
-					processParamValue((string)$param['key'], $origValue, $save_param, $start_cmd);
+					processParamValue($param, $server_xml, (string)$param['key'], $origValue, $save_param, $start_cmd);
 				}
 				
 				if ($param['id'] != NULL && $param['id'] != ""){
@@ -587,15 +584,15 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	$db->changeLastParam($server_home['home_id'],json_encode($save_param)); 
 	
 	echo "<table class='server-starting'>";
-	echo "<tr><td class='right'>". ogp_agent_ip .
+	echo "<tr><td class='right'>". get_lang("ogp_agent_ip") .
 		":</td><td class='left'>".$server_home['agent_ip']."</td></tr>\n";
-	echo "<tr><td class='right'>". game_home .
+	echo "<tr><td class='right'>". get_lang("game_home") .
 		":</td><td class='left'>".$server_home['home_path']."</td></tr>";
-	echo "<tr><td class='right'>". startup_cpu .
+	echo "<tr><td class='right'>". get_lang("startup_cpu") .
 		":</td><td class='left'>".$server_home['cpu_affinity']."</td></tr>\n";
-	echo "<tr><td class='right'>". startup_nice .
+	echo "<tr><td class='right'>". get_lang("startup_nice") .
 		":</td><td class='left'>".$server_home['nice']."</td></tr>";
-	echo "<tr><td class='right'>". startup_params .
+	echo "<tr><td class='right'>". get_lang("startup_params") .
 		":</td><td colspan='2' style='word-wrap: break-word'>".strip_real_escape_string($start_cmd)."</td></tr>";
 	echo "</table>";
 	
@@ -641,10 +638,10 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 		$envVars,
 		$server_xml->game_key
 		);
-	$db->logger(  server_started  . " (".$server_home['home_name']." $ip:$port)" );
+	$db->logger(  get_lang("server_started")  . " (".$server_home['home_name']." $ip:$port)" );
 	if ( $start_retval == AGENT_ERROR_NOT_EXECUTABLE )
 	{
-		print_failure( server_binary_not_executable );
+		print_failure( get_lang("server_binary_not_executable") );
 		return;
 	}
 
@@ -664,7 +661,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 		}
 	}
 	
-	echo "<h3>". starting_server_settings .":</h3>";
+	echo "<h3>". get_lang("starting_server_settings") .":</h3>";
 	
 	$firewall_settings = $db->getFirewallSettings($server_home['remote_server_id']);
 	if ($firewall_settings['status'] == "enable")
@@ -705,7 +702,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 		$map_lc = preg_replace("/[^a-z0-9_]/", "_", strtolower($cli_param_data['MAP']));
 	//----------+ getting the maps image location.
 		$maplocation = get_map_path($query_name,$server_xml->mods->mod['key'],$map_lc);
-		echo "<tr><td rowspan='6' style='width:160px;'><img src='".$maplocation."' /></td><td class='right'>". map .
+		echo "<tr><td rowspan='6' style='width:160px;'><img src='".$maplocation."' /></td><td class='right'>". get_lang("map") .
 			":</td><td class='left'>".$cli_param_data['MAP']."</td></tr>";
 	}
 	else
@@ -718,16 +715,16 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	}
 	if ( isset($cli_param_data['PLAYERS']) )
 	{
-		echo "<tr><td class='right'>". max_players .
+		echo "<tr><td class='right'>". get_lang("max_players") .
 			":</td><td class='left'>".$cli_param_data['PLAYERS']."</td></tr>";
 	}
-	echo "<tr><td class='right'>". server_ip_port .
+	echo "<tr><td class='right'>". get_lang("server_ip_port") .
 		":</td><td class='left'>$ip:$port</td></tr>";
-	echo "<tr><td class='right'>". game_type .
+	echo "<tr><td class='right'>". get_lang("game_type") .
 		":</td><td class='left'>".$server_xml->mods->mod['key']."</td></tr>";
 	echo "</table>";
 
-	print("<p class='note'>". starting_server ."</p>");
+	print("<p class='note'>". get_lang("starting_server") ."</p>");
 	global $view;
 	$view->refresh("?m=gamemanager&amp;p=start&amp;refresh&amp;home_id=".$server_home['home_id']."&amp;ip=".$ip."&amp;port=".$port."&amp;mod_id=".$server_home['mod_id'],3);
 	return;

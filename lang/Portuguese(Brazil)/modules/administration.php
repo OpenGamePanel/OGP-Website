@@ -22,28 +22,28 @@
  *
  */
 
-define('external_links', "Links externos");
-define('url', "URL");
-define('name', "Nome");
-define('add_it', "Adicionar");
-define('link_has_been_removed', "%s link foi removido.");
-define('db_backup', "Backup do Banco de dados");
-define('download_db_backup', "Baixar DB backup");
-define('restore_db_backup', "Restaurar DB backup");
-define('sql_file', "arquivo (.SQL)");
-define('change_buttons_order', "Alterar botões encomendar");
-define('when', "Data/hora");
-define('who', "Nome de Usuário");
-define('where', "endereço de IP");
-define('what', "Ação");
-define('search', "Pesquisa");
-define('empty_logger', "Log vazio");
-define('ban_list', "Lista de proibição");
-define('no_banned_ips', "Não há IPs proibidos");
-define('unban', "IP unban");
-define('client_ip', "IP do cliente");
-define('banned_until', "proibido até");
-define('unban_selected_ips', "IPs UNBAN selecionado");
-define('view', "Visão");
-define('per_page', "entradas por página log");
+define('OGP_LANG_external_links', "Links externos");
+define('OGP_LANG_url', "URL");
+define('OGP_LANG_name', "Nome");
+define('OGP_LANG_add_it', "Adicionar");
+define('OGP_LANG_link_has_been_removed', "%s link foi removido.");
+define('OGP_LANG_db_backup', "Backup do Banco de dados");
+define('OGP_LANG_download_db_backup', "Baixar DB backup");
+define('OGP_LANG_restore_db_backup', "Restaurar DB backup");
+define('OGP_LANG_sql_file', "arquivo (.SQL)");
+define('OGP_LANG_change_buttons_order', "Alterar ordem dos botões da barra de navegação");
+define('OGP_LANG_when', "Data/hora");
+define('OGP_LANG_who', "Nome de Usuário");
+define('OGP_LANG_where', "endereço de IP");
+define('OGP_LANG_what', "Ação");
+define('OGP_LANG_search', "Pesquisa");
+define('OGP_LANG_empty_logger', "Log vazio");
+define('OGP_LANG_ban_list', "Lista de banidos");
+define('OGP_LANG_no_banned_ips', "Não há IPs banidos");
+define('OGP_LANG_unban', "Remover IP");
+define('OGP_LANG_client_ip', "IP do cliente");
+define('OGP_LANG_banned_until', "banido até");
+define('OGP_LANG_unban_selected_ips', "Desbloquear IPs selecionados");
+define('OGP_LANG_view', "Visão");
+define('OGP_LANG_per_page', "entradas por página log");
 ?>

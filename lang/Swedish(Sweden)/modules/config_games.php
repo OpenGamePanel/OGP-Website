@@ -22,22 +22,22 @@
  *
  */
 
-define('resetting_configs', "Resetting all configs");
-define('updating_configs', "Updating old configs.");
-define('configs_updated_ok', "Configurations reread successfully.");
-define('reset_old_configs', "Reset old configs");
-define('update_configs', "Update Configs");
-define('game_config_setup', "Setup Game Configs");
-define('config_reset_warning', "When you clear old configs there might be issues with the assigned game servers, because the identification numbers might not match with the new configurations.");
-define('modify_configs_info', "If you want to modify the game configuration, you can modify the files located in %s.");
-define('updating_config_from_file', "Updating config from %s file.");
-define('error_when_handling_file', "Error occurred when handling file %s.");
-define('error_while_adding_cfg_to_db', "Error occurred when adding data from %s to database.");
-define('no_configs_found', "No configuration found from %s file.");
-define('select_game', "Select Game");
-define('create_xml_configs', "Create XML Configs");
-define('failed_to_delete_config_from_db', "Failed to delete %s config from database");
-define('failed_removing_file', "Falied removing the file %s.");
-define('removed_game_cfg_from_disk_and_datbase', "Removed config for %s from storage and database.");
-define('delete_game_config_for', "Delete game configuration for %s from disk and database.");
+define('OGP_LANG_resetting_configs', "Återställ alla konfigurationer");
+define('OGP_LANG_updating_configs', "Uppdatera alla konfigurationer");
+define('OGP_LANG_configs_updated_ok', "Återläsning av konfigurationer lyckades.");
+define('OGP_LANG_reset_old_configs', "Återställ gamla konfigurationer");
+define('OGP_LANG_update_configs', "Uppdatera konfigurationer");
+define('OGP_LANG_game_config_setup', "Konfigurera spelkonfigurationer ");
+define('OGP_LANG_config_reset_warning', "När du rensar gamla konfigurationer kan det ibland bli problem med tilldelade spelservrar, på grund av att identifikationsnumren inte matchar den nya konfigurationen.");
+define('OGP_LANG_modify_configs_info', "Om du vill modifiera spelkonfigurationen, så kan du modifiera filerna som finns här %s ");
+define('OGP_LANG_updating_config_from_file', "Uppdaterar konfigurationen från %s filen. ");
+define('OGP_LANG_error_when_handling_file', "Fel uppstod vid hantering av filen %s.");
+define('OGP_LANG_error_while_adding_cfg_to_db', "Fel uppstod när data lades till från %s till databasen. ");
+define('OGP_LANG_no_configs_found', "Ingen konfiguration hittades i %s filen. ");
+define('OGP_LANG_select_game', "Välj spel");
+define('OGP_LANG_create_xml_configs', "Skapa XML-konfigurationer");
+define('OGP_LANG_failed_to_delete_config_from_db', "Misslyckades med att ta bort %s konfiguration från databasen");
+define('OGP_LANG_failed_removing_file', "Misslyckades med att ta bort %s filen.");
+define('OGP_LANG_removed_game_cfg_from_disk_and_datbase', "Tog bort konfiguration för %s från lagring och databas.");
+define('OGP_LANG_delete_game_config_for', "Ta bort spelkonfiguration för 1%s från disk och databas. ");
 ?>

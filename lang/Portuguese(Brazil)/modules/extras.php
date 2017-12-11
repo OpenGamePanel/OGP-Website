@@ -23,21 +23,21 @@
  */
 
 include 'update.php';
-define('unable_download', "Não é possível transferir %s.");
-define('md5_failed', "Teste MD5 falhou por %s, tente novamente.");
-define('uninstall', "Desinstalar");
-define('install', "Instalar");
-define('uptodate', "Atualizado");
-define('update_available', "Atualização disponível");
-define('not_installed', "Não instalado");
-define('installed', "Instalado");
-define('download_update', "Baixar/Atualizar");
-define('are_you_sure', "Você tem certeza");
-define('uninstalling_module_dataloss', "Ao desinstalar um módulo você perderá todos os dados relacionados a ele.");
-define('remove_files_for', "Você gostaria de remover todos os arquivos para");
-define('confirm', "Confirme");
-define('cancel', "Cancelar");
-define('extra_themes', "Temas extra");
-define('extra_modules', "Módulos extra");
-define('search_for_updates', "Verificar atualizações");
+define('OGP_LANG_unable_download', "Não é possível transferir %s.");
+define('OGP_LANG_md5_failed', "Teste MD5 falhou por %s, tente novamente.");
+define('OGP_LANG_uninstall', "Desinstalar");
+define('OGP_LANG_install', "Instalar");
+define('OGP_LANG_uptodate', "Atualizado");
+define('OGP_LANG_update_available', "Atualização disponível");
+define('OGP_LANG_not_installed', "Não instalado");
+define('OGP_LANG_installed', "Instalado");
+define('OGP_LANG_download_update', "Baixar/Atualizar");
+define('OGP_LANG_are_you_sure', "Você tem certeza");
+define('OGP_LANG_uninstalling_module_dataloss', "Ao desinstalar um módulo você perderá todos os dados relacionados a ele.");
+define('OGP_LANG_remove_files_for', "Você gostaria de remover todos os arquivos para");
+define('OGP_LANG_confirm', "Confirme");
+define('OGP_LANG_cancel', "Cancelar");
+define('OGP_LANG_extra_themes', "Temas extra");
+define('OGP_LANG_extra_modules', "Módulos extra");
+define('OGP_LANG_search_for_updates', "Verificar atualizações");
 ?>

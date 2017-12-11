@@ -96,7 +96,7 @@ if($presets > 0)
 <table class="center" >
  <tr>
   <td>
-	<?php echo rcon_command_title; ?></td>
+	<?php echo get_lang("rcon_command_title"); ?></td>
   <td>
 	<form method="post">
 	<input class="rcon" type="text" name="command" size="200" style="width:98%;" value='<?php 
@@ -127,8 +127,8 @@ if(isset($_POST['remote_send_rcon_command']))
 	}
 	if($response)
 	{
-		echo "<div class='bloc' ><h4>" . rcon_command_title . ": [" . htmlentities(implode(" | ", $_POST['command'])) . "] " .
-			 has_sent_to . " " . $home_info['home_name'] . "</h4><xmp style='overflow:auto;' >" . 
+		echo "<div class='bloc' ><h4>" . get_lang("rcon_command_title") . ": [" . htmlentities(implode(" | ", $_POST['command'])) . "] " .
+			 get_lang("has_sent_to") . " " . $home_info['home_name'] . "</h4><xmp style='overflow:auto;' >" . 
 			 $response . "</xmp></div>";
 	}
 }
@@ -257,7 +257,7 @@ if($server_xml->list_players_command)
 				echo $player_actions_table;
 			}
 			else
-				print_failure( no_online_players );
+				print_failure( get_lang("no_online_players") );
 		}
 		echo "<form method='GET' >".
 			 "<input type='hidden' name='m' value='gamemanager' />".
@@ -267,7 +267,7 @@ if($server_xml->list_players_command)
 			echo "<input type='hidden' name='setInterval' value='" . $_GET['setInterval'] . "' />";
 		if(isset($_GET['size']))
 			echo "<input type='hidden' name='size' value='" . $_GET['size'] . "' />";
-		echo "<input type='submit' name='hide_player_commands' value='" . hide_player_commands . "' />".
+		echo "<input type='submit' name='hide_player_commands' value='" . get_lang("hide_player_commands") . "' />".
 			 "</form>";
 	}
 	else
@@ -280,7 +280,7 @@ if($server_xml->list_players_command)
 			echo "<input type='hidden' name='setInterval' value='" . $_GET['setInterval'] . "' />";
 		if(isset($_GET['size']))
 			echo "<input type='hidden' name='size' value='" . $_GET['size'] . "' />";
-		echo "<input type='submit' name='view_player_commands' value='" . view_player_commands . "' />".
+		echo "<input type='submit' name='view_player_commands' value='" . get_lang("view_player_commands") . "' />".
 			 "</form>";
 	}
 }

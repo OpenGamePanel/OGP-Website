@@ -21,7 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-
+ 
 #functions go here
 
 //read_expire() converts a time stamp to a human readable form
@@ -280,9 +280,11 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 		$panel_name = "Open Game Panel";
 	else
 		$panel_name = $panel_settings['panel_name'];
-		
-	include('PHPMailer/class.phpmailer.php');
-		
+	
+	// PHP Mailer
+	require_once("PHPMailer/class.phpmailer.php");
+	require_once("PHPMailer/class.smtp.php");
+	
 	// Create the mail object using the Mail::factory method
 	$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 
@@ -356,7 +358,15 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 		$mail->CharSet = $view->charset;
 		$mail->Subject = $subject;
 		$mail->MsgHTML($message);
+		$mail->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+        );
 		$mail->Send();
+		
 	}
 	catch (phpmailerException $e) 
 	{
@@ -788,5 +798,35 @@ function customShift($array, $keyToMoveOn, $valueToMoveOn){
             return $array;               
         }
     }
+    
+    return $array;
+}
+
+function getURLParam($param, $url){
+	if(stripos($url, $param) !== false){
+		
+		$param = substr($url, stripos($url, $param) + strlen($param));
+		if(stripos($param, "&")){
+			$param = substr($param, 0, stripos($param, "&"));
+		}
+	
+		return $param;
+	}
+	
+	return false;
+}
+
+function utf8ize($d, $htmlEntities = true) {
+    if (is_array($d)) {
+        foreach ($d as $k => $v) {
+            $d[$k] = utf8ize($v, $htmlEntities);
+        }
+    } else if (is_string ($d)) {
+		if($htmlEntities){
+			$d = htmlentities($d);
+		}
+        return utf8_encode($d);
+    }
+    return $d;
 }
 ?>

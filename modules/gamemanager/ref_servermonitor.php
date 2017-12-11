@@ -90,9 +90,9 @@ function exec_ogp_module()
 		$status = "online";
 		$map = $status;
 		$maplocation = get_map_path($query_name,$mod,$map);
-		@$notifications .= query_protocol_not_supported;
+		@$notifications .= get_lang("query_protocol_not_supported");
 	}
-	$map_image_upload = '<br><button class="upload-image" id="'.$home_id.'" data-map="'.$map.'" data-mod_id="'.$mod_id.'" onClick="uploadMapImg(this);" >'. upload_map_image .'</button>';
+	$map_image_upload = '<br><button class="upload-image" id="'.$home_id.'" data-map="'.$map.'" data-mod_id="'.$mod_id.'" onClick="uploadMapImg(this);" >'. get_lang("upload_map_image") .'</button>';
 		
 	@$map_icon = "<img class='mapicon' src='$maplocation'/>";
 	@$currentmap = $map;
@@ -108,13 +108,13 @@ function exec_ogp_module()
 					$onlineT .= "$map_image_upload";
 			$onlineT .= "</div>";
 			$onlineT .= "<div class='server-info' >";
-				@$onlineT .= hostname .": <marquee class='hostname'>" . htmlentities($name) . "</marquee><br />";
-				@$onlineT .= current_map . ": " . ((isset($mapRaw) && !empty($mapRaw)) ? htmlentities($mapRaw) : $currentmap);
+				@$onlineT .= get_lang("hostname") .": <marquee class='hostname'>" . htmlentities($name) . "</marquee><br />";
+				@$onlineT .= get_lang("current_map") . ": " . ((isset($mapRaw) && !empty($mapRaw)) ? htmlentities($mapRaw) : $currentmap);
 			$onlineT .= "</div>";
 		}
 		else if($status == "half")
 		{
-			@$notifications .= failed_querying_server;
+			@$notifications .= get_lang("failed_querying_server");
 		}
 		$remote_server_id = $server_home['remote_server_id'];
 		$rserver = $db->getRemoteServerById($remote_server_id);
@@ -122,10 +122,10 @@ function exec_ogp_module()
 		$startup_file_exists = $remote->rfile_exists( "startups/".$ip."-".$port ) === 1;
 		$SrvCtrl = "<table class='srvctrl'><tr><td style='border:0;text-align:center;background:transparent'><a href='?m=gamemanager&amp;p=restart&amp;home_id=".
 					 $home_id."&amp;mod_id=".$mod_id."&amp;ip=".$ip."&amp;port=".$port.
-					 "'><img src='" . check_theme_image("images/restart.png") . "' width='64' border='0' alt='". restart_server ."' /><br><b>". restart_server .
+					 "'><img src='" . check_theme_image("images/restart.png") . "' width='64' border='0' alt='". get_lang("restart_server") ."' /><br><b>". get_lang("restart_server") .
 					 "</b></a></td><td style='border:0;text-align:center;background:transparent'><a href='?m=gamemanager&amp;p=stop&amp;home_id=".
 					$home_id."&amp;mod_id=".$mod_id."&amp;ip=".$ip."&amp;port=".$port."'><img src='" . check_theme_image("images/stop.png") . "' width='64' border='0' alt='".
-					stop_server ."' /><br><b>". stop_server .
+					get_lang("stop_server") ."' /><br><b>". get_lang("stop_server") .
 					"</b></a></td></tr></table>";
 	}
 	//Echo them all

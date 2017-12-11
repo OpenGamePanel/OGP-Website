@@ -48,7 +48,7 @@ class OGPView {
 	function menu(){}
 	
     function printView($cleared = false, $dataType = "html") {
-        global $db;
+        global $db, $OGPLangPre;
 
         if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
             $panel_settings = $db->getSettings();
@@ -121,10 +121,18 @@ class OGPView {
 		$module = isset($_GET['m']) ? $_GET['m'] : "";
 		$subpage = isset($_GET['p']) ? $_GET['p'] : $module;
 		
-		if( file_exists( $path . MODULES . "$module/$subpage.css" ) ) 
-			$this->header_code .= "<link rel='stylesheet' href='" . $path . MODULES . "$module/$subpage.css'>" . "\n";
-		elseif( file_exists( MODULES . "$module/$subpage.css" ) )
-			$this->header_code .= "<link rel='stylesheet' href='" . MODULES . "$module/$subpage.css'>" . "\n";
+		$fc = array(
+			$path . MODULES . $module."/".$subpage.".css",
+			$path . MODULES . $module."/".$module.".css",
+			MODULES . $module."/".$subpage.".css",
+			MODULES . $module."/".$module.".css"
+		);
+		foreach($fc as $file_check){
+			if(file_exists($file_check)){
+				$this->header_code .= "<link rel='stylesheet' href='".$file_check."'>\n";
+				break;
+			}
+		}
 		
 		$module_name = isset($_GET['m']) ? get_lang($_GET['m']) : "";
 		$page_name = isset($_GET['p']) ? get_lang($_GET['p']) : "";
@@ -145,11 +153,24 @@ class OGPView {
 		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>' . "\n";
 		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>' . "\n";
 		
+		// Dump defined constants to json (for language javascript)
+		$jsonStrConsts = getOGPLangConstantsJSON();
+		if($jsonStrConsts !== false){
+			$this->header_code .= '<script type="text/javascript">var langConsts = ' . $jsonStrConsts . ';' . "\n" . 'var langConstPrefix = "' . $OGPLangPre . '";</script>' . "\n";
+		}
+		
 		// Include our global JS
 		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
 
-		if (file_exists($path . MODULES . "$module/$subpage.js")) { 
-			$this->header_code .= '<script type="text/javascript" src="' . $path . MODULES . $module.'/'.$subpage.'.js"></script>' . "\n";
+		$fc = array(
+			$path . MODULES . $module."/".$subpage.".js",
+			$path . MODULES . $module."/".$module.".js"
+		);
+		foreach($fc as $file_check){
+			if(file_exists($file_check)){
+				$this->header_code .= "<script type='text/javascript' src='".$file_check."'></script>\n";
+				break;
+			}
 		}
 		
         $buffer = ob_get_contents();

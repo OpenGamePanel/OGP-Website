@@ -575,6 +575,7 @@ class OGPRemoteLibrary
 	/// \return -1 If connection could not be established.
 	/// \return -2 In other errors.
 	/// \todo Other return values?
+	// Starts game server
 	public function universal_start($home_id, $game_home, $game_binary, $run_dir, $startup_cmd,
 		$server_port, $server_ip, $cpu, $nice, $preStart, $envVars, $game_key)
 	{

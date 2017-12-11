@@ -30,7 +30,7 @@ function exec_ogp_module()
 
 	if (empty($home_id))
 	{
-		print_failure( home_id_missing );
+		print_failure( get_lang("home_id_missing") );
 		return;
 	}
 
@@ -44,7 +44,7 @@ function exec_ogp_module()
 	
 	if ($home_cfg === FALSE)
 	{
-		print_failure( no_access_to_home );
+		print_failure( get_lang("no_access_to_home") );
 		return;
 	}
 
@@ -113,7 +113,7 @@ function exec_ogp_module()
 			$directory->close();
 			if( $directory_empty )
 				rmdir( $upload_folder_path );
-			$db->logger(upload_complete . ": " . clean_path( $path . "/" . $filename ));
+			$db->logger(get_lang("upload_complete") . ": " . clean_path( $path . "/" . $filename ));
 			$complete = true;
 		}
 		echo json_encode(array('pct' => $pct,
@@ -186,7 +186,7 @@ function exec_ogp_module()
 		$folder_name = stripslashes($_POST['folder_name']);
 		$folder_path = clean_path( $path . "/" . $folder_name );
 		$remote->shell_action('create_dir', $folder_path);
-		$db->logger( create_folder . ": " . $folder_path );
+		$db->logger( get_lang("create_folder") . ": " . $folder_path );
 	}
 	// Delete File(s)
 	elseif( isset( $_POST['remove'] ) and $fo['remove'] == "1" )
@@ -207,7 +207,7 @@ function exec_ogp_module()
 			{
 				$remote->shell_action('remove_recursive', $files);
 				$files = str_replace('" "','"<br>"',$files);
-				$db->logger( remove . ": ${files}" );
+				$db->logger( get_lang("remove") . ": ${files}" );
 			}
 		}
 	}
@@ -226,7 +226,7 @@ function exec_ogp_module()
 					if ($item_path != $new_item_path)
 					{
 						$remote->shell_action('move', "$item_path;$new_item_path");
-						$db->logger( rename . ": $item_path " . to . " $new_item_path" );
+						$db->logger( get_lang("rename") . ": $item_path " . get_lang("to") . " $new_item_path" );
 					}
 				}
 			}
@@ -248,7 +248,7 @@ function exec_ogp_module()
 						$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 						$destination = clean_path($destination . "/.");
 						$remote->shell_action('move', "$item_path;$destination");
-						$db->logger( move . ": $item_path " . to . " $destination" );
+						$db->logger( get_lang("move") . ": $item_path " . get_lang("to") . " $destination" );
 					}
 				}
 			}
@@ -270,7 +270,7 @@ function exec_ogp_module()
 						$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 						$destination = clean_path($destination . "/.");
 						$remote->shell_action('copy', "$item_path;$destination");
-						$db->logger( copy . ": $item_path " . to . " $destination" );
+						$db->logger( get_lang("copy") . ": $item_path " . get_lang("to") . " $destination" );
 					}
 				}
 			}
@@ -293,7 +293,7 @@ function exec_ogp_module()
 		if($items != '')
 		{
 			$remote->compress_files($items,$path,$_POST['archive_name'],$_POST['archive_type']);
-			$db->logger( compress . " " . $_POST['archive_type'] . ":<br>$files_w_path" );
+			$db->logger( get_lang("compress") . " " . $_POST['archive_type'] . ":<br>$files_w_path" );
 		}
 	}
 	// uncompress
@@ -309,7 +309,7 @@ function exec_ogp_module()
 				{
 					$file_location = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 					$remote->uncompress_file($file_location, $destination);
-					$db->logger( uncompress . ": $file_location " . to . " $destination." );
+					$db->logger( get_lang("uncompress") . ": $file_location " . to . " $destination." );
 				}
 			}
 		}
@@ -320,7 +320,7 @@ function exec_ogp_module()
 		$file_name = stripslashes($_POST['file_name']);
 		$destination = clean_path( $path . "/" . $file_name);
 		$remote->shell_action('touch', $destination);
-		$db->logger( create_file . ": $destination" );
+		$db->logger( get_lang("create_file") . ": $destination" );
 	}
 	// Send by email
 	elseif( isset( $_POST['send_by_email'] ) and $fo['send_by_email'] == "1" )
@@ -356,8 +356,8 @@ function exec_ogp_module()
 				$mail_retval = $remote->exec( "(echo '" . esc_squote($message) . "' | mutt -a '" . esc_squote($archive) . "' -s '" . esc_squote($subject) . "' -- '" . esc_squote($dest_email) . "');echo \$?" );
 				if($mail_retval == 0)
 				{
-					echo mail_sent_successfully;
-					$db->logger( send_by_email . ": '$archive'<br>Subject: '$subject'<br>to: '$dest_email'" );
+					echo get_lang("mail_sent_successfully");
+					$db->logger( get_lang("send_by_email") . ": '$archive'<br>Subject: '$subject'<br>to: '$dest_email'" );
 				}
 				else
 				{
@@ -376,7 +376,7 @@ function exec_ogp_module()
 		{
 			if($_POST['set_attr'] == '+i' or $_POST['set_attr'] == '-i')
 			{
-				$type = $_POST['set_attr'] == '+i' ? chattr_locked : chattr_unlocked;
+				$type = $_POST['set_attr'] == '+i' ? get_lang("chattr_locked") : get_lang("chattr_unlocked");
 				$action = "chattr".$_POST['set_attr'];
 				$file_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$_POST['item']] );
 				$remote->secure_path($action, $file_path);
@@ -392,13 +392,13 @@ function exec_ogp_module()
 		<script type="text/javascript" src="js/modules/litefm.js"></script>
 		<?php
 		echo "<h2>";
-		echo empty($home_cfg['home_name']) ?  not_available  : htmlentities($home_cfg['home_name']);
+		echo empty($home_cfg['home_name']) ?  get_lang("not_available")  : htmlentities($home_cfg['home_name']);
 		echo "</h2>";
 		$_SESSION['fm_files_'.$home_id] = array();
 		$show_path = (isset($_SESSION['fm_cwd_'.$home_id])) ? clean_path($_SESSION['fm_cwd_'.$home_id]) : "/";
 		if($isAdmin)
 			$show_path = clean_path($home_cfg['home_path'].$show_path);
-		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_cfg['home_id']."'><< ". back ."</a></td></tr></table>";
+		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_cfg['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
 		if ($remote->rfile_exists($path))
 		{
 			echo "<table class='center' style='width:100%;' ><tr>\n".
@@ -424,7 +424,7 @@ function exec_ogp_module()
 				}
 				else
 				{
-					print_failure( failed_list );
+					print_failure( get_lang("failed_list") );
 					return;
 				}
 			}
@@ -434,7 +434,7 @@ function exec_ogp_module()
 				
 				echo "<table class='center' style='width:100%;' >\n".
 					 show_back($home_id)."</table>";
-				echo "<p>" . empty_directory . "</p>";
+				echo "<p>" . get_lang("empty_directory") . "</p>";
 			}
 			else
 			{
@@ -443,11 +443,11 @@ function exec_ogp_module()
 					 "<tr>\n<td style='width:10px;' >".
 					 "<input type=checkbox name='switch' id='switch_check' />".
 					 "</td>\n<td align=left>".
-					  filename ."</td>\n";
+					  get_lang("filename") ."</td>\n";
 				if( $os == "linux" )
-					echo "<td>".  filesecure  ."</td>\n";
-				echo "<td>". filesize ." [". bytes ."]</td>\n<td>".
-					  owner ." ". group ."</td>\n</tr>\n";
+					echo "<td>".  get_lang("filesecure")  ."</td>\n";
+				echo "<td>". get_lang("filesize") ." [". get_lang("bytes") ."]</td>\n<td>".
+					  get_lang("owner") ." ". get_lang("group") ."</td>\n</tr>\n";
 				$i = 0;
 				if(isset($dirlist['directorys']) and is_array($dirlist['directorys']))
 				{
@@ -481,17 +481,17 @@ function exec_ogp_module()
 							if($isAdmin){
 								$secureFile = "<td><div data-item='$i' data-file_name=\"" . str_replace('"', "&quot;", $file['filename']) . "\" class='chattrButton ";
 								if( preg_match( "/i/", $file['attr'] ) ){
-									$secureFile .= "locked' data-set_attr='-i' ><i></i><span>". chattr_no;
+									$secureFile .= "locked' data-set_attr='-i' ><i></i><span>". get_lang("chattr_no");
 								}else{
-									$secureFile .= "unlocked' data-set_attr='+i' ><i></i><span>". chattr_yes;
+									$secureFile .= "unlocked' data-set_attr='+i' ><i></i><span>". get_lang("chattr_yes");
 								}
 								$secureFile .= "</span></div></td>\n";
 							}else{
 								$secureFile = "<td><span class=";
 								if( preg_match( "/i/", $file['attr'] ) ){
-									$secureFile .= "'chattrLock'>". chattr_locked; 
+									$secureFile .= "'chattrLock'>". get_lang("chattr_locked"); 
 								}else{
-									$secureFile .= "'chattrUnlock'>". chattr_unlocked; 
+									$secureFile .= "'chattrUnlock'>". get_lang("chattr_unlocked"); 
 								}
 								$secureFile .= "</span></td>\n";
 							}
@@ -505,7 +505,7 @@ function exec_ogp_module()
 							 "</td>".
 							 "<td align=left id='fileid$i' >";
 						echo "<img class=\"viewitem\" src=\"" . check_theme_image("images/txt.png") . "\" alt=\"Text file\" /> ".
-							 "<a href=\"?m=litefm&amp;home_id=$home_id&amp;item=$i&amp;p=read_file&amp;name=" . urlencode($file['filename']) . "&amp;type=file\">". button_edit ."</a>".
+							 "<a href=\"?m=litefm&amp;home_id=$home_id&amp;item=$i&amp;p=read_file&amp;name=" . urlencode($file['filename']) . "&amp;type=file\">". get_lang("button_edit") ."</a>".
 							 "<a href=\"javascript:downloadFile($home_id, $i, {$file['size']}, '".str_replace("'", "\'", $file['filename'])."');\" id=\"jsDwl$i\" >" .$file['filename'] . "</a>&nbsp;".
 							 "</td>$secureFile<td>" . $file['size'] . "</td> <td>" . $file['user'] . " " . $file['group']. "</td>\n";
 						echo "</tr>\n";
@@ -524,17 +524,17 @@ function exec_ogp_module()
 							if($isAdmin){
 								$secureFile = "<td><div data-item='$i' data-file_name=\"" . str_replace('"', "&quot;", $binary['filename']) . "\" class='chattrButton ";
 								if( preg_match( "/i/", $binary['attr'] ) ){
-									$secureFile .= "locked' data-set_attr='-i' ><i></i><span>". chattr_no;
+									$secureFile .= "locked' data-set_attr='-i' ><i></i><span>". get_lang("chattr_no");
 								}else{
-									$secureFile .= "unlocked' data-set_attr='+i' ><i></i><span>". chattr_yes;
+									$secureFile .= "unlocked' data-set_attr='+i' ><i></i><span>". get_lang("chattr_yes");
 								}
 								$secureFile .= "</span></div></td>\n";
 							}else{
 								$secureFile = "<td><span class=";
 								if( preg_match( "/i/", $binary['attr'] ) ){
-									$secureFile .= "'chattrLock'>". chattr_locked; 
+									$secureFile .= "'chattrLock'>". get_lang("chattr_locked"); 
 								}else{
-									$secureFile .= "'chattrUnlock'>". chattr_unlocked; 
+									$secureFile .= "'chattrUnlock'>". get_lang("chattr_unlocked"); 
 								}
 								$secureFile .= "</span></td>\n";
 							}
@@ -558,34 +558,34 @@ function exec_ogp_module()
 				echo "</table>\n";
 			}
 		}
-		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_cfg['home_id']."'><< ". back ."</a></td></tr></table>";
+		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_cfg['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
 		// Dialog translation && info
 		$user = $db->getUserById($_SESSION['user_id']);
 		echo "<div id='dialog' ".
 			 "data-folder=\"" . clean_path("/".str_replace('"', "&quot;", @$_SESSION['fm_cwd_'.$home_id])) . "\" " .
-			 "data-select_at_least_one_item='" . select_at_least_one_item . "' " .
-			 "data-ask_delete='" . delete_item . "' " .
-			 "data-ask_rename='" . rename_item . "' " .
-			 "data-ask_move='" . move_item . "' " .
-			 "data-ask_copy='" . copy_item . "' " .
-			 "data-ask_compress='" . compress_item . "' " .
-			 "data-ask_uncompress='" . uncompress_item . "' " .
-			 "data-archive_name='" . archive_name . "' " .
-			 "data-archive_type='" . archive_type . "' " .
-			 "data-file_name='" . file_name . "' " .
-			 "data-folder_name='" . folder_name . "' " .
-			 "data-compresses_files_separately='" . compresses_files_separately . "' " .
-			 "data-to='" . to . "' " .
-			 "data-yes='" . yes . "' " .
-			 "data-no='" . no . "' " .
+			 "data-select_at_least_one_item='" . get_lang("select_at_least_one_item") . "' " .
+			 "data-ask_delete='" . get_lang("delete_item") . "' " .
+			 "data-ask_rename='" . get_lang("rename_item") . "' " .
+			 "data-ask_move='" . get_lang("move_item") . "' " .
+			 "data-ask_copy='" . get_lang("copy_item") . "' " .
+			 "data-ask_compress='" . get_lang("compress_item") . "' " .
+			 "data-ask_uncompress='" . get_lang("uncompress_item") . "' " .
+			 "data-archive_name='" . get_lang("archive_name") . "' " .
+			 "data-archive_type='" . get_lang("archive_type") . "' " .
+			 "data-file_name='" . get_lang("file_name") . "' " .
+			 "data-folder_name='" . get_lang("folder_name") . "' " .
+			 "data-compresses_files_separately='" . get_lang("compresses_files_separately") . "' " .
+			 "data-to='" . get_lang("to") . "' " .
+			 "data-yes='" . get_lang("yes") . "' " .
+			 "data-no='" . get_lang("no") . "' " .
 			 "data-max_file_uploads='" . ini_get('max_file_uploads') . "' " .
-			 "data-upload_to_web='" . upload_to_web . "' " .
-			 "data-transfer_to_server='" . transfer_to_server . "' " .
-			 "data-upload='" . upload . "' " .
-			 "data-ask_send_by_email='" . send_item_by_email . "' " .
-			 "data-subject='" . subject . "' " .
-			 "data-message='" . message . "' " .
-			 "data-dest_email='" . dest_email . "' " .
+			 "data-upload_to_web='" . get_lang("upload_to_web") . "' " .
+			 "data-transfer_to_server='" . get_lang("transfer_to_server") . "' " .
+			 "data-upload='" . get_lang("upload") . "' " .
+			 "data-ask_send_by_email='" . get_lang("send_item_by_email") . "' " .
+			 "data-subject='" . get_lang("subject") . "' " .
+			 "data-message='" . get_lang("message") . "' " .
+			 "data-dest_email='" . get_lang("dest_email") . "' " .
 			 "data-user_email='" . $user['users_email'] . "' ";
 			 if($isAdmin)
 				echo "data-ask_change_attr=\"" . get_lang_f( 'secure_item', clean_path( str_replace('"', "&quot;", $path) . "/%file_name%" ) ) . "\" ";
