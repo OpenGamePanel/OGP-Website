@@ -33,7 +33,7 @@
   </replace_texts>
   <server_params>
     <param key="-authport=" type="text" id="STEAM_PORT">
-      <default>8770</default>
+      <default>8766</default>
       <options>ns</options>
       <access>admin</access>
       <desc>This is used to authenticate Steam accounts.</desc>
