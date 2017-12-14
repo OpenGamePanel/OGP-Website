@@ -4,7 +4,7 @@
  <lgsl_query_name>dayzmod</lgsl_query_name>
  <game_name>DayZ Mod (OA)</game_name>
  <server_exec_name>arma2oaserver.exe</server_exec_name>
- <cli_template>%MEMORY% %PORT% %PLAYERS% "-config=profile\server.cfg" "-cfg=profile\basic.cfg" -profiles=profile -noSound -noPause</cli_template>
+ <cli_template>%MEMORY% %PORT% %PLAYERS% "-config=profile\server.cfg" "-cfg=profile\basic.cfg" -profiles=profile -noSound</cli_template>
  <cli_params>
    <cli_param cli_string="-port=" id="PORT"/>
    <cli_param id="PLAYERS" cli_string="-maxplayers=" />
@@ -67,15 +67,14 @@
    <caption>Max RAM allocated</caption>
    <desc>Maximum usable memory in MB, for example: 1024</desc>
   </param>
-  <param key="-mod=" type="select">
-    <option value="@DayZ;@Hive;">Vanilla</option>
-    <option value="@DayZ_Epoch;@DayZ_Epoch_Server;">Epoch</option>
-    <option value="@DayZOverwatch;@DayZ_Epoch;@DayZ_Epoch_Server;">Overpoch</option>
-    <option value="@DayZOrigins;@DayZ_Epoch;@DayZ_Epoch_Server;">Origins</option>
-    <option value="@DayZOverwatch;@DayZOrigins;@DayZ_Epoch;@DayZ_Epoch_Server;">Overpochins</option>
+  <param key="-noPause" type="select">
+    <option value="-mod=@DayZ;@Hive;">Vanilla</option>
+    <option value="-mod=@DayZ_Epoch;@DayZ_Epoch_Server;">Epoch</option>
+    <option value="-mod=@DayZOverwatch;@DayZ_Epoch;@DayZ_Epoch_Server;">Overpoch</option>
+    <option value="-mod=@DayZOrigins;@DayZ_Epoch;@DayZ_Epoch_Server;">Origins</option>
+    <option value="-mod=@DayZOverwatch;@DayZOrigins;@DayZ_Epoch;@DayZ_Epoch_Server;">Overpochins</option>
       <caption>DayZ Flavour</caption>
       <desc>Type of DayZ server you wish to run</desc>
-      <options>nsq</options>
     </param>
  </server_params>
 </game_config>
