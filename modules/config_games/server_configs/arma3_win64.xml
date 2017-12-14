@@ -1,0 +1,50 @@
+<game_config>
+  <game_key>arma3_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>arma3</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Arma 3</game_name>
+  <server_exec_name>arma3server_x64.exe</server_exec_name>
+  <cli_template>-config=server.cfg -cfg=basic.cfg -profiles=profile %MEMORY% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+   <cli_param cli_string="-port=" id="PORT"/>
+   <cli_param cli_string="-maxplayers=" id="PLAYERS"/>
+  </cli_params>
+  <cli_allow_chars>;</cli_allow_chars> <!-- escaped by default: \ " ' | & ; > < ` $ ( ) [ ] -->
+  <console_log>profile/server_console.log</console_log>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+   <mod key='Arma3'>
+    <name>none</name>
+    <installer_name>233780</installer_name>
+   </mod>
+  </mods>
+  <replace_texts>
+   <text key="home_name">
+    <default>(hostname\s*=\s*")(.*)(";)</default>
+    <var>hostname = "%key%";</var>
+    <filepath>server.cfg</filepath>
+    <options>key-regex</options>
+   </text>
+   <text key="max_players">
+    <default>(maxPlayers\s*=\s*)(.*)(;)</default>
+    <var>maxPlayers = %key%;</var>
+    <filepath>server.cfg</filepath>
+    <options>key-regex</options>
+   </text>
+   <text key="control_password">
+    <default>(passwordAdmin\s*=\s*")(.*)(";)</default>
+    <var>passwordAdmin = "%key%";</var>
+    <filepath>server.cfg</filepath>
+    <options>key-regex</options>
+   </text>
+  </replace_texts>
+  <server_params>
+   <param id="MEMORY" key="-maxMem=" type="text">
+    <option>ns</option>
+    <default>1024</default>
+    <caption>Max RAM allocated</caption>
+    <desc>Maximum usable memory in MB, for example: 1024</desc>
+   </param>
+  </server_params>
+</game_config>
