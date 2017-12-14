@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -32,6 +32,20 @@ abstract class OGPDatabase {
     {
         return $this->queries_;
     }
+    
+    public function generateMySQLInClause($arrayOfInputs){
+		$inClause = "IN ('";
+		for($i = 0; $i < count($arrayOfInputs); $i++){
+			if($i == 0){
+				$inClause .= $this->realEscapeSingle($arrayOfInputs[$i]);
+			}else{
+				$inClause .= "','" . $this->realEscapeSingle($arrayOfInputs[$i]);
+			}
+		}
+		$inClause .= "')";
+			
+		return $inClause;
+	}
 
     /// \return TRUE if connection was created successfully.
     /// \return -1 When host is invalid.
@@ -41,6 +55,9 @@ abstract class OGPDatabase {
 
     /// Get all available settings
     abstract public function getSettings();
+    
+    // Real escape
+    abstract public function realEscapeSingle($string);
 
     /// Get one setting value
     /// \return FALSE if setting does not exist.
@@ -63,11 +80,13 @@ abstract class OGPDatabase {
 
     abstract public function getUserList();
     
-    abstract public function getUserList_limit($page_user,$limit_user);
+    abstract public function getUserList_limit($page_user,$limit_user,$search_field);
 
     abstract public function getGroupList();
 
     abstract public function getUsersGroups($user_id);
+    
+    abstract public function getGameServersWithSamePath($remote_id, $home_path);
     
     abstract public function getUserGroupList($user_id);
 
@@ -132,6 +151,10 @@ abstract class OGPDatabase {
 
     abstract public function addGameModCfg($game_id,$mod_key,$mod_name);
 
+	abstract public function getCurrentHomeConfigMods($clear_all);
+	
+	abstract public function updateOGPGameModsWithNewIDs($oldModStructure);
+
     abstract public function clearGameCfgs($clear_all);
 
     abstract public function addGameCfg($config);
@@ -151,7 +174,7 @@ abstract class OGPDatabase {
 
     // Server module functions
     /// \brief Adds remote server to database.
-    abstract public function addRemoteServer($rhost_ip,$rhost_name,$rhost_user_name,$rhost_port,$rhost_ftp_ip,$rhost_ftp_port,$encryption_key,$rhost_timeout,$use_nat);
+    abstract public function addRemoteServer($rhost_ip,$rhost_name,$rhost_user_name,$rhost_port,$rhost_ftp_ip,$rhost_ftp_port,$encryption_key,$rhost_timeout,$use_nat,$display_public_ip);
 
     abstract public function getRemoteServer($id);
 
@@ -171,14 +194,14 @@ abstract class OGPDatabase {
 
     /// \brief Change encryption key for remote server.
     abstract public function changeRemoteServerSettings($server_id,
-        $agent_ip,$agent_port,$remote_server_name,$remote_server_user_name,$remote_host_ftp_ip,$remote_host_ftp_port,$encryption_key,$rhost_timeout,$use_nat);
+        $agent_ip,$agent_port,$remote_server_name,$remote_server_user_name,$remote_host_ftp_ip,$remote_host_ftp_port,$encryption_key,$rhost_timeout,$use_nat,$display_public_ip);
 
     // Gamemanager functions
     abstract public function getHomeIpPorts($home_id);
 
     abstract public function getHomesFor($id_type,$assign_id);
     
-    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit);
+    abstract public function getHomesFor_limit($id_type,$assign_id,$home_page,$home_limit,$home_cfg_id,$search_field);
 
     abstract public function getHomeMods($home_id);
 
@@ -256,7 +279,7 @@ abstract class OGPDatabase {
 
     abstract public function getGameHomes();
     
-    abstract public function getGameHomes_limit($page_gameHomes,$limit_gameHomes);
+    abstract public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $searchType, $searchString);
 
     /// \return true If username and password match.
     /// \return false If username and password does not match

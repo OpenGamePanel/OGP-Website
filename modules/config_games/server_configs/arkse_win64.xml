@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>ARK: Survival Evolved</game_name>
   <server_exec_name>ShooterGameServer.exe</server_exec_name>
-  <cli_template>%MAP%%IP%%PORT%%QUERY_PORT%%PLAYERS%%CONTROL_PASSWORD%%PDS%%PDI%%PDD%%PUS%%PUI%%PUD%%ASDN%%POP%%POPI%%PTA%?listen %AMM% %CDO% %CID% %FACF% %NTFF% -server -log</cli_template>
+  <cli_template>%MAP%%IP%%PORT%%QUERY_PORT%%PLAYERS%%RCON%%CONTROL_PASSWORD%%PDS%%PDI%%PDD%%PUS%%PUI%%PUD%%ASDN%%POP%%POPI%%PTA%?listen %AMM% %CDO% %CID% %FACF% %NTFF% -server -log</cli_template>
   <cli_params>
     <cli_param id="MAP" cli_string="" />
     <cli_param id="IP" cli_string="?Multihome=" />
@@ -21,7 +21,7 @@
   <exe_location>ShooterGame/Binaries/Win64</exe_location>
   <max_user_amount>127</max_user_amount>
   <mods>
-    <mod key="arkse">
+    <mod key="default">
       <name>None</name>
       <installer_name>376030</installer_name>
       <installer_login>anonymous</installer_login>
@@ -35,6 +35,12 @@
     </text>
   </replace_texts>
   <server_params>
+    <param key="?RCONEnabled=" type="select" id="RCON">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable remote control.</desc>
+    </param>
     <param key="-automanagedmods" type="checkbox_key_value" id="AMM">
       <desc>Enable automatic MOD downloading, installing and updating.</desc>
     </param>
@@ -75,8 +81,8 @@
       <options>ns</options>
       <desc>Unique identifier of your Cluster.</desc>
     </param>
-    <param key="-ClusterDirOverride=" type="text" id="CDO">
-      <default>/home/ogpbot/OGP_User_Files/HOMEID/ShooterGame/Saved</default>
+    <param key="-ClusterDirOverride=" type="other_game_server_path_additional" id="CDO">
+      <default>ShooterGame/Saved</default>
       <options>ns</options>
       <desc>Specify a common cross-server storage location that functions between multiple servers running on the same machine.</desc>
     </param>
@@ -118,22 +124,13 @@
     </param>
   </server_params>
   <custom_fields>
-    <field key="RCONEnabled" type="select">
-      <option value="True">Yes</option>
-      <option value="False">No</option>
-      <default>RCONEnabled=.*</default>
-      <default_value>True</default_value>
-      <var>RCONEnabled=</var>
-      <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
-      <options>sq</options>
-      <desc>Enable or disable remote control.</desc>
-    </field>
-    <field key="RCONPort" type="text">
+    <field key="RCON Port" type="text">
       <default>RCONPort=.*</default>
       <default_value>27020</default_value>
       <var>RCONPort=</var>
       <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
-   	  <options>sq</options>
+      <options>sq</options>
+      <access>admin</access>
       <desc>Port of remote control.</desc>
     </field>
   </custom_fields>
@@ -145,10 +142,16 @@
       else
         echo "File $maplist not found."
         echo "Generating new maplist file in $maplist!"
-        touch maplist.txt
-        echo ScorchedEarth_P> maplist.txt
-        echo TheCenter>> maplist.txt
-        echo TheIsland>> maplist.txt
+        touch $maplist
+        echo Aberration_P> $maplist
+        echo Ragnarok>> $maplist
+        echo ScorchedEarth_P>> $maplist
+        echo TheCenter>> $maplist
+        echo TheIsland>> $maplist
     fi
   </post_install>
+  <configuration_files>
+    <file description="Server Configurations">ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</file>
+    <file description="Advanced Modifications">ShooterGame/Saved/Config/WindowsServer/Game.ini</file>
+  </configuration_files>
 </game_config>

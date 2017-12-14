@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -41,23 +41,23 @@ function exec_ogp_module()
 	if(isset($_REQUEST['user_id'])){
 		if(empty($_REQUEST['user_id']) || $db->getUserById($_REQUEST['user_id']) == null)
 		{
-			print_failure(get_lang('valid_user'));
+			print_failure(get_lang("valid_user"));
 			return;
 		}
 	}else if(isset($_REQUEST['group_id'])){
 		if(empty($_REQUEST['group_id']) || $db->getGroupById($_REQUEST['group_id']) == null)
 		{
-			print_failure(get_lang('valid_group'));
+			print_failure(get_lang("valid_group"));
 			return;
 		}
 	}else{
-		print_failure(get_lang('invalid_url'));
+		print_failure(get_lang("invalid_url"));
 		return;
 	}
 	
 	if ( isset( $_REQUEST['user_id'] ) && !$isAdmin )
 	{
-		echo "<p class='note'>".get_lang('not_available')."</p>";
+		echo "<p class='note'>".get_lang("not_available")."</p>";
 		return;
 	}
 	
@@ -75,7 +75,7 @@ function exec_ogp_module()
 	
 	if( !$isAdmin && !isset($own_group) ) 
 	{
-		echo "<p class='note'>".get_lang('not_available')."</p>";
+		echo "<p class='note'>".get_lang("not_available")."</p>";
 		return;
 	}
 
@@ -172,7 +172,7 @@ function exec_ogp_module()
 	if ( empty($remote_servers) )
 	{
 		print_failure(get_lang("no_remote_servers_available_please_add_at_least_one"));
-		echo "<p><a href='?m=server'>".get_lang('add_remote_server')."</a></p>";
+		echo "<p><a href='?m=server'>".get_lang("add_remote_server")."</a></p>";
 		return;
 	}
 
@@ -186,7 +186,7 @@ function exec_ogp_module()
 		echo "<h2>".get_lang_f('assign_new_home_to_'.$id_type,$assign_name)."</h2>";
 		echo "<form action='?m=user_games&amp;p=assign' method='post'>";
 		echo "<input name='".$id_type."_id' value='".$assign_id."' type='hidden' />\n";
-		echo "<table class='center'><tr><td align='right'><label for='home_id'>".get_lang('select_home').":</label></td>";
+		echo "<table class='center'><tr><td align='right'><label for='home_id'>".get_lang("select_home").":</label></td>";
 		echo '<td align="left"><select id="home_id" name="home_id" onchange="this.form.submit();">';
 		echo "<option></option>\n";
 		foreach ( $available_homes as $home )
@@ -201,11 +201,8 @@ function exec_ogp_module()
 		if( isset($_POST['home_id']) and !empty($_POST['home_id']) )
 		{
 			?>
-			<link href="js/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet">
-			<link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap/css/bootstrap-datetimepicker.min.css" >
-			<script type="text/javascript" src="js/jquery/jquery-1.11.0.min.js"></script> 
-			<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-			<script type="text/javascript" src="js/bootstrap/plugins/datetimepicker.min.js"></script>
+			<link rel="stylesheet" type="text/css" href="js/datetimepicker/jquery.datetimepicker.min.css">
+			<script src="js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 			<script type="text/javascript" src="js/modules/user_games.js"></script>
 			<?php
 			if( $isAdmin )
@@ -221,16 +218,15 @@ function exec_ogp_module()
 			{
 				echo create_selection($selection,$flag,$access_rights);
 			}
-			echo "<tr><td class='right'>".get_lang('assign_expiration_date').":</td>\n".
+			echo "<tr><td class='right'>".get_lang("assign_expiration_date").":</td>\n".
 				 "<td class='left'>\n".
-				 "<tr><td class='right'>".get_lang('server_expiration_date').":</td>\n".
+				 "<tr><td class='right'>".get_lang("server_expiration_date").":</td>\n".
 				 "<td class='left'>".
 				 "<div id='datetimepicker' class='input-append date'>".
 				 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='X' data-today='".date('d/m/Y H:i:s')."' >\n".
-				 "<span class='add-on'><i data-time-icon='icon-time' data-date-icon='icon-calendar'></i></span>".
 				 "</div></td></tr>\n".
-				 "<tr><td  colspan='2' class='info'>". assign_expiration_date_info ."</td></tr>\n";
-			echo "<tr><td colspan='2'><input type='submit' name='assign' value='".get_lang('assign')."' /></td></tr>\n";
+				 "<tr><td  colspan='2' class='info'>". get_lang("assign_expiration_date_info") ."</td></tr>\n";
+			echo "<tr><td colspan='2'><input type='submit' name='assign' value='".get_lang("assign")."' /></td></tr>\n";
 		}
 		echo "</table></form>\n";
 	}
@@ -238,9 +234,9 @@ function exec_ogp_module()
 	{
 		echo "<h2>".get_lang("no_more_homes_available_that_can_be_assigned_for_this_$id_type")."</h2>";
 		//print_lang('you_can_add_a_new_game_server_from');
-		//echo "<a href='?m=user_games'>".get_lang('game_servers')."</a>.</p>";
+		//echo "<a href='?m=user_games'>".game_servers."</a>.</p>";
 		if( $isAdmin )
-			echo get_lang_f("you_can_add_a_new_game_server_from","<a href='?m=user_games'>".get_lang('game_servers')."</a>")."</p>";
+			echo get_lang_f("you_can_add_a_new_game_server_from","<a href='?m=user_games'>".get_lang("game_servers")."</a>")."</p>";
 	}
 	// View servers for use if there are any.
 	$game_homes = $db->getHomesFor($id_type,$assign_id);
@@ -251,14 +247,14 @@ function exec_ogp_module()
 	}
 	else
 	{
-		echo "<h2>".get_lang('assigned_homes')."</h2>";
+		echo "<h2>".get_lang("assigned_homes")."</h2>";
 		echo '<table class="center">';
-		echo "<tr><th>".get_lang('home_id')."</th><th>".get_lang('game_server')."</th>
-			<th>".get_lang('game_type')."</th>
-			<th align='center'>".get_lang('game_home')."</th>
-			<th>".get_lang('game_home_name')."</th><th>".get_lang('access_rights')."</th>
-			<th>".get_lang('assign_expiration_date')."</th>
-			<th>".get_lang('actions')."</th></tr>";
+		echo "<tr><th>".get_lang("home_id")."</th><th>".get_lang("game_server")."</th>
+			<th>".get_lang("game_type")."</th>
+			<th align='center'>".get_lang("game_home")."</th>
+			<th>".get_lang("game_home_name")."</th><th>".get_lang("access_rights")."</th>
+			<th>".get_lang("assign_expiration_date")."</th>
+			<th>".get_lang("actions")."</th></tr>";
 		foreach( $game_homes as $row )
 		{
 			$access_rights = empty($row['access_rights']) ? "-" : $row['access_rights'];
@@ -275,7 +271,7 @@ function exec_ogp_module()
 				<form action='?m=user_games&amp;p=assign' method='post'>
 				<input name='".$id_type."_id' value='$assign_id' type='hidden' />
 				<input name='home_id' value='".$row['home_id']."' type='hidden' />
-				<input type='submit' name='unassign' value='".get_lang('unassign')."' /></form></td>
+				<input type='submit' name='unassign' value='".get_lang("unassign")."' /></form></td>
 				</tr>";
 		}
 		echo "</table>";

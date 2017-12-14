@@ -1,0 +1,33 @@
+<game_config>
+  <game_key>callofdutymw3_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>callofdutymw3</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Call of Duty: Modern Warfare 3</game_name>
+  <server_exec_name>iw5mp_server.exe</server_exec_name>
+  <cli_template>+set dedicated 2 %IP% %PORT% %QUERY_PORT% %AUTH_PORT% %EXEC% %CONTROL_PASSWORD% %PLAYERS% +start_map_rotate</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_queryPort" options="s" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="+set rcon_password" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="+set net_masterServerPort" options="s">-1</port>
+    <port type="add" id="AUTH_PORT" cli_string="+set net_authPort" options="s">-18249</port>
+  </reserve_ports>
+  <max_user_amount>18</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>42750</installer_name>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="+set sv_config" type="text" id="EXEC">
+      <default>server.cfg</default>
+      <options>s</options>
+      <desc>Set the name of your server configuration file.</desc>
+    </param>
+  </server_params>
+</game_config>

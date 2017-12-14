@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,14 +21,15 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 require_once("includes/lib_remote.php");
 require_once("modules/config_games/server_config_parser.php");
 function exec_ogp_module()
 {
 	global $db;
 	$home_id = $_GET['home_id'];
-	echo "<h3>". mods ."</h3>";
-	echo "<p class='info'>". extra_cmd_line_info ."</p>\n";
+	echo "<h3>". get_lang("mods") ."</h3>";
+	echo "<p class='info'>". get_lang("extra_cmd_line_info") ."</p>\n";
 	$enabled_mods = $db->getHomeMods($home_id);
 	$home_info = $db->getGameHomeWithoutMods($home_id);
 	$server_xml = read_server_config(SERVER_CONFIG_LOCATION.$home_info['home_cfg_file']);
@@ -38,7 +39,7 @@ function exec_ogp_module()
 		$cpu_count = $remote->cpu_count();
 		if($cpu_count === -1)
 		{
-			print_failure( warning_agent_offline_defaulting_CPU_count_to_1 );
+			print_failure( get_lang("warning_agent_offline_defaulting_CPU_count_to_1") );
 			$cpu_count = 'NA';
 		}
 		else
@@ -76,16 +77,16 @@ function exec_ogp_module()
 		}
 		else
 		{
-			print_failure( note .":". note_no_mods );
+			print_failure( get_lang("note") .":". get_lang("note_no_mods") );
 			echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n";
 			echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
-			echo "<p>". available_mods .": <select name='mod_cfg_id'>\n";
+			echo "<p>". get_lang("available_mods") .": <select name='mod_cfg_id'>\n";
 			foreach ( $game_mods as $game_mod )
 			{
 				echo "<option value='".$game_mod['mod_cfg_id']."'>".$game_mod['mod_name']."</option>\n";
 			}
 			echo "</select>\n";
-			echo "<input type='submit' name='add_mod' value='". add_mod ."' /></p>";
+			echo "<input type='submit' name='add_mod' value='". get_lang("add_mod") ."' /></p>";
 			echo "</form>";
 		}
 	}
@@ -96,7 +97,7 @@ function exec_ogp_module()
 		
 		if($cpu_count === -1)
 		{
-			print_failure( warning_agent_offline_defaulting_CPU_count_to_1 );
+			print_failure( get_lang("warning_agent_offline_defaulting_CPU_count_to_1") );
 			$cpu_count = 'NA';
 		} else {
 			// cpu numbering starts from 0 so lets remove the last cpu.
@@ -106,18 +107,18 @@ function exec_ogp_module()
 		echo "<table class='center'>\n".
 			 "<tr>".
 			 "<td></td>".
-			 "<td><b>". mod_name ."</b></td>";
+			 "<td><b>". get_lang("mod_name") ."</b></td>";
 		if ( $server_xml->max_user_amount )
-			echo "<td><b>". max_players ."</b></td>";
-		echo "<td><b>". extra_cmd_line_args ."</b></td>".
-			 "<td><b>". nice_level ."</b></td><td></td>".
+			echo "<td><b>". get_lang("max_players") ."</b></td>";
+		echo "<td><b>". get_lang("extra_cmd_line_args") ."</b></td>".
+			 "<td><b>". get_lang("nice_level") ."</b></td><td></td>".
 			 "</tr>\n";
 		foreach ( $enabled_mods as $enabled_rows ) {
 			echo "<tr id='mod_cfg_id_$enabled_rows[mod_cfg_id]'>".
 				 "<td><a href='?m=user_games&amp;p=edit&amp;mod_id=".$enabled_rows['mod_id'].
-				 "&amp;home_id=$home_id&amp;submit=delete_mod'>[ ". remove_mod ." ]</a><br>".
+				 "&amp;home_id=$home_id&amp;submit=delete_mod'>[ ". get_lang("remove_mod") ." ]</a><br>".
 				 "<a href='?m=user_games&p=install_cmds&home_id=$home_id&mod_id=".$enabled_rows['mod_id'].
-				 "'>". mod_install_cmds ."</a></td>\n".
+				 "'>". get_lang("mod_install_cmds") ."</a></td>\n".
 				 "<td>".$enabled_rows['mod_name']."</td>\n".
 				 "<td>\n";
 			if ( $server_xml->max_user_amount )
@@ -133,7 +134,7 @@ function exec_ogp_module()
 				 echo create_drop_box_from_array(array_merge(range(-19,19)),
 				 'nice',$enabled_rows['nice']).
 				 "</td><td>\n".
-				 "<button class='set_options' id='$enabled_rows[mod_cfg_id]' >". set_options ."</button>\n".
+				 "<button class='set_options' id='$enabled_rows[mod_cfg_id]' >". get_lang("set_options") ."</button>\n".
 				 "</td></tr>\n";
 
 		}
@@ -160,12 +161,12 @@ function exec_ogp_module()
 				echo "<option value='".$game_mod['mod_cfg_id']."'>".$game_mod['mod_name']."</option>\n";
 			}
 			echo "</select>\n".
-				 "<input type='submit' name='add_mod' value='". add_mod ."' /></p>".
+				 "<input type='submit' name='add_mod' value='". get_lang("add_mod") ."' /></p>".
 				 "</form>";
 		}
 
 		echo '<h3>'.get_lang('cpu_affinity').'</h3>';
-		echo "<p class='info'>". cpu_affinity_info ."</p>\n";
+		echo "<p class='info'>". get_lang("cpu_affinity_info") ."</p>\n";
 		echo '<div id="cpu_select" class="cpu_select_div inline-block">';
 		
 		// Get the selected cores.

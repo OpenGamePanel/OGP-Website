@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,6 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 #	Open Game Panel refreshed Class
 #	Wrote by: Nirock
 #	Sample Setup:
@@ -80,7 +81,7 @@ class refreshed
 					$isUndefined = " && typeof collapsible !== 'undefined'";
 				}
 				$switch .= "if( pos == $i && status == 'online' )\n{\n".
-								"if(collapsible == 'expanded'$isUndefined){\n".
+								"if(collapsible.match('expanded')$isUndefined){\n".
 									$stopRefresh.
 								"}\nelse\n{\n".
 									$load.
@@ -91,7 +92,7 @@ class refreshed
 			return	"$.ajaxSetup({ cache: false });\n".
 					$start_expanded.
 					"$('.collapsible').click(function(){\n".
-						"var collapsible = $(this).find('a').attr('class');\n".
+						"var collapsible = $(this).attr('class');\n".
 						"var pos = $(this).attr('data-pos');\n".
 						"var status = $(this).attr('data-status');\n".
 						$switch.

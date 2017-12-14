@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,28 +22,28 @@
  *
  */
 
-define('external_links', "Külső linkek");
-define('url', "Cím");
-define('name', "Név");
-define('add_it', "Hozzáadás");
-define('link_has_been_removed', "A(z) %s link eltávolítva.");
-define('db_backup', "Adatbázis mentés");
-define('download_db_backup', "Adatbázis mentés letöltése");
-define('restore_db_backup', "Adatbázis mentés visszaállítása");
-define('sql_file', "fájl(.sql)");
-define('change_buttons_order', "Gombok sorrendjének megváltoztatása");
-define('when', "Időpont");
-define('who', "Felhasználó");
-define('where', "IP cím");
-define('what', "Művelet");
-define('search', "Keresés");
-define('empty_logger', "Napló ürítése");
-define('ban_list', "Kitiltottak listája");
-define('no_banned_ips', "Nincsennek kitiltott IP-k");
-define('unban', "Kitiltás eltávolítása az IP-ről");
-define('client_ip', "Kliens IP");
-define('banned_until', "Kitiltva eddig");
-define('unban_selected_ips', "Kitiltás eltávolítása a kiválasztott IP-ről");
-define('view', "Megtekintés");
-define('per_page', "naplóbejegyzések oldalanként");
+define('OGP_LANG_external_links', "Külső linkek");
+define('OGP_LANG_url', "Cím");
+define('OGP_LANG_name', "Név");
+define('OGP_LANG_add_it', "Hozzáadás");
+define('OGP_LANG_link_has_been_removed', "A(z) %s link eltávolítva.");
+define('OGP_LANG_db_backup', "Adatbázis mentés");
+define('OGP_LANG_download_db_backup', "Adatbázis mentés letöltése");
+define('OGP_LANG_restore_db_backup', "Adatbázis mentés visszaállítása");
+define('OGP_LANG_sql_file', "fájl(.sql)");
+define('OGP_LANG_change_buttons_order', "Gombok sorrendjének megváltoztatása");
+define('OGP_LANG_when', "Időpont");
+define('OGP_LANG_who', "Felhasználó");
+define('OGP_LANG_where', "IP cím");
+define('OGP_LANG_what', "Művelet");
+define('OGP_LANG_search', "Keresés");
+define('OGP_LANG_empty_logger', "Napló ürítése");
+define('OGP_LANG_ban_list', "Kitiltottak listája");
+define('OGP_LANG_no_banned_ips', "Nincsennek kitiltott IP-k");
+define('OGP_LANG_unban', "Kitiltás eltávolítása az IP-ről");
+define('OGP_LANG_client_ip', "Kliens IP");
+define('OGP_LANG_banned_until', "Kitiltva eddig");
+define('OGP_LANG_unban_selected_ips', "Kitiltás eltávolítása a kiválasztott IP-ről");
+define('OGP_LANG_view', "Megtekintés");
+define('OGP_LANG_per_page', "naplóbejegyzések oldalanként");
 ?>

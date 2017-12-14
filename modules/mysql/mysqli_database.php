@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,12 +21,11 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
- 
+
 class MySQLModuleDatabase extends OGPDatabaseMySQL
 {
-	private $link;
-
-    private $table_prefix;
+	protected $link;
+	protected $table_prefix;
 	
 	public function __construct() {
         

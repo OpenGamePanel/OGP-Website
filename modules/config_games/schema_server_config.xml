@@ -115,6 +115,7 @@
       <xs:element name="var" type="xs:string" />
       <xs:element name="filepath" type="xs:string" />
       <xs:element name="options" type="xs:string" />
+      <xs:element name="occurrence" type="xs:string" minOccurs="0" />
     </xs:choice>
     <xs:attribute name="key" type="xs:string" />
   </xs:complexType>
@@ -143,6 +144,7 @@
       <xs:element name="caption" type="xs:string" maxOccurs="1" />
       <xs:element name="desc" type="xs:string" maxOccurs="1" />
       <xs:element name="options" type="xs:string" />
+      <xs:element name="access" type="xs:string" minOccurs="0" maxOccurs="1" />
     </xs:choice>
     <xs:attribute name="id" type="xs:string" />
     <xs:attribute name="key" type="xs:string" />
@@ -201,6 +203,8 @@
       <xs:element name="var" type="xs:string" />
       <xs:element name="filepath" type="xs:string" />
       <xs:element name="options" type="xs:string" />
+      <xs:element name="occurrence" type="xs:string" minOccurs="0" />
+      <xs:element name="access" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="desc" type="xs:string" maxOccurs="1" />
     </xs:choice>
     <xs:attribute name="id" type="xs:string" />
@@ -245,6 +249,22 @@
       <xs:element name="command" type="command_type" />
     </xs:choice>
   </xs:complexType>
+
+  <!-- Type for config files module --> 
+  <xs:complexType name="files_type">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="description" type="xs:string" />
+        <xs:attribute name="options" type="nonEmptyString" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  
+  <xs:complexType name="configuration_files_type">
+    <xs:sequence>
+      <xs:element name="file" type="files_type" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
   
   <!-- The main of the template -->
   <xs:complexType name="server_config_type">
@@ -281,6 +301,7 @@
       <xs:element name="pre_start" type="nonEmptyString" minOccurs="0" />
       <xs:element name="environment_variables" type="nonEmptyString" minOccurs="0" />
       <xs:element name="lock_files" type="nonEmptyString" minOccurs="0" />
+      <xs:element name="configuration_files" type="configuration_files_type" minOccurs="0" />
     </xs:sequence>
   </xs:complexType>
 </xs:schema>

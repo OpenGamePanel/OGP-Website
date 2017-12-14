@@ -1,12 +1,9 @@
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.mod.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>
 <script type="text/javascript" src="js/modules/gamemanager.js"></script>
 <?php
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -35,11 +32,12 @@ require_once('includes/lib_remote.php');
 function renderParam($param, $last_param, $param_access_enabled, $home_id)
 {
 	global $db;
+	$isAdmin = $db->isAdmin($_SESSION['user_id']);
 	$attributesString = "";
 	foreach ($param->attribute as $attribute)
 		$attributesString .= $attribute['key']. "='$attribute' ";
 
-	$disabledString = ($param_access_enabled) ? "" : "disabled ";
+	$disabledString = ((($param_access_enabled) && (!property_exists($param, 'access') || $param->access != "admin")) || $isAdmin) ? "" : "disabled ";
 	
 	if (array_key_exists((string)$param['key'], $last_param))
 		$paramValue = (string)$last_param[(string)$param['key']];
@@ -60,8 +58,38 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 			$inputElementString .= "<option $selectedString $valueString>$option</option>";
 		}
 		$inputElementString .="</select>";
-	} else
-		{
+	}else if($paramType == "other_game_server_path" || $paramType == "other_game_server_path_additional"){
+		if($isAdmin){
+			$dbTypeHomesStr = "admin";
+		}else{
+			$dbTypeHomesStr = "user_and_group";
+		}
+		
+		// Get homes
+		$homes = $db->getHomesFor($dbTypeHomesStr, $_SESSION['user_id']);
+		
+		// Move current home_id home_path to the front of the array so that it is selected by default if no other option has been selected.
+		$homes = customShift($homes, "home_id", $home_id);
+		
+		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:other_game_server_path_additional}]'" . $disabledString . ">";
+		foreach($homes as $home){
+			if($home["home_path"][strlen($home["home_path"])-1] != "/"){
+				$home["home_path"] = $home["home_path"] . "/";
+			}
+			
+			if(stripos($paramValue, $home["home_path"]) !== false){
+				$selectedString = "selected='selected'";
+				$selectedHome = $home["home_path"];
+			}else{
+				$selectedString = "";
+			}
+			$inputElementString .= '<option value="' . $home["home_path"] . '" ' . $selectedString . '>' . $home["home_path"] . '</option>';
+		}
+		$inputElementString .="</select>";
+		if($paramType == "other_game_server_path_additional"){
+			$inputElementString .="<input type='text' value='" . (stripos($paramValue, $selectedHome) !== false ? substr($paramValue, strlen($selectedHome)) : (hasValue((string)$param->default) ? (string)$param->default : "")) . "' name='params[other_game_server_path_additional]' " . $disabledString .">";
+		}
+	}else{
 			if ($paramType == "checkbox_key_value") {
 				if ($paramValue) // convert the XML object to string
 					$attributesString .= "checked='checked' ";
@@ -76,7 +104,7 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 			$inputElementString = "<input $idString $nameString ".
 				"type='$paramType' value=\"".str_replace('"', "&quot;", strip_real_escape_string($paramValue))."\" ".
 				"$disabledString $attributesString/>";
-		}
+	}
 
 	echo "<tr><td class='right'><label for='".clean_id_string($param['key'])."'>".$param['key'].
 		":</label></td><td class='left'>$inputElementString<label for='".clean_id_string($param['key'])."'>";
@@ -105,10 +133,10 @@ function get_sync_name($server_xml)
 		$sync_name = $server_xml->gameq_query_name;
 		if($sync_name == "minecraft")
 		{
-			if($server_xml->game_name == "Minecraft Tekkit")
-				$sync_name = "tekkit";
-			elseif($server_xml->game_name == "Minecraft Bukkit")
+			if($server_xml->game_name == "Bukkit")
 				$sync_name = "bukkit";
+			elseif($server_xml->game_name == "Tekkit")
+				$sync_name = "tekkit";
 		}
 	}
 	elseif( isset($server_xml->protocol) )
@@ -120,7 +148,7 @@ function get_sync_name($server_xml)
 
 function exec_ogp_module() {
 	global $db, $settings, $loggedInUserInfo;
-	echo "<h2>". game_monitor ."</h2>";
+	echo "<h2>". get_lang("game_monitor") ."</h2>";
 	$refresh = new refreshed();
 	set_time_limit(0);
 	$stats_servers_online = 0;
@@ -130,6 +158,10 @@ function exec_ogp_module() {
 	
 	$home_page = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
 	$home_limit = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+	$home_cfg_id = (isset($_GET['home_cfg_id']) && (int)$_GET['home_cfg_id'] > 0) ? (int)$_GET['home_cfg_id'] : false;
+	
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
+	
 	
 	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
 		$home_limit = $loggedInUserInfo["users_page_limit"];
@@ -138,36 +170,47 @@ function exec_ogp_module() {
 	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
 	
 	if ( $isAdmin )
-		{	
+		{
+			$show_games_type = $db->getHomesFor('admin', $_SESSION['user_id']);
 			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
 				$server_homes = $db->getHomesFor('admin', $_SESSION['user_id']);
 			else
-				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit);
+				$server_homes = $db->getHomesFor_limit('admin', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id,$search_field);
 	
 		}
 		else
 		{
+			$show_games_type = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 			if(isset($_GET['home_id']) OR isset($_GET['home_id-mod_id-ip-port']))          
 				$server_homes = $db->getHomesFor('user_and_group', $_SESSION['user_id']);
 			else			
-				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit);
+				$server_homes = $db->getHomesFor_limit('user_and_group', $_SESSION['user_id'],$home_page,$home_limit,$home_cfg_id,$search_field);
 		}
 
 	if( $server_homes === FALSE )
 	{
 		// If there are no games, then there can not be any mods either.
-		print_failure( no_game_homes_assigned );
+
+		if (!empty($search_field)) {
+			print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
+		} else {
+			print_failure(get_lang('no_game_homes_assigned'));
+		}
+
 		if ( $isAdmin )
 		{
 			echo "<p><a href='?m=user_games&amp;p=assign&amp;user_id=$_SESSION[user_id]'>".
-				 assign_game_homes ."</a></p>";
+				 get_lang("assign_game_homes") ."</a></p>";
 		}
 		return;
 	}
 	?>
-		<form onsubmit="event.preventDefault();" style="float:right;">
+		<form action="home.php" style="float:right;">
 			<b><?php print_lang('search'); ?>:</b>
-			<input type="text" id="search">
+			<input type ="hidden" name="m" value="gamemanager" />
+			<input type ="hidden" name="p" value="game_monitor" />
+			<input name="search" type="text" id="search" value="<?php if(hasValue($search_field)){ echo $search_field; } ?>" />
+			<input type="submit" value="<?php echo get_lang('search'); ?>" />
 		</form>
 	<?php
 	foreach($_POST as $key => $value)
@@ -186,7 +229,7 @@ function exec_ogp_module() {
 	if ( isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] ==  game_type  )
 		unset( $_GET['home_cfg_id'] );
 
-	create_home_selector_game_type($_GET['m'], $_GET['p'], $server_homes);
+	create_home_selector_game_type($_GET['m'], $_GET['p'], $show_games_type);
 
 	if (!isset($_GET['home_id-mod_id-ip-port']) and !isset($_GET['home_id']) and !isset($_GET['home_cfg_id'])) 
 	{
@@ -214,17 +257,22 @@ function exec_ogp_module() {
 		</span>
 	<?php
 	}
-
-	echo "<table id='servermonitor' class='tablesorter'>".
+	
+	if($settings["show_server_id_game_monitor"]){
+		echo "<p class='serverIdToggle' showtext='" . get_lang('show_server_id') . "' hidetext='" . get_lang('hide_server_id') . "'>" . get_lang('show_server_id') . "</p>";
+	}
+	
+	echo "<table id='servermonitor' class='tablesorter' data-sortlist='[[0,0],[3,1]]'>".
 		 "<thead>".
 		 "<tr>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
 		 "\t<th style='width:16px;background-position: center;'></th>".
-		 "\t<th>" . server_name . "</th>".
-		 "\t<th>" . address . "</th>".
-		 "\t<th>" . owner . "</th>".
-		 "\t<th>".
-		 "\t\t" . operations . "".
+		 "\t<th class=\"hide serverId\">" . get_lang("server_id") . "</th>".
+		 "\t<th>" . get_lang("server_name") . "</th>".
+		 "\t<th>" . get_lang("address") . "</th>".
+		 "\t<th>" . get_lang("owner") . "</th>".
+		 "\t<th class='sorter-false'>".
+		 "\t\t" . get_lang("operations") . "".
 		 "\t\t<img style='border:0;height:15px;' id='action-stop' src='" . check_theme_image("images/stop.png") . "'/>".
 		 "\t\t<img style='border:0;height:15px;' id='action-restart' src='" . check_theme_image("images/restart.png") . "'/>".
 		 "\t\t<img style='border:0;height:15px;' id='action-start' src='" . check_theme_image("images/start.png") . "'/>".
@@ -297,29 +345,29 @@ function exec_ogp_module() {
 				$expiration_dates .= assign_expiration_date . " (" . group . "): " . date('d/m/Y H:i:s', $server_home["user_group_expiration_date"]);
 			
 			$get_size = "<a class='monitorbutton size' data-home_id='".$server_home["home_id"]."'>
-				<img src='" . check_theme_image("images/file_size.png") . "' title='". get_size ."'>
-				<span>". get_size ."</span>
+				<img src='" . check_theme_image("images/file_size.png") . "' title='". get_lang("get_size") ."'>
+				<span>". get_lang("get_size") ."</span>
 			</a>";
 
 			$manager = "<a class='monitorbutton' href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>
-				<img src='" . check_theme_image("images/edit.png") . "' title='". edit ."'>
-				<span>". edit ."</span>
+				<img src='" . check_theme_image("images/edit.png") . "' title='". get_lang("edit") ."'>
+				<span>". get_lang("edit") ."</span>
 			</a>";
 
 			// Only show the filemanager link when the litefm is installed.
 			if ( preg_match("/f/",$server_home['access_rights']) > 0 && $litefm_installed )
 			{
 				$lite_fm = "<a class='monitorbutton' href='?m=litefm&amp;home_id=".$server_home['home_id']."'>
-					<img src='" . check_theme_image("images/txt.png") . "' title='". file_manager ."'>
-					<span>". file_manager ."</span>
+					<img src='" . check_theme_image("images/filemanager.png") . "' title='". get_lang("file_manager") ."'>
+					<span>". get_lang("file_manager") ."</span>
 				</a>";
 			}
 			
 			if ( preg_match("/t/",$server_home['access_rights']) > 0 && $ftp_installed )
 			{
 				$ftp = "<a class='monitorbutton' href='?m=ftp&amp;home_id=".$server_home['home_id']."'>
-                            <img src='" . check_theme_image("images/ftp.png") . "' title='". ftp ."'>
-							<span>". ftp ."</span>
+                            <img src='" . check_theme_image("images/ftp.png") . "' title='". get_lang("ftp") ."'>
+							<span>". get_lang("ftp") ."</span>
 						</a>";
 			}
 			if ( $addonsmanager_installed )
@@ -330,8 +378,8 @@ function exec_ogp_module() {
 					$addonsmanager = "<a class='monitorbutton' href='?m=addonsmanager&amp;p=user_addons&amp;home_id=".
                                                                          $server_home['home_id']."&amp;mod_id=".$server_home['mod_id'].
                                                                          "&amp;ip=".$server_home['ip']."&amp;port=".$server_home['port']."'>
-                	                        <img src='" . check_theme_image("modules/administration/images/addons_manager.png") . "' title='". addons ."'>
-        	                                <span>". addons ." (".$addons_qty.")</span>
+                	                        <img src='" . check_theme_image("modules/administration/images/addons_manager.png") . "' title='". get_lang("addons") ."'>
+        	                                <span>". get_lang("addons") ." (".$addons_qty.")</span>
 	                                </a>";
 				}
 			}
@@ -342,20 +390,18 @@ function exec_ogp_module() {
 
 				if(!empty($mysql_dbs))
 					$mysql = "<a class='monitorbutton' href='?m=mysql&p=user_db&home_id=".$server_home['home_id']."'>
-                	                        <img src='" . check_theme_image("modules/administration/images/mysql_admin.png") . "' title='". mysql_databases ."'>
-        	                                <span>". mysql_databases ."</span>
+                	                        <img src='" . check_theme_image("modules/administration/images/mysql_admin.png") . "' title='". get_lang("mysql_databases") ."'>
+        	                                <span>". get_lang("mysql_databases") ."</span>
 	                                </a>";
 			}
 
 			if( !isset($server_home['mod_id']) )
 			{
-				$ministart = fail_no_mods;
+				$ministart = get_lang("fail_no_mods");
 
 				if ( $isAdmin )
 				{
-					$ministart .= "<a class='monitorbutton' href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>
-        	                                <span>" . configure_mods . "</span>
-	                                </a>";
+					$ministart .= " <a href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>" . get_lang("configure_mods") . "</a>";
 				}
 			}
 
@@ -380,41 +426,58 @@ function exec_ogp_module() {
 						if( $master_server_home_id != FALSE AND $master_server_home_id != $server_home['home_id']  )
 						{
 							$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=update&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;master_server_home_id=".$master_server_home_id."&amp;update=update'>
-								<img src='" . check_theme_image("images/master.png") . "' title='". update_from_local_master_server ."'>
-								<span>". update_from_local_master_server ."</span>
+								<img src='" . check_theme_image("images/master.png") . "' title='". get_lang("update_from_local_master_server") ."'>
+								<span>". get_lang("update_from_local_master_server") ."</span>
 							</a>";
 						}
 
 						$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=update&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
-							<img src='" . check_theme_image("images/steam.png") ."' title='". install_update_steam ."'>
-							<span>". install_update_steam ."</span>
+							<img src='" . check_theme_image("images/steam.png") ."' title='". get_lang("install_update_steam") ."'>
+							<span>". get_lang("install_update_steam") ."</span>
 						</a>";
-						$manager .= "<a class='monitorbutton getAutoUpdateLink' copyfail='" . auto_update_copy_me_fail . "' copysuccess='" . auto_update_copy_me_success . "' autoupdatetext='" . auto_update_title_popup . "' autoupdatehtml='" . htmlentities(auto_update_popup_html) . "' copyme='" . auto_update_copy_me . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?action=autoUpdateSteamHome&homeid=" . $server_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>
-							<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_steam_autoupdate_api_link . "'>
-							<span>". get_steam_autoupdate_api_link . "</span>
+						$manager .= "<a class='monitorbutton getAutoUpdateLink' copyfail='" . get_lang("auto_update_copy_me_fail") . "' copysuccess='" . get_lang("auto_update_copy_me_success") . "' autoupdatetext='" . get_lang("auto_update_title_popup") . "' autoupdatehtml='" . htmlentities(get_lang("auto_update_popup_html")) . "' copyme='" . get_lang("auto_update_copy_me") . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?action=autoUpdateSteamHome&homeid=" . $server_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>
+							<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_lang("get_steam_autoupdate_api_link") . "'>
+							<span>". get_lang("get_steam_autoupdate_api_link") . "</span>
 						</a>";
 					}
 					// In other cases manual update is provided.
 					else
 					{
 						$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=update_manual&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
-							<img src='" . check_theme_image("images/install.png") . "' title='". install_update_manual ."'>
-							<span>". install_update_manual ."</span>
+							<img src='" . check_theme_image("images/install.png") . "' title='". get_lang("install_update_manual") ."'>
+							<span>". get_lang("install_update_manual") ."</span>
 						</a>";
 
 
 						$sync_name = get_sync_name($server_xml);
-						$sync_list = @file("modules/gamemanager/rsync.list", FILE_IGNORE_NEW_LINES);
+						$sync_list = @file("modules/gamemanager/rsync.list", get_lang("FILE_IGNORE_NEW_LINES"));
 						if ( in_array($sync_name, $sync_list) OR ($master_server_home_id != FALSE and $master_server_home_id != $server_home['home_id']) )
 						{
 							$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=rsync_install&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
 								<img src='" . check_theme_image("images/rsync.png") . "' title='". rsync_install ."'>
-								<span>". rsync_install ."</span>
+								<span>". get_lang("rsync_install") ."</span>
 							</a>";
 
 						}
 					}
 				}
+
+				if ($db->isModuleInstalled("editconfigfiles") && !empty($server_xml->configuration_files)) {
+					$manager .= "<a href=\"?m=editconfigfiles&home_id=".(int)$server_home['home_id']."\" class=\"monitorbutton\">
+									<img src='" . check_theme_image("images/editconfig.png") . "' title='". get_lang("edit_configuration_files") ."'>
+									<span>". get_lang("edit_configuration_files") ."</span>
+					</a>";
+				}
+
+				if (preg_match("/c/",$server_home['access_rights'])){
+					if( isset($server_xml->custom_fields) ) {
+						$manager .= "<a href=\"?m=user_games&p=custom_fields&home_id=".$server_home['home_id']."\" class=\"monitorbutton\">
+										<img src='" . check_theme_image("images/customfields.png") . "' title='". get_lang("custom_fields") ."'>
+										<span>". get_lang("custom_fields") ."</span>
+									</a>";
+					}
+				}
+
 			}
 
 			if( $isAdmin )
@@ -423,8 +486,8 @@ function exec_ogp_module() {
 					 ( $server_xml->gameq_query_name and $server_xml->gameq_query_name == 'minecraft' ) )
 				{
 					$manager .= "<a class='monitorbutton' href='home.php?m=gamemanager&amp;p=rcon_presets&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."'>
-						<img src='" . check_theme_image("images/rcon_preset.png") . "' title='".rcon_presets."'>
-						<span>".rcon_presets."</span>
+						<img src='" . check_theme_image("images/rcon_preset.png") . "' title='".get_lang("rcon_presets")."'>
+						<span>".get_lang("rcon_presets")."</span>
 					</a>";
 
 				}
@@ -436,6 +499,8 @@ function exec_ogp_module() {
 				$query_name = $server_xml->gameq_query_name;
 			elseif ($server_xml->protocol == "lgsl")
 				$query_name = $server_xml->lgsl_query_name;
+			elseif ($server_xml->protocol == "teamspeak3")
+				$query_name = 'ts3';
 			else
 				$query_name = $mod;
 			
@@ -461,7 +526,7 @@ function exec_ogp_module() {
 					$groupsus .= $groupu['users_login']."<br>";
 				}
 			}
-			$groupsus = $groupsus != "" ? $groupsus = "<b>". group_users ."</b><br>".$groupsus : "";
+			$groupsus = $groupsus != "" ? $groupsus = "<b>". get_lang("group_users") ."</b><br>".$groupsus : "";
 
 			$owners = $db->getUsersByHomeId($server_home['home_id']);
 			$other_owners = "";
@@ -477,8 +542,8 @@ function exec_ogp_module() {
 			$other_owners = $other_owners != "" ? $other_owners = "<b>". assigned_to ."</b><br>".$other_owners : "";
 
 			$view_log = "<a class='monitorbutton' href='?m=gamemanager&amp;p=log&amp;home_id-mod_id-ip-port=".$server_home['home_id']."-".$server_home['mod_id']."-".$server_home['ip']."-".$server_home['port']."'>
-				<img src='" . check_theme_image("images/log.png") . "' title='". view_log ."'>
-				<span>". view_log ."</span>
+				<img src='" . check_theme_image("images/log.png") . "' title='". get_lang("view_log") ."'>
+				<span>". get_lang("view_log") ."</span>
 			</a>";
 
 
@@ -493,12 +558,15 @@ function exec_ogp_module() {
 
 			if( $host_stat === 1)
 			{
-				if ( $server_home['use_nat'] == 1 )
+				if ( $server_home['use_nat'] == 1 ){
 					$query_ip = $server_home['agent_ip'];
-				else
+				}else{
 					$query_ip = $server_home['ip'];
+				}
 
+				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$query_ip);
 				$address = $query_ip . ":" . $server_home['port'];
+
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;
 				$update_in_progress = $remote->is_screen_running(OGP_SCREEN_TYPE_UPDATE,$server_home['home_id']) === 1;
 				if($screen_running)
@@ -533,11 +601,11 @@ function exec_ogp_module() {
 										 '<input id="action-stop" class="action-stop'.$server_home['home_id'].'" name="action-'.$server_home['home_id'].'" value="stop-'.
 										 $server_home['home_id'].'-'.$server_home['mod_id'].'-'.$server_home['ip'].'-'.$server_home['port'].
 										 '" type="radio"><img style="border:0;height:15px;" src="'  . check_theme_image("images/stop.png") . '"/></div><div>&nbsp;'.
-										  stop_server .'</div></div><div id="server_icon" class="action-restart'.$server_home['home_id'].'" ><div>'.
+										  get_lang("stop_server") .'</div></div><div id="server_icon" class="action-restart'.$server_home['home_id'].'" ><div>'.
 										 '<input id="action-restart" class="action-restart'.$server_home['home_id'].'" name="action-'.$server_home['home_id'].'" value="restart-'.
 										 $server_home['home_id'].'-'.$server_home['mod_id'].'-'.$server_home['ip'].'-'.$server_home['port'].
 										 '" type="radio"><img style="border:0;height:15px;" src="' . check_theme_image("images/restart.png") . '"/></div><div>&nbsp;'.
-										  restart_server .'</div></div>';
+										  get_lang("restart_server") .'</div></div>';
 					}
 					$stats_servers_online++;
 				}
@@ -547,14 +615,14 @@ function exec_ogp_module() {
 					if ($server_home['last_param'] != "" and isset($server_home['ip']) and isset($server_home['mod_id']))
 					{
 						if($update_in_progress)
-							$ctrlChkBoxes .= '<div id="server_icon" class="action-start'.$server_home['home_id'].'" >&nbsp;'. update_in_progress .'</div>';
+							$ctrlChkBoxes .= '<div id="server_icon" class="action-start'.$server_home['home_id'].'" >&nbsp;'. get_lang("update_in_progress") .'</div>';
 						else
 							$ctrlChkBoxes .= '<div id="server_icon" class="action-start'.$server_home['home_id'].'" >
 											 <div>
 											 <input id="action-start" class="action-start'.$server_home['home_id'].'" name="action-'.$server_home['home_id'].'" value="start-'.
 											 $server_home['home_id'].'-'.$server_home['mod_id'].'-'.$server_home['ip'].'-'.$server_home['port'].
 											 '" type="radio"><img style="border:0;height:15px;" src="' . check_theme_image("images/start.png") . '"/></div><div>&nbsp;'.
-											  start_server .'</div></div>';
+											  get_lang("start_server") .'</div></div>';
 					}
 					$order = 3;
 					if(isset($server_home['mod_id']))
@@ -565,7 +633,7 @@ function exec_ogp_module() {
 						ob_end_clean();
 					}
 					if($update_in_progress)
-						$offlineT = '<div id="server_icon" class="action-start'.$server_home['home_id'].'" >&nbsp;'. update_in_progress .'</div>';
+						$offlineT = '<div id="server_icon" class="action-start'.$server_home['home_id'].'" >&nbsp;'. get_lang("update_in_progress") .'</div>';
 					else
 						$offlineT = $ministart;
 				}
@@ -579,11 +647,12 @@ function exec_ogp_module() {
 
 			// Template
 			@$first = "<tr class='maintr$trclass'>";
-				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span><a></a>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
-				$first .= "<td>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
-				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><a></a><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
-				$first .= "<td>" . $address . "</td>";
-				$first .= "<td class='owner' >" . $user['users_login'] . "</td>";
+				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
+				$first .= "<td class='collapsible'>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
+				$first .= "<td class='collapsible serverId hide'>" . $server_home["home_id"] . "</td>";
+				$first .= "<td class='collapsible' data-status='$status' data-pos='$pos'><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
+				$first .= "<td class='collapsible'>" . $address . "</td>";
+				$first .= "<td class='owner collapsible'>" . $user['users_login'] . "</td>";
 				$first .= "<td style='width:328px;padding:0px;'>$ctrlChkBoxes</td>";
 			$first .= "</tr>";
 
@@ -603,12 +672,12 @@ function exec_ogp_module() {
 
 	echo "<tfoot style='border:1px solid grey;'>
 			<tr>
-			  <td colspan='6' >
+			  <td colspan='7' >
 				<div class='bloc' >
-				<img src='" . check_theme_image("images/magnifglass.png") . "' /> ". statistics .": $stats_servers_online/$stats_servers ". servers ."\n</div>
+				<img src='" . check_theme_image("images/magnifglass.png") . "' /> ". get_lang("statistics") .": $stats_servers_online/$stats_servers ". get_lang("servers") ."\n</div>
 				<div class='right bloc' >
-				  <label>". execute_selected_server_operations ."</label>
-				  <input id='execute_operations' type='submit' value='". execute_operations ."' >\n
+				  <label>". get_lang("execute_selected_server_operations") ."</label>
+				  <input id='execute_operations' type='submit' value='". get_lang("execute_operations") ."' >\n
 				</div>
 			  </td>
 			</tr>
@@ -617,20 +686,27 @@ function exec_ogp_module() {
 	echo "</table>";
 
 	if ($isAdmin) {	
-		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id']);
+		$homes_count = $db->getHomesFor_count('admin', $_SESSION['user_id'], $home_cfg_id,$search_field);
 	} else {
 		$isSubUser = $db->isSubUser($_SESSION['user_id']);
 
 		if ($isSubUser) {
-			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id']);
+			$homes_count = $db->getHomesFor_count('subuser',$_SESSION['user_id'], $home_cfg_id,$search_field);
 		} else {
-			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id']);
+			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id'], $home_cfg_id,$search_field);
 		}	
 	}
 
 
-	$uri = '?m=gamemanager&p=game_monitor&limit='.$home_limit.'&page=';
-	echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri, 3, 'serverMonitor');
+	if(isset($_GET['home_cfg_id']) && !empty($_GET['home_cfg_id'])){
+	$uri = '?m=gamemanager&p=game_monitor&home_cfg_id='.$_GET['home_cfg_id'].''.($search_field ? "&search=$search_field" : "").'&limit='.$home_limit.'&page=';
+	}
+	else{
+	$uri = '?m=gamemanager&p=game_monitor'.($search_field ? "&search=$search_field" : "").'&limit='.$home_limit.'&page=';	
+	}
+	
+	if(!isset($_GET['home_id-mod_id-ip-port']) && !isset($_GET['home_id']))
+	{echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri, 3, 'serverMonitor');}
 
 	echo "<div id=translation data-title='". upload_map_image .
 		 "' data-upload_button='". upload_image .

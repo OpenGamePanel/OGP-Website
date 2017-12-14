@@ -3,29 +3,34 @@
   <protocol>teamspeak3</protocol>
   <game_name>TeamSpeak 3</game_name>
   <server_exec_name>ts3server.exe</server_exec_name>
-  <cli_template>voice_ip=%IP% %PORT% query_ip=%IP% %QUERY_PORT_TS3% filetransfer_ip=%IP% %FILETRANS_PORT_TS3% %CONTROL_PASSWORD% logappend=1</cli_template>
+  <cli_template>voice_ip=%IP% %PORT% query_ip=%IP% %QUERY_PORT% filetransfer_ip=%IP% %FILETRANSFER_PORT% %CONTROL_PASSWORD% %LOG%</cli_template>
   <cli_params>
-	<cli_param id="IP" cli_string="" />  
+    <cli_param id="IP" cli_string="" />
     <cli_param id="PORT" cli_string="default_voice_port=" />
     <cli_param id="CONTROL_PASSWORD" cli_string="serveradmin_password=" />
   </cli_params>
   <reserve_ports>
-    <port type="add" id="QUERY_PORT_TS3" cli_string="query_port=">24</port>
-    <port type="add" id="FILETRANS_PORT_TS3" cli_string="filetransfer_port=">124</port>
+    <port type="add" id="QUERY_PORT" cli_string="query_port=">24</port>
+    <port type="add" id="FILETRANSFER_PORT" cli_string="filetransfer_port=">20046</port>
   </reserve_ports>
   <console_log>teamspeak3-server_win32/logs/ts3server_0.log</console_log>
   <exe_location>teamspeak3-server_win32</exe_location>
   <mods>
-    <mod key="ts3">
+    <mod key="default">
       <name>None</name>
     </mod>
   </mods>
   <replace_texts>
     <text key="webhost_ip">
-      <default></default>
-      <var></var>
       <filepath>teamspeak3-server_win32/query_ip_whitelist.txt</filepath>
-      <options></options>
     </text>
   </replace_texts>
+  <server_params>
+    <param key="logappend=" type="select" id="LOG">
+      <option value="0">Disabled</option>
+      <option value="1">Enabled</option>
+      <options>ns</options>
+      <desc>The log output will be appended to the previous log file.</desc>
+    </param>
+  </server_params>
 </game_config>

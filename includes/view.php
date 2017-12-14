@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2014 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -48,14 +48,14 @@ class OGPView {
 	function menu(){}
 	
     function printView($cleared = false, $dataType = "html") {
-        global $db;
+        global $db, $OGPLangPre;
 
         if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
             $panel_settings = $db->getSettings();
         }
         
         // Our global CSS goes first so that themes can override
-        $this->header_code = '<link rel="stylesheet" href="css/global.css">';
+        $this->header_code = '<link rel="stylesheet" href="css/global.css">' . "\n";
 
         $path = "";
 
@@ -121,10 +121,18 @@ class OGPView {
 		$module = isset($_GET['m']) ? $_GET['m'] : "";
 		$subpage = isset($_GET['p']) ? $_GET['p'] : $module;
 		
-		if( file_exists( $path . MODULES . "$module/$subpage.css" ) ) 
-			$this->header_code .= "<link rel='stylesheet' href='" . $path . MODULES . "$module/$subpage.css'>";
-		elseif( file_exists( MODULES . "$module/$subpage.css" ) )
-			$this->header_code .= "<link rel='stylesheet' href='" . MODULES . "$module/$subpage.css'>";
+		$fc = array(
+			$path . MODULES . $module."/".$subpage.".css",
+			$path . MODULES . $module."/".$module.".css",
+			MODULES . $module."/".$subpage.".css",
+			MODULES . $module."/".$module.".css"
+		);
+		foreach($fc as $file_check){
+			if(file_exists($file_check)){
+				$this->header_code .= "<link rel='stylesheet' href='".$file_check."'>\n";
+				break;
+			}
+		}
 		
 		$module_name = isset($_GET['m']) ? get_lang($_GET['m']) : "";
 		$page_name = isset($_GET['p']) ? get_lang($_GET['p']) : "";
@@ -133,18 +141,36 @@ class OGPView {
 		$this->title = $title == "" ? $this->title : $this->title . " [$title]";
 		
 		// Include jQuery, jQuery UI, and our global CSS file in the header code
-		$this->header_code .= '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">';
-		$this->header_code .= '<script type="text/javascript" src="js/jquery/jquery.min.js"></script><script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>';
+		$this->header_code .= '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">' . "\n";
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/jquery.min.js"></script><script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>' . "\n";
 		
 		// Include magnific popup
-		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>';
-		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">';
+		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>' . "\n";
+		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">' . "\n";
+		
+		// Include tablesorter, table collapse, and quick search
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>' . "\n";
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>' . "\n";
+		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>' . "\n";
+		
+		// Dump defined constants to json (for language javascript)
+		$jsonStrConsts = getOGPLangConstantsJSON();
+		if($jsonStrConsts !== false){
+			$this->header_code .= '<script type="text/javascript">var langConsts = ' . $jsonStrConsts . ';' . "\n" . 'var langConstPrefix = "' . $OGPLangPre . '";</script>' . "\n";
+		}
 		
 		// Include our global JS
-		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>';
+		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
 
-		if (file_exists($path . MODULES . "$module/$subpage.js")) { 
-			$this->header_code .= '<script type="text/javascript" src="' . $path . MODULES . $module.'/'.$subpage.'.js"></script>';
+		$fc = array(
+			$path . MODULES . $module."/".$subpage.".js",
+			$path . MODULES . $module."/".$module.".js"
+		);
+		foreach($fc as $file_check){
+			if(file_exists($file_check)){
+				$this->header_code .= "<script type='text/javascript' src='".$file_check."'></script>\n";
+				break;
+			}
 		}
 		
         $buffer = ob_get_contents();
@@ -190,7 +216,7 @@ class OGPView {
         if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
             $footer .= "<div class=\"footer center\">";
             $footer .= get_lang_f('cur_theme', !empty($_SESSION['users_theme']) ? $_SESSION['users_theme'] : @$panel_settings['theme']) . " - " . $db->getNbOfQueries()." ".get_lang('queries_executed');
-            $footer .= "<br />".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved')." - <span class='versionInfo'>".get_lang('show_version')."</span><br /><div class='inline-block OGPVersionArea'><span class='version hide'>" . get_lang('version') . ":</span>&nbsp; <span class='hide versionNumber'>".@$panel_settings['ogp_version']."</span> <span class='copyVersionResult'></span></div></div>";
+            $footer .= "<br />".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved')." - <span class='versionInfo'>".get_lang('show_version')."</span><br /><div class='inline-block OGPVersionArea'><span class='version hide'>" . get_lang('version') . ":</span>&nbsp; <span class='hide versionNumber'>".@$panel_settings['ogp_version']."</span> <span class='copyVersionResult' lang='" . get_lang('copied') . "'></span></div></div>";
         }
         else
         {

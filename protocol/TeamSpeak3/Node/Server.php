@@ -4,7 +4,7 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: Server.php 10/11/2013 11:35:21 scp@orilla $
+ * $Id: Server.php 06/06/2016 22:27:13 scp@Svens-iMac $
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.23
+ * @version   1.1.24
  * @author    Sven 'ScP' Paulsen
  * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
  */
@@ -94,7 +94,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * Returns an array filled with TeamSpeak3_Node_Channel objects.
    *
    * @param  array $filter
-   * @return array
+   * @return array|TeamSpeak3_Node_Channel[]
    */
   public function channelList(array $filter = array())
   {
@@ -137,7 +137,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
     $cid = $this->execute("channelcreate", $properties)->toList();
     $this->channelListReset();
 
-    if(!isset($properties["client_flag_permanent"]) && !isset($properties["client_flag_semi_permanent"]))
+    if(!isset($properties["channel_flag_permanent"]) && !isset($properties["channel_flag_semi_permanent"]))
     {
       $this->getParent()->whoamiSet("client_channel_id", $cid["cid"]);
     }
@@ -501,7 +501,9 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    */
   public function channelFileInfo($cid, $cpw = "", $name = "/")
   {
-    return array_pop($this->execute("ftgetfileinfo", array("cid" => $cid, "cpw" => $cpw, "name" => $name))->toArray());
+    $info = $this->execute("ftgetfileinfo", array("cid" => $cid, "cpw" => $cpw, "name" => $name))->toArray();
+    
+    return array_pop($info);
   }
 
   /**
@@ -623,7 +625,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * Returns an array filled with TeamSpeak3_Node_Client objects.
    *
    * @param  array $filter
-   * @return array
+   * @return array|TeamSpeak3_Node_Client[]
    */
   public function clientList(array $filter = array())
   {
@@ -1021,7 +1023,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * Returns a list of server groups available.
    *
    * @param  filter $filter
-   * @return array
+   * @return array|TeamSpeak3_Node_Servergroup[]
    */
   public function serverGroupList(array $filter = array())
   {
@@ -1351,7 +1353,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * Returns a list of channel groups available.
    *
    * @param  array $filter
-   * @return array
+   * @return array|TeamSpeak3_Node_Channelgroup[]
    */
   public function channelGroupList(array $filter = array())
   {
@@ -1731,7 +1733,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
     if($this->iconIsLocal("virtualserver_icon_id") || $this["virtualserver_icon_id"] == 0) return;
 
     $download = $this->transferInitDownload(rand(0x0000, 0xFFFF), 0, $this->iconGetName("virtualserver_icon_id"));
-    $transfer = TeamSpeak3::factory("filetransfer://" . $download["host"] . ":" . $download["port"]);
+    $transfer = TeamSpeak3::factory("filetransfer://" . (strstr($download["host"], ":") !== FALSE ? "[" . $download["host"] . "]" : $download["host"]) . ":" . $download["port"]);
 
     return $transfer->download($download["ftkey"], $download["size"]);
   }
@@ -1748,7 +1750,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
     $size = strlen($data);
 
     $upload   = $this->transferInitUpload(rand(0x0000, 0xFFFF), 0, "/icon_" . $crc, $size);
-    $transfer = TeamSpeak3::factory("filetransfer://" . $upload["host"] . ":" . $upload["port"]);
+    $transfer = TeamSpeak3::factory("filetransfer://" . (strstr($upload["host"], ":") !== FALSE ? "[" . $upload["host"] . "]" : $upload["host"]) . ":" . $upload["port"]);
 
     $transfer->upload($upload["ftkey"], $upload["seekpos"], $data);
 
@@ -2411,7 +2413,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * @param  TeamSpeak3_Node_Abstract $b
    * @return integer
    */
-  protected static function sortGroupList(TeamSpeak3_Node_Abstract $a, TeamSpeak3_Node_Abstract $b)
+  public static function sortGroupList(TeamSpeak3_Node_Abstract $a, TeamSpeak3_Node_Abstract $b)
   {
     if(get_class($a) != get_class($b))
     {

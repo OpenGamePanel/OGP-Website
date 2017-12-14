@@ -1,0 +1,39 @@
+<game_config>
+  <game_key>lifeisfeudal_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>lifeisfeudal</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Life is Feudal</game_name>
+  <server_exec_name>ddctd_cm_yo_server.exe</server_exec_name>
+  <cli_template>-worldID 1</cli_template>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>320850</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>name</default>
+      <filepath>config/world_1.xml</filepath>
+      <options>tags</options>
+    </text>
+    <text key="control_password">
+      <default>adminPassword</default>
+      <filepath>config/world_1.xml</filepath>
+      <options>tags</options>
+    </text>
+    <text key="port">
+      <default>port</default>
+      <filepath>config/world_1.xml</filepath>
+      <options>tags</options>
+    </text>
+    <text key="max_players">
+      <default>maxPlayers</default>
+      <filepath>config/world_1.xml</filepath>
+      <options>tags</options>
+    </text>
+  </replace_texts>
+</game_config>

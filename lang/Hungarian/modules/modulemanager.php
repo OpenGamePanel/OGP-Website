@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,34 +22,34 @@
  *
  */
 
-define('module_id', "Modul azonosító");
-define('module_name', "Modul név");
-define('module_folder', "Modul mappa");
-define('module_version', "Modul verzió");
-define('db_version', "Adatbázis verzió");
-define('modules_available_for_install', "Egyedi modulok amelyek elérhetőek telepítéshez:");
-define('install', "Telepítés");
-define('uninstall', "Eltávolítás");
-define('modules', "Modulok");
-define('update_modules', "Modulok frissítése");
-define('no_installed_modules', "Nem találhatóak telepített modulok.");
-define('not_complete', "A telepítés/eltávolítás funkció nincs befejezve és előfordulhat, hogy nem működik megfelelően. FIGYELEM: adatok veszthetnek el az OGP adatbázisából!");
-define('core_mods_installed', "Telepített alap modulok:");
-define('custom_mods_installed', "Telepített egyedi modulok:");
-define('installing_module', "Modul telepítése '%s'");
-define('successfully_installed_module', "A(z) %s modul sikeresen telepítve.");
-define('failed_to_install_module', "A(z) %s modul telepítse nem sikerült.");
-define('adding_module', "Az úgynevezett '%s' modul hozzáadása.");
-define('module_already_installed', "A(z) úgynevezett '%s' modul már telepítve van.");
-define('uninstalling_module', "A(z) '%s' modul eltávolítása");
-define('successfully_uninstalled_module', "A(z) %s modul sikeresen eltávolítva.");
-define('failed_to_uninstall_module', "A(z) %s modul eltávolítása sikertelen.");
-define('module_file_missing', "directory is missing the module.php file.");
-define('module_file_missing_info', "is missing the required information.");
-define('query_failed', "Nem sikerült végrehajtani a lekérdezést");
-define('query_failed_2', "az adatbázisba.");
-define('failed_del_db', "Nem sikerült törölni a modult az adatbázisból.");
-define('updated_module', "Frissített modul: '%s'.");
-define('updating_modules', "Modulok frissítése");
-define('updating_finished', "Frissítés befejezve");
+define('OGP_LANG_module_id', "Modul azonosító");
+define('OGP_LANG_module_name', "Modul név");
+define('OGP_LANG_module_folder', "Modul mappa");
+define('OGP_LANG_module_version', "Modul verzió");
+define('OGP_LANG_db_version', "Adatbázis verzió");
+define('OGP_LANG_modules_available_for_install', "Egyedi modulok amelyek elérhetőek telepítéshez:");
+define('OGP_LANG_install', "Telepítés");
+define('OGP_LANG_uninstall', "Eltávolítás");
+define('OGP_LANG_modules', "Modulok");
+define('OGP_LANG_update_modules', "Modulok frissítése");
+define('OGP_LANG_no_installed_modules', "Nem találhatóak telepített modulok.");
+define('OGP_LANG_not_complete', "A telepítés/eltávolítás funkció nincs befejezve és előfordulhat, hogy nem működik megfelelően. FIGYELEM: adatok veszthetnek el az OGP adatbázisából!");
+define('OGP_LANG_core_mods_installed', "Telepített alap modulok:");
+define('OGP_LANG_custom_mods_installed', "Telepített egyedi modulok:");
+define('OGP_LANG_installing_module', "Modul telepítése '%s'");
+define('OGP_LANG_successfully_installed_module', "A(z) %s modul sikeresen telepítve.");
+define('OGP_LANG_failed_to_install_module', "A(z) %s modul telepítse nem sikerült.");
+define('OGP_LANG_adding_module', "Az úgynevezett '%s' modul hozzáadása.");
+define('OGP_LANG_module_already_installed', "A(z) úgynevezett '%s' modul már telepítve van.");
+define('OGP_LANG_uninstalling_module', "A(z) '%s' modul eltávolítása");
+define('OGP_LANG_successfully_uninstalled_module', "A(z) %s modul sikeresen eltávolítva.");
+define('OGP_LANG_failed_to_uninstall_module', "A(z) %s modul eltávolítása sikertelen.");
+define('OGP_LANG_module_file_missing', "könyvtárban hiányzik a module.php fájl.");
+define('OGP_LANG_module_file_missing_info', "hiányzik a szükséges információ.");
+define('OGP_LANG_query_failed', "Nem sikerült végrehajtani a lekérdezést");
+define('OGP_LANG_query_failed_2', "az adatbázisba.");
+define('OGP_LANG_failed_del_db', "Nem sikerült törölni a modult az adatbázisból.");
+define('OGP_LANG_updated_module', "Frissített modul: '%s'.");
+define('OGP_LANG_updating_modules', "Modulok frissítése");
+define('OGP_LANG_updating_finished', "Frissítés befejezve");
 ?>

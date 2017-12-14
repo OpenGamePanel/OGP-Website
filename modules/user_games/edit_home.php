@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -41,9 +41,12 @@ function exec_ogp_module()
 	$submit = isset($_REQUEST['submit']) ? $_REQUEST['submit'] : "";
 
 	$home_info = $db->getGameHomeWithoutMods($home_id);
+	$servers_with_same_path = $db->getGameServersWithSamePath($home_info['remote_server_id'], $home_info['home_path']); 
+	$servers_with_same_path = (is_array($servers_with_same_path) ? count($servers_with_same_path) : 0);
+	
 	$home_id = $home_info['home_id'];
 	$enabled_mods = $db->getHomeMods($home_id);
-		
+
 	if( $isAdmin and isset( $_POST['change_home_cfg_id'] ) )
 	{
 		if( !empty($enabled_mods) )
@@ -57,8 +60,9 @@ function exec_ogp_module()
 		$new_home_cfg_id = $_POST['home_cfg_id'];
 		if($db->updateHomeCfgId($home_id, $new_home_cfg_id))
 		{
-			echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-			$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_game_type .":old home_cfg_id:$home_cfg_id, new home_cfg_id:$new_home_cfg_id");
+			$json_message = array('result' => 'success', 'info' => get_lang("successfully_changed_game_server"));
+			echo json_encode($json_message);			
+			$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("change_game_type") .":old home_cfg_id:$home_cfg_id, new home_cfg_id:$new_home_cfg_id");
 		}
 		else
 			echo json_encode(array('result' => 'failure', 'info' => 'Error while updating game type.'));
@@ -75,8 +79,8 @@ function exec_ogp_module()
 		$server_name = strip_tags(strip_real_escape_string($_POST['server_name']));
 		if ( $db->changeHomeName($home_id, $server_name) === TRUE )
 		{
-			echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-			$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". game_server_name .":$server_name");
+			echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_changed_game_server")));
+			$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("game_server_name") .":$server_name");
 		}
 		else
 			echo json_encode(array('result' => 'failure', 'info' => 'Name update failed.'));
@@ -97,11 +101,17 @@ function exec_ogp_module()
 		
 		if ( $db->changeHomeControlPassword($home_id, $control_password) === TRUE )
 		{
-			echo json_encode(array('result' => 'success', 'info' => control_password_updated_successfully));
-			$db->logger( control_password_updated_successfully ." HOME ID:$home_id - ". game_control_password .":$control_password");
+			// Update cronjob passwords in the URLs
+			if(file_exists('modules/cron/shared_cron_functions.php')){
+				require_once('modules/cron/shared_cron_functions.php');
+				updateCronJobPasswords($db, $remote, $home_id);
+			}
+			
+			echo json_encode(array('result' => 'success', 'info' => get_lang("control_password_updated_successfully")));
+			$db->logger( get_lang("control_password_updated_successfully") ." HOME ID:$home_id - ". get_lang("game_control_password") .":$control_password");
 		}
 		else
-			echo json_encode(array('result' => 'failure', 'info' => control_password_update_failed));
+			echo json_encode(array('result' => 'failure', 'info' => get_lang("control_password_update_failed")));
 		return;
 	}
 	elseif( isset($_REQUEST['change_ftp_login']) && preg_match("/t/",$game_home['access_rights']) > 0 )
@@ -127,10 +137,17 @@ function exec_ogp_module()
 					return;
 				}
 				
+				// Validation
+				
 				// Is the same user old and new?
 				if($old_login == $post_ftp_login)
 				{
 					echo json_encode(array('result' => 'success', 'info' => ''));
+					return;
+				}
+				
+				if(strlen($post_ftp_login) > 20){
+					echo json_encode(array('result' => 'failure', 'info' => get_lang("ftp_account_username_too_long")));
 					return;
 				}
 					
@@ -174,20 +191,20 @@ function exec_ogp_module()
 					{
 						if ( $db->changeFtpLogin($home_id,$post_ftp_login) === TRUE )
 						{
-							echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-							$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". server_ftp_login .":$post_ftp_login");
+							echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_changed_game_server")));
+							$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("server_ftp_login") .":$post_ftp_login");
 						}
 					}
 					else
 					{
-						echo json_encode(array('result' => 'failure', 'info' => error_ocurred_on_remote_server .
-																				" " . ftp_login_can_not_be_changed));
+						echo json_encode(array('result' => 'failure', 'info' => get_lang("error_ocurred_on_remote_server") .
+																				" " . get_lang("ftp_login_can_not_be_changed")));
 					}
 				}
 				else
 				{
-					echo json_encode(array('result' => 'failure', 'info' => error_ocurred_on_remote_server .
-																			" " . ftp_login_can_not_be_changed));
+					echo json_encode(array('result' => 'failure', 'info' => get_lang("error_ocurred_on_remote_server") .
+																			" " . get_lang("ftp_login_can_not_be_changed")));
 				}
 			}
 		}
@@ -215,10 +232,17 @@ function exec_ogp_module()
 					return;
 				}
 				
+				// Validation
+				
 				// Is the same password old and new?
 				if($home_info['ftp_password'] == $ftp_password)
 				{
 					echo json_encode(array('result' => 'success', 'info' => ''));
+					return;
+				}
+				
+				if(strlen($ftp_password) > 20){
+					echo json_encode(array('result' => 'failure', 'info' => get_lang("ftp_account_password_too_long")));
 					return;
 				}
 				
@@ -253,13 +277,13 @@ function exec_ogp_module()
 					{
 						if($remote->ftp_mgr("useradd", $current_login, $ftp_password, $home_info['home_path']) !== 0)
 						{
-							echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-							$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". server_ftp_password .":$ftp_password");
+							echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_changed_game_server")));
+							$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("server_ftp_password") .":$ftp_password");
 						}
 						else
 						{
-							echo json_encode(array('result' => 'failure', 'info' => error_ocurred_on_remote_server .
-																				" " . ftp_password_can_not_be_changed));
+							echo json_encode(array('result' => 'failure', 'info' => get_lang("error_ocurred_on_remote_server") .
+																				" " . get_lang("ftp_password_can_not_be_changed")));
 						}
 						return;
 					}
@@ -269,20 +293,20 @@ function exec_ogp_module()
 						{
 							if ( $db->changeFtpPassword($home_id,clean_path($ftp_password)) === TRUE )
 							{
-								echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-								$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". server_ftp_password .":$ftp_password");
+								echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_changed_game_server")));
+								$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("server_ftp_password") .":$ftp_password");
 							}
 						}
 						else
 						{
-							echo json_encode(array('result' => 'failure', 'info' => error_ocurred_on_remote_server .
-																					" " . ftp_password_can_not_be_changed));
+							echo json_encode(array('result' => 'failure', 'info' => get_lang("error_ocurred_on_remote_server") .
+																					" " . get_lang("ftp_password_can_not_be_changed")));
 						}
 					}
 				}
 				else
-					echo json_encode(array('result' => 'failure', 'info' => error_ocurred_on_remote_server .
-																			" " . ftp_password_can_not_be_changed));
+					echo json_encode(array('result' => 'failure', 'info' => get_lang("error_ocurred_on_remote_server") .
+																			" " . get_lang("ftp_password_can_not_be_changed")));
 			}
 		}
 		return;
@@ -295,8 +319,8 @@ function exec_ogp_module()
 		
 		if ( $db->forceModAtAddress($ip_id, $port, $force_mod_id) )
 		{
-			echo json_encode(array('result' => 'success', 'info' => successfully_assigned_mod_to_address));
-			$db->logger( successfully_assigned_mod_to_address );
+			echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_assigned_mod_to_address")));
+			$db->logger( get_lang("successfully_assigned_mod_to_address") );
 			
 		}
 		else
@@ -308,17 +332,27 @@ function exec_ogp_module()
 		if( isset( $_REQUEST['create_ftp']) )
 		{
 			$login = isset($home_info['ftp_login']) ? $home_info['ftp_login'] : $home_id;
-			if ($remote->ftp_mgr("useradd", $login, $home_info['ftp_password'], $home_info['home_path']) === 0)
-			{
-				$result = error_ocurred_on_remote_server ." ". ftp_can_not_be_switched_on;
+			
+			$success = true;
+			if(strlen($login) > 20){
+				$result = get_lang("ftp_account_username_too_long");
 				$type = "failure";
+				$success = false;
 			}
-			else
-			{
-				$db->changeFtpStatus('enabled',$home_id);
-				$result = successfully_changed_game_server;
-				$type = "success";
-				$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_ftp_account_status .":enabled");
+			
+			if($success){
+				if ($remote->ftp_mgr("useradd", $login, $home_info['ftp_password'], $home_info['home_path']) === 0)
+				{
+					$result = get_lang("error_ocurred_on_remote_server") ." ". get_lang("ftp_can_not_be_switched_on");
+					$type = "failure";
+				}
+				else
+				{
+					$db->changeFtpStatus('enabled',$home_id);
+					$result = get_lang("successfully_changed_game_server");
+					$type = "success";
+					$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("change_ftp_account_status") .":enabled");
+				}
 			}
 		}
 		else if( isset( $_REQUEST['delete_ftp']) )
@@ -355,28 +389,28 @@ function exec_ogp_module()
 					$delete_ftp = $remote->ftp_mgr("userdel", $login);
 					if ($delete_ftp === 0)
 					{
-						$result = error_ocurred_on_remote_server ." ". ftp_can_not_be_switched_off;
+						$result = get_lang("error_ocurred_on_remote_server") ." ". get_lang("ftp_can_not_be_switched_off");
 						$type = "failure";
 					}
 					else
 					{
 						$db->changeFtpStatus('disabled',$home_id);
-						$result = successfully_changed_game_server;
+						$result = get_lang("successfully_changed_game_server");
 						$type = "success";
-						$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_ftp_account_status .":disabled");
+						$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("change_ftp_account_status") .":disabled");
 					}
 				}
 				else
 				{
 					$db->changeFtpStatus('disabled',$home_id);
-					$result = successfully_changed_game_server;
+					$result = get_lang("successfully_changed_game_server");
 					$type = "success";
-					$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_ftp_account_status .":disabled");
+					$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("change_ftp_account_status") .":disabled");
 				}
 			}
 			else
 			{
-				$result = error_ocurred_on_remote_server ." ". ftp_can_not_be_switched_off;
+				$result = get_lang("error_ocurred_on_remote_server") ." ". get_lang("ftp_can_not_be_switched_off");
 				$type = "failure";
 			}
 		}
@@ -400,8 +434,8 @@ function exec_ogp_module()
 			if ( $db->changeUserIdMain($home_id,$user_id_main) == TRUE )
 			{
 				$db->assignHomeTo("user",$user_id_main,$home_id,$old_home['access_rights']);
-				echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-				$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". change_user_id_main .":$user_id_main");
+				echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_changed_game_server")));
+				$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("change_user_id_main") .":$user_id_main");
 			}
 			else
 				echo json_encode(array('result' => 'failure', 'info' => "Unable to change main user."));
@@ -419,6 +453,20 @@ function exec_ogp_module()
 			{
 				if ( $db->changeHomePath($home_id,clean_path($home_path)) === TRUE )
 				{
+					$home_info = $db->getGameHomeWithoutMods($home_id);
+					$servers_with_same_path = $db->getGameServersWithSamePath($home_info['remote_server_id'], $home_info['home_path']); 
+					$servers_with_same_path = (is_array($servers_with_same_path) ? count($servers_with_same_path) : 0);
+					
+					$success_json = array('result' => 'success', 'info' => get_lang("successfully_changed_game_server"));
+					
+					if($servers_with_same_path > 1){
+						$success_json["warning_info"] = get_lang('other_servers_exist_with_path_please_change');
+					}
+					
+					// Create new home directory if it doesn't already exist
+					$remote->exec("mkdir -p " . clean_path($home_path));
+					
+					// If FTP is enabled, update the FTP info.
 					if($ftp_installed){
 						if ($db->IsFtpEnabled($home_id))
 						{
@@ -431,32 +479,32 @@ function exec_ogp_module()
 							
 							if (isset($create_new_ftp_account) and $create_new_ftp_account !== 0)
 							{
-								echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-								$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". home_path .":$home_path");
+								echo json_encode($success_json);
+								$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("home_path") .":$home_path");
 							}
 							else
 							{
-								echo json_encode(array('result' => 'failure', 'info' => error_ocurred_on_remote_server .
-																						" " . ftp_login_can_not_be_changed));
+								echo json_encode(array('result' => 'failure', 'info' => get_lang("error_ocurred_on_remote_server") .
+																						" " . get_lang("ftp_login_can_not_be_changed")));
 							}
 						}
 						else
 						{
-							echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-							$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". home_path .":$home_path");
+							echo json_encode($success_json);
+							$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("home_path") .":$home_path");
 						}
 					}
 					else
 					{
-						echo json_encode(array('result' => 'success', 'info' => successfully_changed_game_server));
-						$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". home_path .":$home_path");
+						echo json_encode($success_json);
+						$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("home_path") .":$home_path");
 					}
 				}
 				else
-					echo json_encode(array('result' => 'failure', 'info' => selected_path_already_in_use));
+					echo json_encode(array('result' => 'failure', 'info' => get_lang("selected_path_already_in_use")));
 			}
 			else
-				echo json_encode(array('result' => 'failure', 'info' => invalid_path));
+				echo json_encode(array('result' => 'failure', 'info' => get_lang("invalid_path")));
 			return;
 		}
 		else if( isset( $_REQUEST['master_server'] ) )
@@ -467,9 +515,9 @@ function exec_ogp_module()
 				$action = "remove";
 			if ( $db->setMasterServer($action, $home_id, $home_info['home_cfg_id'], $home_info['remote_server_id']) === TRUE )
 			{
-				$result = successfully_changed_game_server;
+				$result = get_lang("successfully_changed_game_server");
 				$type = "success";
-				$db->logger( successfully_changed_game_server ." HOME ID:$home_id - ". set_as_master_server .":$action");
+				$db->logger( get_lang("successfully_changed_game_server") ." HOME ID:$home_id - ". get_lang("set_as_master_server") .":$action");
 			}
 		}
 		
@@ -494,9 +542,9 @@ function exec_ogp_module()
 			$mod_id = $_GET['mod_id'];
 			if ( $db->delGameMod($mod_id) === TRUE )
 			{
-				$result = successfully_removed_mod;
+				$result = get_lang("successfully_removed_mod");
 				$type = "success";
-				$db->logger( successfully_removed_mod ." [MOD ID:$mod_id HOME ID:$home_id]");
+				$db->logger( get_lang("successfully_removed_mod") ." [MOD ID:$mod_id HOME ID:$home_id]");
 			}
 		}
 
@@ -550,8 +598,8 @@ function exec_ogp_module()
 
 			if ( $db->updateGameModParams($maxplayers,$cliopts,$cpus,$nice,$home_id,$mod_cfg_id) === TRUE )
 			{
-				echo json_encode(array('result' => 'success', 'info' => successfully_modified_mod));
-				$db->logger( successfully_modified_mod ." [MOD CFG ID:$mod_cfg_id HOME ID:$home_id]");
+				echo json_encode(array('result' => 'success', 'info' => get_lang("successfully_modified_mod")));
+				$db->logger( get_lang("successfully_modified_mod") ." [MOD CFG ID:$mod_cfg_id HOME ID:$home_id]");
 			}
 			else
 				echo json_encode(array('result' => 'failure', 'info' => "The mod could not be changed."));
@@ -570,16 +618,11 @@ function exec_ogp_module()
 		}
 	}
 	?>
-	<link href="js/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" media="screen" href="js/bootstrap/css/bootstrap-datetimepicker.min.css" >
-	<link rel="stylesheet" href="js/jquery/ui/themes/base/jquery.ui.all.css">
-	<script type="text/javascript" src="js/jquery/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript" src="js/jquery/ui/jquery-ui-1.10.4.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap/plugins/datetimepicker.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="js/datetimepicker/jquery.datetimepicker.min.css"/>
+	<script src="js/datetimepicker/jquery.datetimepicker.full.min.js"></script>
 	<script type="text/javascript" src="js/modules/user_games.js"></script>
 	<?php
-	echo "<h2>". editing_home_called ." \"".htmlentities($home_info['home_name'])."\"</h2><div id='result' >";
+	echo "<h2>". get_lang("editing_home_called") ." \"".htmlentities($home_info['home_name'])."\"</h2><div id='result' >";
 	if(isset($result))
 	{
 		if($type == 'success')
@@ -589,24 +632,19 @@ function exec_ogp_module()
 	}
 	echo "</div>";
 	$home_info = $db->getGameHomeWithoutMods($home_id);
-	$custom_fileds_access_enabled = preg_match("/c/",$game_home['access_rights']) > 0 ? TRUE : FALSE;
 	echo "<p>";
-	echo "<a href='?m=gamemanager&p=game_monitor&home_id=$home_id'>&lt;&lt; ". back_to_game_monitor ."</a>";
+	echo "<a href='?m=gamemanager&p=game_monitor&home_id=$home_id'>&lt;&lt; ". get_lang("back_to_game_monitor") ."</a>";
 	if ( $isAdmin )
 	{
 		echo " &nbsp; ";
-		echo "<a href='?m=user_games'>&lt;&lt; ". back_to_game_servers ."</a>";
-		$custom_fileds_access_enabled = TRUE;
+		echo "<a href='?m=user_games'>&lt;&lt; ". get_lang("back_to_game_servers") ."</a>";
 	}
-	if( isset($server_xml->custom_fields) and $custom_fileds_access_enabled )
-		echo " &nbsp; <a href='?m=user_games&p=custom_fields&home_id=".$home_id."'>". go_to_custom_fields ." &gt;&gt;</a>";
-	
 	echo "</p>";
 	echo "<table class='center' id='main_settings' >";	
 	if ( $isAdmin )
 	{
 		// Form to change game type
-		echo "<tr><td rowspan='2' class='right'>". game_type .":</td><td class='left'>";
+		echo "<tr><td rowspan='2' class='right'>". get_lang("game_type") .":</td><td class='left'>";
 		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
 		$game_cfgs = $db->getGameCfgs();
 		$host_stat = $remote->status_chk();
@@ -617,11 +655,11 @@ function exec_ogp_module()
 		echo "<select name='home_cfg_id' >";
 		echo get_game_selector($os, $game_cfgs, $home_info['home_cfg_id']);
 		echo "</select>";
-		echo "<input type='submit' name='change_home_cfg_id' value='". change_game_type ."' />";
+		echo "<input type='submit' name='change_home_cfg_id' value='". get_lang("change_game_type") ."' />";
 		echo "</form></td></tr>";
-		echo "<tr><td colspan='2' class='info'>". change_game_type_info ."</td></tr>";
+		echo "<tr><td colspan='2' class='info'>". get_lang("change_game_type_info") ."</td></tr>";
 		// Form to edit main user.
-		echo "<tr><td class='right'>". user_id_main .":</td><td class='left'>";
+		echo "<tr><td class='right'>". get_lang("user_id_main") .":</td><td class='left'>";
 		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
 		echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
 		echo "<select name='user_id_main'>";
@@ -637,84 +675,88 @@ function exec_ogp_module()
 			}
 		}
 		echo "</select><br>";
-		echo "<input type='checkbox' name='deleteoldassigns' id='deleteoldassigns' style='width:auto;' /><label for='deleteoldassigns' >". Delete_old_user_assigned_homes ."</label>";
-		echo "<input type='submit' name='change_user_id_main' value='". change_user_id_main ."' />";
+		echo "<input type='checkbox' name='deleteoldassigns' id='deleteoldassigns' style='width:auto;' /><label for='deleteoldassigns' >". get_lang("Delete_old_user_assigned_homes") ."</label>";
+		echo "<input type='submit' name='change_user_id_main' value='". get_lang("change_user_id_main") ."' />";
 		echo "</form>";
-		echo "</td></tr><tr><td colspan='2' class='info'>" . change_user_id_main_info ."</td></tr>";
+		echo "</td></tr><tr><td colspan='2' class='info'>" . get_lang("change_user_id_main_info") ."</td></tr>";
 		
 		// Form to edit game path.
-		echo "<tr><td class='right'>". home_path .":</td><td class='left'>".
+		echo "<tr><td class='right'>". get_lang("home_path") .":</td><td class='left'>".
 			 "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>".
 			 "<input type='hidden' name='home_id' value=\"$home_id\" />\n".
 			 "<input type='text' size='30' name='home_path' value=\"".str_replace('"', "&quot;", $home_info['home_path'])."\" />".
-			 "<input type='submit' name='change_home' value='". change_home ."' id='change_home_path' />".
+			 "<input type='submit' name='change_home' value='". get_lang("change_home") ."' id='change_home_path' />".
 			 "</form><button data-path=\"".str_replace('"', "&quot;", $home_info['home_path'])."\" data-home-id='".$home_id."' id='browse'>".
-			  browse ."</button></td></tr>".
-			 "<tr><td colspan='2' class='info'>". change_home_info ."</td></tr>";
+			  get_lang("browse") ."</button>";
+			  if($servers_with_same_path > 1){
+				print_failure(get_lang('other_servers_exist_with_path_please_change'), "warning");
+			  }
+		echo "</td></tr>".
+			 "<tr><td colspan='2' class='info'>". get_lang("change_home_info") ."</td></tr>";
 		
 		//Jquery path browser dialog
 		echo "<div id='dialog".
-			 "' data-select_home_path='". select_home_path .
-			 "' data-set_this_path='". set_this_path .
-			 "' data-cancel='". cancel .
+			 "' data-select_home_path='". get_lang("select_home_path") .
+			 "' data-set_this_path='". get_lang("set_this_path") .
+			 "' data-cancel='". get_lang("cancel") .
 			 "' ></div>";
 	}
 
 	// Form to edit game name
-	echo "<tr><td class='right'>". game_server_name .":</td><td class='left'>";
+	echo "<tr><td class='right'>". get_lang("game_server_name") .":</td><td class='left'>";
 	echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
 	echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
 	echo "<input type='text' size='30' name='server_name' value=\"".str_replace('"', "&quot;", htmlentities($home_info['home_name']))."\" />";
-	echo "<input type=submit name='change_name' value='". change_name ."' />";
+	echo "<input type=submit name='change_name' value='". get_lang("change_name") ."' />";
 	echo "</form></td></tr>";
-	echo "<tr><td colspan='2' class='info'>". change_name_info ."</td></tr>";
+	echo "<tr><td colspan='2' class='info'>". get_lang("change_name_info") ."</td></tr>";
 
 	// Form to edit control password
-	echo "<tr><td class='right'>". game_control_password .":</td><td class='left'>";
+	echo "<tr><td class='right'>". get_lang("game_control_password") .":</td><td class='left'>";
 	echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
 	echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
 	echo "<input type='text' size='30' name='control_password' value=\"".str_replace('"', "&quot;", $home_info['control_password'])."\" />";
-	echo "<input type='submit' name='change_control_password' value='". change_control_password ."' />";
+	echo "<input type='submit' name='change_control_password' value='". get_lang("change_control_password") ."' />";
 	echo "</form></td></tr>";
-	echo "<tr><td colspan='2' class='info'>". change_control_password_info ."</td></tr>";
+	echo "<tr><td colspan='2' class='info'>". get_lang("change_control_password_info") ."</td></tr>";
 	if ( preg_match("/t/",$game_home['access_rights']) > 0 && $ftp_installed && $db->IsFtpEnabled($home_id) )
 	{
 		// Form to edit control ftp login
 		$ftp_login = isset($home_info['ftp_login']) ? $home_info['ftp_login'] : $home_id;
-		echo "<tr><td class='right'>". server_ftp_login .":</td><td class='left'>";
+		echo "<tr><td class='right'>". get_lang("server_ftp_login") .":</td><td class='left'>";
 		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
 		echo "<input type='text' size='30' name='ftp_login' value=\"".str_replace('"', "&quot;", $ftp_login)."\" />";
-		echo "<input type='submit' name='change_ftp_login' value='". change_ftp_login ."' />";
+		echo "<input type='submit' name='change_ftp_login' value='". get_lang("change_ftp_login") ."' />";
 		echo "</form></td></tr>";
-		echo "<tr><td  colspan='2' class='info'>". change_ftp_login_info ."</td></tr>";
+		echo "<tr><td  colspan='2' class='info'>". get_lang("change_ftp_login_info") ."</td></tr>";
 		// Form to edit control ftp password
-		echo "<tr><td class='right'>". server_ftp_password .":</td><td class='left'>";
+		echo "<tr><td class='right'>". get_lang("server_ftp_password") .":</td><td class='left'>";
 		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
 		echo "<input type='text' size='30' name='ftp_password' value=\"".str_replace('"', "&quot;", $home_info['ftp_password'])."\" />";
-		echo "<input type='submit' name='change_ftp_password' value='". change_ftp_password ."' />";
+		echo "<input type='submit' name='change_ftp_password' value='". get_lang("change_ftp_password") ."' />";
 		echo "</form></td></tr>";
-		echo "<tr><td  colspan='2' class='info'>". change_ftp_password_info ."</td></tr>";
+		echo "<tr><td  colspan='2' class='info'>". get_lang("change_ftp_password_info") ."</td></tr>";
 	}
 	if ( $isAdmin && $ftp_installed )
 	{
 		// Forms to enable/disable ftp account
 		echo "<tr>";
-		echo "<td class='right'>". change_ftp_account_status .":</td>";
+		echo "<td class='right'>". get_lang("change_ftp_account_status") .":</td>";
 		echo "<td class='left'>";
 		if ( !$db->IsFtpEnabled( $home_id ) )
 		{
 			echo "<div style='display:block;float:left;' ><form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
-			echo "<input type='submit' name='create_ftp' value='". ftp_on ."' />";
+			echo "<input type='submit' name='create_ftp' value='". get_lang("ftp_on") ."' />";
 			echo "</form></div>";
 		}
 		else
 		{
 			echo "<div style='display:block;float:left;' ><form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
-			echo "<input type='submit' name='delete_ftp' value='". ftp_off ."' />";
+			echo "<input type='submit' name='delete_ftp' value='". get_lang("ftp_off") ."' />";
 			echo "</form></div>";
 		}
 		echo "</td></tr>";
-		echo "<tr><td  colspan='2' class='info'>". change_ftp_account_status_info ."</td>";
+		echo "<tr><td  colspan='2' class='info'>". get_lang("change_ftp_account_status_info") ."</td>";
 		echo "</tr>";
 	}
 	
@@ -726,25 +768,23 @@ function exec_ogp_module()
 		else
 			$checked = "";
 		// Form to enable/disable as master server for local update		
-		echo "</tr><tr><td class='right'>". master_server_for_clon_update .":</td><td class='left'>";
+		echo "</tr><tr><td class='right'>". get_lang("master_server_for_clon_update") .":</td><td class='left'>";
 		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
 		echo "<input type='checkbox' name='add' $checked />";
-		echo "<input type='submit' name='master_server' value='". set_as_master_server ."' />";
+		echo "<input type='submit' name='master_server' value='". get_lang("set_as_master_server") ."' />";
 		echo "</form></td></tr>";
-		echo "<tr><td colspan='2' class='info'>". set_as_master_server_for_local_clon_update .
+		echo "<tr><td colspan='2' class='info'>". get_lang("set_as_master_server_for_local_clon_update") .
 			 " (".get_lang_f( 'only_available_for', $server_xml->game_name, $home_info['remote_server_name']).")</td></tr>";
 		// Expiration
-		$expiration_date = $home_info['server_expiration_date'] == "X" ? "X" : date('d/m/Y H:i:s', $home_info['server_expiration_date']);
 		echo "<tr><td class='right'>".get_lang('server_expiration_date').":</td>\n".
 			 "<td class='left'><form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>".
 			 "<div id='datetimepicker' class='input-append date'>".
 			 "<input name='expiration_date' placeholder='dd/MM/yyyy hh:mm:ss' type='text' value='".$expiration_date.
 			 "' data-today='".date('d/m/Y H:i:s')."' >\n".
-			 "<span class='add-on'><i data-time-icon='icon-time' data-date-icon='icon-calendar'></i></span>".
 			 "</div>".
-			 "<input type='submit' name='set_expiration_date' value='". set_expiration_date ."' />".
+			 "<input type='submit' name='set_expiration_date' value='". get_lang("set_expiration_date") ."' />".
 			 "</form></td></tr>\n".
-			 "<tr><td  colspan='2' class='info'>". server_expiration_date_info ."</td></tr>";
+			 "<tr><td  colspan='2' class='info'>". get_lang("server_expiration_date_info") ."</td></tr>";
 	}
 	
 	echo "</table>";
@@ -757,32 +797,34 @@ function exec_ogp_module()
 
 		if ( is_array($avail_ips) && !empty($avail_ips) )
 		{
-			echo "<h3>". ips_and_ports ."</h3>";
+			echo "<h3>". get_lang("ips_and_ports") ."</h3>";
 			$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_info['home_id']) === 1;
 			if( ! $screen_running )
 			{
 				if( isset($_REQUEST['set_ip']) )
 				{
-					$ip_id = $_POST['ip'];
+					$ip_id = $db->real_escape_string($_POST['ip']);
 					$ip_row = $db->resultQuery( "SELECT ip FROM OGP_DB_PREFIXremote_server_ips WHERE ip_id=".$ip_id );
 					$ip = $ip_row['0']['ip'];
 					$port = $_POST['port'];
 					$port = (int)(trim($port));
 					$home_id = $_POST['home_id'];
 
+					$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$ip);
+
 					if ( !isPortValid($port) ) 
 					{
-						print_failure( port_range_error );
+						print_failure( get_lang("port_range_error") );
 					}
 					else
 					{
 						if ( $db->addGameIpPort($home_id, $ip_id, $port) === FALSE )
 						{
-							print_failure(get_lang_f('ip_port_already_in_use', $ip, $port));
+							print_failure(get_lang_f('ip_port_already_in_use', $display_ip, $port));
 						}
 						else {
-							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
-							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
+							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $display_ip, $port, $home_id));
+							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $display_ip, $port, $home_id));
 						}
 					}
 				}
@@ -794,35 +836,36 @@ function exec_ogp_module()
 					
 					if ( $db->delGameIpPort($home_id,$del_ip,$del_port) )
 					{
-						print_success( successfully_assigned_ip_port );
-						$db->logger( successfully_assigned_ip_port ." [unassigned]");
+						print_success( get_lang("successfully_assigned_ip_port") );
+						$db->logger( get_lang("successfully_assigned_ip_port") ." [unassigned]");
 					}
 					else
 						print_failure("Failed to unassign ip:port.");
 				}
-								
+
 				echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n";
 				echo "<input type='hidden' name='home_id' value=\"$home_id\" />\n";
-				echo  ip .":<select name='ip' onchange='this.form.submit();'>";
-				
+				echo  get_lang("ip") .":<select name='ip' onchange='this.form.submit();'>";
+
 				foreach($avail_ips as $value)
 				{
 					$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
-					echo "<option value='".$value['ip_id']."' $selected >".$value['ip']."</option>\n";
+					$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$value['ip']);
+					echo "<option value='".$value['ip_id']."' $selected >".$display_ip."</option>\n";
 				}
-				
+
 				echo "</select>";
 
 				$ip_id = isset($_POST['ip']) ? $_POST['ip'] : $avail_ips[0]['ip_id'];
 				$port = $db->getNextAvailablePort($ip_id,$home_info['home_cfg_id']);
-					
-				echo " ". port .":<input type='text' name='port' value='".$port."' size='6' />";
-				echo "<input type='submit' name='set_ip' value='". set_ip ."' />";
+
+				echo " ". get_lang("port") .":<input type='text' name='port' value='".$port."' size='6' />";
+				echo "<input type='submit' name='set_ip' value='". get_lang("set_ip") ."' />";
 				echo "</form>";
 				$assigned = $db->getHomeIpPorts($home_id);
 				if( empty($assigned) )
 				{
-					print_failure( no_ip_ports_assigned );
+					print_failure( get_lang("no_ip_ports_assigned") );
 				}
 				else
 				{
@@ -837,7 +880,7 @@ function exec_ogp_module()
 										  "<input type='hidden' name='ip_id' value=".$assigned_rows['ip_id']." />".
 										  "<input type='hidden' name='port' value=".$assigned_rows['port']." />".
 										  "<select name='force_mod_id' onchange='this.form.submit();'>".
-										  "<option value='0' >". force_mod_on_this_address ."</option>";
+										  "<option value='0' >". get_lang("force_mod_on_this_address") ."</option>";
 							foreach($enabled_mods as $mod)
 							{
 								$selected = $mod['mod_id'] == $assigned_rows['force_mod_id'] ? "selected='selected'" : "";
@@ -846,9 +889,10 @@ function exec_ogp_module()
 							$force_mod .= "</select>\n</form>\n</td>\n";
 							$align = "right";
 						}
-						echo "<table class='center'><tr><td align='$align'>".$assigned_rows['ip'].":".$assigned_rows['port'].
-							 " <a href='?m=user_games&amp;p=edit&amp;home_id=$home_id&amp;delete_ip&amp;ip=".
-							 $assigned_rows['ip_id']."&amp;port=".$assigned_rows['port'].
+						$assigned_ip = checkDisplayPublicIP($home_info['display_public_ip'],$assigned_rows['ip']);
+						echo "<table class='center'><tr><td align='$align'>".$assigned_ip.":".$assigned_rows['port'].
+							 " <a href='?m=user_games&p=edit&home_id=$home_id&delete_ip&ip=".
+							 $assigned_rows['ip_id']."&port=".$assigned_rows['port'].
 							 "'>[ ". delete ." ]</a></td>\n".
 							 $force_mod.
 							 "</tr>\n</table>\n";
@@ -857,12 +901,12 @@ function exec_ogp_module()
 			}
 			else
 			{
-				print_failure(  server_is_running_change_addresses_not_available  );
+				print_failure(  get_lang("server_is_running_change_addresses_not_available")  );
 			}
 		}
 		else
 		{
-			print_failure(  no_ip_addresses_configured ."<a href='?m=server'>". server_page ."</a>." );
+			print_failure(  get_lang("no_ip_addresses_configured") ."<a href='?m=server'>". get_lang("server_page") ."</a>." );
 		}
 		echo "<div id='mods'></div>";
 	}
@@ -874,7 +918,7 @@ function exec_ogp_module()
 			echo "<table class='center'>\n".
 				 "<tr>\n".
 				 "<td colspan='2' align='center'>".
-				 "<h3>". switch_mods ."</h3>".
+				 "<h3>". get_lang("switch_mods") ."</h3>".
 				 "</td>\n".
 				 "</tr>\n";
 			$force_mod = "";
@@ -886,7 +930,7 @@ function exec_ogp_module()
 							  "<input type='hidden' name='ip_id' value=".$assigned_rows['ip_id']." />".
 							  "<input type='hidden' name='port' value=".$assigned_rows['port']." />".
 							  "<select name='force_mod_id' onchange='this.form.submit();'>".
-							  "<option value='0' >". force_mod_on_this_address ."</option>";
+							  "<option value='0' >". get_lang("force_mod_on_this_address") ."</option>";
 				foreach($enabled_mods as $mod)
 				{
 					$selected = $mod['mod_id'] == $assigned_rows['force_mod_id'] ? "selected='selected'" : "";

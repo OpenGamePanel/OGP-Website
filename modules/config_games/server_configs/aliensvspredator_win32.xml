@@ -1,0 +1,96 @@
+<game_config>
+  <game_key>aliensvspredator_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>aliensvspredator</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Aliens vs Predator</game_name>
+  <server_exec_name>AvP_CLI.exe</server_exec_name>
+  <query_port type="add">-23357</query_port>
+  <cli_template>%IP%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="-IP=" />
+  </cli_params>
+  <console_log>logfiles/dedicated_console.txt</console_log>
+  <max_user_amount>18</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>34120</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>servername.*</default>
+      <var>servername</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="control_password">
+      <default>rconpassword.*</default>
+      <var>rconpassword</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>maxplayers.*</default>
+      <var>maxplayers</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>lobbyport.*</default>
+      <var>lobbyport</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="query_port">
+      <default>updateport.*</default>
+      <var>updateport</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Auth Port" type="text">
+      <default>authport.*</default>
+      <default_value>8766</default_value>
+      <var>authport</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+      <access>admin</access>
+      <desc>Port of Auth.</desc>
+    </field>
+    <field key="Game Port" type="text">
+      <default>gameport.*</default>
+      <default_value>27016</default_value>
+      <var>gameport</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+      <access>admin</access>
+      <desc>Port of Game.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+    config="default.cfg"
+    if [ -s "$config" ]
+      then
+        echo "File $config found. OK!"
+      else
+        echo "File $config not found."
+        echo "Generating default config file in $config!"
+        touch $config
+        echo servername Set Server Name> $config
+        echo rconpassword Set RCON Password>> $config
+        echo maxplayers Set Maximum Number of Players>> $config
+        echo authport Set Your Auth Port>> $config
+        echo gameport Set Your Game Port>> $config
+        echo lobbyport Set Your Lobby Port>> $config
+        echo updateport Set Your Update Port>> $config
+        echo addmap Jungle DM tl=15 sl=20>> $config
+        echo host>> $config
+    fi
+  </post_install>
+  <configuration_files>
+    <file description="Server Configurations">default.cfg</file>
+  </configuration_files>
+</game_config>

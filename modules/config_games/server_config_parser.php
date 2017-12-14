@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -42,8 +42,12 @@ function read_server_config( $filename )
     }
 
     $xml = simplexml_load_file($filename);
-    $xml->addChild('home_cfg_file',basename($filename));
-    return $xml;
+    if($xml !== false){
+		$xml->addChild('home_cfg_file',basename($filename));
+		return $xml;
+	}
+	
+	return false;
 }
 
 function xml_get_mod( $server_xml, $mod_key )

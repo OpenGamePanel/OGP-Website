@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,34 +23,37 @@
  */
 
 include('litefm.php');
-define('curl_needed', "Ez az oldal megköveteli a PHP curl modult.");
-define('no_access', "Adminisztrátori jog szükséges az oldal eléréséhez.");
-define('dwl_update', "Frissítés letöltése...");
-define('dwl_complete', "A letöltés befejezve");
-define('install_update', "Frissítés telepítése...");
-define('update_complete', "Frissítés befejezve");
-define('ignored_files', "%s fájl figyelmen kívül hagyva.");
-define('not_updated_files_blacklisted', "Nem frissített/telepített fájlok (Feketelistás):<br>%s");
-define('latest_version', "Legújabb verzió");
-define('panel_version', "Panel verzió");
-define('update_now', "Frissítés most");
-define('the_panel_is_up_to_date', "A Panel naprakész.");
-define('files_overwritten', "%s files overwritten");
-define('files_not_overwritten', "%s files NOT overwritten due to blacklist");
-define('can_not_update_non_writable_files', "Nem lehet frissíteni, mert az alábbi fájlok/mappák nem írhatóak");
-define('dwl_failed', "A letöltési link nem elérhető: \"%s\".<br>Próbáld újra később.");
-define('temp_folder_not_writable', "The download can not be placed because Apache does not have write permision at the system temporary folder(%s).");
-define('base_dir_not_writable', "The panel can not update because Apache does not have write permision at folder \"%s\".");
-define('new_files', "%s új fájlok.");
-define('updated_files', "Frissített fájlok:<br>%s");
-define('select_mirror', "Válassz tükröt");
-define('view_changes', "Változások megtekintése");
-define('get_x_revison_messages_may_take_some_time', "Get %s revison messages may take some time.");
-define('updating_modules', "Modulok frissítése");
-define('updating_finished', "A frissítés befejezve");
-define('updated_module', "Frissített modul: '%s'.");
-define('blacklist_files', "Feketelistás fájlok");
-define('blacklist_files_info', "Az összes megjelölt fájl nem kerül frissítésre.");
-define('save_to_blacklist', "Mentés a feketelistába");
-define('no_new_updates', "Nincsenek új frissítések");
+define('OGP_LANG_curl_needed', "Ez az oldal megköveteli a PHP curl modult.");
+define('OGP_LANG_no_access', "Adminisztrátori jog szükséges az oldal eléréséhez.");
+define('OGP_LANG_dwl_update', "Frissítés letöltése...");
+define('OGP_LANG_dwl_complete', "A letöltés befejezve");
+define('OGP_LANG_install_update', "Frissítés telepítése...");
+define('OGP_LANG_update_complete', "Frissítés befejezve");
+define('OGP_LANG_ignored_files', "%s fájl figyelmen kívül hagyva.");
+define('OGP_LANG_not_updated_files_blacklisted', "Nem frissített/telepített fájlok (feketelistás):<br>%s");
+define('OGP_LANG_latest_version', "Legújabb verzió");
+define('OGP_LANG_panel_version', "Panel verzió");
+define('OGP_LANG_update_now', "Frissítés most");
+define('OGP_LANG_the_panel_is_up_to_date', "A Panel naprakész.");
+define('OGP_LANG_files_overwritten', "%s fájl felülíródott");
+define('OGP_LANG_files_not_overwritten', "%s fájl NEM került felülírásra a feketelista miatt");
+define('OGP_LANG_can_not_update_non_writable_files', "Nem lehet frissíteni, mert az alábbi fájlok/mappák nem írhatóak");
+define('OGP_LANG_dwl_failed', "A letöltési link nem elérhető: \"%s\".<br>Próbáld újra később.");
+define('OGP_LANG_temp_folder_not_writable', "A letöltést nem lehet elhelyezni, mert az Apachenak nincs írási engedélye a rendszer ideiglenes mappájába (%s).");
+define('OGP_LANG_base_dir_not_writable', "A Panel nem frissíthető, mert az Apache nem rendelkezik írási jogosultsággal a(z) \"%s\" mappán.");
+define('OGP_LANG_new_files', "%s új fájlok.");
+define('OGP_LANG_updated_files', "Frissített fájlok:<br>%s");
+define('OGP_LANG_select_mirror', "Válassz tükröt");
+define('OGP_LANG_view_changes', "Változások megtekintése");
+define('OGP_LANG_updating_modules', "Modulok frissítése");
+define('OGP_LANG_updating_finished', "A frissítés befejezve");
+define('OGP_LANG_updated_module', "Frissített modul: '%s'.");
+define('OGP_LANG_blacklist_files', "Feketelistás fájlok");
+define('OGP_LANG_blacklist_files_info', "Az összes megjelölt fájl nem kerül frissítésre.");
+define('OGP_LANG_save_to_blacklist', "Mentés a feketelistába");
+define('OGP_LANG_no_new_updates', "Nincsenek új frissítések");
+define('OGP_LANG_module_file_missing', "könyvtárban hiányzik a module.php fájl.");
+define('OGP_LANG_query_failed', "Sikertelen a lekérdezések végrehajtása");
+define('OGP_LANG_query_failed_2', "az adatbázisba.");
+define('OGP_LANG_missing_zip_extension', "A php-zip kiterjesztés nincs betöltve. Kérlek, engedélyezd, mert az Update modulnak szüksége van rá.");
 ?>

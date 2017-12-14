@@ -162,45 +162,60 @@ $(document).ready(function() {
 					}
 				}
 				$("#result").html('<p class="'+data.result+'">'+data.info+'</p>');
+				if(data.result == "success"){
+					$("p.warning").remove();
+				}
+				
+				if(data.hasOwnProperty("warning_info") && data.warning_info){
+					$("#result").html($("#result").html() + '<p class="warning">'+data.warning_info+'</p>');
+				}
 			}, "json");
 		}
 	});
 	
-	var datePickerInput = $( "input[name=expiration_date]" );
+	var datePickerInput = $("input[name=expiration_date]");
 	if(datePickerInput)
 	{
 		var now_str = datePickerInput.attr('data-today').split(' '),
 			date = now_str[0].split('/'),
 			time = now_str[1].split(':'),
 			now  = new Date(date[2], date[1]-1, date[0], time[0], time[1], time[2], 0);
-		
 		$('#datetimepicker').datetimepicker({
-			format: 'dd/MM/yyyy hh:mm:ss',
-			startDate: now
-		}).on('changeDate', function(e) {
-			if(e.localDate == null)
-			{
-				datePickerInput.val("X");
-			}
-			else
-			{
-				var selected = new Date(e.localDate);
-				if( selected <= now )
+			format: 'd/m/Y H:i:s',
+			startDate: now,
+			onChangeDateTime: function(e, obj) {
+				if(e == null)
 				{
-					alert('The selected date has already passed.');
-					datePickerInput.value = "";
+					datePickerInput.val("X");
 				}
-			}
-			if("edit" == GetURLParameter('p'))
-			{
-				datePickerInput.css("background", "#fe9cb1");
+				else
+				{
+					var now_str = $( "input[name=expiration_date]" ).attr('data-today').split(' '),
+					date = now_str[0].split('/'),
+					time = now_str[1].split(':'),
+					now  = new Date(date[2], date[1]-1, date[0], time[0], time[1], time[2], 0);
+					var selected = new Date(e);
+					if( selected <= now )
+					{
+						alert('The selected date has already passed.');
+						datePickerInput.val("X");
+					}
+					else
+					{
+						datePickerInput.val(obj.val());
+					}
+				}
+				if("edit" == GetURLParameter('p'))
+				{
+					datePickerInput.css("background", "#fe9cb1");
+				}
 			}
 		});
 		
 		datePickerInput.on('change', function() {
 			if(this.value.match(/^\d{1,2}\/\d{1,2}\/\d{4}\s\d{1,2}:\d{1,2}:\d{1,2}$/g) == null || this.value == "X")
 			{
-				this.value = "";
+				this.value = "X";
 			}
 			else
 			{
@@ -211,9 +226,11 @@ $(document).ready(function() {
 				if( selected <= now )
 				{
 					alert('The selected date has already passed.');
-					this.value = "";
+					this.value = "X";
 				}
 			}
 		});
 	}
+
 });
+

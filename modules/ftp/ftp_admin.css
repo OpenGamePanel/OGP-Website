@@ -1,20 +1,11 @@
-.collapsible {
-	width: 6px;
-}
-.collapsible a.collapsed {
-	margin: 2px;
-	display: block;
-	width: 15px;
-	height: 15px;
-	background: url('../../images/tablesorter_expand.png') no-repeat 3px 3px;
-	outline: 0;
+.collapsible.collapsed {
+	padding: 10px;
+	background: url('../../images/tablesorter_expand.png') no-repeat center center;
+	cursor: pointer;
 }
 
-.collapsible a.expanded {
-	margin: 2px;
-	display: block;
-	width: 15px;
-	height: 15px;
-	background: url('../../images/tablesorter_expand.png') no-repeat -24px 3px;
-	outline: 0;
+.collapsible.expanded {
+	padding: 10px;
+	background: url('../../images/tablesorter_collapse.png') no-repeat center center;
+	cursor: pointer;
 }

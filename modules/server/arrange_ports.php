@@ -24,9 +24,9 @@ function exec_ogp_module()
 						
 					$retval = $db->addPortsRange($_POST['ip_id'],$_POST['home_cfg_id'],$_POST['start_port'],$_POST['end_port'],$_POST['port_increment']);
 					if($retval === 1)
-						print_failure( invalid_values );
+						print_failure( get_lang("invalid_values") );
 					elseif($retval === 2)
-						print_failure( ports_in_range_already_arranged );
+						print_failure( get_lang("ports_in_range_already_arranged") );
 					elseif($retval)
 						print_success(get_lang_f('ports_range_added_successfull_for',$cfg_info['game_name']));
 					else
@@ -175,9 +175,9 @@ function exec_ogp_module()
 				if(isset($_POST['delete_range']))
 				{
 					if($db->delPortsRange($_POST['range_id']))
-						print_success( ports_range_deleted_successfull );
+						print_success( get_lang("ports_range_deleted_successfull") );
 					else
-						print_failure( failed_to_delete_ports_range );
+						print_failure( get_lang("failed_to_delete_ports_range") );
 					$view->refresh('?m=server&p=arrange_ports&rserver_id='.$_GET['rserver_id'].'&ip_id='.$_GET['ip_id'],3);
 				}
 				if(isset($_POST['edit_range']))
@@ -189,9 +189,9 @@ function exec_ogp_module()
 					
 					$retval = $db->editPortsRange($_POST['range_id'],$_POST['ip_id'],$_POST['start_port'],$_POST['end_port'],$_POST['port_increment']);
 					if($retval === 1)
-						print_failure( invalid_values );
+						print_failure( get_lang("invalid_values") );
 					elseif($retval === 2)
-						print_failure( ports_in_range_already_arranged );
+						print_failure( get_lang("ports_in_range_already_arranged") );
 					elseif($retval)
 						print_success(get_lang_f('ports_range_edited_successfull_for',$cfg_info['game_name']));
 					else

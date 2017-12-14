@@ -1,24 +1,25 @@
 <game_config>
   <game_key>rust_linux64</game_key>
-  <protocol>gameq</protocol>
-  <gameq_query_name>rust</gameq_query_name>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>rust</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Rust</game_name>
   <server_exec_name>RustDedicated</server_exec_name>
-  <query_port type="add">1</query_port>
-  <cli_template>-batchmode %IP% %PORT% %PLAYERS% %HOSTNAME% %IDENTITY% %WORLD_SIZE% %SEED% %SALT% %TICKRATE% %MAP% %SAVEINTERNAL% %SECURE% %RCONWEB% +rcon.ip "0.0.0.0" %QUERY_PORT% %CONTROL_PASSWORD% -logfile RustDedicated_Data/output_log.txt</cli_template>
+  <cli_template>-batchmode +server.ip %IP% %PORT% %PLAYERS% %HOSTNAME% %IDENTITY% %WORLDSIZE% %SEED% %SALT% %TICKRATE% %MAP% %BCK% %SAVEINTERNAL% %SECURE% +rcon.ip %IP% %RCON_PORT% %RCONWEB% %CONTROL_PASSWORD% -logfile output.txt</cli_template>
   <cli_params>
-    <cli_param id="IP" cli_string="+server.ip" options="s" />
+    <cli_param id="IP" cli_string="" />
     <cli_param id="PORT" cli_string="+server.port" options="s" />
     <cli_param id="PLAYERS" cli_string="+server.maxplayers" options="s" />
     <cli_param id="HOSTNAME" cli_string="+server.hostname" options="sq" />
-    <cli_param id="QUERY_PORT" cli_string="+rcon.port" options="sq" />
     <cli_param id="CONTROL_PASSWORD" cli_string="+rcon.password" options="sq" />
   </cli_params>
-  <console_log>RustDedicated_Data/output_log.txt</console_log>
+  <reserve_ports>
+    <port type="add" id="RCON_PORT" cli_string="+rcon.port" options="s">1</port>
+  </reserve_ports>
+  <console_log>output.txt</console_log>
   <max_user_amount>500</max_user_amount>
   <mods>
-    <mod key="rust">
+    <mod key="default">
       <name>None</name>
       <installer_name>258550</installer_name>
       <installer_login>anonymous</installer_login>
@@ -27,56 +28,59 @@
   <server_params>
     <param key="+server.identity" type="text" id="IDENTITY">
       <default>my_server_identity</default>
-      <caption></caption>
-      <desc>Changes path to your server data rust/server/my_server_identity.</desc>
+      <desc>Changes path to your server data (e.g. rust/server/my_server_identity).</desc>
     </param>
-    <param key="+server.worldsize" type="text" id="WORLD_SIZE">
+    <param key="+server.worldsize" type="text" id="WORLDSIZE">
       <default>3000</default>
-      <caption></caption>
-      <desc>Defines the size of the map generated (min 2000, max 8000).</desc>
+      <options>s</options>
+      <desc>Defines the size of the map generated (min 1000, max 8000).</desc>
     </param>
     <param key="+server.seed" type="text" id="SEED">
       <default>0</default>
-      <caption></caption>
-      <desc>Defines the map generation seed (min 0, max 429497295).</desc>
+      <options>s</options>
+      <desc>Defines the map generation seed.</desc>
     </param>
     <param key="+server.salt" type="text" id="SALT">
       <default>0</default>
-      <caption></caption>
+      <options>s</options>
       <desc>Defines the randomization to mining resources.</desc>
     </param>
     <param key="+server.tickrate" type="text" id="TICKRATE">
       <default>30</default>
-      <caption></caption>
-      <desc>Server refresh rate (min acceptable 15, max 100) - Increasing this value increase CPU usage.</desc>
+      <options>s</options>
+      <desc>Defines the server tickrate (going higher than 30 is not recommended).</desc>
     </param>
     <param key="+server.level" type="select" id="MAP">
-      <option value="Procedural Map">Procedural Map</option>
-      <option value="HapisIsland">Hapis Island</option>
-      <option value="SavasIsland">Savas Island</option>
       <option value="Barren">Barren</option>
-      <caption></caption>
-      <desc>The map to start on (Hapis Island doesn't support seed and salt).</desc>
+      <option value="CraggyIsland">Craggy Island</option>
+      <option value="HapisIsland">Hapis Island</option>
+      <option value="Procedural Map">Procedural Map</option>
+      <option value="SavasIsland">Savas Island</option>
+      <option value="SavasIsland_koth">Savas Island KoTH</option>
+      <desc>Defines the map of the server.</desc>
+    </param>
+    <param key="+backup" type="checkbox_key_value" id="BCK">
+      <desc>Enable automatic backups.</desc>
     </param>
     <param key="+server.saveinterval" type="text" id="SAVEINTERNAL">
       <default>600</default>
-      <caption></caption>
-      <desc>Time in seconds for server save.</desc>
+      <options>s</options>
+      <desc>Interval between the server saves the map.</desc>
     </param>
     <param key="+server.secure" type="select" id="SECURE">
       <option value="true">Enabled</option>
       <option value="false">Disabled</option>
-      <caption></caption>
-      <desc>VAC and EAC secured.</desc>
+      <options>s</options>
+      <desc>Enables or disables Valve Anti-Cheat protection on the server.</desc>
     </param>
     <param key="+rcon.web" type="select" id="RCONWEB">
       <option value="0">Disabled</option>
       <option value="1">Enabled</option>
-      <caption></caption>
-      <desc>If set to enabled, use websocket rcon. If set to disabled, use legacy source engine rcon.</desc>
+      <options>s</options>
+      <desc>If set to enabled, use websocket RCON. If set to disabled, use legacy source engine RCON.</desc>
     </param>
   </server_params>
   <environment_variables>
-	export LD_LIBRARY_PATH="{OGP_HOME_DIR}/RustDedicated_Data/Plugins/x86_64"
+    export LD_LIBRARY_PATH="{OGP_HOME_DIR}/RustDedicated_Data/Plugins/x86_64"
   </environment_variables>
 </game_config>

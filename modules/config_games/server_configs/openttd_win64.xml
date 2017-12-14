@@ -1,0 +1,62 @@
+<game_config>
+  <game_key>openttd_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>openttd</lgsl_query_name>
+  <game_name>OpenTTD</game_name>
+  <server_exec_name>openttd.exe</server_exec_name>
+  <cli_template>-D %IP%:%PORT% %SAVEGAME%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="" />
+    <cli_param id="PORT" cli_string="" />
+  </cli_params>
+  <max_user_amount>255</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>server_name = .*</default>
+      <var>server_name = </var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+    <text key="max_players">
+      <default>max_clients = .*</default>
+      <var>max_clients = </var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+    <text key="control_password">
+      <default>rcon_password = .*</default>
+      <var>rcon_password = </var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+    <text key="control_password">
+      <default>admin_password = .*</default>
+      <var>admin_password = </var>
+      <filepath>openttd.cfg</filepath>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-g" type="select" id="SAVEGAME">
+      <option value="">No</option>
+      <option value="save/autosave/latest_autosave.sav">Yes</option>
+      <desc>If no, starts a new game. If yes, loads the latest autosaved game.</desc>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="Server Admin Port" type="text">
+      <default>server_admin_port = .*</default>
+      <default_value>3977</default_value>
+      <var>server_admin_port = </var>
+      <filepath>openttd.cfg</filepath>
+      <desc>The port the admin interface of an OpenTTD server is listening on.</desc>
+    </field>
+  </custom_fields>
+  <pre_start>
+    ls -t save/autosave | head -n1 | xargs -I {} cp -f save/autosave/{} save/autosave/latest_autosave.sav
+  </pre_start>
+  <configuration_files>
+    <file description="Server Configurations">openttd.cfg</file>
+  </configuration_files>
+</game_config>

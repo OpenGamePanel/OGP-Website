@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,9 +22,9 @@
  *
  */
 
-function print_failure($text)
+function print_failure($text, $class="failure")
 {
-    echo '<p class="failure">'.$text.'</p>';
+    echo '<p class="' . $class . '">'.$text.'</p>';
 }
 
 function print_success($text)
@@ -45,8 +45,9 @@ function create_back_button($module,$subpage = "")
 }
 
 /// Creates HTML drop box from given array with the given listname, custom for Rsync sites
-function create_drop_box_from_array_rsync($input_array,$listname,$current_value = "", $use_only_values = true)
+function create_drop_box_from_array_rsync($input_array, $listname, $current_value = "", $use_only_values = true)
 {
+    $count = 1;
     $retval = "<select id=\"$listname\" name=\"$listname\">\n";
     foreach($input_array as $key => $value)
     {
@@ -65,12 +66,14 @@ function create_drop_box_from_array_rsync($input_array,$listname,$current_value 
 
         if ( $key == $current_value )
         {
-            $retval .= "<option value='$rsync_site' selected='selected'>$rsync_site - $location</option>\n";
+            $retval .= "<option value='$count' selected='selected'>$rsync_site - $location</option>\n";
         }
         else
         {
-            $retval .= "<option value='$rsync_site'>$rsync_site - $location</option>\n";
+            $retval .= "<option value='$count'>$rsync_site - $location</option>\n";
         }
+
+        ++$count;
     }
     $retval .= "</select>\n";
     return $retval;

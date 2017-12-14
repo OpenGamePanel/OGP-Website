@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -54,21 +54,38 @@ function litefm_check($home_id)
 {
 	if (isset($_GET['item']) and !isset($_GET['upload']) and !isset( $_POST['delete'] ) and !isset( $_POST['create_folder'] ) and !isset( $_POST['secureButton'] ) and !isset( $_POST['delete_check'] ) and !isset( $_POST['secure_check'] ))
     {
+		$fileName = !empty($_POST['name']) ? urldecode($_POST['name']) : urldecode($_GET['name']);
+		if(isset($_GET['type'])){
+			$type = $_GET['type'];
+		}else{
+			$type = "file";
+		}
+		
         if(!isset($_SESSION['fm_files_'.$home_id][$_GET['item']]))
 			return FALSE;
+			
 		$path = $_SESSION['fm_files_'.$home_id][$_GET['item']];
-        // Make sure nobody tries to get outside thier game server by referencing the .. directory
-        if(preg_match("/\/\.\.\/|\||;/", $path))
-        {
-            print_failure(get_lang("unallowed_char"));
-            $_SESSION['fm_cwd_'.$home_id] = NULL;
-            return FALSE;
-        }
-        else
-        {
-            $_SESSION['fm_cwd_'.$home_id] = @$_SESSION['fm_cwd_'.$home_id] . "/" . $path;
-			$_SESSION['fm_cwd_'.$home_id] = clean_path($_SESSION['fm_cwd_'.$home_id]);
-        }
+		if($path == $fileName){
+			// Make sure nobody tries to get outside thier game server by referencing the .. directory
+			if(preg_match("/\/\.\.\/|\||;/", $path))
+			{
+				print_failure(get_lang("unallowed_char"));
+				$_SESSION['fm_cwd_'.$home_id] = NULL;
+				return FALSE;
+			}
+			else
+			{
+				if($type != "file"){
+					$_SESSION['fm_cwd_'.$home_id] = @$_SESSION['fm_cwd_'.$home_id] . "/" . $path;
+					$_SESSION['fm_cwd_'.$home_id] = clean_path($_SESSION['fm_cwd_'.$home_id]);
+				}else{
+					if(!endsWith($_SESSION['fm_cwd_'.$home_id], $path)){
+						$_SESSION['fm_cwd_'.$home_id] = @$_SESSION['fm_cwd_'.$home_id] . "/" . $path;
+						$_SESSION['fm_cwd_'.$home_id] = clean_path($_SESSION['fm_cwd_'.$home_id]);
+					}
+				}
+			}
+		}
     }
 
     // To go back a dir, we just use dirname to strip the last directory or file off the path

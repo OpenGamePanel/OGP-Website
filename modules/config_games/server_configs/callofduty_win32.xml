@@ -1,0 +1,41 @@
+<game_config>
+  <game_key>callofduty_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>callofduty</lgsl_query_name>
+  <game_name>Call of Duty</game_name>
+  <server_exec_name>CoDMP.exe</server_exec_name>
+  <cli_template>+set dedicated 2 %IP% %PORT% %BASE_PATH% %HOME_PATH% %FS_GAME% %PB% %EXEC% %CONTROL_PASSWORD% %PLAYERS% +map_rotate</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="BASE_PATH" cli_string="+set fs_basepath" options="s" />
+    <cli_param id="HOME_PATH" cli_string="+set fs_homepath" options="s" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="+set rcon_password" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+  </cli_params>
+  <max_user_amount>64</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="+set fs_game" type="text" id="FS_GAME">
+      <options>s</options>
+      <desc>Set the server to run a mod. For example: mods/my_mod</desc>
+    </param>
+    <param key="+set sv_punkbuster" type="select" id="PB">
+      <option value="0">Disabled</option>
+      <option value="1">Enabled</option>
+      <options>s</options>
+      <desc>Enables/Disables PunkBuster server.</desc>
+    </param>
+    <param key="+exec" type="text" id="EXEC">
+      <default>server.cfg</default>
+      <options>s</options>
+      <desc>Set the name of your server configuration file.</desc>
+    </param>
+  </server_params>
+</game_config>

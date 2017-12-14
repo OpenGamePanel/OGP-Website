@@ -1,0 +1,86 @@
+<game_config>
+  <game_key>homefront_win32</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>homefront</gameq_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Homefront</game_name>
+  <server_exec_name>HFDedicated.exe</server_exec_name>
+  <cli_template>SERVER %PLAYERS% %IP% %PORT% %STEAM_PORT% %RCON1_PORT% %RCON2_PORT% -configsubdir=DedicatedProfile_DefaultProfile</cli_template>
+  <cli_params>
+    <cli_param id="PLAYERS" cli_string="?maxplayers=" />
+    <cli_param id="IP" cli_string="-multihome=" />
+    <cli_param id="PORT" cli_string="-queryport=" />
+  </cli_params>
+  <exe_location>Binaries</exe_location>
+  <max_user_amount>32</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>55280</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>ServerName=.*</default>
+      <var>ServerName=</var>
+      <filepath>GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</filepath>
+    </text>
+    <text key="control_password">
+      <default>AdminPassword=.*</default>
+      <var>AdminPassword=</var>
+      <filepath>GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</filepath>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-authport=" type="text" id="STEAM_PORT">
+      <default>8766</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>This is used to authenticate Steam accounts.</desc>
+    </param>
+    <param key="-rconport1=" type="text" id="RCON1_PORT">
+      <default>27010</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>The RCON port for remote admin connections.</desc>
+    </param>
+    <param key="-rconport2=" type="text" id="RCON2_PORT">
+      <default>27011</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>The RCON port for remote admin connections.</desc>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="Cheat Detection" type="select">
+      <option value="False">False</option>
+      <option value="True">True</option>
+      <default>bEnableCheatDetection=.*</default>
+      <default_value>False</default_value>
+      <var>bEnableCheatDetection=</var>
+      <filepath>GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</filepath>
+      <desc>Enable/Disable cheat detection.</desc>
+    </field>
+    <field key="VAC Secured" type="select">
+      <option value="False">False</option>
+      <option value="True">True</option>
+      <default>bVAC=.*</default>
+      <default_value>True</default_value>
+      <var>bVAC=</var>
+      <filepath>GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</filepath>
+      <desc>Allow or disallow any VAC banned players from joining.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+    if [ -d "GCGame/Config/DedicatedProfile_DefaultProfile" ]
+      then
+        echo "DedicatedProfile_DefaultProfile found. OK!"
+      else
+        echo "DedicatedProfile_DefaultProfile not found."
+        echo "You need to run DedicatedServer.exe server tool first and create DedicatedProfile_DefaultProfile!"
+    fi
+</post_install>
+  <configuration_files>
+    <file description="Server Configurations">GCGame/Config/DedicatedProfile_DefaultProfile/DedicatedPlaylist</file>
+  </configuration_files>
+</game_config>

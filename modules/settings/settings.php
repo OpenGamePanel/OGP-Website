@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -67,6 +67,8 @@ function exec_ogp_module()
 			"recaptcha_use_login" => $_REQUEST['recaptcha_use_login'],
 			"login_attempts_before_banned" => $_REQUEST['login_attempts_before_banned'],
 			"custom_github_update_username" => $_REQUEST['custom_github_update_username'],
+			"show_server_id_game_monitor" => $_REQUEST['show_server_id_game_monitor'],
+			"default_game_server_home_path_prefix" => $_REQUEST['default_game_server_home_path_prefix'],
 		);
 		
 		$db->setSettings($settings);
@@ -160,8 +162,11 @@ function exec_ogp_module()
 	$login_attempts_before_banned = (isset($row['login_attempts_before_banned']) and $row['login_attempts_before_banned'] != "" and is_numeric($row['login_attempts_before_banned']))? $row['login_attempts_before_banned'] : "6";
 	$ft->add_field('string','login_attempts_before_banned',$login_attempts_before_banned);
 	
-	
 	$ft->add_field('string','custom_github_update_username',@$row['custom_github_update_username']);
+	
+	$ft->add_field('on_off','show_server_id_game_monitor',@$row['show_server_id_game_monitor']);
+	
+	$ft->add_field('string','default_game_server_home_path_prefix',@$row['default_game_server_home_path_prefix']);
 	
 	$ft->end_table();
 	$ft->add_button("submit","update_settings",get_lang('update_settings'));

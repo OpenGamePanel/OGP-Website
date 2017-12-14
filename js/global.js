@@ -1,6 +1,7 @@
 $(document).ready(function(){
     wireClicks();
     animateProgressBars();
+    toggleEvents();
 });
 
 function wireClicks(){
@@ -11,6 +12,26 @@ function wireClicks(){
 	$(".getAutoUpdateLink").click(function(e){
 		showSteamUpdateLink($(this));
 	});
+	
+	$(".serverIdToggle").click(function(e){
+		showHideServerIDShow($(this));
+	});
+}
+
+function showHideServerIDShow(linkElem){
+	if($(".serverId:visible").length){
+		$(".serverId").removeClass('hide').addClass('hide');
+		$(linkElem).text($(linkElem).attr('showtext'));
+		$("tr.expand-child").each(function(e){
+			$("td:first", $(this)).attr('colspan', Number($("td:first", $(this)).attr('colspan')) - 1);
+		}); 
+	}else{
+		$(".serverId").removeClass('hide');
+		$(linkElem).text($(linkElem).attr('hidetext'));
+		$("tr.expand-child").each(function(e){
+			$("td:first", $(this)).attr('colspan', Number($("td:first", $(this)).attr('colspan')) + 1);
+		}); 
+	}
 }
 
 function animateProgressBars(){
@@ -96,7 +117,7 @@ function handleVersionClick(){
 			var msg = successful ? 'successful' : 'unsuccessful';
 			logToConsole('Copying text command was ' + msg);
 			if(successful){
-				$("span.copyVersionResult").text("Copied!").css("color", "#43ff0f").removeClass("hide");
+				$("span.copyVersionResult").text($("span.copyVersionResult").attr('lang')).css("color", "#43ff0f").removeClass("hide");
 				$("span.copyVersionResult").css("left", $("span.versionNumber").offset().left + $("span.versionNumber").width() + 5 + "px");
 				$("span.copyVersionResult").fadeIn('fast', function(e){  hideVLength(); }).delay(500).fadeOut('slow', function(e){  showVLength(); }).delay(500).fadeIn('slow', function(e){  hideVLength(); }).delay(500).fadeOut('slow', function(e){  showVLength(); }).delay(500).fadeIn('fast', function(e){  hideVLength(); }).delay(2000).fadeIn('fast',function() {
 					resetVersionView(true);
@@ -145,4 +166,32 @@ function hideVLength(){
 
 function showVLength(){
 	$("span.versionNumberCopyLengthener").removeClass("hide");
+}
+
+function toggleEvents(){
+	// Toggle show server id if setting is enabled and the markup is on the page.
+	if($("p.serverIdToggle").length){
+		$("p.serverIdToggle").trigger("click");
+	}
+	
+	$(".tablesorter").tablesorter({
+		cssHeader: "header",
+		cssAsc: "headerSortUp",
+		cssDesc: "headerSortDown",
+		cssChildRow: "expand-child",
+		sortInitialOrder: "asc",
+		sortMultiSortKey: "shiftKey",
+	});
+}
+
+function getLang(key){
+	if(!key.startsWith(langConstPrefix)){
+		key = langConstPrefix + key;
+	}
+	
+	if(langConsts && langConsts.hasOwnProperty(key)){
+		return langConsts[key];
+	}
+	
+	return false;
 }

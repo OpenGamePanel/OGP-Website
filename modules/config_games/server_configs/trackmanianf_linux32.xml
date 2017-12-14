@@ -1,0 +1,62 @@
+<game_config>
+  <game_key>trackmanianf_linux32</game_key>
+  <game_name>TrackMania Nations Forever</game_name>
+  <server_exec_name>TrackmaniaServer</server_exec_name>
+  <cli_template>/nodaemon %MS% /dedicated_cfg=dedicated_cfg.txt %HOSTNAME%</cli_template>
+  <cli_params>
+    <cli_param id="HOSTNAME" cli_string="/servername=" options="q" />
+  </cli_params>
+  <max_user_amount>255</max_user_amount>
+  <mods>
+    <mod key="tmnf">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="max_players">
+      <default>max_players</default>
+      <filepath>GameData/Config/dedicated_cfg.txt</filepath>
+      <options>tags</options>
+    </text>
+    <text key="port">
+      <default>server_port</default>
+      <filepath>GameData/Config/dedicated_cfg.txt</filepath>
+      <options>tags</options>
+    </text>
+    <text key="ip">
+      <default>bind_ip_address</default>
+      <filepath>GameData/Config/dedicated_cfg.txt</filepath>
+      <options>tags</options>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="/game_settings=MatchSettings/Nations/" type="text" id="MS">
+      <default>NationsWhite.txt</default>
+      <options>ns</options>
+      <desc>Set the match settings file (default files are NationsWhite.txt, NationsGreen.txt, NationsBlue.txt and NationsRed.txt).</desc>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="server_p2p_port" type="text">
+      <default>server_p2p_port</default>
+      <default_value>3450</default_value>
+      <filepath>GameData/Config/dedicated_cfg.txt</filepath>
+      <options>tags</options>
+      <desc>Port number used by the server to listen the peer-to-peer connections.</desc>
+    </field>
+    <field key="xmlrpc_allowremote" type="text">
+      <default>xmlrpc_allowremote</default>
+      <default_value>False</default_value>
+      <filepath>GameData/Config/dedicated_cfg.txt</filepath>
+      <options>tags</options>
+      <desc>Enables/Disables remote connections. You can either set it to True or False or specify an IP (or a symbolic name): in that case only connections from that IP and localhost will be accepted.</desc>
+    </field>
+    <field key="xmlrpc_port" type="text">
+      <default>xmlrpc_port</default>
+      <default_value>5000</default_value>
+      <filepath>GameData/Config/dedicated_cfg.txt</filepath>
+      <options>tags</options>
+      <desc>Port number used by the server to listen xmlrpc calls.</desc>
+    </field>
+  </custom_fields>
+</game_config>

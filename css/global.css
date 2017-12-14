@@ -13,10 +13,6 @@
 	text-align: left;
 	text-align: initial;
 }
-/* Fixes date/time picker off screen issue */
-.bootstrap-datetimepicker-widget > ul{
-	padding: 0px;
-}
 
 span.versionInfo{
 	cursor: pointer;
@@ -59,4 +55,33 @@ span.copyVersionResult{
 	background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4e391', endColorstr='#b4e391',GradientType=0 ); /* IE6-9 */
+}
+
+.serverIdToggle{
+	text-align: right !important;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+th.serverId{
+	min-width: 60px;
+}
+
+table.tablesorter thead tr .header.sorter-false{ /* No background image for non-sortable TH */
+	background-image: none;
+	cursor: auto;
+}
+
+table.hundred{
+	width: 100%;
+}
+
+.disabled{
+	cursor: not-allowed;
+	opacity: .6;
+}
+
+.uploadLiteFMStatus{
+	margin-top: 1em;
+	margin-bottom: 1em;
 }

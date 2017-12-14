@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,13 +22,15 @@
  *
  */
 
-define('pure-ftpd_accounts_for_remote_server_named', "Comptes FTP pour le serveur distant %s");
-define('ftp_address', "Adresse FTP: %s:%s");
-define('change_account_details', "Changer les détails du compte");
-define('remove_account', "Supprimer le compte");
-define('ftp_account_already_exists', "Ce compte FTP existe déjà.");
-define('full_path', "Chemin complet");
-define('add_ftp_account', "Ajouter un compte FTP");
-define('remote_server', "Serveur distant");
-define('server_name', "Nom du serveur");
+define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "Comptes FTP pour le serveur distant %s");
+define('OGP_LANG_ftp_address', "Adresse FTP: %s:%s");
+define('OGP_LANG_change_account_details', "Changer les détails du compte");
+define('OGP_LANG_remove_account', "Supprimer le compte");
+define('OGP_LANG_ftp_account_already_exists', "Ce compte FTP existe déjà.");
+define('OGP_LANG_full_path', "Chemin complet");
+define('OGP_LANG_add_ftp_account', "Ajouter un compte FTP");
+define('OGP_LANG_remote_server', "Serveur distant");
+define('OGP_LANG_server_name', "Nom du serveur");
+define('OGP_LANG_ftp_account_username_too_long', "Le nom d'utilisateur FTP est trop long. Veuillez entrer un nom d'utilisateur de 20 caractères maximum.");
+define('OGP_LANG_ftp_account_password_too_long', "Le mot de passe FTP est trop long. Veuillez entrer un mot de passe de 20 caractères maximum.");
 ?>

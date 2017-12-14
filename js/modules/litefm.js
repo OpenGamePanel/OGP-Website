@@ -234,7 +234,7 @@ function downloadFile(home_id, file_id, file_size, file_name)
 	function getFilePart()
 	{
 		var xhr = new XMLHttpRequest();
-		xhr.open('POST', "home.php?m=litefm&home_id="+home_id+"&item="+file_id+"&p=get&type=cleared&size="+file_size+"&did="+did, true);
+		xhr.open('POST', "home.php?m=litefm&home_id="+home_id+"&item="+file_id+"&name="+file_name+"&p=get&type=cleared&size="+file_size+"&did="+did, true);
 		xhr.responseType = 'arraybuffer';
 		xhr.onload = function(e) {
 			if(this.response.byteLength != 0)
@@ -792,10 +792,10 @@ $(document).ready(function(){
 	// upload
 	$("#upload.operations-button").click(function(){
 		if(checkSession() == false) { return; }
-		$('#dialog').html('<div class="status"></div>\
+		$('#dialog').html('<div class="uploadLiteFMStatus status"></div>\
 						  <form id="upload" action="home.php?m=litefm&home_id='+home_id+'&type=cleared&data_type=json" method="post" enctype="multipart/form-data">\
 							<input type="file" name="files[]" multiple="multiple" id="files">\
-							<input type="submit" name="upload" value="'+upload+'" >\
+							<input type="submit" name="upload" id="uploadsubmit" value="'+upload+'" >\
 						  </form>\
 						  <div class="progress">\
 							'+upload_to_web+':<br><progress class="bar" max="100" style="width:100%;" ></progress><div class="percent"></div >\
@@ -808,14 +808,32 @@ $(document).ready(function(){
 		var percent2 = $('.percent2');
 		var bar2 = $('.bar2');
 		progress.hide();
+		var refresh = null;
 
 		$('#dialog').dialog({
 			autoOpen: true,
 			width: 350,
+			resizable: true,
 			modal: true,
 			close: function() {
 				$( this ).dialog( "close" );
 				window.location.href = window.location.href.replace('&back','');
+				if(refresh != null){
+					clearInterval(refresh);
+					refresh = null;
+				}
+			}, 
+			open: function(){
+				refresh = null;
+				resetUploadUI();
+			},
+			beforeClose: function(){
+				if(refresh != null){
+					return false;
+				}
+			},
+			create: function(){
+				refresh = null;
 			}
 		});
 
@@ -824,34 +842,45 @@ $(document).ready(function(){
 			/* set data type json */
 			dataType:'json',
 			beforeSubmit : function(arr, $form, options){
-				var i = 0;
-				$.each(arr, function(index, input) {
-					if(typeof input.value.name !== 'undefined')
+				if(!$("form#upload input#uploadsubmit").hasClass('disabled')){	
+					resetUploadUI();
+					var i = 0;
+					$.each(arr, function(index, input) {
+						if(typeof input.value.name !== 'undefined')
+						{
+							i++;
+						}
+					});
+					if( i > max_file_uploads )
 					{
-						i++;
+						alert("The upload exceeds the max_file_uploads directive in php.ini ("+max_file_uploads+" files).");
+						return false;
 					}
-				});
-				if( i > max_file_uploads )
-				{
-					alert("The upload exceeds the max_file_uploads directive in php.ini ("+max_file_uploads+" files).");
-					return false;
-				}
-				if( i == 0)
-				{
+					if( i == 0)
+					{
+						return false;
+					}
+				}else{
 					return false;
 				}
 			},
 			/* reset before submitting */
 			beforeSend: function() {
+				refresh = "YES";
 				progress.show();
 				percent.html('0%');
 				percent2.html('0%');
+				$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').addClass('disabled').prop('disabled', true);				
 			},
 			/* progress bar call back*/
 			uploadProgress: function(event, position, total, percentComplete) {
 				var pVel = percentComplete + '%';
 				bar.val(percentComplete);
 				percent.html(pVel);
+			},
+			error: function(jqXHR, textStatus, errorThrown){
+				resetUploadUI();
+				$(".uploadLiteFMStatus").html(textStatus.charAt(0).toUpperCase() + textStatus.slice(1) + ": " + errorThrown).addClass('failure');
 			},
 			/* success call back */
 			success: function(data) {
@@ -865,7 +894,7 @@ $(document).ready(function(){
 						pVel = "",
 						rond_total = 0;
 
-					var refresh = setInterval(function(){
+					refresh = setInterval(function(){
 						$.each(files_info, function(index, file){
 							if(typeof file_complete[index] !== 'undefined' && file_complete[index] == true)
 							{
@@ -889,6 +918,10 @@ $(document).ready(function(){
 						});
 						
 						rond_total = parseInt(percent_total);
+						if(isNaN(rond_total)){
+							rond_total = Number(0);
+						}
+						
 						pVel = rond_total + '%';
 						bar2.val(rond_total);
 						percent2.html(pVel);
@@ -904,7 +937,17 @@ $(document).ready(function(){
 						
 						if(stop_refresh == true)
 						{
+							resetUploadUI();
+							
+							var successMess = getLang("upload_complete");
+							if(!successMess){
+								successMess = "File(s) successfully uploaded.";
+							}
+							
+							$(".uploadLiteFMStatus").html(successMess).removeClass('success').addClass('success');
+							$("form#upload input#files").val('');
 							clearInterval(refresh);
+							refresh = null;
 						}
 					}, 2000);
 				}
@@ -1041,3 +1084,15 @@ $(document).ready(function(){
 		}
 	});
 });
+
+function resetUploadUI(){
+	$(".uploadLiteFMStatus").html('').removeClass('success').removeClass('error');
+	$("form#upload input#files, form#upload input#uploadsubmit").removeClass('disabled').prop('disabled', false);
+	
+	$('.progress').hide();
+	$('.percent').html('0%');
+	$('.percent2').html('0%');
+	
+	$('progress.bar').attr('value', '0');
+	$('progress.bar2').attr('value', '0');
+}

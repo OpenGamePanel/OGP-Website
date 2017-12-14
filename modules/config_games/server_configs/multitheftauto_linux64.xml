@@ -1,0 +1,50 @@
+<game_config>
+  <game_key>multitheftauto_linux64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>mta</lgsl_query_name>
+  <game_name>Multi Theft Auto</game_name>
+  <server_exec_name>mta-server64</server_exec_name>
+  <console_log>mods/deathmatch/logs/server.log</console_log>
+  <max_user_amount>4096</max_user_amount>
+  <control_protocol>lcon</control_protocol>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>servername</default>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+    </text>
+    <text key="ip">
+      <default>serverip</default>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+    </text>
+    <text key="port">
+      <default>serverport</default>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+    </text>
+    <text key="max_players">
+      <default>maxplayers</default>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="HTTP Port" type="text">
+      <default>httpport</default>
+      <default_value>22005</default_value>
+      <filepath>mods/deathmatch/mtaserver.conf</filepath>
+      <options>tags</options>
+      <access>admin</access>
+      <desc>Port of the http server (it could be same as server port).</desc>
+    </field>
+  </custom_fields>
+  <configuration_files>
+    <file description="Server Configurations">mods/deathmatch/mtaserver.conf</file>
+  </configuration_files>
+</game_config>

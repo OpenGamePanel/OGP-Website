@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -381,13 +381,13 @@ class OGPRemoteLibrary
 						$home_id, $home_path, $server_ip, $server_port, $exec_path, $exec_folder_path,
 						$control_protocol, $control_password, $control_type,
 						$appId, $modname, $betaname, $betapwd, $user, $pass, $guard, $precmd, $postcmd, $cfg_os, $filesToLockUnlock,
-						$startup_cmd, $cpu, $nice, $preStart, $envVars
+						$startup_cmd, $cpu, $nice, $preStart, $envVars, $game_key
 	)
 	{
 		$params = $this->encrypt_params($home_id, $home_path, $server_ip, $server_port, $exec_path, $exec_folder_path,
 						$control_protocol, $control_password, $control_type,
 						$appId, $modname, $betaname, $betapwd, $user, $pass, $guard, $precmd, $postcmd, $cfg_os, $filesToLockUnlock,
-						$startup_cmd, $cpu, $nice, $preStart, $envVars);
+						$startup_cmd, $cpu, $nice, $preStart, $envVars, $game_key);
 
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("automatic_steam_update", $params);
@@ -575,11 +575,12 @@ class OGPRemoteLibrary
 	/// \return -1 If connection could not be established.
 	/// \return -2 In other errors.
 	/// \todo Other return values?
+	// Starts game server
 	public function universal_start($home_id, $game_home, $game_binary, $run_dir, $startup_cmd,
-		$server_port, $server_ip, $cpu, $nice, $preStart = "", $envVars = "")
+		$server_port, $server_ip, $cpu, $nice, $preStart, $envVars, $game_key)
 	{
 		$params_array = $this->encrypt_params($home_id, $game_home, $game_binary,
-			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice, $preStart, $envVars);
+			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice, $preStart, $envVars, $game_key);
 		$this->add_enc_chk($params_array);
 		$request = xmlrpc_encode_request("universal_start", $params_array);
 		$response = $this->sendRequest($request);
@@ -723,11 +724,11 @@ class OGPRemoteLibrary
 
 	public function remote_restart_server($home_id,$server_ip,$server_port, 
 			$control_protocol,$control_password,$control_type,
-			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart = "", $envVars = "")
+			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart, $envVars, $game_key)
 	{
 		$params_array = $this->encrypt_params($home_id,$server_ip,$server_port,
 			$control_protocol,$control_password,$control_type,
-			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart,$envVars);
+			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart,$envVars, $game_key);
 		$this->add_enc_chk($params_array);
 		$request = xmlrpc_encode_request("restart_server", $params_array);
 

@@ -1,0 +1,45 @@
+<game_config>
+  <game_key>sanandreasmp_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>samp</lgsl_query_name>
+  <game_name>San Andreas Multiplayer</game_name>
+  <server_exec_name>samp03svr</server_exec_name>
+  <console_log>server_log.txt</console_log>
+  <max_user_amount>1000</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="control_password">
+      <default>rcon_password .*</default>
+      <var>rcon_password</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>maxplayers .*</default>
+      <var>maxplayers</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>port .*</default>
+      <var>port</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="home_name">
+      <default>hostname .*</default>
+      <var>hostname</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="true">
+      <default>query .*</default>
+      <var>query 1</var>
+      <filepath>server.cfg</filepath>
+      </text>
+  </replace_texts>
+</game_config>

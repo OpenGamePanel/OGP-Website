@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,19 +22,27 @@
  *
  */
 
-define('system_uptime', "System Uptime");
-define('system_up_time', "Up Time");
-define('system_up_since', "Since");
-define('cpu_usage', "CPU Usage");
-define('cpu_load', "Load");
-define('ram_usage', "RAM Usage");
-define('ram_used', "Memory Used");
-define('ram_of', "of");
-define('storage_space', "Storage Space");
-define('storage_total', "Disk Space");
-define('storage_used', "Used");
-define('storage_free', "Free Space");
-define('process_monitor', "Process Monitor");
-define('status_extension_required', "Extension Required");
-define('gd_info', "PHP Extension <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> is required to generate these bar images!");
+define('OGP_LANG_system_uptime', "Время работы системы");
+define('OGP_LANG_system_up_time', "Работает");
+define('OGP_LANG_system_up_since', "Запущен");
+define('OGP_LANG_day_word', "Day");
+define('OGP_LANG_days_word', "Days");
+define('OGP_LANG_hour_word', "Hour");
+define('OGP_LANG_hours_word', "Hours");
+define('OGP_LANG_minute_word', "Minute");
+define('OGP_LANG_minutes_word', "Minutes");
+define('OGP_LANG_second_word', "Second");
+define('OGP_LANG_seconds_word', "Seconds");
+define('OGP_LANG_cpu_usage', "Использование процессора");
+define('OGP_LANG_cpu_load', "Нагрузка");
+define('OGP_LANG_ram_usage', "Использование ОЗУ");
+define('OGP_LANG_ram_used', "Используемая память");
+define('OGP_LANG_ram_of', "из");
+define('OGP_LANG_storage_space', "Место для хранения");
+define('OGP_LANG_storage_total', "Дисковое пространство");
+define('OGP_LANG_storage_used', "Использовано");
+define('OGP_LANG_storage_free', "Свободно");
+define('OGP_LANG_process_monitor', "Монитор процессов");
+define('OGP_LANG_status_extension_required', "Требуется расширение");
+define('OGP_LANG_gd_info', "Требуется  PHP расширение <a href=\"http://php.net/manual/en/image.installation.php\">GD</a>для создания этих изображений");
 ?>

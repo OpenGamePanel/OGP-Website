@@ -22,12 +22,7 @@
 
 define('TS3LIB_VERSION', '1.1.0');
 
-
-error_reporting( E_ERROR ); 
-
 set_time_limit(15);
-
-
 
 define("TS3_OK",    true);
 define("TS3_ERROR", false);

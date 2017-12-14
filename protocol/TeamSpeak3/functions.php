@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2014 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -28,8 +28,8 @@ require_once("protocol/TeamSpeak3/TeamSpeak3.php");
 $cfg["user"] = "serveradmin";
 $cfg["pass"] = $server_home['control_password'];
 $cfg["voice"] = $server_home['port'];
-$cfg["query"] = $server_home['port'] + 24;
-
+$ts3Ports = $db->getHomeIpPorts($server_home['home_id']);
+$cfg["query"] = $ts3Ports[0]['port'] + 24;
 
 if ( $server_home['use_nat'] == 1 )
 	$cfg["host"] = $server_home['agent_ip'];
@@ -43,13 +43,15 @@ try
 	{
 		$status = "online";
 		$startup_file_exists = $remote->rfile_exists( "startups/".$server_home['ip']."-".$server_home['port'] ) === 1;
-		if(isset($_POST['new_ts3_port']) AND $server_home['home_id'] == $_POST['home_id'] )
-		{
-			if(isset($ts3_ServerInstance)) unset($ts3_ServerInstance);
+
+		if (isset($_POST['new_ts3_port']) && isPortValid($_POST['new_ts3_port']) && $server_home['home_id'] == $_POST['home_id']) {
+			if (isset($ts3_ServerInstance)) unset($ts3_ServerInstance);
+
 			$ts3_ServerInstance = TeamSpeak3::factory("serverquery://" . $cfg["user"] . ":" . $cfg["pass"] . "@" . $cfg["host"] . ":" . $cfg["query"] . "/");
 			$new_port = $_POST['new_ts3_port'];
 			$new_hostname = $_POST['new_ts3_hostname'];
 			$new_players = $_POST['new_ts3_players'];
+
 			/* add port to home on ogp db */
 			$AddVirtual = $db->addGameIpPort($server_home['home_id'], $server_home['ip_id'], $new_port);
 			if ($AddVirtual === TRUE)
@@ -94,10 +96,14 @@ try
 					$ts3_ServerInstance = TeamSpeak3::factory("serverquery://" . $cfg["user"] . ":" . $cfg["pass"] . "@" . $cfg["host"] . ":" . $cfg["query"] . "/");
 												
 					/* stop & remove server using given ID */
-					$sid =  $_POST['id'];
-					$ts3_ServerInstance->serverStop($sid);
-					$ts3_ServerInstance->serverDelete($sid);
-					$db->query( "DELETE FROM OGP_DB_PREFIXts3_homes WHERE vserver_id=" . $sid );
+					$sid = (int)$_POST['id'];
+
+					if ($sid !== 0) {
+						$ts3_ServerInstance->serverStop($sid);
+						$ts3_ServerInstance->serverDelete($sid);
+						$db->query( "DELETE FROM OGP_DB_PREFIXts3_homes WHERE vserver_id=" . $db->real_escape_string($sid));
+					}
+
 					/* refresh */
 					$view->refresh("?m=gamemanager&p=game_monitor&home_id=" . $server_home['home_id'], 0);
 				}
@@ -140,13 +146,14 @@ try
 		$TS3Admin_installed = $db->isModuleInstalled('TS3Admin');
 		if( $TS3Admin_installed )
 		{
-			if(isset($_POST['assign_to_user']) && $_POST['vserver_id'] == $ts3_ServerInstance->getId() AND $server_home['remote_server_id'] == $_POST['remote_server_id'] )
+			if(isset($_POST['assign_to_user']) && (int)$_POST['vserver_id'] == $ts3_ServerInstance->getId() AND $server_home['remote_server_id'] == $_POST['remote_server_id'] )
 			{
-				$db->query("INSERT INTO OGP_DB_PREFIXts3_homes (`rserver_id`, `ip`, `pwd`, `vserver_id`, `user_id`) VALUES ('".$server_home['remote_server_id']."', '".$query_ip."', '".$cfg["pass"]."', '".$_POST['vserver_id']."', '".$_POST['assign_to_user']."');");
+				$query_ip = $server_home['use_nat'] == 1 ? $server_home['agent_ip'] : $server_home['ip'];
+				$db->query("INSERT INTO OGP_DB_PREFIXts3_homes (`rserver_id`, `ip`, `pwd`, `vserver_id`, `user_id`, `port`) VALUES ('".$server_home['remote_server_id']."', '".$query_ip."', '".$cfg["pass"]."', '".(int)$_POST['vserver_id']."', '".$db->real_escape_string($_POST['assign_to_user'])."', '".$cfg['query']."');");
 			}
-			if(isset($_POST['remove_vuser_id']) && $_POST['vserver_id'] == $ts3_ServerInstance->getId() AND $server_home['remote_server_id'] == $_POST['remote_server_id'] )
+			if(isset($_POST['remove_vuser_id']) && (int)$_POST['vserver_id'] == $ts3_ServerInstance->getId() AND $server_home['remote_server_id'] == (int)$_POST['remote_server_id'] )
 			{
-				$db->query( "DELETE FROM OGP_DB_PREFIXts3_homes WHERE vserver_id='" . $_POST['vserver_id'] . "' AND user_id='".$_POST['remove_vuser_id']."' AND rserver_id='".$_POST['remote_server_id']."';" );
+				$db->query( "DELETE FROM OGP_DB_PREFIXts3_homes WHERE vserver_id='" . (int)$_POST['vserver_id'] . "' AND user_id='".(int)$_POST['remove_vuser_id']."' AND rserver_id='".(int)$_POST['remote_server_id']."';" );
 			}
 			$add_remove_virtual .= "<tr><td>Assign This Virtual<br>Server To User</td><td>
 									<form action='' method='POST'>

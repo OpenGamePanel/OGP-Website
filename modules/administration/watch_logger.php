@@ -1,12 +1,9 @@
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.mod.js"></script>
-<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>
 <script type="text/javascript" src="js/modules/administration.js"></script>
 <?php
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -25,17 +22,39 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 function exec_ogp_module() {
-	global $db, $loggedInUserInfo;
+	global $db, $view, $loggedInUserInfo;
+
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
+	$p = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
+	$l = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+		$l = $loggedInUserInfo["users_page_limit"];
+	}
+
 	echo "<h2>".get_lang('watch_logger')."</h2>";
-	?>
+
+	$logs = $db->read_logger($p, $l, $search_field);
+
+	if (empty($logs) && !empty($search_field)) {
+		print_failure(get_lang_f('no_results_found', htmlentities($search_field)));
+		$view->refresh("?m=administration&p=watch_logger", 5);
+
+		return;
+	}
+
+?>
 	<!-- Search, Empty Logger, and Paging Options Table -->
 	<table style="width: 100%;">
 		<tr>
 			<td style="width: 50%; vertical-align: middle; text-align: left;">
-				<form onsubmit="event.preventDefault();" style="display: inline;">
-					<b><?php print_lang('search'); ?>:</b>
-					<input type="text" id="search">
+				<form action="home.php" method="GET" style="display: inline;">
+					<input type ="hidden" name="m" value="administration" />
+					<input type ="hidden" name="p" value="watch_logger" />
+					<input name="search" type="text" id="search" value="<?php if(hasValue($search_field)){ echo $search_field; } ?>" />
+					<input type="submit" value="<?php echo get_lang('search'); ?>" />
 				</form>
 				<form method=POST style="display: inline;">
 					<input type="submit" name="empty_logger" value="<?php print_lang('empty_logger'); ?>" >
@@ -48,11 +67,11 @@ function exec_ogp_module() {
 	</table>
 	<!-- END Search, Empty Logger, and Paging Options Table -->
 	
-	<table id="servermonitor" class="tablesorter"> 
+	<table id="servermonitor" class="tablesorter" data-sortlist="[[1,1]]"> 
 	<thead> 
 	<tr>
-		<th style="width:16px;background-position: center;"></th> 
-		<th><?php print_lang('when'); ?></th> 
+		<th style="width:16px;background-position: center;" class="sorter-false"></th> 
+		<th class="dateFormat-ddmmyyyy"><?php print_lang('when'); ?></th> 
 		<th><?php print_lang('who'); ?></th> 
 		<th><?php print_lang('where'); ?></th> 
 		<th><?php print_lang('what'); ?></th> 
@@ -64,15 +83,6 @@ function exec_ogp_module() {
 		$db->del_logger_log($_POST['log_id']);
 	if( isset( $_POST['empty_logger'] ) )
 		$db->empty_logger();
-	
-	$p = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
-	$l = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
-	
-	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
-		$l = $loggedInUserInfo["users_page_limit"];
-	}
-	
-	$logs = $db->read_logger($p,$l);
 	
 	if($logs)
 	{
@@ -94,10 +104,10 @@ function exec_ogp_module() {
 				 "</form>\n".
 				 "</center>\n".
 				 "</td>\n".
-				 "<td class='collapsible'><span class='hidden' >$log_id</span><a></a>$when</td>\n".
-				 "<td class='collapsible'><a></a>$who</td>\n".
-				 "<td class='collapsible'><a></a>$where</td>\n".
-				 "<td class='collapsible'><a></a>$what</td>\n".
+				 "<td class='collapsible'>$when</td>\n".
+				 "<td class='collapsible'>$who</td>\n".
+				 "<td class='collapsible'>$where</td>\n".
+				 "<td class='collapsible'>$what</td>\n".
 				 "</tr>\n";
 			
 			echo "<tr class='expand-child'>\n".
@@ -118,9 +128,13 @@ function exec_ogp_module() {
 	echo "</tbody>\n";
 	echo "<tfoot style='border:1px solid grey;'></tfoot>\n";
 	echo "</table>\n";
-	$count_logs = $db->get_logger_count();
-
-	$uri = '?m=administration&p=watch_logger&limit='.$l.'&page=';
+	$count_logs = $db->get_logger_count($search_field);
+	
+	if (isset($_GET['search']) && !empty($_GET['search'])) {
+		$uri = '?m=administration&p=watch_logger&search='.$_GET['search'].'&limit='.$l.'&page=';
+	} else {
+		$uri = '?m=administration&p=watch_logger&limit='.$l.'&page=';
+	}
 	echo paginationPages($count_logs[0]['total'], $p, $l, $uri, 3, 'watchLogger');
 }
 ?>

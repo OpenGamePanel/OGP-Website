@@ -2,7 +2,7 @@
 error_reporting(E_ERROR);
  /*----------------------------------------------------------------------------------------------------------\
  |																											|
- |					  [ LIVE GAME SERVER LIST ] [ © RICHARD PERRY FROM GREYCUBE.COM ]						|
+ |					  [ LIVE GAME SERVER LIST ] [ Â© RICHARD PERRY FROM GREYCUBE.COM ]						|
  |																											|
  |	Released under the terms and conditions of the GNU General Public License Version 3 (http://gnu.org)	|
  |																											|
@@ -21,9 +21,10 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	function lgsl_type_list()
 	{
 		return array(
-		"7dtd"			=> "7 Days To Die",
+		"7dtd"			=> "7 Days to Die",
 		"aarmy"			=> "Americas Army",
 		"aarmy3"		=> "Americas Army 3",
+		"aliensvspredator"	=> "Aliens vs Predator",
 		"arcasimracing"	=> "Arca Sim Racing",
 		"arkse"			=> "ARK: Survival Evolved",
 		"arma"			=> "ArmA: Armed Assault",
@@ -34,30 +35,31 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"arma3alpha"	=> "ArmA 3 Alpha",
 		"avorion"		=> "Avorion",
 		"avp2"			=> "Aliens VS. Predator 2",
-		"avp2010"		=> "Aliens VS. Predator ( 2010 By Rebellion )",
 		"bfbc2"			=> "Battlefield Bad Company 2",
 		"bfvietnam"		=> "Battlefield Vietnam",
 		"bf1942"		=> "Battlefield 1942",
 		"bf2"			=> "Battlefield 2",
 		"bf3"			=> "Battlefield 3",
 		"bf2142"		=> "Battlefield 2142",
-		"callofduty"	=> "Call Of Duty",
-		"callofdutyuo"	=> "Call Of Duty: United Offensive",
-		"callofdutywaw"	=> "Call Of Duty: World at War",
-		"callofduty2"	=> "Call Of Duty 2",
-		"callofduty4"	=> "Call Of Duty 4",
-		"callofdutymw2"	=> "Call of Duty Modern Warfare 2",
+		"callofduty"	=> "Call of Duty",
+		"callofdutyuo"	=> "Call of Duty: United Offensive",
+		"callofduty2"	=> "Call of Duty 2",
+		"callofduty4mw"	=> "Call of Duty 4: Modern Warfare",
+		"callofdutywaw"	=> "Call of Duty: World at War",
+		"callofdutymw2"	=> "Call of Duty: Modern Warfare 2",
+		"callofdutymw3"	=> "Call of Duty: Modern Warfare 3",
 		"cncrenegade"	=> "Command and Conquer: Renegade",
 		"conanexiles"	=> "Conan Exiles",
 		"crysis"		=> "Crysis",
 		"crysiswars"	=> "Crysis Wars",
-		"cs2d"			=> "Counter-Strike 2D",
+		"cs2d"			=> "CS2D",
 		"cube"			=> "Cube Engine",
-		"dayzmod"          => "DayZ Mod",
+		"dayzmod"		=> "DayZ Mod",
 		"doomskulltag"	=> "Doom - Skulltag",
 		"doomzdaemon"	=> "Doom - ZDaemon",
 		"doom3"			=> "Doom 3",
 		"dh2005"		=> "Deer Hunter 2005",
+		"egs"			=> "Empyrion - Galactic Survival",
 		"farcry"		=> "Far Cry",
 		"fear"			=> "F.E.A.R.",
 		"flashpoint"	=> "Operation Flashpoint",
@@ -84,15 +86,14 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor"	=> "Killing Floor",
 		"killingfloor2"	=> "Killing Floor 2",
 		"kingpin"		=> "Kingpin: Life of Crime",
-		"lif"			=> "Life is Feudal",
-		"modernwarfare3"=> "CoD: Modern Warfare 3",
+		"lifeisfeudal"	=> "Life is Feudal",
 		"moh"			=> "Medal of Honor",
 		"mohaa"			=> "Medal of Honor: Allied Assault",
 		"mohaab"		=> "Medal of Honor: Allied Assault Breakthrough",
 		"mohaas"		=> "Medal of Honor: Allied Assault Spearhead",
 		"mohpa"			=> "Medal of Honor: Pacific Assault",
-		"murmur"		=> "Murmur ( Mumble Server )",
 		"mta"			=> "Multi Theft Auto",
+		"murmur"		=> "Murmur ( Mumble Server )",
 		"nascar2004"	=> "Nascar Thunder 2004",
 		"neverwinter"	=> "NeverWinter Nights",
 		"neverwinter2"	=> "NeverWinter Nights 2",
@@ -110,6 +111,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ravenshield"	=> "Raven Shield",
 		"redorchestra"	=> "Red Orchestra",
 		"redorchestra2"	=> "Red Orchestra 2 & Rising Storm",
+		"reignofkings"	=> "Reign of Kings",
 		"rfactor"		=> "RFactor",
 		"risingstorm2"	=> "Rising Storm 2: Vietnam",
 		"ror"			=> "Rigs of Rods",
@@ -164,6 +166,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy"			=> "09",
 		"aarmy_"		=> "03",
 		"aarmy3"		=> "26",
+		"aliensvspredator"	=> "31",
 		"arcasimracing"	=> "16",
 		"arkse"			=> "05",
 		"arma"			=> "09",
@@ -174,7 +177,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"arma3alpha"	=> "09",
 		"avorion"		=> "05",
 		"avp2"			=> "03",
-		"avp2010"		=> "31",
 		"bfbc2"			=> "30",
 		"bfvietnam"		=> "09",
 		"bf1942"		=> "03",
@@ -183,10 +185,11 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"bf2142"		=> "06",
 		"callofduty"	=> "02",
 		"callofdutyuo"	=> "02",
-		"callofdutywaw"	=> "02",
 		"callofduty2"	=> "02",
-		"callofduty4"	=> "02",
+		"callofduty4mw"	=> "02",
+		"callofdutywaw"	=> "02",
 		"callofdutymw2"	=> "02",
+		"callofdutymw3"	=> "31",
 		"cncrenegade"	=> "03",
 		"conanexiles"	=> "05",
 		"crysis"		=> "06",
@@ -198,6 +201,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"doomzdaemon"	=> "28",
 		"doom3"			=> "10",
 		"dh2005"		=> "09",
+		"egs"			=> "05",
 		"had2"			=> "03",
 		"halflife"		=> "05",
 		"halflifewon"	=> "05",
@@ -224,8 +228,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor"	=> "13",
 		"killingfloor2"	=> "05",
 		"kingpin"		=> "03",
-		"lif"			=> "05",
-		"modernwarfare3"=> "31",
+		"lifeisfeudal"	=> "05",
 		"moh"			=> "30",
 		"mohaa"			=> "03",
 		"mohaab"		=> "03",
@@ -235,8 +238,8 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"mohaab_"		=> "02",
 		"mohaas_"		=> "02",
 		"mohpa_"		=> "02",
-		"murmur"		=> "34",
 		"mta"			=> "08",
+		"murmur"		=> "34",
 		"nascar2004"	=> "09",
 		"neverwinter"	=> "09",
 		"neverwinter2"	=> "09",
@@ -255,6 +258,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ravenshield"	=> "04",
 		"redorchestra"	=> "13",
 		"redorchestra2"	=> "05",
+		"reignofkings"	=> "05",
 		"rfactor"		=> "16",
 		"risingstorm2"	=> "05",
 		"ror"			=> "36",
@@ -309,9 +313,10 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	function lgsl_software_link($type, $ip, $c_port, $q_port, $s_port)
 	{
 		$lgsl_software_link = array(
-		"7dtd"			=> "http://7daystodie.com/",
+		"7dtd"			=> "steam://connect/{IP}:{Q_PORT}",
 		"aarmy"			=> "qtracker://{IP}:{S_PORT}?game=ArmyOperations&action=show",
 		"aarmy3"		=> "qtracker://{IP}:{S_PORT}?game=AmericasArmy3&action=show",
+		"aliensvspredator"	=> "steam://connect/{IP}:{Q_PORT}",
 		"arcasimracing"	=> "http://en.wikipedia.org/wiki/ARCA_Sim_Racing",
 		"arkse"			=> "steam://connect/{IP}:{Q_PORT}",
 		"arma"			=> "qtracker://{IP}:{S_PORT}?game=ArmedAssault&action=show",
@@ -322,7 +327,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"arma3alpha"	=> "http://en.wikipedia.org/wiki/ARMA_2",
 		"avorion"		=> "steam://connect/{IP}:{S_PORT}",
 		"avp2"			=> "qtracker://{IP}:{S_PORT}?game=AliensversusPredator2&action=show",
-		"avp2010"		=> "http://en.wikipedia.org/wiki/Aliens_vs._Predator_%28video_game%29",
 		"bfbc2"			=> "http://en.wikipedia.org/wiki/Battlefield_bad_company_2",
 		"bfvietnam"		=> "qtracker://{IP}:{S_PORT}?game=BattlefieldVietnam&action=show",
 		"bf1942"		=> "qtracker://{IP}:{S_PORT}?game=Battlefield1942&action=show",
@@ -331,10 +335,11 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"bf2142"		=> "qtracker://{IP}:{S_PORT}?game=Battlefield2142&action=show",
 		"callofduty"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty&action=show",
 		"callofdutyuo"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDutyUnitedOffensive&action=show",
-		"callofdutywaw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDutyWorldAtWar&action=show",
 		"callofduty2"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty2&action=show",
-		"callofduty4"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty4&action=show",
+		"callofduty4mw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDuty4&action=show",
+		"callofdutywaw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDutyWorldAtWar&action=show",
 		"callofdutymw2"	=> "aiw://connect/{IP}:{S_PORT}",
+		"callofdutymw3"	=> "steam://connect/{IP}:{Q_PORT}",
 		"cncrenegade"	=> "qtracker://{IP}:{S_PORT}?game=CommandConquerRenegade&action=show",
 		"conanexiles"	=> "steam://connect/{IP}:{S_PORT}",
 		"crysis"		=> "qtracker://{IP}:{S_PORT}?game=Crysis&action=show",
@@ -346,6 +351,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"doomzdaemon"	=> "http://www.zdaemon.org",
 		"doom3"			=> "qtracker://{IP}:{S_PORT}?game=Doom3&action=show",
 		"dh2005"		=> "http://en.wikipedia.org/wiki/Deer_Hunter_(computer_game)",
+		"egs"			=> "steam://connect/{IP}:{Q_PORT}",
 		"farcry"		=> "qtracker://{IP}:{S_PORT}?game=FarCry&action=show",
 		"fear"			=> "qtracker://{IP}:{S_PORT}?game=FEAR&action=show",
 		"flashpoint"	=> "qtracker://{IP}:{S_PORT}?game=OperationFlashpoint&action=show",
@@ -372,14 +378,13 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor"	=> "steam://connect/{IP}:{C_PORT}",
 		"killingfloor2" => "steam://connect/{IP}:{S_PORT}",
 		"kingpin"		=> "qtracker://{IP}:{S_PORT}?game=Kingpin&action=show",
-		"lif"			=> "steam://connect/{IP}:{Q_PORT}",
-		"modernwarfare3"=> "http://en.wikipedia.org/wiki/Call_of_Duty:_Modern_Warfare_3",
+		"lifeisfeudal"	=> "steam://connect/{IP}:{Q_PORT}",
 		"mohaa"			=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssault&action=show",
 		"mohaab"		=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssaultBreakthrough&action=show",
 		"mohaas"		=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssaultSpearhead&action=show",
 		"mohpa"			=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorPacificAssault&action=show",
-		"murmur"		=> "mumble://{IP}:{C_PORT}/?version=1.2.0",
 		"mta"			=> "mtasa://{IP}:{C_PORT}",
+		"murmur"		=> "mumble://{IP}:{C_PORT}/?version=1.2.0",
 		"nascar2004"	=> "http://en.wikipedia.org/wiki/NASCAR_Thunder_2004",
 		"neverwinter"	=> "qtracker://{IP}:{S_PORT}?game=NeverwinterNights&action=show",
 		"neverwinter2"	=> "qtracker://{IP}:{S_PORT}?game=NeverwinterNights&action=show",
@@ -399,6 +404,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"redorchestra2"	=> "steam://connect/{IP}:{S_PORT}",
 		"rfactor"		=> "rfactor://{IP}:{S_PORT}",
 		"risingstorm2"	=> "steam://connect/{IP}:{S_PORT}",
+		"reignofkings"	=> "steam://connect/{IP}:{Q_PORT}",
 		"ror"			=> "http://www.rigsofrods.com/servers/",
 		"rust"			=> "steam://connect/{IP}:{S_PORT}",
 		"samp"			=> "samp://{IP}:{C_PORT}",
@@ -429,7 +435,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ut2003"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2003&action=show",
 		"ut2004"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2004&action=show",
 		"ut3"			=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament3&action=show",
-		"vcmp"			=> "http://vicecitymultiplayer.com",
+		"vcmp"			=> "http://vc-mp.org",
 		"vietcong"		=> "qtracker://{IP}:{S_PORT}?game=Vietcong&action=show",
 		"vietcong2"		=> "qtracker://{IP}:{S_PORT}?game=Vietcong2&action=show",
 		"warsow"		=> "warsow://{IP}:{S_PORT}",
@@ -459,9 +465,10 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	{
 		switch ($type) // GAMES WHERE Q_PORT IS NOT EQUAL TO C_PORT
 		{
-			case "7dtd"				: $c_to_q = 1;		$c_def = 25000;	$q_def = 25001;	$c_to_s = 0;	break;
+			case "7dtd"				: $c_to_q = 1;		$c_def = 26900;	$q_def = 26901;	$c_to_s = 0;	break;
 			case "aarmy"			: $c_to_q = 1;		$c_def = 1716;	$q_def = 1717;	$c_to_s = 0;	break;
 			case "aarmy3"			: $c_to_q = 0;		$c_def = 8777;	$q_def = 39300;	$c_to_s = 0;	break;
+			case "aliensvspredator"	: $c_to_q = -23357;	$c_def = 27015;	$q_def = 3658;	$c_to_s = 0;	break;
 			case "arcasimracing"	: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
 			case "arkse"			: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "arma3"			: $c_to_q = 1; 		$c_def = 2302; 	$q_def = 2303; 	$c_to_s = 0; 	break;
@@ -472,9 +479,11 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "bf2"				: $c_to_q = 13333;	$c_def = 16567;	$q_def = 29900;	$c_to_s = 0;	break;
 			case "bf3"				: $c_to_q = 22000;	$c_def = 25200;	$q_def = 47200;	$c_to_s = 0;	break;
 			case "bf2142"			: $c_to_q = 0;		$c_def = 17567;	$q_def = 29900;	$c_to_s = 0;	break;
-			case "conanexiles"		: $c_to_q = 2;		$c_def = 24000;	$q_def = 24002;	$c_to_s = 0;	break;
+			case "callofdutymw3"	: $c_to_q = -1;		$c_def = 27015;	$q_def = 27014;	$c_to_s = 0;	break;
+			case "conanexiles"		: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "cube"				: $c_to_q = 1;		$c_def = 28785;	$q_def = 28786;	$c_to_s = 0;	break;
-			case "dayzmod"                     : $c_to_q = 1;	  	$c_def = 2302;  $q_def = 2303;  $c_to_s = 0;    break;
+			case "dayzmod"			: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
+			case "egs"				: $c_to_q = 1;		$c_def = 30000;	$q_def = 30001; $c_to_s = 0;	break;
 			case "dh2005"			: $c_to_q = 0;		$c_def = 23459;	$q_def = 34567;	$c_to_s = 0;	break;
 			case "farcry"			: $c_to_q = 123;	$c_def = 49001;	$q_def = 49124;	$c_to_s = 0;	break;
 			case "flashpoint"		: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
@@ -486,8 +495,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "kingpin"			: $c_to_q = -10;	$c_def = 31510;	$q_def = 31500;	$c_to_s = 0;	break;
 			case "killingfloor"		: $c_to_q = 1;		$c_def = 7708;	$q_def = 7709;	$c_to_s = 0;	break;
 			case "killingfloor2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
-			case "lif"				: $c_to_q = 2;		$c_def = 28000; $q_def = 28002; $c_to_s = 0;	break;
-			case "modernwarfare3"	: $c_to_q = -1;		$c_def = 27015;	$q_def = 27014;	$c_to_s = 0;	break;
+			case "lifeisfeudal"		: $c_to_q = 2;		$c_def = 28000; $q_def = 28002; $c_to_s = 0;	break;
 			case "mohaa"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
 			case "mohaab"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
 			case "mohaas"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
@@ -499,6 +507,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "ravenshield"		: $c_to_q = 1000;	$c_def = 7777;	$q_def = 8777;	$c_to_s = 0;	break;
 			case "redorchestra"		: $c_to_q = 1;		$c_def = 7758;	$q_def = 7759;	$c_to_s = 0;	break;
 			case "redorchestra2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
+			case "reignofkings"		: $c_to_q = 19665;	$c_def = 7350;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "rfactor"			: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
 			case "risingstorm2"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "serioussam"		: $c_to_q = 1;		$c_def = 25600;	$q_def = 25601;	$c_to_s = 0;	break;

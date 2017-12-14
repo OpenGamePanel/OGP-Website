@@ -1,0 +1,92 @@
+<game_config>
+  <game_key>reignofkings_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>reignofkings</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Reign of Kings</game_name>
+  <server_exec_name>Server.exe</server_exec_name>
+  <query_port type="add">19665</query_port>
+  <cli_template>-batchmode -nographics -silent-crashes</cli_template>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>381690</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="control_password">
+      <default>(rConPassword\s*=\s*')(.*)(')</default>
+      <var>rConPassword = '%key%'</var>
+      <filepath>Configuration/ConsoleSettings.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="home_name">
+      <default>(serverName\s*=\s*')(.*)(')</default>
+      <var>serverName = '%key%'</var>
+      <filepath>Configuration/ServerSettings.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="max_players">
+      <default>(maxPlayers\s*=\s*')(.*)(')</default>
+      <var>maxPlayers = '%key%'</var>
+      <filepath>Configuration/ServerSettings.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="ip">
+      <default>(bindIP\s*=\s*')(.*)(')</default>
+      <var>bindIP = '%key%'</var>
+      <filepath>Configuration/ServerSettings.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="port">
+      <default>(portNumber\s*=\s*')(.*)(')</default>
+      <var>portNumber = '%key%'</var>
+      <filepath>Configuration/ServerSettings.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="query_port">
+      <default>(steamAuthPort\s*=\s*')(.*)(')</default>
+      <var>steamAuthPort = '%key%'</var>
+      <filepath>Configuration/ServerSettings.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Enable RCON" type="select">
+      <option value="False">False</option>
+      <option value="True">True</option>
+      <default>(enableRCon\s*=\s*')(.*)(')</default>
+      <default_value>False</default_value>
+      <var>enableRCon = '%key%'</var>
+      <filepath>Configuration/ConsoleSettings.cfg</filepath>
+      <options>key-regex</options>
+      <desc>Enables remote access to the server console.</desc>
+    </field>
+    <field key="RCON Port" type="text">
+      <default>(rConPort\s*=\s*')(.*)(')</default>
+      <default_value>9350</default_value>
+      <var>rConPort = '%key%'</var>
+      <filepath>Configuration/ConsoleSettings.cfg</filepath>
+      <options>key-regex</options>
+      <access>admin</access>
+      <desc>Sets the port to RCON.</desc>
+    </field>
+    <field key="Level Name" type="select">
+      <option value="CrownLand">CrownLand</option>
+      <option value="StormWall">StormWall</option>
+      <default>(levelName\s*=\s*')(.*)(')</default>
+      <default_value>CrownLand</default_value>
+      <var>levelName = '%key%'</var>
+      <filepath>Configuration/ServerSettings.cfg</filepath>
+      <options>key-regex</options>
+      <desc>Defines the map of the server.</desc>
+    </field>
+  </custom_fields>
+  <configuration_files>
+    <file description="Server Configurations">Configuration/ServerSettings.cfg</file>
+    <file description="Console Configurations">Configuration/ConsoleSettings.cfg</file>
+    <file description="User Configurations">Configuration/Users.cfg</file>
+    <file description="Whitelist Configurations">Configuration/Whitelist.cfg</file>
+  </configuration_files>
+</game_config>

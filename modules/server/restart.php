@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,12 +21,13 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 require_once('includes/lib_remote.php');
 function exec_ogp_module() {
 
     global $view;
     global $db;
-	echo "<h2>". restart ."</h2>";
+	echo "<h2>". get_lang("restart") ."</h2>";
 	$rhost_id = @$_REQUEST['rhost_id'];
     $remote_server = $db->getRemoteServer($rhost_id);
 	$remote = new OGPRemoteLibrary($remote_server['agent_ip'], $remote_server['agent_port'], $remote_server['encryption_key'], $remote_server['timeout']);
@@ -39,7 +40,7 @@ function exec_ogp_module() {
 		$host_stat = $remote->status_chk();
 		if($host_stat === 0)
 		{
-			echo restarting; # "Restarting agent... Please wait."
+			echo get_lang("restarting"); # "Restarting agent... Please wait."
 			$view->refresh("?m=server&p=restart&rhost_id=".$rhost_id."&refresh",5);
 		}
 		else
@@ -54,7 +55,7 @@ function exec_ogp_module() {
 			else
 			{
 				echo "<pre class='log'><xmp>".$agent_log."</xmp></pre>";
-				print_success( restarted );
+				print_success( get_lang("restarted") );
 				echo create_back_button($_GET['m']);
 				$view->refresh("?m=server",15);
 			}
@@ -67,15 +68,15 @@ function exec_ogp_module() {
 			 get_lang_f('confirm_restart', $ipAndName) . "</td>" . "</tr><tr><td>".
 			 '<form method="post" >' . "\n" . '<input type="hidden" name="rhost_id" value="'.
 			 $rhost_id . '">' . "\n" . '<button name="re_check" value="yes" >'.
-			 yes . "</button>\n" . '<button name="re_check" value="no" >'.
-			 no . "</button>\n" . "</form>\n" . "</td>\n" . "</tr>\n" . "</table><br>\n";
+			 get_lang("yes") . "</button>\n" . '<button name="re_check" value="no" >'.
+			 get_lang("no") . "</button>\n" . "</form>\n" . "</td>\n" . "</tr>\n" . "</table><br>\n";
 	} else if($_POST['re_check'] == "yes") {
 		// Confirmed... so restart the agent
 		$remote->exec(  "if [ -e 'screenlogs/screenlog.agent_restart' ]; then rm -f 'screenlogs/screenlog.agent_restart'; fi && ".
 						"if [ -e 'screenlogs/screenlog.ogp_agent' ]; then rm -f 'screenlogs/screenlog.ogp_agent'; fi" );
 		$file_info =  $remote->agent_restart();		
 		// 5 seconds should be enough for the agent to come back up
-		echo restarting; # "Restarting agent... Please wait."
+		echo get_lang("restarting"); # "Restarting agent... Please wait."
 		$view->refresh("?m=server&p=restart&rhost_id=".$rhost_id."&refresh", 5);
 
 	} else if ($_POST['re_check'] == "no"){

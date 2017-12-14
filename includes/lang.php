@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,6 +23,14 @@
  */
 
 $lang_modules = array();
+
+// Some modules do not follow the established pattern and therefore don't have the functions loaded :(
+if(file_exists('includes/functions.php'))
+	require_once('includes/functions.php');
+
+if(file_exists('functions.php'))
+	require_once('functions.php');
+
 
 function add_lang_module($lang_module)
 {
@@ -79,10 +87,20 @@ function ogpLang()
 
 function get_lang($lang_index)
 {
+	global $OGPLangPre;
+	
     if (defined($lang_index))
     {
         return constant($lang_index);
     }
+    
+    if(!startsWith($lang_index, $OGPLangPre)){
+		$newLangIndex = $OGPLangPre . $lang_index;
+		if (defined($newLangIndex))
+		{
+			return constant($newLangIndex);
+		}
+	}
 
     // Any other case is error.
     return "_".$lang_index."_";
@@ -90,6 +108,7 @@ function get_lang($lang_index)
 
 function get_lang_f()
 {
+	global $OGPLangPre;
     $args = func_get_args();
     $lang_index = array_shift($args);
 
@@ -97,6 +116,14 @@ function get_lang_f()
     {
         return vsprintf(constant($lang_index),$args);
     }
+    
+    if(!startsWith($lang_index, $OGPLangPre)){
+		$newLangIndex = $OGPLangPre . $lang_index;
+		if (defined($newLangIndex))
+		{
+			return vsprintf(constant($newLangIndex),$args);
+		}
+	}
 
     return "_".$lang_index."_".implode("_",$args)."_";
 }

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2015 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -178,6 +178,8 @@ function ogpHome()
 					$query_name = $server_xml->gameq_query_name;
 				elseif ($server_xml->protocol == "lgsl")
 					$query_name = $server_xml->lgsl_query_name;
+				elseif ($server_xml->protocol == "teamspeak3")
+					$query_name = 'ts3';
 				else
 					$query_name = $mod;
 				

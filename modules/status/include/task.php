@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,7 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
- 
+
 // Setup the remote connection
 include_once("modules/status/config.php");
 if( isset($_GET['remote_server_id']) && $_GET['remote_server_id'] != "webhost")
@@ -39,7 +39,7 @@ if( isset($_GET['remote_server_id']) && $_GET['remote_server_id'] != "webhost")
 	}else{
 		if($os == "linux"){
 			$taskoutput = array();
-			$taskoutput["task"] = shell_exec ("ps -Ao user,pid,pcpu,pmem,comm,args --sort=-pcpu | head -n 30");
+			$taskoutput["task"] = shell_exec ("top -b -c -i -w512 -n2 | awk '/^top/{i++}i==2' | grep 'COMMAND' -A 30");
 		}
 	}
 }

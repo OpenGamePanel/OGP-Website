@@ -206,7 +206,7 @@ hr {
 		
 #container {
 	margin:0 auto;
-	width:920px;
+	width:1000px;
 	min-height:400px;
 	margin-bottom: -15px;
 	padding-bottom: 40px;
@@ -219,7 +219,7 @@ hr {
 	
 
 #content {
-	width:920px;
+	width:1000px;
 	margin:0 auto ;
 	text-align:left;
 }			
@@ -244,8 +244,8 @@ hr {
 	float:left;
 	width:424px;
 	position:relative;
-	margin-left:36px;
-	margin-right:36px;
+	margin-left: 76px;
+	margin-right: 76px;
 }
 
 .one_fourth {
@@ -340,7 +340,7 @@ h0 {
 	color:#333333;
 	margin:10px 0 10px 0;
 	clear:both;
-	width: 918px;
+	width: 998px;
 	height:35px;
 	background:#f5f5f5;
 	border-style:solid;
@@ -367,7 +367,7 @@ h2 {
 	color:#333333;
 	margin:10px 0 10px 0;
 	clear:both;
-	width:918px;
+	width:998px;
 	height:35px;
 	background:#f5f5f5;
 	border-top-style:solid;
@@ -439,7 +439,7 @@ a:hover {
 
 #footer {
 	min-height:260px;
-	width:920px;
+	width:1000px;
 	margin:0 auto;
 	background-color:#101010;
 	background-image:url(images/footer-bg.png);
@@ -578,6 +578,11 @@ table.tablesorter tfoot td {
 
 .failure {
 	color: red;
+	text-align:center;
+}
+
+.warning {
+	color: purple;
 	text-align:center;
 }
 

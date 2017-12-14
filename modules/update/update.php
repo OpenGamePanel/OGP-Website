@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,7 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
- 
+
  // todo, make checking and updating functions for updateing on the background.
  // todo, more specified updates in smaller packages
 function check_file($local_path, $remote_url)
@@ -48,15 +48,20 @@ function check_file($local_path, $remote_url)
 
 function exec_ogp_module()
 {
+	global $db, $settings;
+	define('REPONAME', 'OGP-Website');
+
 	if ($_SESSION['users_group'] != "admin") 
 	{
 		print_failure(get_lang('no_access'));
 		return;
 	}
 
-	global $db, $settings;
-	
-	define('REPONAME', 'OGP-Website');
+	// Check if PHP-ZIP is installed, otherwise we won't be able to extract the downloaded update.
+	if (extension_loaded('zip') === false) {
+		print_failure(get_lang('missing_zip_extension'));
+		return;
+	}
 	
 	// GitHub URL
 	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict") && function_exists("getGitHubOrganization")){
@@ -141,6 +146,38 @@ function exec_ogp_module()
 			else
 				echo "<form action='?m=".$_GET['m']."&amp;p=updating&amp;version=".$seed."' method='post'>\n".
 					 "<input type='submit' value='".get_lang('update_now')."' /></form><br><br>\n";
+				
+				if(function_exists('curl_version')){
+					echo "<h2>Latest Changes</h2>";
+					
+					$commitsStart = 0;
+					$commitsToShow = 5;
+					
+					$gitHubUpdateName = (!empty($settings['custom_github_update_username']) ? $settings['custom_github_update_username'] : 'OpenGamePanel');
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits');
+					curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0');
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+					$data = curl_exec($ch);
+					
+					if ($data) {
+						$json = json_decode($data, true);
+						
+						if (!empty($json[0]['commit'])) {
+							echo '<ul>';
+							foreach ($json as $k=>$v) {
+								if ($commitsStart >= $commitsToShow) {
+									break;
+								}
+								echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v[sha],0,7).'...</a><br>';
+								echo '<b>'.$v['commit']['message'] .'</b></li><br>';
+								++$commitsStart;
+							}
+							echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits/master" target="_blank">View more commits...</a>';
+						}
+					}
+				}
 		}
 		else
 		{

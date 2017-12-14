@@ -3,7 +3,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,6 +22,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+
 function exec_ogp_module() 
 {
 	echo "<h2>".get_lang('ban_list')."</h2>";
@@ -32,6 +33,7 @@ function exec_ogp_module()
 		unset($_POST['unban']);
 		foreach($_POST as $name => $ip)
 		{
+			$ip = $db->real_escape_string($ip);
 			$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='0', banned_until='0' WHERE client_ip = '$ip';");
 		}
 	}

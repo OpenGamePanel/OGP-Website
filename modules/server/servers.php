@@ -1,10 +1,9 @@
-<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>
 <script type="text/javascript" src="js/modules/server.js"></script>
 <?php
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2014 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -30,8 +29,8 @@ function exec_ogp_module() {
 	global $view;
 	global $db;
 
-	echo "<h2>". add_new_remote_host ."</h2>";
-	echo "<p>". note_remote_host ."</p>";
+	echo "<h2>". get_lang("add_new_remote_host") ."</h2>";
+	echo "<p>". get_lang("note_remote_host") ."</p>";
 
 	require_once("includes/form_table_class.php");
 
@@ -46,8 +45,9 @@ function exec_ogp_module() {
 	$ft->add_field('string','remote_encryption_key',"");
 	$ft->add_field('string','timeout',"5");
 	$ft->add_field('on_off','use_nat',"0");
+	$ft->add_field('string','display_public_ip',"");
 	$ft->end_table();
-	$ft->add_button('submit','add_remote_host', add_remote_host );
+	$ft->add_button('submit','add_remote_host', get_lang("add_remote_host") );
 	$ft->end_form();
 
 	$servers = $db->getRemoteServers();
@@ -60,7 +60,7 @@ function exec_ogp_module() {
 	?><table id="servermonitor" class="tablesorter remote">
 		<thead> 
 		<tr> 
-			<th colspan="4" class="header" ><?php print_lang('configured_remote_hosts'); ?></th> 
+			<th colspan="4" class="header sorter-false"><?php print_lang('configured_remote_hosts'); ?></th> 
 		</tr> 
 		</thead> 
 		<tbody> <?php
@@ -72,37 +72,37 @@ function exec_ogp_module() {
 		$host_stat = $remote->status_chk();
 
 		$buttons = "<a href='?m=server&amp;p=edit&amp;rhost_id=".
-					$server_row['remote_server_id']."&amp;delete'>[". delete ."]</a>\n".
+					$server_row['remote_server_id']."&amp;delete'>[". get_lang("delete") ."]</a>\n".
 					"<a href='?m=server&amp;p=edit&amp;rhost_id=".$server_row['remote_server_id'].
-					"&amp;edit'>[". edit ."]</a>\n";
+					"&amp;edit'>[". get_lang("edit") ."]</a>\n";
 
 		$tittle = "<b>ID#:</b>  <b style='color:red;'>".$server_row['remote_server_id']."</b></td>
-					<td class='collapsible' ><b>". server_name .":</b> ".$server_row['remote_server_name']."</td>
-					<td class='collapsible' ><b>". agent_status .":</b> ";
+					<td class='collapsible' ><b>". get_lang("server_name") .":</b> ".$server_row['remote_server_name']."</td>
+					<td class='collapsible' ><b>". get_lang("agent_status") .":</b> ";
 
 		$booble = "";
 
 		if($host_stat === 0 )
 		{
-			$tittle .= "<span class='failure'>". offline ."</span> ";
+			$tittle .= "<span class='failure'>". get_lang("offline") ."</span> ";
 		}
 		elseif( $host_stat === 1)
 		{
 			$os = $remote->what_os();
 			$buttons .= "<a href='?m=server&amp;p=reboot&amp;rhost_id=".$server_row['remote_server_id'].
-						"'>[". reboot ."]</a>\n<a href='?m=server&amp;p=restart&amp;rhost_id=".$server_row['remote_server_id'].
-						"'>[". restart ."]</a>\n".
-						"<a href='?m=server&amp;p=log&amp;rhost_id=".$server_row['remote_server_id']."'>[". view_log ."]</a>\n";
-			$tittle .= "<span class='success'>". online ."</span>";
+						"'>[". get_lang("reboot") ."]</a>\n<a href='?m=server&amp;p=restart&amp;rhost_id=".$server_row['remote_server_id'].
+						"'>[". get_lang("restart") ."]</a>\n".
+						"<a href='?m=server&amp;p=log&amp;rhost_id=".$server_row['remote_server_id']."'>[". get_lang("view_log") ."]</a>\n";
+			$tittle .= "<span class='success'>". get_lang("online") ."</span>";
 			$booble .= "<img src='images/magnifglass.png' data-url='includes/api.php?remote_server=$server_row[remote_server_id]&mon_stats' weight='8' class='center' />";
 		}
 		elseif( $host_stat === -1 )
 		{
-			$tittle .= "<span class='failure'>". encryption_key_mismatch ."</span>\n";
+			$tittle .= "<span class='failure'>". get_lang("encryption_key_mismatch") ."</span>\n";
 		}
 		else
 		{
-			$tittle .= "<span class='failure'>". unknown_error .": $host_stat</span>\n";
+			$tittle .= "<span class='failure'>". get_lang("unknown_error") .": $host_stat</span>\n";
 		}
 		
 		$tittle .= "</td><td>$buttons</td>";
@@ -110,21 +110,23 @@ function exec_ogp_module() {
 		$ftp_ip = empty( $server_row['ftp_ip'] ) ? $server_row['agent_ip'] : $server_row['ftp_ip'];
 		$data = "<tr class='expand-child' >
 				   <td>$booble</td><td>
-					<b>". ogp_user .":</b> ".$server_row['ogp_user']."<br />
-					<b>". agent_ip_port .":</b> ".$server_row['agent_ip'].":".$server_row['agent_port']."<br />
-					<b>". remote_host_ftp_ip .":</b> ".$ftp_ip."<br />
-					<b>". remote_host_ftp_port .":</b> ".$server_row['ftp_port']."<br />
-					<b>". timeout .":</b> ".$server_row['timeout']."&nbsp;". seconds ."<br />
-					<b>". encryption_key .":</b> ".$server_row['encryption_key']."<br />
+					<b>". get_lang("ogp_user") .":</b> ".$server_row['ogp_user']."<br />
+					<b>". get_lang("agent_ip_port") .":</b> ".$server_row['agent_ip'].":".$server_row['agent_port']."<br />
+					<b>". get_lang("remote_host_ftp_ip") .":</b> ".$ftp_ip."<br />
+					<b>". get_lang("remote_host_ftp_port") .":</b> ".$server_row['ftp_port']."<br />
+					<b>". get_lang("timeout") .":</b> ".$server_row['timeout']."&nbsp;". get_lang("seconds") ."<br />
+					<b>". get_lang("encryption_key") .":</b> ".$server_row['encryption_key']."<br />
 				   </td>
-				   <td><b>".  ips .": </b><br>";
+				   <td>
+				   	<b>". get_lang("display_public_ip") .":</b><br />".checkDisplayPublicIP($server_row['display_public_ip'], $server_row['agent_ip'])."<br />
+				   	<b>".  get_lang("ips") .": </b><br>";
 		
 		// Next we print the IP addresses and one empty field.
 		$remote_server_ips = $db->getRemoteServerIPs($server_row['remote_server_id']);
 
 		if ( empty($remote_server_ips) )
 		{
-			$data .= "<span class='failure'>". no_ip_for_remote_host ."</span>";
+			$data .= "<span class='failure'>". get_lang("no_ip_for_remote_host") ."</span>";
 		}
 		else
 		{
@@ -138,7 +140,7 @@ function exec_ogp_module() {
 		
 		if( $host_stat === 1)
 		{
-			$data .= "<b>OS:</b> ".@$os."<br><b>". firewall_status .":</b> ";
+			$data .= "<b>OS:</b> ".@$os."<br><b>". get_lang("firewall_status") .":</b> ";
 			$firewall_settings = $db->getFirewallSettings($server_row['remote_server_id']);
 			if ( !$firewall_settings )
 			{
@@ -151,16 +153,16 @@ function exec_ogp_module() {
 			
 			if($status == "enable")
 			{
-				$data .= on;
+				$data .= get_lang("on");
 			}
 			elseif($status == "disable")
 			{
 				
-				$data .= off;
+				$data .= get_lang("off");
 			}
 			$data .= "<br />
 					  <a href='?m=server&amp;p=firewall&amp;rhost_id=".
-					  $server_row['remote_server_id']."'>[". firewall_settings ."]</a>\n<br />";
+					  $server_row['remote_server_id']."'>[". get_lang("firewall_settings") ."]</a>\n<br />";
 		}
 		$data .= "</td></tr>";
 		// Template

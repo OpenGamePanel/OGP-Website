@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -47,6 +47,8 @@ function exec_ogp_module() {
 
 	require_once('includes/lib_remote.php');
 	$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
+	
+	$os = $remote->what_os();
 
     if ( $home_info === FALSE )
     {
@@ -208,172 +210,7 @@ function exec_ogp_module() {
 			$control_type = isset($server_xml->control_protocol_type) ? $server_xml->control_protocol_type : "";
 			$run_dir = isset($server_xml->exe_location) ? $server_xml->exe_location : "";
 			
-			$last_param = json_decode($home_info['last_param'], True);
-			
-			$cli_param_data['GAME_TYPE'] = $home_info['mods'][$mod_id]['mod_key'];
-			$cli_param_data['IP'] = $ip;
-			$cli_param_data['PORT'] = $port;
-			$cli_param_data['HOSTNAME'] = $home_info['home_name'];
-			$cli_param_data['PID_FILE'] = "ogp_game_startup.pid";
-			
-			$os = $remote->what_os();
-			// Linux
-			if( preg_match("/Linux/", $os) )
-			{
-				if(preg_match("/_win(32|64)?$/", $home_info['game_key']))
-				{
-					$home_path_wine = $remote->exec("winepath -w ".$home_info['home_path']);
-					$home_path_wine = str_replace("\\","\\\\", $home_path_wine);
-					$home_path_wine = trim($home_path_wine);
-					$cli_param_data['BASE_PATH'] = $home_path_wine;
-					$cli_param_data['HOME_PATH'] = $home_path_wine;
-					$cli_param_data['SAVE_PATH'] = $home_path_wine;
-					$cli_param_data['OUTPUT_PATH'] = $home_path_wine;
-					$cli_param_data['USER_PATH'] = $home_path_wine;
-				}
-				else
-				{
-					$cli_param_data['BASE_PATH'] = $home_info['home_path'];
-					$cli_param_data['HOME_PATH'] = $home_info['home_path'];
-					$cli_param_data['SAVE_PATH'] = $home_info['home_path'];
-					$cli_param_data['OUTPUT_PATH'] = $home_info['home_path'];
-					$cli_param_data['USER_PATH'] = $home_info['home_path'];
-				}
-			}
-			// Windows
-			elseif( preg_match("/CYGWIN/", $os) )
-			{
-				$home_path_win = $remote->exec("cygpath -w ".$home_info['home_path']);
-				$home_path_win = str_replace("\\","\\\\", $home_path_win);
-				$home_path_win = trim($home_path_win);
-				$cli_param_data['BASE_PATH'] = $home_path_win;
-				$cli_param_data['HOME_PATH'] = $home_path_win;
-				$cli_param_data['SAVE_PATH'] = $home_path_win;
-				$cli_param_data['OUTPUT_PATH'] = $home_path_win;
-				$cli_param_data['USER_PATH'] = $home_path_win;
-			}
-			
-			if ($server_xml->protocol == "gameq")
-			{
-				$cli_param_data['QUERY_PORT'] = get_query_port ($server_xml, $port);
-			}
-			elseif ($server_xml->protocol == "lgsl")
-			{
-				require('protocol/lgsl/lgsl_protocol.php');
-				$get_ports = lgsl_port_conversion((string)$server_xml->lgsl_query_name, $port, "", "");
-				$cli_param_data['QUERY_PORT'] = $get_ports['1'];
-			}
-			elseif ($server_xml->protocol == "teamspeak3")
-			{
-				$cli_param_data['QUERY_PORT'] = "10011";
-			}
-			
-			$cli_param_data['MAP'] = empty($last_param['map']) ?  "" : $last_param['map'];
-			$cli_param_data['PLAYERS'] = empty($last_param['players']) ? $home_info['mods'][$mod_id]['max_players'] : $last_param['players'];
-			$cli_param_data['CONTROL_PASSWORD'] = $home_info['control_password'];
-			
-			$start_cmd = "";
-			// If the template is empty then these are not needed.
-			if ( $server_xml->cli_template )
-			{
-				$start_cmd = $server_xml->cli_template;
-				if ( $server_xml->cli_params )
-				{
-					foreach ( $server_xml->cli_params->cli_param as $cli )
-					{
-						// If s is found the param is seperated with space
-						$add_space = preg_match( "/s/", $cli['options'] ) > 0 ? " " : "";
-						$cli_value = $cli_param_data[(string) $cli['id'] ];
-						// If q is found we add quotes around the value.
-						if ( preg_match( "/q/", $cli['options'] ) > 0 )
-						{
-							$cli_value = "\"".$cli_value."\"";
-						}
-						$start_cmd = preg_replace( "/%".$cli['id']."%/",
-							$cli['cli_string'].$add_space.$cli_value, $start_cmd );
-					}
-				}
-				if ( $server_xml->reserve_ports )
-				{
-					foreach ( $server_xml->reserve_ports->port as $reserve_port )
-					{
-						// If s is found the param is seperated with space
-						$add_space = preg_match( "/s/", $reserve_port['options'] ) > 0 ? " " : "";
-						
-						if(isset($server_home['port']) && !empty($server_home['port'])){
-							$cli_value = $reserve_port['type'] == "add" ? $server_home['port'] + (string) $reserve_port: 
-																		  $server_home['port'] - (string) $reserve_port;
-						}else if(isset($port)){
-							$cli_value = $reserve_port['type'] == "add" ? $port + (string) $reserve_port: 
-																		  $port - (string) $reserve_port;
-						}else{
-							// Should never hit here, but we'll throw in a default.
-							$cli_value = $reserve_port;
-						}
-						
-						// If q is found we add quotes around the value.
-						if ( preg_match( "/q/", $reserve_port['options'] ) > 0 )
-						{
-							$cli_value = "\"".$cli_value."\"";
-						}
-						$start_cmd = preg_replace( "/%".$reserve_port['id']."%/",
-							$reserve_port['cli_string'].$add_space.$cli_value, $start_cmd );
-					}
-				}
-			}
-			
-			if ( $isAdmin )
-			{
-				$home_info['access_rights'] = "ufpet";
-			}
-						
-			$param_access_enabled = preg_match("/p/",$home_info['access_rights']) > 0 ? TRUE : FALSE;
-						
-			if ( $param_access_enabled && isset($last_param) )
-			{
-				foreach($server_xml->server_params->param as $param)
-				{						
-					foreach ($last_param as $paramKey => $paramValue)
-					{
-						if (!isset($paramValue))
-							$paramValue = (string)$param->default;
-						
-						if ($param['key'] == $paramKey)
-						{	
-							if (0 == strlen($paramValue))
-								continue;
-							if ($param['key'] == $paramValue) // it's a checkbox
-								$new_param = $paramKey;
-							elseif($param->option == "ns" or $param->options == "ns")
-								$new_param = $paramKey . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
-							elseif($param->option == "q" or $param->options == "q")
-								$new_param = $paramKey . '"' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
-							elseif($param->option == "s" or $param->options == "s")
-								$new_param = $paramKey . ' ' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
-							else
-								$new_param = $paramKey . ' "' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
-						  
-							if ($param['id'] == NULL || $param['id'] == "")
-								$start_cmd .= ' '.$new_param;
-							else
-								$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
-						}			  
-					}
-					
-					if ($param['id'] != NULL && $param['id'] != ""){
-						$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
-					}
-				} 
-			}
-
-			$extra_param_access_enabled = preg_match("/e/",$home_info['access_rights']) > 0 ? TRUE:FALSE;
-			
-			if ( array_key_exists('extra', $last_param) && $extra_param_access_enabled )
-				$extra_default = $last_param['extra'];
-			else
-				$extra_default = $home_info['mods'][$mod_id]['extra_params'];
-
-			$start_cmd .= " ".$extra_default;
+			$start_cmd = get_start_cmd($remote, $server_xml, $home_info, $mod_id, $ip, $port, $db);
 			
 			// Run pre-start commands
 			if(isset($server_xml->pre_start) && !empty($server_xml->pre_start)){
@@ -406,7 +243,7 @@ function exec_ogp_module() {
 			$remote_retval = $remote->remote_restart_server($home_id,$ip,$port,$server_xml->control_protocol,
 															$home_info['control_password'],$control_type,$home_info['home_path'],
 															$server_xml->server_exec_name,$run_dir,$start_cmd,
-															$home_info['cpu_affinity'],$home_info['nice'],$preStart,$envVars);
+															$home_info['cpu_affinity'],$home_info['nice'],$preStart,$envVars, $server_xml->game_key);
 			
 			$db->logger(get_lang_f('server_restarted', $home_info['home_name']) . "($ip:$port)");
 				

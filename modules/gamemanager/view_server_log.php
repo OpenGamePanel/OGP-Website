@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -52,7 +52,7 @@ function exec_ogp_module()
 	
     if ( $home_info === FALSE )
     {
-        print_failure( no_access_to_home );
+        print_failure( get_lang("no_access_to_home") );
         return;
     }
 
@@ -86,7 +86,7 @@ function exec_ogp_module()
 
     if ($log_retval == 0)
     {
-        print_failure( agent_offline );
+        print_failure( get_lang("agent_offline") );
 		echo create_back_button( $_GET['m'], 'game_monitor&home_id-mod_id-ip-port='.$_GET['home_id-mod_id-ip-port'] );
     }
     elseif ($log_retval == 1 || $log_retval == 2)
@@ -143,7 +143,7 @@ function exec_ogp_module()
 					$intSel .= "<input type='hidden' name='size' value='" . $_GET['size'] . "' />";
 				if(isset($_GET['view_player_commands']))
 					$intSel .= "<input type='hidden' name='view_player_commands' value='" . $_GET['view_player_commands'] . "' />";
-				$intSel .= refresh_interval . ':<select name="setInterval" onchange="this.form.submit();">';
+				$intSel .= get_lang("refresh_interval") . ':<select name="setInterval" onchange="this.form.submit();">';
 				foreach ($intervals as $interval => $value )
 				{
 					$selected = "";
@@ -167,7 +167,7 @@ function exec_ogp_module()
 			else
 			{
 				echo "<pre class='log'>" . htmlentities($home_log) . "</pre>";
-				print_failure( server_not_running );
+				print_failure( get_lang("server_not_running") );
 			}
 			echo create_back_button( $_GET['m'], 'game_monitor&home_id-mod_id-ip-port='.$_GET['home_id-mod_id-ip-port'] );
 		}

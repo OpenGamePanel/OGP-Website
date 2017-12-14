@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -137,7 +137,7 @@ function exec_ogp_module() {
 			if($months == 'X' || $days == 'X' || $years == 'X' || $hours == 'X' || $mins == 'X')
 				$expire_timestamp = "X";
 			else
-				$expire_timestamp = mktime( $hours, $mins, 0, $months, $days, $years, -1);
+				$expire_timestamp = mktime( $hours, $mins, 0, $months, $days, $years);
 
 			$fields['users_role'] = sanitizeInputStr($_POST['newrole']);
 			$fields['users_comment'] = sanitizeInputStr($_POST['comment']);

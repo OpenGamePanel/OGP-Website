@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2013 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,7 +23,16 @@
  */
 
 function exec_ogp_module() {
-    global $db;
+    global $db, $loggedInUserInfo;
+	
+	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1;
+	$limit_user = (isset($_GET['limit']) && (int)$_GET['limit'] > 0) ? (int)$_GET['limit'] : 10;
+	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
+
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+		$limit_user = $loggedInUserInfo["users_page_limit"];
+	}
+	
 ?>
     <div class="center">
     <h2><?php print_lang('add_new_group'); ?></h2>
@@ -41,10 +50,23 @@ function exec_ogp_module() {
     </div>
 <?php
     echo '<h2>'.get_lang('available_groups').'</h2>';
+	
+	echo '<table style="width: 100%;">
+			<tr>
+				<td style="width: 50%; vertical-align: middle; text-align: right;">
+					<form action="home.php" method="GET" style="float:right;">
+					<input type ="hidden" name="m" value="user_admin" />
+					<input type ="hidden" name="p" value="show_groups" />
+					<input name="search" type="text" id="search" value="' . $search_field . '"/>
+					<input type="submit" value="'.get_lang('search').'" />
+					</form>
+				</td>
+			</tr>
+		</table>';	
 	if ($db->isAdmin($_SESSION['user_id']))
-		$result = $db->getGroupList();
+		$result = $db->getGroupList_limit($page_user,$limit_user,$search_field);
 	else
-		$result = $db->getUserGroupList($_SESSION['user_id']);
+		$result = $db->getUserGroupList_limit($_SESSION['user_id'],$page_user,$limit_user,$search_field);
 		
     if ( $result === FALSE )
     {
@@ -125,4 +147,18 @@ function exec_ogp_module() {
         echo "</td></tr>";
     }
     echo "</table>";
+	
+	if ($db->isAdmin($_SESSION['user_id']))
+	$count_groups = $db->get_group_count($search_field);
+	else
+	$count_groups = $db->getUserGroupList_count($_SESSION['user_id'],$search_field);
+
+	if(isset($_GET['search']) && !empty($_GET['search'])){
+	$uri = '?m=user_admin&p=show_groups&search='.$_GET['search'].'&limit='.$limit_user.'&page=';
+	}
+	else{
+	$uri = '?m=user_admin&p=show_groups&limit='.$limit_user.'&page=';
+	}
+	echo paginationPages($count_groups[0]['total'], $page_user, $limit_user, $uri, 3, 'userGroups');	
 }
+?>
