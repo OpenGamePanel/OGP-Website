@@ -4,11 +4,16 @@
  <lgsl_query_name>dayzmod</lgsl_query_name>
  <game_name>DayZ Mod (OA)</game_name>
  <server_exec_name>arma2oaserver.exe</server_exec_name>
- <cli_template>-autoInit -noSound -noPause "-mod=@DayZ_Epoch;@DayZ_Epoch_Server;" -name=epoch "-config=epoch\\server.cfg" "-cfg=epoch\\basic.cfg" -profiles=epoch %MEMORY%</cli_template>
+ <cli_template>%MEMORY% %PORT% %PLAYERS% -name=dayz "-config=dayz\server.cfg" "-cfg=dayz\basic.cfg" -profiles=dayz -noSound -noPause</cli_template>
+ <cli_params>
+   <cli_param cli_string="-port=" id="PORT"/>
+   <cli_param id="PLAYERS" cli_string="-maxplayers=" />
+ </cli_params>
  <reserve_ports>
     <port type="add" id="QUERY_PORT">1</port>
  </reserve_ports>
- <console_log>epoch/arma2oaserver.RPT</console_log>
+ <cli_allow_chars>;</cli_allow_chars>
+ <console_log>dayz/arma2oaserver.RPT</console_log>
  <max_user_amount>64</max_user_amount>
  <control_protocol>rcon2</control_protocol>
  <mods>
@@ -21,37 +26,37 @@
   <text key="home_name">
    <default>(hostName\s*=\s*")(.*)(";)</default>
    <var>hostName = "%key%";</var>
-   <filepath>epoch/server.cfg</filepath>
+   <filepath>dayz/server.cfg</filepath>
    <options>key-regex</options>
   </text>
   <text key="max_players">
    <default>(maxPlayers\s*=\s*)(.*)(;)</default>
    <var>maxPlayers = %key%;</var>
-   <filepath>epoch/server.cfg</filepath>
+   <filepath>dayz/server.cfg</filepath>
    <options>key-regex</options>
   </text>
   <text key="control_password">
    <default>(passwordAdmin\s*=\s*")(.*)(";)</default>
    <var>passwordAdmin = "%key%";</var>
-   <filepath>epoch/server.cfg</filepath>
+   <filepath>dayz/server.cfg</filepath>
    <options>key-regex</options>
   </text>
   <text key="control_password">
    <default>(RConPassword\s*)(.*)</default>
    <var>RConPassword %key%</var>
-   <filepath>epoch/BattlEye/BEServer.cfg</filepath>
+   <filepath>dayz/BattlEye/BEServer.cfg</filepath>
    <options>key-regex</options>
   </text>
   <text key="port">
    <default>(steamPort\s*=\s*)(.*)(;)</default>
    <var>steamPort = %key%;</var>
-   <filepath>epoch/server.cfg</filepath>
+   <filepath>dayz/server.cfg</filepath>
    <options>key-regex</options>
   </text>
   <text key="query_port">
    <default>(steamQueryPort\s*=\s*)(.*)(;)</default>
    <var>steamQueryPort = %key%;</var>
-   <filepath>epoch/server.cfg</filepath>
+   <filepath>dayz/server.cfg</filepath>
    <options>key-regex</options>
   </text>
  </replace_texts>
@@ -62,5 +67,15 @@
    <caption>Max RAM allocated</caption>
    <desc>Maximum usable memory in MB, for example: 1024</desc>
   </param>
+  <param key="-mod=" type="select">
+    <option value="@DayZ;@Hive;">Vanilla</option>
+    <option value="@DayZ_Epoch;@DayZ_Epoch_Server;">Epoch</option>
+    <option value="@DayZOverwatch;@DayZ_Epoch;@DayZ_Epoch_Server;">Overpoch</option>
+    <option value="@DayZOrigins;@DayZ_Epoch;@DayZ_Epoch_Server;">Origins</option>
+    <option value="@DayZOverwatch;@DayZOrigins;@DayZ_Epoch;@DayZ_Epoch_Server;">Overpochins</option>
+      <caption>DayZ Flavour</caption>
+      <desc>Type of DayZ server you wish to run</desc>
+      <options>nsq</options>
+    </param>
  </server_params>
 </game_config>
