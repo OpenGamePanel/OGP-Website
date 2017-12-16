@@ -123,6 +123,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"shoutcast"		=> "SHOUTcast Server", 
 		"serioussam2"	=> "Serious Sam 2",
 		"shatteredh"	=> "Shattered Horizon",
+		"sniperelitev2"	=> "Sniper Elite V2",
 		"sof2"			=> "Soldier of Fortune 2",
 		"soldat"		=> "Soldat",
 		"source"		=> "Source ( Half-Life 2 )",
@@ -270,6 +271,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"serioussam2"	=> "09",
 		"shatteredh"	=> "05",
 		"shoutcast"		=> "37",
+		"sniperelitev2"	=> "31",
 		"sof2"			=> "02",
 		"soldat"		=> "08",
 		"source"		=> "05",
@@ -414,6 +416,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"serioussam2"	=> "qtracker://{IP}:{S_PORT}?game=Serious_Sam2&action=show",
 		"shatteredh"	=> "http://en.wikipedia.org/wiki/Shattered_Horizon",
 		"shoutcast"		=> "http://{IP}:{S_PORT}/index.html",
+		"sniperelitev2"	=> "steam://connect/{IP}:{Q_PORT}",
 		"sof2"			=> "qtracker://{IP}:{S_PORT}?game=SoldierOfFortune2&action=show",
 		"soldat"		=> "http://www.soldat.pl",
 		"source"		=> "steam://connect/{IP}:{S_PORT}",
@@ -511,6 +514,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "rfactor"			: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
 			case "risingstorm2"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "serioussam"		: $c_to_q = 1;		$c_def = 25600;	$q_def = 25601;	$c_to_s = 0;	break;
+			case "sniperelitev2"	: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 0;	break;
 			case "soldat"			: $c_to_q = 123;	$c_def = 23073;	$q_def = 23196;	$c_to_s = 0;	break;
 			case "stalker"			: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
 			case "stalkercs"		: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
