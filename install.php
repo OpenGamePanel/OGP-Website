@@ -345,7 +345,8 @@ function install() {
             <tr><td>".get_lang('database_type').":</td><td>MySQL</td></tr>
             <tr><td>".get_lang('database_hostname').":</td>
             <td><input type='text' value='";
-        echo isset( $db_host ) ? $db_host : "localhost";
+        $OS = strtoupper(substr(PHP_OS, 0, 3));
+        echo isset( $db_host ) ? $db_host : (($OS === 'WIN' || $OS === 'CYG') ? "127.0.0.1" : "localhost");
         echo "' name='db_host' class='textbox' /></td></tr>
             <tr><td>".get_lang('database_username').":</td>
             <td><input type='text' value='";
