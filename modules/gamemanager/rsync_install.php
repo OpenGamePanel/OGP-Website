@@ -70,8 +70,16 @@ function update_local_copies()
 	}
  	echo "Updating local cache of rsync meta data files<br>";	
 	$update_files = array('sizes.list', 'rsync.list', 'rsync_sites.list');
-	$update_urls = array('opengamepanel.org', 'gkfsystems.com', 'rsync.gkfsystems.com');
+	$update_urls = array('dls.atl.webehostin.com');
 	
+	$context = array(
+		'ssl' => array(
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+			'allow_self_signed' => true
+		)
+	);
+				
 	foreach($update_files as $file_chk)
 	{
 		#echo "Trying to update $file_chk<br>";
@@ -82,7 +90,7 @@ function update_local_copies()
 			{
 				print_failure("modules/gamemanager/$file_chk is not writable...please make it writable by the webserver");
 			}
-			if($tmp_content = file_get_contents("http://$site/sync_data/$file_chk"))
+			if($tmp_content = file_get_contents("http://$site/sync_data/$file_chk", false, $context))
 			{
 				if(!file_put_contents("modules/gamemanager/$file_chk",$tmp_content)){echo "Failed to write<br>";};
 				break;
