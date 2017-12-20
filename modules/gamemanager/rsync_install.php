@@ -70,7 +70,7 @@ function update_local_copies()
 	}
  	echo "Updating local cache of rsync meta data files<br>";	
 	$update_files = array('sizes.list', 'rsync.list', 'rsync_sites.list');
-	$update_urls = array('dls.atl.webehostin.com');
+	$update_urls = array('rsync.opengamepanel.org', 'dls.atl.webehostin.com');
 	
 	$context = array(
 		'ssl' => array(
