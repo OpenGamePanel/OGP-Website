@@ -146,7 +146,7 @@ function exec_ogp_module()
 						}														
 					}
 					
-					if(!empty($value)){
+					if (strlen(trim($value)) > 0) {
 						$updatedSettings[$key] = $value;
 					}
 					
