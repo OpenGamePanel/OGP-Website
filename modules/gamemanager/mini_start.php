@@ -97,7 +97,7 @@ if( !isset( $_POST['start_server'] ) )
 		return;
 	}
 
-	echo get_lang_f('select_params_and_start',  start_server );
+	echo get_lang_f('select_params_and_start',  get_lang("start_server") );
 
 	echo "<form action='home.php?m=gamemanager&amp;p=game_monitor&amp;home_id-mod_id-ip-port=". $server_home['home_id'] . "-". $server_home['mod_id'] . "-" . $server_home['ip'] . "-" . $server_home['port'] . "' method='post'>\n
 		<input type='hidden' name='mod_id' value='$server_home[mod_id]' />\n
