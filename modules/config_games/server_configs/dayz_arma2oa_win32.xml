@@ -15,7 +15,6 @@
  <cli_allow_chars>;</cli_allow_chars>
  <console_log>profile/arma2oaserver.RPT</console_log>
  <max_user_amount>64</max_user_amount>
- <control_protocol>rcon2</control_protocol>
  <mods>
   <mod key='dayzmod'>
    <name>none</name>
