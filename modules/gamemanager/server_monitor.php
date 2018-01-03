@@ -539,7 +539,7 @@ function exec_ogp_module() {
 					$other_owners .= $owner['users_login'].'<br>';
 				}
 			}
-			$other_owners = $other_owners != "" ? $other_owners = "<b>". assigned_to ."</b><br>".$other_owners : "";
+			$other_owners = $other_owners != "" ? $other_owners = "<b>". get_lang("assigned_to") ."</b><br>".$other_owners : "";
 
 			$view_log = "<a class='monitorbutton' href='?m=gamemanager&amp;p=log&amp;home_id-mod_id-ip-port=".$server_home['home_id']."-".$server_home['mod_id']."-".$server_home['ip']."-".$server_home['port']."'>
 				<img src='" . check_theme_image("images/log.png") . "' title='". get_lang("view_log") ."'>
@@ -708,10 +708,10 @@ function exec_ogp_module() {
 	if(!isset($_GET['home_id-mod_id-ip-port']) && !isset($_GET['home_id']))
 	{echo paginationPages($homes_count[0]['total'], $home_page, $home_limit, $uri, 3, 'serverMonitor');}
 
-	echo "<div id=translation data-title='". upload_map_image .
-		 "' data-upload_button='". upload_image .
-		 "' data-bad_file='". jpg_gif_png_less_than_1mb .
-		 "' data-upload_failure='". check_dev_console .
+	echo "<div id=translation data-title='". get_lang("upload_map_image") .
+		 "' data-upload_button='". get_lang("upload_image") .
+		 "' data-bad_file='". get_lang("jpg_gif_png_less_than_1mb") .
+		 "' data-upload_failure='". get_lang("check_dev_console") .
 		 "' ></div>\n";
 	?>
 	<script type="text/javascript">
