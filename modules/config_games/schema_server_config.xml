@@ -63,6 +63,7 @@
       <xs:enumeration value="rcon" /><!-- HL, Q1/2/3 -->
       <xs:enumeration value="rcon2" /><!-- HL2(source) -->
       <xs:enumeration value="lcon" /><!-- legacy console -->
+      <xs:enumeration value="armabe" /><!-- Arma 2 BattlEye -->
       <xs:minLength value="1" />
     </xs:restriction>
   </xs:simpleType>
