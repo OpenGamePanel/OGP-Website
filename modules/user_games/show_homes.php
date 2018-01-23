@@ -80,7 +80,7 @@ function exec_ogp_module()
 	sort($game_homes);
 	foreach( $game_homes as $row )
 	{
-		$display_ip = checkDisplayPublicIP($row['display_public_ip'],$row['agent_ip']);
+		$display_ip = checkDisplayPublicIP($row['display_public_ip'],$row['ip'] != $row['agent_ip'] ? $row['ip'] : $row['agent_ip']);
 
 		$os_arch = preg_match('/win/',$row['game_key']) ? "(Windows" : "(Linux";
 		$os_arch .= preg_match('/(win|linux)64/',$row['game_key']) ? " 64bit)" : ")";

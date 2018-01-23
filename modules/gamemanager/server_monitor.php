@@ -558,13 +558,12 @@ function exec_ogp_module() {
 
 			if( $host_stat === 1)
 			{
-				if ( $server_home['use_nat'] == 1 ){
-					$query_ip = $server_home['agent_ip'];
+				if($server_home['use_nat'] == 1 ){
+					$ip = $server_home['agent_ip'];
 				}else{
-					$query_ip = $server_home['ip'];
+					$ip = $server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip'];
 				}
-
-				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$query_ip);
+				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$ip);
 				$address = $query_ip . ":" . $server_home['port'];
 
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;

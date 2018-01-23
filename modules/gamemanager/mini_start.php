@@ -125,7 +125,7 @@ if( !isset( $_POST['start_server'] ) )
 		echo "<span class='info'>(". get_lang("max") .": ".
 			$max_players.")</span></td></tr>\n";
 	}
-	$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip']);
+	$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip']);
 	echo "<tr><td class='right'>". get_lang("ip_and_port") .
 		":</td><td class='left'>".$display_ip . ":" . $server_home['port']."<input name='ip_port' type='hidden' value='".$server_home['ip'] . ":" . $server_home['port']."'/></td></tr>";
 

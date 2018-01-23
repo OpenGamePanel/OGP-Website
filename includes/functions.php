@@ -230,7 +230,7 @@ function create_home_selector_address($module, $subpage, $server_homes, $extra_i
 					$home_id, SORT_DESC, $server_homes);
 	foreach ( $server_homes as $server_home )
 	{
-		$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip']);
+		$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip']);
 
 		if(isset($_GET['home_id-mod_id-ip-port']) and 
 		   $get_home_id == $server_home['home_id'] and 
