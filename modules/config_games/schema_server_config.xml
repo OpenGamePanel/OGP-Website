@@ -85,6 +85,7 @@
       <xs:element name="installer_login" type="xs:string" minOccurs="0" />
       <xs:element name="betaname" type="xs:string" minOccurs="0" />
       <xs:element name="betapwd" type="xs:string" minOccurs="0" />
+      <xs:element name="steam_bitness" type="xs:positiveInteger" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="key" type="xs:string" />
   </xs:complexType>

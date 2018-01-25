@@ -328,9 +328,9 @@ class OGPRemoteLibrary
 	/// \return 1 If update started successfully
 	/// \return 0 If error
 	/// \return -1 In case of connection error.
-	public function steam_cmd($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles = "")
+	public function steam_cmd($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles,$archBits)
 	{
-		$params = $this->encrypt_params($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles);
+		$params = $this->encrypt_params($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles,$archBits);
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("steam_cmd", $params);
 		$response = $this->sendRequest($request);
@@ -381,13 +381,13 @@ class OGPRemoteLibrary
 						$home_id, $home_path, $server_ip, $server_port, $exec_path, $exec_folder_path,
 						$control_protocol, $control_password, $control_type,
 						$appId, $modname, $betaname, $betapwd, $user, $pass, $guard, $precmd, $postcmd, $cfg_os, $filesToLockUnlock,
-						$startup_cmd, $cpu, $nice, $preStart, $envVars, $game_key
+						$startup_cmd, $cpu, $nice, $preStart, $envVars, $game_key, $archBits
 	)
 	{
 		$params = $this->encrypt_params($home_id, $home_path, $server_ip, $server_port, $exec_path, $exec_folder_path,
 						$control_protocol, $control_password, $control_type,
 						$appId, $modname, $betaname, $betapwd, $user, $pass, $guard, $precmd, $postcmd, $cfg_os, $filesToLockUnlock,
-						$startup_cmd, $cpu, $nice, $preStart, $envVars, $game_key);
+						$startup_cmd, $cpu, $nice, $preStart, $envVars, $game_key, $archBits);
 
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("automatic_steam_update", $params);

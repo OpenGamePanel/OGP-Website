@@ -155,6 +155,7 @@ function exec_ogp_module() {
 				$modname = ( $installer_name == '90' ) ? $modkey : '';
 				$betaname = isset($mod_xml->betaname) ? $mod_xml->betaname : '';
 				$betapwd = isset($mod_xml->betapwd) ? $mod_xml->betapwd : '';
+				$arch = isset($mod_xml->steam_bitness) ? $mod_xml->steam_bitness : '';
 				
 				// Additional files to lock
 				if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
@@ -165,7 +166,7 @@ function exec_ogp_module() {
 				
 				$steam_out = $remote->steam_cmd( $home_id,$home_info['home_path'],$installer_name,$modname,
 												 $betaname,$betapwd,$login,$pass,$settings['steam_guard'],
-												 $exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles);
+												 $exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles,$arch);
 			}
 			
 			if( $steam_out === 0 )
