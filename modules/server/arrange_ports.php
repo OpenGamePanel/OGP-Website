@@ -20,7 +20,7 @@ function exec_ogp_module()
 					if($_POST['home_cfg_id'] != "0")
 						$cfg_info = $db->getGameCfg($_POST['home_cfg_id']);
 					else
-						$cfg_info['game_name'] = unspecified_game_types;
+						$cfg_info['game_name'] = get_lang("unspecified_game_types");
 						
 					$retval = $db->addPortsRange($_POST['ip_id'],$_POST['home_cfg_id'],$_POST['start_port'],$_POST['end_port'],$_POST['port_increment']);
 					if($retval === 1)
@@ -57,9 +57,9 @@ function exec_ogp_module()
 					  <tr>\n
 					  <td>\n
 					  <select name='home_cfg_id'>\n
-					  <option style='background:black;color:white;' value='0'>". unspecified_game_types ."</option>\n";
+					  <option style='background:black;color:white;' value='0'>". get_lang("unspecified_game_types") ."</option>\n";
 					  
-				echo "<b>". assign_range_to_game_type .":</b>";
+				echo "<b>". get_lang("assign_range_to_game_type") .":</b>";
 				// Linux 64 bits + wine
 				if( preg_match("/Linux/", $os) AND preg_match("/64/", $os) AND preg_match("/wine/", $os) )
 				{
@@ -70,7 +70,7 @@ function exec_ogp_module()
 						if ( preg_match("/64/", $row['game_key']) ) echo " (64 bit)";
 						echo "</option>\n";
 					}
-					echo "<option style='background:black;color:white;' value=''>". wine_games .":</option>\n";
+					echo "<option style='background:black;color:white;' value=''>". get_lang("wine_games") .":</option>\n";
 					foreach ( $game_cfgs as $row )
 					{
 						if ( preg_match("/win/", $row['game_key']) )
@@ -98,7 +98,7 @@ function exec_ogp_module()
 						if ( preg_match("/linux32/", $row['game_key']) )
 						echo "<option value='".$row['home_cfg_id']."'>".$row['game_name']."</option>\n";
 					}
-					echo "<option style='background:black;color:white;' value=''>". wine_games ."</option>\n";
+					echo "<option style='background:black;color:white;' value=''>". get_lang("wine_games") ."</option>\n";
 					foreach ( $game_cfgs as $row )
 					{
 						if ( preg_match("/win32/", $row['game_key']) )
@@ -146,24 +146,24 @@ function exec_ogp_module()
 				echo "</select>\n
 					  </td>\n
 					  <td>\n".
-					   start_port .
+					   get_lang("start_port") .
 					  "<input type='text' id='start_port' name='start_port' class='add' size='8' />\n
 					   </td>\n
 					   <td>\n".
-					    end_port .
+					    get_lang("end_port") .
 					  "<input type='text' id='end_port' name='end_port' class='add' size='8' />\n
 					   </td>\n
 					   <td>\n
 					   ".
-					    port_increment .
+					    get_lang("port_increment") .
 					  "<input type='text' id='port_increment' name='port_increment' class='add' value='1' size='2' />\n
 					   </td>\n
 					   <td>\n
 					   ".
-					    total_assignable_ports ."\t<span id='total_assignable_ports' class='add'></span>\n
+					    get_lang("total_assignable_ports") ."\t<span id='total_assignable_ports' class='add'></span>\n
 					   </td>\n
 					   <td>\n".
-					  "<input type='submit' name='assign_range' value='". assign_range ."' />\n
+					  "<input type='submit' name='assign_range' value='". get_lang("assign_range") ."' />\n
 					   </td>\n 
 					   </tr>\n 
 					   </table>\n
@@ -185,7 +185,7 @@ function exec_ogp_module()
 					if($_POST['home_cfg_id'] != "0")
 						$cfg_info = $db->getGameCfg($_POST['home_cfg_id']);
 					else
-						$cfg_info['game_name'] = unspecified_game_types;
+						$cfg_info['game_name'] = get_lang("unspecified_game_types");
 					
 					$retval = $db->editPortsRange($_POST['range_id'],$_POST['ip_id'],$_POST['start_port'],$_POST['end_port'],$_POST['port_increment']);
 					if($retval === 1)
@@ -207,7 +207,7 @@ function exec_ogp_module()
 						if($range['home_cfg_id'] != "0")
 							$cfg_info = $db->getGameCfg($range['home_cfg_id']);
 						else
-							$cfg_info['game_name'] = unspecified_game_types;
+							$cfg_info['game_name'] = get_lang("unspecified_game_types");
 							
 						
 						$available_ports_amount = intval((($range['end_port'] - $range['start_port']) / $range['port_increment']) + 1);
@@ -245,24 +245,24 @@ function exec_ogp_module()
 							  $cfg_info['game_name'].
 							  "</td>\n
 							   <td>\n".
-								 start_port .
+								 get_lang("start_port") .
 								"<input type='text' id='start_port' name='start_port' value='".$range['start_port']."' size='8' />\n
 							   </td>\n
 							   <td>\n".
-								 end_port .
+								 get_lang("end_port") .
 								"<input type='text' id='end_port' name='end_port' value='".$range['end_port']."' size='8' />\n
 							   </td>\n
 							   <td>\n".
-								 port_increment .
+								 get_lang("port_increment") .
 								"<input type='text' id='port_increment' name='port_increment' value='".$range['port_increment']."' value='1' size='2' />\n
 							   </td>\n
 							   <td>\n".
-								 available_range_ports .
+								 get_lang("available_range_ports") .
 								"\t<span id='available_range_ports'>".$available_ports_amount."</span>\n
 							   </td>\n
 							   <td>\n
-								<input type='submit' name='edit_range' value='". edit_range ."' />\n
-								<input type='submit' name='delete_range' value='". delete_range ."' />\n
+								<input type='submit' name='edit_range' value='". get_lang("edit_range") ."' />\n
+								<input type='submit' name='delete_range' value='". get_lang("delete_range") ."' />\n
 							   </td>\n 
 							  </tr>\n 
 						   </form>\n";
@@ -273,7 +273,7 @@ function exec_ogp_module()
 				if(!empty($game_homes))
 				{
 					echo "<table class='center'>";
-					echo "<tr><th>". home_id ."</th><th>". home_path ."</th><th>". game_type ."</th><th>". server_name ."</th><th>". port ."</th></tr>";
+					echo "<tr><th>". get_lang("home_id") ."</th><th>". get_lang("home_path") ."</th><th>". get_lang("game_type") ."</th><th>". get_lang("server_name") ."</th><th>". get_lang("port") ."</th></tr>";
 					foreach($game_homes as $game_home)
 					{
 						echo "<tr><td>".$game_home['home_id']."</td><td>".$game_home['home_path']."</td><td>".$game_home['game_name']."</td><td>".htmlentities($game_home['home_name'])."</td><td>".$game_home['port']."</td></tr>";

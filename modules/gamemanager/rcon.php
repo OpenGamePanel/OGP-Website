@@ -42,7 +42,7 @@ function send_command($command, $remote, $server_xml, $home_info, $home_id, $ip,
 			$rcon->Disconnect();
 		}
 		else
-			return need_set_remote_pass . " " . $home_info['home_name'] . " " . before_sending_rcon_com;
+			return get_lang("need_set_remote_pass") . " " . $home_info['home_name'] . " " . get_lang("before_sending_rcon_com");
 	}
 	elseif( $server_xml->lgsl_query_name and  $server_xml->lgsl_query_name == "7dtd" )
 	{
@@ -59,7 +59,7 @@ function send_command($command, $remote, $server_xml, $home_info, $home_id, $ip,
 		if ( $remote_retval === 1 )
 			return $return;
 		elseif ( $remote_retval === -10 )
-			return need_set_remote_pass . " " . $home_info['home_name'] . " " . before_sending_rcon_com;
+			return get_lang("need_set_remote_pass") . " " . $home_info['home_name'] . " " . get_lang("before_sending_rcon_com");
 		else
 			return FALSE;
 	}
@@ -79,7 +79,7 @@ $presets = $db->getRconPresets($home_info['home_cfg_id'],$home_info['mods'][$mod
 if($presets > 0)
 {
 	echo '<form action="" method="post">'.
-		  rcon_presets . ':
+		  get_lang("rcon_presets") . ':
 		  <select onchange="this.form.submit()" name="command" >
 		  <option></option>\n';
 	foreach ($presets as $preset)

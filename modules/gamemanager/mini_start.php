@@ -97,7 +97,7 @@ if( !isset( $_POST['start_server'] ) )
 		return;
 	}
 
-	echo get_lang_f('select_params_and_start',  start_server );
+	echo get_lang_f('select_params_and_start',  get_lang("start_server") );
 
 	echo "<form action='home.php?m=gamemanager&amp;p=game_monitor&amp;home_id-mod_id-ip-port=". $server_home['home_id'] . "-". $server_home['mod_id'] . "-" . $server_home['ip'] . "-" . $server_home['port'] . "' method='post'>\n
 		<input type='hidden' name='mod_id' value='$server_home[mod_id]' />\n
@@ -125,7 +125,7 @@ if( !isset( $_POST['start_server'] ) )
 		echo "<span class='info'>(". get_lang("max") .": ".
 			$max_players.")</span></td></tr>\n";
 	}
-	$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip']);
+	$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip']);
 	echo "<tr><td class='right'>". get_lang("ip_and_port") .
 		":</td><td class='left'>".$display_ip . ":" . $server_home['port']."<input name='ip_port' type='hidden' value='".$server_home['ip'] . ":" . $server_home['port']."'/></td></tr>";
 

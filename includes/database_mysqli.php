@@ -3400,9 +3400,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getPortsRange($ip_id,$home_cfg_id = FALSE){
 		if ( !$this->link ) return false;
-		$home_cfg_id = $this->realEscapeSingle($home_cfg_id);
 		
-		$and_cfg_id = $home_cfg_id !== FALSE ? "AND home_cfg_id=$home_cfg_id":"";
+		$and_cfg_id = $home_cfg_id !== FALSE ? "AND home_cfg_id=".$this->realEscapeSingle($home_cfg_id) : "";
 		$query = sprintf("SELECT * FROM `%sarrange_ports` WHERE ip_id=%d $and_cfg_id;",
 			$this->table_prefix,
 			$this->realEscapeSingle($ip_id));
