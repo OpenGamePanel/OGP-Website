@@ -69,7 +69,7 @@ define('OGP_LANG_vsselect_new_slots', "Klient slots");
 define('OGP_LANG_vsselect_new_create', "Opret");
 define('OGP_LANG_vsselect_new_added_ok', "vServer <span class=\"online\">%1</span> blev oprettet successfuldt.");
 define('OGP_LANG_vsselect_new_added_generated', "Det genereret token er:");
-define('OGP_LANG_vsoverview_virtualserver', "Virtuel Server");
+define('OGP_LANG_vsoverview_virtualserver', "Virtual Server");
 define('OGP_LANG_vsoverview_information_head', "Information");
 define('OGP_LANG_vsoverview_connection_head', "Tilsluttet");
 define('OGP_LANG_vsoverview_info_general_head', "Generalle indstillinger");

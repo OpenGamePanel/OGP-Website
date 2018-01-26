@@ -63,6 +63,6 @@ define('OGP_LANG_setup_complete', "Установка закончена усп�
 define('OGP_LANG_remove_install_and_secure_config', "Вы должны удалить install.php и выставить права доступа 644 на includes/config.inc.php из соображений безопасности.");
 define('OGP_LANG_go_to_panel', "Нажмите здесь, чтобы перейти к панели.");
 define('OGP_LANG_unable_to_resolve', "Если вы не можете решить проблему, посетите сайт OGP");
-define('OGP_LANG_slogan', "Open-Source!");
+define('OGP_LANG_slogan', "The Open-Source one!");
 define('OGP_LANG_default_welcome_title_message', "Добро пожаловать! <b style='font-size:12px; font-weight:normal;'>Вы можете сменить этот заголовок в '<a href='?m=settings&p=themes'>Настройках темы</a>' в меню '<a href='?m=administration&p=main'>Админка</a>'.</b>");
 ?>
