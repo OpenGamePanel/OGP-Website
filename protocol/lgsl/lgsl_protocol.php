@@ -62,6 +62,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"egs"			=> "Empyrion - Galactic Survival",
 		"farcry"		=> "Far Cry",
 		"fear"			=> "F.E.A.R.",
+		"fivem"			=>	"GTA FiveM",
 		"flashpoint"	=> "Operation Flashpoint",
 		"freelancer"	=> "Freelancer",
 		"frontlines"	=> "Frontlines: Fuel Of War",
@@ -210,6 +211,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ivmp"			=> "39",
 		"farcry"		=> "08",
 		"fear"			=> "09",
+		"fivem"			=> "41",
 		"flashpoint"	=> "03",
 		"freelancer"	=> "14",
 		"frontlines"	=> "20",
@@ -354,6 +356,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"egs"			=> "steam://connect/{IP}:{Q_PORT}",
 		"farcry"		=> "qtracker://{IP}:{S_PORT}?game=FarCry&action=show",
 		"fear"			=> "qtracker://{IP}:{S_PORT}?game=FEAR&action=show",
+		"fivem"			=> "http://fivem.net/",
 		"flashpoint"	=> "qtracker://{IP}:{S_PORT}?game=OperationFlashpoint&action=show",
 		"freelancer"	=> "http://en.wikipedia.org/wiki/Freelancer_(computer_game)",
 		"frontlines"	=> "http://en.wikipedia.org/wiki/Frontlines:_Fuel_of_War",
@@ -4226,6 +4229,62 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		lgsl_cut_byte($buffer, 1);
 		$server['e']['version']	 = lgsl_cut_string($buffer);
 		return TRUE;
+	}
+//------------------------------------------------------------------------------------------------------------+
+//------------------------------------------------------------------------------------------------------------+
+	function lgsl_query_41(&$server, &$lgsl_need, &$lgsl_fp)
+	{
+		fwrite($lgsl_fp, "\xFF\xFF\xFF\xFFgetinfo xxx");
+		$buffer = fread($lgsl_fp, 4096);
+
+		if (!$buffer) {
+			return false;
+		}
+
+		lgsl_cut_byte($buffer, 18);
+
+		$data = explode('\\', $buffer);
+
+		for ($i = 0; $i < count($data); $i += 2) {
+			if ($data[$i] == 'sv_maxclients') {
+				$server['s']['playersmax'] = $data[$i + 1];
+			}
+
+			if ($data[$i] == 'clients') {
+				$server['s']['players'] = $data[$i + 1];
+			}
+
+			if ($data[$i] == 'challenge') {
+				$server['e']['challenge'] = $data[$i + 1];
+			}
+
+			if ($data[$i] == 'gamename') {
+				$server['e']['gamename'] = $data[$i + 1];
+			}
+
+			if ($data[$i] == 'protocol') {
+				$server['e']['protocol'] = $data[$i + 1];
+			}
+
+			if ($data[$i] == 'hostname') {
+				$server['s']['name'] = $data[$i + 1];
+			}
+
+			if ($data[$i] == 'gametype') {
+				$server['s']['game'] = $data[$i + 1];
+			}
+
+			if ($data[$i] == 'mapname') {
+				$server['s']['map'] = $data[$i + 1];
+			}
+
+			if ($data[$i] == 'iv') {
+				$server['e']['iv'] = $data[$i + 1];
+			}
+
+		}
+
+		return true;
 	}
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
