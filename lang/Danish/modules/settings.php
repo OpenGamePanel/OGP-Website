@@ -106,7 +106,7 @@ define('OGP_LANG_welcome_title', "Velkommenst Titel");
 define('OGP_LANG_welcome_title_info', "Enables the title that is displayed at the top of the Dashboard.");
 define('OGP_LANG_welcome_title_message', "Velkomst Titel besked");
 define('OGP_LANG_welcome_title_message_info', "The title message that is displayed at the top of the Dashboard (HTML code allowed).");
-define('OGP_LANG_logo_link', "Logo Links");
+define('OGP_LANG_logo_link', "Logos Link");
 define('OGP_LANG_logo_link_info', "Diverse logo links. <b style='font-size:10px; font-weight:normal;'>(Lad den stå blank, ville linke det til instrumentpanel)</b>");
 define('OGP_LANG_custom_tab', "Tilpas Faneblad");
 define('OGP_LANG_custom_tab_info', "Tilføjer tilpasset faneblad, for enden af menuen. <b style='font-size:10px; font-weight:normal;'>(Anvend og genfrisk side for at redigere indstillinger)</b>");

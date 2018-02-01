@@ -139,4 +139,5 @@ define('OGP_LANG_faq', "التعليمات.");
 define('OGP_LANG_mysql_admin', "مدير قاعدة البيانات");
 define('OGP_LANG_copied', "نسخ!");
 define('OGP_LANG_ticket_settings', "إعدادات التذاكر");
+define('OGP_LANG_form', "تسجيل");
 ?>

@@ -38,7 +38,7 @@ define('OGP_LANG_smtp_server', "Servidor de E-Mail de saída");
 define('OGP_LANG_smtp_server_info', "Este é o servidor de correio de saída (servidor SMTP) que é usado, por exemplo, enviou senhas esquecidas para os usuários, localhost por padrão..");
 define('OGP_LANG_panel_email_address', "Endereço de email de saída");
 define('OGP_LANG_panel_email_address_info', "Este é o endereço de e-mail que está no campo de quando as senhas são enviadas para os usuários.");
-define('OGP_LANG_panel_name', "nome Panel");
+define('OGP_LANG_panel_name', "Nome Panel");
 define('OGP_LANG_panel_name_info', "Nome do painel que é mostrado no título da página. Esse valor irá anular todos os títulos das páginas, se não estiver vazio.");
 define('OGP_LANG_feed_enable', "Feed Habilitar LGSL");
 define('OGP_LANG_feed_enable_info', "Se o seu webhost tiver um firewall que esteja bloqueando a porta da consulta, então você precisa abrir a porta manualmente.");
@@ -107,7 +107,7 @@ define('OGP_LANG_welcome_title_info', "Enables the title that is displayed at th
 define('OGP_LANG_welcome_title_message', "Bem-vindo a Mensagem de título");
 define('OGP_LANG_welcome_title_message_info', "The title message that is displayed at the top of the Dashboard (HTML code allowed).");
 define('OGP_LANG_logo_link', "Logos Link");
-define('OGP_LANG_logo_link_info', "The logos hyperlink. <b style='font-size:10px; font-weight:normal;'>(Deixá-lo em branco o vinculará ao Dashboard)</b>");
+define('OGP_LANG_logo_link_info', "The logos hyperlink. <b style='font-size:10px; font-weight:normal;'>(Leaving it blank will link it to the Dashboard)</b>");
 define('OGP_LANG_custom_tab', "Tab personalizado");
 define('OGP_LANG_custom_tab_info', "Adiciona uma guia personalizável no final do menu. <b style='font-size:10px; font-weight:normal;'>(Aplique e atualize esta página para editar as configurações da aba)</b>");
 define('OGP_LANG_custom_tab_name', "Nome da guia personalizada");

@@ -137,6 +137,7 @@ define('OGP_LANG_cron', "Cron Admin");
 define('OGP_LANG_user_cron', "Cron");
 define('OGP_LANG_faq', "F.A.Q.");
 define('OGP_LANG_mysql_admin', "MySQL Admin");
-define('OGP_LANG_copied', "Copied!");
-define('OGP_LANG_ticket_settings', "Ticket Settings");
+define('OGP_LANG_copied', "Kopiert!");
+define('OGP_LANG_ticket_settings', "Ticket Einstellungen");
+define('OGP_LANG_form', "Registrieren");
 ?>

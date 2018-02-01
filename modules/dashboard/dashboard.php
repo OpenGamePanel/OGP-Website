@@ -143,9 +143,9 @@ function exec_ogp_module()
 					if ( $server_home['use_nat'] == 1 ){
 						$ip = $server_home['agent_ip'];
 					}else{
-						$ip = $server_home['ip'];
+						$ip = $server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip'];
 					}
-					$ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['agent_ip']);
+					$ip = checkDisplayPublicIP($server_home['display_public_ip'],$ip);
 
 					$port = $server_home['port'];
 

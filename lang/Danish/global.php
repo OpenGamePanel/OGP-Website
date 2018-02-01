@@ -81,8 +81,8 @@ define('OGP_LANG_game_monitor', "Spil Monitor");
 define('OGP_LANG_dashboard', "Instrumentpanel");
 define('OGP_LANG_user_addons', "Addons");
 define('OGP_LANG_ftp', "FTP");
-define('OGP_LANG_shop', "butik");
-define('OGP_LANG_shop_guest', "Shop");
+define('OGP_LANG_shop', "Butik");
+define('OGP_LANG_shop_guest', "Butik");
 define('OGP_LANG_TS3Admin', "TS3 Admin");
 define('OGP_LANG_administration', "Administration");
 define('OGP_LANG_config_games', "Spil/Mod Config");
@@ -139,4 +139,5 @@ define('OGP_LANG_faq', "F.A.Q.");
 define('OGP_LANG_mysql_admin', "MySQL Admin");
 define('OGP_LANG_copied', "Copied!");
 define('OGP_LANG_ticket_settings', "Ticket Settings");
+define('OGP_LANG_form', "Register");
 ?>

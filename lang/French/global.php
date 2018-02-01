@@ -139,4 +139,5 @@ define('OGP_LANG_faq', "F.A.Q.");
 define('OGP_LANG_mysql_admin', "Administration de MySQL");
 define('OGP_LANG_copied', "Copié!");
 define('OGP_LANG_ticket_settings', "Paramètres des Tickets");
+define('OGP_LANG_form', "S&apos;enregistrer");
 ?>
