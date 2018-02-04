@@ -93,7 +93,7 @@ $(document).ready(function(){
 	$('.size').click(function(){
 		var id = $(this).attr('data-home_id');
 		$.post( "home.php?m=user_games&type=cleared&p=get_size&home_id="+id, function( data ) {
-			$('.size[data-home_id='+id+']').text( data ).css("font-size", "16pt");
+			$('.size[data-home_id='+id+']').text( data ).removeClass('sizeText').addClass('sizeText');
 		});
 	});
 
