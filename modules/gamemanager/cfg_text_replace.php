@@ -26,6 +26,9 @@ if (empty($server_home["ip"]))
 	$server_home["ip"] = $ip;
 if (empty($server_home["port"]))
 	$server_home["port"] = $port;
+
+$server_home['ip_port'] = $server_home['ip'] . ':' . $server_home['port'];
+
 $server_home["true"] = "";
 $last_param = json_decode($db->getLastParam($server_home["home_id"]), True);		
 $server_home["max_players"] = isset($cli_param_data['PLAYERS']) ? $cli_param_data['PLAYERS'] : $last_param['players'];

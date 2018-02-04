@@ -113,7 +113,7 @@ define('OGP_LANG_lang', "Język");
 define('OGP_LANG_get_size', "Show Size");
 define('OGP_LANG_total_size', "Całkowity Rozmiar");
 define('OGP_LANG_lgsl', "LGSL");
-define('OGP_LANG_lgsl_admin', "Admin LGSL ");
+define('OGP_LANG_lgsl_admin', "LGSL Admin");
 define('OGP_LANG_rcon', "RCON");
 define('OGP_LANG_watch_logger', "Logowania Panelu");
 define('OGP_LANG_litefm_settings', "Ustawienia LiteFM");
@@ -139,4 +139,5 @@ define('OGP_LANG_faq', "F.A.Q.");
 define('OGP_LANG_mysql_admin', "MySQL Admin");
 define('OGP_LANG_copied', "Copied!");
 define('OGP_LANG_ticket_settings', "Ticket Settings");
+define('OGP_LANG_form', "Register");
 ?>

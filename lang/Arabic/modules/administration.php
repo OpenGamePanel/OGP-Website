@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_external_links', "روابط خارجية");
-define('OGP_LANG_url', "URL");
+define('OGP_LANG_url', "رابط URL");
 define('OGP_LANG_name', "إسم");
 define('OGP_LANG_add_it', "أضف");
 define('OGP_LANG_link_has_been_removed', "تمت إزالة الرابط %s.");
