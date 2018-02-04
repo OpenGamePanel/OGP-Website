@@ -803,3 +803,7 @@ input[type="submit"] {
 .server-starting td , .list_table td{
 	max-width: 250px;
 }
+
+.sizeText{
+	font-size: 16pt;
+}
