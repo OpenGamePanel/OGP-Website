@@ -133,6 +133,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"starwarsbf"	=> "Star Wars: Battlefront",
 		"starwarsbf2"	=> "Star Wars: Battlefront 2",
 		"starwarsrc"	=> "Star Wars: Republic Commando",
+		"stationeers"	=> "Stationeers",
 		"squad"			=> "Squad",
 		"swat4"			=> "SWAT 4",
 		"test"			=> "Test ( For PHP Developers )",
@@ -281,6 +282,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"starwarsbf"	=> "09",
 		"starwarsbf2"	=> "09",
 		"starwarsrc"	=> "09",
+		"stationeers"	=> "05",
 		"squad"			=> "05",
 		"swat4"			=> "03",
 		"test"			=> "01",
@@ -426,6 +428,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"starwarsbf"	=> "qtracker://{IP}:{S_PORT}?game=StarWarsBattlefront&action=show",
 		"starwarsbf2"	=> "qtracker://{IP}:{S_PORT}?game=StarWarsBattlefront2&action=show",
 		"starwarsrc"	=> "qtracker://{IP}:{S_PORT}?game=StarWarsRepublicCommando&action=show",
+		"stationeers"	=> "steam://connect/{IP}:{C_PORT}",
 		"squad"			=> "steam://connect/{IP}:{S_PORT}",
 		"swat4"			=> "qtracker://{IP}:{S_PORT}?game=SWAT4&action=show",
 		"test"			=> "http://www.greycube.com",
@@ -518,6 +521,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "stalker"			: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
 			case "stalkercs"		: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
 			case "starwarsrc"		: $c_to_q = 0;		$c_def = 7777;	$q_def = 11138;	$c_to_s = 0;	break;
+			case "stationeers"		: $c_to_q = -485;	$c_def = 27015;	$q_def = 27185;	$c_to_s = 0;	break;
 			case "squad"			: $c_to_q = 19378;	$c_def = 7787;	$q_def = 27165;	$c_to_s = 0;	break;
 			case "swat4"			: $c_to_q = 1;		$c_def = 10780;	$q_def = 10781;	$c_to_s = 0;	break;
 			case "tribesv"			: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 0;	break;
