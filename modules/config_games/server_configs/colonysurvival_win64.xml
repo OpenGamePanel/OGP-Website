@@ -31,7 +31,7 @@
       <options>sq</options>
       <desc>Enables or disables Monster spawns</desc>
     </param>
-    <param id="MSTDAY" key="+server.monsterson" type="select">
+    <param id="MSTDAY" key="+server.monstersday" type="select">
       <option value="True">Yes</option>
       <option value="False">No</option>
       <options>sq</options>
