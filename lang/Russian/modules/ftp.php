@@ -31,6 +31,6 @@ define('OGP_LANG_full_path', "Домашняя директория");
 define('OGP_LANG_add_ftp_account', "Добавить FTP-аккаунт");
 define('OGP_LANG_remote_server', "Удаленный сервер");
 define('OGP_LANG_server_name', "Имя сервера");
-define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
-define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('OGP_LANG_ftp_account_username_too_long', "FTP имя пользователя слишком длинное. Попробуйте имя короче чем 20 символов.");
+define('OGP_LANG_ftp_account_password_too_long', "FTP пароль слишком длинный. Попробуйте пароль короче чем 20 символов.");
 ?>
