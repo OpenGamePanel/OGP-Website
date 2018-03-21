@@ -22,8 +22,8 @@
  *
  */
 
-define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "FTP accounts for remote server named %s");
-define('OGP_LANG_ftp_address', "FTP address: %s:%s");
+define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "FTP účty pro vzdálený server s názvem %s");
+define('OGP_LANG_ftp_address', "Adresa FTP: %s:%s");
 define('OGP_LANG_change_account_details', "Změňte podrobnosti o účtu");
 define('OGP_LANG_remove_account', "Smazat účet");
 define('OGP_LANG_ftp_account_already_exists', "Tento účet FTP již existuje.");
