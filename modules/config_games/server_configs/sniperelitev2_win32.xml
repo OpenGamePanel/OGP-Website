@@ -1,0 +1,97 @@
+<game_config>
+  <game_key>sniperelitev2_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>sniperelitev2</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Sniper Elite V2</game_name>
+  <server_exec_name>SniperEliteV2CLI.exe</server_exec_name>
+  <query_port type="add">1</query_port>
+  <cli_template>%IP%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="-IP=" />
+  </cli_params>
+  <console_log>logfiles/dedicated_console.txt</console_log>
+  <exe_location>bin</exe_location>
+  <max_user_amount>12</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>208050</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>Server.Name.*</default>
+      <var>Server.Name</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="control_password">
+      <default>Rcon.Password.*</default>
+      <var>Rcon.Password</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>Settings.MaxPlayers.*</default>
+      <var>Settings.MaxPlayers</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>Server.LobbyPort.*</default>
+      <var>Server.LobbyPort</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="query_port">
+      <default>Server.UpdatePort.*</default>
+      <var>Server.UpdatePort</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Auth Port" type="text">
+      <default>Server.AuthPort.*</default>
+      <default_value>8766</default_value>
+      <var>Server.AuthPort</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+      <access>admin</access>
+      <desc>Port of Auth.</desc>
+    </field>
+    <field key="Game Port" type="text">
+      <default>Server.GamePort.*</default>
+      <default_value>27017</default_value>
+      <var>Server.GamePort</var>
+      <filepath>default.cfg</filepath>
+      <options>s</options>
+      <access>admin</access>
+      <desc>Port of Game.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+    config="default.cfg"
+    if [ -s "$config" ]
+      then
+        echo "File $config found. OK!"
+      else
+        echo "File $config not found."
+        echo "Generating default config file in $config!"
+        touch $config
+        echo Server.Name Set Server Name> $config
+        echo Rcon.Password Set RCON Password>> $config
+        echo Settings.MaxPlayers Set Maximum Number of Players>> $config
+        echo Server.AuthPort Set Your Auth Port>> $config
+        echo Server.GamePort Set Your Game Port>> $config
+        echo Server.LobbyPort Set Your Lobby Port>> $config
+        echo Server.UpdatePort Set Your Update Port>> $config
+        echo MapRotation.AddMap "QUARRY" DM tl=20 sl=20>> $config
+        echo Server.Host>> $config
+    fi
+  </post_install>
+  <configuration_files>
+    <file description="Server Configurations">default.cfg</file>
+  </configuration_files>
+</game_config>
