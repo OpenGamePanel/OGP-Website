@@ -3,7 +3,7 @@
   <protocol>teamspeak3</protocol>
   <game_name>TeamSpeak 3</game_name>
   <server_exec_name>ts3server_minimal_runscript.sh</server_exec_name>
-  <cli_template>voice_ip=%IP% %PORT% query_ip=%IP% %QUERY_PORT% filetransfer_ip=%IP% %FILETRANSFER_PORT% %CONTROL_PASSWORD% %LOG%</cli_template>
+  <cli_template>voice_ip=%IP% %PORT% query_ip=%IP% %QUERY_PORT% filetransfer_ip=%IP% %FILETRANSFER_PORT% %CONTROL_PASSWORD% %LICENS% %LOG%</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="" />
     <cli_param id="PORT" cli_string="default_voice_port=" />
@@ -26,6 +26,12 @@
     </text>
   </replace_texts>
   <server_params>
+    <param key="license_accepted=" type="select" id="LICENS">
+      <option value="0">Denied</option>
+      <option value="1">Accepted</option>
+      <options>ns</options>
+      <desc>TeamSpeak3 server licence.</desc>
+    </param>
     <param key="logappend=" type="select" id="LOG">
       <option value="0">Disabled</option>
       <option value="1">Enabled</option>
