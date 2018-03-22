@@ -39,4 +39,7 @@
       <desc>The log output will be appended to the previous log file.</desc>
     </param>
   </server_params>
+  <lock_files>
+    ts3server
+  </lock_files>
 </game_config>
