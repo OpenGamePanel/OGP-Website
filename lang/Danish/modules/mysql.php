@@ -41,7 +41,7 @@ define('OGP_LANG_unknown_error', "Ukendt fejl - status_chk retueret");
 define('OGP_LANG_remove', "Delete");
 define('OGP_LANG_assign_db', "Assign Database");
 define('OGP_LANG_mysql_server_name', "MySQL server name");
-define('OGP_LANG_server_status', "Server Status");
+define('OGP_LANG_server_status', "Server status");
 define('OGP_LANG_mysql_ip_port', "MySQL IP:port");
 define('OGP_LANG_mysql_root_passwd', "MySQL root password");
 define('OGP_LANG_connection_method', "Connection method");

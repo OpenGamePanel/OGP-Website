@@ -70,8 +70,8 @@ define('OGP_LANG_ip_port_pair_not_owned', "IP:PORT pair not owned.");
 define('OGP_LANG_unsuitable_maxplayers_value_maximum_reachable_number_of_slots_has_been_set', "Unsuitable maxplayers value, maximum reachable number of slots has been set.");
 define('OGP_LANG_server_running_not_responding', "Server is running, but its not responding,<br>there might be a some kind of problem and you might want to ");
 define('OGP_LANG_update_started', "Update gestartet, bitte warten...");
-define('OGP_LANG_failed_to_start_steam_update', "Failed to start Steam update. See agent log.");
-define('OGP_LANG_failed_to_start_rsync_update', "Failed to start Rsync update. See agent log.");
+define('OGP_LANG_failed_to_start_steam_update', "Steam update ist fehlgeschlagen. Siehe Agenten Log.");
+define('OGP_LANG_failed_to_start_rsync_update', "Rsync update ist fehlgeschlagen. Siehe Agenten Log.");
 define('OGP_LANG_update_completed', "Update erfolgreich abgeschlossen.
 ");
 define('OGP_LANG_update_in_progress', "Update im Gange, bitte warten...");
@@ -100,7 +100,7 @@ define('OGP_LANG_server_status', "Server auf %s ist %s.");
 define('OGP_LANG_server_stopped', "Server '%s' wurde gestoppt.
 ");
 define('OGP_LANG_if_want_to_start_homes', "Wenn du Spieleserver starten willst, gehtst zu %s.");
-define('OGP_LANG_view_log', "Log Viewer");
+define('OGP_LANG_view_log', "Log");
 define('OGP_LANG_if_want_manage', "If you want to manage your games you can do it in the");
 define('OGP_LANG_columns', "Spalten");
 define('OGP_LANG_group_users', "Gruppenbenutzer: ");
@@ -154,7 +154,7 @@ define('OGP_LANG_update_from_selected_rsync_server', "Update from selected Rsync
 define('OGP_LANG_execute_selected_server_operations', "Execute selected server operations");
 define('OGP_LANG_execute_operations', "Operationen ausführen");
 define('OGP_LANG_account_expiration', "Kontoablauf");
-define('OGP_LANG_mysql_databases', "MySQL Databases");
+define('OGP_LANG_mysql_databases', "MySQL Datenbank");
 define('OGP_LANG_failed_querying_server', "* Fehler beim Abfragen des Servers.");
 define('OGP_LANG_query_protocol_not_supported', "* Es gibt kein Abfrageprotokoll in OGP, das diesen Server unterstützen kann.
 ");
@@ -210,7 +210,7 @@ define('OGP_LANG_edit_configuration_files', "Edit Configuration Files");
 define('OGP_LANG_admin', "Admin");
 define('OGP_LANG_cid', "CID");
 define('OGP_LANG_phan', "Phantom");
-define('OGP_LANG_sec', "Seconds");
+define('OGP_LANG_sec', "Sekunden");
 define('OGP_LANG_unknown_rsync_mirror', "You attempted to start an update from a mirror which doesn't exist.");
 define('OGP_LANG_custom_fields', "Custom Fields");
 ?>

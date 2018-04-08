@@ -198,11 +198,11 @@ define('OGP_LANG_attempting_nonmaster_update', "Вы пытаетесь обно
 define('OGP_LANG_cannot_update_from_own_self', "Обновление с локального сервера не может выполняться на мастер-сервере.");
 define('OGP_LANG_show_server_id', "Показать ID серверов");
 define('OGP_LANG_hide_server_id', "Скрыть ID серверов");
-define('OGP_LANG_edit_configuration_files', "Edit Configuration Files");
-define('OGP_LANG_admin', "Admin");
+define('OGP_LANG_edit_configuration_files', "Редактировать конфигурационный файл");
+define('OGP_LANG_admin', "Админ");
 define('OGP_LANG_cid', "CID");
-define('OGP_LANG_phan', "Phantom");
-define('OGP_LANG_sec', "Seconds");
-define('OGP_LANG_unknown_rsync_mirror', "You attempted to start an update from a mirror which doesn't exist.");
-define('OGP_LANG_custom_fields', "Custom Fields");
+define('OGP_LANG_phan', "Фантом");
+define('OGP_LANG_sec', "Секунд");
+define('OGP_LANG_unknown_rsync_mirror', "Вы попытались запустить обновление с зеркала, которого не существует.");
+define('OGP_LANG_custom_fields', "Кастомные поля");
 ?>

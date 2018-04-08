@@ -46,6 +46,7 @@ function runRemoteAction($action){
 	$betapwd = isset($mod_xml->betapwd) ? $mod_xml->betapwd : '';
 	$login = $mod_xml->installer_login ? $mod_xml->installer_login : $settings['steam_user'];
 	$pass = $mod_xml->installer_login ? '' : $settings['steam_pass'];
+	$arch = isset($mod_xml->steam_bitness) ? $mod_xml->steam_bitness : '';
 	$exec_folder_path = $server_xml->exe_location;
 	$exec_path = $server_xml->server_exec_name;
 
@@ -72,7 +73,7 @@ function runRemoteAction($action){
 				$appId, $modname, $betaname, $betapwd, $login, $pass, $settings['steam_guard'], $precmd, $postcmd, $cfg_os, $lockFiles,
 									  
 				//start
-				$startup_cmd, $server_home['mods'][$mod_id]['cpu_affinity'], $server_home['mods'][$mod_id]['nice'], $preStart, $envVars, $server_xml->game_key
+				$startup_cmd, $server_home['mods'][$mod_id]['cpu_affinity'], $server_home['mods'][$mod_id]['nice'], $preStart, $envVars, $server_xml->game_key, $arch
 			);
 			break;
 		case "restart_server":

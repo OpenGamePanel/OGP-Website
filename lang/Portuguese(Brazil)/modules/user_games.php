@@ -41,7 +41,7 @@ define('OGP_LANG_game_configurations', ">página de configuração do jogo");
 define('OGP_LANG_add_remote_server', "Adicione um servidor.");
 define('OGP_LANG_wine_games', "Wine Games");
 define('OGP_LANG_home_path', "Caminho \"Home\"");
-define('OGP_LANG_change_home_info', "A localização do servidor de jogos instalado. Exemplo: /home/painel/my_server/");
+define('OGP_LANG_change_home_info', "A localização do servidor de jogos instalado. Exemplo: /home/ogp/my_server/");
 define('OGP_LANG_game_server_name', "Nome do servidor do jogo");
 define('OGP_LANG_change_name_info', "O nome do servidor para ajudar os usuários a identificá-lo.");
 define('OGP_LANG_game_control_password', "Senha de controle do jogo");

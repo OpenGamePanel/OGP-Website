@@ -70,8 +70,16 @@ function update_local_copies()
 	}
  	echo "Updating local cache of rsync meta data files<br>";	
 	$update_files = array('sizes.list', 'rsync.list', 'rsync_sites.list');
-	$update_urls = array('opengamepanel.org', 'gkfsystems.com', 'rsync.gkfsystems.com');
+	$update_urls = array('rsync.opengamepanel.org', 'dls.atl.webehostin.com');
 	
+	$context = array(
+		'ssl' => array(
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+			'allow_self_signed' => true
+		)
+	);
+				
 	foreach($update_files as $file_chk)
 	{
 		#echo "Trying to update $file_chk<br>";
@@ -82,7 +90,7 @@ function update_local_copies()
 			{
 				print_failure("modules/gamemanager/$file_chk is not writable...please make it writable by the webserver");
 			}
-			if($tmp_content = file_get_contents("http://$site/sync_data/$file_chk"))
+			if($tmp_content = file_get_contents("http://$site/sync_data/$file_chk", false, $context))
 			{
 				if(!file_put_contents("modules/gamemanager/$file_chk",$tmp_content)){echo "Failed to write<br>";};
 				break;
@@ -267,7 +275,7 @@ function exec_ogp_module() {
 		{
 			print_success(get_lang("update_started"));
 			echo "<p><a href=\"?m=gamemanager&amp;p=rsync_install&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id$master\">".
-				 refresh_rsync_status ."</a></p>";
+				 get_lang("refresh_rsync_status") ."</a></p>";
 			$view->refresh("?m=gamemanager&amp;p=rsync_install&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id$master",5);
 			return;
 		}
@@ -288,7 +296,7 @@ function exec_ogp_module() {
 			return;
 		}
 		$update_complete = false;
-		echo "<form method=POST><input type='image' name='stop_update' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". stop_update ."</input></form>";
+		echo "<form method=POST><input type='image' name='stop_update' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". get_lang("stop_update") ."</input></form>";
 		if (empty($log_txt))
 			$log_txt = not_available;
 		if(!isset($_GET['master']))
@@ -297,7 +305,7 @@ function exec_ogp_module() {
 			list($totalsize,$mbytes,$pct) = explode(";",do_progress($kbytes,$lgslname."/".$os));
 			$totalmbytes = round($totalsize / 1024, 2);
 			echo '<div class="dragbox bloc rounded" style="background-color:#dce9f2;" >
-					<h4>'. update_in_progress ." ${mbytes}MB/${totalmbytes}MB</h4>
+					<h4>'. get_lang("update_in_progress") ." ${mbytes}MB/${totalmbytes}MB</h4>
 				  <div style='background-color:#dce9f2;' >
 				  ";
 			$bar = '';
@@ -311,12 +319,12 @@ function exec_ogp_module() {
 		}
 		else
 		{
-			echo '<h4>'. update_in_progress .'</h4>';
+			echo '<h4>'. get_lang("update_in_progress") .'</h4>';
 		}
 		
 		echo "<pre>".$log_txt."</pre>\n".
 			 "<p><a href=\"?m=gamemanager&amp;p=rsync_install&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id\">".
-			 refresh_rsync_status ."</a></p>";
+			 get_lang("refresh_rsync_status") ."</a></p>";
 		$view->refresh("?m=gamemanager&amp;p=rsync_install&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id",5);
 		return;
 		
@@ -325,9 +333,9 @@ function exec_ogp_module() {
 	{
 		$view->refresh("{CURRENT_PAGE}", 60);
 		print_success(get_lang("update_completed") );
-		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
+		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
 		echo "<pre>".$log_txt."</pre>\n";
-		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
+		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
 		$update_complete = true;
 	}
 	else
@@ -372,9 +380,9 @@ function exec_ogp_module() {
 				 <td align='left'>".create_drop_box_from_array_rsync($rsync_sites,"url_id")."<br>";
 			if( $master_server_home_id != FALSE AND $master_server_home_id != $home_id )
 			{
-				echo "<input type='checkbox' name='master_server_home_id' value='$master_server_home_id' /><b>". update_from_local_master_server ."</b>";
+				echo "<input type='checkbox' name='master_server_home_id' value='$master_server_home_id' /><b>". get_lang("update_from_local_master_server") ."</b>";
 			}
-				echo "</td></tr></table><p><input type='submit' name='update' value='". update_from_selected_rsync_server ."' /></p>
+				echo "</td></tr></table><p><input type='submit' name='update' value='". get_lang("update_from_selected_rsync_server") ."' /></p>
 				 </form>";
 		}
 		elseif($master_server_home_id != FALSE AND $master_server_home_id != $home_id)
@@ -393,7 +401,7 @@ function exec_ogp_module() {
 				 <tr><td align='right'>Master Server Directory:</td><td align='left'>$ms_home_info[home_path]</td></tr>
 				 <tr><td align='right'>Local Directory:</td><td align='left'>$home_info[home_path]</td></tr>".
 				 "<input type='hidden' name='master_server_home_id' value='$master_server_home_id' />".
-				 "</td></tr></table><p><input type='submit' name='update' value='". update_from_local_master_server ."' /></p>
+				 "</td></tr></table><p><input type='submit' name='update' value='". get_lang("update_from_local_master_server") ."' /></p>
 				 </form>";
 		}
 		else 

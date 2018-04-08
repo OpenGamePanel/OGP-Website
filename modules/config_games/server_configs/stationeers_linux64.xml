@@ -1,0 +1,79 @@
+<game_config>
+  <game_key>stationeers_linux64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>stationeers</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Stationeers</game_name>
+  <server_exec_name>rocketstation_DedicatedServer.x86_64</server_exec_name>
+  <cli_template>-autostart -batchmode -nographics %HOSTNAME% %PORT% %QUERY_PORT% %WORLDNAME% %LOADNAME% %SAVEINTERVAL% %PLAYERRETAIN% %MAP% -logfile output.txt </cli_template>  
+  <cli_params>
+    <cli_param id="IP" cli_string="" />
+    <cli_param id="PORT" cli_string="-gameport="/>    	
+    <cli_param id="HOSTNAME" cli_string="-servername" options="sq" />    
+  </cli_params>
+  <reserve_ports>
+    <port type="subtract" id="QUERY_PORT" cli_string="-updateport=">485</port>
+  </reserve_ports>
+  <console_log>output.txt</console_log>
+  <max_user_amount>10</max_user_amount>
+  <mods>
+    <mod key="Stationeers">
+      <name>None</name>
+      <installer_name>600760</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>   
+  </mods>
+  <server_params>	
+    <param key="-worldname=" type="text" id="WORLDNAME">
+      <default>my_game</default>	  
+	  <options>ns</options>
+      <desc>Save Name file</desc>
+    </param>
+	<param key="-loadworld=" type="text" id="LOADNAME">
+      <default>my_game</default>	  
+	  <options>ns</options>
+      <desc>Save Name file</desc>
+    </param>
+	<param key="-clearallinterval=" type="text" id="PLAYERRETAIN">
+		<default>900</default>
+		<options>ns</options>
+		<desc>Amount of time to keep player active after logoff/disconnect (seconds)</desc>
+	</param>
+    <param key="-autosaveinterval=" type="text" id="SAVEINTERVAL">
+      <default>300</default> 
+	  <options>ns</options>	  
+      <desc>Interval in Seconds for save</desc>
+    </param>
+    <param key="-worldtype=" type="select" id="MAP">      
+      <option value="Moon">Moon</option>
+      <option value="Space">Space</option>
+      <option value="Mars">Mars</option>      
+	  <options>ns</options>
+      <desc>Defines the map of the server.</desc>
+    </param>
+  </server_params>   
+  <post_install>
+    defaultini="default.ini"
+    if [ -s "$defaultini" ]
+      then
+        echo "File $defaultini found. OK!"
+      else
+        echo "File $defaultini not found."
+        echo "Generating new default.ini file in $defaultini!"
+        touch $defaultini
+        echo [SERVER]> $defaultini
+        echo SERVERNAME=My Stationeers Server>> $defaultini
+        echo GAMEPORT=27500>> $defaultini
+        echo UPDATERPORT=27015>> $defaultini
+        echo PASSWORD=>> $defaultini
+        echo MAPNAME=Moon>> $defaultini
+        echo DESCRIPTION=Stationeers>> $defaultini
+        echo MAXPLAYER=10>> $defaultini
+        echo [RCON]>> $defaultini
+        echo RCONPASSWORD=stationeers>> $defaultini
+    fi    
+  </post_install>
+  <configuration_files>
+    <file description="Server Configurations">default.ini</file>    
+  </configuration_files>
+</game_config>

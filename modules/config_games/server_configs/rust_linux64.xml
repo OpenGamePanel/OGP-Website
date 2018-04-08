@@ -81,6 +81,6 @@
     </param>
   </server_params>
   <environment_variables>
-    export LD_LIBRARY_PATH="{OGP_HOME_DIR}/RustDedicated_Data/Plugins/x86_64"
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:{OGP_HOME_DIR}/RustDedicated_Data/Plugins/x86_64"
   </environment_variables>
 </game_config>

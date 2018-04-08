@@ -26,7 +26,7 @@ define('OGP_LANG_login_name', "Имя пользователя");
 define('OGP_LANG_first_name', "Имя");
 define('OGP_LANG_last_name', "Фамилия");
 define('OGP_LANG_phone_number', "Телефон");
-define('OGP_LANG_email_address', "E-mail");
+define('OGP_LANG_email_address', "Е-маил");
 define('OGP_LANG_register_a_new_user', "Регистрация нового пользователя");
 define('OGP_LANG_password_mismatch', "Пароли не совпадают.");
 define('OGP_LANG_confirm_password', "Подтвердите пароль");

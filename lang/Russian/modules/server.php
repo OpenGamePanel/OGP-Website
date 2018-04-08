@@ -73,7 +73,7 @@ define('OGP_LANG_remote_ips_for', "Удаленные IP-адреса '%s'");
 define('OGP_LANG_ips_set_for_server', "IP-адреса, для сервера '%s'  установлены успешно.");
 define('OGP_LANG_could_not_remove_ip', "Не удалось удалить старый IP-адрес из базы данных.");
 define('OGP_LANG_could_add_ip', "Вы можете добавить IP-адрес удаленного сервера в базу данных.");
-define('OGP_LANG_areyousure_removeagent', "Are you sure you want to remove the Agent called");
+define('OGP_LANG_areyousure_removeagent', "Вы действительно хотите удалить агента ?");
 define('OGP_LANG_areyousure_removeagent2', "и все сервера привязаные к нему их базы данных OGP?");
 define('OGP_LANG_error_while_remove', "Ошибка при удалении сервера.");
 define('OGP_LANG_add_ip', "Добавить IP");

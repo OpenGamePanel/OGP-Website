@@ -137,6 +137,7 @@ define('OGP_LANG_cron', "Управление Заданиями");
 define('OGP_LANG_user_cron', "Задания");
 define('OGP_LANG_faq', "F.A.Q.");
 define('OGP_LANG_mysql_admin', "Управление MySQL");
-define('OGP_LANG_copied', "Copied!");
-define('OGP_LANG_ticket_settings', "Ticket Settings");
+define('OGP_LANG_copied', "Скопирован!");
+define('OGP_LANG_ticket_settings', "Настройки Тикета");
+define('OGP_LANG_form', "Запись");
 ?>

@@ -11,7 +11,7 @@
   </cli_params>
 <console_log>profile/server_console.log</console_log>
 <max_user_amount>64</max_user_amount>
-<control_protocol>rcon2</control_protocol>
+<control_protocol>armabe</control_protocol>
 <mods>
  <mod key='arma2co'>
   <name>none</name>
