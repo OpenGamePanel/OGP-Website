@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>PixARK</game_name>
   <server_exec_name>PixARKServer.exe</server_exec_name>
-  <cli_template>%MAP%?listen%PLAYERS%%IP%%PORT%%QUERY_PORT%%CONTROL_PASSWORD% %DBE% %NHD% %CWN% %SEED% -nosteamclient -game -server -log</cli_template>
+  <cli_template>%MAP%?listen%PLAYERS%%IP%%PORT%%QUERY_PORT%%CONTROL_PASSWORD% %DBE% %NHD% %CUBE_PORT% %CWN% %SEED% -nosteamclient -game -server -log</cli_template>
   <cli_params>
     <cli_param id="MAP" cli_string="" />
     <cli_param id="IP" cli_string="?Multihome=" />
@@ -15,6 +15,7 @@
   </cli_params>
   <reserve_ports>
     <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
+    <port type="add" id="CUBE_PORT" cli_string="-CubePort=">7222</port>
   </reserve_ports>
   <map_list>maplist.txt</map_list>
   <console_log>ShooterGame/Saved/Logs/ShooterGame.log</console_log>
@@ -37,7 +38,7 @@
   <server_params>
     <param key="-cubeworld=" type="text" id="CWN">
       <options>ns</options>
-      <desc>Name of your world.</desc>
+      <desc>Name of the map.</desc>
     </param>
     <param key="-Seed=" type="text" id="SEED">
       <options>ns</options>
