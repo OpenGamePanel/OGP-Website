@@ -15,7 +15,7 @@
   </cli_params>
   <reserve_ports>
     <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
-    <port type="add" id="CUBE_PORT" cli_string="-CubePort=">7222</port>
+    <port type="add" id="CUBE_PORT" cli_string="-CubePort=">7223</port>
   </reserve_ports>
   <map_list>maplist.txt</map_list>
   <console_log>ShooterGame/Saved/Logs/ShooterGame.log</console_log>
