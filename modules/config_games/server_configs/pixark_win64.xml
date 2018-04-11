@@ -14,8 +14,8 @@
     <cli_param id="CONTROL_PASSWORD" cli_string="?ServerAdminPassword=" />
   </cli_params>
   <reserve_ports>
-    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
-    <port type="add" id="CUBE_PORT" cli_string="-CubePort=">7223</port>
+    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">20016</port>
+    <port type="add" id="CUBE_PORT" cli_string="-CubePort=">7996</port>
   </reserve_ports>
   <map_list>maplist.txt</map_list>
   <console_log>ShooterGame/Saved/Logs/ShooterGame.log</console_log>
@@ -54,7 +54,7 @@
   <custom_fields>
     <field key="RCON Port" type="text">
       <default>RCONPort=.*</default>
-      <default_value>27020</default_value>
+      <default_value>2701</default_value>
       <var>RCONPort=</var>
       <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
       <options>sq</options>
