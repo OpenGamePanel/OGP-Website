@@ -102,6 +102,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ns2"			=> "Natural Selection 2",
 		"openttd"		=> "Open Transport Tycoon Deluxe",
 		"painkiller"	=> "PainKiller",
+		"pixark"		=> "PixARK",
 		"plainsight"	=> "Plain Sight",
 		"prey"			=> "Prey",
 		"quakeworld"	=> "Quake World",
@@ -252,6 +253,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"openttd"		=> "22",
 		"painkiller"	=> "08",
 		"painkiller_"	=> "09",
+		"pixark"		=> "05",
 		"plainsight"	=> "32",
 		"prey"			=> "10",
 		"quakeworld"	=> "07",
@@ -399,6 +401,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ns2"			=> "steam://connect/{IP}:{S_PORT}",
 		"openttd"		=> "http://wwww.openttd.org",
 		"painkiller"	=> "qtracker://{IP}:{S_PORT}?game=Painkiller&action=show",
+		"pixark"		=> "steam://connect/{IP}:{Q_PORT}",
 		"plainsight"	=> "http://www.plainsightgame.com",
 		"prey"			=> "qtracker://{IP}:{S_PORT}?game=Prey&action=show",
 		"quakeworld"	=> "qtracker://{IP}:{S_PORT}?game=QuakeWorld&action=show",
@@ -513,6 +516,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "murmur"			: $c_to_q = 2;		$c_def = 64738;	$q_def = 64740;	$c_to_s = 0;	break;
 			case "ns2"				: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 1;	break;
 			case "painkiller"		: $c_to_q = 123;	$c_def = 3455;	$q_def = 3578;	$c_to_s = 0;	break;
+			case "pixark"			: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "ravenshield"		: $c_to_q = 1000;	$c_def = 7777;	$q_def = 8777;	$c_to_s = 0;	break;
 			case "redorchestra"		: $c_to_q = 1;		$c_def = 7758;	$q_def = 7759;	$c_to_s = 0;	break;
 			case "redorchestra2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
