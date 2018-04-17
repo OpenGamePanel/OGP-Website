@@ -79,7 +79,7 @@ define('OGP_LANG_refresh_steam_status', "Steam status aktualisieren
 ");
 define('OGP_LANG_refresh_rsync_status', "Rsync status aktualisieren
 ");
-define('OGP_LANG_server_running_cant_update', "Server running so update is not possible. Stop the server before update.");
+define('OGP_LANG_server_running_cant_update', "Ein Update ist nicht möglich, da der Server derzeit läuft. Stoppe den Server bevor du ihn updatest.");
 define('OGP_LANG_xml_steam_error', "Selected server type does not support steam install/update.");
 define('OGP_LANG_mod_key_not_found_from_xml', "Mod key '%s' not found from the XML file.");
 define('OGP_LANG_stop_update', "Update stoppen");
@@ -94,7 +94,7 @@ define('OGP_LANG_server_id', "Server-ID");
 define('OGP_LANG_player_name', "Spielername");
 define('OGP_LANG_score', "Punkte");
 define('OGP_LANG_time', "Zeit");
-define('OGP_LANG_no_rights_to_stop_server', "You do not have rights to stop this server.");
+define('OGP_LANG_no_rights_to_stop_server', "Du hast nicht die Berechtigung den Server zu stoppen.");
 define('OGP_LANG_no_ogp_lgsl_support', "This server (running: %s) does not have LGSL support in OGP and its statistics can not be shown.");
 define('OGP_LANG_server_status', "Server auf %s ist %s.");
 define('OGP_LANG_server_stopped', "Server '%s' wurde gestoppt.
@@ -121,7 +121,7 @@ define('OGP_LANG_unexpected_result_libremote', "Unexpected result from libremote
 define('OGP_LANG_unable_get_info', "Unable to get the required information for startup, blocking startup.");
 define('OGP_LANG_server_already_running', "Server already running. If you do not see the server in the Game Monitor, there might be a somekind of problem and you might want to");
 define('OGP_LANG_already_running_stop_server', "Server stoppen.");
-define('OGP_LANG_error_server_already_running', "ERROR: Server already running on port");
+define('OGP_LANG_error_server_already_running', "FEHLER: Der Server läuft bereits auf Port");
 define('OGP_LANG_failed_start_server_code', "Failed to start the remote server. Error code: %s");
 define('OGP_LANG_disabled', "deaktiviert");
 define('OGP_LANG_not_found_server', "Could not find the remote server with ID");
@@ -193,7 +193,7 @@ define('OGP_LANG_unknown_errors', "Unbekannte Fehler.");
 define('OGP_LANG_directory', "Ordner-Pfad");
 define('OGP_LANG_view_player_commands', "View Player Commands");
 define('OGP_LANG_hide_player_commands', "Hide Player Commands");
-define('OGP_LANG_no_online_players', "There are no online players.");
+define('OGP_LANG_no_online_players', "Es sind keine Spieler online.");
 define('OGP_LANG_invalid_game_mod_id', "Invalid Game/Mod ID specified.");
 define('OGP_LANG_auto_update_title_popup', "Steam Auto Update Link");
 define('OGP_LANG_auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
