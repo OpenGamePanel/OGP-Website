@@ -33,7 +33,7 @@ define('OGP_LANG_currently_viewing', "Jelenleg a(z) '%s' mappát nézzük");
 define('OGP_LANG_wrote_changes', "Változások sikeresen mentve.");
 define('OGP_LANG_failed_write', "Nem sikerült írni a fájlt a távoli szerveren.");
 define('OGP_LANG_failed_read', "Nem sikerült olvasni a fájlt a távoli szerverről.");
-define('OGP_LANG_failed_list', "Nem sikerült lekérni a mappa listát.");
+define('OGP_LANG_failed_list', "Nem sikerült lekérni a könyvtárlistát.");
 define('OGP_LANG_level_up', "^Egy szinttel feljebb^");
 define('OGP_LANG_unallowed_char', "Nem megengedett karakterek találhatóak az útvonalban.");
 define('OGP_LANG_button_edit', "[Szerkesztés]");

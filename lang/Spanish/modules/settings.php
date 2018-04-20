@@ -69,8 +69,8 @@ define('OGP_LANG_query_num_servers_stop_info', "Use esta configuración para des
 define('OGP_LANG_editable_email', "Dirección de E-Mail editable");
 define('OGP_LANG_editable_email_info', "Seleccione si los usuarios pueden editar su dirección de e-mail o no.");
 define('OGP_LANG_old_dashboard_behavior', "Comportamiento anterior del Dashboard");
-define('OGP_LANG_old_dashboard_behavior_info', "The old Dashboard was running slower, but shows more server informations (e.g. current players and maps).");
-define('OGP_LANG_rsync_available', "Available Rsync servers");
+define('OGP_LANG_old_dashboard_behavior_info', "El Dashboard antiguo tarda mas en cargar, pero muestra mas información de los servidores (mapa y jugadores en linea).");
+define('OGP_LANG_rsync_available', "Servidores de Rsync disponibles");
 define('OGP_LANG_rsync_available_info', "Selecciona que lista de servidores será mostrada en la instalación Rsync.");
 define('OGP_LANG_all_available_servers', "Todos los servidores disponibles ( rsync_sites.list + rsync_sites_local.list )");
 define('OGP_LANG_only_remote_servers', "Solo servidores remotos ( rsync_sites.list )");
@@ -80,7 +80,7 @@ define('OGP_LANG_header_code_info', "Aquí puede añadir código de cabecera (co
 define('OGP_LANG_support_widget_title', "Título widget soporte");
 define('OGP_LANG_support_widget_title_info', "Un título personalizado para el widget de soporte del dashboard.");
 define('OGP_LANG_support_widget_content', "Contenido widget soporte");
-define('OGP_LANG_support_widget_content_info', "The content of the support widget (HTML code allowed).");
+define('OGP_LANG_support_widget_content_info', "Contenido del widget de soporte (HTML permitido).");
 define('OGP_LANG_support_widget_link', "Enlace widget soporte");
 define('OGP_LANG_support_widget_link_info', "La URL de su web de soporte.");
 define('OGP_LANG_recaptcha_site_key', "Clave Recaptcha (site key)");
@@ -103,9 +103,9 @@ define('OGP_LANG_theme_settings', "Ajustes de tema");
 define('OGP_LANG_theme', "Tema");
 define('OGP_LANG_theme_info', "El tema que seleccione aqui sera el tema por defecto para todos los usuarios. Cada usuario podra seleccionar un tema posteriormente.");
 define('OGP_LANG_welcome_title', "Título de bienvenida");
-define('OGP_LANG_welcome_title_info', "Enables the title that is displayed at the top of the Dashboard.");
+define('OGP_LANG_welcome_title_info', "Habilita el mensaje que se muestra en la cabecera del Dashboard");
 define('OGP_LANG_welcome_title_message', "Mensaje de bienvenida del título");
-define('OGP_LANG_welcome_title_message_info', "The title message that is displayed at the top of the Dashboard (HTML code allowed).");
+define('OGP_LANG_welcome_title_message_info', "Título del mensaje que se muestra en la cabecera del Dashboard (HTML permitido)");
 define('OGP_LANG_logo_link', "Enlace del logo");
 define('OGP_LANG_logo_link_info', "El hipervinculo del logo. <b style='font-size:10px; font-weight:normal;'>(Dejandolo en blanco apuntará al Dashboard)</b>");
 define('OGP_LANG_custom_tab', "Botón de menú personalizado");
@@ -130,6 +130,17 @@ define('OGP_LANG_bg_wrapper', "Imagen de fondo");
 define('OGP_LANG_bg_wrapper_info', "La imagen de fondo del panel. <b style='font-size:10px; font-weight:normal;'>(Solo funciona con algunos temas.)</b>");
 define('OGP_LANG_show_server_id_game_monitor', "Mostrar ID de servidor en la página de Monitor de juegos");
 define('OGP_LANG_show_server_id_game_monitor_info', "Muestra la columna ID del servidor de juegos en el Monitor de juegos para buscar los archivos creados por el Agente en el servidor de juego real.");
-define('OGP_LANG_default_game_server_home_path_prefix', "Default game server home directory prefix");
-define('OGP_LANG_default_game_server_home_path_prefix_info', "Enter a path prefix for where you want game server homes to be created by default. You can use \"{USERNAME}\" in the path which will be replaced with the OGP username the game server is being assigned to.  You can use \"{GAMEKEY}\" in the path which will be replaced with a friendly lowercase name.  You can use \"{SKIPID}\" anywhere in the path to skip appending the home ID to the path.  Example: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} will become /ogp/games/username/arkse/.  Example 2:  /ogp/games will become /ogp/games/1 where 1 is the game servers ID.");
+define('OGP_LANG_default_game_server_home_path_prefix', "Prefijo por defecto de los directorios iniciales de los servidores de juegos");
+define('OGP_LANG_default_game_server_home_path_prefix_info', "Introduzca un prefijo para la ruta en la que usted quiere que se almacenen las carpetas iniciales de los servidores creados por defecto. Puede usar \"{USERNAME}\" en la ruta, lo cual sera reemplazado por el nombre del usuario al que pertenece el serviodor. También pude usar \"{GAMEKEY}\" en la ruta, el cual sera reemplazado con la abreviatura en minúscula del nombre del juego. Puede usar \"{SKIPID}\" en cualquier parte de la ruta para impedir que se use el identificador del servidor en la ruta. 
+
+Ejemplo: 
+/ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} 
+se convertiría en 
+/ogp/games/username/arkse/. 
+
+Ejemplo 2: 
+/ogp/games 
+se convertiría en 
+/ogp/games/1 
+donde 1 es el identificador del servidor.");
 ?>

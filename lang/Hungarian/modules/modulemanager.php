@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_module_id', "Modul azonosító");
-define('OGP_LANG_module_name', "Modul név");
+define('OGP_LANG_module_name', "Modulnév");
 define('OGP_LANG_module_folder', "Modul mappa");
 define('OGP_LANG_module_version', "Modul verzió");
 define('OGP_LANG_db_version', "Adatbázis verzió");

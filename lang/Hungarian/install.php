@@ -22,7 +22,7 @@
  *
  */
 
-define('OGP_LANG_install_lang', "Válasszd ki a kívánt nyelvet");
+define('OGP_LANG_install_lang', "Válaszd ki a kívánt nyelvet");
 define('OGP_LANG_install_welcome', "Üdvözöllek az Open Game Panel telepítőben");
 define('OGP_LANG_file_permission_check', "A szükséges jogosultságok ellenőrzése");
 define('OGP_LANG_OK', "Rendben");

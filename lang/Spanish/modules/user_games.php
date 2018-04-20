@@ -152,7 +152,7 @@ define('OGP_LANG_select_home', "Seleccionar Home para asignar");
 define('OGP_LANG_assign_new_home_to_user', "Asignar nueva Home al usuario %s");
 define('OGP_LANG_assign_new_home_to_group', "Asignar nueva Home al grupo %s");
 define('OGP_LANG_assigned_home_to_user', "Asignado el home (ID: %d) al usuario %s.");
-define('OGP_LANG_failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
+define('OGP_LANG_failed_to_assign_home_to_user', "Error al asignar el home (ID: %d) al usuario %s.");
 define('OGP_LANG_assigned_home_to_group', "Asignado el home (ID: %d) al grupo %s.");
 define('OGP_LANG_unassigned_home_from_user', "Quitado el home (ID: %d) del usuario %s.");
 define('OGP_LANG_unassigned_home_from_group', "Quitado el home (ID: %d) del grupo %s.");
@@ -192,7 +192,7 @@ define('OGP_LANG_successfully_deleted_game_server_with_id', "Se elimino el servi
 define('OGP_LANG_failed_to_remove_ftp_account_from_remote_server', "No se pudo eliminar la cuenta FTP del servidor remoto.");
 define('OGP_LANG_remove_it_anyway', "Eliminar de todos modos");
 define('OGP_LANG_sucessfully_deleted', "Eliminado correctamente.");
-define('OGP_LANG_the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");
+define('OGP_LANG_the_agent_had_a_problem_deleting', "El agente tuvo un problema mientras borraba %s. Por favor, compruebe el log del agente.");
 define('OGP_LANG_connection_timeout_or_problems_reaching_the_agent', "Tiempo de espera de la conexión o problemas al llegar al agente");
 define('OGP_LANG_does_not_exist_yet', "No existe todavia.");
 define('OGP_LANG_update_settings', "Actualizar configuración");
@@ -216,7 +216,7 @@ define('OGP_LANG_cpu_affinity_info', "Seleccione los núcleo(s) de CPU que quier
 define('OGP_LANG_expiration_date_changed', "Se ha cambiado la fecha de caducidad de la casa seleccionada.");
 define('OGP_LANG_expiration_date_could_not_be_changed', "La fecha de caducidad para el hogar seleccionado no se puede cambiar.");
 define('OGP_LANG_search', "Buscar");
-define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
-define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
-define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
+define('OGP_LANG_ftp_account_username_too_long', "El nombre de usuario FTP es demasiado largo. Prueba con un nombre no mayor de 20 caracteres.");
+define('OGP_LANG_ftp_account_password_too_long', "La contraseña de usuario FTP es demasiado larga. Prueba con una contraseña no mayor de 20 caracteres.");
+define('OGP_LANG_other_servers_exist_with_path_please_change', "Existen otras Home con la misma ruta. Se recomienda (aunque no se requiere) que cambie la ruta por otra que no esté en uso.");
  ?>

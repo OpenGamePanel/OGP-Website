@@ -34,7 +34,7 @@ define('OGP_LANG_last_name', "Vezetéknév");
 define('OGP_LANG_phone_number', "Telefonszám");
 define('OGP_LANG_email_address', "E-mail cím");
 define('OGP_LANG_city', "Város");
-define('OGP_LANG_province', "Megye");
+define('OGP_LANG_province', "Tartomány");
 define('OGP_LANG_country', "Ország");
 define('OGP_LANG_comment', "Megjegyzések");
 define('OGP_LANG_expires', "Lejárat");
