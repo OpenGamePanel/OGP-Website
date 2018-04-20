@@ -109,7 +109,7 @@ define('OGP_LANG_operations', "Műveletek");
 define('OGP_LANG_search', "Keresés");
 define('OGP_LANG_maps_read_from', "Pálya olvasható ");
 define('OGP_LANG_file', "fájl");
-define('OGP_LANG_folder', "könyvtár");
+define('OGP_LANG_folder', "mappa");
 define('OGP_LANG_unable_retrieve_mod_info', "Nem sikerült lekérni a mod információt az adatbázisból.");
 define('OGP_LANG_unexpected_result_libremote', "Váratlan eredmény a libremote-val, kérlek, tájékoztasd a fejlesztőket.");
 define('OGP_LANG_unable_get_info', "Nem sikerült megkapni a szükséges információt az indításhoz, az indítás blokkolása.");

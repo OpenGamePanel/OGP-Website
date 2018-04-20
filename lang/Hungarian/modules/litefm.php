@@ -45,7 +45,7 @@ define('OGP_LANG_can_not_create_upload_folder_path', "Nem lehet létrehozni a(z)
 define('OGP_LANG_url_is_not_accesible_from_agent', "A(z) %s link nem érhető el az Agentről");
 define('OGP_LANG_upload_file', "Fájl feltöltés");
 define('OGP_LANG_uncompress', "Kicsomagolás");
-define('OGP_LANG_create_folder', "Mappa létrehozás");
+define('OGP_LANG_create_folder', "Mappa létrehozása");
 define('OGP_LANG_create', "Létrehozás");
 define('OGP_LANG_delete_item', "Töröljük a(z) %s?");
 define('OGP_LANG_upload_in_progress', "Feltöltés folyamatban...");
