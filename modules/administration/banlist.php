@@ -34,7 +34,7 @@ function exec_ogp_module()
 		foreach($_POST as $name => $ip)
 		{
 			$ip = $db->real_escape_string($ip);
-			$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='0', banned_until='0' WHERE client_ip = '$ip';");
+			$db->query("DELETE FROM `OGP_DB_PREFIXban_list` WHERE client_ip = '$ip';");
 		}
 	}
 	$ban_list = $db->resultQuery("SELECT logging_attempts, banned_until, client_ip FROM `OGP_DB_PREFIXban_list`;");

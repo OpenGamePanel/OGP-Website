@@ -235,13 +235,10 @@ function ogpHome()
 			
 			$banlist_info = $db->resultQuery("SELECT logging_attempts, banned_until FROM `OGP_DB_PREFIXban_list` WHERE client_ip='".$client_ip."';");
 			$login_attempts = !$banlist_info ? 0 : $banlist_info['0']['logging_attempts'];
-			
-			if( !$banlist_info )
-				$db->query("INSERT INTO `OGP_DB_PREFIXban_list` (`client_ip`) VALUES('$client_ip');");
 
 			if( $banlist_info AND $banlist_info['0']['banned_until'] > 0 AND $banlist_info['0']['banned_until'] <= time() )
 			{
-				$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='0', banned_until='0' WHERE client_ip='$client_ip';");
+				$db->query("DELETE FROM `OGP_DB_PREFIXban_list` WHERE client_ip='$client_ip';");
 				$login_attempts = 0;
 			}
 			
@@ -285,7 +282,7 @@ function ogpHome()
 				$_SESSION['users_theme'] = $userInfo['users_theme'];
 				print_success( get_lang("logging_in") ."...");
 				$db->logger( get_lang("logging_in") ."...");
-				$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='0', banned_until='0' WHERE client_ip = '$client_ip';");
+				$db->query("DELETE FROM `OGP_DB_PREFIXban_list` WHERE client_ip='$client_ip';");
 				$view->refresh("home.php?$default_page",2);
 			}
 			else
@@ -295,13 +292,19 @@ function ogpHome()
 				if( $login_attempts == $settings["login_attempts_before_banned"] )
 				{
 					$banned_until = time() + 300; // Five minutes banned from the panel.
-					$banlist_info['0']['banned_until'] = $banned_until;
+					
+					if( !$banlist_info )
+						$db->query("INSERT INTO `OGP_DB_PREFIXban_list` (`client_ip`) VALUES('$client_ip');");
+						
 					$db->logger( get_lang("bad_login") . " ( Banned until " . date("r", $banned_until) . " ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts', banned_until='$banned_until' WHERE client_ip='$client_ip';");
-					print_failure("Banned until " . date("r",$banlist_info['0']['banned_until']));
+					print_failure("Banned until " . date("r",$banned_until));
 				}
 				else
 				{
+					if( !$banlist_info )
+						$db->query("INSERT INTO `OGP_DB_PREFIXban_list` (`client_ip`) VALUES('$client_ip');");
+					
 					$db->logger( get_lang("bad_login") . " ( $login_attempts ) [ " . login . ": $_POST[ulogin], " . password . ": $_POST[upassword] ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts' WHERE client_ip='$client_ip';");
 					$view->refresh("index.php",2);
