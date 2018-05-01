@@ -31,6 +31,7 @@ define('OGP_LANG_execute_permission_required', "Execute permission required");
 define('OGP_LANG_create_an_empty_file', "Create an empty file.");
 define('OGP_LANG_found', "Found");
 define('OGP_LANG_not_found', "Not found");
+define('OGP_LANG_not_found_but_not_required', "Not found, but not required - some functionality (provided by extra modules or the panel itself) may not work");
 define('OGP_LANG_pear_xxtea_info', "Pear Crypt_XXTEA is required for OGP usage. In the most of the Linux distributions this module can be installed with the following Pear command 'pear install Crypt_XXTEA-beta'.");
 define('OGP_LANG_refresh', "Refresh");
 define('OGP_LANG_checking_required_modules', "Checking required modules:");

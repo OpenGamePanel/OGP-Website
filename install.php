@@ -239,6 +239,8 @@ function install() {
             array( "name" => "PHP Curl module", "type" => "f", "value" => "curl_init" ),
             array( "name" => "PHP XML Reader", "type" => "c", "value" => "XMLReader" ),
 			array( "name" => "PHP JSON Extension", "type" => "f", "value" => "json_decode" ),
+			array( "name" => "PHP Zip Extension", "type" => "c", "value" => "ZipArchive" ),
+			array( "name" => "PHP BCMath Extension", "type" => "f", "value" => "bcadd", "required" => false ),
 			array( "name" => "PHP mbstring Extension", "type" => "x", "value" => "mbstring" ));
         echo "<h3>".get_lang('checking_required_modules')."</h3>\n<table class='install'>";
 
@@ -249,9 +251,14 @@ function install() {
                     echo "<tr><td>".$propertie['name']."</td>
                         <td><span class='success'>".get_lang('found')."</span></td></tr>";
                 } else {
-                    echo "<tr><td>".$propertie['name']."</td>
-                        <td><span class='failure'>".get_lang('not_found')."</span></td></tr>";
-                    $failed = true;
+					if(array_key_exists("required", $propertie) && !$propertie["required"]){
+						echo "<tr><td>".$propertie['name']."</td>
+							<td><span class='warning'>".get_lang('OGP_LANG_not_found_but_not_required')."</span></td></tr>";
+					}else{
+						echo "<tr><td>".$propertie['name']."</td>
+							<td><span class='failure'>".get_lang('not_found')."</span></td></tr>";
+						$failed = true;
+					}
                 }
         }
 
