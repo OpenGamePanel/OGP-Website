@@ -335,7 +335,6 @@ function install() {
 				echo "<tr><td>".$propertie['name']."</td><td><span class='success'>".get_lang('found')."</span></td></tr>";
 			}else{
 				echo "<tr><td>".$propertie['name']."</td><td><span class='warning'>".get_lang('not_found')."</span></td></tr>";
-				$failed = true;
 			}
         }
 		
