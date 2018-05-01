@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -192,17 +192,17 @@ define('OGP_LANG_auto_update_popup_html', "<p>Usa el link de abajo para comproba
 define('OGP_LANG_auto_update_copy_me', "Copiar");
 define('OGP_LANG_auto_update_copy_me_success', "Copiado!");
 define('OGP_LANG_auto_update_copy_me_fail', "Error al copiar. Por favor, copie manualmente el enlace.");
-define('OGP_LANG_get_steam_autoupdate_api_link', "Auto Update Link");
+define('OGP_LANG_get_steam_autoupdate_api_link', "Enlace Actualización Automatica");
 define('OGP_LANG_update_attempt_from_nonmaster_server', "El usuario %s intentó actualizar home_id %d desde un servidor no maestro. (ID Home: %d)");
 define('OGP_LANG_attempting_nonmaster_update', "Está intentando actualizar este servidor desde un servidor no maestro.");
 define('OGP_LANG_cannot_update_from_own_self', "La actualización del servidor local puede no ejecutarse en un servidor maestro.");
 define('OGP_LANG_show_server_id', "Mostrar ID de servidor");
 define('OGP_LANG_hide_server_id', "Ocultar ID de servidor");
-define('OGP_LANG_edit_configuration_files', "Edit Configuration Files");
+define('OGP_LANG_edit_configuration_files', "Editar archivos de configuración");
 define('OGP_LANG_admin', "Admin");
 define('OGP_LANG_cid', "CID");
 define('OGP_LANG_phan', "Phantom");
-define('OGP_LANG_sec', "Seconds");
-define('OGP_LANG_unknown_rsync_mirror', "You attempted to start an update from a mirror which doesn't exist.");
-define('OGP_LANG_custom_fields', "Custom Fields");
+define('OGP_LANG_sec', "Segundos");
+define('OGP_LANG_unknown_rsync_mirror', "Usted intento iniciar una actualización desde un servidor que ya no existe.");
+define('OGP_LANG_custom_fields', "Campos personalizados");
 ?>

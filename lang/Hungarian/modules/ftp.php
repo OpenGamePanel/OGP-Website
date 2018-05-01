@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,9 +22,9 @@
  *
  */
 
-define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "FTP fiókok a(z) %s nevű távoli kiszolgálón");
+define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "FTP-fiókok a(z) %s nevű távoli kiszolgáló számára");
 define('OGP_LANG_ftp_address', "FTP cím: %s:%s");
-define('OGP_LANG_change_account_details', "Fiók adatok megváltoztatása");
+define('OGP_LANG_change_account_details', "Fiók adatok módosítása");
 define('OGP_LANG_remove_account', "Fiók törlése");
 define('OGP_LANG_ftp_account_already_exists', "Ez az FTP fiók már létezik.");
 define('OGP_LANG_full_path', "Teljes útvonal");

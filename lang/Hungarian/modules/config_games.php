@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,8 +22,8 @@
  *
  */
 
-define('OGP_LANG_resetting_configs', "Összes konfiguráció visszaállítása.");
-define('OGP_LANG_updating_configs', "Régi konfigurációk frissítése.");
+define('OGP_LANG_resetting_configs', "Összes konfiguráció visszaállítása");
+define('OGP_LANG_updating_configs', "Régi konfigurációk frissítése");
 define('OGP_LANG_configs_updated_ok', "Konfigurációk sikeresen újraolvasva.");
 define('OGP_LANG_reset_old_configs', "Régi konfigurációk visszaállítása.");
 define('OGP_LANG_update_configs', "Konfigurációk frissítése");

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -26,7 +26,7 @@ include('litefm.php');
 define('OGP_LANG_curl_needed', "Ez az oldal megköveteli a PHP curl modult.");
 define('OGP_LANG_no_access', "Adminisztrátori jog szükséges az oldal eléréséhez.");
 define('OGP_LANG_dwl_update', "Frissítés letöltése...");
-define('OGP_LANG_dwl_complete', "A letöltés befejezve");
+define('OGP_LANG_dwl_complete', "A letöltés kész");
 define('OGP_LANG_install_update', "Frissítés telepítése...");
 define('OGP_LANG_update_complete', "Frissítés befejezve");
 define('OGP_LANG_ignored_files', "%s fájl figyelmen kívül hagyva.");

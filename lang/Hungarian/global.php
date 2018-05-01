@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -119,9 +119,9 @@ define('OGP_LANG_watch_logger', "Napló figyelő");
 define('OGP_LANG_litefm_settings', "LiteFM beállítások");
 define('OGP_LANG_assign_expiration_date', "Lejárati idő hozzárendelése");
 define('OGP_LANG_assign_expiration_date_info', "Amikor ez lejár a szerver eltávolításra kerül, de nem törlésre.");
-define('OGP_LANG_server_expiration_date', "Szerver lejárati dátum");
+define('OGP_LANG_server_expiration_date', "Szerver lejárati dátuma");
 define('OGP_LANG_server_expiration_date_info', "Amikor ez lejár a szerver eltávolításra kerül (adatbázis és fájlok).");
-define('OGP_LANG_set_expiration_date', "Lejárati dátum megadása");
+define('OGP_LANG_set_expiration_date', "Lejárati dátum beállítása");
 define('OGP_LANG_admin_dsi', "DSi beállítások");
 define('OGP_LANG_user_dsi', "DSi");
 define('OGP_LANG_list_dsi', "DSi lista");
@@ -135,9 +135,9 @@ define('OGP_LANG_fast_download', "Gyors letöltés");
 define('OGP_LANG_fd_user', "Gyors letöltés");
 define('OGP_LANG_cron', "Cron Admin");
 define('OGP_LANG_user_cron', "Cron");
-define('OGP_LANG_faq', "F.A.Q.");
+define('OGP_LANG_faq', "Gyakori kérdések");
 define('OGP_LANG_mysql_admin', "MySQL Admin");
-define('OGP_LANG_copied', "Copied!");
+define('OGP_LANG_copied', "Másolt!");
 define('OGP_LANG_ticket_settings', "Ticket Settings");
-define('OGP_LANG_form', "Register");
+define('OGP_LANG_form', "Regisztrálás");
 ?>

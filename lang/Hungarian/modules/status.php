@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -33,9 +33,9 @@ define('OGP_LANG_minute_word', "perce");
 define('OGP_LANG_minutes_word', "perce");
 define('OGP_LANG_second_word', "másodperce");
 define('OGP_LANG_seconds_word', "másodperce");
-define('OGP_LANG_cpu_usage', "Processor használat");
+define('OGP_LANG_cpu_usage', "CPU használat");
 define('OGP_LANG_cpu_load', "terhelése");
-define('OGP_LANG_ram_usage', "Memória használat");
+define('OGP_LANG_ram_usage', "RAM használat");
 define('OGP_LANG_ram_used', "Felhasznált memória");
 define('OGP_LANG_ram_of', "a");
 define('OGP_LANG_storage_space', "Tárhely");

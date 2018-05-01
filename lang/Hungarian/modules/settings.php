@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -29,7 +29,7 @@ define('OGP_LANG_maintenance_title_info', "A cím, amely megjelenik a normál fe
 define('OGP_LANG_maintenance_message', "Karbantartási üzenet");
 define('OGP_LANG_maintenance_message_info', "Az üzenet, ami megjelenik a rendes felhasználóknak a karbantartás alatt.");
 define('OGP_LANG_update_settings', "Frissítési beállítások");
-define('OGP_LANG_settings_updated', "A beállítások sikeresen frissítve.");
+define('OGP_LANG_settings_updated', "A beállítások sikeresen frissültek.");
 define('OGP_LANG_panel_language', "Panel nyelve");
 define('OGP_LANG_panel_language_info', "Ez a nyelv az alapértelmezett nyelve a Panelnak. A felhasználók meg tudják változtatni a saját nyelvükre a profiljuk szerkesztési oldalában.");
 define('OGP_LANG_page_auto_refresh', "Oldal automatikus frissítése");

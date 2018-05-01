@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -44,7 +44,7 @@ define('OGP_LANG_no_ip_for_remote_host', "Você precisa adicionar pelo menos um 
 define('OGP_LANG_note_remote_host', "Um host remoto é um servidor onde o Painel Agent está funcionando. Cada host pode ter um número múltiplo de endereços IP nos quais os usuários podem ligar servidores.");
 define('OGP_LANG_ip_administration', "Server &amp; IP Administration :: Open Game Panel");
 define('OGP_LANG_unknown_error', "Erro desconhecido - status_chk returned");
-define('OGP_LANG_remote_host_user_name', "UNIX user");
+define('OGP_LANG_remote_host_user_name', "Usuário UNIX");
 define('OGP_LANG_remote_host_user_name_info', "Nome de usuário onde o agente está sendo executado. Exemplo: Jonhy");
 define('OGP_LANG_remote_host_ftp_ip', "FTP IP");
 define('OGP_LANG_remote_host_ftp_ip_info', "O servidor FTP <b>IP</b> para o atual Agente.");

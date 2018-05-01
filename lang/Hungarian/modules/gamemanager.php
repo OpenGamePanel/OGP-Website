@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -24,7 +24,7 @@
 
 define('OGP_LANG_game_manager', "Játék kezelő");
 define('OGP_LANG_no_games_to_monitor', "Nincs egyetlen játék sem konfigurálva neked, amit felügyelhetnél.");
-define('OGP_LANG_status', "Státusz");
+define('OGP_LANG_status', "Állapot");
 define('OGP_LANG_fail_no_mods', "Nincs mod engedélyezve ehhez a játékhoz! Meg kell kérned az adminisztrátort, hogy legalább egy játék modot engedélyezzen a számodra.");
 define('OGP_LANG_no_game_homes_assigned', "Nincsenek játék szerverek hozzád rendelve. Meg kell kérdned az OGP Admint, hogy rendeljen játékot hozzád.");
 define('OGP_LANG_select_game_home_to_configure', "Válassz ki egy szervert amit konfigurálni akarsz");
@@ -109,7 +109,7 @@ define('OGP_LANG_operations', "Műveletek");
 define('OGP_LANG_search', "Keresés");
 define('OGP_LANG_maps_read_from', "Pálya olvasható ");
 define('OGP_LANG_file', "fájl");
-define('OGP_LANG_folder', "könyvtár");
+define('OGP_LANG_folder', "mappa");
 define('OGP_LANG_unable_retrieve_mod_info', "Nem sikerült lekérni a mod információt az adatbázisból.");
 define('OGP_LANG_unexpected_result_libremote', "Váratlan eredmény a libremote-val, kérlek, tájékoztasd a fejlesztőket.");
 define('OGP_LANG_unable_get_info', "Nem sikerült megkapni a szükséges információt az indításhoz, az indítás blokkolása.");

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,45 +22,45 @@
  *
  */
 
-define('OGP_LANG_install_plugin', "Install Plugins");
-define('OGP_LANG_install_mappack', "Install Maps");
-define('OGP_LANG_install_config', "Install Configs");
-define('OGP_LANG_game_name', "Game Name");
-define('OGP_LANG_directory', "Directory Path");
-define('OGP_LANG_remote_server', "Remote server");
-define('OGP_LANG_select_addon', "Select Addon");
-define('OGP_LANG_install', "Install");
-define('OGP_LANG_failed_to_start_file_download', "Failed to start file download.");
-define('OGP_LANG_no_games_servers_available', "There are no game servers available in your account.");
-define('OGP_LANG_addon_installed_successfully', "Addon installed successfully");
-define('OGP_LANG_path', "Path");
-define('OGP_LANG_wait_while_decompressing', "Wait while the file %s is decompressed.");
-define('OGP_LANG_addon_name', "Addon Name");
+define('OGP_LANG_install_plugin', "Eklentileri Yükle");
+define('OGP_LANG_install_mappack', "Haritaları Yükle");
+define('OGP_LANG_install_config', "Kurulumları Yükle");
+define('OGP_LANG_game_name', "Oyun Adı");
+define('OGP_LANG_directory', "Klasör Yolu");
+define('OGP_LANG_remote_server', "Uzak Sunucu");
+define('OGP_LANG_select_addon', "Addon ' u Seçin");
+define('OGP_LANG_install', "Kur");
+define('OGP_LANG_failed_to_start_file_download', "Dosya indirimi başlatılamadı.");
+define('OGP_LANG_no_games_servers_available', "Hesabınızda kullanılamayan oyun sunucusu yok");
+define('OGP_LANG_addon_installed_successfully', "Eklenti başarıyla yüklendi");
+define('OGP_LANG_path', "Yol");
+define('OGP_LANG_wait_while_decompressing', "%s dosyası açıldığında bekleyin");
+define('OGP_LANG_addon_name', "Ekleni Adı");
 define('OGP_LANG_url', "URL");
-define('OGP_LANG_select_game_type', "Select Game Type");
-define('OGP_LANG_plugin', "Plugin");
-define('OGP_LANG_mappack', "MapPack");
-define('OGP_LANG_config', "Config");
-define('OGP_LANG_type', "Addon Type");
-define('OGP_LANG_game', "Game");
-define('OGP_LANG_show_all_addons', "Show All Addons");
-define('OGP_LANG_show_addons_for_selected_type', "Show Addons For Selected Type");
-define('OGP_LANG_show_addons_for_selected_game', "Show Addons For Selected Game");
-define('OGP_LANG_linux_games', "Linux Games:");
-define('OGP_LANG_windows_games', "Windows Games:");
-define('OGP_LANG_create_addon', "Create Addon");
-define('OGP_LANG_addons_db', "Addons DataBase");
-define('OGP_LANG_addon_has_been_created', "The addon %s has been created.");
-define('OGP_LANG_remove_addon', "Remove Addon");
-define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Please, fill an URL address for a compressed file.");
-define('OGP_LANG_fill_the_addon_name', "Please, fill a name for the addon package.");
-define('OGP_LANG_select_an_addon_type', "Please, select an addon type.");
-define('OGP_LANG_select_a_game_type', "Please, select a game type.");
-define('OGP_LANG_edit_addon', "Edit Addon");
-define('OGP_LANG_post-script', "Post-install script(bash)");
-define('OGP_LANG_replacements', "Replacements:");
-define('OGP_LANG_addon_name_info', "Enter a name for this addon, this is the name that the user sees.");
-define('OGP_LANG_url_info', "Enter a web address that contains a file to download, if compressed in zip or tar.gz will be unpacked in the root directory of the server or on the path given below.");
-define('OGP_LANG_path_info', "The path must be relative to the server folder and contain no slashes at the beginning or end, eg: cstrike/cfg. If left blank will use the server root path.");
-define('OGP_LANG_post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
+define('OGP_LANG_select_game_type', "Oyun Türünü Seçiniz");
+define('OGP_LANG_plugin', "Eklenti");
+define('OGP_LANG_mappack', "Harita Paketi");
+define('OGP_LANG_config', "Yapılandırma");
+define('OGP_LANG_type', "Eklenti Türü");
+define('OGP_LANG_game', "Oyun");
+define('OGP_LANG_show_all_addons', "Tüm Eklentileri Göster");
+define('OGP_LANG_show_addons_for_selected_type', "Eklentileri Seçilen Tür İçin Göster");
+define('OGP_LANG_show_addons_for_selected_game', "Seçili Oyun İçin Eklentileri Göster");
+define('OGP_LANG_linux_games', "Linux Oyunları");
+define('OGP_LANG_windows_games', "Windows Oyunları");
+define('OGP_LANG_create_addon', "Eklenti oluştur");
+define('OGP_LANG_addons_db', "Eklenti Veri Tabanı");
+define('OGP_LANG_addon_has_been_created', "Eklenti %s oluşturuldu.");
+define('OGP_LANG_remove_addon', "Eklenti Sil");
+define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Lütfen sıkıştırılmış bir dosya için bir URL adresi doldurun.");
+define('OGP_LANG_fill_the_addon_name', "Lütfen Eklenti paketi için bir ad doldurun.");
+define('OGP_LANG_select_an_addon_type', "Lütfen bir eklenti türü seçin.");
+define('OGP_LANG_select_a_game_type', "Lütfen bir oyun türü seçin.");
+define('OGP_LANG_edit_addon', "Eklenti Düzenleme");
+define('OGP_LANG_post-script', "Yükleme sonrası komut dosyası (bash)");
+define('OGP_LANG_replacements', "Yedekler:");
+define('OGP_LANG_addon_name_info', "Bu Eklenti için bir ad girin, bu kullanıcının gördüğü addır.");
+define('OGP_LANG_url_info', "İndirilecek bir dosyayı içeren bir web adresi girin, zip biçiminde sıkıştırılmışsa veya tar.gz dosyasının, sunucunun kök dizininde veya aşağıda verilen yolda açılması gerekir.");
+define('OGP_LANG_path_info', "Yol, sunucu klasörüne göreli olmalı ve başında veya sonunda eğik çizgi içermemelidir, örneğin: cstrike / cfg. Boş bırakılırsa sunucu kök yolu kullanılır");
+define('OGP_LANG_post-script_info', "Bash dil kodunu girin, bu komut dosyası olarak yürütülecektir, yüklemeyi özelleştirmek için metin değiştirmelerini kullanabilir, eklentiyi yüklediğiniz sunucudaki verilerle değiştirilecektir. Komut dosyası sunucunun kök dizininden veya belirtilen yoldan başlayacaktır.");
 ?>
