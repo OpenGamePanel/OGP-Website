@@ -239,20 +239,22 @@ function install() {
             array( "name" => "PHP Curl module", "type" => "f", "value" => "curl_init" ),
             array( "name" => "PHP XML Reader", "type" => "c", "value" => "XMLReader" ),
 			array( "name" => "PHP JSON Extension", "type" => "f", "value" => "json_decode" ),
+			array( "name" => "PHP Zip Extension", "type" => "c", "value" => "ZipArchive" ),
 			array( "name" => "PHP mbstring Extension", "type" => "x", "value" => "mbstring" ));
+			
+		$optional_properties_to_check = array(
+			array( "name" => "PHP BCMath Extension", "type" => "f", "value" => "bcadd" ),
+		);
+		
         echo "<h3>".get_lang('checking_required_modules')."</h3>\n<table class='install'>";
 
         foreach ( $properties_to_check as $propertie ) {
-            if ( ( $propertie['type'] === "f" && function_exists($propertie['value']) ) ||
-                ( $propertie['type'] === "c" && class_exists($propertie['value']) ) ||
-				( $propertie['type'] === "x" && extension_loaded($propertie['value']) ) ) {
-                    echo "<tr><td>".$propertie['name']."</td>
-                        <td><span class='success'>".get_lang('found')."</span></td></tr>";
-                } else {
-                    echo "<tr><td>".$propertie['name']."</td>
-                        <td><span class='failure'>".get_lang('not_found')."</span></td></tr>";
-                    $failed = true;
-                }
+			if(preReqInstalled($propertie)){
+				echo "<tr><td>".$propertie['name']."</td><td><span class='success'>".get_lang('found')."</span></td></tr>";
+			}else{
+				echo "<tr><td>".$propertie['name']."</td><td><span class='failure'>".get_lang('not_found')."</span></td></tr>";
+				$failed = true;
+			}
         }
 
         echo "<tr><td>Pear XXTEA</td><td>";
@@ -325,6 +327,18 @@ function install() {
         echo "</td></tr>";
 
         echo "</table>\n";
+        
+        echo "<h3>".get_lang('checking_optional_modules')."</h3>\n<table class='install'>";
+        
+        foreach ( $optional_properties_to_check as $propertie ) {
+			if(preReqInstalled($propertie)){
+				echo "<tr><td>".$propertie['name']."</td><td><span class='success'>".get_lang('found')."</span></td></tr>";
+			}else{
+				echo "<tr><td>".$propertie['name']."</td><td><span class='warning'>".get_lang('not_found')."</span></td></tr>";
+			}
+        }
+		
+		echo "</table>\n";
 
         if ( $failed ) {
             echo "<p><a href='?'>".get_lang('refresh')."</a></p>\n";

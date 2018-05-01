@@ -33,7 +33,7 @@ function list_available_modules()
 /// \return 1 If module installation was successfull.
 /// \return 2 If module installation was optional and module was not installed.
 function install_module($db, $module, $install_if_optional = TRUE)
-{
+{	
     // each module must have module.php file which contains the required variables.
     /// \todo We might want to turn this to XML file.
     if ( !is_file("modules/".$module."/module.php") )
@@ -52,6 +52,29 @@ function install_module($db, $module, $install_if_optional = TRUE)
 
     if ( $db->isModuleInstalled($module) )
         return 0;
+        
+    // Prerequisites checking
+    if(isset($module_prereqs) && is_array($module_prereqs) && count($module_prereqs)){
+		$prereqPass = true;
+		$missingPrereqs = "";
+		$i = 0;
+		foreach($module_prereqs as $prereq){
+			if(!preReqInstalled($prereq)){
+				if($i == 0){
+					$missingPrereqs .= $prereq["name"];
+				}else{
+					$missingPrereqs .= ", " . $prereq["name"];
+				}
+				$prereqPass = false;
+			}
+			$i++;
+		}
+		
+		if(!$prereqPass){
+			print_failure(get_lang_f("prereqs_missing", $missingPrereqs, $module_title));
+			return -2;
+		}
+	}
 
     // Check if the module should be installed or not.
     if ( $install_if_optional == FALSE && $module_required == FALSE )

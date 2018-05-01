@@ -34,6 +34,7 @@ define('OGP_LANG_not_found', "Not found");
 define('OGP_LANG_pear_xxtea_info', "Pear Crypt_XXTEA is required for OGP usage. In the most of the Linux distributions this module can be installed with the following Pear command 'pear install Crypt_XXTEA-beta'.");
 define('OGP_LANG_refresh', "Refresh");
 define('OGP_LANG_checking_required_modules', "Checking required modules:");
+define('OGP_LANG_checking_optional_modules', "Checking optional modules:");
 define('OGP_LANG_database_type', "Database type");
 define('OGP_LANG_database_settings', "Database access settings");
 define('OGP_LANG_database_hostname', "Database Hostname");
