@@ -249,16 +249,12 @@ function install() {
         echo "<h3>".get_lang('checking_required_modules')."</h3>\n<table class='install'>";
 
         foreach ( $properties_to_check as $propertie ) {
-            if ( ( $propertie['type'] === "f" && function_exists($propertie['value']) ) ||
-                ( $propertie['type'] === "c" && class_exists($propertie['value']) ) ||
-				( $propertie['type'] === "x" && extension_loaded($propertie['value']) ) ) {
-                    echo "<tr><td>".$propertie['name']."</td>
-                        <td><span class='success'>".get_lang('found')."</span></td></tr>";
-                } else {
-					echo "<tr><td>".$propertie['name']."</td>
-							<td><span class='failure'>".get_lang('not_found')."</span></td></tr>";
-					$failed = true;
-                }
+			if(preReqInstalled($propertie)){
+				echo "<tr><td>".$propertie['name']."</td><td><span class='success'>".get_lang('found')."</span></td></tr>";
+			}else{
+				echo "<tr><td>".$propertie['name']."</td><td><span class='failure'>".get_lang('not_found')."</span></td></tr>";
+				$failed = true;
+			}
         }
 
         echo "<tr><td>Pear XXTEA</td><td>";
@@ -335,17 +331,13 @@ function install() {
         echo "<h3>".get_lang('checking_optional_modules')."</h3>\n<table class='install'>";
         
         foreach ( $optional_properties_to_check as $propertie ) {
-            if ( ( $propertie['type'] === "f" && function_exists($propertie['value']) ) ||
-                ( $propertie['type'] === "c" && class_exists($propertie['value']) ) ||
-				( $propertie['type'] === "x" && extension_loaded($propertie['value']) ) ) {
-					
-				echo "<tr><td>".$propertie['name']."</td>
-                        <td><span class='success'>".get_lang('found')."</span></td></tr>";
+			if(preReqInstalled($propertie)){
+				echo "<tr><td>".$propertie['name']."</td><td><span class='success'>".get_lang('found')."</span></td></tr>";
 			}else{
-				echo "<tr><td>".$propertie['name']."</td>
-							<td><span class='warning'>".get_lang('not_found')."</span></td></tr>";
+				echo "<tr><td>".$propertie['name']."</td><td><span class='warning'>".get_lang('not_found')."</span></td></tr>";
+				$failed = true;
 			}
-		}
+        }
 		
 		echo "</table>\n";
 
