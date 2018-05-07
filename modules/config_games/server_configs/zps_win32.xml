@@ -1,13 +1,13 @@
 <game_config>
-  <game_key>zps_linux32</game_key>
+  <game_key>zps_win32</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>source</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Zombie Panic! Source</game_name>
-  <server_exec_name>srcds_run</server_exec_name>
-  <cli_template>%GAME_TYPE% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS%</cli_template>
+  <server_exec_name>srcds.exe</server_exec_name>
+  <cli_template>-console %GAME_TYPE% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS% -condebug -steam</cli_template>
   <cli_params>
-    <cli_param id="PID_FILE" cli_string="-pidfile ../" />
+    <cli_param id="PID_FILE" cli_string="-pidfile" options="s" />
     <cli_param id="MAP" cli_string="+map" options="s" />
     <cli_param id="IP" cli_string="+ip" options="s" />
     <cli_param id="PORT" cli_string="-port" options="s" />
@@ -16,13 +16,14 @@
   </cli_params>
   <maps_location>mod/maps/</maps_location>
   <map_list>mod/maplist.txt</map_list>
+  <console_log>zps/console.log</console_log>
   <max_user_amount>24</max_user_amount>
   <control_protocol>rcon2</control_protocol>
   <mods>
     <mod key="zps">
-     <name>none</name>
-     <installer_name>17505</installer_name>
-     <installer_login>anonymous</installer_login>
+      <name>none</name>
+      <installer_name>17505</installer_name>
+      <installer_login>anonymous</installer_login>
     </mod>
   </mods>
    <replace_texts>
@@ -40,15 +41,11 @@
     </text>
   </replace_texts>
   <server_params>
-    <param key="-autoupdate -steam_dir {OGP_STEAM_CMD_DIR} -steamcmd_script {STEAMCMD_INSTALL_FILE}" type="checkbox_key_value">
-      <caption>Auto-Update</caption>
-      <desc>The server will automatically download official updates as they are released.</desc>
-    </param>
     <param key="-insecure" type="checkbox_key_value">
       <caption>Disable Valve Anti-Cheat</caption>
       <desc>Will start the server without Valve Anti-Cheat technology.</desc>
     </param>
-    <param key="-nohltv" type="checkbox_key_value">
+	<param key="-nohltv" type="checkbox_key_value">
       <caption>No SourceTV</caption>
       <desc>Disables SourceTV and closes its port.</desc>
     </param>
@@ -65,7 +62,7 @@
       <default>sv_maxrate.*</default>
       <default_value>0</default_value>
       <var>sv_maxrate</var>
-      <filepath>tf/cfg/server.cfg</filepath>
+      <filepath>zps/cfg/server.cfg</filepath>
       <options>s</options>
       <desc>Max bandwidth rate allowed on server ( bytes per second ), 0 == unlimited.</desc>
     </field>
@@ -73,7 +70,7 @@
       <default>sv_minrate.*</default>
       <default_value>5000</default_value>
       <var>sv_minrate</var>
-      <filepath>tf/cfg/server.cfg</filepath>
+      <filepath>zps/cfg/server.cfg</filepath>
       <options>s</options>
       <desc>Min bandwidth rate allowed on server ( bytes per second ), 0 == unlimited.</desc>
     </field>
@@ -81,7 +78,7 @@
       <default>sv_maxcmdrate.*</default>
       <default_value>66</default_value>
       <var>sv_maxcmdrate</var>
-      <filepath>tf/cfg/server.cfg</filepath>
+      <filepath>zps/cfg/server.cfg</filepath>
       <options>s</options>
       <desc>If sv_mincmdrate is > 0, this sets the maximum value for cl_cmdrate.</desc>
     </field>
@@ -89,7 +86,7 @@
       <default>sv_mincmdrate.*</default>
       <default_value>67</default_value>
       <var>sv_mincmdrate</var>
-      <filepath>tf/cfg/server.cfg</filepath>
+      <filepath>zps/cfg/server.cfg</filepath>
       <options>s</options>
       <desc>This sets the minimum value for cl_cmdrate. 0 == unlimited.</desc>
     </field>
@@ -97,7 +94,7 @@
       <default>sv_maxupdaterate.*</default>
       <default_value>66</default_value>
       <var>sv_maxupdaterate</var>
-      <filepath>tf/cfg/server.cfg</filepath>
+      <filepath>zps/cfg/server.cfg</filepath>
       <options>s</options>
       <desc>Maximum updates per second that the server will allow.</desc>
     </field>
@@ -105,7 +102,7 @@
       <default>sv_minupdaterate.*</default>
       <default_value>67</default_value>
       <var>sv_minupdaterate</var>
-      <filepath>tf/cfg/server.cfg</filepath>
+      <filepath>zps/cfg/server.cfg</filepath>
       <options>s</options>
       <desc>Minimum updates per second that the server will allow.</desc>
     </field>
