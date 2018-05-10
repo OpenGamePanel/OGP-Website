@@ -22,10 +22,10 @@
  *
  */
 
-define('OGP_LANG_configured_mysql_hosts', "MySQL kiszolgáló beállítása");
+define('OGP_LANG_configured_mysql_hosts', "Konfigurált MySQL kiszolgálók");
 define('OGP_LANG_add_new_mysql_host', "MySQL kiszolgáló hozzáadása");
 define('OGP_LANG_enter_mysql_ip', "Add meg a MySQL IP-t.");
-define('OGP_LANG_enter_valid_port', "Add meg egy valós portot.");
+define('OGP_LANG_enter_valid_port', "Adj meg egy érvényes portot.");
 define('OGP_LANG_enter_mysql_root_password', "Add meg a MySQL root jelszavát.");
 define('OGP_LANG_enter_mysql_name', "Add meg a MySQL nevét.");
 define('OGP_LANG_could_not_add_mysql_server', "Nem sikerült hozzáadni a MySQL szervert.");

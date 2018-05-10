@@ -33,7 +33,7 @@ define('OGP_LANG_currently_viewing', "Jelenleg a(z) '%s' mappát nézzük");
 define('OGP_LANG_wrote_changes', "Változások sikeresen mentve.");
 define('OGP_LANG_failed_write', "Nem sikerült írni a fájlt a távoli szerveren.");
 define('OGP_LANG_failed_read', "Nem sikerült olvasni a fájlt a távoli szerverről.");
-define('OGP_LANG_failed_list', "Nem sikerült lekérni a mappa listát.");
+define('OGP_LANG_failed_list', "Nem sikerült lekérni a könyvtárlistát.");
 define('OGP_LANG_level_up', "^Egy szinttel feljebb^");
 define('OGP_LANG_unallowed_char', "Nem megengedett karakterek találhatóak az útvonalban.");
 define('OGP_LANG_button_edit', "[Szerkesztés]");
@@ -45,7 +45,7 @@ define('OGP_LANG_can_not_create_upload_folder_path', "Nem lehet létrehozni a(z)
 define('OGP_LANG_url_is_not_accesible_from_agent', "A(z) %s link nem érhető el az Agentről");
 define('OGP_LANG_upload_file', "Fájl feltöltés");
 define('OGP_LANG_uncompress', "Kicsomagolás");
-define('OGP_LANG_create_folder', "Mappa létrehozás");
+define('OGP_LANG_create_folder', "Mappa létrehozása");
 define('OGP_LANG_create', "Létrehozás");
 define('OGP_LANG_delete_item', "Töröljük a(z) %s?");
 define('OGP_LANG_upload_in_progress', "Feltöltés folyamatban...");
