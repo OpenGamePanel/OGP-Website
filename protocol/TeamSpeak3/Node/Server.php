@@ -638,7 +638,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * Returns an array filled with TeamSpeak3_Node_Client objects.
    *
    * @param  array $filter
-   * @return array | TeamSpeak3_Node_Client[]
+   * @return array|TeamSpeak3_Node_Client[]
    */
   public function clientList(array $filter = array())
   {
@@ -1036,7 +1036,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * Returns a list of server groups available.
    *
    * @param  filter $filter
-   * @return array | TeamSpeak3_Node_Servergroup[]
+   * @return array|TeamSpeak3_Node_Servergroup[]
    */
   public function serverGroupList(array $filter = array())
   {
@@ -1364,7 +1364,7 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
    * Returns a list of channel groups available.
    *
    * @param  array $filter
-   * @return array | TeamSpeak3_Node_Channelgroup[]
+   * @return array|TeamSpeak3_Node_Channelgroup[]
    */
   public function channelGroupList(array $filter = array())
   {
@@ -2109,6 +2109,31 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
   }
 
   /**
+   * Creates or updates a custom property for the client specified by $cldbid.
+   *
+   * @param  integer $cldbid
+   * @param  string  $ident
+   * @param  string  $value
+   * @return void
+   */
+  public function customSet($cldbid, $ident, $value)
+  {
+    $this->execute("customset", array("cldbid" => $cldbid, "ident" => $ident, "value" => $value));
+  }
+
+  /**
+   * Removes a custom property from the client specified by $cldbid.
+   *
+   * @param  integer $cldbid
+   * @param  string  $ident
+   * @return void
+   */
+  public function customDelete($cldbid, $ident)
+  {
+    $this->execute("customdelete", array("cldbid" => $cldbid, "ident" => $ident));
+  }
+
+  /**
    * Returns a list of active bans on the selected virtual server.
    *
    * @return array
@@ -2325,11 +2350,12 @@ class TeamSpeak3_Node_Server extends TeamSpeak3_Node_Abstract
   /**
    * Stops the virtual server.
    *
+   * @param  string $msg
    * @return void
    */
-  public function stop()
+  public function stop($msg = null)
   {
-    $this->getParent()->serverStop($this->getId());
+    $this->getParent()->serverStop($this->getId(), $msg);
   }
   
   /**
