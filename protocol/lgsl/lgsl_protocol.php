@@ -140,6 +140,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"swat4"			=> "SWAT 4",
 		"test"			=> "Test ( For PHP Developers )",
 		"teeworlds"		=> "Teeworlds",
+		"theforest"		=> "The Forest",
 		"tribes"		=> "Tribes ( Starsiege )",
 		"tribes2"		=> "Tribes 2",
 		"tribesv"		=> "Tribes Vengeance",
@@ -200,7 +201,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"crysiswars"	=> "06",
 		"cs2d"			=> "29",
 		"cube"			=> "24",
-		"dayzmod"  => "05",
+		"dayzmod"		=> "05",
 		"doomskulltag"	=> "27",
 		"doomzdaemon"	=> "28",
 		"doom3"			=> "10",
@@ -291,6 +292,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"swat4"			=> "03",
 		"test"			=> "01",
 		"teeworlds"		=> "21",
+		"theforest"		=> "05",
 		"tribes"		=> "23",
 		"tribes2"		=> "25",
 		"tribesv"		=> "09",
@@ -354,7 +356,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"crysiswars"	=> "qtracker://{IP}:{S_PORT}?game=CrysisWars&action=show",
 		"cs2d"			=> "http://www.cs2d.com",
 		"cube"			=> "http://cubeengine.com",
-		"dayzmod"          => "steam://connect/{IP}:{S_PORT}",
+		"dayzmod"		=> "steam://connect/{IP}:{S_PORT}",
 		"doomskulltag"	=> "http://skulltag.com",
 		"doomzdaemon"	=> "http://www.zdaemon.org",
 		"doom3"			=> "qtracker://{IP}:{S_PORT}?game=Doom3&action=show",
@@ -439,6 +441,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"swat4"			=> "qtracker://{IP}:{S_PORT}?game=SWAT4&action=show",
 		"test"			=> "http://www.greycube.com",
 		"teeworlds"		=> "http://www.teeworlds.com",
+		"theforest"		=> "steam://connect/{IP}:{Q_PORT}",
 		"tribes"		=> "qtracker://{IP}:{S_PORT}?game=Tribes&action=show",
 		"tribes2"		=> "qtracker://{IP}:{S_PORT}?game=Tribes2&action=show",
 		"tribesv"		=> "qtracker://{IP}:{S_PORT}?game=TribesVengeance&action=show",
@@ -532,6 +535,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "stationeers"		: $c_to_q = -485;	$c_def = 27500;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "squad"			: $c_to_q = 19378;	$c_def = 7787;	$q_def = 27165;	$c_to_s = 0;	break;
 			case "swat4"			: $c_to_q = 1;		$c_def = 10780;	$q_def = 10781;	$c_to_s = 0;	break;
+			case "theforest"		: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 0;	break;
 			case "tribesv"			: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 0;	break;
 			case "ut"				: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 0;	break;
 			case "ut2003"			: $c_to_q = 1;		$c_def = 7757;	$q_def = 7758;	$c_to_s = 10;	break;
