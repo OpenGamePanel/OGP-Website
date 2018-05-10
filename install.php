@@ -219,7 +219,7 @@ function install() {
         }
 		
         echo "</table>";
-        echo "<h3>".get_lang('php_version_check')."</h3>\n";
+        echo "<h3>".get_lang('php_version_check').":</h3>\n";
         echo "<table class='install'>";
         echo "<tr><td>PHP Version >= ".REQUIRED_PHP_VERSION."</td><td>";
         if ( version_compare(PHP_VERSION, REQUIRED_PHP_VERSION, ">=") )
@@ -240,7 +240,7 @@ function install() {
             array( "name" => "PHP XML Reader", "type" => "c", "value" => "XMLReader" ),
 			array( "name" => "PHP JSON Extension", "type" => "f", "value" => "json_decode" ),
 			array( "name" => "PHP mbstring Extension", "type" => "x", "value" => "mbstring" ));
-        echo "<h3>".get_lang('checking_required_modules')."</h3>\n<table class='install'>";
+        echo "<h3>".get_lang('checking_required_modules').":</h3>\n<table class='install'>";
 
         foreach ( $properties_to_check as $propertie ) {
             if ( ( $propertie['type'] === "f" && function_exists($propertie['value']) ) ||
