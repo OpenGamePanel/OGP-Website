@@ -829,4 +829,11 @@ function utf8ize($d, $htmlEntities = true) {
     }
     return $d;
 }
+
+function preReqInstalled($prereq){
+	if (($prereq['type'] === "f" && function_exists($prereq['value'])) || ($prereq['type'] === "c" && class_exists($prereq['value'])) || ($prereq['type'] === "x" && extension_loaded($prereq['value']))){
+		return true;
+	}
+	return false;
+}
 ?>
