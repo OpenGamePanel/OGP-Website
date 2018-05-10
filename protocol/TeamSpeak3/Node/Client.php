@@ -165,6 +165,29 @@ class TeamSpeak3_Node_Client extends TeamSpeak3_Node_Abstract
   }
 
   /**
+   * Creates or updates a custom property for the client.
+   *
+   * @param  string $ident
+   * @param  string $value
+   * @return void
+   */
+  public function customSet($ident, $value)
+  {
+    $this->getParent()->customSet($this["client_database_id"], $ident, $value);
+  }
+
+  /**
+   * Removes a custom property from the client.
+   *
+   * @param  string $ident
+   * @return void
+   */
+  public function customDelete($ident)
+  {
+    $this->getParent()->customDelete($this["client_database_id"], $ident);
+  }
+
+  /**
    * Returns an array containing the permission overview of the client.
    *
    * @param  integer $cid
@@ -298,6 +321,36 @@ class TeamSpeak3_Node_Client extends TeamSpeak3_Node_Abstract
   public function getClones()
   {
     return $this->execute("clientgetids", array("cluid" => $this["client_unique_identifier"]))->toAssocArray("clid");
+  }
+
+  /**
+   * Returns TRUE if the client is using Overwolf.
+   *
+   * @return boolean
+   */
+  public function hasOverwolf()
+  {
+    return strstr($this["client_badges"], "overwolf=1") !== FALSE;
+  }
+
+  /**
+   * Returns a list of equipped badges for this client.
+   *
+   * @return array
+   */
+  public function getBadges()
+  {
+    $badges = array();
+
+    foreach(explode(":", $this["client_badges"]) as $set)
+    {
+      if(substr($set, 0, 7) == "badges=")
+      {
+        $badges[] = array_map("trim", explode(",", substr($set, 7)));
+      }
+    }
+
+    return $badges;
   }
 
   /**
@@ -438,4 +491,3 @@ class TeamSpeak3_Node_Client extends TeamSpeak3_Node_Abstract
     return (string) $this["client_nickname"];
   }
 }
-

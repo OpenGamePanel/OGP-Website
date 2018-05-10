@@ -219,7 +219,7 @@ function install() {
         }
 		
         echo "</table>";
-        echo "<h3>".get_lang('php_version_check')."</h3>\n";
+        echo "<h3>".get_lang('php_version_check').":</h3>\n";
         echo "<table class='install'>";
         echo "<tr><td>PHP Version >= ".REQUIRED_PHP_VERSION."</td><td>";
         if ( version_compare(PHP_VERSION, REQUIRED_PHP_VERSION, ">=") )
@@ -246,7 +246,7 @@ function install() {
 			array( "name" => "PHP BCMath Extension", "type" => "f", "value" => "bcadd" ),
 		);
 		
-        echo "<h3>".get_lang('checking_required_modules')."</h3>\n<table class='install'>";
+        echo "<h3>".get_lang('checking_required_modules').":</h3>\n<table class='install'>";
 
         foreach ( $properties_to_check as $propertie ) {
 			if(preReqInstalled($propertie)){
@@ -328,7 +328,7 @@ function install() {
 
         echo "</table>\n";
         
-        echo "<h3>".get_lang('checking_optional_modules')."</h3>\n<table class='install'>";
+        echo "<h3>".get_lang('checking_optional_modules').":</h3>\n<table class='install'>";
         
         foreach ( $optional_properties_to_check as $propertie ) {
 			if(preReqInstalled($propertie)){

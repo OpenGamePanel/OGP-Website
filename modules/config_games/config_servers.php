@@ -55,12 +55,12 @@ function exec_ogp_module() {
 
         if ( isset( $_REQUEST['clear_old']) && $_REQUEST['clear_old'] === 'yes' )
         {
-            echo "<p class='info'>".get_lang('resetting_configs')."</p>";
+            echo "<p class='info'>".get_lang('resetting_configs').":</p>";
             $clear_old = TRUE;
         }
         else
         {
-            echo "<p class='info'>".get_lang('updating_configs')."</p>";
+            echo "<p class='info'>".get_lang('updating_configs').":</p>";
         }
         
         $oldStructure = $db->getCurrentHomeConfigMods();
