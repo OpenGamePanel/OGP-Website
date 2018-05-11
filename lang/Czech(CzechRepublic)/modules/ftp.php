@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "FTP účty pro vzdálený server s názvem %s");
 define('OGP_LANG_ftp_address', "Adresa FTP: %s:%s");
 define('OGP_LANG_change_account_details', "Změňte podrobnosti o účtu");
 define('OGP_LANG_remove_account', "Smazat účet");

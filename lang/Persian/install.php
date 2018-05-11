@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_install_lang', "زبان خود را انتخاب کنید");
-define('OGP_LANG_install_welcome', "به پیکربندی Open Game Panel خوش آمدید");
+define('OGP_LANG_install_welcome', "Welcome to the Open Game Panel Installer");
 define('OGP_LANG_file_permission_check', "بررسی دسترسی های مورد نیاز فایل");
 define('OGP_LANG_OK', "خوبه");
 define('OGP_LANG_write_permission_required', "دسترسی Write مورد نیاز است");
@@ -33,7 +33,8 @@ define('OGP_LANG_found', "پیدا شد");
 define('OGP_LANG_not_found', "پیدا نشد");
 define('OGP_LANG_pear_xxtea_info', "برای استفاده از OGP به Pear Crypt_XXTEA نیاز دارید. در اکثر توزیع های لینوکس با این دستور Pear میتوانید این ماژول را نصب کنید \"pear install Crypt_XXTEA-beta\".");
 define('OGP_LANG_refresh', "بارگذاری مجدد");
-define('OGP_LANG_checking_required_modules', "Checking required modules:");
+define('OGP_LANG_checking_required_modules', "Checking required modules");
+define('OGP_LANG_checking_optional_modules', "Checking optional modules");
 define('OGP_LANG_database_type', "نوع پایگاه داده");
 define('OGP_LANG_database_settings', "دسترسی به تنظیمات پایگاه داده");
 define('OGP_LANG_database_hostname', "میزبان پایگاه داده");
@@ -54,7 +55,7 @@ define('OGP_LANG_repeat_password', "تکرار گذرواژه");
 define('OGP_LANG_email', "پست الکترونیکی");
 define('OGP_LANG_back', "بازگشت");
 define('OGP_LANG_database_setup_failure', "ساخت پایگاه داده امکان پذیر نیست، لطفا مجددا پیکربندی پایگاه داده خود را بررسی کنید.");
-define('OGP_LANG_php_version_check', "Checking PHP version:");
+define('OGP_LANG_php_version_check', "Checking PHP version");
 define('OGP_LANG_invalid_username', "نام کاربری وارد شده قابل قبول نیست.");
 define('OGP_LANG_password_too_short', "گذرواژه شما خیلی کوتاه است. طول گذرواژه باید حداقل \"%d\" کاراکتر باشد.");
 define('OGP_LANG_password_contains_invalid_characters', "گذرواژه شما شامل کاراکتر های غیرمجاز است.");

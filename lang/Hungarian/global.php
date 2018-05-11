@@ -25,9 +25,9 @@
 define('OGP_LANG_lang_charset', "UTF-8");
 define('OGP_LANG_already_logged_in_redirecting_to_dashboard', "Te már be vagy jelentkezve, átirányítás az Irányítópultba.");
 define('OGP_LANG_logging_in', "Bejelentkezés");
-define('OGP_LANG_redirecting_in', "Átírányítás");
-define('OGP_LANG_refresh_page', "Oldal frissítés");
-define('OGP_LANG_no_rights', "Nincs engedélyed az oldal eléréséhez.");
+define('OGP_LANG_redirecting_in', "Átirányítás");
+define('OGP_LANG_refresh_page', "Frisssítsd az oldalt");
+define('OGP_LANG_no_rights', "Nincs jogosultságod az oldal eléréséhez.");
 define('OGP_LANG_welcome', "Üdvözöllek");
 define('OGP_LANG_logout', "Kilépés");
 define('OGP_LANG_logout_message', "Te most kijelentkeztél.");

@@ -52,4 +52,5 @@ define('OGP_LANG_failed_del_db', "Error al eliminar datos de la BD.");
 define('OGP_LANG_updated_module', "Modulo %s actualizado.");
 define('OGP_LANG_updating_modules', "Actualizando Modulos");
 define('OGP_LANG_updating_finished', "Actualización Completa");
+define('OGP_LANG_prereqs_missing', "Debe instalar los requisitos de %s en el sistema para que %s pueda ser instalado.");
 ?>

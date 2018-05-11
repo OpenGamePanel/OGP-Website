@@ -24,7 +24,7 @@
 
 define('OGP_LANG_your_profile', "Profilod");
 define('OGP_LANG_new_password', "Új jelszó");
-define('OGP_LANG_retype_new_password', "Új jelszó ismét");
+define('OGP_LANG_retype_new_password', "Írd be újra az új jelszót");
 define('OGP_LANG_login_name', "Bejelentkezési név");
 define('OGP_LANG_language', "Nyelv");
 define('OGP_LANG_first_name', "Keresztnév");

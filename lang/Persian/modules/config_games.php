@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_resetting_configs', "تمام Config ها در حال بازنشانی هستند.");
-define('OGP_LANG_updating_configs', "تمام Config ها درحال به روزرسانی هستند");
+define('OGP_LANG_updating_configs', "Updating old configs");
 define('OGP_LANG_configs_updated_ok', "Configurations reread successfully.");
 define('OGP_LANG_reset_old_configs', "بازنشانی Config های قدیمی");
 define('OGP_LANG_update_configs', "به روزرسانی Config ها");

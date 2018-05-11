@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "FTP konta dla zdalnego serwera %s");
 define('OGP_LANG_ftp_address', "Adres IP FTP: %s:%s");
 define('OGP_LANG_change_account_details', "Zmień dane konta");
 define('OGP_LANG_remove_account', "Usuń konto");
