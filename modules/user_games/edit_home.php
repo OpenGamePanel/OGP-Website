@@ -810,8 +810,6 @@ function exec_ogp_module()
 					$port = (int)(trim($port));
 					$home_id = $_POST['home_id'];
 
-					$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$ip);
-
 					if ( !isPortValid($port) ) 
 					{
 						print_failure( get_lang("port_range_error") );
@@ -820,11 +818,11 @@ function exec_ogp_module()
 					{
 						if ( $db->addGameIpPort($home_id, $ip_id, $port) === FALSE )
 						{
-							print_failure(get_lang_f('ip_port_already_in_use', $display_ip, $port));
+							print_failure(get_lang_f('ip_port_already_in_use', $ip, $port));
 						}
 						else {
-							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $display_ip, $port, $home_id));
-							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $display_ip, $port, $home_id));
+							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
+							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
 						}
 					}
 				}
@@ -850,8 +848,7 @@ function exec_ogp_module()
 				foreach($avail_ips as $value)
 				{
 					$selected = ( isset($_POST['ip']) and $_POST['ip'] == $value['ip_id'] ) ? "selected='selected'" : "";
-					$display_ip = checkDisplayPublicIP($home_info['display_public_ip'],$value['ip']);
-					echo "<option value='".$value['ip_id']."' $selected >".$display_ip."</option>\n";
+					echo "<option value='".$value['ip_id']."' $selected >".$value['ip']."</option>\n";
 				}
 
 				echo "</select>";
@@ -889,8 +886,7 @@ function exec_ogp_module()
 							$force_mod .= "</select>\n</form>\n</td>\n";
 							$align = "right";
 						}
-						$assigned_ip = checkDisplayPublicIP($home_info['display_public_ip'],$assigned_rows['ip']);
-						echo "<table class='center'><tr><td align='$align'>".$assigned_ip.":".$assigned_rows['port'].
+						echo "<table class='center'><tr><td align='$align'>".$assigned_rows['ip'].":".$assigned_rows['port'].
 							 " <a href='?m=user_games&p=edit&home_id=$home_id&delete_ip&ip=".
 							 $assigned_rows['ip_id']."&port=".$assigned_rows['port'].
 							 "'>[ ". delete ." ]</a></td>\n".
