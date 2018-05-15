@@ -81,7 +81,7 @@ if ( !isset($_SESSION['users_lang']) )
 if ( isset($_GET['localeset']) )
     $_SESSION['users_lang'] = $_GET['localeset'];
 
-define("REQUIRED_PHP_VERSION", "5.3");
+define("REQUIRED_PHP_VERSION", "5.5");
 
 require_once("includes/helpers.php");
 require_once("includes/view.php");
