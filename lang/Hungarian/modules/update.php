@@ -23,7 +23,7 @@
  */
 
 include('litefm.php');
-define('OGP_LANG_curl_needed', "Ez az oldal megköveteli a PHP curl modult.");
+define('OGP_LANG_curl_needed', "Ehhez az oldalhoz PHP cURL modul szükséges.");
 define('OGP_LANG_no_access', "Adminisztrátori jog szükséges az oldal eléréséhez.");
 define('OGP_LANG_dwl_update', "Frissítés letöltése...");
 define('OGP_LANG_dwl_complete', "A letöltés kész");
