@@ -351,7 +351,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofdutymw2"	=> "aiw://connect/{IP}:{S_PORT}",
 		"callofdutymw3"	=> "steam://connect/{IP}:{Q_PORT}",
 		"cncrenegade"	=> "qtracker://{IP}:{S_PORT}?game=CommandConquerRenegade&action=show",
-		"conanexiles"	=> "steam://connect/{IP}:{S_PORT}",
+		"conanexiles"	=> "steam://connect/{IP}:{Q_PORT}",
 		"crysis"		=> "qtracker://{IP}:{S_PORT}?game=Crysis&action=show",
 		"crysiswars"	=> "qtracker://{IP}:{S_PORT}?game=CrysisWars&action=show",
 		"cs2d"			=> "http://www.cs2d.com",
