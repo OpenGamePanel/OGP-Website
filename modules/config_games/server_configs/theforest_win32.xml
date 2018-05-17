@@ -3,7 +3,7 @@
   <protocol>lgsl</protocol>
   <lgsl_query_name>theforest</lgsl_query_name>
   <installer>steamcmd</installer>
-  <game_name>The Forest (Oxide mod incl.)</game_name>
+  <game_name>The Forest</game_name>
   <server_exec_name>TheForestDedicatedServer.exe</server_exec_name>
   <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% -nographics</cli_template>
   <cli_params>
@@ -60,17 +60,6 @@
       <desc>Enable Valve Anti-Cheat.</desc>
     </param>
   </server_params>
-  <post_install>
-    if [ -s "TheForestDedicatedServer_Data/Managed/Oxide.TheForest.dll" ]
-      then
-        echo "Oxide mod found. OK!"
-      else
-        echo "Oxide mod not found."
-        echo "Installing Oxide mod!"
-        wget https://github.com/OxideMod/Oxide/releases/download/latest/Oxide-TheForest.zip
-        unzip -o Oxide-TheForest.zip
-    fi
-  </post_install>
   <configuration_files>
     <file description="Server Configurations">Server.cfg</file>
   </configuration_files>
