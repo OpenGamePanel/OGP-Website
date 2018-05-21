@@ -48,6 +48,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofdutywaw"	=> "Call of Duty: World at War",
 		"callofdutymw2"	=> "Call of Duty: Modern Warfare 2",
 		"callofdutymw3"	=> "Call of Duty: Modern Warfare 3",
+		"citadelfwf"	=> "Citadel: Forged with Fire",
 		"cncrenegade"	=> "Command and Conquer: Renegade",
 		"conanexiles"	=> "Conan Exiles",
 		"crysis"		=> "Crysis",
@@ -195,6 +196,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofdutywaw"	=> "02",
 		"callofdutymw2"	=> "02",
 		"callofdutymw3"	=> "31",
+		"citadelfwf"	=> "05",
 		"cncrenegade"	=> "03",
 		"conanexiles"	=> "05",
 		"crysis"		=> "06",
@@ -350,8 +352,9 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"callofdutywaw"	=> "qtracker://{IP}:{S_PORT}?game=CallOfDutyWorldAtWar&action=show",
 		"callofdutymw2"	=> "aiw://connect/{IP}:{S_PORT}",
 		"callofdutymw3"	=> "steam://connect/{IP}:{Q_PORT}",
+		"citadelfwf"	=> "steam://connect/{IP}:{Q_PORT}",
 		"cncrenegade"	=> "qtracker://{IP}:{S_PORT}?game=CommandConquerRenegade&action=show",
-		"conanexiles"	=> "steam://connect/{IP}:{S_PORT}",
+		"conanexiles"	=> "steam://connect/{IP}:{Q_PORT}",
 		"crysis"		=> "qtracker://{IP}:{S_PORT}?game=Crysis&action=show",
 		"crysiswars"	=> "qtracker://{IP}:{S_PORT}?game=CrysisWars&action=show",
 		"cs2d"			=> "http://www.cs2d.com",
@@ -495,6 +498,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "bf3"				: $c_to_q = 22000;	$c_def = 25200;	$q_def = 47200;	$c_to_s = 0;	break;
 			case "bf2142"			: $c_to_q = 0;		$c_def = 17567;	$q_def = 29900;	$c_to_s = 0;	break;
 			case "callofdutymw3"	: $c_to_q = -1;		$c_def = 27015;	$q_def = 27014;	$c_to_s = 0;	break;
+			case "citadelfwf"		: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "conanexiles"		: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "cube"				: $c_to_q = 1;		$c_def = 28785;	$q_def = 28786;	$c_to_s = 0;	break;
 			case "dayzmod"			: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;

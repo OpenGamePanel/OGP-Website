@@ -56,7 +56,7 @@ if(isset($server_home['control_password']) && $server_home['control_password'] !
 			{
 				try
 				{
-					$viewer = $ts3_ServerInstance->getViewer(new TeamSpeak3_Viewer_Html("images/viewer/", "images/countries/", "data:image"));
+					$viewer = $ts3_ServerInstance->getViewer(new TeamSpeak3_Viewer_Html("images/viewer/", "images/flags/", "data:image"));
 				}
 				catch(TeamSpeak3_Exception $e)
 				{

@@ -3,12 +3,14 @@
   <protocol>lgsl</protocol>
   <lgsl_query_name>theforest</lgsl_query_name>
   <installer>steamcmd</installer>
-  <game_name>The Forest (Oxide mod incl.)</game_name>
+  <game_name>The Forest</game_name>
   <server_exec_name>TheForestDedicatedServer.exe</server_exec_name>
-  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% -nographics</cli_template>
+  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% %USER_PATH%/Server.cfg %SAVE_PATH% -nographics</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="-serverip" options="s" />
     <cli_param id="PORT" cli_string="-servergameport" options="s" />
+    <cli_param id="USER_PATH" cli_string="-configfilepath" options="s" />
+    <cli_param id="SAVE_PATH" cli_string="-savefolderpath" options="s" />
     <cli_param id="PLAYERS" cli_string="-serverplayers" options="s" />
     <cli_param id="HOSTNAME" cli_string="-servername" options="sq" />
     <cli_param id="CONTROL_PASSWORD" cli_string="-serverpassword_admin" options="sq" />
@@ -16,7 +18,6 @@
   <reserve_ports>
     <port type="add" id="QUERY_PORT" cli_string="-serverqueryport" options="s">1</port>
   </reserve_ports>
-  <console_log>logs/output_log.txt</console_log>
   <max_user_amount>100</max_user_amount>
   <mods>
     <mod key="default">
@@ -60,17 +61,6 @@
       <desc>Enable Valve Anti-Cheat.</desc>
     </param>
   </server_params>
-  <post_install>
-    if [ -s "TheForestDedicatedServer_Data/Managed/Oxide.TheForest.dll" ]
-      then
-        echo "Oxide mod found. OK!"
-      else
-        echo "Oxide mod not found."
-        echo "Installing Oxide mod!"
-        wget https://github.com/OxideMod/Oxide/releases/download/latest/Oxide-TheForest.zip
-        unzip -o Oxide-TheForest.zip
-    fi
-  </post_install>
   <configuration_files>
     <file description="Server Configurations">Server.cfg</file>
   </configuration_files>
