@@ -22,8 +22,8 @@
  *
  */
 
-define('OGP_LANG_add_new_remote_host', "Új távoli kiszolgáló hozzáadása");
-define('OGP_LANG_configured_remote_hosts', "Beállított távoli kiszolgáló");
+define('OGP_LANG_add_new_remote_host', "Új távoli állomás hozzáadása");
+define('OGP_LANG_configured_remote_hosts', "Beállított távoli állomás");
 define('OGP_LANG_remote_host', "Távoli kiszolgáló");
 define('OGP_LANG_remote_host_info', "A távoli kiszolgálónak pingelhető állomásnévnek kell lennie!");
 define('OGP_LANG_remote_host_port', "Távoli kiszolgáló port");

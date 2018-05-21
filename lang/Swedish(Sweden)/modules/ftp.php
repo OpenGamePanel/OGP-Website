@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "FTP-konton för fjärrserver med namnet %s");
 define('OGP_LANG_ftp_address', "FTP-adress: %s:%s");
 define('OGP_LANG_change_account_details', "Ändra kontodetaljer");
 define('OGP_LANG_remove_account', "Ta bort konto");

@@ -23,12 +23,12 @@
  */
 
 include('litefm.php');
-define('OGP_LANG_curl_needed', "Ez az oldal megköveteli a PHP curl modult.");
+define('OGP_LANG_curl_needed', "Ehhez az oldalhoz PHP cURL modul szükséges.");
 define('OGP_LANG_no_access', "Adminisztrátori jog szükséges az oldal eléréséhez.");
 define('OGP_LANG_dwl_update', "Frissítés letöltése...");
 define('OGP_LANG_dwl_complete', "A letöltés kész");
 define('OGP_LANG_install_update', "Frissítés telepítése...");
-define('OGP_LANG_update_complete', "Frissítés befejezve");
+define('OGP_LANG_update_complete', "A frissítés befejeződött");
 define('OGP_LANG_ignored_files', "%s fájl figyelmen kívül hagyva.");
 define('OGP_LANG_not_updated_files_blacklisted', "Nem frissített/telepített fájlok (feketelistás):<br>%s");
 define('OGP_LANG_latest_version', "Legújabb verzió");

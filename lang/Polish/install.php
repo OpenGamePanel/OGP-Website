@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_install_lang', "Wybierz preferowany język");
-define('OGP_LANG_install_welcome', "Witamy w Open game panel instalacji");
+define('OGP_LANG_install_welcome', "Welcome to the Open Game Panel Installer");
 define('OGP_LANG_file_permission_check', "Sprawdzanie wymaganych uprawnień pliku");
 define('OGP_LANG_OK', "Dobrze");
 define('OGP_LANG_write_permission_required', "Wymagane uprawnienia do zapisu");
@@ -33,7 +33,8 @@ define('OGP_LANG_found', "Znaleziono");
 define('OGP_LANG_not_found', "Not found");
 define('OGP_LANG_pear_xxtea_info', "Pear Crypt_XXTEA is required for OGP usage. In the most of the Linux distributions this module can be installed with the following Pear command 'pear install Crypt_XXTEA-beta'.");
 define('OGP_LANG_refresh', "Odśwież");
-define('OGP_LANG_checking_required_modules', "Checking required modules:");
+define('OGP_LANG_checking_required_modules', "Checking required modules");
+define('OGP_LANG_checking_optional_modules', "Checking optional modules");
 define('OGP_LANG_database_type', "Rodzaj bazy danych");
 define('OGP_LANG_database_settings', "Ustawienia dostępu do bazy danych");
 define('OGP_LANG_database_hostname', "Adres bazy danych");
@@ -54,7 +55,7 @@ define('OGP_LANG_repeat_password', "Powtórz hasło");
 define('OGP_LANG_email', "E-mail address");
 define('OGP_LANG_back', "Cofnij");
 define('OGP_LANG_database_setup_failure', "Instalator nie mógł utworzyć bazy danych. Proszę ponownie sprawdzić swoje pliki konfiguracyjne bazy danych.");
-define('OGP_LANG_php_version_check', "Checking PHP version:");
+define('OGP_LANG_php_version_check', "Checking PHP version");
 define('OGP_LANG_invalid_username', "Wprowadzono nieprawidłową nazwę użytkownika.");
 define('OGP_LANG_password_too_short', "Twoje hasło jest za krótkie. Musi być przynajmniej '%d' znaków.");
 define('OGP_LANG_password_contains_invalid_characters', "Twoje hasło zawiera nieprawidłowe znaki.");

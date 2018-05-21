@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_resetting_configs', "Сброс всех конфигураций");
-define('OGP_LANG_updating_configs', "Обновление старой конфигурации.");
+define('OGP_LANG_updating_configs', "Updating old configs");
 define('OGP_LANG_configs_updated_ok', "Проверка конфигурации прошла успешно.");
 define('OGP_LANG_reset_old_configs', "Сброс старых конфигов");
 define('OGP_LANG_update_configs', "Обновление конфигов");
