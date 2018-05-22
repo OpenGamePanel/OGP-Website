@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Citadel: Forged with Fire</game_name>
   <server_exec_name>CitadelServer.exe</server_exec_name>
-  <cli_template>-nosteamclient -server -log</cli_template>
+  <cli_template>-nosteamclient -server %LOG%</cli_template>
   <reserve_ports>
     <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
   </reserve_ports>
@@ -52,6 +52,11 @@
       <filepath>Citadel/Saved/Config/WindowsServer/Game.ini</filepath>
     </text>
   </replace_texts>
+  <server_params>
+    <param key="-log" type="checkbox_key_value" id="LOG">
+      <desc>Enables/Disables logging (not recommended for long term use).</desc>
+    </param>
+  </server_params>
   <post_install>
     cfg1="Engine.ini"
     cfg2="Game.ini"
