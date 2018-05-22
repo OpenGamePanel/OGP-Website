@@ -66,6 +66,14 @@
         wget https://pastebin.com/raw/Rn9BHUUz -O Citadel/Saved/Config/LinuxServer/$cfg1
         wget https://pastebin.com/raw/FzXyKpiA -O Citadel/Saved/Config/LinuxServer/$cfg2
     fi
+    if [ -f "Citadel/Plugins/UWorks/Source/ThirdParty/Linux/steamclient.so" ]
+      then
+        echo "steamclient.so found. OK!"
+      else
+        echo "steamclient.so not found."
+        echo "Fixing steamclient.so!"
+        cp -f linux64/steamclient.so Citadel/Plugins/UWorks/Source/ThirdParty/Linux/steamclient.so
+    fi
   </post_install>
   <configuration_files>
     <file description="Server Configurations">Citadel/Saved/Config/LinuxServer/Game.ini</file>
