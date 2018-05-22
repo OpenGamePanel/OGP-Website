@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Citadel: Forged with Fire</game_name>
   <server_exec_name>CitadelServer-Linux-Shipping</server_exec_name>
-  <cli_template>-nosteamclient -server -log</cli_template>
+  <cli_template>-nosteamclient -server</cli_template>
   <reserve_ports>
     <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
   </reserve_ports>
@@ -53,6 +53,11 @@
       <filepath>Citadel/Saved/Config/LinuxServer/Game.ini</filepath>
     </text>
   </replace_texts>
+  <server_params>
+    <param key="-log" type="checkbox_key_value">
+      <desc>Used to verify that it successfully bound to the ports you defined (not recommended for long term use).</desc>
+    </param>
+  </server_params>
   <post_install>
     cfg1="Engine.ini"
     cfg2="Game.ini"
@@ -65,6 +70,14 @@
         mkdir -p Citadel/Saved/Config/LinuxServer
         wget https://pastebin.com/raw/Rn9BHUUz -O Citadel/Saved/Config/LinuxServer/$cfg1
         wget https://pastebin.com/raw/FzXyKpiA -O Citadel/Saved/Config/LinuxServer/$cfg2
+    fi
+    if [ -f "Citadel/Plugins/UWorks/Source/ThirdParty/Linux/steamclient.so" ]
+      then
+        echo "steamclient.so found. OK!"
+      else
+        echo "steamclient.so not found."
+        echo "Fixing steamclient.so!"
+        cp -f linux64/steamclient.so Citadel/Plugins/UWorks/Source/ThirdParty/Linux/steamclient.so
     fi
   </post_install>
   <configuration_files>

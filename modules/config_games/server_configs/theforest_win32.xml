@@ -5,11 +5,11 @@
   <installer>steamcmd</installer>
   <game_name>The Forest</game_name>
   <server_exec_name>TheForestDedicatedServer.exe</server_exec_name>
-  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% %USER_PATH%/Server.cfg %SAVE_PATH% -nographics</cli_template>
+  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% %SAVEINTERNAL% %HOME_PATH%/Server.cfg %SAVE_PATH% %LOG% -nographics</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="-serverip" options="s" />
     <cli_param id="PORT" cli_string="-servergameport" options="s" />
-    <cli_param id="USER_PATH" cli_string="-configfilepath" options="s" />
+    <cli_param id="HOME_PATH" cli_string="-configfilepath" options="s" />
     <cli_param id="SAVE_PATH" cli_string="-savefolderpath" options="s" />
     <cli_param id="PLAYERS" cli_string="-serverplayers" options="s" />
     <cli_param id="HOSTNAME" cli_string="-servername" options="sq" />
@@ -59,6 +59,9 @@
     </param>
     <param key="-enableVAC" type="checkbox_key_value" id="VAC">
       <desc>Enable Valve Anti-Cheat.</desc>
+    </param>
+    <param key="-showlogs" type="checkbox_key_value" id="LOG">
+      <desc>Show event log.</desc>
     </param>
   </server_params>
   <configuration_files>
