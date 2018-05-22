@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "حسابات أف تي بي لسيرفر التحكم اسمه %s");
 define('OGP_LANG_ftp_address', "عنوان الأف تي بي: %s:%s");
 define('OGP_LANG_change_account_details', "تغيير تفاصيل الحساب");
 define('OGP_LANG_remove_account', "حذف الحساب");

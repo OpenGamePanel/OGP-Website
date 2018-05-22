@@ -22,11 +22,11 @@
  *
  */
 
-define('OGP_LANG_install_plugin', "Pluginok telepítése");
+define('OGP_LANG_install_plugin', "Bővítmények telepítése");
 define('OGP_LANG_install_mappack', "Pályák telepítése");
 define('OGP_LANG_install_config', "Konfigurációk telepítése");
 define('OGP_LANG_game_name', "Játék neve");
-define('OGP_LANG_directory', "Könyvtár útvonal");
+define('OGP_LANG_directory', "Könyvtárútvonal");
 define('OGP_LANG_remote_server', "Távoli szerver");
 define('OGP_LANG_select_addon', "Kiegészítő választás");
 define('OGP_LANG_install', "Telepítés");
@@ -38,7 +38,7 @@ define('OGP_LANG_wait_while_decompressing', "Várj amíg a(z) %s fájlt kibontom
 define('OGP_LANG_addon_name', "Kiegészítő neve");
 define('OGP_LANG_url', "Cím");
 define('OGP_LANG_select_game_type', "Válaszd ki a játék típusát");
-define('OGP_LANG_plugin', "Plugin");
+define('OGP_LANG_plugin', "Bővítmény");
 define('OGP_LANG_mappack', "Pályacsomag");
 define('OGP_LANG_config', "Konfiguráció");
 define('OGP_LANG_type', "Kiegészítú típus");

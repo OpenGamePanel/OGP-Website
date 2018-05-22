@@ -52,4 +52,5 @@ define('OGP_LANG_failed_del_db', "Failed to delete module from database.");
 define('OGP_LANG_updated_module', "Updated module: '%s'.");
 define('OGP_LANG_updating_modules', "Updating Modules");
 define('OGP_LANG_updating_finished', "Updating Finished");
+define('OGP_LANG_prereqs_missing', "Prerequisites of %s must be installed on the server before %s can be installed.");
 ?>

@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_pure-ftpd_accounts_for_remote_server_named', "حساب های FTP مربوط به سرور Remote عبارتند از %s");
 define('OGP_LANG_ftp_address', "آدرس FTP: %s:%s");
 define('OGP_LANG_change_account_details', "ویرایش اطلاعات حساب");
 define('OGP_LANG_remove_account', "حذف حساب");

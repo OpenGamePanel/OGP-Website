@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_resetting_configs', "Redefinindo todas as configurações");
-define('OGP_LANG_updating_configs', "Atualizando configurações antigas.");
+define('OGP_LANG_updating_configs', "Updating old configs");
 define('OGP_LANG_configs_updated_ok', "Configurações lidas com sucesso.");
 define('OGP_LANG_reset_old_configs', "Redefinir configurações antigas");
 define('OGP_LANG_update_configs', "Atualizar configurações");

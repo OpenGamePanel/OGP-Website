@@ -28,7 +28,7 @@ define('OGP_LANG_incomplete', "Kérlek, menj vissza és tölts ki az összes mez
 define('OGP_LANG_subject', "Jelszó kérés");
 define('OGP_LANG_password_message', "Hello,<br><br>A jelszavad sikeresen törölve.<br><br>Új jelszó: %s<br><br>Ne felejtsd el néha megváltoztatni a jelszavadat.<br><br>Kérlek, ne válaszolj erre az e-mailre<br>br>______________________________<br>OGP Postázó");
 define('OGP_LANG_send', "A jelszavadat elküldtük! Kérlek, ellenőrizd az e-mailedet!");
-define('OGP_LANG_here', "Ide");
+define('OGP_LANG_here', "Itt");
 define('OGP_LANG_to_login', "a belépéshez");
 define('OGP_LANG_errormail', "Az e-mail címed nem megfelelő.");
 define('OGP_LANG_submit', "Beküldés");

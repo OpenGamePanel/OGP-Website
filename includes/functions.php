@@ -836,4 +836,10 @@ function preReqInstalled($prereq){
 	}
 	return false;
 }
+
+if (!function_exists('boolval')) {
+	function boolval($val) {
+		return (bool) $val;
+	}
+}
 ?>

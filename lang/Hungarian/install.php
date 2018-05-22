@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_install_lang', "Válaszd ki a kívánt nyelvet");
-define('OGP_LANG_install_welcome', "Üdvözöllek az Open Game Panel telepítőben");
+define('OGP_LANG_install_welcome', "Üdvözöllek az Open Game Panel telepítőjében");
 define('OGP_LANG_file_permission_check', "A szükséges fájlengedélyek ellenőrzése");
 define('OGP_LANG_OK', "Rendben");
 define('OGP_LANG_write_permission_required', "Írási engedély szükséges");
@@ -33,7 +33,8 @@ define('OGP_LANG_found', "Található");
 define('OGP_LANG_not_found', "Nem található");
 define('OGP_LANG_pear_xxtea_info', "A Pear Crypt_XXTEA szükséges az OGP használatához. A legtöbb Linux disztribúcióban ez a modul a következő Pear paranccsal telepíthető 'pear install Crypt_XXTEA-beta'.");
 define('OGP_LANG_refresh', "Frissítés");
-define('OGP_LANG_checking_required_modules', "A szükséges modulok ellenőrzése");
+define('OGP_LANG_checking_required_modules', "Szükséges modulok ellenőrzése");
+define('OGP_LANG_checking_optional_modules', "Opcionális modulok ellenőrzése");
 define('OGP_LANG_database_type', "Adatbázis típus");
 define('OGP_LANG_database_settings', "Adatbázis hozzáférési beállítások");
 define('OGP_LANG_database_hostname', "Adatbázis állomásnév");

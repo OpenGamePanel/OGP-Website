@@ -52,4 +52,5 @@ define('OGP_LANG_failed_del_db', "حذف ماژول از پایگاه داده �
 define('OGP_LANG_updated_module', "ماژول به روزرسانی شده: \"%s\".");
 define('OGP_LANG_updating_modules', "درحال به روزرسانی ماژول ها");
 define('OGP_LANG_updating_finished', "به روزرسانی به پایان رسید");
+define('OGP_LANG_prereqs_missing', "Prerequisites of %s must be installed on the server before %s can be installed.");
 ?>

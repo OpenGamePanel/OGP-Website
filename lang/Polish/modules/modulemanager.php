@@ -53,4 +53,5 @@ define('OGP_LANG_failed_del_db', "Nie udało się usunąć modułu z bazy danych
 define('OGP_LANG_updated_module', "Aktualizowanie modułu: '%s'.");
 define('OGP_LANG_updating_modules', "Aktualizacja Modułów");
 define('OGP_LANG_updating_finished', "Aktualizacja zakończona");
+define('OGP_LANG_prereqs_missing', "Prerequisites of %s must be installed on the server before %s can be installed.");
 ?>
