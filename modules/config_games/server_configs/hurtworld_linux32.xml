@@ -32,7 +32,7 @@
       else
         echo "steamclient.so not found."
         echo "Fixing steamclient.so!"
-        mv -f steamclient.so Hurtworld_Data/Plugins/x86
+        cp -f steamclient.so Hurtworld_Data/Plugins/x86
     fi
   </post_install>
   <lock_files>
