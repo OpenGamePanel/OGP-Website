@@ -28,7 +28,7 @@ define('OGP_LANG_maintenance_title', "Karbantartás címe");
 define('OGP_LANG_maintenance_title_info', "A cím, amely megjelenik a normál felhasználók számára a karbantartás során.");
 define('OGP_LANG_maintenance_message', "Karbantartási üzenet");
 define('OGP_LANG_maintenance_message_info', "Az üzenet, ami megjelenik a rendes felhasználóknak a karbantartás alatt.");
-define('OGP_LANG_update_settings', "Frissítési beállítások");
+define('OGP_LANG_update_settings', "Beállítások frissítése");
 define('OGP_LANG_settings_updated', "A beállítások sikeresen frissültek.");
 define('OGP_LANG_panel_language', "Panel nyelve");
 define('OGP_LANG_panel_language_info', "Ez a nyelv az alapértelmezett nyelve a Panelnak. A felhasználók meg tudják változtatni a saját nyelvükre a profiljuk szerkesztési oldalában.");

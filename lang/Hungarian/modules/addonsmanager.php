@@ -28,7 +28,7 @@ define('OGP_LANG_install_config', "Konfigurációk telepítése");
 define('OGP_LANG_game_name', "Játék neve");
 define('OGP_LANG_directory', "Könyvtárútvonal");
 define('OGP_LANG_remote_server', "Távoli szerver");
-define('OGP_LANG_select_addon', "Kiegészítő választás");
+define('OGP_LANG_select_addon', "Válassz kiegészítőt");
 define('OGP_LANG_install', "Telepítés");
 define('OGP_LANG_failed_to_start_file_download', "Nem sikerült elindítani a fájl letöltést.");
 define('OGP_LANG_no_games_servers_available', "A fiókodban nincs elérhető játékszerver.");
