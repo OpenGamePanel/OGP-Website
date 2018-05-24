@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>The Forest</game_name>
   <server_exec_name>TheForestDedicatedServer.exe</server_exec_name>
-  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% %SAVEINTERNAL% %SAVE_PATH% %LOG% -nographics</cli_template>
+  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% %SAVEINTERNAL% %SAVE_PATH%/ %LOG% -nographics</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="-serverip" options="s" />
     <cli_param id="PORT" cli_string="-servergameport" options="s" />
