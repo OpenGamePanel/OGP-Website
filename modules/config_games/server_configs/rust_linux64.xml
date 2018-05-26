@@ -48,6 +48,7 @@
     <param key="+server.tickrate" type="text" id="TICKRATE">
       <default>30</default>
       <options>s</options>
+      <access>admin</access>
       <desc>Defines the server tickrate (going higher than 30 is not recommended).</desc>
     </param>
     <param key="+server.level" type="select" id="MAP">
