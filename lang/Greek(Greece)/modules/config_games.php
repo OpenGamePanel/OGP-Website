@@ -22,22 +22,22 @@
  *
  */
 
-define('OGP_LANG_resetting_configs', "Resetting all configs");
-define('OGP_LANG_updating_configs', "Updating old configs");
-define('OGP_LANG_configs_updated_ok', "Configurations reread successfully.");
-define('OGP_LANG_reset_old_configs', "Reset old configs");
-define('OGP_LANG_update_configs', "Update Configs");
-define('OGP_LANG_game_config_setup', "Setup Game Configs");
-define('OGP_LANG_config_reset_warning', "When you clear old configs there might be issues with the assigned game servers, because the identification numbers might not match with the new configurations.");
-define('OGP_LANG_modify_configs_info', "If you want to modify the game configuration, you can modify the files located in %s.");
-define('OGP_LANG_updating_config_from_file', "Updating config from %s file.");
-define('OGP_LANG_error_when_handling_file', "Error occurred when handling file %s.");
-define('OGP_LANG_error_while_adding_cfg_to_db', "Error occurred when adding data from %s to database.");
-define('OGP_LANG_no_configs_found', "No configuration found from %s file.");
-define('OGP_LANG_select_game', "Select Game");
-define('OGP_LANG_create_xml_configs', "Create XML Configs");
-define('OGP_LANG_failed_to_delete_config_from_db', "Failed to delete %s config from database");
-define('OGP_LANG_failed_removing_file', "Falied removing the file %s.");
-define('OGP_LANG_removed_game_cfg_from_disk_and_datbase', "Removed config for %s from storage and database.");
-define('OGP_LANG_delete_game_config_for', "Delete game configuration for %s from disk and database.");
+define('OGP_LANG_resetting_configs', "Επαναφορά όλων των αρχείων διαμόρφωσης.");
+define('OGP_LANG_updating_configs', "Ενημέρωση παλιών αρχείων διαμόρφωσης.");
+define('OGP_LANG_configs_updated_ok', "Οι διαμορφώσεις ξαναδιαβάστηκαν επιτυχώς.");
+define('OGP_LANG_reset_old_configs', "Επαναφέρετε τα παλιά αρχεία διαμόρφωσης.");
+define('OGP_LANG_update_configs', "Ενημερώσετε τα αρχεία διαμόρφωσης.");
+define('OGP_LANG_game_config_setup', "Ρυθμίσετε τα αρχεία διαμόρφωσης παιχνιδιού.");
+define('OGP_LANG_config_reset_warning', "Όταν καθαρίσετε παλιά αρχεία διαμόρφωσης ίσως υπάρξουν θέματα με τους διακομιστές παιχνιδιού που έχουν ανατεθεί, επειδή οι αριθμοί αναγνώρισης ίσως δεν ταιριάζουν με τις νέες διαμορφώσεις.");
+define('OGP_LANG_modify_configs_info', "Αν θέλετε να τροποποιήσετε την διαμόρφωση παιχνιδιού, μπορείτε να τροποποιήσετε τα αρχεία που βρίσκονται μέσα %s.");
+define('OGP_LANG_updating_config_from_file', "Ενημέρωση αρχείου διαμόρφωσης από το αρχείο %s.");
+define('OGP_LANG_error_when_handling_file', "Παρουσιάστηκε σφάλμα κατά το χειρισμό αρχείου %s.");
+define('OGP_LANG_error_while_adding_cfg_to_db', "Παρουσιάστηκε σφάλμα κατά την πρόσθεση δεδομένων από %s στην βάση δεδομένων.");
+define('OGP_LANG_no_configs_found', "Δεν βρέθηκε διαμόρφωση από το αρχείο %s.");
+define('OGP_LANG_select_game', "Επιλέξτε Παιχνίδι");
+define('OGP_LANG_create_xml_configs', "Δημιουργήστε Αρχεία Διαμόρφωσης XML");
+define('OGP_LANG_failed_to_delete_config_from_db', "Αποτυχία διαγραφής του αρχείου διαμόρφωσης %s από την βάση δεδομένων.");
+define('OGP_LANG_failed_removing_file', "Αποτυχία αφαίρεσης του αρχείου %s.");
+define('OGP_LANG_removed_game_cfg_from_disk_and_datbase', "Αφαιρέθηκε αρχείο διαμόρφωσης για %s από τον αποθηκευτικό χώρο και βάση δεδομένων.");
+define('OGP_LANG_delete_game_config_for', "Διαγραφή διαμόρφωσης παιχνιδιού για %s από τον δίσκο και βάση δεδομένων.");
 ?>
