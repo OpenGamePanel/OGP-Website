@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_resetting_configs', "Subiendo configuraciones de juegos xml a la base de datos");
-define('OGP_LANG_updating_configs', "Updating old configs");
+define('OGP_LANG_updating_configs', "Actualizando configuraciones XML existentes");
 define('OGP_LANG_configs_updated_ok', "Configuraciones instaladas correctamente.");
 define('OGP_LANG_reset_old_configs', "Sobreescribir configuraciones existentes.");
 define('OGP_LANG_update_configs', "Actualizar configuraciones.");

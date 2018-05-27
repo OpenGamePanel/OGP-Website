@@ -52,5 +52,5 @@ define('OGP_LANG_failed_del_db', "أخفق حذف الوحدة من قاعدة �
 define('OGP_LANG_updated_module', "الوحدة المحدثة: '%s'.");
 define('OGP_LANG_updating_modules', "تحديث الوحدات");
 define('OGP_LANG_updating_finished', "تم الانتهاء من التحديث");
-define('OGP_LANG_prereqs_missing', "Prerequisites of %s must be installed on the server before %s can be installed.");
+define('OGP_LANG_prereqs_missing', "المتطلبات الأساسية ل%s يجب أن يتم تثبيتها على الخادم قبل %s أن يتم تثبيتها.");
 ?>
