@@ -1,4 +1,4 @@
-  <game_config>
+<game_config>
   <game_key>arkse_linux64</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>arkse</lgsl_query_name>
