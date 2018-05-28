@@ -26,7 +26,7 @@ define('OGP_LANG_external_links', "Εξωτερικοί Σύνδεσμοι");
 define('OGP_LANG_url', "URL");
 define('OGP_LANG_name', "Όνομα");
 define('OGP_LANG_add_it', "Προσθέστε");
-define('OGP_LANG_link_has_been_removed', "Ο %s σύνδεσμος αφαιρέθηκε.");
+define('OGP_LANG_link_has_been_removed', "Ο %s σύνδεσμος καταργήθηκε.");
 define('OGP_LANG_db_backup', "Αντίγραφο Ασφαλείας Βάσης Δεδομένων");
 define('OGP_LANG_download_db_backup', "Κατεβάστε Αντίγραφο Ασφαλείας Βάσης Δεδομένων");
 define('OGP_LANG_restore_db_backup', "Επαναφέρετε Αντίγραφο Ασφαλείας Βάσης Δεδομένων");
