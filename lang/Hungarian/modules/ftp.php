@@ -30,6 +30,6 @@ define('OGP_LANG_full_path', "Teljes útvonal");
 define('OGP_LANG_add_ftp_account', "FTP fiók hozzáadása");
 define('OGP_LANG_remote_server', "Távoli szerver");
 define('OGP_LANG_server_name', "Szerver neve");
-define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
-define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('OGP_LANG_ftp_account_username_too_long', "Az FTP felhasználónév túl hosszú. Próbálkozzon egy 20 karakternél rövidebbel.");
+define('OGP_LANG_ftp_account_password_too_long', "Az FTP jelszó túl hosszú. Próbálkozzon egy 20 karakternél rövidebbel.");
 ?>
