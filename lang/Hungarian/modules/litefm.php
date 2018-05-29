@@ -82,7 +82,7 @@ define('OGP_LANG_message', "Üzenet");
 define('OGP_LANG_dest_email', "Cél e-mail");
 define('OGP_LANG_remove', "Törlés");
 define('OGP_LANG_send_by_email', "Küldés e-mailben");
-define('OGP_LANG_send_by_email_info', "Az email fileokhoz a 'mutt' csomag telepítése szükséges az Agent oldalon.");
+define('OGP_LANG_send_by_email_info', "Fájlok küldéséhez a 'mutt' csomagot telepíteni kell minden elérhető Agentre.");
 define('OGP_LANG_settings_updated', "Beállítások frissítve");
 define('OGP_LANG_update_settings', "Beállítások frissítése");
 ?>

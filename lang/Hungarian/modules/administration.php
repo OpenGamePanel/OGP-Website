@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_external_links', "Külső linkek");
-define('OGP_LANG_url', "Cím");
+define('OGP_LANG_url', "Webcím");
 define('OGP_LANG_name', "Név");
 define('OGP_LANG_add_it', "Hozzáadás");
 define('OGP_LANG_link_has_been_removed', "A(z) %s link eltávolítva.");

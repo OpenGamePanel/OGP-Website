@@ -82,7 +82,7 @@ define('OGP_LANG_message', "Wiadomość");
 define('OGP_LANG_dest_email', "Email docelowy");
 define('OGP_LANG_remove', "Usuń");
 define('OGP_LANG_send_by_email', "Wyślij przez email");
-define('OGP_LANG_send_by_email_info', "W przypadku plików pocztowych pakiet 'mutt' musi być zainstalowany po stronie serwera hosta.");
+define('OGP_LANG_send_by_email_info', "For sending files the 'mutt' package must be installed on all available Agents.");
 define('OGP_LANG_settings_updated', "Ustawienia zaktualizowane");
 define('OGP_LANG_update_settings', "Aktualizuj ustawienia");
 ?>
