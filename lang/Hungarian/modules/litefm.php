@@ -30,7 +30,7 @@ define('OGP_LANG_owner', "Tulajdonos");
 define('OGP_LANG_group', "Csoport");
 define('OGP_LANG_empty_directory', "A könyvtár üres.");
 define('OGP_LANG_currently_viewing', "Jelenleg a(z) '%s' mappát nézzük");
-define('OGP_LANG_wrote_changes', "Változások sikeresen mentve.");
+define('OGP_LANG_wrote_changes', "Változtatások sikeresen elmentve.");
 define('OGP_LANG_failed_write', "Nem sikerült írni a fájlt a távoli szerveren.");
 define('OGP_LANG_failed_read', "Nem sikerült olvasni a fájlt a távoli szerverről.");
 define('OGP_LANG_failed_list', "Nem sikerült lekérni a könyvtárlistát.");

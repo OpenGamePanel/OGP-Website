@@ -30,9 +30,9 @@ define('OGP_LANG_no_game_homes_assigned', "Nincsenek játék szerverek hozzád r
 define('OGP_LANG_select_game_home_to_configure', "Válasszd ki a konfigurálni kívánt szervert");
 define('OGP_LANG_file_manager', "Fájlkezelő");
 define('OGP_LANG_configure_mods', "Modok beállítása");
-define('OGP_LANG_install_update_steam', "Telepítés/Frissítés Steam-en keresztül");
+define('OGP_LANG_install_update_steam', "Telepítés/Frissítés Steamon keresztül");
 define('OGP_LANG_install_update_manual', "Telepítés/Frissítés manuálisan");
-define('OGP_LANG_assign_game_homes', "Játék szerver hozzárendelése");
+define('OGP_LANG_assign_game_homes', "Játékszerverek hozzárendelése");
 define('OGP_LANG_user', "Felhasználó");
 define('OGP_LANG_group', "Csoport");
 define('OGP_LANG_start', "Elindítás");

@@ -24,7 +24,7 @@
 
 define('OGP_LANG_error', "خطأ");
 define('OGP_LANG_title', "واجهة ويب TeamSpeak 3");
-define('OGP_LANG_update_available', "<h3>Attention: a new version (v%1) of this software is available under <a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
+define('OGP_LANG_update_available', "<h3>تنبيه: يتوفر إصدار جديد (v%1) متاح تحت <a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
 define('OGP_LANG_head_logout', "تسجيل الخروج");
 define('OGP_LANG_head_vserver_switch', "Change vServer");
 define('OGP_LANG_head_vserver_overview', "vServer Overview");
@@ -39,10 +39,10 @@ define('OGP_LANG_e_session_timedout', "Session expired.");
 define('OGP_LANG_js_error', "خطأ");
 define('OGP_LANG_js_ajax_error', "An AJAX error has occurred: %1.");
 define('OGP_LANG_js_confirm_server_stop', "Do you really want to stop server #%1?");
-define('OGP_LANG_js_confirm_server_delete', "Do you really want to DELETE server #%1?");
+define('OGP_LANG_js_confirm_server_delete', "هل تريد حقاً حذف الخادم #%1؟");
 define('OGP_LANG_js_notice_server_deleted', "Server %1 was deleted successfully.\nThe overview page will be getting reloaded now.");
 define('OGP_LANG_js_prompt_banduration', "Duration in hours (0=unlimited): ");
-define('OGP_LANG_js_prompt_banreason', "Reason (optional): ");
+define('OGP_LANG_js_prompt_banreason', "السبب (اختياري):");
 define('OGP_LANG_js_prompt_msg_to', "Text Message to %1 #%2: ");
 define('OGP_LANG_js_prompt_poke_to', "Poke Message to Client #%1: ");
 define('OGP_LANG_js_prompt_new_propvalue', "New value for '%1': ");
