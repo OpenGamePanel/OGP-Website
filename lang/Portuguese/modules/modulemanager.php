@@ -52,5 +52,5 @@ define('OGP_LANG_failed_del_db', "Falha ao excluir o módulo do banco de dados."
 define('OGP_LANG_updated_module', "Módulo atualizado: '%s'.");
 define('OGP_LANG_updating_modules', "Módulos de atualização");
 define('OGP_LANG_updating_finished', "Atualização concluída");
-define('OGP_LANG_prereqs_missing', "Prerequisites of %s must be installed on the server before %s can be installed.");
+define('OGP_LANG_prereqs_missing', "Pré-requisitos de %s deve ser instalado no servidor antes de %s poder ser instalado.");
 ?>
