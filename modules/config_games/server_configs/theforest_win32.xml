@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>The Forest</game_name>
   <server_exec_name>TheForestDedicatedServer.exe</server_exec_name>
-  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% %SAVEINTERNAL% %SAVE_PATH%/ %LOG% -nographics</cli_template>
+  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %DIFFICULTY% %VEGAN% %VEGETARIAN% %RESETHOLES% %TREEGROW% %NODESTROY% %CREATIVEENEMY% %CHEAT% %CONTROL_PASSWORD% %SERVERPASSWORD% %IT% %SLOT% %SSA% %VAC% %SAVEINTERNAL% %SAVE_PATH%\ %LOG% -nographics</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="-serverip" options="s" />
     <cli_param id="PORT" cli_string="-servergameport" options="s" />
@@ -42,6 +42,34 @@
       <options>s</options>
       <desc>New or continue a game.</desc>
     </param>
+	<param key="-difficulty" type="select" id="DIFFICULTY">
+      <option value="Peaceful">Peaceful</option>
+      <option value="Normal">Normal</option>
+      <option value="Hard">Hard</option>
+      <options>s</options>
+      <desc>Game difficulty.</desc>
+    </param>
+	<param key="-veganmode" type="checkbox_key_value" id="VEGAN">
+      <desc>Enable the vegan mode cheat (no enemies)</desc>
+    </param>
+	<param key="-vegetarianmode" type="checkbox_key_value" id="VEGETARIAN">
+      <desc>Enable the vegetarian mode cheat (no enemies during daytime)</desc>
+    </param>
+	<param key="-resetholesmode" type="checkbox_key_value" id="RESETHOLES">
+      <desc>Reset all existing floor holes when loading a save</desc>
+    </param>
+	<param key="-treeregrowmode" type="checkbox_key_value" id="TREEGROW">
+      <desc>Enable Tree regrowth when sleeping</desc>
+    </param>
+	<param key="-nobuildingdestruction" type="checkbox_key_value" id="NODESTROY">
+      <desc>Enemies and players cannot destroy buildings</desc>
+    </param>
+	<param key="-allowenemiescreative" type="checkbox_key_value" id="CREATIVEENEMY">
+      <desc>Enable enemy spawn in creative games</desc>
+    </param>
+	<param key="-allowcheats" type="checkbox_key_value" id="CHEAT">
+      <desc>Allow clients to use the built in development console</desc>
+    </param>
     <param key="-slot" type="select" id="SLOT">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -61,6 +89,9 @@
     </param>
     <param key="-showlogs" type="checkbox_key_value" id="LOG">
       <desc>Show event log.</desc>
+    </param>
+	<param key="-serverpassword" type="text" id="SERVERPASSWORD">
+      <desc>Password to access game from client.</desc>
     </param>
   </server_params>
   <configuration_files>
