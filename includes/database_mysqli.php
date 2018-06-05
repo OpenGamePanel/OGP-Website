@@ -2091,7 +2091,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				NATURAL JOIN `%1$sremote_server_ips`
 				NATURAL JOIN `%1$sconfig_mods`
 				NATURAL JOIN `%1$sgame_mods`
-				WHERE `home_id` IN
+				WHERE %1$sserver_homes.home_id IN
 				(
 					SELECT `home_id`
 					FROM `%1$suser_homes`
@@ -2137,7 +2137,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `%1$sremote_server_ips`
 			NATURAL JOIN `%1$sconfig_mods`
 			NATURAL JOIN `%1$sgame_mods`
-			WHERE `home_id` IN
+			WHERE %1$sserver_homes.home_id IN
 			(
 				SELECT `home_id`
 				FROM `%1$suser_homes`
