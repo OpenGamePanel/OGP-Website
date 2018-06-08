@@ -94,7 +94,7 @@ define('OGP_LANG_no_ogp_lgsl_support', "Ehhez a játék szerverhez (%s) nincs LG
 define('OGP_LANG_server_status', "Szerver státusz");
 define('OGP_LANG_server_stopped', "A(z) '%s' szerver leállt.");
 define('OGP_LANG_if_want_to_start_homes', "Ha játék szervereket akarsz elindítani, akkor menj a %s-ba.");
-define('OGP_LANG_view_log', "Naplómegjelenítő");
+define('OGP_LANG_view_log', "Naplónéző");
 define('OGP_LANG_if_want_manage', "Ha szeretné kezelni a játékokat meg tudod csinálni a");
 define('OGP_LANG_columns', "oszlopok");
 define('OGP_LANG_group_users', "Csoport felhasználók:");
