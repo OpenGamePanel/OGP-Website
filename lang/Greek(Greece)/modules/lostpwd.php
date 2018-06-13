@@ -22,23 +22,23 @@
  *
  */
 
-define('OGP_LANG_recover', "Recover a forgotten password");
-define('OGP_LANG_back', "Back");
-define('OGP_LANG_incomplete', "Please go back and complete all the fields in the form.");
-define('OGP_LANG_subject', "Password request");
-define('OGP_LANG_password_message', "Hello,<br><br>Your password has been successfully reseted.<br><br>New Password: %s<br><br>Remember to change your password often.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
-define('OGP_LANG_send', "Your password has been sent! Please check your email!");
-define('OGP_LANG_here', "Here");
-define('OGP_LANG_to_login', "to login");
-define('OGP_LANG_errormail', "Your email address is not correct.");
-define('OGP_LANG_submit', "Submit");
-define('OGP_LANG_click', "Click");
-define('OGP_LANG_mail_settings_missing', "Panel mail settings are not complete so it can not send your password. Contact your OGP admin.");
-define('OGP_LANG_mail_failed', "Failed to send email.");
-define('OGP_LANG_email', "Email");
-define('OGP_LANG_enter_email', "Please enter your email address");
+define('OGP_LANG_recover', "Ανακτήστε ξεχασμένο κωδικό πρόσβασης.");
+define('OGP_LANG_back', "Πίσω");
+define('OGP_LANG_incomplete', "Παρακαλώ επιστρέψτε και συμπληρώστε όλα τα πεδία στη φόρμα.");
+define('OGP_LANG_subject', "Αίτημα κωδικού πρόσβασης.");
+define('OGP_LANG_password_message', "Γεια σας,<br><br>Ο κωδικός πρόσβασής σας έχει επαναφερθεί με επιτυχία.<br><br>Νέος κωδικός πρόσβασης: %s<br><br>Να θυμάστε να αλλάζετε συχνά τον κωδικό πρόσβασής σας.<br><br>Παρακαλώ μην απαντήσετε σε αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_send', "Ο κωδικός σας έχει σταλεί! Παρακαλώ ελέγξτε το email σας!");
+define('OGP_LANG_here', "Εδώ");
+define('OGP_LANG_to_login', "για να συνδεθείτε");
+define('OGP_LANG_errormail', "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας δεν είναι σωστή.");
+define('OGP_LANG_submit', "Υποβάλλετε");
+define('OGP_LANG_click', "Κάντε κλικ");
+define('OGP_LANG_mail_settings_missing', "Οι ρυθμίσεις αλληλογραφίας του πίνακα δεν είναι πλήρεις, επομένως δεν είναι δυνατή η αποστολή του κωδικού πρόσβασης. Επικοινωνήστε με το διαχειριστή του OGP.");
+define('OGP_LANG_mail_failed', "Αποτυχία αποστολής μηνύματος ηλεκτρονικού ταχυδρομείου.");
+define('OGP_LANG_email', "Ηλεκτρονικό Ταχυδρομείο");
+define('OGP_LANG_enter_email', "Παρακαλώ εισάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας.");
 define('OGP_LANG_webmaster', "Webmaster");
-define('OGP_LANG_confirm_send', "For security reasons we have sent you a confirmation link before you restart your password.<br><b style='color:red;'>Please check your inbox.</b>");
-define('OGP_LANG_confirm_change_subject', "Password reset, confirmation email");
-define('OGP_LANG_confirm_change_password_message', "Hello,<br><br>Please click on the link below to reset your password:<br><br>%s<br><br>Note: If you do not have requested the reset of your password, you can ignore this email.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_confirm_send', "Για λόγους ασφαλείας, σας στείλαμε έναν σύνδεσμο επιβεβαίωσης πριν επαναφέρετε τον κωδικό πρόσβασής σας.<br><b style='color:red;'>Παρακαλώ ελέγξτε τα εισερχόμενά σας.</b>");
+define('OGP_LANG_confirm_change_subject', "Επαναφορά κωδικού πρόσβασης, μήνυμα ηλεκτρονικού ταχυδρομείου επιβεβαίωσης.");
+define('OGP_LANG_confirm_change_password_message', "Γεια σας,<br><br>Παρακαλώ κάντε κλικ στον παρακάτω σύνδεσμο για να επαναφέρετε τον κωδικό πρόσβασής σας:<br><br>%s<br><br>Σημείωση: Αν δεν έχετε ζητήσει την επαναφορά του κωδικού πρόσβασής σας, μπορείτε να αγνοήσετε αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου.<br><br>Παρακαλώ μην απαντήσετε σε αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου!<br><br>______________________________<br>OGP Mailer");
 ?>
