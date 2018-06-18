@@ -60,7 +60,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"doomzdaemon"	=> "Doom - ZDaemon",
 		"doom3"			=> "Doom 3",
 		"dh2005"		=> "Deer Hunter 2005",
-		"egs"			=> "Empyrion - Galactic Survival",
+		"empyriongs"	=> "Empyrion - Galactic Survival",
 		"farcry"		=> "Far Cry",
 		"fear"			=> "F.E.A.R.",
 		"fivem"			=>	"GTA FiveM",
@@ -208,7 +208,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"doomzdaemon"	=> "28",
 		"doom3"			=> "10",
 		"dh2005"		=> "09",
-		"egs"			=> "05",
+		"empyriongs"	=> "05",
 		"had2"			=> "03",
 		"halflife"		=> "05",
 		"halflifewon"	=> "05",
@@ -364,7 +364,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"doomzdaemon"	=> "http://www.zdaemon.org",
 		"doom3"			=> "qtracker://{IP}:{S_PORT}?game=Doom3&action=show",
 		"dh2005"		=> "http://en.wikipedia.org/wiki/Deer_Hunter_(computer_game)",
-		"egs"			=> "steam://connect/{IP}:{Q_PORT}",
+		"empyriongs"	=> "steam://connect/{IP}:{Q_PORT}",
 		"farcry"		=> "qtracker://{IP}:{S_PORT}?game=FarCry&action=show",
 		"fear"			=> "qtracker://{IP}:{S_PORT}?game=FEAR&action=show",
 		"fivem"			=> "http://fivem.net/",
@@ -502,7 +502,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "conanexiles"		: $c_to_q = 19238;	$c_def = 7777;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "cube"				: $c_to_q = 1;		$c_def = 28785;	$q_def = 28786;	$c_to_s = 0;	break;
 			case "dayzmod"			: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
-			case "egs"				: $c_to_q = 1;		$c_def = 30000;	$q_def = 30001; $c_to_s = 0;	break;
+			case "empyriongs"		: $c_to_q = 1;		$c_def = 30000;	$q_def = 30001; $c_to_s = 0;	break;
 			case "dh2005"			: $c_to_q = 0;		$c_def = 23459;	$q_def = 34567;	$c_to_s = 0;	break;
 			case "farcry"			: $c_to_q = 123;	$c_def = 49001;	$q_def = 49124;	$c_to_s = 0;	break;
 			case "flashpoint"		: $c_to_q = 1;		$c_def = 2302;	$q_def = 2303;	$c_to_s = 0;	break;
