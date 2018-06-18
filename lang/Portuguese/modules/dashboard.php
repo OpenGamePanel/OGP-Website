@@ -39,5 +39,5 @@ define('OGP_LANG_online_servers', "Servidores online");
 define('OGP_LANG_add_games_in', "Se você quiser adicionar jogos, pode fazê-lo em %s");
 define('OGP_LANG_currently_online', "Atualmente Online");
 define('OGP_LANG_game_servers', "Servidores de jogos");
-define('OGP_LANG_select_remote_server', "Seleccionar um servidor remoto");
+define('OGP_LANG_select_remote_server', "Select Remote Server");
 ?>

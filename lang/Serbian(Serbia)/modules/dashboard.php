@@ -39,5 +39,5 @@ define('OGP_LANG_online_servers', "Онлајн сервери");
 define('OGP_LANG_add_games_in', "Ако желите да додате игре, то можете учинити у %s");
 define('OGP_LANG_currently_online', "Тренутно онлајн");
 define('OGP_LANG_game_servers', "Гејминг сервери");
-define('OGP_LANG_select_remote_server', "Одабери удаљени сервер");
+define('OGP_LANG_select_remote_server', "Select Remote Server");
 ?>
