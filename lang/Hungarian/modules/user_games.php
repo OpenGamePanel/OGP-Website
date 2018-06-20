@@ -216,7 +216,7 @@ define('OGP_LANG_cpu_affinity_info', "Válaszd ki a játékszerverhez hozzárend
 define('OGP_LANG_expiration_date_changed', "Expiration date for selected home has been changed.");
 define('OGP_LANG_expiration_date_could_not_be_changed', "Expiration date for selected home could not be changed.");
 define('OGP_LANG_search', "Keresés");
-define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
-define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('OGP_LANG_ftp_account_username_too_long', "Az FTP felhasználónév túl hosszú. Próbálkozz rövidebb, legfeljebb 20 karakter hosszú felhasználónévvel.");
+define('OGP_LANG_ftp_account_password_too_long', "Az FTP jelszó túl hosszú. Próbálkozz rövidebb, legfeljebb 20 karakter hosszú jelszóval.");
 define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
  ?>

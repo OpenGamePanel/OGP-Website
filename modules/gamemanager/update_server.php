@@ -182,6 +182,11 @@ function exec_ogp_module() {
 		// Refresh update page.
 		else
 		{
+			if(isset($_POST['sgc']))
+			{
+				$remote->send_steam_guard_code($home_id, $_POST['sgc']);
+				return;
+			}
 			if ( isset( $_POST['stop_update_x'] ) )
 			{
 				$remote->stop_update($home_id);
@@ -204,9 +209,15 @@ function exec_ogp_module() {
 			}
 			if (empty($log_txt))
 				$log_txt = get_lang("not_available");
-
-			echo "<pre>".$log_txt."</pre>\n";
-
+								
+			echo "<pre>".$log_txt."</pre>\n<script type=\"text/javascript\" src=\"js/modules/gamemanager_update.js\"></script>\n<div id='dialog' ></div>\n";
+			if(preg_match('/Two-factor code:$/m', $log_txt) and !isset($_GET['get_sgc']))
+			{
+				$view->refresh("?m=gamemanager&amp;p=update&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id&amp;get_sgc=show", 0);
+				return;
+			}
+			if(isset($_GET['get_sgc']) && $_GET['get_sgc'] == 'show')
+				return;
 			if ( $update_complete )
 				return;
 		}

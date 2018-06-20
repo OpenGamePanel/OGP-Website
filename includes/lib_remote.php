@@ -1105,5 +1105,24 @@ class OGPRemoteLibrary
 			return NULL;
 		return base64_decode($response);
 	}
+	
+	public function send_steam_guard_code($home_id, $sgc)
+	{
+		$params_array = $this->encrypt_params($home_id, $sgc);
+		$this->add_enc_chk($params_array);
+		$request = xmlrpc_encode_request("send_steam_guard_code", $params_array);
+		$response = $this->sendRequest($request);
+		
+		if ($response === NULL)
+			return -1;
+		
+		if (is_array($response) && xmlrpc_is_fault($response))
+			return -1;
+		
+		if ($response === 1)
+			return -1;
+		
+		return 1;
+	}
 }
 ?>

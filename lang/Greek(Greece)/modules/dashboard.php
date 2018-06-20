@@ -39,5 +39,5 @@ define('OGP_LANG_online_servers', "Διακομιστές Σε Λειτουργ�
 define('OGP_LANG_add_games_in', "Αν θέλετε να προσθέσετε παιχνίδια μπορείτε να το κάνετε σε %s.");
 define('OGP_LANG_currently_online', "Σε Λειτουργία Αυτή Τη Στιγμή");
 define('OGP_LANG_game_servers', "Διακομιστές Παιχνιδιών");
-define('OGP_LANG_select_remote_server', "Επιλέξτε απομακρυσμένο διακομιστή.");
+define('OGP_LANG_select_remote_server', "Select Remote Server");
 ?>

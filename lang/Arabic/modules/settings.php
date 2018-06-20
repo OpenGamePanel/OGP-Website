@@ -31,7 +31,7 @@ define('OGP_LANG_maintenance_message_info', "الرسالة التي يتم عر
 define('OGP_LANG_update_settings', "إعدادات التحديث");
 define('OGP_LANG_settings_updated', "تم تحديث الإعدادات بنجاح.");
 define('OGP_LANG_panel_language', "لغة اللوحة");
-define('OGP_LANG_panel_language_info', "This language is the default language of the panel. Users can change their own language from their profile editing page.");
+define('OGP_LANG_panel_language_info', "هذه اللغة هي اللغة الافتراضية للوحة. يمكن للمستخدمين تغيير لغتهم من صفحة تعديل ملفاتهم الشخصية.");
 define('OGP_LANG_page_auto_refresh', "تحديث تلقائي للصفحة");
 define('OGP_LANG_page_auto_refresh_info', "Page Auto Refresh settings is mainly used in panel debugging. In normal usage this should be set to On.");
 define('OGP_LANG_smtp_server', "Outgoing E-Mail Server");

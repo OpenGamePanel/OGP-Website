@@ -39,5 +39,5 @@ define('OGP_LANG_online_servers', "سرور های آنلاین");
 define('OGP_LANG_add_games_in', "اگر میخواهید بازی ای اضافه کنید، از طریق %s می توانید انجام دهید.");
 define('OGP_LANG_currently_online', "آنلاین");
 define('OGP_LANG_game_servers', "Game Server ها");
-define('OGP_LANG_select_remote_server', "سرور Remote را انتخاب کنید");
+define('OGP_LANG_select_remote_server', "Select Remote Server");
 ?>

@@ -82,7 +82,7 @@ define('OGP_LANG_message', "Mensagem");
 define('OGP_LANG_dest_email', "E-mail de destino");
 define('OGP_LANG_remove', "Remover");
 define('OGP_LANG_send_by_email', "Enviar por email");
-define('OGP_LANG_send_by_email_info', "Para enviar arquivos, o pacote 'mutt' deve ser instalado no lado do agente.");
+define('OGP_LANG_send_by_email_info', "Para enviar arquivos, o pacote 'mutt' deve ser instalado em todos os Agentes disponíveis.");
 define('OGP_LANG_settings_updated', "Configurações atualizadas");
 define('OGP_LANG_update_settings', "Atualizar configurações");
 ?>
