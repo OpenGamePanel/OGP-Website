@@ -38,7 +38,7 @@ abstract class GameQ_Protocols_Tshock extends GameQ_Protocols_Http
      * @var array
      */
     protected $packets = array(
-            self::PACKET_STATUS => "GET /status HTTP/1.0\r\nAccept: */*\r\n\r\n",
+            self::PACKET_STATUS => "GET /status/?players=true HTTP/1.0\r\nAccept: */*\r\n\r\n",
     );
 
     /**
@@ -112,19 +112,20 @@ abstract class GameQ_Protocols_Tshock extends GameQ_Protocols_Http
         $result->add('mod', FALSE);
 
         // These are the same no matter what mode the server is in
-        $result->add('hostname', $json->name);
+        $result->add('hostname', $json->world);
         $result->add('game_port', $json->port);
-        $result->add('numplayers', $json->playercount);
-        $result->add('maxplayers', 0);
-
-        // Players are a comma(space) seperated list
-        $players = explode(', ', $json->players);
-
-        // Do the players
-        foreach($players AS $player)
-        {
-            $result->addPlayer('name', $player);
-        }
+        $result->add('num_players', $json->playercount);
+        $result->add('maxplayers', $json->maxplayers);
+		
+		// Players are a comma(space) seperated list
+        if(isset($json->players) && !empty($json->players))
+		{
+			// Do the players
+			foreach($json->players AS $player)
+			{
+				$result->addPlayer('name', $player->nickname);
+			}
+		}
 
         return $result->fetch();
     }
