@@ -30,9 +30,9 @@ define('OGP_LANG_no_game_homes_assigned', "Nincsenek játék szerverek hozzád r
 define('OGP_LANG_select_game_home_to_configure', "Válasszd ki a konfigurálni kívánt szervert");
 define('OGP_LANG_file_manager', "Fájlkezelő");
 define('OGP_LANG_configure_mods', "Modok beállítása");
-define('OGP_LANG_install_update_steam', "Telepítés/Frissítés Steam-en keresztül");
+define('OGP_LANG_install_update_steam', "Telepítés/Frissítés Steamon keresztül");
 define('OGP_LANG_install_update_manual', "Telepítés/Frissítés manuálisan");
-define('OGP_LANG_assign_game_homes', "Játék szerver hozzárendelése");
+define('OGP_LANG_assign_game_homes', "Játékszerverek hozzárendelése");
 define('OGP_LANG_user', "Felhasználó");
 define('OGP_LANG_group', "Csoport");
 define('OGP_LANG_start', "Elindítás");
@@ -94,7 +94,7 @@ define('OGP_LANG_no_ogp_lgsl_support', "Ehhez a játék szerverhez (%s) nincs LG
 define('OGP_LANG_server_status', "Szerver státusz");
 define('OGP_LANG_server_stopped', "A(z) '%s' szerver leállt.");
 define('OGP_LANG_if_want_to_start_homes', "Ha játék szervereket akarsz elindítani, akkor menj a %s-ba.");
-define('OGP_LANG_view_log', "Naplómegjelenítő");
+define('OGP_LANG_view_log', "Naplónéző");
 define('OGP_LANG_if_want_manage', "Ha szeretné kezelni a játékokat meg tudod csinálni a");
 define('OGP_LANG_columns', "oszlopok");
 define('OGP_LANG_group_users', "Csoport felhasználók:");

@@ -39,5 +39,5 @@ define('OGP_LANG_online_servers', "Online Servery");
 define('OGP_LANG_add_games_in', "Pokud chcete přidat hry, můžete to udělat %s");
 define('OGP_LANG_currently_online', "Momentálně je online");
 define('OGP_LANG_game_servers', "Herní servery");
-define('OGP_LANG_select_remote_server', "Vyberte vzdálený server");
+define('OGP_LANG_select_remote_server', "Select Remote Server");
 ?>

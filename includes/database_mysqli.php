@@ -2079,11 +2079,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getIpPortsForUser($user_id) {
 		$isAdmin = $this->isAdmin($user_id);
 		if(!$isAdmin){
-			$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
-				%1$sremote_servers.*,
-				%1$sconfig_homes.*,
-				%1$sconfig_mods.*,
-				%1$sgame_mods.*
+			$query = sprintf('SELECT *
 				FROM `%1$shome_ip_ports`
 				NATURAL JOIN `%1$sremote_servers`
 				NATURAL JOIN `%1$sserver_homes`
@@ -2091,7 +2087,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				NATURAL JOIN `%1$sremote_server_ips`
 				NATURAL JOIN `%1$sconfig_mods`
 				NATURAL JOIN `%1$sgame_mods`
-				WHERE `home_id` IN
+				NATURAL JOIN
 				(
 					SELECT `home_id`
 					FROM `%1$suser_homes`
@@ -2101,8 +2097,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 					FROM `%1$suser_groups`
 					NATURAL JOIN `%1$suser_group_homes`
 					WHERE `user_id` = %2$d
-				) 
-				AND `force_mod_id` IN
+				) temp
+				WHERE `force_mod_id` IN
 				(
 					SELECT `force_mod_id`
 					FROM `%1$shome_ip_ports`
@@ -2125,11 +2121,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			return false;
 		}
 		
-		$query = sprintf('SELECT %1$sremote_server_ips.*,%1$shome_ip_ports.*,%1$sserver_homes.*,
-			%1$sremote_servers.*,
-			%1$sconfig_homes.*,
-			%1$sconfig_mods.*,
-			%1$sgame_mods.*
+		$query = sprintf('SELECT *
 			FROM `%1$shome_ip_ports`
 			NATURAL JOIN `%1$sremote_servers`
 			NATURAL JOIN `%1$sserver_homes`
@@ -2137,7 +2129,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			NATURAL JOIN `%1$sremote_server_ips`
 			NATURAL JOIN `%1$sconfig_mods`
 			NATURAL JOIN `%1$sgame_mods`
-			WHERE `home_id` IN
+			NATURAL JOIN
 			(
 				SELECT `home_id`
 				FROM `%1$suser_homes`
@@ -2147,8 +2139,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 				FROM `%1$suser_groups`
 				NATURAL JOIN `%1$suser_group_homes`
 				WHERE `user_id` = %2$d
-			) 
-			AND `force_mod_id` IN
+			) temp
+			WHERE `force_mod_id` IN
 			(
 				SELECT `force_mod_id`
 				FROM `%1$shome_ip_ports`
