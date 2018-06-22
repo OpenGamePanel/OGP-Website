@@ -28,8 +28,12 @@ require_once("protocol/TeamSpeak3/TeamSpeak3.php");
 $cfg["user"] = "serveradmin";
 $cfg["pass"] = $server_home['control_password'];
 $cfg["voice"] = $server_home['port'];
-$ts3Ports = $db->getHomeIpPorts($server_home['home_id']);
-$cfg["query"] = $ts3Ports[0]['port'] + 24;
+$cfg["query"] = 10011;
+foreach($db->getHomeIpPorts($server_home['home_id']) as $ts3Port)
+{
+	if($remote->rfile_exists( "startups/".$ts3Port['ip']."-".$ts3Port['port'] ) === 1)
+		$cfg["query"] = $ts3Port['port'] + 24;
+}
 
 if ( $server_home['use_nat'] == 1 )
 	$cfg["host"] = $server_home['agent_ip'];
