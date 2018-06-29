@@ -38,6 +38,6 @@ define('OGP_LANG_select_game', "Wybierz Grę");
 define('OGP_LANG_create_xml_configs', "Stwórz konfiguracyjne XML");
 define('OGP_LANG_failed_to_delete_config_from_db', "Nie udało się usunąć %s konfiguracji z bazy danych");
 define('OGP_LANG_failed_removing_file', "Nie powiodło się usunięcie pliku %s.");
-define('OGP_LANG_removed_game_cfg_from_disk_and_datbase', "Removed config for %s from storage and database.");
+define('OGP_LANG_removed_game_cfg_from_disk_and_datbase', "Usunięto konfigurację  %s z dysku oraz bazy danych");
 define('OGP_LANG_delete_game_config_for', "Usuń konfigurację gry dla %s z dysku oraz bazy danych.");
 ?>
