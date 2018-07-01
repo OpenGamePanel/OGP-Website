@@ -16,20 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-/**
- * Tshock Protocol Class
- *
- * Result from this call should be a header + JSON response
- *
- * References:
- * - https://tshock.atlassian.net/wiki/display/TSHOCKPLUGINS/REST+API+Endpoints#RESTAPIEndpoints-/status
- * - http://tshock.co/xf/index.php?threads/rest-tshock-server-status-image.430/
- *
- * Special thanks to intradox and Ruok2bu for game & protocol references
- *
- * @author Austin Bischoff <austin@codebeard.com>
- */
-abstract class GameQ_Protocols_Tshock extends GameQ_Protocols_Http
+abstract class GameQ_Protocols_Ecoapi extends GameQ_Protocols_Http
 {
     /**
      * Array of packets we want to look up.
@@ -38,7 +25,8 @@ abstract class GameQ_Protocols_Tshock extends GameQ_Protocols_Http
      * @var array
      */
     protected $packets = array(
-            self::PACKET_STATUS => "GET /status/?players=true HTTP/1.0\r\nAccept: */*\r\n\r\n",
+            self::PACKET_STATUS => "GET /info HTTP/1.0\r\nAccept: */*\r\n\r\n",
+			self::PACKET_PLAYERS => "GET /api/v1/analysis/playstyles HTTP/1.0\r\nAccept: */*\r\n\r\n",
     );
 
     /**
@@ -48,6 +36,7 @@ abstract class GameQ_Protocols_Tshock extends GameQ_Protocols_Http
      */
     protected $process_methods = array(
             "process_status",
+			"process_players",
     );
 
     /**
@@ -55,75 +44,103 @@ abstract class GameQ_Protocols_Tshock extends GameQ_Protocols_Http
      *
      * @var string
      */
-    protected $protocol = 'tshock';
+    protected $protocol = 'ecoapi';
 
     /**
      * String name of this protocol class
      *
      * @var string
      */
-    protected $name = 'tshock';
+    protected $name = 'ecoapi';
 
     /**
      * Longer string name of this protocol class
      *
      * @var string
      */
-    protected $name_long = "Tshock";
+    protected $name_long = "ECO API";
 
     /*
      * Internal methods
      */
-    protected function preProcess_status($packets=array())
+    protected function preProcess_status($packets)
     {
         // Implode and rip out the JSON
         preg_match('/\{(.*)\}/ms', implode('', $packets), $m);
-
+		
         return $m[0];
     }
 
     protected function process_status()
     {
-        // Make sure we have a valid response
+        
+		// Make sure we have a valid response
         if(!$this->hasValidResponse(self::PACKET_STATUS))
         {
-            return array();
+			return array();
         }
-
+		
         // Return should be JSON, let's validate
         if(($json = json_decode($this->preProcess_status($this->packets_response[self::PACKET_STATUS]))) === NULL)
         {
-            throw new GameQ_ProtocolsException("JSON response from Tshock protocol is invalid.");
+            throw new GameQ_ProtocolsException("JSON response from ECO API is invalid.");
         }
-
-        // Check the status response
-        if($json->status != 200)
-        {
-            throw new GameQ_ProtocolsException("JSON status from Tshock protocol response was '{$json->status}', expected '200'.");
-        }
-
+		
         // Set the result to a new result instance
         $result = new GameQ_Result();
 
         // Server is always dedicated
-        $result->add('dedicated', TRUE);
+        $result->add('dedicated', $json->IsLAN);
 
         // No mods, as of yet
         $result->add('mod', FALSE);
 
         // These are the same no matter what mode the server is in
-        $result->add('hostname', $json->world);
-        $result->add('game_port', $json->port);
-        $result->add('num_players', $json->playercount);
-        $result->add('maxplayers', $json->maxplayers);
+        $result->add('hostname', $json->Description);
+        $result->add('game_port', $json->GamePort);
+        $result->add('num_players', $json->OnlinePlayers);
+        $result->add('maxplayers', $json->TotalPlayers);
+		
+        return $result->fetch();
+    }
+	
+	/**
+     * Pre-process the player data sent
+     *
+     * @param array $packets
+     */
+    protected function preProcess_players($packets)
+    {
+		// Implode and rip out the JSON
+        //preg_match('/\{(.*)\}/ms', implode('', $packets), $m);
+		echo $packets;
+        return $packets;
+    }
+	
+	protected function process_players()
+    {
+		// Make sure we have a valid response
+        if(!$this->hasValidResponse(self::PACKET_PLAYERS))
+        {
+			return array();
+        }
+
+        // Return should be JSON, let's validate
+        if(($json = json_decode($this->preProcess_players($this->packets_response[self::PACKET_PLAYERS]))) === NULL)
+        {
+            throw new GameQ_ProtocolsException("JSON response from ECO API is invalid.");
+        }
+		
+        // Set the result to a new result instance
+        $result = new GameQ_Result();
 		
 		// Players are a comma(space) seperated list
-        if(isset($json->players) && !empty($json->players))
+        if(isset($json) && !empty($json))
 		{
 			// Do the players
-			foreach($json->players AS $player)
+			foreach($json AS $player)
 			{
-				$result->addPlayer('name', $player->nickname);
+				$result->addPlayer('name', $player->Username);
 			}
 		}
 
