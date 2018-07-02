@@ -173,7 +173,7 @@ define('OGP_LANG_dest_filename', "Célfájlnév");
 define('OGP_LANG_dest_filename_info', "A célfájl fájlneve.");
 define('OGP_LANG_update_server', "Szerver frissítés");
 define('OGP_LANG_unavailable', "Nem elérhető");
-define('OGP_LANG_upload_map_image', "Pálya kép feltöltés");
+define('OGP_LANG_upload_map_image', "Pálya kép feltöltése");
 define('OGP_LANG_upload_image', "Kép feltöltése");
 define('OGP_LANG_jpg_gif_png_less_than_1mb', "A kép legyen jpg, gif vagy png és kevesebb mint 1 MB.");
 define('OGP_LANG_check_dev_console', "Hiba a fájl feltöltése során, kérlek, ellenőrizd a böngésző fejlesztői konzolját.");
