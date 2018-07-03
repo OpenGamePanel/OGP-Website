@@ -51,6 +51,7 @@ function exec_ogp_module() {
 		$fields['addon_type'] = $_POST['addon_type'];
 		$fields['home_cfg_id'] = $_POST['home_cfg_id'];
 		$fields['post_script'] = $_POST['post_script'];
+		$fields['group_id'] = $_POST['group_id'];
 		if( is_numeric($db->resultInsertId( 'addons', $fields )) )
 		{
 			print_success(get_lang_f("addon_has_been_created",$_POST['name']));
@@ -66,6 +67,7 @@ function exec_ogp_module() {
 	$post_script = isset($_POST['post_script']) ? $_POST['post_script'] : "";
 	$home_cfg_id = isset($_POST['home_cfg_id']) ? $_POST['home_cfg_id'] : "";
 	$addon_type = isset($_POST['addon_type']) ? $_POST['addon_type'] : "";
+	$group_id = isset($_POST['group_id']) ? $_POST['group_id'] : "";
 	$addon_types = array('plugin', 'mappack', 'config');
 
 	if (isset($_POST['addon_id']) && (int)$_POST['addon_id'] > 0 && isset($_POST['edit']))
@@ -78,6 +80,7 @@ function exec_ogp_module() {
 		$post_script = isset($addon_info['post_script']) ? $addon_info['post_script'] : "";
 		$home_cfg_id = isset($addon_info['home_cfg_id']) ? $addon_info['home_cfg_id'] : "";
 		$addon_type = isset($addon_info['addon_type']) ? $addon_info['addon_type'] : "";
+		$group_id = isset($addon_info['group_id']) ? $addon_info['group_id'] : "";
 	}
 	?>
 	<form action="" method="post">
@@ -175,6 +178,24 @@ function exec_ogp_module() {
 				</td>
 			</tr>
 			<tr>
+				<td align="right">
+					<b><?php print_lang('show_to_group'); ?></b>
+				</td>
+				<td align="left">
+				<select name='group_id'>
+				<option value="0"><?php print_lang('all_groups'); ?></option>
+		<?php
+		$groups = $db->getGroupList();
+		foreach($groups as $group)
+		{
+			$selected = (isset($group_id) AND $group['group_id'] == $group_id) ? 'selected=selected' : '';
+			echo "<option value='".$group['group_id']."' $selected>".$group['group_name']."</option>\n";
+		}
+		?>
+				</select>
+				</td>
+			</tr>
+			<tr>
 				<td colspan="2" align="center">
 				<?php 
 				if (isset($_POST['addon_id']) && isset($_POST['edit']))
@@ -259,7 +280,18 @@ function exec_ogp_module() {
 					echo $option;
 				?>
 		
-				</select>			
+				</select>
+				<b><?php print_lang('group'); ?></b>
+				<select name='group_id'>
+				<option value="0"><?php print_lang('all_groups'); ?></option>
+				<?php
+				foreach($groups as $group)
+				{
+					$selected = (isset($_GET['group_id']) AND $group['group_id'] == $_GET['group_id']) ? 'selected=selected' : '';
+					echo "<option value='".$group['group_id']."' $selected>".$group['group_name']."</option>\n";
+				}
+				?>
+				</select>	
 				<button name="show" type="submit">
 				<?php print_lang('show'); ?>
 				</button>
@@ -269,6 +301,7 @@ function exec_ogp_module() {
 			<td>
 				<input name="show_game" type="submit" value="<?php print_lang('show_addons_for_selected_game'); ?>"/>
 				<input name="show_type" type="submit" value="<?php print_lang('show_addons_for_selected_type'); ?>"/>
+				<input name="show_group" type="submit" value="<?php print_lang('show_addons_for_selected_group'); ?>"/>
 				<input name="show_all" type="submit" value="<?php print_lang('show_all_addons'); ?>"/>
 			</td>
 		</tr>
@@ -283,30 +316,35 @@ function exec_ogp_module() {
 	
 	$home_cfg_id = !empty($_GET['home_cfg_id']) && (int)$_GET['home_cfg_id'] > 0 ? (int)$_GET['home_cfg_id'] : 0;
 	$addon_type = !empty($_GET['addon_type']) && in_array($_GET['addon_type'], $addon_types) ? $_GET['addon_type'] : "";
-
+	$group_id = isset($_GET['group_id']) && is_numeric($_GET['group_id']) ? (int)$_GET['group_id'] : 0;
+	
 	if ( isset($_GET['show']) )
 	{
-		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE addon_type='".$addon_type."' AND home_cfg_id=".$home_cfg_id);
+		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path, group_id FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE addon_type='".$addon_type."' AND home_cfg_id=".$home_cfg_id);
 	}
 	elseif ( isset($_GET['show_all']) )
 	{
-		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes");
+		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path, group_id FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes");
 	}
 	elseif ( isset($_GET['show_type']))
 	{
-		unset($_GET['show_all']);
-		unset($_GET['show_game']);
-		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE addon_type='".$addon_type."'");
+		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path, group_id FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE addon_type='".$addon_type."'");
 	}
 	elseif ( isset($_GET['show_game']))
 	{
-		unset($_GET['show_all']);
-		unset($_GET['show_type']);
-		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE home_cfg_id=".$home_cfg_id);
+		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path, group_id FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE home_cfg_id=".$home_cfg_id);
+	}
+	elseif ( isset($_GET['show_group']))
+	{
+		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path, group_id FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE group_id=".$group_id);
 	}
 	?>	
 	<table class="center">
 	<?php
+	$group_names = array();
+	foreach($groups as $group)
+		$group_names[$group['group_id']] = $group['group_name'];
+	
 	if (isset($result) and $result > 0)
 	{
 		foreach($result as $row)
@@ -319,6 +357,9 @@ function exec_ogp_module() {
 		 </td>
 		 <td>
 		  <?php echo $row['name'];?>
+		 </td>
+		 <td>
+		  <?php echo "[".get_lang('group').": ". (isset($group_names[$row['group_id']])?$group_names[$row['group_id']]:get_lang('all_groups')) ."]";?>
 		 </td>
 		 <td>
 		  <input name="addon_id" type="hidden" value="<?php echo $row['addon_id'];?>"/>

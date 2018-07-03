@@ -63,4 +63,8 @@ define('OGP_LANG_addon_name_info', "Wprowadź nazwę dla tego dodatku, to jest n
 define('OGP_LANG_url_info', "Wpisz adres internetowy, który zawiera plik do pobrania,jeśli skompresowane w zip lub tar.gz zostaną rozpakowane w katalogu głównym serwera lub w ścieżce podanej poniżej.");
 define('OGP_LANG_path_info', "Ścieżka musi być w stosunku do folderu na serwerze i nie zawierać ukośników na początku lub na końcu, np: cstrike/cfg. Jeśli pozostanie puste będzie katalog root głównego serwera.");
 define('OGP_LANG_post-script_info', "Wprowadź kod BASH, zostanie wykonane jako skrypt, można używać zamienników tekstowych do dostosowania instalacji, zostaną one zastąpione przez dane z serwera, na którym można zainstalować dodatek. Skrypt rozpoczyna się od katalogu głównego serwera lub określonej ścieżce.");
+define('OGP_LANG_show_to_group', "Show to group");
+define('OGP_LANG_all_groups', "All groups");
+define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
+define('OGP_LANG_group', "Group");
 ?>

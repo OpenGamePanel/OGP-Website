@@ -24,8 +24,8 @@
 
 // Module general information
 $module_title = "Addons Manager";
-$module_version = "1.1";
-$db_version = 1;
+$module_version = "1.2";
+$db_version = 2;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => 'addons_manager', 'name'=>'Addons Manager', 'group'=>'admin' ) );
 
@@ -42,5 +42,7 @@ $install_queries[0] = array(
 
 $install_queries[1] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."addons` ADD `post_script` longtext NOT NULL;");
-
+	
+$install_queries[2] = array(
+	"ALTER TABLE `".OGP_DB_PREFIX."addons` ADD `group_id` int(11) NULL;");
 ?>

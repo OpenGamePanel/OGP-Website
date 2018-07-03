@@ -290,6 +290,20 @@ function exec_ogp_module() {
 			  $post_mod_id, 
 			  $post_ip, 
 			  $post_port ) = explode( "-", $_GET['home_id-mod_id-ip-port'] );
+			  
+	if($addonsmanager_installed)
+	{
+		$query_groups = "";
+		if(!$isAdmin)
+		{
+			$groups = $db->getUsersGroups($_SESSION['user_id']);
+			$query_groups .= " AND (";
+			foreach($groups as $group)
+				$query_groups .= "group_id=".$group['group_id']." OR ";
+			$query_groups .= "group_id=0)";
+		}
+	}
+	
 	foreach( $server_homes as $server_home )
 	{
 		if( ( $show_all or isset($_GET['home_cfg_id']) ) AND ( !isset($server_home['ip']) or !isset($server_home['mod_id']) ) )
@@ -371,8 +385,8 @@ function exec_ogp_module() {
 						</a>";
 			}
 			if ( $addonsmanager_installed )
-			{
-				$addons = $db->resultQuery("SELECT DISTINCT addon_id FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE home_cfg_id=".$server_home['home_cfg_id']);
+			{				
+				$addons = $db->resultQuery("SELECT addon_id FROM OGP_DB_PREFIXaddons WHERE home_cfg_id=".$server_home['home_cfg_id'].$query_groups);
 				$addons_qty = count($addons);
 				if($addons and $addons_qty >= 1){
 					$addonsmanager = "<a class='monitorbutton' href='?m=addonsmanager&amp;p=user_addons&amp;home_id=".
