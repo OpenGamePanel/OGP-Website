@@ -1,12 +1,12 @@
 <game_config>
-  <game_key>starbound_linux64</game_key>
+  <game_key>starbound_win64</game_key>
   <protocol>gameq</protocol>
   <gameq_query_name>starbound</gameq_query_name>
   <installer>steamcmd</installer>
   <game_name>Starbound</game_name>
-  <server_exec_name>starbound_server</server_exec_name>
+  <server_exec_name>starbound_server.exe</server_exec_name>
   <console_log>storage/starbound_server.log</console_log>
-  <exe_location>linux</exe_location>
+  <exe_location>win64</exe_location>
   <max_user_amount>128</max_user_amount>
   <mods>
     <mod key="starbound1">
@@ -20,19 +20,19 @@
   </mods>
   <replace_texts>
     <text key="ip">
-      <default>"gameServerBind" : "[\:\.\d]*"</default>
+      <default>"gameServerBind" : "[\*\.\d]*"</default>
       <var>"gameServerBind" :</var>
       <filepath>storage/starbound_server.config</filepath>
       <options>sq</options>
     </text>
     <text key="ip">
-      <default>"queryServerBind" : "[\:\.\d]*"</default>
+      <default>"queryServerBind" : "[\*\.\d]*"</default>
       <var>"queryServerBind" :</var>
       <filepath>storage/starbound_server.config</filepath>
       <options>sq</options>
     </text>
     <text key="ip">
-      <default>"rconServerBind" : "[\:\.\d]*"</default>
+      <default>"rconServerBind" : "[\*\.\d]*"</default>
       <var>"rconServerBind" :</var>
       <filepath>storage/starbound_server.config</filepath>
       <options>sq</options>
