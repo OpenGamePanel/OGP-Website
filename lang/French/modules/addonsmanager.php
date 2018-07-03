@@ -63,8 +63,8 @@ define('OGP_LANG_addon_name_info', "Saisissez un nom pour votre Addon, ce sera l
 define('OGP_LANG_url_info', "Saisissez l'adresse internet (URL) hébergeant les fichiers à télécharger, si les fichiers sont compressés en zip ou en tar.gz, il seront automatiquement décompressés dans le répertoire racine du serveur ou dans le répertoire indiqué dans la rubrique 'Chemin'.");
 define('OGP_LANG_path_info', "Le répertoire doit être relatif au répertoire du serveur et ne contenir aucun slashes ('/') ni au début ni à la fin, exemple: 'cstrike/cfg'. Si le champ reste vide, le chemin par défaut sera le répertoire racine du serveur.");
 define('OGP_LANG_post-script_info', "Saisissez votre code en langage Bash, il sera exécuté comme un script, vous pouvez utiliser les variables de remplacement pour personnaliser l'installation, elles seront remplacées par les données du serveur pour lequel l'Addon est installé. Le script s'exécutera depuis le répertoire racine du serveur ou depuis le répertoire indiqué dans la rubrique 'Chemin'.");
-define('OGP_LANG_show_to_group', "Show to group");
-define('OGP_LANG_all_groups', "All groups");
-define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
-define('OGP_LANG_group', "Group");
+define('OGP_LANG_show_to_group', "Montrer au groupe");
+define('OGP_LANG_all_groups', "Tous les groupes");
+define('OGP_LANG_show_addons_for_selected_group', "Montrer l&apos;addon pour le groupe sélectionné");
+define('OGP_LANG_group', "Groupe");
 ?>
