@@ -159,7 +159,8 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"wolfet"		=> "Wolfenstein: Enemy Territory",
 		"wolfrtcw"		=> "Wolfenstein: Return To Castle Wolfenstein",
 		"wolf2009"		=> "Wolfenstein ( 2009 By Raven )",
-		"xonotic"		=> "Xonotic"); 
+		"wreckfest"		=> "Wreckfest",
+		"xonotic"		=> "Xonotic");
 	}
 
 //------------------------------------------------------------------------------------------------------------+
@@ -314,6 +315,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"wolfet"		=> "02",
 		"wolfrtcw"		=> "02",
 		"wolf2009"		=> "10",
+		"wreckfest"		=> "05",
 		"xonotic"		=> "02");
 
 		return $lgsl_protocol_list;
@@ -461,6 +463,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"wolfet"		=> "qtracker://{IP}:{S_PORT}?game=WolfensteinEnemyTerritory&action=show",
 		"wolfrtcw"		=> "qtracker://{IP}:{S_PORT}?game=ReturntoCastleWolfenstein&action=show",
 		"wolf2009"		=> "http://en.wikipedia.org/wiki/Wolfenstein_(2009_video_game)",
+		"wreckfest"		=> "http://www.wreckfestgame.com/",
 		"xonotic"		=> "qtracker://{IP}:{S_PORT}?game=Xonotic&action=show");
 
 		// SOFTWARE PORT IS THE QUERY PORT UNLESS SET
@@ -549,6 +552,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "ut3"				: $c_to_q = -1277;	$c_def = 7777;	$q_def = 6500;	$c_to_s = 0;	break;
 			case "vietcong"			: $c_to_q = 10000;	$c_def = 5425;	$q_def = 15425;	$c_to_s = 0;	break;
 			case "vietcong2"		: $c_to_q = 0;		$c_def = 5001;	$q_def = 19967;	$c_to_s = 0;	break;
+			case "wreckfest"		: $c_to_q = -6524;	$c_def = 33540;	$q_def = 27016;	$c_to_s = 0;	break;
 			default					: $c_to_q = 0;		$c_def = 0;		$q_def = 0;		$c_to_s = 0;	break;
 		}
 

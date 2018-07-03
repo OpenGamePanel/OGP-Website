@@ -30,7 +30,7 @@ define('OGP_LANG_maintenance_message', "Maintenance Message");
 define('OGP_LANG_maintenance_message_info', "The message that is displayed to normal users during maintenance.");
 define('OGP_LANG_update_settings', "Update Settings");
 define('OGP_LANG_settings_updated', "Settings successfully updated.");
-define('OGP_LANG_panel_language', "Panel Language");
+define('OGP_LANG_panel_language', "Default Panel Language");
 define('OGP_LANG_panel_language_info', "This language is the default language of the panel. Users can change their own language from their profile editing page.");
 define('OGP_LANG_page_auto_refresh', "Page Auto Refresh");
 define('OGP_LANG_page_auto_refresh_info', "Page Auto Refresh settings is mainly used in panel debugging. In normal usage this should be set to On.");
