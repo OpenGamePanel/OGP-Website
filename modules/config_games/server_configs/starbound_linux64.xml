@@ -9,13 +9,9 @@
   <exe_location>linux</exe_location>
   <max_user_amount>128</max_user_amount>
   <mods>
-    <mod key="starbound1">
-      <name>Stable</name>
+    <mod key="default">
+      <name>None</name>
       <installer_name>533830</installer_name>
-    </mod>
-    <mod key="starbound2">
-      <name>Unstable</name>
-      <installer_name>532330</installer_name>
     </mod>
   </mods>
   <replace_texts>
@@ -40,6 +36,12 @@
     <text key="port">
       <default>"gameServerPort" : [\w\-\s]*</default>
       <var>"gameServerPort" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>"queryServerPort" : [\w\-\s]*</default>
+      <var>"queryServerPort" :</var>
       <filepath>storage/starbound_server.config</filepath>
       <options>s</options>
     </text>
@@ -87,6 +89,18 @@
       <desc>Port of RCON.</desc>
     </field>
   </custom_fields>
+  <post_install>
+    config="starbound_server.config"
+    if [ -s "storage/$config" ]
+      then
+        echo "File $config found. OK!"
+      else
+        echo "File $config not found."
+        echo "Downloading default config file in $config!"
+        mkdir -p storage
+        wget https://pastebin.com/raw/VR97tUn1 -O storage/$config
+    fi
+  </post_install>
   <configuration_files>
     <file description="Server Configurations">storage/starbound_server.config</file>
   </configuration_files>
