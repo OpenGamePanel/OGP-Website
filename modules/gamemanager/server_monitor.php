@@ -300,7 +300,7 @@ function exec_ogp_module() {
 			$query_groups .= " AND (";
 			foreach($groups as $group)
 				$query_groups .= "group_id=".$group['group_id']." OR ";
-			$query_groups .= "group_id=0)";
+			$query_groups .= "group_id=0 OR group_id IS NULL)";
 		}
 	}
 	

@@ -336,6 +336,7 @@ function exec_ogp_module() {
 	}
 	elseif ( isset($_GET['show_group']))
 	{
+		$group_id = $group_id == '0' ? $group_id." OR group_id IS NULL" : $group_id;
 		$result = $db->resultQuery("SELECT DISTINCT addon_id, name, game_name, url, path, group_id FROM OGP_DB_PREFIXaddons NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE group_id=".$group_id);
 	}
 	?>	
