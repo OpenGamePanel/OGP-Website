@@ -79,11 +79,62 @@ function exec_ogp_module()
 		print_failure(get_lang("failed_read"));
 		return;
 	}
-	echo "<form action='?m=litefm&amp;p=write_file' method='post'>";
-	echo "<input type='hidden' name='home_id' value='$home_id' />";
-	echo "<textarea name='file_content' style='width:98%;' rows='40'>$data</textarea>";
-	echo "<p><input type='submit' name='save_file' value='" . get_lang('save') . "' /></p>";
-	echo "</form>";
+	?>
+<style type="text/css" media="screen">
+    #editor { 
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+</style>
+<div style="position: relative; height:600px" >
+	<xmp id="editor"><?php echo $data;?></xmp>
+</div>
+<button onclick="saveToFile()"><?=get_lang('save')?></button>
+<script src="/modules/litefm/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="/modules/litefm/ace/ext-modelist.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/tomorrow");
+    (function () {
+        var modelist = ace.require("ace/ext/modelist");
+        var filePath = "<?=$_SESSION['fm_cwd_'.$home_id]?>";
+        var mode = modelist.getModeForPath(filePath).mode;
+        console.log(mode);
+        editor.session.setMode(mode);
+    }());
+	
+	function saveToFile()
+	{		
+		var form = document.createElement("form");
+		form.setAttribute("method", "POST");
+		form.setAttribute("action", "?m=litefm&p=write_file");
+		
+		var textArea = document.createElement("textarea");
+		textArea.setAttribute("name", "file_content");
+		textArea.setAttribute("style", "display:none;");
+		textArea.value = editor.getValue();
+		form.appendChild(textArea);
+		
+		var hiddenField = document.createElement("input");
+		hiddenField.setAttribute("type", "hidden");
+		hiddenField.setAttribute("name", "home_id");
+		hiddenField.setAttribute("value", "<?=$home_id?>");
+		form.appendChild(hiddenField);
+		
+		var submitButton = document.createElement("input");
+		submitButton.setAttribute("type", "hidden");
+		submitButton.setAttribute("name", "save_file");
+		submitButton.setAttribute("value", "save_file");
+		form.appendChild(submitButton);
+		
+		document.body.appendChild(form);
+		form.submit();
+	}
+</script>
+<?php
 	show_back($home_id);
 }
 ?>
