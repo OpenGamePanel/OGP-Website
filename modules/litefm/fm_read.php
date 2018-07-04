@@ -80,21 +80,13 @@ function exec_ogp_module()
 		return;
 	}
 	?>
-<style type="text/css" media="screen">
-    #editor { 
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-    }
-</style>
-<div style="position: relative; height:600px" >
+<div id="editor_wrapper" >
 	<xmp id="editor"><?php echo $data;?></xmp>
 </div>
 <button onclick="saveToFile()"><?=get_lang('save')?></button>
-<script src="/modules/litefm/ace/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="/modules/litefm/ace/ext-modelist.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="modules/litefm/fm_read.css">
+<script src="modules/litefm/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="modules/litefm/ace/ext-modelist.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/tomorrow");
