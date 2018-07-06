@@ -28,9 +28,9 @@ define('OGP_LANG_file_permission_check', "التحقق من صلاحيات ال�
 define('OGP_LANG_OK', "حسناً");
 define('OGP_LANG_write_permission_required', "صلاحية الكتابة مطلوبة");
 define('OGP_LANG_execute_permission_required', "صلاحية التنفيذ مطلوبة");
-define('OGP_LANG_create_an_empty_file', "أنشأ ملف فارغ");
-define('OGP_LANG_found', "وجد");
-define('OGP_LANG_not_found', "غير معثور عليه");
+define('OGP_LANG_create_an_empty_file', "أنشئ ملف فارغ");
+define('OGP_LANG_found', "تم العثور عليه");
+define('OGP_LANG_not_found', "لم يتم العثور عليه");
 define('OGP_LANG_pear_xxtea_info', "Pear Crypt_XXTEA مطلوبة لاستخدام أوبن قيم بانل. في معظم توزيعات لينكس يمكن تثبيت هذه الوحدة مع أمر Pear التالي 'pear install Crypt_XXTEA-beta'.");
 define('OGP_LANG_refresh', "تحديث");
 define('OGP_LANG_checking_required_modules', "فحص الوحدات المطلوبة");
@@ -42,15 +42,15 @@ define('OGP_LANG_database_username', "إسم مستخدم قاعدة البيا�
 define('OGP_LANG_database_password', "كلمة مرور قاعدة البيانات");
 define('OGP_LANG_database_name', "اسم قاعدة البيانات");
 define('OGP_LANG_database_prefix', "بادئة قاعدة البيانات");
-define('OGP_LANG_next', "التالى");
+define('OGP_LANG_next', "التالي");
 define('OGP_LANG_encryption_key', "مفتاح التشفير (Agent)");
 define('OGP_LANG_agent_port', "بورت (Agent)");
 define('OGP_LANG_unable_to_write_config', "تعذر الكتابة إلى ملف التهيئة. يرجى إعادة التحقق من إذن الكتابة.");
 define('OGP_LANG_admin_login_details', "تفاصيل تسجيل دخول الأدمن");
-define('OGP_LANG_config_written', "تم إنشاء ملفات الأعدادات بنجاح.");
+define('OGP_LANG_config_written', "تم إنشاء ملفات الإعدادات بنجاح.");
 define('OGP_LANG_database_created', "تم إنشاء جداول قاعدة البيانات بنجاح.");
-define('OGP_LANG_admin_login_details_info', "الان ، قم بإنشاء حساب الأدمن للوحة التحكم");
-define('OGP_LANG_username', "إسم المستخدم");
+define('OGP_LANG_admin_login_details_info', "الآن ، قم بإنشاء حساب الأدمن للوحة التحكم");
+define('OGP_LANG_username', "اسم المستخدم");
 define('OGP_LANG_repeat_password', "أعد كتابة كلمة السر");
 define('OGP_LANG_email', "عنوان البريد الإلكتروني");
 define('OGP_LANG_back', "تراجع");
@@ -60,10 +60,10 @@ define('OGP_LANG_invalid_username', "لقد أدخلت اسم مستخدم غي�
 define('OGP_LANG_password_too_short', "كلمة المرور قصيرة جدا ، يجب ألا يقل عدد الأحرف عن '%d' حروف.");
 define('OGP_LANG_password_contains_invalid_characters', "تحتوي كلمة المرور على أحرف غير صالحة.");
 define('OGP_LANG_invalid_email_address', "لقد أدخلت عنوان بريد إلكتروني غير صالح.");
-define('OGP_LANG_setup_complete', "اكتمل التثبيت بنجاح. لوحة التحكم OGP جاهزة الآن للاستخدام.");
-define('OGP_LANG_remove_install_and_secure_config', "يجب حذف install.php من الخادم الخاص بك و عمل شمود لمجلد includes/config.inc.php وذالك بالعودة إلى 644 لأغراض أمنية.");
+define('OGP_LANG_setup_complete', "اكتمل التثبيت بنجاح، لوحة التحكم جاهزة للإستخدام");
+define('OGP_LANG_remove_install_and_secure_config', "يجب حذف install.php من الخادم الخاص بك و تعديل صلاحيات لمجلد includes/config.inc.php وذلك بالعودة إلى 644 لأسباب تتعلق بالحماية.");
 define('OGP_LANG_go_to_panel', "انقر هنا للدخول إلى لوحة OGP الخاصة بك.");
 define('OGP_LANG_unable_to_resolve', "إذا لم تتمكن من حل هذه المشكلة، يرجى زيارة موقع OGP");
-define('OGP_LANG_slogan', "المصدر المفتوح واحد!");
+define('OGP_LANG_slogan', "The Open-Source one!");
 define('OGP_LANG_default_welcome_title_message', "مرحبا! <b style='font-size:12px; font-weight:normal;'>يمكنك تغير هذا العنوان من '<a href='?m=settings&p=themes'>إعدادات المظهر</a>' تحت '<a href='?m=administration&p=main'>الإدارة</a>' tab.</b>");
 ?>
