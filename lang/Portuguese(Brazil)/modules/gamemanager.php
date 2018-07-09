@@ -198,11 +198,11 @@ define('OGP_LANG_attempting_nonmaster_update', "Você está tentando atualizar e
 define('OGP_LANG_cannot_update_from_own_self', "A atualização do servidor local pode não ser executada em um Master Server");
 define('OGP_LANG_show_server_id', "Mostrar IDs do servidor");
 define('OGP_LANG_hide_server_id', "Ocultar IDs de servidor");
-define('OGP_LANG_edit_configuration_files', "Edit Configuration Files");
+define('OGP_LANG_edit_configuration_files', "Editar arquivos de Config");
 define('OGP_LANG_admin', "Admin");
 define('OGP_LANG_cid', "CID");
 define('OGP_LANG_phan', "Phantom");
-define('OGP_LANG_sec', "Seconds");
+define('OGP_LANG_sec', "Segundos");
 define('OGP_LANG_unknown_rsync_mirror', "Voce tentou iniciar um update de um mirror que nao existe.");
-define('OGP_LANG_custom_fields', "Custom Fields");
+define('OGP_LANG_custom_fields', "configuraçao adicional");
 ?>
