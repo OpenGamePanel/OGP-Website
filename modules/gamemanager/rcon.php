@@ -30,7 +30,17 @@ function send_command($command, $remote, $server_xml, $home_info, $home_id, $ip,
 	if( $server_xml->gameq_query_name and $server_xml->gameq_query_name == "minecraft" )
 	{
 		include_once("MinecraftRcon.class.php");
-		$rcon_port = $port+10;
+		$server_properties_file = clean_path($home_info['home_path']."/server.properties");
+		$retval = $remote->remote_readfile($server_properties_file, $data);
+		if($retval == 1 and strpos($data, 'rcon.port') !== FALSE)
+		{
+			$server_properties = parse_ini_string($data);
+			$rcon_port = $server_properties['rcon.port'];
+		}
+		else
+		{
+			$rcon_port = $port+10;
+		}
 		$rcon = new MinecraftRcon;
 		if( $rcon->Connect($ip, $rcon_port, $home_info['control_password']) )
 		{
