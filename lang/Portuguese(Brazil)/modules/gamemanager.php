@@ -203,6 +203,6 @@ define('OGP_LANG_admin', "Admin");
 define('OGP_LANG_cid', "CID");
 define('OGP_LANG_phan', "Phantom");
 define('OGP_LANG_sec', "Segundos");
-define('OGP_LANG_unknown_rsync_mirror', "Voce tentou iniciar um update de um mirror que nao existe.");
-define('OGP_LANG_custom_fields', "configuraçao adicional");
+define('OGP_LANG_unknown_rsync_mirror', "Você tentou iniciar um update de um mirror que não existe.");
+define('OGP_LANG_custom_fields', "configuração adicional");
 ?>
