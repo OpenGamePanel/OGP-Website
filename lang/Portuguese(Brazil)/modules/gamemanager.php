@@ -116,7 +116,7 @@ define('OGP_LANG_unable_get_info', "Falha ao obter as informações necessárias
 define('OGP_LANG_server_already_running', "O servidor já está em execução. Se você não o vê no Gerenciador de Servidores, pode haver algum tipo de problema e talvez você queira");
 define('OGP_LANG_already_running_stop_server', "Parar servidor.");
 define('OGP_LANG_error_server_already_running', "ERRO: Já existe um servidor rodando na porta");
-define('OGP_LANG_failed_start_server_code', "Falha ao iniciar servidor removo. Código de erro: %s");
+define('OGP_LANG_failed_start_server_code', "Falha ao iniciar servidor remoto. Código de erro: %s");
 define('OGP_LANG_disabled', "desabilitado");
 define('OGP_LANG_not_found_server', "Não foi possível encontrar o servidor com a ID");
 define('OGP_LANG_rcon_command_title', "Comando RCON");
@@ -133,7 +133,7 @@ define('OGP_LANG_addons', "Addons");
 define('OGP_LANG_hostname', "Nome de anfitrião");
 define('OGP_LANG_rsync_install', "[Instalar Rsync]");
 define('OGP_LANG_ping', "Ping");
-define('OGP_LANG_team', "Equipa");
+define('OGP_LANG_team', "Equipe");
 define('OGP_LANG_deaths', "Mortes");
 define('OGP_LANG_pid', "PID");
 define('OGP_LANG_skill', "Habilidade");
