@@ -50,7 +50,7 @@ define('OGP_LANG_map', "Mapa");
 define('OGP_LANG_starting_server', "Iniciando servidor, favor aguardar...");
 define('OGP_LANG_starting_server_settings', "Iniciando servidor com a seguinte configuração");
 define('OGP_LANG_startup_params', "Parâmetros de inicialização");
-define('OGP_LANG_startup_cpu', "Nuclios em que o servidor está rodando");
+define('OGP_LANG_startup_cpu', "Núcleos em que o servidor está rodando");
 define('OGP_LANG_startup_nice', "Prioridade do processo de inicialização");
 define('OGP_LANG_game_home', "Caminho raiz");
 define('OGP_LANG_server_started', "Servidor iniciado com sucesso.");
