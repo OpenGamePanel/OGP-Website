@@ -130,7 +130,7 @@ define('OGP_LANG_server_cant_stop', "servidor não pôde parar");
 define('OGP_LANG_error_occured_remote_host', "Ocorreu um erro no host remoto.");
 define('OGP_LANG_follow_server_status', "Você pode seguir o status do servidor de");
 define('OGP_LANG_addons', "Addons");
-define('OGP_LANG_hostname', "Nome de anfitrião");
+define('OGP_LANG_hostname', "Nome do Servidor");
 define('OGP_LANG_rsync_install', "[Instalar Rsync]");
 define('OGP_LANG_ping', "Ping");
 define('OGP_LANG_team', "Equipa");
