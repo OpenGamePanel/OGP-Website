@@ -4,8 +4,6 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: Exception.php 06/06/2016 22:27:13 scp@Svens-iMac $
- *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,9 +18,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.24
  * @author    Sven 'ScP' Paulsen
- * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
+ * @copyright Copyright (c) Planet TeamSpeak. All rights reserved.
  */
 
 /**
@@ -31,6 +28,20 @@
  */
 class TeamSpeak3_Exception extends Exception
 {
+  /**
+   * Stores the original error code.
+   *
+   * @var integer
+   */
+  protected $raw_code = 0x00;
+
+  /**
+   * Stores the original error message.
+   *
+   * @var string
+   */
+  protected $raw_mesg = null;
+
   /**
    * Stores custom error messages.
    *
@@ -48,6 +59,9 @@ class TeamSpeak3_Exception extends Exception
   public function __construct($mesg, $code = 0x00)
   {
     parent::__construct($mesg, $code);
+
+    $this->raw_code = $code;
+    $this->raw_mesg = $mesg;
 
     if(array_key_exists((int) $code, self::$messages))
     {
@@ -113,6 +127,26 @@ class TeamSpeak3_Exception extends Exception
     }
 
     unset(self::$messages[(int) $code]);
+  }
+
+  /**
+   * Returns the original error code.
+   *
+   * @return integer
+   */
+  public function getRawCode()
+  {
+    return $this->raw_code;
+  }
+
+  /**
+   * Returns the original error message.
+   *
+   * @return integer
+   */
+  public function getRawMessage()
+  {
+    return $this->raw_mesg;
   }
 
   /**

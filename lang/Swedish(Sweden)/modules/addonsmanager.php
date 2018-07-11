@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,45 +22,49 @@
  *
  */
 
-define('install_plugin', "Install Plugins");
-define('install_mappack', "Install Maps");
-define('install_config', "Install Configs");
-define('game_name', "Game Name");
-define('directory', "Directory Path");
-define('remote_server', "Remote server");
-define('select_addon', "Select Addon");
-define('install', "Install");
-define('failed_to_start_file_download', "Failed to start file download.");
-define('no_games_servers_available', "There are no game servers available in your account.");
-define('addon_installed_successfully', "Addon installed successfully");
-define('path', "Path");
-define('wait_while_decompressing', "Wait while the file %s is decompressed.");
-define('addon_name', "Addon Name");
-define('url', "URL");
-define('select_game_type', "Select Game Type");
-define('plugin', "Plugin");
-define('mappack', "MapPack");
-define('config', "Config");
-define('type', "Addon Type");
-define('game', "Game");
-define('show_all_addons', "Show All Addons");
-define('show_addons_for_selected_type', "Show Addons For Selected Type");
-define('show_addons_for_selected_game', "Show Addons For Selected Game");
-define('linux_games', "Linux Games:");
-define('windows_games', "Windows Games:");
-define('create_addon', "Create Addon");
-define('addons_db', "Addons DataBase");
-define('addon_has_been_created', "The addon %s has been created.");
-define('remove_addon', "Remove Addon");
-define('fill_the_url_address_to_a_compressed_file', "Please, fill an URL address for a compressed file.");
-define('fill_the_addon_name', "Please, fill a name for the addon package.");
-define('select_an_addon_type', "Please, select an addon type.");
-define('select_a_game_type', "Please, select a game type.");
-define('edit_addon', "Edit Addon");
-define('post-script', "Post-install script(bash)");
-define('replacements', "Replacements:");
-define('addon_name_info', "Enter a name for this addon, this is the name that the user sees.");
-define('url_info', "Enter a web address that contains a file to download, if compressed in zip or tar.gz will be unpacked in the root directory of the server or on the path given below.");
-define('path_info', "The path must be relative to the server folder and contain no slashes at the beginning or end, eg: cstrike/cfg. If left blank will use the server root path.");
-define('post-script_info', "Enter Bash language code, this will be executed as a script, you can use text replacements to customize the installation, they will be replaced by data from the server on which you install the addon. The script will start from the root folder of the server or the specified path.");
+define('OGP_LANG_install_plugin', "Installera plugins");
+define('OGP_LANG_install_mappack', "Installera kartor");
+define('OGP_LANG_install_config', "Installera konfigurationer");
+define('OGP_LANG_game_name', "Spelnamn");
+define('OGP_LANG_directory', "Katalogsökväg");
+define('OGP_LANG_remote_server', "Fjärrserver");
+define('OGP_LANG_select_addon', "Välj tillägg ");
+define('OGP_LANG_install', "Installera");
+define('OGP_LANG_failed_to_start_file_download', "Misslyckades med att starta filhämtning.");
+define('OGP_LANG_no_games_servers_available', "Det finns inga spelservrar tillgängliga på ditt konto.");
+define('OGP_LANG_addon_installed_successfully', "Tilläggsinstallation lyckades");
+define('OGP_LANG_path', "Sökväg");
+define('OGP_LANG_wait_while_decompressing', "Vänta medans filen %s komprimeras.");
+define('OGP_LANG_addon_name', "Tillägsnamn");
+define('OGP_LANG_url', "URL");
+define('OGP_LANG_select_game_type', "Välj speltyp");
+define('OGP_LANG_plugin', "Plugin");
+define('OGP_LANG_mappack', "Kartpaket");
+define('OGP_LANG_config', "Konfiguration");
+define('OGP_LANG_type', "Tilläggstyp ");
+define('OGP_LANG_game', "Spel");
+define('OGP_LANG_show_all_addons', "Visa alla tillägg");
+define('OGP_LANG_show_addons_for_selected_type', "Visa tillägg för vald typ");
+define('OGP_LANG_show_addons_for_selected_game', "Visa tillägg för valt spel");
+define('OGP_LANG_linux_games', "Linuxspel:");
+define('OGP_LANG_windows_games', "Windowsspel: ");
+define('OGP_LANG_create_addon', "Skapa tillägg");
+define('OGP_LANG_addons_db', "Tilläggsdatabas ");
+define('OGP_LANG_addon_has_been_created', "Tillägget %s har blivit skapat. ");
+define('OGP_LANG_remove_addon', "Ta bort tillägg");
+define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Fyll i en URL-adress för en komprimerad fil. ");
+define('OGP_LANG_fill_the_addon_name', "Fyll i ett namn för tilläggspaketet. ");
+define('OGP_LANG_select_an_addon_type', "Välj en tilläggstyp. ");
+define('OGP_LANG_select_a_game_type', "Välj en speltyp.");
+define('OGP_LANG_edit_addon', "Ändra tillägg");
+define('OGP_LANG_post-script', "Efter installationsskript(bash)");
+define('OGP_LANG_replacements', "Ersättare:");
+define('OGP_LANG_addon_name_info', "Fyll i ett namn för detta tillägg, detta är namnet som användaren ser. ");
+define('OGP_LANG_url_info', "Fyll i en webbadress som innehåller en nedladdningsbar fil, och om den är komprimerad i zip eller tar.gz kommer den att packas upp i rotkatalogen på servern, eller i sökvägen som anges nedan. ");
+define('OGP_LANG_path_info', "Sökvägen måste vara i förhållande till serverns mapp och får inte innehålla snedstreck i början eller slutet, t.ex.: cstrike/cfg. Om det lämnas tomt används serverns rotsökväg.");
+define('OGP_LANG_post-script_info', "Ange Bash språkkod, koden kommer att utföras som ett skript, du kan använda textbyte för att anpassa installationen, de kommer att ersättas med data från servern där du installerar tillägget. Skriptet startar från serverns rotmapp eller den angivna sökvägen.");
+define('OGP_LANG_show_to_group', "Show to group");
+define('OGP_LANG_all_groups', "All groups");
+define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
+define('OGP_LANG_group', "Group");
 ?>

@@ -1,0 +1,77 @@
+<game_config>
+  <game_key>citadelfwf_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>citadelfwf</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Citadel: Forged with Fire</game_name>
+  <server_exec_name>CitadelServer.exe</server_exec_name>
+  <cli_template>-nosteamclient -server</cli_template>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
+  </reserve_ports>
+  <console_log>Citadel/Saved/Logs/Citadel.log</console_log>
+  <max_user_amount>70</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>489650</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="port">
+      <default>Port=.*</default>
+      <var>Port=</var>
+      <filepath>Citadel/Saved/Config/WindowsServer/Engine.ini</filepath>
+    </text>
+    <text key="port">
+      <default>ConnectionPort=.*</default>
+      <var>ConnectionPort=</var>
+      <filepath>Citadel/Saved/Config/WindowsServer/Game.ini</filepath>
+    </text>
+    <text key="query_port">
+      <default>QueryPort=.*</default>
+      <var>QueryPort=</var>
+      <filepath>Citadel/Saved/Config/WindowsServer/Game.ini</filepath>
+    </text>
+    <text key="home_name">
+      <default>(ServerName=")([^",]*)</default>
+      <var>${1}%key%</var>
+      <filepath>Citadel/Saved/Config/WindowsServer/Game.ini</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="max_players">
+      <default>(PlayerLimit=)([^,]*)</default>
+      <var>${1}%key%</var>
+      <filepath>Citadel/Saved/Config/WindowsServer/Game.ini</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="control_password">
+      <default>Password=.*</default>
+      <var>Password=</var>
+      <filepath>Citadel/Saved/Config/WindowsServer/Game.ini</filepath>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-log" type="checkbox_key_value">
+      <desc>Used to verify that it successfully bound to the ports you defined (not recommended for long term use).</desc>
+    </param>
+  </server_params>
+  <post_install>
+    cfg1="Engine.ini"
+    cfg2="Game.ini"
+    if [ -f "Citadel/Saved/Config/WindowsServer" ]
+      then
+        echo "Config files already generated or fixed. OK!"
+      else
+        echo "Config files not found."
+        echo "Downloading config files in $cfg1 and $cfg2!"
+        mkdir -p Citadel/Saved/Config/WindowsServer
+        wget https://pastebin.com/raw/Rn9BHUUz -O Citadel/Saved/Config/WindowsServer/$cfg1
+        wget https://pastebin.com/raw/FzXyKpiA -O Citadel/Saved/Config/WindowsServer/$cfg2
+    fi
+  </post_install>
+  <configuration_files>
+    <file description="Server Configurations">Citadel/Saved/Config/WindowsServer/Game.ini</file>
+  </configuration_files>
+</game_config>

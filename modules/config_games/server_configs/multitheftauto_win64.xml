@@ -40,7 +40,11 @@
       <default_value>22005</default_value>
       <filepath>mods/deathmatch/mtaserver.conf</filepath>
       <options>tags</options>
+      <access>admin</access>
       <desc>Port of the http server (it could be same as server port).</desc>
     </field>
   </custom_fields>
+  <configuration_files>
+    <file description="Server Configurations">mods/deathmatch/mtaserver.conf</file>
+  </configuration_files>
 </game_config>

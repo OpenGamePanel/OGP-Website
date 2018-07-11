@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,7 +21,7 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-
+ 
 #functions go here
 
 //read_expire() converts a time stamp to a human readable form
@@ -230,7 +230,7 @@ function create_home_selector_address($module, $subpage, $server_homes, $extra_i
 					$home_id, SORT_DESC, $server_homes);
 	foreach ( $server_homes as $server_home )
 	{
-		$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip']);
+		$display_ip = checkDisplayPublicIP($server_home['display_public_ip'],$server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip']);
 
 		if(isset($_GET['home_id-mod_id-ip-port']) and 
 		   $get_home_id == $server_home['home_id'] and 
@@ -280,9 +280,11 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 		$panel_name = "Open Game Panel";
 	else
 		$panel_name = $panel_settings['panel_name'];
-		
-	include('PHPMailer/class.phpmailer.php');
-		
+	
+	// PHP Mailer
+	require_once("PHPMailer/class.phpmailer.php");
+	require_once("PHPMailer/class.smtp.php");
+	
 	// Create the mail object using the Mail::factory method
 	$mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 
@@ -356,7 +358,15 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 		$mail->CharSet = $view->charset;
 		$mail->Subject = $subject;
 		$mail->MsgHTML($message);
+		$mail->SMTPOptions = array(
+                    'ssl' => array(
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                        'allow_self_signed' => true
+                    )
+        );
 		$mail->Send();
+		
 	}
 	catch (phpmailerException $e) 
 	{
@@ -767,5 +777,69 @@ function startsWith($haystack, $needle) {
 function endsWith($haystack, $needle) {
 	// search forward starting from end minus needle length characters
 	return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
+}
+
+// Super ingenious function from https://stackoverflow.com/questions/5519630/php-preg-replace-x-occurence#answer-17047405
+function preg_replace_nth($pattern, $replacement, $subject, $nth=1) {
+    return preg_replace_callback($pattern,
+        function($found) use (&$pattern, &$replacement, &$nth) {
+                $nth--;
+                if ($nth==0) return preg_replace($pattern, $replacement, reset($found) );
+                return reset($found);
+        }, $subject,$nth);
+}
+
+// https://stackoverflow.com/questions/12559878/multidimensional-array-find-item-and-move-to-the-top
+function customShift($array, $keyToMoveOn, $valueToMoveOn){
+    foreach($array as $key => $val){
+        if($val[$keyToMoveOn] == $valueToMoveOn){
+            unset($array[$key]); 
+            array_unshift($array, $val); 
+            return $array;               
+        }
+    }
+    
+    return $array;
+}
+
+function getURLParam($param, $url){
+	if(stripos($url, $param) !== false){
+		
+		$param = substr($url, stripos($url, $param) + strlen($param));
+		if(stripos($param, "&")){
+			$param = substr($param, 0, stripos($param, "&"));
+		}
+	
+		return $param;
+	}
+	
+	return false;
+}
+
+function utf8ize($d, $htmlEntities = true) {
+    if (is_array($d)) {
+        foreach ($d as $k => $v) {
+            $d[$k] = utf8ize($v, $htmlEntities);
+        }
+    } else if (is_string ($d)) {
+		if($htmlEntities){
+			$d = htmlentities($d);
+		}
+        return utf8_encode($d);
+    }
+    return $d;
+}
+
+function preReqInstalled($prereq){
+	if (($prereq['type'] === "f" && function_exists($prereq['value'])) || ($prereq['type'] === "c" && class_exists($prereq['value'])) || ($prereq['type'] === "x" && extension_loaded($prereq['value']))){
+		return true;
+	}
+	return false;
+}
+
+if (!function_exists('boolval')) {
+	function boolval($val) {
+		return (bool) $val;
+	}
 }
 ?>

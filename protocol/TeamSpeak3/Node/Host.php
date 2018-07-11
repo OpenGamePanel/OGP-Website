@@ -4,8 +4,6 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: Host.php 06/06/2016 22:27:13 scp@Svens-iMac $
- *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,9 +18,8 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.24
  * @author    Sven 'ScP' Paulsen
- * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
+ * @copyright Copyright (c) Planet TeamSpeak. All rights reserved.
  */
 
 /**
@@ -308,40 +305,6 @@ class TeamSpeak3_Node_Host extends TeamSpeak3_Node_Abstract
   }
 
   /**
-   * Returns the first TeamSpeak3_Node_Server object matching the given TSDNS hostname. Like the
-   * TeamSpeak 3 Client, this method will start looking for a TSDNS server on the second-level
-   * domain including a fallback to the third-level domain of the specified $tsdns parameter.
-   *
-   * @param  string $tsdns
-   * @throws TeamSpeak3_Adapter_ServerQuery_Exception
-   * @return TeamSpeak3_Node_Server
-   */
-  public function serverGetByTSDNS($tsdns)
-  {
-    $parts = TeamSpeak3_Helper_Uri::getFQDNParts($tsdns);
-    $query = TeamSpeak3_Helper_String::factory(array_shift($parts));
-
-    while($part = array_shift($parts))
-    {
-      $query->prepend($part);
-
-      try
-      {
-        $port = TeamSpeak3::factory("tsdns://" . $query . "/?timeout=3")->resolve($tsdns)->section(":", 1);
-
-        return $this->serverGetByPort($port == "" ? 9987 : $port);
-      }
-      catch(TeamSpeak3_Transport_Exception $e)
-      {
-        /* skip "Connection timed out" and "Connection refused" */
-        if($e->getCode() != 10060 && $e->getCode() != 10061) throw $e;
-      }
-    }
-
-    throw new TeamSpeak3_Adapter_ServerQuery_Exception("invalid serverID", 0x400);
-  }
-
-  /**
    * Creates a new virtual server using given properties and returns an assoc
    * array containing the new ID and initial admin token.
    *
@@ -399,16 +362,17 @@ class TeamSpeak3_Node_Host extends TeamSpeak3_Node_Abstract
    * Stops the virtual server specified by ID.
    *
    * @param  integer $sid
+   * @param  string  $msg
    * @return void
    */
-  public function serverStop($sid)
+  public function serverStop($sid, $msg = null)
   {
     if($sid == $this->serverSelectedId())
     {
       $this->serverDeselect();
     }
 
-    $this->execute("serverstop", array("sid" => $sid));
+    $this->execute("serverstop", array("sid" => $sid, "reasonmsg" => $msg));
     $this->serverListReset();
 
     TeamSpeak3_Helper_Signal::getInstance()->emit("notifyServerstopped", $this, $sid);
@@ -417,13 +381,14 @@ class TeamSpeak3_Node_Host extends TeamSpeak3_Node_Abstract
   /**
    * Stops the entire TeamSpeak 3 Server instance by shutting down the process.
    *
+   * @param  string $msg
    * @return void
    */
-  public function serverStopProcess()
+  public function serverStopProcess($msg = null)
   {
     TeamSpeak3_Helper_Signal::getInstance()->emit("notifyServershutdown", $this);
 
-    $this->execute("serverprocessstop");
+    $this->execute("serverprocessstop", array("reasonmsg" => $msg));
   }
 
   /**
@@ -1199,4 +1164,3 @@ class TeamSpeak3_Node_Host extends TeamSpeak3_Node_Abstract
     return (string) $this->getAdapterHost();
   }
 }
-

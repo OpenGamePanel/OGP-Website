@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -26,6 +26,9 @@ if (empty($server_home["ip"]))
 	$server_home["ip"] = $ip;
 if (empty($server_home["port"]))
 	$server_home["port"] = $port;
+
+$server_home['ip_port'] = $server_home['ip'] . ':' . $server_home['port'];
+
 $server_home["true"] = "";
 $last_param = json_decode($db->getLastParam($server_home["home_id"]), True);		
 $server_home["max_players"] = isset($cli_param_data['PLAYERS']) ? $cli_param_data['PLAYERS'] : $last_param['players'];
@@ -71,6 +74,8 @@ if($replace_texts)
 				$replacements[$replace_id]['filepath'] = (string)$value;
 			if ($key == "options")
 				$replacements[$replace_id]['options'] = (string)$value;
+			if ($key == "occurrence")
+				$replacements[$replace_id]['occurrence'] = (string)$value;
 		}
 		$replace_id++;
 	}
@@ -99,6 +104,8 @@ if($fields)
 				$replacements[$replace_id]['filepath'] = (string)$value;
 			if ($key == "options")
 				$replacements[$replace_id]['options'] = (string)$value;
+			if ($key == "occurrence")
+				$replacements[$replace_id]['occurrence'] = (string)$value;
 		}
 		$replace_id++;
 	}
@@ -133,6 +140,7 @@ foreach($file_replacements as $filepath => $replacements)
 		$default = $replacement['default'];
 		$var = $replacement['var'];
 		$options = $replacement['options'];
+		$occurrence = !isset($replacement['occurrence']) || empty($replacement['occurrence']) || !is_numeric($replacement['occurrence']) || $replacement['occurrence'] < 1 ? false : $replacement['occurrence'];
 		
 		if( !in_array( $options, array("tags","tagValueByName","sc","sqc") ) )
 		{
@@ -174,27 +182,71 @@ foreach($file_replacements as $filepath => $replacements)
 		}
 		else
 		{
-			if ($options == "tags")
-				$file_content = preg_replace("/(<$default$var>)(.*)(<\/$default>)/m", '${1}'.$info_param.'${3}', $file_content, 1);
-			elseif ($options == "tagValueByName")
-				$file_content = preg_replace('/('.$default.'.*name="'.$var.'".*value=)(".*")/m', '${1}"' . str_replace('"', '\"', $info_param) . '"', $file_content, 1);
-			elseif($options == "s")//separated
-				$file_content = preg_replace("/$default/m", "$var $info_param", $file_content, 1);
-			elseif ($options == "q")//quoted
-				$file_content = preg_replace("/$default/m", "$var\"" . str_replace('"', '\"', $info_param) . "\"", $file_content, 1);
-			elseif ($options == "sq")//separated & quoted
-				$file_content = preg_replace("/$default/m", "$var \"" . str_replace('"','\"',$info_param) . "\"", $file_content, 1);
-			elseif ($options == "sc")//separated & ending with a comma (used in JC2MP Example)
-				$file_content = preg_replace("/$default/m", "$var $info_param,", $file_content, 1);
-			elseif ($options == "sqc")//separated & quoted & ending with a comma
-				$file_content = preg_replace("/$default/m", "$var \"" . str_replace('"', '\"', $info_param) . "\",", $file_content, 1);
+			if ($options == "tags"){
+				if($occurrence !== false){
+					$file_content = preg_replace_nth("/(<$default$var>)(.*)(<\/$default>)/m", '${1}'.$info_param.'${3}', $file_content, $occurrence);
+				}else{
+					$file_content = preg_replace("/(<$default$var>)(.*)(<\/$default>)/m", '${1}'.$info_param.'${3}', $file_content, 1);
+				}
+			}
+			elseif ($options == "tagValueByName"){
+				if($occurrence !== false){
+					$file_content = preg_replace_nth('/('.$default.'.*name="'.$var.'".*value=)(".*")/m', '${1}"' . str_replace('"', '\"', $info_param) . '"', $file_content, $occurrence);
+				}else{				
+					$file_content = preg_replace('/('.$default.'.*name="'.$var.'".*value=)(".*")/m', '${1}"' . str_replace('"', '\"', $info_param) . '"', $file_content, 1);
+				}
+			}
+			elseif($options == "s"){//separated
+				if($occurrence !== false){
+					$file_content = preg_replace_nth("/$default/m", "$var $info_param", $file_content, $occurrence);
+				}else{
+					$file_content = preg_replace("/$default/m", "$var $info_param", $file_content, 1);
+				}
+			}
+			elseif ($options == "q"){//quoted
+				if($occurrence !== false){
+					$file_content = preg_replace_nth("/$default/m", "$var\"" . str_replace('"', '\"', $info_param) . "\"", $file_content, $occurrence);
+				}else{
+					$file_content = preg_replace("/$default/m", "$var\"" . str_replace('"', '\"', $info_param) . "\"", $file_content, 1);
+				}
+			}
+			elseif ($options == "sq"){//separated & quoted
+				if($occurrence !== false){
+					$file_content = preg_replace_nth("/$default/m", "$var \"" . str_replace('"','\"',$info_param) . "\"", $file_content, $occurrence);
+				}else{
+					$file_content = preg_replace("/$default/m", "$var \"" . str_replace('"','\"',$info_param) . "\"", $file_content, 1);
+				}
+			}
+			elseif ($options == "sc"){//separated & ending with a comma (used in JC2MP Example)
+				if($occurrence !== false){
+					$file_content = preg_replace_nth("/$default/m", "$var $info_param,", $file_content, $occurrence);
+				}else{
+					$file_content = preg_replace("/$default/m", "$var $info_param,", $file_content, 1);
+				}
+			}
+			elseif ($options == "sqc"){//separated & quoted & ending with a comma
+				if($occurrence !== false){
+					$file_content = preg_replace_nth("/$default/m", "$var \"" . str_replace('"', '\"', $info_param) . "\",", $file_content, $occurrence);
+				}else{
+					$file_content = preg_replace("/$default/m", "$var \"" . str_replace('"', '\"', $info_param) . "\",", $file_content, 1);
+				}
+			}
 			elseif ($options == "key-regex")//replace %key% in <var> and use a regular expression
 			{
 				$var = str_replace("%key%", $info_param, $var);
-				$file_content = preg_replace("/$default/m", "$var", $file_content, 1);
+				if($occurrence !== false){
+					$file_content = preg_replace_nth("/$default/m", "$var", $file_content, $occurrence);
+				}else{
+					$file_content = preg_replace("/$default/m", "$var", $file_content, 1);
+				}
 			}
-			else
-				$file_content = preg_replace("/$default/m", "$var$info_param", $file_content, 1);
+			else{
+				if($occurrence !== false){
+					$file_content = preg_replace_nth("/$default/m", "$var$info_param", $file_content, $occurrence);
+				}else{
+					$file_content = preg_replace("/$default/m", "$var$info_param", $file_content, 1);
+				}
+			}
 		}
 	
 		if ( get_magic_quotes_gpc() )

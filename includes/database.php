@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -85,6 +85,8 @@ abstract class OGPDatabase {
     abstract public function getGroupList();
 
     abstract public function getUsersGroups($user_id);
+    
+    abstract public function getGameServersWithSamePath($remote_id, $home_path);
     
     abstract public function getUserGroupList($user_id);
 

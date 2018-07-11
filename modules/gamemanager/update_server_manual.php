@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -56,7 +56,7 @@ function exec_ogp_module() {
 
 	if ( $home_info === FALSE || preg_match("/u/",$home_info['access_rights']) != 1 )
 	{
-		print_failure( no_rights );
+		print_failure( get_lang("no_rights") );
 		echo create_back_button("gamemanager","gamemanager");
 		return;
 	}
@@ -67,7 +67,7 @@ function exec_ogp_module() {
 	$pid = isset($_REQUEST['pid']) ? $_REQUEST['pid'] : -1;
 	$filename = isset($_REQUEST['filename']) ? $_REQUEST['filename'] : "";
 
-	echo "<h2>". install_update_manual ." $home_info[home_name]</h2>";
+	echo "<h2>". get_lang("install_update_manual") ." $home_info[home_name]</h2>";
 
 	if ( !empty($state) )
 	{
@@ -82,7 +82,7 @@ function exec_ogp_module() {
 
 			if ( $pid < 0 )
 			{
-				print_failure( failed_to_start_file_download );
+				print_failure( get_lang("failed_to_start_file_download") );
 				return;
 			}
 		}
@@ -104,7 +104,7 @@ function exec_ogp_module() {
 		$totalmbytes = round($totalsize / 1024, 2);
 		$pct = $pct > 100 ? 100 : $pct;
 		echo '<div class="dragbox bloc rounded" style="background-color:#dce9f2;" >
-				<h4>'. update_in_progress ." ${mbytes}MB/${totalmbytes}MB</h4>
+				<h4>'. get_lang("update_in_progress") ." ${mbytes}MB/${totalmbytes}MB</h4>
 			  <div style='background-color:#dce9f2;' >
 			  ";
 		$bar = '';
@@ -121,7 +121,7 @@ function exec_ogp_module() {
 			// Lock the executable when done
 			$remote->secure_path("chattr+i", $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name);
 			
-			print_success( finished_manual_update );
+			print_success( get_lang("finished_manual_update") );
 		}
 		else
 		{
@@ -139,18 +139,18 @@ function exec_ogp_module() {
 			<input type='hidden' name='home_id' value='$home_id' />
 			<input type='hidden' name='mod_id' value='$mod_id' />
 			<input type='hidden' name='state' value='start' />
-			<tr><td align='right'>". game_name .":</td><td align='left'>$home_info[game_name]</td></tr>
-			<tr><td align='right'>". dest_dir .":</td><td align='left'>$home_info[home_path]</td></tr>
-			<tr><td align='right'>". remote_server .":</td>
+			<tr><td align='right'>". get_lang("game_name") .":</td><td align='left'>$home_info[game_name]</td></tr>
+			<tr><td align='right'>". get_lang("dest_dir") .":</td><td align='left'>$home_info[home_path]</td></tr>
+			<tr><td align='right'>". get_lang("remote_server") .":</td>
 			<td align='left'>$home_info[remote_server_name] ($home_info[agent_ip]:$home_info[agent_port])</td></tr>
-			<tr><td align='right'>". file_url .":</td>
+			<tr><td align='right'>". get_lang("file_url") .":</td>
 			<td align='left'><input type='text' id='url' name='url' value='' onChange='setFilename(this.value)' size='50' /></td></tr>
-			<tr><td colspan='2' class='info'>". file_url_info ."</td></tr>
-			<tr><td align='right'>". dest_filename .":</td>
+			<tr><td colspan='2' class='info'>". get_lang("file_url_info") ."</td></tr>
+			<tr><td align='right'>". get_lang("dest_filename") .":</td>
             <td align='left'><input type='text' id='filename' name='filename' value='' size='50'/></td></tr>
-            <tr><td colspan='2' class='info'>". dest_filename_info ."</td></tr>
+            <tr><td colspan='2' class='info'>". get_lang("dest_filename_info") ."</td></tr>
 			</table>
-			<p><input type='submit' name='update' value='". update_server ."' /></p>
+			<p><input type='submit' name='update' value='". get_lang("update_server") ."' /></p>
 			</form>";
 		?>
 		<script type="text/javascript">

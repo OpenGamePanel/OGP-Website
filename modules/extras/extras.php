@@ -3,7 +3,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -522,14 +522,14 @@ function exec_ogp_module()
 		return;
 	}
 	
-	echo "<h2>".extras."</h2>";
+	echo "<h2>".get_lang("extras")."</h2>";
 		
 	echo "<table style=\"width:100%;\">";
 
 	echo "<tr><td style=\"width:50%; vertical-align:top;\">";
 	# MODULES
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
-		 "<h4>".extra_modules."</h4>".
+		 "<h4>".get_lang("extra_modules")."</h4>".
 		 "<div class=\"dragbox-content\" >";
 
 	if (!empty($moduleErrors['modules'])) {
@@ -555,10 +555,10 @@ function exec_ogp_module()
 		$installed = array_key_exists($folder,$installed_modules_by_folder);
 		
 		$installed_str = $on_disk ? $installed ? "<a class='uninstall' style='color:blue;' data-module-folder='$folder' data-module-id='".
-												 $installed_modules_by_folder[$folder]."' href='#uninstall_$folder' >".uninstall."</a>" : 
-												 "<a class='install' style='color:blue;' data-module-folder='$folder' href='#install_$folder' >".install."</a> - ".
-												 "<a class='remove' style='color:red;' data-module-folder='$module[title]' data-remove-mode='modules' href='#remove_$folder' >".remove."</a>" : 
-												 "<b style='color:red;' >".not_installed."</b>";
+												 $installed_modules_by_folder[$folder]."' href='#uninstall_$folder' >".get_lang("uninstall")."</a>" : 
+												 "<a class='install' style='color:blue;' data-module-folder='$folder' href='#install_$folder' >".get_lang("install")."</a> - ".
+												 "<a class='remove' style='color:red;' data-module-folder='$module[title]' data-remove-mode='modules' href='#remove_$folder' >".get_lang("remove")."</a>" : 
+												 "<b style='color:red;' >".get_lang("not_installed")."</b>";
 		$uptodate = FALSE;
 		if($on_disk)
 		{
@@ -568,9 +568,9 @@ function exec_ogp_module()
 		}
 		$updated_str =	$on_disk ?
 							$uptodate ? 
-								$is_old ? " - <a class='search' style='color:brown;' href='?m=".$_GET['m']."&searchForUpdates=".$module['reponame']."' >".search_for_updates."</a>" : 
-								" - <b style='color:green;' >".uptodate."</b>" : 
-							" - <b style='color:orange;' >".update_available."</b> (".$module['date'].")" : 
+								$is_old ? " - <a class='search' style='color:brown;' href='?m=".$_GET['m']."&searchForUpdates=".$module['reponame']."' >".get_lang("search_for_updates")."</a>" : 
+								" - <b style='color:green;' >".get_lang("uptodate")."</b>" : 
+							" - <b style='color:orange;' >".get_lang("update_available")."</b> (".$module['date'].")" : 
 						"";
 		$disabled = $uptodate ? "disabled=disabled" : "";
 		echo '<input type="checkbox" name="module" value="'.$key."\" $disabled>";
@@ -581,7 +581,7 @@ function exec_ogp_module()
 	
 	# THEMES
 	echo "<div class=\"dragbox bloc rounded\" style=\"margin:1%;\">".
-		 "<h4>".extra_themes."</h4>".
+		 "<h4>".get_lang("extra_themes")."</h4>".
 		 "<div class=\"dragbox-content\" >";
 
 	if (!empty($moduleErrors['themes'])) {
@@ -596,9 +596,9 @@ function exec_ogp_module()
 		$install_nfo = DATA_PATH . str_replace(' ','_',$theme['title']) . ".nfo";
 		$on_disk = file_exists($install_nfo);
 		$is_old = $on_disk && (strtotime('+1 hour', filemtime($local_repo_file)) <= time());
-		$installed_str = $on_disk ? "<b style='color:green;' >".installed."</b> - ".
-									"<a class='remove' style='color:red;' data-module-folder='$theme[title]' data-remove-mode='themes' href='#remove_$folder' >".remove."</a>": 
-									"<b style='color:red;' >".not_installed."</b>";
+		$installed_str = $on_disk ? "<b style='color:green;' >".get_lang("installed")."</b> - ".
+									"<a class='remove' style='color:red;' data-module-folder='$theme[title]' data-remove-mode='themes' href='#remove_$folder' >".get_lang("remove")."</a>": 
+									"<b style='color:red;' >".get_lang("not_installed")."</b>";
 		$uptodate = FALSE;
 		if($on_disk)
 		{
@@ -610,9 +610,9 @@ function exec_ogp_module()
 		
 		$updated_str =	$on_disk ? 
 							$uptodate ? 
-								$is_old ? " - <a class='search' style='color:brown;' href='?m=".$_GET['m']."&searchForUpdates=".$theme['reponame']."' >".search_for_updates."</a>" : 
-								" - <b style='color:green;' >".uptodate."</b>" :
-							" - <b style='color:orange;' >".update_available."</b> (".$theme['date'].")" :
+								$is_old ? " - <a class='search' style='color:brown;' href='?m=".$_GET['m']."&searchForUpdates=".$theme['reponame']."' >".get_lang("search_for_updates")."</a>" : 
+								" - <b style='color:green;' >".get_lang("uptodate")."</b>" :
+							" - <b style='color:orange;' >".get_lang("update_available")."</b> (".$theme['date'].")" :
 						"";
 		$disabled = $uptodate ? "disabled=disabled" : "";
 		echo '<input type="checkbox" name="theme" value="'.$key."\" $disabled>";
@@ -620,14 +620,14 @@ function exec_ogp_module()
 	}
 	
 	echo "</div></div></td></tr>".
-		 "<tr><td colspan=2 ><span id=updateButton ><button name=update >".download_update."</button></span></td></tr></table><div id=resp ></div>";
+		 "<tr><td colspan=2 ><span id=updateButton ><button name=update >".get_lang("download_update")."</button></span></td></tr></table><div id=resp ></div>";
 	
 	echo "<div id='dialog".
-		 "' data-uninstalling_module_dataloss='".uninstalling_module_dataloss.
-		 "' data-are_you_sure='".are_you_sure.
-		 "' data-remove_files_for='".remove_files_for.
-		 "' data-confirm='".confirm.
-		 "' data-cancel='".cancel.
+		 "' data-uninstalling_module_dataloss='".get_lang("uninstalling_module_dataloss").
+		 "' data-are_you_sure='".get_lang("are_you_sure").
+		 "' data-remove_files_for='".get_lang("remove_files_for").
+		 "' data-confirm='".get_lang("confirm").
+		 "' data-cancel='".get_lang("cancel").
 		 "' ></div>";
 
 }

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,67 +22,67 @@
  *
  */
 
-define('dir_not_found', "Directory '%s' not found from the server.");
-define('filename', "Filename");
-define('filesize', "Filesize");
-define('bytes', "Bytes");
-define('owner', "Owner");
-define('group', "Group");
-define('empty_directory', "Directory is empty.");
-define('currently_viewing', "Currently viewing directory '%s'");
-define('wrote_changes', "Changes saved successfully.");
-define('failed_write', "Failed to write file to remote server.");
-define('failed_read', "Failed to read file from the remote server.");
-define('failed_list', "Failed to retrieve directory list.");
-define('level_up', "^Up one Level^");
-define('unallowed_char', "Unallowed characters found from the path.");
-define('button_edit', "[Edit]");
-define('save', "Save");
-define('home_id_missing', "Home ID is missing.");
-define('upload', "Upload");
-define('upload_failed', "Upload failed, the error was: %s.");
-define('can_not_create_upload_folder_path', "Can not create upload folder path %s");
-define('url_is_not_accesible_from_agent', "URL %s is not accessible from the Agent");
-define('upload_file', "Upload file");
-define('uncompress', "Uncompress");
-define('create_folder', "Create folder");
-define('create', "Create");
-define('delete_item', "Delete %s?");
-define('upload_in_progress', "Upload in progress...");
-define('upload_complete', "Upload complete.");
-define('chattr_yes', "Lock File");
-define('chattr_no', "Unlock File");
-define('secure_item', "Secure/Unsecure %s?");
-define('filesecure', "File Security");
-define('chattr_locked', "File Locked");
-define('chattr_unlocked', "File Unlocked");
-define('rename', "Rename");
-define('move', "Move");
-define('copy', "Copy");
-define('compress', "Compress");
-define('create_file', "Create File");
-define('select_at_least_one_item', "Select at least one item");
-define('rename_item', "Rename item(s)");
-define('move_item', "Move item(s)");
-define('copy_item', "Copy item(s)");
-define('compress_item', "Compress item(s)");
-define('uncompress_item', "Uncompress item(s)");
-define('archive_name', "Archive name");
-define('archive_type', "Archive type");
-define('file_name', "File name");
-define('folder_name', "folder name");
-define('compresses_files_separately', "compresses files separately");
-define('to', "to");
-define('upload_to_web', "Upload to web");
-define('transfer_to_server', "Transfer to server");
-define('mail_sent_successfully', "Email sent successfully");
-define('send_item_by_email', "Send item(s) by email");
-define('subject', "Subject");
-define('message', "Message");
-define('dest_email', "Destination email");
-define('remove', "Remove");
-define('send_by_email', "Send by email");
-define('send_by_email_info', "For mailing files the packet 'mutt' must be installed in the agent side.");
-define('settings_updated', "Settings updated");
-define('update_settings', "Update settings");
+define('OGP_LANG_dir_not_found', "لم يتم العثور على الدليل '%s' من الخادم.");
+define('OGP_LANG_filename', "اسم الملف");
+define('OGP_LANG_filesize', "حجم الملف");
+define('OGP_LANG_bytes', "بايت");
+define('OGP_LANG_owner', "الصاحب");
+define('OGP_LANG_group', "مجموعة");
+define('OGP_LANG_empty_directory', "الدليل فارغ.");
+define('OGP_LANG_currently_viewing', "يعرض حاليا الدليل '%s'");
+define('OGP_LANG_wrote_changes', "التغييرات تم حفظها بنجاح.");
+define('OGP_LANG_failed_write', "أخفق كتابة الملف إلى الخادم البعيد.");
+define('OGP_LANG_failed_read', "أخفق قراءة الملف من الخادم البعيد.");
+define('OGP_LANG_failed_list', "أخفق استرداد قائمة الدليل.");
+define('OGP_LANG_level_up', "^الرجوع للخلف^");
+define('OGP_LANG_unallowed_char', "تم العثور على أحرف غير مسموح بها من المسار.");
+define('OGP_LANG_button_edit', "[تعديل]");
+define('OGP_LANG_save', "حفظ");
+define('OGP_LANG_home_id_missing', "أي دي الصفحة مفقود.");
+define('OGP_LANG_upload', "رفع");
+define('OGP_LANG_upload_failed', "أخفق التحميل، الخطأ هو:%s.");
+define('OGP_LANG_can_not_create_upload_folder_path', "لا يمكن إنشاء مجلد رفع مسار %s");
+define('OGP_LANG_url_is_not_accesible_from_agent', " رابط %s لا يمكن الوصول إليه من الوكيل");
+define('OGP_LANG_upload_file', "رفع ملف");
+define('OGP_LANG_uncompress', "فك الضغط");
+define('OGP_LANG_create_folder', "أنشئ مجلد");
+define('OGP_LANG_create', "أنشئ");
+define('OGP_LANG_delete_item', "هل تريد حذف %s؟");
+define('OGP_LANG_upload_in_progress', "جار الرفع ...");
+define('OGP_LANG_upload_complete', "اكتمل الرفع.");
+define('OGP_LANG_chattr_yes', "قفل الملف");
+define('OGP_LANG_chattr_no', "فتح الملف");
+define('OGP_LANG_secure_item', "آمن / غير آمن %s؟");
+define('OGP_LANG_filesecure', "أمن الملفات");
+define('OGP_LANG_chattr_locked', "ملف مقفل");
+define('OGP_LANG_chattr_unlocked', "تم إلغاء قفل الملف");
+define('OGP_LANG_rename', "إعادة التسمية");
+define('OGP_LANG_move', "نقل");
+define('OGP_LANG_copy', "نسخ");
+define('OGP_LANG_compress', "ضغط");
+define('OGP_LANG_create_file', "إنشاء ملف");
+define('OGP_LANG_select_at_least_one_item', "حدد عنصرا واحدا على الأقل");
+define('OGP_LANG_rename_item', "إعادة تسمية العنصر (العناصر)");
+define('OGP_LANG_move_item', "نقل العنصر (العناصر)");
+define('OGP_LANG_copy_item', "نسخ العنصر (العناصر)");
+define('OGP_LANG_compress_item', "ضغط العنصر (العناصر)");
+define('OGP_LANG_uncompress_item', "فك ضغط العنصر (العناصر)");
+define('OGP_LANG_archive_name', "اسم الأرشيف");
+define('OGP_LANG_archive_type', "نوع الأرشيف");
+define('OGP_LANG_file_name', "اسم الملف");
+define('OGP_LANG_folder_name', "اسم المجلد");
+define('OGP_LANG_compresses_files_separately', "يضغط الملفات بشكل منفصل");
+define('OGP_LANG_to', "إلى");
+define('OGP_LANG_upload_to_web', "الرفع إلى الويب");
+define('OGP_LANG_transfer_to_server', "النقل إلى الخادم");
+define('OGP_LANG_mail_sent_successfully', "تم إرسال البريد الإلكتروني بنجاح");
+define('OGP_LANG_send_item_by_email', "إرسال العنصر (العناصر) عن طريق البريد الإلكتروني");
+define('OGP_LANG_subject', "الموضوع");
+define('OGP_LANG_message', "الرسالة");
+define('OGP_LANG_dest_email', "البريد الإلكتروني المقصود");
+define('OGP_LANG_remove', "حذف");
+define('OGP_LANG_send_by_email', "الارسل بالبريد الإلكترونى");
+define('OGP_LANG_send_by_email_info', "لإرسال الملفات يجب تثبيت الحزمة 'mutt' على جميع الوكيلات المتوفرة.");
+define('OGP_LANG_settings_updated', "تم تحديث الإعدادات");
+define('OGP_LANG_update_settings', "تحديث الإعدادات");
 ?>

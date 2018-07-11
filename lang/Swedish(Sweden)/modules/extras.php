@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,21 +23,21 @@
  */
 
 include 'update.php';
-define('unable_download', "Unable to download %s.");
-define('md5_failed', "MD5 test failed for %s, try again.");
-define('uninstall', "Uninstall");
-define('install', "Install");
-define('uptodate', "Up-to-date");
-define('update_available', "Update available");
-define('not_installed', "Not installed");
-define('installed', "Installed");
-define('download_update', "Download/Update");
-define('are_you_sure', "Are you sure");
-define('uninstalling_module_dataloss', "By uninstalling a module you will lose all data related to it.");
-define('remove_files_for', "Would you like to remove all files for");
-define('confirm', "Confirm");
-define('cancel', "Cancel");
-define('extra_themes', "Extra themes");
-define('extra_modules', "Extra modules");
-define('search_for_updates', "Check for updates");
+define('OGP_LANG_unable_download', "Misslyckades med filhämtning %s.");
+define('OGP_LANG_md5_failed', "MD5 test misslyckades för %s, försök igen. ");
+define('OGP_LANG_uninstall', "Avinstallera");
+define('OGP_LANG_install', "Installera");
+define('OGP_LANG_uptodate', "Aktuell");
+define('OGP_LANG_update_available', "Uppdatering tillgänglig");
+define('OGP_LANG_not_installed', "Inte installerad");
+define('OGP_LANG_installed', "Installerad");
+define('OGP_LANG_download_update', "Ladda ner/Uppdatera");
+define('OGP_LANG_are_you_sure', "Är du säker");
+define('OGP_LANG_uninstalling_module_dataloss', "Genom att avinstallera en modul kommer du tappa all data som är relaterad till den.");
+define('OGP_LANG_remove_files_for', "Vill du ta bort alla filer för");
+define('OGP_LANG_confirm', "Bekräfta");
+define('OGP_LANG_cancel', "Avbryt");
+define('OGP_LANG_extra_themes', "Extra teman");
+define('OGP_LANG_extra_modules', "Extra moduler");
+define('OGP_LANG_search_for_updates', "Sök efter uppdateringar");
 ?>

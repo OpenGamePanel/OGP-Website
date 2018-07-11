@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,21 +23,21 @@
  */
 
 include 'update.php';
-define('unable_download', "Невозможно загрузить %s.");
-define('md5_failed', "Тест MD5 не удалось по %s, попробуйте еще раз.");
-define('uninstall', "Отключить");
-define('install', "Установить");
-define('uptodate', "Актуальное");
-define('update_available', "Доступно Обновление");
-define('not_installed', "Не установлен");
-define('installed', "Установлен");
-define('download_update', "Скачать и Обновить");
-define('are_you_sure', "Вы уверены");
-define('uninstalling_module_dataloss', "Отключение модуля включает в себя потерю всех данных, связанных.");
-define('remove_files_for', "Хотите удалить все файлы для");
-define('confirm', "Подтвердите");
-define('cancel', "Отменить");
-define('extra_themes', "Дополнительные темы");
-define('extra_modules', "Дополнительные модули");
-define('search_for_updates', "Проверить наличие обновления");
+define('OGP_LANG_unable_download', "Невозможно загрузить %s.");
+define('OGP_LANG_md5_failed', "Тест MD5 не удалось по %s, попробуйте еще раз.");
+define('OGP_LANG_uninstall', "Отключить");
+define('OGP_LANG_install', "Установить");
+define('OGP_LANG_uptodate', "Актуальное");
+define('OGP_LANG_update_available', "Доступно Обновление");
+define('OGP_LANG_not_installed', "Не установлен");
+define('OGP_LANG_installed', "Установлен");
+define('OGP_LANG_download_update', "Скачать и Обновить");
+define('OGP_LANG_are_you_sure', "Вы уверены");
+define('OGP_LANG_uninstalling_module_dataloss', "Отключение модуля включает в себя потерю всех данных, связанных.");
+define('OGP_LANG_remove_files_for', "Хотите удалить все файлы для");
+define('OGP_LANG_confirm', "Подтвердите");
+define('OGP_LANG_cancel', "Отменить");
+define('OGP_LANG_extra_themes', "Дополнительные темы");
+define('OGP_LANG_extra_modules', "Дополнительные модули");
+define('OGP_LANG_search_for_updates', "Проверить наличие обновления");
 ?>

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -219,7 +219,7 @@ function install() {
         }
 		
         echo "</table>";
-        echo "<h3>".get_lang('php_version_check')."</h3>\n";
+        echo "<h3>".get_lang('php_version_check').":</h3>\n";
         echo "<table class='install'>";
         echo "<tr><td>PHP Version >= ".REQUIRED_PHP_VERSION."</td><td>";
         if ( version_compare(PHP_VERSION, REQUIRED_PHP_VERSION, ">=") )
@@ -239,20 +239,22 @@ function install() {
             array( "name" => "PHP Curl module", "type" => "f", "value" => "curl_init" ),
             array( "name" => "PHP XML Reader", "type" => "c", "value" => "XMLReader" ),
 			array( "name" => "PHP JSON Extension", "type" => "f", "value" => "json_decode" ),
+			array( "name" => "PHP Zip Extension", "type" => "c", "value" => "ZipArchive" ),
 			array( "name" => "PHP mbstring Extension", "type" => "x", "value" => "mbstring" ));
-        echo "<h3>".get_lang('checking_required_modules')."</h3>\n<table class='install'>";
+			
+		$optional_properties_to_check = array(
+			array( "name" => "PHP BCMath Extension", "type" => "f", "value" => "bcadd" ),
+		);
+		
+        echo "<h3>".get_lang('checking_required_modules').":</h3>\n<table class='install'>";
 
         foreach ( $properties_to_check as $propertie ) {
-            if ( ( $propertie['type'] === "f" && function_exists($propertie['value']) ) ||
-                ( $propertie['type'] === "c" && class_exists($propertie['value']) ) ||
-				( $propertie['type'] === "x" && extension_loaded($propertie['value']) ) ) {
-                    echo "<tr><td>".$propertie['name']."</td>
-                        <td><span class='success'>".get_lang('found')."</span></td></tr>";
-                } else {
-                    echo "<tr><td>".$propertie['name']."</td>
-                        <td><span class='failure'>".get_lang('not_found')."</span></td></tr>";
-                    $failed = true;
-                }
+			if(preReqInstalled($propertie)){
+				echo "<tr><td>".$propertie['name']."</td><td><span class='success'>".get_lang('found')."</span></td></tr>";
+			}else{
+				echo "<tr><td>".$propertie['name']."</td><td><span class='failure'>".get_lang('not_found')."</span></td></tr>";
+				$failed = true;
+			}
         }
 
         echo "<tr><td>Pear XXTEA</td><td>";
@@ -325,6 +327,18 @@ function install() {
         echo "</td></tr>";
 
         echo "</table>\n";
+        
+        echo "<h3>".get_lang('checking_optional_modules').":</h3>\n<table class='install'>";
+        
+        foreach ( $optional_properties_to_check as $propertie ) {
+			if(preReqInstalled($propertie)){
+				echo "<tr><td>".$propertie['name']."</td><td><span class='success'>".get_lang('found')."</span></td></tr>";
+			}else{
+				echo "<tr><td>".$propertie['name']."</td><td><span class='warning'>".get_lang('not_found')."</span></td></tr>";
+			}
+        }
+		
+		echo "</table>\n";
 
         if ( $failed ) {
             echo "<p><a href='?'>".get_lang('refresh')."</a></p>\n";
@@ -345,7 +359,8 @@ function install() {
             <tr><td>".get_lang('database_type').":</td><td>MySQL</td></tr>
             <tr><td>".get_lang('database_hostname').":</td>
             <td><input type='text' value='";
-        echo isset( $db_host ) ? $db_host : "localhost";
+        $OS = strtoupper(substr(PHP_OS, 0, 3));
+        echo isset( $db_host ) ? $db_host : (($OS === 'WIN' || $OS === 'CYG') ? "127.0.0.1" : "localhost");
         echo "' name='db_host' class='textbox' /></td></tr>
             <tr><td>".get_lang('database_username').":</td>
             <td><input type='text' value='";

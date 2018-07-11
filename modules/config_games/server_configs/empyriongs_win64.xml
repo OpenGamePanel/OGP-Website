@@ -1,0 +1,117 @@
+<game_config>
+  <game_key>empyriongs_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>empyriongs</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Empyrion – Galactic Survival (WIP)</game_name>
+  <server_exec_name>EmpyrionLauncher.exe</server_exec_name>
+  <cli_template>-startDedi -dedicated dedicated.yaml</cli_template>
+  <console_log>Logs/Dedicated.log</console_log>
+  <max_user_amount>128</max_user_amount>
+  <mods>
+    <mod key="empyriongs1">
+      <name>Stable</name>
+      <installer_name>530870</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+    <mod key="empyriongs2">
+      <name>Unstable Test Branch</name>
+      <installer_name>530870</installer_name>
+      <installer_login>anonymous</installer_login>
+      <betaname>experimental</betaname>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>Srv_Name:.*</default>
+      <var>Srv_Name:</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>Srv_Port:.*</default>
+      <var>Srv_Port:</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>(.*)(Srv_MaxPlayers:\s+)(.*)</default>
+      <var>    ${2}%key%</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="control_password">
+      <default>(.*)(Tel_Pwd:\s+)(.*)</default>
+      <var>    ${2}%key%</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Enable Telnet" type="select">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <default>(.*)(Tel_Enabled:\s+)(.*)</default>
+      <default_value>True</default_value>
+      <var>    ${2}%key%</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+      <desc>Activate Telnet server.</desc>
+    </field>
+    <field key="Telnet Port" type="text">
+      <default>(.*)(Tel_Port:\s+)(.*)</default>
+      <default_value>30004</default_value>
+      <var>    ${2}%key%</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+      <access>admin</access>
+      <desc>Port of Telnet.</desc>
+    </field>
+    <field key="Activate EAC" type="select">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <default>(.*)(EACActive:\s+)(.*)</default>
+      <default_value>False</default_value>
+      <var>    ${2}%key%</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+      <desc>Activate Easy Anti Cheat.</desc>
+    </field>
+    <field key="Reserve Playfields" type="text">
+      <default>(.*)(Srv_ReservePlayfields:\s+)(.*)</default>
+      <default_value>1</default_value>
+      <var>    ${2}%key%  ${4}${5}</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+      <desc>Idle playfield servers held in reserve. For busy public servers, we recommend at least 2.</desc>
+    </field>
+    <field key="Stop Period" type="text">
+      <default>(.*)(Srv_StopPeriod:\s+)(.*)</default>
+      <default_value>48</default_value>
+      <var>    ${2}%key%</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+      <desc>All playfield servers will be automatically stopped every (n) real time hours. Players will get some warning messages before.</desc>
+    </field>
+    <field key="Game Name" type="text">
+      <default>(.*)(GameName:\s+)(.*)(#\s+)(.*)</default>
+      <default_value>NewGame_0</default_value>
+      <var>    ${2}%key%                      ${4}${5}</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+      <desc>Determines name of the save game.</desc>
+    </field>
+    <field key="Seed" type="text">
+      <default>(.*)(Seed:\s+)(.*)(#\s+)(.*)</default>
+      <default_value>0</default_value>
+      <var>    ${2}%key%                            ${4}${5}</var>
+      <filepath>dedicated.yaml</filepath>
+      <options>key-regex</options>
+      <desc>The seed determines how the world is procedurally generated - the same seed means the same world. Can be any 7 digit or below number, but negative numbers and 0 (zero) cannot be used.</desc>
+    </field>
+  </custom_fields>
+  <configuration_files>
+    <file description="Server Configurations">dedicated.yaml</file>
+    <file description="Admin Configurations">Saves/adminconfig.example.yaml</file>
+  </configuration_files>
+</game_config>

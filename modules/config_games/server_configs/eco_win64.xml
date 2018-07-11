@@ -1,0 +1,114 @@
+<game_config>
+  <game_key>eco_win64</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>eco</gameq_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Eco</game_name>
+  <server_exec_name>EcoServer.exe</server_exec_name>
+  <query_port type="add">1</query_port>
+  <max_user_amount>100</max_user_amount>
+  <mods>
+   <mod key="default">
+   <name>None</name>
+   <installer_name>739590</installer_name>
+   <installer_login>anonymous</installer_login>
+   </mod>
+  </mods>
+  <replace_texts>
+    <text key="port">
+      <default>GameServerPort":\s\d*</default>
+      <var>GameServerPort":</var>
+      <filepath>Configs/Network.eco</filepath>
+	  <options>s</options>
+    </text>
+	<text key="query_port">
+      <default>WebServerPort":\s\d*</default>
+      <var>WebServerPort":</var>
+      <filepath>Configs/Network.eco</filepath>
+	  <options>s</options>
+    </text>
+	<text key="home_name">
+      <default>Description":\s"[^",]*</default>
+      <var>Description": "</var>
+      <filepath>Configs/Network.eco</filepath>
+      <options>ns</options>
+    </text>
+	<text key="max_players">
+      <default>MaxConnections":\s[^\n}]*</default>
+      <var>MaxConnections":</var>
+      <filepath>Configs/Network.eco</filepath>
+      <options>s</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="PublicServer" type="select">
+	  <option value="true">Yes</option>
+	  <option value="false">No</option>
+	  <default>PublicServer":\s[^,]*</default>
+	  <default_value>true</default_value>
+      <var>PublicServer":</var>
+	  <filepath>Configs/Network.eco</filepath>
+	  <options>s</options>
+	  <desc>Make server viewable by the public via game lobby</desc>
+	</field>
+	<field key="Password" type="text">
+	  <default>Password":\s[^,]*</default>
+	  <default_value></default_value>
+	  <var>Password":</var>
+	  <filepath>Configs/Network.eco</filepath>
+	  <options>sq</options>
+	  <desc>Password for your server (leave blank if you do not want one)</desc>
+	</field>
+	<field key="CreateMeteor" type="select">
+	  <option value="true">Yes</option>
+	  <option value="false">No</option>
+	  <default>CreateMeteor":\s[^,]*</default>
+	  <default_value>true</default_value>
+      <var>CreateMeteor":</var>
+	  <filepath>Configs/Disasters.eco</filepath>
+	  <options>s</options>
+	  <desc>Enable or disable meteor disaster</desc>
+	</field>
+	<field key="MeteorImpactDays" type="text">
+	  <default>MeteorImpactDays":\s\d*</default>
+	  <default_value>30</default_value>
+	  <var>MeteorImpactDays":</var>
+	  <filepath>Configs/Disasters.eco</filepath>
+	  <options>s</options>
+	  <desc>How long until meteor impact (days)</desc>
+	</field>
+	<field key="x" type="select">
+	<option value="72">72</option>
+	<option value="100">100</option>
+	<option value="140">140</option>
+	<option value="172">172</option>
+	<option value="200">200</option>
+	<default>x":\s[^,]*</default>
+	<default_value>72</default_value>
+	<var>x":</var>
+	<filepath>Configs/WorldGenerator.eco</filepath>
+	<options>s</options>
+	<desc>World Size (Must be divisible by 4 and equal to y)</desc>
+	</field>
+	<field key="y" type="select">
+	<option value="72">72</option>
+	<option value="100">100</option>
+	<option value="140">140</option>
+	<option value="172">172</option>
+	<option value="200">200</option>
+	<default>y":\s[^},]*</default>
+	<default_value>72</default_value>
+	<var>y":</var>
+	<filepath>Configs/WorldGenerator.eco</filepath>
+	<options>s</options>
+	<desc>World Size (Must be divisible by 4 and equal to x)</desc>
+	</field>
+  </custom_fields>
+  <configuration_files>
+   <file description="Disasters Configuration">Configs/Disasters.eco</file>
+   <file description="WorldGenerator Configurations">Configs/WorldGenerator.eco</file>
+   <file description="Difficulty Configuration">Configs/Difficulty.eco</file>
+   <file description="Profanity Configuration">Configs/Profanity.eco</file>
+   <file description="Simulation Configuration">Configs/EcoSim.eco</file>
+  </configuration_files>
+</game_config>

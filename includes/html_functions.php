@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,9 +22,9 @@
  *
  */
 
-function print_failure($text)
+function print_failure($text, $class="failure")
 {
-    echo '<p class="failure">'.$text.'</p>';
+    echo '<p class="' . $class . '">'.$text.'</p>';
 }
 
 function print_success($text)

@@ -48,6 +48,7 @@
     <param key="+server.tickrate" type="text" id="TICKRATE">
       <default>30</default>
       <options>s</options>
+      <access>admin</access>
       <desc>Defines the server tickrate (going higher than 30 is not recommended).</desc>
     </param>
     <param key="+server.level" type="select" id="MAP">
@@ -81,6 +82,6 @@
     </param>
   </server_params>
   <environment_variables>
-    export LD_LIBRARY_PATH="{OGP_HOME_DIR}/RustDedicated_Data/Plugins/x86_64"
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:{OGP_HOME_DIR}/RustDedicated_Data/Plugins/x86_64"
   </environment_variables>
 </game_config>

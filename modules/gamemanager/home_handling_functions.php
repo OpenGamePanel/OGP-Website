@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -29,9 +29,16 @@ function get_query_port($server_xml, $server_port)
 	return $server_port;
 }
 
-function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os)
+function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$db)
 {	
 	$last_param = json_decode($home_info['last_param'], True);
+	
+	$os = $remote->what_os();
+	
+	$isAdmin = false;
+	if(hasValue($_SESSION) && hasValue($_SESSION['user_id'])){
+		$isAdmin = $db->isAdmin($_SESSION['user_id']);
+	}
 	
 	$cli_param_data['GAME_TYPE'] = $home_info['mods'][$mod_id]['mod_key'];
 	$cli_param_data['IP'] = $ip;
@@ -137,11 +144,14 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os)
 		}
 	}
 
-	// No need to check the access_rights for params and extra params
-	// because, even if the user have no access rights, last_param could be
-	// set by admin or just empty ($last_param === NULL).
-
-	if ( $last_param !== NULL and isset($server_xml->server_params->param) )
+	if ( $isAdmin )
+	{
+		$home_info['access_rights'] = "ufpet";
+	}
+						
+	$param_access_enabled = preg_match("/p/",$home_info['access_rights']) > 0 ? TRUE : FALSE; 
+	
+	if ($param_access_enabled && $last_param !== NULL and isset($server_xml->server_params->param) )
 	{
 		foreach($server_xml->server_params->param as $param)
 		{						
@@ -178,10 +188,14 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os)
 		} 
 	}
 	
-	$extra = ($last_param !== NULL and array_key_exists('extra', $last_param) and $last_param['extra'] != "") ? 
-			  $last_param['extra'] : $home_info['mods'][$mod_id]['extra_params'];
+	$extra_param_access_enabled = preg_match("/e/",$home_info['access_rights']) > 0 ? TRUE:FALSE;
+			
+	if ( array_key_exists('extra', $last_param) && $extra_param_access_enabled )
+		$extra_default = $last_param['extra'];
+	else
+		$extra_default = $home_info['mods'][$mod_id]['extra_params'];
 		
-	$start_cmd .= " ".str_replace("\\\\", "\\", clean_server_param_value($extra, $server_xml->cli_allow_chars));
+	$start_cmd .= " ".str_replace("\\\\", "\\", clean_server_param_value($extra_default, $server_xml->cli_allow_chars));
 
 	return $start_cmd;
 }
@@ -268,7 +282,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	}
 	elseif ( $action == "restart" AND $screen_running )
 	{
-		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os);
+		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$db);
 		// Do text replacements in cfg file
 		if( $server_xml->replace_texts )
 		{
@@ -316,7 +330,8 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 														$home_info['mods'][$mod_id]['cpu_affinity'],
 														$home_info['mods'][$mod_id]['nice'],
 														$preStart,
-														$envVars);
+														$envVars,
+														$server_xml->game_key);
 		$db->logger(get_lang_f('server_restarted', $home_info['home_name']) . "($ip:$port)");
 		if ( $remote_retval === -1 )
 			return FALSE;
@@ -330,7 +345,7 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 	}
 	elseif ( $action == "start" AND ! $screen_running )
 	{
-		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$os);
+		$start_cmd = get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$db);
 		// Do text replacements in cfg file
 		if( $server_xml->replace_texts )
 		{
@@ -374,12 +389,15 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 		
 		$start_retval = $remote->universal_start($home_info['home_id'],
 												 $home_info['home_path'],
-												 $server_xml->server_exec_name, $server_xml->exe_location,
+												 $server_xml->server_exec_name, 
+												 $server_xml->exe_location,
 												 $start_cmd, $port, $ip,
 												 $home_info['mods'][$mod_id]['cpu_affinity'],
 												 $home_info['mods'][$mod_id]['nice'],
 												 $preStart,
-												 $envVars);
+												 $envVars,
+												 $server_xml->game_key
+												 );
 		$db->logger(get_lang('server_started') . " (".$home_info['home_name']." $ip:$port)");
 		if( $start_retval == AGENT_ERROR_NOT_EXECUTABLE or $start_retval <= 0)
 			return FALSE;

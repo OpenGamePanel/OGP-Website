@@ -1,0 +1,69 @@
+<game_config>
+  <game_key>theforest_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>theforest</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>The Forest</game_name>
+  <server_exec_name>TheForestDedicatedServer.exe</server_exec_name>
+  <cli_template>-batchmode %IP% %PORT% %QUERY_PORT% %STEAM_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %IT% %SLOT% %SSA% %VAC% %SAVEINTERNAL% -configfilepath "%HOME_PATH%/Server.cfg" -savefolderpath "%HOME_PATH%/saves/" %LOG% -nographics</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="-serverip" options="s" />
+    <cli_param id="PORT" cli_string="-servergameport" options="s" />
+    <cli_param id="HOME_PATH" cli_string="" />
+    <cli_param id="PLAYERS" cli_string="-serverplayers" options="s" />
+    <cli_param id="HOSTNAME" cli_string="-servername" options="sq" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="-serverpassword_admin" options="sq" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="-serverqueryport" options="s">1</port>
+  </reserve_ports>
+  <max_user_amount>100</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>556450</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="-serversteamport" type="text" id="STEAM_PORT">
+      <default>8766</default>
+      <options>s</options>
+      <access>admin</access>
+      <desc>This is used to authenticate Steam accounts.</desc>
+    </param>
+    <param key="-serversteamaccount" type="text" id="SSA">
+      <caption>Steam Account Login Token</caption>
+      <desc>Manage your Steam tokens &lt;a href=&quot;https://steamcommunity.com/dev/managegameservers&quot; target=&quot;_blank&quot;&gt;here&lt;/a&gt;.</desc>
+    </param>
+    <param key="-inittype" type="select" id="IT">
+      <option value="New">New</option>
+      <option value="Continue">Continue</option>
+      <options>s</options>
+      <desc>New or continue a game.</desc>
+    </param>
+    <param key="-slot" type="select" id="SLOT">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <options>s</options>
+      <desc>Slot to save the game.</desc>
+    </param>
+    <param key="-serverautosaveinterval" type="text" id="SAVEINTERNAL">
+      <default>15</default>
+      <options>s</options>
+      <desc>Set the autosave interval in minutes.</desc>
+    </param>
+    <param key="-enableVAC" type="checkbox_key_value" id="VAC">
+      <desc>Enable Valve Anti-Cheat.</desc>
+    </param>
+    <param key="-showlogs" type="checkbox_key_value" id="LOG">
+      <desc>Show event log.</desc>
+    </param>
+  </server_params>
+  <configuration_files>
+    <file description="Server Configurations">Server.cfg</file>
+  </configuration_files>
+</game_config>

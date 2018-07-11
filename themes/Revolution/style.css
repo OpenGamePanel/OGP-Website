@@ -581,6 +581,11 @@ table.tablesorter tfoot td {
 	text-align:center;
 }
 
+.warning {
+	color: purple;
+	text-align:center;
+}
+
 .success {
 	color: green;
 	text-align:center;
@@ -797,4 +802,8 @@ input[type="submit"] {
 
 .server-starting td , .list_table td{
 	max-width: 250px;
+}
+
+.sizeText{
+	font-size: 16pt;
 }

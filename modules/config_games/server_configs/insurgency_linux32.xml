@@ -21,7 +21,8 @@
   <mods>
     <mod key="insurgency">
       <name>none</name>
-     <installer_name>237410</installer_name>
+      <installer_name>237410</installer_name>
+      <installer_login>anonymous</installer_login>
     </mod>
   </mods>
   <server_params>

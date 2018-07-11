@@ -234,6 +234,10 @@ body {
 	color: red;
 }
 
+.warning {
+	color: purple;
+}
+
 .success {
 	color: green;
 }

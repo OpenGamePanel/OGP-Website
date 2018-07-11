@@ -1,0 +1,107 @@
+<game_config>
+  <game_key>starbound_win64</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>starbound</gameq_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Starbound</game_name>
+  <server_exec_name>starbound_server.exe</server_exec_name>
+  <console_log>storage/starbound_server.log</console_log>
+  <exe_location>win64</exe_location>
+  <max_user_amount>128</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>533830</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+      <default>"gameServerBind" : "[\*\.\d]*"</default>
+      <var>"gameServerBind" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>sq</options>
+    </text>
+    <text key="ip">
+      <default>"queryServerBind" : "[\*\.\d]*"</default>
+      <var>"queryServerBind" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>sq</options>
+    </text>
+    <text key="ip">
+      <default>"rconServerBind" : "[\*\.\d]*"</default>
+      <var>"rconServerBind" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>sq</options>
+    </text>
+    <text key="port">
+      <default>"gameServerPort" : [\w\-\s]*</default>
+      <var>"gameServerPort" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>"queryServerPort" : [\w\-\s]*</default>
+      <var>"queryServerPort" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>s</options>
+    </text>
+    <text key="control_password">
+      <default>"rconServerPassword" : "[\w\-\s]*"</default>
+      <var>"rconServerPassword" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>sq</options>
+    </text>
+    <text key="max_players">
+      <default>"maxPlayers" : [\w\-\s]*</default>
+      <var>"maxPlayers" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>s</options>
+    </text>
+    <text key="home_name">
+      <default>"serverName" : "[\w\-\s]*"</default>
+      <var>"serverName" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>sq</options>
+    </text>
+    <text key="true">
+      <default>"runQueryServer" : [\w\-\s]*</default>
+      <var>"runQueryServer" : true</var>
+      <filepath>storage/starbound_server.config</filepath>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="RCON Enabled" type="select">
+      <option value="false">False</option>
+      <option value="true">True</option>
+      <default>"runRconServer" : [\w\-\s]*</default>
+      <default_value>false</default_value>
+      <var>"runRconServer" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>s</options>
+      <desc>Enable/Disable RCON.</desc>
+    </field>
+    <field key="RCON Port" type="text">
+      <default>"rconServerPort" : [\w\-\s]*</default>
+      <default_value>21026</default_value>
+      <var>"rconServerPort" :</var>
+      <filepath>storage/starbound_server.config</filepath>
+      <options>s</options>
+      <desc>Port of RCON.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+    config="starbound_server.config"
+    if [ -s "storage/$config" ]
+      then
+        echo "File $config found. OK!"
+      else
+        echo "File $config not found."
+        echo "Downloading default config file in $config!"
+        mkdir -p storage
+        wget https://pastebin.com/raw/ZDczT5mw -O storage/$config
+    fi
+  </post_install>
+  <configuration_files>
+    <file description="Server Configurations">storage/starbound_server.config</file>
+  </configuration_files>
+</game_config>

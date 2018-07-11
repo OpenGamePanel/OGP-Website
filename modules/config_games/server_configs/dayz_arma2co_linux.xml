@@ -10,7 +10,7 @@
   <cli_param id="PORT" cli_string="-port=" />
  </cli_params>
  <console_log>cfgdayz/arma2oaserver.RPT</console_log>
- <control_protocol>rcon2</control_protocol>
+ <control_protocol>armabe</control_protocol>
  <mods>
   <mod key='dayzmod'>
    <name>none</name>

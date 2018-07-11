@@ -1,0 +1,80 @@
+<game_config>
+  <game_key>pixark_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>pixark</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>PixARK</game_name>
+  <server_exec_name>PixARKServer.exe</server_exec_name>
+  <cli_template>%MAP%?listen%PLAYERS%%IP%%PORT%%QUERY_PORT%%CONTROL_PASSWORD% %DBE% %NHD% %CUBE_PORT% %CWN% %SEED% -nosteamclient -game -server -log</cli_template>
+  <cli_params>
+    <cli_param id="MAP" cli_string="" />
+    <cli_param id="IP" cli_string="?Multihome=" />
+    <cli_param id="PORT" cli_string="?Port=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="?ServerAdminPassword=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">20016</port>
+    <port type="add" id="CUBE_PORT" cli_string="-CubePort=">7996</port>
+  </reserve_ports>
+  <map_list>maplist.txt</map_list>
+  <console_log>ShooterGame/Saved/Logs/ShooterGame.log</console_log>
+  <exe_location>ShooterGame/Binaries/Win64</exe_location>
+  <max_user_amount>70</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>824360</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>SessionName=.*</default>
+      <var>SessionName=</var>
+      <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-cubeworld=" type="text" id="CWN">
+      <options>ns</options>
+      <desc>Name of the map.</desc>
+    </param>
+    <param key="-Seed=" type="text" id="SEED">
+      <options>ns</options>
+      <desc>Defines the map generation seed.</desc>
+    </param>
+    <param key="-NoBattlEye" type="checkbox_key_value" id="DBE">
+      <desc>Disables BattlEye.</desc>
+    </param>
+    <param key="-NoHangDetection" type="checkbox_key_value" id="NHD">
+      <desc>Disables hang detection.</desc>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="RCON Port" type="text">
+      <default>RCONPort=.*</default>
+      <default_value>2701</default_value>
+      <var>RCONPort=</var>
+      <filepath>ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</filepath>
+      <options>sq</options>
+      <access>admin</access>
+      <desc>Port of remote control.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+    maplist="maplist.txt"
+    if [ -s "$maplist" ]
+      then
+        echo "File $maplist found. OK!"
+      else
+        echo "File $maplist not found."
+        echo "Generating new maplist file in $maplist!"
+        touch $maplist
+        echo CubeWorld_Light> $maplist
+    fi
+  </post_install>
+  <configuration_files>
+    <file description="Server Configurations">ShooterGame/Saved/Config/WindowsServer/GameUserSettings.ini</file>
+  </configuration_files>
+</game_config>

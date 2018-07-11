@@ -33,8 +33,14 @@ if(isset($server_home['control_password']) && $server_home['control_password'] !
 			$cfg["user"] = "serveradmin";
 			$cfg["pass"] = $server_home['control_password'];
 			$cfg["voice"] = $server_home['port'];
-			$ts3Ports = $db->getHomeIpPorts($server_home['home_id']);
-			$cfg["query"] = $ts3Ports[0]['port'] + 24;
+			$cfg["query"] = 10011;
+			require_once('includes/lib_remote.php');
+			$remote = new OGPRemoteLibrary($server_home['agent_ip'], $server_home['agent_port'], $server_home['encryption_key'], $server_home['timeout']);
+			foreach($db->getHomeIpPorts($server_home['home_id']) as $ts3Port)
+			{
+				if($remote->rfile_exists( "startups/".$ts3Port['ip']."-".$ts3Port['port'] ) === 1)
+					$cfg["query"] = $ts3Port['port'] + 24;
+			}
 			if ( $server_home['use_nat'] == 1 )
 				$cfg["host"] = $server_home['agent_ip'];
 			else
@@ -56,7 +62,7 @@ if(isset($server_home['control_password']) && $server_home['control_password'] !
 			{
 				try
 				{
-					$viewer = $ts3_ServerInstance->getViewer(new TeamSpeak3_Viewer_Html("images/viewer/", "images/countries/", "data:image"));
+					$viewer = $ts3_ServerInstance->getViewer(new TeamSpeak3_Viewer_Html("images/viewer/", "images/flags/", "data:image"));
 				}
 				catch(TeamSpeak3_Exception $e)
 				{

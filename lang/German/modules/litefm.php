@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,67 +22,67 @@
  *
  */
 
-define('dir_not_found', "Verzeichnis '%s' vom Server nicht gefunden.");
-define('filename', "Dateiname");
-define('filesize', "Dateigröße");
-define('bytes', "Bytes");
-define('owner', "Besitzer");
-define('group', "Gruppe");
-define('empty_directory', "Verzeichnis ist leer.");
-define('currently_viewing', "Aktuelles Verzeichnis: '%s'");
-define('wrote_changes', "Änderungen erfolgreich gespeichert");
-define('failed_write', "Datei konnte nicht auf den entfernten Server geschrieben werden.");
-define('failed_read', "Datei konnte nicht vom entfernten Server gelesen werden.");
-define('failed_list', "Fehler beim Abrufen der Verzeichnisliste.");
-define('level_up', "Eine Ebene hinauf");
-define('unallowed_char', "Unerlaubte Zeichen im Pfad gefunden.");
-define('button_edit', "[Bearbeiten]");
-define('save', "Speichern");
-define('home_id_missing', "Home ID fehlt");
-define('upload', "Hochladen");
-define('upload_failed', "Hochladen fehlgeschlagen. Der Fehler lautet: %s.");
-define('can_not_create_upload_folder_path', "Kann den Order zum hochladen nicht erstellen: %s");
-define('url_is_not_accesible_from_agent', "Auf URL %s kann vom Agent nicht zugegriffen werden");
-define('upload_file', "Datei hochladen");
-define('uncompress', "Dekomprimieren");
-define('create_folder', "Ordner erstellen");
-define('create', "Erstellen");
-define('delete_item', "Lösche %s?");
-define('upload_in_progress', "Wird hochgeladen...");
-define('upload_complete', "Hochladen abgeschlossen.");
-define('chattr_yes', "Datei sperren");
-define('chattr_no', "Datei entsperren");
-define('secure_item', "Sicher/Unsicher %s?");
-define('filesecure', "Dateisicherheit");
-define('chattr_locked', "Datei gesperrt");
-define('chattr_unlocked', "Datei entsperrt");
-define('rename', "Umbenennen");
-define('move', "Verschieben");
-define('copy', "Kopieren");
-define('compress', "Komprimieren");
-define('create_file', "Datei erstellen");
-define('select_at_least_one_item', "Wählen Sie mindestens ein Element aus");
-define('rename_item', "Element(e) umbenennen");
-define('move_item', "Element(e) verschieben");
-define('copy_item', "Element(e) kopieren");
-define('compress_item', "Element(e) komprimieren");
-define('uncompress_item', "Element(e) entpacken");
-define('archive_name', "Namen des Archivs");
-define('archive_type', "Archivtyp");
-define('file_name', "Dateiname");
-define('folder_name', "Name des Ordners");
-define('compresses_files_separately', "komprimiere dateien separat");
-define('to', "zu");
-define('upload_to_web', "Auf Web hochladen");
-define('transfer_to_server', "Auf Server übertragen");
-define('mail_sent_successfully', "E-Mail erfolgreich gesendet");
-define('send_item_by_email', "Gesendete Artikel per Email");
-define('subject', "Betreff");
-define('message', "Nachricht");
-define('dest_email', "Ziel Emailadresse");
-define('remove', "Entfernen");
-define('send_by_email', "Per Email gesendet");
-define('send_by_email_info', "Um Dateien per Mail zu versenden muss das Paket 'mutt' auf der agent-Seite installiert sein.");
-define('settings_updated', "Einstellungen aktualisiert");
-define('update_settings', "Einstellungen aktualisieren");
+define('OGP_LANG_dir_not_found', "Verzeichnis '%s' vom Server nicht gefunden.");
+define('OGP_LANG_filename', "Dateiname");
+define('OGP_LANG_filesize', "Dateigröße");
+define('OGP_LANG_bytes', "Bytes");
+define('OGP_LANG_owner', "Besitzer");
+define('OGP_LANG_group', "Gruppe");
+define('OGP_LANG_empty_directory', "Verzeichnis ist leer.");
+define('OGP_LANG_currently_viewing', "Aktuelles Verzeichnis: '%s'");
+define('OGP_LANG_wrote_changes', "Änderungen erfolgreich gespeichert");
+define('OGP_LANG_failed_write', "Datei konnte nicht auf den entfernten Server geschrieben werden.");
+define('OGP_LANG_failed_read', "Datei konnte nicht vom entfernten Server gelesen werden.");
+define('OGP_LANG_failed_list', "Fehler beim Abrufen der Verzeichnisliste.");
+define('OGP_LANG_level_up', "Eine Ebene hinauf");
+define('OGP_LANG_unallowed_char', "Unerlaubte Zeichen im Pfad gefunden.");
+define('OGP_LANG_button_edit', "[Bearbeiten]");
+define('OGP_LANG_save', "Speichern");
+define('OGP_LANG_home_id_missing', "Home ID fehlt");
+define('OGP_LANG_upload', "Hochladen");
+define('OGP_LANG_upload_failed', "Hochladen fehlgeschlagen. Der Fehler lautet: %s.");
+define('OGP_LANG_can_not_create_upload_folder_path', "Kann den Ordner zum Hochladen nicht erstellen: %s");
+define('OGP_LANG_url_is_not_accesible_from_agent', "Auf URL %s kann vom Agent nicht zugegriffen werden");
+define('OGP_LANG_upload_file', "Datei hochladen");
+define('OGP_LANG_uncompress', "Dekomprimieren");
+define('OGP_LANG_create_folder', "Ordner erstellen");
+define('OGP_LANG_create', "Erstellen");
+define('OGP_LANG_delete_item', "Lösche %s?");
+define('OGP_LANG_upload_in_progress', "Wird hochgeladen...");
+define('OGP_LANG_upload_complete', "Hochladen abgeschlossen.");
+define('OGP_LANG_chattr_yes', "Datei sperren");
+define('OGP_LANG_chattr_no', "Datei entsperren");
+define('OGP_LANG_secure_item', "Sicher/Unsicher %s?");
+define('OGP_LANG_filesecure', "Dateisicherheit");
+define('OGP_LANG_chattr_locked', "Datei gesperrt");
+define('OGP_LANG_chattr_unlocked', "Datei entsperrt");
+define('OGP_LANG_rename', "Umbenennen");
+define('OGP_LANG_move', "Verschieben");
+define('OGP_LANG_copy', "Kopieren");
+define('OGP_LANG_compress', "Komprimieren");
+define('OGP_LANG_create_file', "Datei erstellen");
+define('OGP_LANG_select_at_least_one_item', "Wählen Sie mindestens ein Element aus");
+define('OGP_LANG_rename_item', "Element(e) umbenennen");
+define('OGP_LANG_move_item', "Element(e) verschieben");
+define('OGP_LANG_copy_item', "Element(e) kopieren");
+define('OGP_LANG_compress_item', "Element(e) komprimieren");
+define('OGP_LANG_uncompress_item', "Element(e) entpacken");
+define('OGP_LANG_archive_name', "Namen des Archivs");
+define('OGP_LANG_archive_type', "Archivtyp");
+define('OGP_LANG_file_name', "Dateiname");
+define('OGP_LANG_folder_name', "Name des Ordners");
+define('OGP_LANG_compresses_files_separately', "Komprimiere Dateien seperat");
+define('OGP_LANG_to', "zu");
+define('OGP_LANG_upload_to_web', "Auf Web hochladen");
+define('OGP_LANG_transfer_to_server', "Auf Server übertragen");
+define('OGP_LANG_mail_sent_successfully', "E-Mail erfolgreich gesendet");
+define('OGP_LANG_send_item_by_email', "Gesendete Artikel per E-Mail");
+define('OGP_LANG_subject', "Betreff");
+define('OGP_LANG_message', "Nachricht");
+define('OGP_LANG_dest_email', "Ziel E-Mailadresse");
+define('OGP_LANG_remove', "Entfernen");
+define('OGP_LANG_send_by_email', "Per Email gesendet");
+define('OGP_LANG_send_by_email_info', "For sending files the 'mutt' package must be installed on all available Agents.");
+define('OGP_LANG_settings_updated', "Einstellungen aktualisiert");
+define('OGP_LANG_update_settings', "Einstellungen aktualisieren");
 ?>

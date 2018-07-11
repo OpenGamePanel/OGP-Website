@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -23,21 +23,21 @@
  */
 
 include 'update.php';
-define('unable_download', "Nem lehet a(z) %s-t letölteni.");
-define('md5_failed', "Az MD5 teszt sikertelen ehhez %s, próbálja újra.");
-define('uninstall', "Eltávolítás");
-define('install', "Telepítés");
-define('uptodate', "Naprakész");
-define('update_available', "Frissítés elérhető");
-define('not_installed', "Nincs telepítve");
-define('installed', "Telepítve");
-define('download_update', "Letöltés/Frissítés");
-define('are_you_sure', "Biztos vagy benne");
-define('uninstalling_module_dataloss', "A modul eltávolításával elveszted az összes hozzá kapcsolodó adatot.");
-define('remove_files_for', "Szeretnéd eltávolítani az összes fájlt a");
-define('confirm', "Megerősítés");
-define('cancel', "Mégse");
-define('extra_themes', "Extra témák");
-define('extra_modules', "Extra modulok");
-define('search_for_updates', "Frissítések keresése");
+define('OGP_LANG_unable_download', "Nem lehet a(z) %s-t letölteni.");
+define('OGP_LANG_md5_failed', "Az MD5 teszt sikertelen ehhez %s, próbáld újra.");
+define('OGP_LANG_uninstall', "Eltávolítás");
+define('OGP_LANG_install', "Telepítés");
+define('OGP_LANG_uptodate', "Naprakész");
+define('OGP_LANG_update_available', "Frissítés elérhető");
+define('OGP_LANG_not_installed', "Nincs telepítve");
+define('OGP_LANG_installed', "Telepítve");
+define('OGP_LANG_download_update', "Letöltés/Frissítés");
+define('OGP_LANG_are_you_sure', "Biztos vagy benne");
+define('OGP_LANG_uninstalling_module_dataloss', "Egy modul eltávolításával elveszítesz minden vele kapcsolatos adatot.");
+define('OGP_LANG_remove_files_for', "Szeretnéd eltávolítani az összes fájlt a");
+define('OGP_LANG_confirm', "Megerősítés");
+define('OGP_LANG_cancel', "Mégse");
+define('OGP_LANG_extra_themes', "Extra témák");
+define('OGP_LANG_extra_modules', "Extra modulok");
+define('OGP_LANG_search_for_updates', "Frissítések keresése");
 ?>

@@ -3,7 +3,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -79,10 +79,21 @@ function exec_ogp_module() {
 	</thead> 
 	<tbody> 
 	<?php
-	if( isset( $_POST['log_id'] ) )
+	if( isset( $_POST['log_id'] ) ){
 		$db->del_logger_log($_POST['log_id']);
-	if( isset( $_POST['empty_logger'] ) )
+		$newLogs = array();
+		foreach($logs as $log){
+			if($log['log_id'] != $_POST['log_id']){
+				$newLogs[] = $log;
+			}
+		}
+		$logs = $newLogs;
+	}
+		
+	if( isset( $_POST['empty_logger'] ) ){
 		$db->empty_logger();
+		$logs = false;
+	}
 	
 	if($logs)
 	{

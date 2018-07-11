@@ -10,7 +10,7 @@
     <cli_param id="PLAYERS" cli_string="-maxplayers=" />
   </cli_params>
 <max_user_amount>64</max_user_amount>
-<control_protocol>lcon</control_protocol>
+<control_protocol>armabe</control_protocol>
 <mods>
  <mod key='arma2oa'>
   <name>none</name>

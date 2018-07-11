@@ -63,6 +63,7 @@
       <xs:enumeration value="rcon" /><!-- HL, Q1/2/3 -->
       <xs:enumeration value="rcon2" /><!-- HL2(source) -->
       <xs:enumeration value="lcon" /><!-- legacy console -->
+      <xs:enumeration value="armabe" /><!-- Arma 2 BattlEye -->
       <xs:minLength value="1" />
     </xs:restriction>
   </xs:simpleType>
@@ -84,6 +85,7 @@
       <xs:element name="installer_login" type="xs:string" minOccurs="0" />
       <xs:element name="betaname" type="xs:string" minOccurs="0" />
       <xs:element name="betapwd" type="xs:string" minOccurs="0" />
+      <xs:element name="steam_bitness" type="xs:positiveInteger" minOccurs="0" />
     </xs:sequence>
     <xs:attribute name="key" type="xs:string" />
   </xs:complexType>
@@ -115,6 +117,7 @@
       <xs:element name="var" type="xs:string" />
       <xs:element name="filepath" type="xs:string" />
       <xs:element name="options" type="xs:string" />
+      <xs:element name="occurrence" type="xs:string" minOccurs="0" />
     </xs:choice>
     <xs:attribute name="key" type="xs:string" />
   </xs:complexType>
@@ -143,6 +146,7 @@
       <xs:element name="caption" type="xs:string" maxOccurs="1" />
       <xs:element name="desc" type="xs:string" maxOccurs="1" />
       <xs:element name="options" type="xs:string" />
+      <xs:element name="access" type="xs:string" minOccurs="0" maxOccurs="1" />
     </xs:choice>
     <xs:attribute name="id" type="xs:string" />
     <xs:attribute name="key" type="xs:string" />
@@ -201,6 +205,8 @@
       <xs:element name="var" type="xs:string" />
       <xs:element name="filepath" type="xs:string" />
       <xs:element name="options" type="xs:string" />
+      <xs:element name="occurrence" type="xs:string" minOccurs="0" />
+      <xs:element name="access" type="xs:string" minOccurs="0" maxOccurs="1" />
       <xs:element name="desc" type="xs:string" maxOccurs="1" />
     </xs:choice>
     <xs:attribute name="id" type="xs:string" />

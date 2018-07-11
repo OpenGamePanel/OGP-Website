@@ -14,15 +14,14 @@
     <cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
     <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
   </cli_params>
-  <maps_location>l4d/left4dead/maps</maps_location>
-  <map_list>l4d/left4dead/maplist.txt</map_list>
-  <exe_location>l4d</exe_location>
+  <map_list>left4dead/maplist.txt</map_list>
   <max_user_amount>32</max_user_amount>
   <control_protocol>rcon2</control_protocol>
   <mods>
     <mod key="left4dead">
       <name>none</name>
 	  <installer_name>222840</installer_name>
+	  <installer_login>anonymous</installer_login>
     </mod>
   </mods>
   <server_params>
@@ -42,4 +41,7 @@
       <caption>Disable master server communication</caption>
     </param>
   </server_params>
+  <configuration_files>
+  <file description="The main config file">left4dead/cfg/server.cfg</file>
+  </configuration_files>
 </game_config>

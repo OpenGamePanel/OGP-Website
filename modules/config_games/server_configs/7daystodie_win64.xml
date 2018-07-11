@@ -5,9 +5,9 @@
   <installer>steamcmd</installer>
   <game_name>7 Days to Die</game_name>
   <server_exec_name>7DaysToDieServer.exe</server_exec_name>
-  <cli_template>-logfile logs/output_log.txt -quit -batchmode -nographics -configfile=serverconfig.xml -dedicated</cli_template>
+  <cli_template>-logfile 7DaysToDieServer_Data/output_log.txt -quit -batchmode -nographics -configfile=serverconfig.xml -dedicated</cli_template>
   <maps_location>Data/Worlds</maps_location>
-  <console_log>logs/output_log.txt</console_log>
+  <console_log>7DaysToDieServer_Data/output_log.txt</console_log>
   <max_user_amount>64</max_user_amount>
   <mods>
     <mod key="7daystodie1">
@@ -16,7 +16,7 @@
       <installer_login>anonymous</installer_login>
     </mod>
     <mod key="7daystodie2">
-      <name>Latest Experimental</name>
+      <name>Unstable build</name>
       <installer_name>294420</installer_name>
       <installer_login>anonymous</installer_login>
       <betaname>latest_experimental</betaname>
@@ -67,14 +67,6 @@
     </text>
   </replace_texts>
   <custom_fields>
-    <field key="Game Name" type="text">
-      <default>property</default>
-      <default_value>My Game</default_value>
-      <var>GameName</var>
-      <filepath>serverconfig.xml</filepath>
-      <options>tagValueByName</options>
-      <desc>Whatever you want the game name to be (this controls the random generation seed as well).</desc>
-    </field>
     <field key="Control Panel Enabled" type="select">
       <option value="false">False</option>
       <option value="true">True</option>
@@ -91,6 +83,7 @@
       <var>ControlPanelPort</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
+      <access>admin</access>
       <desc>Port of the control panel webpage.</desc>
     </field>
     <field key="Telnet Enabled" type="select">
@@ -109,15 +102,8 @@
       <var>TelnetPort</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
+      <access>admin</access>
       <desc>Port of the Telnet server.</desc>
-    </field>
-    <field key="Max Spawned Zombies" type="text">
-      <default>property</default>
-      <default_value>60</default_value>
-      <var>MaxSpawnedZombies</var>
-      <filepath>serverconfig.xml</filepath>
-      <options>tagValueByName</options>
-      <desc>Making this number too large (more than about 80) may cause servers to run at poor framerates which will effect lag and play quality for clients.</desc>
     </field>
     <field key="EAC Enabled" type="select">
       <option value="false">False</option>
@@ -128,6 +114,23 @@
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
       <desc>Enables/Disables EasyAntiCheat.</desc>
+    </field>
+    <field key="Game Name" type="text">
+      <default>property</default>
+      <default_value>My Game</default_value>
+      <var>GameName</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Whatever you want the game name to be (this controls the random generation seed as well).</desc>
+    </field>
+    <field key="Max Spawned Zombies" type="text">
+      <default>property</default>
+      <default_value>60</default_value>
+      <var>MaxSpawnedZombies</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <access>admin</access>
+      <desc>Making this number too large (more than about 80) may cause servers to run at poor framerates which will effect lag and play quality for clients.</desc>
     </field>
   </custom_fields>
   <configuration_files>

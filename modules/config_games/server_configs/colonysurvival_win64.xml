@@ -1,0 +1,63 @@
+<game_config>
+  <game_key>colonysurvival_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>source</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Colony Survival</game_name>
+  <server_exec_name>colonyserverdedicated.exe</server_exec_name>
+  <cli_template>%IP% %PORT% %QUERY_PORT% %PLAYERS% %HOSTNAME% %MAP% %MSTON% %MSTDAY% %MSTDBL% %SEED% %VAC% +server.networktype SteamOnline -logfile output.txt</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+server.ip" options="sq" />
+    <cli_param id="PORT" cli_string="+server.gameport" options="sq" />
+    <cli_param id="PLAYERS" cli_string="+server.maxplayers" options="sq" />
+    <cli_param id="HOSTNAME" cli_string="+server.name" options="sq" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="+server.steamport" options="sq">1</port>
+  </reserve_ports>
+  <console_log>output.txt</console_log>
+  <max_user_amount>200</max_user_amount>
+  <mods>
+    <mod key="colonysurvival">
+      <name>none</name>
+      <installer_name>748090</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param id="MSTON" key="+server.monsterson" type="select">
+      <option value="True">Yes</option>
+      <option value="False">No</option>
+      <options>sq</options>
+      <desc>Enables or disables Monster spawns</desc>
+    </param>
+    <param id="MSTDAY" key="+server.monstersday" type="select">
+      <option value="True">Yes</option>
+      <option value="False">No</option>
+      <options>sq</options>
+      <desc>Enables or disables Monster during day</desc>
+    </param>
+    <param id="MSTDBL" key="+server.monstersdouble" type="select">
+      <option value="True">Yes</option>
+      <option value="False">No</option>
+      <options>sq</options>
+      <desc>Enables or disables Double monster spawns</desc>
+    </param>
+    <param id="MAP" key="+server.world" type="text">
+      <options>sq</options>
+	  <caption>World name</caption>
+      <desc>Sets your world name, use _ instead of spaces.</desc>
+    </param>
+    <param id="SEED" key="+server.seed" type="text">
+      <options>sq</options>
+	  <caption>World Seed</caption>
+      <desc>Generates world based on seed number</desc>
+    </param>
+    <param id="VAC" key="+server.usevac" type="select">
+      <option value="True">Yes</option>
+      <option value="False">No</option>
+      <options>sq</options>
+      <desc>Enables or disables Steam VAC Protection</desc>
+    </param>
+  </server_params>
+</game_config>

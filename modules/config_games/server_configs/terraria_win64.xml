@@ -1,0 +1,80 @@
+<game_config>
+	<game_key>terraria_win64</game_key>
+	<protocol>gameq</protocol>
+	<gameq_query_name>terraria</gameq_query_name>
+	<installer>steamcmd</installer>
+	<game_name>Terraria</game_name>
+	<server_exec_name>TerrariaServer.exe</server_exec_name>
+	<query_port type="add">101</query_port>
+	<cli_template>%IP% %PORT% %PLAYERS% %CONTROL_PASSWORD% -world%HOME_PATH%\Save\Worlds\%HOSTNAME%.wld %AUTOCREATE% -worldname %HOSTNAME% %SEED% -secure -worldpath%HOME_PATH%\Save\Worlds\ -banlist%HOME_PATH%\banlist.txt -savedirectory%HOME_PATH%\Save</cli_template>
+	<cli_params>
+		<cli_param id="IP" cli_string="-ip" options="s" />
+		<cli_param id="PORT" cli_string="-port" options="s" />
+		<cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
+		<cli_param id="CONTROL_PASSWORD" cli_string="-password" options="s" />
+		<cli_param id="HOME_PATH" cli_string="" options="s" />
+		<cli_param id="HOSTNAME" cli_string="" />
+	</cli_params>
+	<console_log>ServerLog.txt</console_log>
+	<max_user_amount>8</max_user_amount>
+	<mods>
+		<mod key="default">
+			<name>None</name>
+			<installer_name>105600</installer_name>
+		</mod>
+	</mods>
+	<replace_texts>
+		<text key="port">
+			<default>ServerPort":\s\d*</default>
+			<var>ServerPort":</var>
+			<filepath>tshock/config.json</filepath>
+			<options>s</options>
+		</text>
+		<text key="query_port">
+			<default>RestApiPort":\s\d*</default>
+			<var>RestApiPort":</var>
+			<filepath>tshock/config.json</filepath>
+			<options>s</options>
+		</text>
+	</replace_texts>
+	<server_params>
+		<param key="-autocreate" type="select" id="AUTOCREATE">
+			<option value="1">Small</option>
+			<option value="2">Medium</option>
+			<option value="3">Large</option>
+			<options>s</options>
+			<desc>The size of the world to be created.</desc>
+		</param>
+			<param key="-seed" type="text" id="SEED">
+			<default>MyAwesomeSeed</default>
+			<options>s</options>
+			<desc>Seed used to generate your world</desc>
+		</param>
+	</server_params>
+	<post_install>
+if [ -d GeoIP.dat ]; then
+	echo "Updating tShock"
+	wget https://github.com/Pryaxis/TShock/releases/download/v4.3.25/tshock_4.3.25.zip
+	unzip -o tshock_4.3.25.zip
+	rm tshock_4.3.25.zip
+	echo "tShock updated successfully"
+else
+	echo -e "tShock not found.\nDowloading tShock"
+	wget https://github.com/Pryaxis/TShock/releases/download/v4.3.25/tshock_4.3.25.zip
+	echo "Installing tShock"
+	unzip -o tshock_4.3.25.zip
+	rm tshock_4.3.25.zip
+	echo "tShock installed successfully"
+fi
+if [ -f "serverconfig.txt.bak" ]
+then
+	echo "File serverconfig.txt.bak found. OK!"
+else
+	echo -e "File serverconfig.txt.bak not found.\nGenerating new serverconfig.txt.bak"
+	cp -R serverconfig.txt serverconfig.txt.bak
+fi
+	</post_install>
+	<configuration_files>
+		<file description="Server Configurations">serverconfig.txt</file>
+	</configuration_files>
+</game_config>

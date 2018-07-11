@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,34 +22,34 @@
  *
  */
 
-define('login_name', "Benutzername");
-define('users_fname', "Vorname");
-define('users_lname', "Nachname");
-define('users_passwd', "Passwort");
-define('users_cpasswd', "Passwort bestätigen");
-define('passwd_len', "Kennwort muss länger als 6 Zeichen lang sein.");
-define('err_password', "Kennwort darf nicht leer sein.");
-define('err_confirm_password', "Das Kenntwort Feld darf nicht leer sein");
-define('err_password_mismatch', "Kennwörter stimmen nicht überein");
-define('phone_number', "Telefonnummern");
-define('users_email', "Mail");
-define('register_a_new_user', "Neuen Benutzer anmelden");
-define('password_mismatch', "Passwörter stimmen nicht überein.");
-define('confirm_password', "Passwort bestätigen");
-define('successfull', "Erfolgreich");
-define('click_here', "Hier klicken");
-define('to_login', "um sich anzumelden.");
-define('registered_on', "Registriert am: %s.");
-define('register_message', "Hallo,<br>Ihr Konto wurde erstellt.<br><br>Benutzer: %s<br>Passwort: %s<br><br>Sie können Ihr Passwort von Ihrem Konto ändern.<br>Vielen Dank!<br>Ein Administrator.<br>Diese E-Mail wurde automatisch erstellt, ¡Bitte, nicht Antwort it!");
-define('err_captcha', "Captcha stimmt nicht überein.");
-define('err_login_name', "Benutzername ist leer oder benutzt wird.");
-define('err_first_name', "Geben Sie Ihren Namen ein.");
-define('err_last_name', "Nachname nicht eingegeben.");
-define('err_phone_number', "Telefonnummer ist leer.");
-define('err_email_address', "E-Mail-Adresse ist leer oder falsch ist.");
-define('err_email_address_already_in_use_by', "Diese E-Mail-Adresse ist bereits in Verwendung durch <b>%s</b>.");
-define('user_registration', "Benutzer anmelden");
-define('your_account_details_has_been_sent_by_email_to', "Ihre Kontodaten durch E-Mail wurde an <b>%s</b>.");
-define('account_created', "Ihr Konto wurde erstellt.");
-define('subject', "%s :: Kontoinformationen");
+define('OGP_LANG_login_name', "Benutzername");
+define('OGP_LANG_users_fname', "Vorname");
+define('OGP_LANG_users_lname', "Nachname");
+define('OGP_LANG_users_passwd', "Passwort");
+define('OGP_LANG_users_cpasswd', "Passwort bestätigen");
+define('OGP_LANG_passwd_len', "Kennwort muss länger als 6 Zeichen lang sein.");
+define('OGP_LANG_err_password', "Kennwort darf nicht leer sein.");
+define('OGP_LANG_err_confirm_password', "Das Kenntwort Feld darf nicht leer sein");
+define('OGP_LANG_err_password_mismatch', "Kennwörter stimmen nicht überein");
+define('OGP_LANG_phone_number', "Telefonnummern");
+define('OGP_LANG_users_email', "Mail");
+define('OGP_LANG_register_a_new_user', "Neuen Benutzer anmelden");
+define('OGP_LANG_password_mismatch', "Passwörter stimmen nicht überein.");
+define('OGP_LANG_confirm_password', "Passwort bestätigen");
+define('OGP_LANG_successfull', "Erfolgreich");
+define('OGP_LANG_click_here', "Hier klicken");
+define('OGP_LANG_to_login', "um sich anzumelden.");
+define('OGP_LANG_registered_on', "Registriert am: %s.");
+define('OGP_LANG_register_message', "Hallo,<br>Ihr Konto wurde erstellt.<br><br>Benutzer: %s<br>Passwort: %s<br><br>Sie können Ihr Passwort von Ihrem Konto ändern.<br>Vielen Dank!<br>Ein Administrator.<br>Diese E-Mail wurde automatisch erstellt, ¡Bitte, nicht Antwort it!");
+define('OGP_LANG_err_captcha', "Captcha stimmt nicht überein.");
+define('OGP_LANG_err_login_name', "Benutzername ist leer oder benutzt wird.");
+define('OGP_LANG_err_first_name', "Geben Sie Ihren Namen ein.");
+define('OGP_LANG_err_last_name', "Nachname nicht eingegeben.");
+define('OGP_LANG_err_phone_number', "Telefonnummer ist leer.");
+define('OGP_LANG_err_email_address', "E-Mail-Adresse ist leer oder falsch ist.");
+define('OGP_LANG_err_email_address_already_in_use_by', "Diese E-Mail-Adresse ist bereits in Verwendung durch <b>%s</b>.");
+define('OGP_LANG_user_registration', "Benutzer anmelden");
+define('OGP_LANG_your_account_details_has_been_sent_by_email_to', "Ihre Kontodaten durch E-Mail wurde an <b>%s</b>.");
+define('OGP_LANG_account_created', "Ihr Konto wurde erstellt.");
+define('OGP_LANG_subject', "%s :: Kontoinformationen");
 ?>

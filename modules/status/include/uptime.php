@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -51,10 +51,10 @@ $uptime = $uptime - ($hours * (3600));
 $minutes = floor($uptime / (60));
 $uptime = $uptime - ($minutes * 60);
 $seconds = $uptime;
-$days = $days != 1 ? $days . ' Days' : $days . ' Day';
-$hours = $hours != 1 ? $hours . ' Hours' : $hours . ' Hour';
-$minutes = $minutes != 1 ? $minutes . ' Minutes' : $minutes . ' Minute';
-$seconds = $seconds != 1 ? $seconds . ' Seconds' : $seconds . ' Second';
+$days = $days != 1 ? $days . ' ' . get_lang('days_word') : $days . ' ' . get_lang('day_word');
+$hours = $hours != 1 ? $hours . ' ' . get_lang('hours_word') : $hours . ' ' . get_lang('hour_word');
+$minutes = $minutes != 1 ? $minutes . ' ' . get_lang('minutes_word') : $minutes . ' ' . get_lang('minute_word');
+$seconds = $seconds != 1 ? $seconds . ' ' . get_lang('seconds_word') : $seconds . ' ' . get_lang('second_word');
 if ($days == 0) {
 	$days = "";
 }

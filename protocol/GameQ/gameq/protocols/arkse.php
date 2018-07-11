@@ -21,7 +21,7 @@
  *
  * @author Mikael Nielsen <miscni@ghostmail.com>
  */
-class GameQ_Protocols_ase extends GameQ_Protocols_Source
+class GameQ_Protocols_Arkse extends GameQ_Protocols_Source
 {
 	protected $name = "arkse";
 	protected $name_long = "Ark Survival Evolved";

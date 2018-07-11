@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,19 +22,27 @@
  *
  */
 
-define('system_uptime', "Время работы системы");
-define('system_up_time', "Работает");
-define('system_up_since', "Запущен");
-define('cpu_usage', "Использование процессора");
-define('cpu_load', "Нагрузка");
-define('ram_usage', "Использование ОЗУ");
-define('ram_used', "Используемая память");
-define('ram_of', "из");
-define('storage_space', "Место для хранения");
-define('storage_total', "Дисковое пространство");
-define('storage_used', "Использовано");
-define('storage_free', "Свободно");
-define('process_monitor', "Монитор процессов");
-define('status_extension_required', "Требуется расширение");
-define('gd_info', "Требуется  PHP расширение <a href=\"http://php.net/manual/en/image.installation.php\">GD</a>для создания этих изображений");
+define('OGP_LANG_system_uptime', "Время работы системы");
+define('OGP_LANG_system_up_time', "Работает");
+define('OGP_LANG_system_up_since', "Запущен");
+define('OGP_LANG_day_word', "Day");
+define('OGP_LANG_days_word', "Days");
+define('OGP_LANG_hour_word', "Hour");
+define('OGP_LANG_hours_word', "Hours");
+define('OGP_LANG_minute_word', "Minute");
+define('OGP_LANG_minutes_word', "Minutes");
+define('OGP_LANG_second_word', "Second");
+define('OGP_LANG_seconds_word', "Seconds");
+define('OGP_LANG_cpu_usage', "Использование процессора");
+define('OGP_LANG_cpu_load', "Нагрузка");
+define('OGP_LANG_ram_usage', "Использование ОЗУ");
+define('OGP_LANG_ram_used', "Используемая память");
+define('OGP_LANG_ram_of', "из");
+define('OGP_LANG_storage_space', "Место для хранения");
+define('OGP_LANG_storage_total', "Дисковое пространство");
+define('OGP_LANG_storage_used', "Использовано");
+define('OGP_LANG_storage_free', "Свободно");
+define('OGP_LANG_process_monitor', "Монитор процессов");
+define('OGP_LANG_status_extension_required', "Требуется расширение");
+define('OGP_LANG_gd_info', "Требуется  PHP расширение <a href=\"http://php.net/manual/en/image.installation.php\">GD</a>для создания этих изображений");
 ?>

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -35,9 +35,10 @@ function outPutJSON($result){
 	exit();
 }
 
-function runSteamAutoUpdate(){
-	global $settings, $db, $remote, $server_xml, $mod_xml, $server_home, $mod_key, $mod_id, $appId, $home_ip_ports;
+function runRemoteAction($action){
+	global $settings, $db, $remote, $server_xml, $mod_xml, $server_home, $mod_key, $mod_id, $appId, $home_ip_ports, $homeId, $resultOp;
 	
+	// Load XML and server options
 	$installer_name = isset($mod_xml->installer_name) ? $mod_xml->installer_name : $mod_key;
 
 	$modname = $installer_name == '90' ? $mod_key : '';
@@ -45,6 +46,7 @@ function runSteamAutoUpdate(){
 	$betapwd = isset($mod_xml->betapwd) ? $mod_xml->betapwd : '';
 	$login = $mod_xml->installer_login ? $mod_xml->installer_login : $settings['steam_user'];
 	$pass = $mod_xml->installer_login ? '' : $settings['steam_pass'];
+	$arch = isset($mod_xml->steam_bitness) ? $mod_xml->steam_bitness : '';
 	$exec_folder_path = $server_xml->exe_location;
 	$exec_path = $server_xml->server_exec_name;
 
@@ -54,30 +56,154 @@ function runSteamAutoUpdate(){
 	$lockFiles = !empty($server_xml->lock_files) ? trim($server_xml->lock_files) : '';
 	$preStart = !empty($server_xml->pre_start) ? trim($server_xml->pre_start) : '';
 	$envVars = !empty($server_xml->environment_variables) ? trim($server_xml->environment_variables) : '';
-	$startup_cmd = get_start_cmd($remote, $server_xml, $server_home, $mod_id, $home_ip_ports['ip'], $home_ip_ports['port'], $remote->what_os());
+	$startup_cmd = get_start_cmd($remote, $server_xml, $server_home, $mod_id, $home_ip_ports['ip'], $home_ip_ports['port'], $db);
 	
-	// Make the update call
-	$update = $remote->automatic_steam_update(
-		//generic
-		$homeId, $server_home['home_path'], $home_ip_ports['ip'], $home_ip_ports['port'], $exec_path, $exec_folder_path,
-							 
-		//stop
-		$server_xml->control_protocol, $server_home['control_password'], $server_xml->control_type,
+	switch($action){
+		case "steam_auto_update":
+	
+			// Make the update call
+			$remoteResult = $remote->automatic_steam_update(
+				//generic
+				$homeId, $server_home['home_path'], $home_ip_ports['ip'], $home_ip_ports['port'], $exec_path, $exec_folder_path,
+									 
+				//stop
+				$server_xml->control_protocol, $server_home['control_password'], $server_xml->control_type,
 
-		//update
-		$appId, $modname, $betaname, $betapwd, $login, $pass, $settings['steam_guard'], $precmd, $postcmd, $cfg_os, $lockFiles,
-							  
-		//start
-		$startup_cmd, $server_home['mods'][$mod_id]['cpu_affinity'], $server_home['mods'][$mod_id]['nice'], $preStart, $envVars
-	);
+				//update
+				$appId, $modname, $betaname, $betapwd, $login, $pass, $settings['steam_guard'], $precmd, $postcmd, $cfg_os, $lockFiles,
+									  
+				//start
+				$startup_cmd, $server_home['mods'][$mod_id]['cpu_affinity'], $server_home['mods'][$mod_id]['nice'], $preStart, $envVars, $server_xml->game_key, $arch
+			);
+			break;
+		case "restart_server":
+			$remoteResult = $remote->remote_restart_server($server_home['home_id'],
+														$home_ip_ports['ip'],
+														$home_ip_ports['port'],
+														$server_xml->control_protocol,
+														$server_home['control_password'],
+														$server_xml->control_protocol_type,
+														$server_home['home_path'],
+														$server_xml->server_exec_name,
+														$server_xml->exe_location,
+														$startup_cmd,
+														$server_home['mods'][$mod_id]['cpu_affinity'],
+														$server_home['mods'][$mod_id]['nice'],
+														$preStart,
+														$envVars,
+														$server_xml->game_key
+														);
+			break;
+		case "stop_server":
+			$remoteResult = $remote->remote_stop_server($server_home['home_id'],
+														$home_ip_ports['ip'],
+														$home_ip_ports['port'],
+														$server_xml->control_protocol,
+														$server_home['control_password'],
+														$server_xml->control_protocol_type,
+														$server_home['home_path']
+														);
+			break;
+		case "start_server":
+			$remoteResult = $remote->universal_start($server_home['home_id'],
+							$server_home['home_path'],
+							$server_xml->server_exec_name, 
+							$server_xml->exe_location,
+							$startup_cmd, 
+							$home_ip_ports['port'], 
+							$home_ip_ports['ip'],
+							$server_home['mods'][$mod_id]['cpu_affinity'],
+							$server_home['mods'][$mod_id]['nice'],
+							$preStart,
+							$envVars,
+							$server_xml->game_key);
+			break;
+		
+	}
 
-	if($update == 1){
+	if($remoteResult == 1){
 		return true;
-	}else if(hasValue($update, true)){
-		return $update;
+	}else if(hasValue($remoteResult, true)){
+		return $remoteResult;
 	}
 	
 	return false;
+}
+
+function callSteamAutoUpdate(){
+	global $settings, $db, $remote, $server_xml, $mod_xml, $server_home, $mod_key, $mod_id, $appId, $home_ip_ports, $resultOp;
+	
+	if($server_xml->installer == 'steamcmd') {
+		if($remote->rfile_exists($server_home['home_path'] . '/steamapps/appmanifest_' . $appId . '.acf') === 1){
+			$ourVersion = $remote->installed_steam_version($server_home['home_path'], $appId, 0);
+			$steamVersion = $remote->fetch_steam_version($appId, 0);
+			if($ourVersion != $steamVersion){
+				$success = runRemoteAction("steam_auto_update");
+				if($success == 1){
+					$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully auto-updated via SteamCMD and restarted.";
+					$resultOp["success"] = true;
+				}else if($success == 2){
+					$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully auto-updated via SteamCMD.";
+					$resultOp["success"] = true;
+				}else{
+					if(is_array($success)){
+						$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to auto-update. Agent returned: " . print_r($success, true);
+					}else{
+						$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to auto-update. Agent returned error code: " . $success;
+					}
+					$resultOp["success"] = false;
+				}
+			}else{
+				$resultOp["message"] = "Server is already up-to-date.";
+				$resultOp["success"] = false;
+			}
+		}else{
+			$resultOp["message"] = "Unable to find appmanifest.";
+			$resultOp["success"] = false;
+		}	
+	}else{
+		$resultOp["message"] = "Game server does NOT integrate directly with Steam.";
+		$resultOp["success"] = false;
+	}
+}
+
+function callRestartServer(){
+	global $settings, $db, $remote, $server_xml, $mod_xml, $server_home, $mod_key, $mod_id, $appId, $home_ip_ports, $resultOp;
+	
+	$success = runRemoteAction("restart_server");
+	if($success >= 0){
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully restarted.";
+		$resultOp["success"] = true;
+	}else{
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to restart. Agent returned: " . (is_array($success) ? print_r($success, true) : $success);
+		$resultOp["success"] = false;
+	}
+}
+
+function callStartServer(){
+	global $settings, $db, $remote, $server_xml, $mod_xml, $server_home, $mod_key, $mod_id, $appId, $home_ip_ports, $resultOp;
+	
+	$success = runRemoteAction("start_server");
+	if($success == 1){
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully started.";
+		$resultOp["success"] = true;
+	}else{
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to start. Agent returned: " . (is_array($success) ? print_r($success, true) : $success);
+		$resultOp["success"] = false;
+	}
+}
+
+function callStopServer(){
+	global $settings, $db, $remote, $server_xml, $mod_xml, $server_home, $mod_key, $mod_id, $appId, $home_ip_ports, $resultOp;
+	
+	$success = runRemoteAction("stop_server");
+	if($success == 1){
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has stopped successfully.";
+		$resultOp["success"] = true;
+	}else{
+		$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to stop. Agent returned: " . (is_array($success) ? print_r($success, true) : $success);
+		$resultOp["success"] = false;
+	}
 }
 
 /****************** *
@@ -111,86 +237,83 @@ $settings = $db->getSettings();
 @$GLOBALS['panel_language'] = $settings['panel_language'];
 
 // Handle API Request
-if(isset($_REQUEST["action"])){
+if(hasValue($_REQUEST["action"]) && hasValue($_REQUEST["homeid"]) && hasValue($_REQUEST["controlpass"]) && is_numeric($_REQUEST["homeid"])){
+	
+	// Get the variables we need	
 	$action = $_REQUEST["action"];
-	switch($action){
-		case "autoUpdateSteamHome":
-			$homeId = $_REQUEST["homeid"];
-			$controlPass = $_REQUEST["controlpass"];
-			if(hasValue($homeId) && hasValue($controlPass) && is_numeric($homeId)){
-				$server_home = $db->getGameHome($homeId);
-				if(hasValue($server_home) && is_array($server_home) && count($server_home) > 0){
-					if(trim($server_home["control_password"]) == trim(strip_tags($controlPass))){
-						// Key matches what is stored in the database.
-						$getIpPorts = $db->getHomeIpPorts($homeId);
-						$home_ip_ports = $getIpPorts[0];
-						
-						$server_xml = read_server_config(SERVER_CONFIG_LOCATION . '/' . $server_home['home_cfg_file']);
-						if($server_xml->installer == 'steamcmd') {
-							$remote = new OGPRemoteLibrary($server_home['agent_ip'], $server_home['agent_port'], $server_home['encryption_key'], $server_home['timeout']);
-							$appId = (int)$server_xml->mods->mod->installer_name;
-							$mod_id = key($server_home['mods']);
-							$mod_key = $server_home['mods'][$mod_id]['mod_key'];
-							$mod_xml = xml_get_mod($server_xml, $mod_key);
-
-							if($remote->rfile_exists($server_home['home_path'] . '/steamapps/appmanifest_' . $appId . '.acf') === 1)
-							{
-								if($mod_xml !== false){
-									$ourVersion = $remote->installed_steam_version($server_home['home_path'], $appId, 0);
-									$steamVersion = $remote->fetch_steam_version($appId, 0);
-									if($ourVersion != $steamVersion){
-										$success = runSteamAutoUpdate($server_xml, $mod_xml, $server_home, $mod_key);
-										if($success == 1){
-											$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully auto-updated via SteamCMD and restarted.";
-											$resultOp["success"] = true;
-										}else if($success == 2){
-											$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" has been successfully auto-updated via SteamCMD.";
-											$resultOp["success"] = true;
-										}else{
-											if(is_array($success)){
-												$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to auto-update. Agent returned: " . print_r($success, true);
-											}else{
-												$resultOp["message"] = "Server \"" . $server_home["home_name"] . "\" failed to auto-update. Agent returned error code: " . $success;
-											}
-											$resultOp["success"] = false;
-										}
-									}else{
-										$resultOp["message"] = "Server is already up-to-date.";
-										$resultOp["success"] = false;
-									}
-								}else{
-									$resultOp["message"] = "Problem retrieving server mod XML.";
-									$resultOp["success"] = false;
-								}
-							}else{
-								$resultOp["message"] = "Unable to find appmanifest.";
-								$resultOp["success"] = false;
-							}	
-						}else{
-							$resultOp["message"] = "Game server does NOT integrate directly with Steam.";
+	$homeId = $_REQUEST["homeid"];
+	$controlPass = $_REQUEST["controlpass"];
+	
+	// Get home information
+	$server_home = $db->getGameHome($homeId);
+	
+	if(hasValue($server_home) && is_array($server_home) && count($server_home) > 0){
+		if(trim($server_home["control_password"]) == trim(strip_tags($controlPass))){
+			
+			// Set command server variables (home server XML, IPs, etc)
+			$server_xml = read_server_config(SERVER_CONFIG_LOCATION . '/' . $server_home['home_cfg_file']);
+			if($server_xml){
+				$getIpPorts = $db->getHomeIpPorts($homeId);
+				$home_ip_ports = $getIpPorts[0];
+				$remote = new OGPRemoteLibrary($server_home['agent_ip'], $server_home['agent_port'], $server_home['encryption_key'], $server_home['timeout']);
+				$appId = (int)$server_xml->mods->mod->installer_name;
+				$mod_id = key($server_home['mods']);
+				$mod_key = $server_home['mods'][$mod_id]['mod_key'];
+				$mod_xml = xml_get_mod($server_xml, $mod_key);
+				if($mod_xml !== false){
+				
+					/****************************************/
+					//           Actual API Logic :)         /
+					/****************************************/
+					
+					// Handle API Action
+					switch($action){
+						case "autoUpdateSteamHome":
+							callSteamAutoUpdate();
+							break;
+						case "restartServer":
+							callRestartServer();
+							break;
+						case "startServer":
+							callStartServer();
+							break;
+						case "stopServer":
+							callStopServer();
+							break;
+						default: 
+							$resultOp["message"] = "Invalid action specified.";
 							$resultOp["success"] = false;
-						}
-					}else{
-						$resultOp["message"] = "Server home key does not match stored information.";
-						$resultOp["success"] = false;
 					}
+					
+					/****************************************/
+					//       End Actual API Logic :)         /
+					/****************************************/
+					
 				}else{
-					$resultOp["message"] = "Unable to find game server home.";
+					$resultOp["message"] = "Problem retrieving server mod XML.";
 					$resultOp["success"] = false;
 				}
 			}else{
-				$resultOp["message"] = "Invalid inputs.";
+				$resultOp["message"] = "Failed to read server XML.";
 				$resultOp["success"] = false;
 			}
-			break;
+		}else{
+			$resultOp["message"] = "Server home key does not match stored information.";
+			$resultOp["success"] = false;
+		}
+	}else{
+		$resultOp["message"] = "Unable to find game server home.";
+		$resultOp["success"] = false;
 	}
+}else{
+	$resultOp["message"] = "Invalid inputs.";
+	$resultOp["success"] = false;
+}
 	
-	// Output JSON
-	if(hasValue($resultOp["message"]) && hasValue($resultOp["success"], true)){
-		outPutJSON($resultOp);
-	}
+// Output JSON
+if(hasValue($resultOp["message"]) && hasValue($resultOp["success"], true)){
+	outPutJSON($resultOp);
 }
 
 exit();
-
 ?>

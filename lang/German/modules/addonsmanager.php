@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,45 +22,49 @@
  *
  */
 
-define('install_plugin', "Installiere Plugin");
-define('install_mappack', "Installiere MapPack");
-define('install_config', "Installiere Config");
-define('game_name', "Spielname");
-define('directory', "Ordner-Pfad");
-define('remote_server', "Entfernter Server");
-define('select_addon', "Wähle Addon");
-define('install', "Installieren");
-define('failed_to_start_file_download', "Konnte Datei-Download nicht starten.");
-define('no_games_servers_available', "In deinem Account sind keine Gameserver verfügbar.");
-define('addon_installed_successfully', "Addon erfolgreich installiert");
-define('path', "Pfad");
-define('wait_while_decompressing', "Warten Sie, während die Datei %s dekomprimiert.");
-define('addon_name', "Addonname");
-define('url', "URL");
-define('select_game_type', "Wähle Game Typ");
-define('plugin', "Plugin");
-define('mappack', "MapPack");
-define('config', "Konfiguration");
-define('type', "Addon Typ");
-define('game', "Spiel");
-define('show_all_addons', "Zeige alle Addons");
-define('show_addons_for_selected_type', "Zeige Addons für selektierten Typ");
-define('show_addons_for_selected_game', "Zeige Addons für selektiertes Game");
-define('linux_games', "Linux Spiele: ");
-define('windows_games', "Windows Spiele: ");
-define('create_addon', "Erstelle Addon");
-define('addons_db', "Addons Datenbank");
-define('addon_has_been_created', "Das Addon %s wurde erstellt.");
-define('remove_addon', "Entferne Addon");
-define('fill_the_url_address_to_a_compressed_file', "Bitte füge eine URL zur komprimierten Datei ein.");
-define('fill_the_addon_name', "Bitte geben Sie einen Namen für das Addonpaket ein.");
-define('select_an_addon_type', "Wählen Sie bitte einen Addontyp aus.");
-define('select_a_game_type', "Bitte wählen Sie einen Spieltyp.");
-define('edit_addon', "Addon bearbeiten");
-define('post-script', "Nach-Installationsscript (bash)");
-define('replacements', "Ersatz:");
-define('addon_name_info', "Geben Sie einen Namen für diesen addon ein, das ist der Name, den der Benutzer sieht.");
-define('url_info', "Bitte geben Sie eine Webadresse, die die zu herunterladende Datei enthält, ein. Wenn sich die Datei im zip oder tar.gz-Format befindet wird sie im Hauptverzeichnis oder im eingegebenen Pfad entpackt.");
-define('path_info', "Der Pfad muss relativ zum Serverordner liegen und am Anfang oder Ende keine Schrägstriche enthalten, zB: cstrike/cfg. Wenn er leer ist, wird der Stammpfad verwendet.");
-define('post-script_info', "Geben Sie Bash-Code ein. Dieser wird als Script ausgeführt. Sie können Textersetzungen verwenden um die Installation zu personalisieren. Die Textersetzungen werden mit Daten vom Server ersetzt auf dem das Addon installiert wird. Das Script startet vom Hauptverzeichnis des entsprechenden Servers oder einem eingegebenen Pfad.");
+define('OGP_LANG_install_plugin', "Installiere Plugins");
+define('OGP_LANG_install_mappack', "Installiere Karten");
+define('OGP_LANG_install_config', "Installiere Konfigurationen");
+define('OGP_LANG_game_name', "Spielname");
+define('OGP_LANG_directory', "Verzeichnispfad");
+define('OGP_LANG_remote_server', "Entfernter Server");
+define('OGP_LANG_select_addon', "Wähle Erweiterung");
+define('OGP_LANG_install', "Installieren");
+define('OGP_LANG_failed_to_start_file_download', "Fehler beim starten des Datei-Downloads.");
+define('OGP_LANG_no_games_servers_available', "Für Ihr Konto sind keine Spielserver verfügbar.");
+define('OGP_LANG_addon_installed_successfully', "Erweiterung erfolgreich installiert");
+define('OGP_LANG_path', "Pfad");
+define('OGP_LANG_wait_while_decompressing', "Warten Sie, bis die Datei %s dekomprimiert ist.");
+define('OGP_LANG_addon_name', "Erweiterungs Name");
+define('OGP_LANG_url', "URL");
+define('OGP_LANG_select_game_type', "Wähle Spieletyp");
+define('OGP_LANG_plugin', "Plugin");
+define('OGP_LANG_mappack', "Karten Packet");
+define('OGP_LANG_config', "Konfiguration");
+define('OGP_LANG_type', "Erweiterungstyp");
+define('OGP_LANG_game', "Spiel");
+define('OGP_LANG_show_all_addons', "Zeige alle Erweiterungen");
+define('OGP_LANG_show_addons_for_selected_type', "Zeige Erweiterungen für selektierten Typ");
+define('OGP_LANG_show_addons_for_selected_game', "Zeige Erweiterungen für selektiertes Spiel");
+define('OGP_LANG_linux_games', "Linux Spiele: ");
+define('OGP_LANG_windows_games', "Windows Spiele: ");
+define('OGP_LANG_create_addon', "Erstelle Erweiterung");
+define('OGP_LANG_addons_db', "Erweiterungs Datenbank");
+define('OGP_LANG_addon_has_been_created', "Die Erweiterung %s wurde erstellt.");
+define('OGP_LANG_remove_addon', "Entferne Erweiterung");
+define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Bitte fügen Sie eine URL zur komprimierten Datei ein.");
+define('OGP_LANG_fill_the_addon_name', "Bitte geben Sie einen Namen für das Erweiterungspaket ein.");
+define('OGP_LANG_select_an_addon_type', "Wählen Sie bitte einen Erweiterungstyp aus.");
+define('OGP_LANG_select_a_game_type', "Bitte wählen Sie einen Spieltyp.");
+define('OGP_LANG_edit_addon', "Erweiterung bearbeiten");
+define('OGP_LANG_post-script', "Nach-Installationsscript (bash)");
+define('OGP_LANG_replacements', "Ersatz:");
+define('OGP_LANG_addon_name_info', "Geben Sie einen Namen für diese Erweiterung ein, das ist der Name, den der Benutzer sieht.");
+define('OGP_LANG_url_info', "Bitte geben Sie eine Webadresse ein, die die zu herunterladende Datei enthält. Wenn sich die Datei im zip oder tar.gz-Format befindet wird sie im Hauptverzeichnis des Servers oder im eingegebenen Pfad entpackt.");
+define('OGP_LANG_path_info', "Der Pfad muss relativ sein und am Anfang oder Ende keine Schrägstriche enthalten, z.B.: cstrike/cfg. Wenn er leer ist, wird das Hauptverzeichnis des Servers verwendet.");
+define('OGP_LANG_post-script_info', "Geben Sie Bash-Code ein, welcher als Script ausgeführt wird. Sie können Textersetzungen verwenden um die Installation anzupassen. Die Textersetzungen werden mit Daten vom Server ersetzt auf dem die Erweiterung installiert wird. Das Script startet vom Hauptverzeichnis des entsprechenden Servers oder einem eingegebenen Pfad.");
+define('OGP_LANG_show_to_group', "Show to group");
+define('OGP_LANG_all_groups', "All groups");
+define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
+define('OGP_LANG_group', "Group");
 ?>

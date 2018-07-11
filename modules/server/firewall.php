@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -181,16 +181,16 @@ function exec_ogp_module() {
 	$ft->add_field('string','get_firewall_status_command',$firewall_settings['get_firewall_status_command']);
 	$ft->add_field('string','reset_firewall_command',$firewall_settings['reset_firewall_command']);
 	$ft->end_table();
-	$ft->add_button('submit','save_firewall_settings',save_firewall_settings);
+	$ft->add_button('submit','save_firewall_settings',get_lang("save_firewall_settings"));
 	$ft->end_form();
 	
-	echo "<h3>".firewall_status."</h3>";
+	echo "<h3>".get_lang("firewall_status")."</h3>";
 	echo "<pre class='log'>";
 	echo $remote->sudo_exec($firewall_settings['get_firewall_status_command']);
 	echo "</pre>";
 	$ft = new FormTable();
 	$ft->start_form("?m=server&amp;p=firewall&amp;rhost_id=$rhost_id");
-	$ft->add_button('submit','reset_firewall',reset_firewall);
+	$ft->add_button('submit','reset_firewall',get_lang("reset_firewall"));
 	$ft->end_form();
 	echo create_back_button($_GET['m']);
 }

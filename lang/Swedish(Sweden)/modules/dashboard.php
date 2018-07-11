@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,22 +22,22 @@
  *
  */
 
-define('dashboard_ftp_text', "The FTP client can compress files and send them via email, can uncompress too, edit text files and much more.");
-define('dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
-define('dashboard_game_monitor_text', "Watch and monitor your traffic & logs quickly. You can see what servers are up and down.");
-define('dashboard_support_text', "Get support from the OGP Professional Team on the forum. Fast response and great attention.");
-define('welcome_text', "Welcome to the Open Game Panel (OGP). OGP is an open-source software, that allows you to install, start and monitor different game servers.");
-define('any_server_is_online', "Any server is Online");
-define('current_map', "Current Map");
-define('server_ip_port', "IP:Port");
-define('statistics', "Statistics");
-define('servers', "Servers");
-define('players', "Players");
-define('server_status', "Server Status");
-define('no_games_to_monitor', "There are currently no online/offline game servers");
-define('online_servers', "Online Servers");
-define('add_games_in', "If you want to add games you can do it in %s");
-define('currently_online', "Currently Online");
-define('game_servers', "Game Servers");
-define('select_remote_server', "Select remote server");
+define('OGP_LANG_dashboard_ftp_text', "FTP-klienten kan komprimera filer och skicka dem via e-post, kan även avkomprimera, ändra i text m.m. ");
+define('OGP_LANG_dashboard_addons_manager_text', "Hantera många olika typer av tjänster med OGP. Välj från över 115 olika servrar, vilka alla levereras direkt via OGP. ");
+define('OGP_LANG_dashboard_game_monitor_text', "Se och övervaka dina trafikloggar snabb och enkelt. Du kan se vilka servrar som är uppe och nere. ");
+define('OGP_LANG_dashboard_support_text', "Få support från OGP's professionela Team på forumet. Snabba svar och bra uppmärksamhet. ");
+define('OGP_LANG_welcome_text', "Välkommen till Open Game Panel (OGP). OGP är en Open-source mjukvara, som tillåter dig att installera, starta och övervaka olika spelservrar. ");
+define('OGP_LANG_any_server_is_online', "Någon server är Online");
+define('OGP_LANG_current_map', "Nuvarande karta");
+define('OGP_LANG_server_ip_port', "IP:Port");
+define('OGP_LANG_statistics', "Statistik");
+define('OGP_LANG_servers', "Servrar");
+define('OGP_LANG_players', "Spelare");
+define('OGP_LANG_server_status', "Server status");
+define('OGP_LANG_no_games_to_monitor', "Det finns för närvarande inga online/offline spelservrar");
+define('OGP_LANG_online_servers', "Online Servrar");
+define('OGP_LANG_add_games_in', "Om du vill lägga till spel, så kan du göra det om %s ");
+define('OGP_LANG_currently_online', "Online just nu");
+define('OGP_LANG_game_servers', "Spelservrar");
+define('OGP_LANG_select_remote_server', "Select Remote Server");
 ?>

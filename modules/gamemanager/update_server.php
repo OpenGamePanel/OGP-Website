@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -41,8 +41,8 @@ function exec_ogp_module() {
 
 	if ( $home_info === FALSE || preg_match("/u/",$home_info['access_rights']) != 1 )
 	{
-		print_failure( no_rights );
-		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
+		print_failure( get_lang("no_rights") );
+		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
 		return;
 	}
 	
@@ -56,14 +56,14 @@ function exec_ogp_module() {
 
 	if ( $server_xml->installer != "steamcmd" )
 	{
-		print_failure( xml_steam_error );
+		print_failure( get_lang("xml_steam_error") );
 		return;
 	}
 	$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'], $home_info['timeout']);
 	$host_stat = $remote->status_chk();
 	if( $host_stat === 0 )
 	{
-		print_failure( agent_offline );
+		print_failure( get_lang("agent_offline") );
 		$view->refresh("?m=gamemanager&amp;p=update&amp;update=".$_GET['update']."&amp;home_id=$home_id&amp;mod_id=$mod_id",5);
 		return;
 	}
@@ -71,7 +71,7 @@ function exec_ogp_module() {
 	{
 		if ( $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_id) == 1 )
 		{
-			print_failure( server_running_cant_update );
+			print_failure( get_lang("server_running_cant_update") );
 			return;
 		}
 
@@ -155,6 +155,7 @@ function exec_ogp_module() {
 				$modname = ( $installer_name == '90' ) ? $modkey : '';
 				$betaname = isset($mod_xml->betaname) ? $mod_xml->betaname : '';
 				$betapwd = isset($mod_xml->betapwd) ? $mod_xml->betapwd : '';
+				$arch = isset($mod_xml->steam_bitness) ? $mod_xml->steam_bitness : '';
 				
 				// Additional files to lock
 				if(isset($server_xml->lock_files) && !empty($server_xml->lock_files)){
@@ -165,22 +166,27 @@ function exec_ogp_module() {
 				
 				$steam_out = $remote->steam_cmd( $home_id,$home_info['home_path'],$installer_name,$modname,
 												 $betaname,$betapwd,$login,$pass,$settings['steam_guard'],
-												 $exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles);
+												 $exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles,$arch);
 			}
 			
 			if( $steam_out === 0 )
 			{
-				print_failure( failed_to_start_steam_update );
+				print_failure( get_lang("failed_to_start_steam_update") );
 				return;
 			}
 			else if ( $steam_out === 1 )
 			{
-				print_success( update_started );
+				print_success( get_lang("update_started") );
 			}
 		}
 		// Refresh update page.
 		else
 		{
+			if(isset($_POST['sgc']))
+			{
+				$remote->send_steam_guard_code($home_id, $_POST['sgc']);
+				return;
+			}
 			if ( isset( $_POST['stop_update_x'] ) )
 			{
 				$remote->stop_update($home_id);
@@ -191,26 +197,32 @@ function exec_ogp_module() {
 			$update_complete = false;
 			if ( $update_active == 1 )
 			{
-				echo "<p class='note'>". update_in_progress ."</p>\n";
-				echo "<form method=POST><input type='image' name='stop_update' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". stop_update ."</input></form>";
+				echo "<p class='note'>". get_lang("update_in_progress") ."</p>\n";
+				echo "<form method=POST><input type='image' name='stop_update' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". get_lang("stop_update") ."</input></form>";
 			}
 			else
 			{
 				$view->refresh("{CURRENT_PAGE}", 60);
-				print_success( update_completed );
-				echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". back ."</a></td></tr></table>";
+				print_success( get_lang("update_completed") );
+				echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_info['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
 				$update_complete = true;
 			}
 			if (empty($log_txt))
-				$log_txt = not_available;
-
-			echo "<pre>".$log_txt."</pre>\n";
-
+				$log_txt = get_lang("not_available");
+								
+			echo "<pre>".$log_txt."</pre>\n<script type=\"text/javascript\" src=\"js/modules/gamemanager_update.js\"></script>\n<div id='dialog' ></div>\n";
+			if(preg_match('/Two-factor code:$/m', $log_txt) and !isset($_GET['get_sgc']))
+			{
+				$view->refresh("?m=gamemanager&amp;p=update&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id&amp;get_sgc=show", 0);
+				return;
+			}
+			if(isset($_GET['get_sgc']) && $_GET['get_sgc'] == 'show')
+				return;
 			if ( $update_complete )
 				return;
 		}
 		echo "<p><a href=\"?m=gamemanager&amp;p=update&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id\">";
-		echo refresh_steam_status ."</a></p>";
+		echo get_lang("refresh_steam_status") ."</a></p>";
 		$view->refresh("?m=gamemanager&amp;p=update&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id",5);
 		return;
 	}

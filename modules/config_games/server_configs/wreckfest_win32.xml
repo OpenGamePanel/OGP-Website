@@ -1,0 +1,67 @@
+<game_config>
+  <game_key>wreckfest_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>wreckfest</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Wreckfest</game_name>
+  <server_exec_name>server/Wreckfest.exe</server_exec_name>
+  <query_port type="add">-6524</query_port>
+  <cli_template>-s server_config=server_config.cfg</cli_template>
+  <max_user_amount>24</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>361580</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="port">
+      <default>game_port=.*</default>
+      <var>game_port=</var>
+      <filepath>server_config.cfg</filepath>
+    </text>
+    <text key="query_port">
+      <default>query_port=.*</default>
+      <var>query_port=</var>
+      <filepath>server_config.cfg</filepath>
+    </text>
+    <text key="max_players">
+      <default>max_players=.*</default>
+      <var>max_players=</var>
+      <filepath>server_config.cfg</filepath>
+      <occurrence>2</occurrence>
+    </text>
+    <text key="home_name">
+      <default>server_name=.*</default>
+      <var>server_name=</var>
+      <filepath>server_config.cfg</filepath>
+      <occurrence>2</occurrence>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Steam Port" type="text">
+      <default>steam_port=.*</default>
+      <default_value>27015</default_value>
+      <var>steam_port=</var>
+      <filepath>server_config.cfg</filepath>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>Port of Game.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+    config="server_config.cfg"
+    if [ -s "$config" ]
+      then
+        echo "File $config found. OK!"
+      else
+        echo "File $config not found."
+        echo "Copying default config file in $config!"
+        cp -f initial_$config $config
+    fi
+  </post_install>
+  <configuration_files>
+    <file description="Advanced Modifications">server_config.cfg</file>
+  </configuration_files>
+</game_config>

@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -168,6 +168,7 @@ function exec_ogp_module() {
 	   <option value="">None</option>
 	   <option value="rcon">HL/Quake/CoD Support</option>
 	   <option value="rcon2">HL2/Source Support</option>
+	   <option value="armabe">Arma 2 BattlEye Support</option>
 	  </select>
 	 </td>
 	</tr>

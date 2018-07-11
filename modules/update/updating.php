@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -40,7 +40,7 @@ function exec_ogp_module()
 	define('REPONAME', 'OGP-Website');
 	if($_SESSION['users_group'] != "admin")
 	{
-		print_failure( no_access );
+		print_failure( get_lang("no_access") );
 		return;
 	}
 
@@ -57,7 +57,7 @@ function exec_ogp_module()
 	
 	$vtype = "HubGit";
 
-	echo "<h4>" . dwl_update . "</h4>\n";
+	echo "<h4>" . get_lang("dwl_update") . "</h4>\n";
 
 	//This is usefull when you are downloading big files, as it
 	//will prevent time out of the script
@@ -105,7 +105,7 @@ function exec_ogp_module()
 		
 		if( $stat['size'] > 1500 )
 		{
-			print_success( dwl_complete );
+			print_success(get_lang("dwl_complete"));
 		}
 		else
 		{
@@ -113,10 +113,10 @@ function exec_ogp_module()
 			return;
 		}
 		
-		echo "<h4>". install_update . "</h4>\n";
+		echo "<h4>". get_lang("install_update") . "</h4>\n";
 				
 		// Set default values for file checkings before installing
-		$not_writable = can_not_update_non_writable_files . " :<br>";
+		$not_writable = get_lang("can_not_update_non_writable_files") . " :<br>";
 		$filename = "";
 		$overwritten = 0;
 		$new = 0;
@@ -244,8 +244,9 @@ function exec_ogp_module()
 				}
 				
 				// update version info in db
-								
-				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$_GET[version]' WHERE setting = 'ogp_version'");
+
+				$version = $db->real_escape_string($_GET['version']);
+				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$version' WHERE setting = 'ogp_version'");
 				$db->query("UPDATE OGP_DB_PREFIXsettings SET value = '$vtype' WHERE setting = 'version_type'");
 
 				// Remove the downloaded package
@@ -258,7 +259,7 @@ function exec_ogp_module()
 					rmdir_recurse( $baseDir . DIRECTORY_SEPARATOR . $unwanted_path );
 				}
 
-				echo "<br>\n<h4>" . updating_modules ."</h4>\n";
+				echo "<br>\n<h4>" . get_lang("updating_modules") ."</h4>\n";
 				
 				require_once('modules/modulemanager/module_handling.php');
 
@@ -268,7 +269,11 @@ function exec_ogp_module()
 				{
 					update_module($db, $row['id'], $row['folder']);
 				}
-				print_success(update_complete); 
+				print_success(get_lang("update_complete")); 
+				
+				if(function_exists("removeOldPanelFiles")){
+					removeOldPanelFiles();
+				}
 			}
 			else
 			{

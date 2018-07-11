@@ -4,8 +4,6 @@
  * @file
  * TeamSpeak 3 PHP Framework
  *
- * $Id: Exception.php 06/06/2016 22:27:13 scp@Svens-iMac $
- *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -20,13 +18,55 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  * @package   TeamSpeak3
- * @version   1.1.24
  * @author    Sven 'ScP' Paulsen
- * @copyright Copyright (c) 2010 by Planet TeamSpeak. All rights reserved.
+ * @copyright Copyright (c) Planet TeamSpeak. All rights reserved.
  */
 
 /**
  * @class TeamSpeak3_Adapter_ServerQuery_Exception
  * @brief Enhanced exception class for TeamSpeak3_Adapter_ServerQuery objects.
  */
-class TeamSpeak3_Adapter_ServerQuery_Exception extends TeamSpeak3_Adapter_Exception {}
+class TeamSpeak3_Adapter_ServerQuery_Exception extends TeamSpeak3_Adapter_Exception
+{
+  /**
+   * Stores the optional return code for ServerQuery errors.
+   *
+   * @var string
+   */
+  protected $return_code = null;
+
+  /**
+   * The TeamSpeak3_Adapter_ServerQuery_Exception constructor.
+   *
+   * @param  string  $mesg
+   * @param  integer $code
+   * @param  string  $return_code
+   * @return TeamSpeak3_Adapter_ServerQuery_Exception
+   */
+  public function __construct($mesg, $code = 0x00, $return_code = null)
+  {
+    parent::__construct($mesg, $code);
+
+    $this->return_code = $return_code;
+  }
+
+  /**
+   * Returns TRUE if the exception provides a return code for ServerQuery errors.
+   *
+   * @return boolean
+   */
+  public function hasReturnCode()
+  {
+    return $this->return_code !== null;
+  }
+
+  /**
+   * Returns the optional return code for ServerQuery errors.
+   *
+   * @return string
+   */
+  public function getReturnCode()
+  {
+    return $this->return_code;
+  }
+}

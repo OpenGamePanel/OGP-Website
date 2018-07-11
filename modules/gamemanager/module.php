@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -24,8 +24,8 @@
 
 // Module general information
 $module_title = "Game manager";
-$module_version = "1.31";
-$db_version = 6;
+$module_version = "1.32";
+$db_version = 7;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => 'game_monitor', 'name'=>'Game Monitor', 'group'=>'user' ) );
 
@@ -102,4 +102,8 @@ $install_queries[5] = array(
 	
 $install_queries[6] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` ADD `server_expiration_date` VARCHAR(21) NOT NULL default 'X';");
+
+$install_queries[7] = array(
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` drop index `remote_server_id`;"
+	);
 ?>

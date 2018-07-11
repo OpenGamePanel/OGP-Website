@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2017 The OGP Development Team
+ * Copyright (C) 2008 - 2018 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,47 +22,48 @@
  *
  */
 
-define('install_lang', "Seleccione o idioma da sua preferência");
-define('install_welcome', "Seja bem vindo ao instalador do painel de controle Open Game Panel");
-define('file_permission_check', "Checando as permissões exigidas para os arquivos");
-define('OK', "OK");
-define('write_permission_required', "Permissão de escrita exigida");
-define('execute_permission_required', "Permissão de execução exigida");
-define('create_an_empty_file', "Criar um arquivo vazio.");
-define('found', "Encontrado");
-define('not_found', "Não encontrado");
-define('pear_xxtea_info', "Pear Crypt_XXTEA  é necessário para o uso do painel. Na maioria das distribuições Linux, este módulo pode ser instalado com o seguinte comando Pear 'pear install Crypt_XXTEA-beta'.");
-define('refresh', "Atualizar");
-define('checking_required_modules', "A verificar os módulos necessários:");
-define('database_type', "Tipo de banco de dados");
-define('database_settings', "Configurações do banco de dados");
-define('database_hostname', "Hostname do banco de dados");
-define('database_username', "Usuário do banco de dados");
-define('database_password', "Senha do banco de dados");
-define('database_name', "Nome do banco de dados");
-define('database_prefix', "Prefixo do banco de dados");
-define('next', "Próximo");
-define('encryption_key', "Chave de encriptação referente ao (Agent)");
-define('agent_port', "Porta (Agente)");
-define('unable_to_write_config', "Não é possível escrever no arquivo de configuração. Verifique novamente a permissão de gravação.");
-define('admin_login_details', "Detalhes do login do Administrador");
-define('config_written', "Arquivos de configuração criados com sucesso.");
-define('database_created', "Tabelas do banco de dados criadas com sucesso.");
-define('admin_login_details_info', "Agora iremos criaremos um usuário de administrador para seu Painel de Controle ");
-define('username', "Nome de usuário");
-define('repeat_password', "Repita a senha");
-define('email', "Endereço de e-mail");
-define('back', "Voltar");
-define('database_setup_failure', "O instalador não conseguiu criar o banco de dados. Por favor verifique os dados inseridos.");
-define('php_version_check', "A verificar a versão do PHP:");
-define('invalid_username', "Você digitou um usuário inválido.");
-define('password_too_short', "Sua senha é muito curta. A senha deve conter pelo menos '%d' caracteres.");
-define('password_contains_invalid_characters', "Sua senha contém caracteres inválidos.");
-define('invalid_email_address', "Você digitou o endereço de e-mail inválido.");
-define('setup_complete', "Instalação concluída com sucesso. Seu Open Game Panel está pronto para uso.");
-define('remove_install_and_secure_config', "Por razões de segurança, você deve excluir o arquivo install.php de sua instalação e configurar as permissões do arquivo includes/config.inc.php para o modo 644.");
-define('go_to_panel', "Clique aqui para entrar em seu painel de controle.");
-define('unable_to_resolve', "Se você não conseguir resolver este problema visite o site de desenvolvedores do apoio técnico do seu painel.");
-define('slogan', "A única de código aberto! ");
-define('default_welcome_title_message', "Bem Vindo! <b style='font-size:12px; font-weight:normal;'>Você pode alterar essa mensagem em '<a href='?m=settings&p=themes'>Definições de tema</a>' no menu de '<a href='?m=administration&p=main'>Administração</a>'.</b>");
+define('OGP_LANG_install_lang', "Seleccione o idioma da sua preferência");
+define('OGP_LANG_install_welcome', "Bem-vindo ao instalador do Painel de Jogos");
+define('OGP_LANG_file_permission_check', "Checando as permissões exigidas para os arquivos");
+define('OGP_LANG_OK', "OK");
+define('OGP_LANG_write_permission_required', "Permissão de escrita exigida");
+define('OGP_LANG_execute_permission_required', "Permissão de execução exigida");
+define('OGP_LANG_create_an_empty_file', "Criar um arquivo vazio.");
+define('OGP_LANG_found', "Encontrado");
+define('OGP_LANG_not_found', "Não encontrado");
+define('OGP_LANG_pear_xxtea_info', "Pear Crypt_XXTEA  é necessário para o uso do painel. Na maioria das distribuições Linux, este módulo pode ser instalado com o seguinte comando Pear 'pear install Crypt_XXTEA-beta'.");
+define('OGP_LANG_refresh', "Atualizar");
+define('OGP_LANG_checking_required_modules', "A verificar os módulos necessários");
+define('OGP_LANG_checking_optional_modules', "A verificar os módulos opcionais");
+define('OGP_LANG_database_type', "Tipo de banco de dados");
+define('OGP_LANG_database_settings', "Configurações do banco de dados");
+define('OGP_LANG_database_hostname', "Hostname do banco de dados");
+define('OGP_LANG_database_username', "Usuário do banco de dados");
+define('OGP_LANG_database_password', "Senha do banco de dados");
+define('OGP_LANG_database_name', "Nome do banco de dados");
+define('OGP_LANG_database_prefix', "Prefixo do banco de dados");
+define('OGP_LANG_next', "Próximo");
+define('OGP_LANG_encryption_key', "Chave de encriptação referente ao (Agent)");
+define('OGP_LANG_agent_port', "Porta (Agente)");
+define('OGP_LANG_unable_to_write_config', "Não é possível escrever no arquivo de configuração. Verifique novamente a permissão de gravação.");
+define('OGP_LANG_admin_login_details', "Detalhes do login do Administrador");
+define('OGP_LANG_config_written', "Arquivos de configuração criados com sucesso.");
+define('OGP_LANG_database_created', "Tabelas do banco de dados criadas com sucesso.");
+define('OGP_LANG_admin_login_details_info', "Agora iremos criaremos um usuário de administrador para seu Painel de Controle ");
+define('OGP_LANG_username', "Nome de usuário");
+define('OGP_LANG_repeat_password', "Repita a senha");
+define('OGP_LANG_email', "Endereço de e-mail");
+define('OGP_LANG_back', "Voltar");
+define('OGP_LANG_database_setup_failure', "O instalador não conseguiu criar o banco de dados. Por favor verifique os dados inseridos.");
+define('OGP_LANG_php_version_check', "A verificar a versão do PHP");
+define('OGP_LANG_invalid_username', "Você digitou um usuário inválido.");
+define('OGP_LANG_password_too_short', "Sua senha é muito curta. A senha deve conter pelo menos '%d' caracteres.");
+define('OGP_LANG_password_contains_invalid_characters', "Sua senha contém caracteres inválidos.");
+define('OGP_LANG_invalid_email_address', "Você digitou o endereço de e-mail inválido.");
+define('OGP_LANG_setup_complete', "Instalação concluída com sucesso. Seu Open Game Panel está pronto para uso.");
+define('OGP_LANG_remove_install_and_secure_config', "Por razões de segurança, você deve excluir o arquivo install.php de sua instalação e configurar as permissões do arquivo includes/config.inc.php para o modo 644.");
+define('OGP_LANG_go_to_panel', "Clique aqui para entrar em seu painel de controle.");
+define('OGP_LANG_unable_to_resolve', "Se você não conseguir resolver este problema visite o site de desenvolvedores do apoio técnico do seu painel.");
+define('OGP_LANG_slogan', "A única de código aberto! ");
+define('OGP_LANG_default_welcome_title_message', "Bem Vindo! <b style='font-size:12px; font-weight:normal;'>Você pode alterar essa mensagem em '<a href='?m=settings&p=themes'>Definições de tema</a>' no menu de '<a href='?m=administration&p=main'>Administração</a>'.</b>");
 ?>

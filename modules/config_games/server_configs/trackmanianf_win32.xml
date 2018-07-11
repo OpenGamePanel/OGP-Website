@@ -42,6 +42,7 @@
       <default_value>3450</default_value>
       <filepath>GameData/Config/dedicated_cfg.txt</filepath>
       <options>tags</options>
+      <access>admin</access>
       <desc>Port number used by the server to listen the peer-to-peer connections.</desc>
     </field>
     <field key="xmlrpc_allowremote" type="text">
@@ -56,6 +57,7 @@
       <default_value>5000</default_value>
       <filepath>GameData/Config/dedicated_cfg.txt</filepath>
       <options>tags</options>
+      <access>admin</access>
       <desc>Port number used by the server to listen xmlrpc calls.</desc>
     </field>
   </custom_fields>
