@@ -1,7 +1,7 @@
 Open Game Panel
 -------------------------------------
 
-*** Backup Database ***
+**Backup Database**
 
 Backup of the existing database can be done with following command:
 
@@ -12,14 +12,14 @@ Replace the [username] with username located in includes/config.inc.php and
 the password is asked (same as in config.inc.php).
 
 
-*** Restore Database Backup ***
+**Restore Database Backup**
 
 Backup can be restored with the following command:
 
 $ mysql --user [username] -p [database] < backup.sql
 
 
-*** Lost Admin Password ***
+**Lost Admin Password**
 
 In case you lose the admin password you can reset the password with, for
 example, the following command:
