@@ -22,6 +22,7 @@
   </mods>
   <replace_texts>
     <text key="webhost_ip">
+      <default>^$</default>
       <filepath>teamspeak3-server_win64/query_ip_whitelist.txt</filepath>
     </text>
   </replace_texts>
