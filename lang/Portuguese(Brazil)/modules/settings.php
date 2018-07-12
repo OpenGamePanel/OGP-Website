@@ -83,7 +83,7 @@ define('OGP_LANG_support_widget_content', "Conteúdo do widget de suporte");
 define('OGP_LANG_support_widget_content_info', "The content of the support widget (HTML code allowed).");
 define('OGP_LANG_support_widget_link', "Link de widget de suporte");
 define('OGP_LANG_support_widget_link_info', "O URL do seu site de suporte.");
-define('OGP_LANG_recaptcha_site_key', "Recaptcha Site Key");
+define('OGP_LANG_recaptcha_site_key', "Chave Recaptcha do site Fornecido pelo Google");
 define('OGP_LANG_recaptcha_site_key_info', "A chave do site fornecida pelo Google.");
 define('OGP_LANG_recaptcha_secret_key', "Chave Secreta do Recaptcha");
 define('OGP_LANG_recaptcha_secret_key_info', "A chave secreta fornecida pelo Google.");
@@ -130,6 +130,10 @@ define('OGP_LANG_bg_wrapper', "Fundo Completo");
 define('OGP_LANG_bg_wrapper_info', "A imagem de fundo completo. <b style='font-size:10px; font-weight:normal;'>(Apenas disponível em alguns temas.)</b>");
 define('OGP_LANG_show_server_id_game_monitor', "Mostrar ID do servidor na página do Monitor de jogos");
 define('OGP_LANG_show_server_id_game_monitor_info', "Mostre a coluna do ID do servidor do jogo no Game Monitor para fazer correspondência dos arquivos criados pelo agente no servidor do jogo real");
-define('OGP_LANG_default_game_server_home_path_prefix', "Default game server home directory prefix");
-define('OGP_LANG_default_game_server_home_path_prefix_info', "Enter a path prefix for where you want game server homes to be created by default. You can use \"{USERNAME}\" in the path which will be replaced with the OGP username the game server is being assigned to.  You can use \"{GAMEKEY}\" in the path which will be replaced with a friendly lowercase name.  You can use \"{SKIPID}\" anywhere in the path to skip appending the home ID to the path.  Example: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} will become /ogp/games/username/arkse/.  Example 2:  /ogp/games will become /ogp/games/1 where 1 is the game servers ID.");
+define('OGP_LANG_default_game_server_home_path_prefix', "Diretório padrão dos servidores");
+define('OGP_LANG_default_game_server_home_path_prefix_info', "Se você quer mudar caminho atual(pós instalação) das pastas de jogos a ser instalado, Coloque neste campo o caminho de diretório que você queira que os arquivos dos clientes sejam armazenadas Exemplo: /home/games/arquivosdosclientes, você também pode adicionar \"{USERNAME}\" no caminho para criar uma pasta com o nome do cliente que comprou o server e adicionar também \"{GAMEKEY}\" para fazer uma pasta com o nome do jogo que o cliente comprou e também \"{SKIPID}\" para não aparecer o id do server na pasta,
+exemplo: /home/{USERNAME}/{GAMEKEY}
+você terá: /home/joao/arkse/1
+exemplo: /home/{USERNAME}/{GAMEKEY}{SKIPID}
+você terá: /home/joao/arkse/");
 ?>

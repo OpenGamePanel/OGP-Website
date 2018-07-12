@@ -63,8 +63,8 @@ define('OGP_LANG_addon_name_info', "Digite um nome para este addon, este será o
 define('OGP_LANG_url_info', "Insira um endereço da Web que contenha um arquivo para download, se compactado no zip ou tar.gz será descompactado no diretório raiz do servidor ou no caminho fornecido abaixo.");
 define('OGP_LANG_path_info', "O caminho deve ser relativo à pasta do servidor e não contém barras no início ou no fim, por exemplo: cstrike / cfg. Se deixado em branco utilizará o caminho raiz do servidor.");
 define('OGP_LANG_post-script_info', "Digite o código de linguagem Bash, este será executado como um script, você pode usar substituições de texto para personalizar a instalação, eles serão substituídos por dados do servidor no qual você instala o addon. O script será iniciado a partir da pasta raiz do servidor ou o caminho especificado.");
-define('OGP_LANG_show_to_group', "Show to group");
-define('OGP_LANG_all_groups', "All groups");
-define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
-define('OGP_LANG_group', "Group");
+define('OGP_LANG_show_to_group', "Mostrar para o grupo");
+define('OGP_LANG_all_groups', "Todos os grupos");
+define('OGP_LANG_show_addons_for_selected_group', "Mostrar Addons para o grupo selecionado");
+define('OGP_LANG_group', "Grupo");
 ?>
