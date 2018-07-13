@@ -2783,7 +2783,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$retval = $this->listQuery($query);
 		if( empty( $retval ) )
 		{
-			print_r($this->getError());
+			//print_r($this->getError());
 			return FALSE;
 		}
 		return $retval[0]['home_id'];

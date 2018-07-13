@@ -49,7 +49,7 @@ define('OGP_LANG_err_email_address', "Üres vagy érvénytelen e-mail cím.");
 define('OGP_LANG_err_users_parent', "Az al-felhasználói fiókok nem hozhatnak létre más felhasználókat.");
 define('OGP_LANG_err_parent_user', "The parent user ID must reference a valid pre-existing user.");
 define('OGP_LANG_err_email_address_already_in_use_by', "Az e-mail cím már használatban van <b>%s</b> által.");
-define('OGP_LANG_user_registration', "Felhasználó regisztrálás");
+define('OGP_LANG_user_registration', "Felhasználó regisztráció");
 define('OGP_LANG_your_account_details_has_been_sent_by_email_to', "A fiók adataid e-mailben elküldve a(z) <b>%s</b> címre.");
 define('OGP_LANG_subject', "Helló %s, üdvözöllek a(z) %s!");
 define('OGP_LANG_sub_user', "Alfelhasználók");

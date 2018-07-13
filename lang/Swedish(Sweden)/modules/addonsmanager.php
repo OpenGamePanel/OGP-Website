@@ -63,4 +63,8 @@ define('OGP_LANG_addon_name_info', "Fyll i ett namn för detta tillägg, detta �
 define('OGP_LANG_url_info', "Fyll i en webbadress som innehåller en nedladdningsbar fil, och om den är komprimerad i zip eller tar.gz kommer den att packas upp i rotkatalogen på servern, eller i sökvägen som anges nedan. ");
 define('OGP_LANG_path_info', "Sökvägen måste vara i förhållande till serverns mapp och får inte innehålla snedstreck i början eller slutet, t.ex.: cstrike/cfg. Om det lämnas tomt används serverns rotsökväg.");
 define('OGP_LANG_post-script_info', "Ange Bash språkkod, koden kommer att utföras som ett skript, du kan använda textbyte för att anpassa installationen, de kommer att ersättas med data från servern där du installerar tillägget. Skriptet startar från serverns rotmapp eller den angivna sökvägen.");
+define('OGP_LANG_show_to_group', "Show to group");
+define('OGP_LANG_all_groups', "All groups");
+define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
+define('OGP_LANG_group', "Group");
 ?>

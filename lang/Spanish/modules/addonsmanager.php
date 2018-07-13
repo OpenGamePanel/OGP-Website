@@ -63,4 +63,8 @@ define('OGP_LANG_addon_name_info', "Introduzca un nombre descriptivo para este a
 define('OGP_LANG_url_info', "Introduzca una dirección web que contenga un archivo para descargar, si está comprimido en zip o tar.gz será descomprimido, en la raiz del directorio del servidor o en la ruta indicada a continuación.");
 define('OGP_LANG_path_info', "La ruta debe de ser relativa a la carpeta del servidor y no debe contener barras al principio ni al final, ejemplo: cstrike/cfg. Si lo deja en blanco se usara la raiz del servidor.");
 define('OGP_LANG_post-script_info', "Escriba código en lenguaje Bash, este será ejecutado como un script, puede usar los reemplazos de texto para personalizar la instalación, estos serán reemplazados por los datos del servidor en el que se instale el añadido. El script partirá de la carpeta raiz del servidor o de la ruta indicada.");
+define('OGP_LANG_show_to_group', "Mostrar al grupo");
+define('OGP_LANG_all_groups', "Todos los grupos");
+define('OGP_LANG_show_addons_for_selected_group', "Mostrar del grupo seleccionado");
+define('OGP_LANG_group', "Grupo");
 ?>

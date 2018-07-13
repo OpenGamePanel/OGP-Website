@@ -63,4 +63,8 @@ define('OGP_LANG_addon_name_info', "Add meg ennek a kiegészítőnek a nevét, e
 define('OGP_LANG_url_info', "Adj meg egy webcímet ami tartalmazza a fájlt a letöltéshez, ha tömörítve van zip vagy tar.gz arhívumba, az ki lesz csomagolva a szerveren az alul megadott könyvtárba.");
 define('OGP_LANG_path_info', "Az elérési útnak relatívnak kell lennie a szerver mappához és nem tartalmazhat perjeleket az elején és a végén, pl.: cstrike/cfg. Ha üresen hagyod, akkor a szerver gyökérkönyvtárának az útvonalát fogja használni.");
 define('OGP_LANG_post-script_info', "Írd be a Bash nyelvi kódot, ez skriptként fog végrehajtódni, a szövegcserék használatával testre szabhatod a telepítést, azok helyettesítve lesznek a szerver adataival, amelyek a bővítményt telepíti. A parancsfájl a szerver gyökérmappájából vagy a megadott elérési útból indul.");
+define('OGP_LANG_show_to_group', "Mutasd csoportnak");
+define('OGP_LANG_all_groups', "Minden csoport");
+define('OGP_LANG_show_addons_for_selected_group', "A kijelölt csoportok kiegészítőinek megjelenítése");
+define('OGP_LANG_group', "Csoport");
 ?>

@@ -31,10 +31,18 @@ function exec_ogp_module() {
 	$user_id = $_SESSION['user_id'];
 	// Check if user has some games.
 	$isAdmin = $db->isAdmin( $user_id );
+	$query_groups = "";
 	if($isAdmin) 
 		$home_info = $db->getGameHome($home_id);
 	else
+	{
 		$home_info = $db->getUserGameHome($user_id,$home_id);
+		$groups = $db->getUsersGroups($_SESSION['user_id']);
+		$query_groups .= " AND (";
+		foreach($groups as $group)
+			$query_groups .= "group_id=".$group['group_id']." OR ";
+		$query_groups .= "group_id=0 OR group_id IS NULL)";
+	}
 	if ($home_info)
 	{
 		$home_cfg_id = $home_info['home_cfg_id'];
@@ -45,7 +53,7 @@ function exec_ogp_module() {
 									"FROM OGP_DB_PREFIXaddons ".
 									"NATURAL JOIN OGP_DB_PREFIXconfig_homes ".
 									"WHERE addon_type='plugin' ".
-									"AND home_cfg_id=".$home_cfg_id);
+									"AND home_cfg_id=".$home_cfg_id.$query_groups);
 		$plugins_qty = count($plugins);
 		if($plugins and $plugins_qty >= 1)
 			echo "<a href='?m=addonsmanager&amp;p=addons&amp;home_id=".$home_id.
@@ -56,7 +64,7 @@ function exec_ogp_module() {
 									 "FROM OGP_DB_PREFIXaddons ".
 									 "NATURAL JOIN OGP_DB_PREFIXconfig_homes ".
 									 "WHERE addon_type='mappack' ".
-									 "AND home_cfg_id=".$home_cfg_id);
+									 "AND home_cfg_id=".$home_cfg_id.$query_groups);
 		$mappacks_qty = count($mappacks);
 		if($mappacks and $mappacks_qty >= 1){
 			echo "</td><td>";
@@ -68,7 +76,7 @@ function exec_ogp_module() {
 									"FROM OGP_DB_PREFIXaddons ".
 									"NATURAL JOIN OGP_DB_PREFIXconfig_homes ".
 									"WHERE addon_type='config' ".
-									"AND home_cfg_id=".$home_cfg_id);
+									"AND home_cfg_id=".$home_cfg_id.$query_groups);
 		$configs_qty = count($configs);
 		if($configs and $configs_qty >= 1){
 			echo "</td><td>";

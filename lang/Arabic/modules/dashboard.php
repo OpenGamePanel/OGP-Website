@@ -40,5 +40,5 @@ define('OGP_LANG_online_servers', "السيرفرات الأونلاين");
 define('OGP_LANG_add_games_in', "إذا كنت ترغب في إضافة ألعاب يمكنك أن تفعل ذلك في %s");
 define('OGP_LANG_currently_online', "متاح حاليا");
 define('OGP_LANG_game_servers', "سيرفرات الألعاب");
-define('OGP_LANG_select_remote_server', "Select Remote Server");
+define('OGP_LANG_select_remote_server', "حدد سيرفر التحكم");
 ?>

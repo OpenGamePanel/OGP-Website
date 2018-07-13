@@ -52,10 +52,18 @@ function exec_ogp_module() {
 	$user_id = $_SESSION['user_id'];
 	
     $isAdmin = $db->isAdmin( $_SESSION['user_id'] );
+	$query_groups = "";
 	if($isAdmin) 
 		$home_info = $db->getGameHome($home_id);
 	else
-		$home_info = $db->getUserGameHome($_SESSION['user_id'],$home_id);
+	{
+		$home_info = $db->getUserGameHome($user_id,$home_id);
+		$groups = $db->getUsersGroups($_SESSION['user_id']);
+		$query_groups .= " AND (";
+		foreach($groups as $group)
+			$query_groups .= "group_id=".$group['group_id']." OR ";
+		$query_groups .= "group_id=0 OR group_id IS NULL)";
+	}
 	
     if ( $home_info === FALSE )
     {
@@ -76,16 +84,17 @@ function exec_ogp_module() {
     if ( $state != "" )
     {
         $addon_id = (int)$_REQUEST['addon_id'];
-
-		$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
-		$addons_rows = $db->resultQuery("SELECT url, path, post_script FROM OGP_DB_PREFIXaddons WHERE addon_id=".$addon_id);
+		
+		$addons_rows = $db->resultQuery("SELECT url, path, post_script FROM OGP_DB_PREFIXaddons WHERE addon_id=".$addon_id.$query_groups);
 
 		if (!$addons_rows) {
 			print_failure(get_lang('invalid_addon'));
 			$view->refresh('?m=addonsmanager&p=user_addons&home_id='. $home_id .'&mod_id='. $mod_id .'&ip='. $ip .'&port='.$port);
 			return;
 		}
-
+		
+		$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
+		
 		$addon_info = $addons_rows[0];
 		$url = $addon_info['url'];
 		$filename = basename($url);
@@ -251,7 +260,7 @@ function exec_ogp_module() {
             <td align='left'>
 			<select name="addon_id">
 			<?php
-			$addons = $db->resultQuery("SELECT addon_id, name FROM OGP_DB_PREFIXaddons WHERE addon_type='".$addon_type."' AND home_cfg_id=" . $home_cfg_id . " ORDER BY name ASC");
+			$addons = $db->resultQuery("SELECT addon_id, name FROM OGP_DB_PREFIXaddons WHERE addon_type='".$addon_type."' AND home_cfg_id=" . $home_cfg_id . $query_groups . " ORDER BY name ASC");
 			foreach($addons as $addon) 
 			{
 			?>

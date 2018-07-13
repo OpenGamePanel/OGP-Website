@@ -99,7 +99,7 @@ define('OGP_LANG_ftp_admin', "FTP felhasználók");
 define('OGP_LANG_orders', "Rendelések");
 define('OGP_LANG_services', "Szolgáltatások");
 define('OGP_LANG_shop_settings', "Bolt beállítások");
-define('OGP_LANG_update', "Panel frissítés");
+define('OGP_LANG_update', "Panel frissítése");
 define('OGP_LANG_extras', "Extrák");
 define('OGP_LANG_show', "Mutasd ezt");
 define('OGP_LANG_show_all', "Összes szerver mutatása");
