@@ -1129,9 +1129,9 @@ class OGPRemoteLibrary
 	/// \return 1 If update started successfully
 	/// \return 0 If error
 	/// \return -1 In case of connection error.
-	public function steam_workshop($home_id, $mods_path, $workshop_id, $workshop_mod_id)
+	public function steam_workshop($home_id, $mods_path, $workshop_id, $workshop_mod_list)
 	{
-		$params = $this->encrypt_params($home_id, $mods_path, $workshop_id, $workshop_mod_id);
+		$params = $this->encrypt_params($home_id, $mods_path, $workshop_id, $workshop_mod_list);
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("steam_workshop", $params);
 		$response = $this->sendRequest($request);
