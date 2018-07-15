@@ -1125,17 +1125,27 @@ class OGPRemoteLibrary
 		return 1;
 	}
 	
-	/// Updates the mod located in the game home with steamCmd.
+		/// Updates the mod located in the game home with steamCmd.
 	/// \return 1 If update started successfully
 	/// \return 0 If error
 	/// \return -1 In case of connection error.
-	public function steam_workshop($home_id, $mods_path, $workshop_id, $workshop_mod_list)
+	public function steam_workshop($home_id, $mods_full_path,
+								   $workshop_id, $mods_list,
+								   $regex, $mods_backreference_index,
+								   $variable, $place_after, $mod_string, 
+								   $string_separator, $config_file_path, 
+								   $post_install, $mod_names_list)
 	{
-		$params = $this->encrypt_params($home_id, $mods_path, $workshop_id, $workshop_mod_list);
+		$params = $this->encrypt_params($home_id, $mods_full_path,
+										$workshop_id, $mods_list,
+										$regex, $mods_backreference_index,
+										$variable, $place_after, $mod_string, 
+										$string_separator, $config_file_path, 
+										$post_install, $mod_names_list);
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("steam_workshop", $params);
 		$response = $this->sendRequest($request);
-
+		
 		if ( $response === -1 )
 			return 0;
 		else if ( $response === 1 )
