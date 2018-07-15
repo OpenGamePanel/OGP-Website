@@ -33,7 +33,7 @@ define('OGP_LANG_ignored_files', "%s fájl figyelmen kívül hagyva.");
 define('OGP_LANG_not_updated_files_blacklisted', "Nem frissített/telepített fájlok (feketelistás):<br>%s");
 define('OGP_LANG_latest_version', "Legújabb verzió");
 define('OGP_LANG_panel_version', "Panel verzió");
-define('OGP_LANG_update_now', "Frissítés most");
+define('OGP_LANG_update_now', "Frissíts most");
 define('OGP_LANG_the_panel_is_up_to_date', "A Panel naprakész.");
 define('OGP_LANG_files_overwritten', "%s fájl felülíródott");
 define('OGP_LANG_files_not_overwritten', "%s fájl NEM került felülírásra a feketelista miatt");
