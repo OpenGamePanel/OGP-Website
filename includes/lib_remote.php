@@ -1134,14 +1134,16 @@ class OGPRemoteLibrary
 								   $regex, $mods_backreference_index,
 								   $variable, $place_after, $mod_string, 
 								   $string_separator, $config_file_path, 
-								   $post_install, $mod_names_list)
+								   $post_install, $mod_names_list,
+								   $anonymous_login, $user, $pass)
 	{
 		$params = $this->encrypt_params($home_id, $mods_full_path,
 										$workshop_id, $mods_list,
 										$regex, $mods_backreference_index,
 										$variable, $place_after, $mod_string, 
 										$string_separator, $config_file_path, 
-										$post_install, $mod_names_list);
+										$post_install, $mod_names_list,
+										$anonymous_login, $user, $pass);
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("steam_workshop", $params);
 		$response = $this->sendRequest($request);
@@ -1185,7 +1187,7 @@ class OGPRemoteLibrary
 			$lines = explode('\n',$data_tmp);
 			foreach ($lines as $line)
 			{
-				list($string_name, $mod_title) = explode(':', base64_decode($line));
+				list($string_name, $mod_title) = explode(':', base64_decode($line), 2);
 				if($string_name != "" and $mod_title != "")
 					$data["$string_name"] = $mod_title;
 			}
