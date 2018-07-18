@@ -1135,7 +1135,8 @@ class OGPRemoteLibrary
 								   $variable, $place_after, $mod_string, 
 								   $string_separator, $config_file_path, 
 								   $post_install, $mod_names_list,
-								   $anonymous_login, $user, $pass)
+								   $anonymous_login, $user, $pass,
+								   $download_method, $url_list, $filename_list)
 	{
 		$params = $this->encrypt_params($home_id, $mods_full_path,
 										$workshop_id, $mods_list,
@@ -1143,7 +1144,8 @@ class OGPRemoteLibrary
 										$variable, $place_after, $mod_string, 
 										$string_separator, $config_file_path, 
 										$post_install, $mod_names_list,
-										$anonymous_login, $user, $pass);
+										$anonymous_login, $user, $pass,
+										$download_method, $url_list, $filename_list);
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("steam_workshop", $params);
 		$response = $this->sendRequest($request);
