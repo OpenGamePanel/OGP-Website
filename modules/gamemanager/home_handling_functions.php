@@ -22,10 +22,17 @@
  *
  */
 
-function get_query_port($server_xml, $server_port)
-{
-	if( $server_xml->query_port and $server_xml->query_port['type'] == "add" )
-		return $server_port + $server_xml->query_port;
+function get_query_port($server_xml, $server_port) {
+	if ($server_xml->query_port) {
+		if ($server_xml->query_port['type'] == 'add') {
+			return $server_port + $server_xml->query_port;
+		}
+
+		if ($server_xml->query_port['type'] == 'subtract') {
+			return $server_port - $server_xml->query_port;
+		}
+	}
+
 	return $server_port;
 }
 
