@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Διαχειριστής Παιχνιδιών")
 define('OGP_LANG_no_games_to_monitor', "Δεν έχετε διαμορφωμένα παιχνίδια που να μπορούν να παρακολουθηθούν.");
 define('OGP_LANG_status', "Κατάσταση");
 define('OGP_LANG_fail_no_mods', "Δεν υπάρχουν ενεργοποιημένα mods για αυτό το παιχνίδι! Πρέπει να ζητήσετε από τον διαχειριστή του OGP να προσθέσει mod(s) για το παιχνίδι που σας έχει ανατεθεί.");
-define('OGP_LANG_no_game_homes_assigned', "Δεν έχουν ανατεθεί διακομιστές παιχνιδιών για εσάς. Πρέπει να ζητήσετε από το διαχειριστή του OGP να αναθέσει παιχνίδια για εσάς.");
+define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
 define('OGP_LANG_select_game_home_to_configure', "Επιλέξτε έναν διακομιστή παιχνιδιού που θέλετε να διαμορφώσετε.");
 define('OGP_LANG_file_manager', "Διαχειριστής Αρχείων");
 define('OGP_LANG_configure_mods', "Διαμορφώστε Mods");
@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_steam_update', "Αποτυχία έναρξης
 define('OGP_LANG_failed_to_start_rsync_update', "Αποτυχία έναρξης ενημέρωσης Rsync. Δείτε την καταγραφή του agent.");
 define('OGP_LANG_update_completed', "Η ενημέρωση ολοκληρώθηκε με επιτυχία.");
 define('OGP_LANG_update_in_progress', "Ενημέρωση σε εξέλιξη, παρακαλώ περιμένετε...");
-define('OGP_LANG_refresh_steam_status', "Ανανεώστε την κατάσταση του Steam");
+define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
 define('OGP_LANG_refresh_rsync_status', "Ανανεώστε την κατάσταση του rsync");
 define('OGP_LANG_server_running_cant_update', "Ο διακομιστής εκτελείται οπότε η ενημέρωση δεν είναι δυνατή. Σταματήστε τον διακομιστή πριν τον ενημερώσετε.");
 define('OGP_LANG_xml_steam_error', "Ο επιλεγμένος τύπος διακομιστή δεν υποστηρίζει εγκατάσταση / ενημέρωση μέσω Steam.");

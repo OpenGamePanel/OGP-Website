@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Szerverkezelő");
 define('OGP_LANG_no_games_to_monitor', "Nincs egyetlen játék sem konfigurálva neked, amit felügyelhetnél.");
 define('OGP_LANG_status', "Állapot");
 define('OGP_LANG_fail_no_mods', "Nincs mod engedélyezve ehhez a játékhoz! Meg kell kérned az adminisztrátort, hogy legalább egy játék modot engedélyezzen a számodra.");
-define('OGP_LANG_no_game_homes_assigned', "Nincsenek játék szerverek hozzád rendelve. Meg kell kérdned az OGP Admint, hogy rendeljen játékot hozzád.");
+define('OGP_LANG_no_game_homes_assigned', "Nincsenek szerverek hozzárendelve a fiókodhoz.");
 define('OGP_LANG_select_game_home_to_configure', "Válasszd ki a konfigurálni kívánt szervert");
 define('OGP_LANG_file_manager', "Fájlkezelő");
 define('OGP_LANG_configure_mods', "Modok beállítása");
