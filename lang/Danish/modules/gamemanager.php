@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Spil Manager");
 define('OGP_LANG_no_games_to_monitor', "Du har ikke konfigureret nogen spil, som du ka iagttage.");
 define('OGP_LANG_status', "Status");
 define('OGP_LANG_fail_no_mods', "Ingen mods er aktiveret til dette spil! Spørg en OGP admin om hjælp, for at få tildelt nogle mod(s) til det spil, som er tildelt til dig.");
-define('OGP_LANG_no_game_homes_assigned', "Ingen spil server, er bleven tildelt til dig. Du må spørge en OGP admin om hjælp, for at få tildelt nogle spil.");
+define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
 define('OGP_LANG_select_game_home_to_configure', "Vælg den spil server, som du vil konfigurer");
 define('OGP_LANG_file_manager', "Fil Håndtering");
 define('OGP_LANG_configure_mods', "Konfigure mods");
@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_steam_update', "Fejlet I at starte steam opdate
 define('OGP_LANG_failed_to_start_rsync_update', "Failed to start Rsync update. See agent log.");
 define('OGP_LANG_update_completed', "Opdatering færdiggjort succesfuldt.");
 define('OGP_LANG_update_in_progress', "Opdatering er igang, vent venligst...");
-define('OGP_LANG_refresh_steam_status', "Genopfrisk steam status");
+define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
 define('OGP_LANG_refresh_rsync_status', "Genopfrisk rsync status");
 define('OGP_LANG_server_running_cant_update', "Serveren kører, så updatering er ikke mulig. Stop serveren før opdatering.");
 define('OGP_LANG_xml_steam_error', "Den valgte server type, supportere ikke steam installering/opdatering.");
