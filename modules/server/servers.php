@@ -94,7 +94,7 @@ function exec_ogp_module() {
 						"'>[". get_lang("restart") ."]</a>\n".
 						"<a href='?m=server&amp;p=log&amp;rhost_id=".$server_row['remote_server_id']."'>[". get_lang("view_log") ."]</a>\n";
 			$tittle .= "<span class='success'>". get_lang("online") ."</span>";
-			$booble .= "<img src='images/magnifglass.png' data-url='includes/api.php?remote_server=$server_row[remote_server_id]&mon_stats' weight='8' class='center' />";
+			$booble .= "<img src='images/magnifglass.png' data-url='home.php?m=server&p=mon_stats&remote_server_id=$server_row[remote_server_id]&type=cleared' weight='8' class='center' />";
 		}
 		elseif( $host_stat === -1 )
 		{

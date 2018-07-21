@@ -22,6 +22,7 @@
  *
  */
 
+require_once('includes/lib_remote.php');
 function pretty_text_ttf($im, $fontsize, $angle, $x, $y, $color, $font, $string, $outline = false) {
 	$black  = imagecolorallocate($bgImg, 0, 0, 0);
 
@@ -59,50 +60,25 @@ function dsi_make_img($im = false, $cache_on = false, $cache_data = false, $forc
 	imagedestroy($im);
 	exit;
 }
-error_reporting(E_ERROR);
 
-set_include_path(get_include_path() . PATH_SEPARATOR . "includes/" . PATH_SEPARATOR . "../");
-require_once("helpers.php");
-require_once("config.inc.php");
-require_once("lib_remote.php");
-require_once("lang.php");
+function exec_ogp_module() {
+	global $db;
+	$remote_server = $db->getRemoteServer($_GET['remote_server_id']);
 
-$db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
-$error_text = "";
-if (get_db_error_text($db,$error_text))
-{
-    print_failure($error_text);
-    return;
-}
-
-startSession();
-
-if ( isset($_SESSION['users_login']) )
-{
-	$userInfo = $db->getUser($_SESSION['users_login']);
-	if( $db->isAdmin($_SESSION['user_id']) AND isset($_SESSION['users_passwd']) AND !empty($_SESSION['users_passwd']) AND $_SESSION['users_passwd'] == $userInfo['users_passwd'])
+	$remote = new OGPRemoteLibrary( $remote_server['agent_ip'], $remote_server['agent_port'],
+									$remote_server['encryption_key'], $remote_server['timeout'] );
+	
+	$stats = $remote->mon_stats();	
+	$im = imagecreatefrompng("images/term.png");
+	$stats_lines_array = explode("\n", $stats);
+	$text_color = ImageColorAllocate($im,225,225,225);
+	$text_font = "includes/fonts/TIMES_SQ.TTF";
+	$i = 40;
+	foreach ($stats_lines_array as $stats_line)
 	{
-		$remote_server = $db->getRemoteServer($_REQUEST['remote_server']);
-
-		$remote = new OGPRemoteLibrary( $remote_server['agent_ip'], $remote_server['agent_port'],
-										$remote_server['encryption_key'], $remote_server['timeout'] );
-
-		if(isset($_REQUEST['mon_stats']))
-		{
-			$stats = $remote->mon_stats();	
-			$im = imagecreatefrompng("../images/term.png");
-			$stats_lines_array = explode("\n", $stats);
-			$text_color = ImageColorAllocate($im,225,225,225);
-			$text_font = "./fonts/TIMES_SQ.TTF";
-			$i = 40;
-			foreach ($stats_lines_array as $stats_line)
-			{
-				pretty_text_ttf($im,11,0,5,$i,$text_color,$text_font,utf8_decode($stats_line), true); // Servername
-				$i = $i+20;
-			}
-			dsi_make_img($im, true);
-			return;
-		}
+		pretty_text_ttf($im,11,0,5,$i,$text_color,$text_font,utf8_decode($stats_line), true); // Servername
+		$i = $i+20;
 	}
+	dsi_make_img($im, true);
+	return;
 }
-?>
