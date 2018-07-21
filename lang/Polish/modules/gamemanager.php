@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Manager Gier");
 define('OGP_LANG_no_games_to_monitor', "Nie masz żadnych gier, które mogą być monitorowane.");
 define('OGP_LANG_status', "Status");
 define('OGP_LANG_fail_no_mods', "Brak aktywnych modów do tej gry! Musisz zwrócić się do admin OGP by dodać mod dla wybranej dla ciebie gry.");
-define('OGP_LANG_no_game_homes_assigned', "Brak serwerów gry przeznaczonych dla Ciebie. Musisz zwrócić się do admin OGP by przypisać dla Ciebie serwery.");
+define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
 define('OGP_LANG_select_game_home_to_configure', "Wybierz serwer gry, który chcesz skonfigurować");
 define('OGP_LANG_file_manager', "Manager Plików");
 define('OGP_LANG_configure_mods', "Konfiguruj Mody");
@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_steam_update', "Nie udało się uruchomić upda
 define('OGP_LANG_failed_to_start_rsync_update', "Nie udało się uruchomić update Rsync. Zobacz Log Agenta.");
 define('OGP_LANG_update_completed', "Aktualizacja została zakończona pomyślnie.");
 define('OGP_LANG_update_in_progress', "Aktualizacja w toku, proszę czekać ...");
-define('OGP_LANG_refresh_steam_status', "Odśwież status Steam");
+define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
 define('OGP_LANG_refresh_rsync_status', "Odśwież status rsync");
 define('OGP_LANG_server_running_cant_update', "Aktualizacja serwera nie jest możliwa. Zatrzymaj serwer przed aktualizacją.");
 define('OGP_LANG_xml_steam_error', "Wybrany serwer nie obsługuje instalacji/aktualizacji przez Steam.");

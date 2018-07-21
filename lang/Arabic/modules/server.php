@@ -50,7 +50,7 @@ define('OGP_LANG_remote_host_ftp_ip', "أيبي الأف تي بي");
 define('OGP_LANG_remote_host_ftp_ip_info', "خادم بروتوكول نقل الملفات <b>IP</b> للوكيل الحالي.");
 define('OGP_LANG_remote_host_ftp_port', "FTP Port");
 define('OGP_LANG_remote_host_ftp_port_info', "The FTP server <b>port</b> for the current Agent.");
-define('OGP_LANG_view_log', "عرض السجل");
+define('OGP_LANG_view_log', "View Log");
 define('OGP_LANG_status', "الحالة");
 define('OGP_LANG_stop_firewall', "إيقاف جدار الحماية");
 define('OGP_LANG_start_firewall', "تشغيل جدار الحماية");

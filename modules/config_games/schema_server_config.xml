@@ -12,6 +12,7 @@
   <xs:simpleType name="query_port_type_type">
     <xs:restriction base="xs:string">
       <xs:enumeration value="add" />
+      <xs:enumeration value="subtract" />
       <xs:minLength value="1" />
     </xs:restriction>
   </xs:simpleType>

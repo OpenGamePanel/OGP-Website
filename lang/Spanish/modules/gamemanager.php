@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Gestión de Servidores");
 define('OGP_LANG_no_games_to_monitor', "Actualmente no hay servidores de juegos instalados.");
 define('OGP_LANG_status', "Estado");
 define('OGP_LANG_fail_no_mods', "No hay ningún mod para este juego. Habla con el administrador del panel para que añada mod(s) para este juego");
-define('OGP_LANG_no_game_homes_assigned', "No hay ninguna home asignada a su cuenta.");
+define('OGP_LANG_no_game_homes_assigned', "No tienes ningún servidor asignado a tu cuenta.");
 define('OGP_LANG_select_game_home_to_configure', "Seleccione el juego que desee configurar");
 define('OGP_LANG_file_manager', "Editar texto");
 define('OGP_LANG_configure_mods', "Configurar mods");

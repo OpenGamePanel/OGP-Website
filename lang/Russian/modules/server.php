@@ -50,7 +50,7 @@ define('OGP_LANG_remote_host_ftp_ip', "FTP-IP");
 define('OGP_LANG_remote_host_ftp_ip_info', "FTP-сервер <b>IP</b> для текущего агента.");
 define('OGP_LANG_remote_host_ftp_port', "FTP-порт");
 define('OGP_LANG_remote_host_ftp_port_info', "FTP-<b>порт</b> сервера для текущего агента.");
-define('OGP_LANG_view_log', "Просмотр лога");
+define('OGP_LANG_view_log', "View Log");
 define('OGP_LANG_status', "Статус");
 define('OGP_LANG_stop_firewall', "Остановить Firewall");
 define('OGP_LANG_start_firewall', "Запустить Firewall");

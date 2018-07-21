@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Wreckfest</game_name>
   <server_exec_name>server/Wreckfest.exe</server_exec_name>
-  <query_port type="add">-6524</query_port>
+  <query_port type="subtract">6524</query_port>
   <cli_template>-s server_config=server_config.cfg</cli_template>
   <max_user_amount>24</max_user_amount>
   <mods>
@@ -59,6 +59,7 @@
         echo "File $config not found."
         echo "Copying default config file in $config!"
         cp -f initial_$config $config
+        sed -i 's/\#mods=example,my_mod/mods=/g' server_config.cfg
     fi
   </post_install>
   <configuration_files>
