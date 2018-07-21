@@ -76,7 +76,7 @@ define('OGP_LANG_sql_lock_tables_info', "<b>Enables use of LOCK TABLES on tables
 define('OGP_LANG_sql_select_info', "<b>Enables use of SELECT.</b>");
 define('OGP_LANG_sql_update_info', "<b>Enables use of UPDATE.</b>");	
 define('OGP_LANG_sql_grant_option_info', "<b>Enables privileges to be granted.</b>");
-define('OGP_LANG_select_game_server', "Válassz játék szervert");
+define('OGP_LANG_select_game_server', "Válassz játékszervert");
 define('OGP_LANG_invalid_mysql_server_id', "Érvénytelen MySQL szerver ID.");
 define('OGP_LANG_there_is_another_db_named_or_user_named', "There is another database named <b>%s</b> or another user named <b>%s</b>.");
 define('OGP_LANG_db_added_for_home_id', "Added database for home ID <b>%s</b>.");

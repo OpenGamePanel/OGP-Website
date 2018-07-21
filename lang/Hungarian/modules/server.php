@@ -36,7 +36,7 @@ define('OGP_LANG_remote_encryption_key', "Távoli titkosítási kulcs");
 define('OGP_LANG_remote_encryption_key_info', "A távoli titkosítási kulcs a Panel és az Agent közötti adatok titkosításához használandó. Ennek a kulcsnak egyformának kell lennie mindkét oldalon.");
 define('OGP_LANG_server_name', "Szerver név");
 define('OGP_LANG_agent_ip_port', "Agent IP:Port");
-define('OGP_LANG_agent_status', "Agent státusz");
+define('OGP_LANG_agent_status', "Agent állapota");
 define('OGP_LANG_ips', "IP-k");
 define('OGP_LANG_add_more_ips', "Ha több IP-t akarsz megadni akkor kattints az 'IP-k beállítása' gombra miután minden mezot kitöltöttél, ezután megjelenik egy üres mezo a kövezkeo IP hozzáadásához.");
 define('OGP_LANG_encryption_key_mismatch', "A titkosítási kulcs nem egyezik meg az Agentel. Kérlek, ellenőrizd az Agented konfigurációját.");

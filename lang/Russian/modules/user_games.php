@@ -216,7 +216,7 @@ define('OGP_LANG_cpu_affinity_info', "Выберите Ядро (Ядра) пр�
 define('OGP_LANG_expiration_date_changed', "Дата истечения срока действия для выбранного сервера была изменена.");
 define('OGP_LANG_expiration_date_could_not_be_changed', "Дата истечения срока действия для выбранного дома не может быть изменена.");
 define('OGP_LANG_search', "Поиск");
-define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
-define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
+define('OGP_LANG_ftp_account_username_too_long', "Имя FTP-пользователя слишком длинное. Название должно быть не более 20 символов.");
+define('OGP_LANG_ftp_account_password_too_long', "Пароль FTP-пользователя слишком длинный. Пароль должно быть не более 20 символов.");
 define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
  ?>

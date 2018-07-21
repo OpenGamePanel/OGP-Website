@@ -36,7 +36,7 @@ define('OGP_LANG_seconds_word', "másodperce");
 define('OGP_LANG_cpu_usage', "CPU használat");
 define('OGP_LANG_cpu_load', "terhelése");
 define('OGP_LANG_ram_usage', "RAM használat");
-define('OGP_LANG_ram_used', "Felhasznált memória");
+define('OGP_LANG_ram_used', "Használatban lévő memória");
 define('OGP_LANG_ram_of', "a");
 define('OGP_LANG_storage_space', "Tárhely");
 define('OGP_LANG_storage_total', "Lemez terület");

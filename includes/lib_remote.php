@@ -1125,23 +1125,78 @@ class OGPRemoteLibrary
 		return 1;
 	}
 	
-	/// Updates the mod located in the game home with steamCmd.
+		/// Updates the mod located in the game home with steamCmd.
 	/// \return 1 If update started successfully
 	/// \return 0 If error
 	/// \return -1 In case of connection error.
-	public function steam_workshop($home_id, $mods_path, $workshop_id, $workshop_mod_id)
+	public function steam_workshop($home_id, $mods_full_path,
+								   $workshop_id, $mods_list,
+								   $regex, $mods_backreference_index,
+								   $variable, $place_after, $mod_string, 
+								   $string_separator, $config_file_path, 
+								   $post_install, $mod_names_list,
+								   $anonymous_login, $user, $pass,
+								   $download_method, $url_list, $filename_list)
 	{
-		$params = $this->encrypt_params($home_id, $mods_path, $workshop_id, $workshop_mod_id);
+		$params = $this->encrypt_params($home_id, $mods_full_path,
+										$workshop_id, $mods_list,
+										$regex, $mods_backreference_index,
+										$variable, $place_after, $mod_string, 
+										$string_separator, $config_file_path, 
+										$post_install, $mod_names_list,
+										$anonymous_login, $user, $pass,
+										$download_method, $url_list, $filename_list);
 		$this->add_enc_chk($params);
 		$request = xmlrpc_encode_request("steam_workshop", $params);
 		$response = $this->sendRequest($request);
-
-		if ( $response === -1 )
-			return 0;
-		else if ( $response === 1 )
-			return 1;
-		else
+		
+		// Connection Error
+		if ($response === NULL)
+			return -3;
+		// Subroutine Failure
+		if(is_array($response) && xmlrpc_is_fault($response))
+			return -2;
+		// Error unmet condition
+		if ($response === -1)
 			return -1;
+		//OK
+		if($response === 1)
+			return 1;
+		//Unknown response
+		return -4;
+	}
+	
+	public function get_workshop_mods_info(&$data)
+	{
+		$args = $this->encryptParam("mods_info");
+		$this->add_enc_chk($args);
+		$request = xmlrpc_encode_request("get_workshop_mods_info", $args);
+		$response = $this->sendRequest($request);
+		$data = array();
+		// Offline
+		if ($response === NULL)
+			return -3;
+		// Failure
+		if(is_array($response) && xmlrpc_is_fault($response))
+			return -2;
+		// mods directory does not exists
+		if($response === -1)
+			return -1;
+		
+		if(preg_match("/^1;/", $response))
+		{
+			list($retval, $data_tmp) = explode(";", $response);
+			$lines = explode('\n',$data_tmp);
+			foreach ($lines as $line)
+			{
+				list($string_name, $mod_title) = explode(':', base64_decode($line), 2);
+				if($string_name != "" and $mod_title != "")
+					$data["$string_name"] = $mod_title;
+			}
+			return $retval;
+		}
+		//Unknown response
+		return -4;
 	}
 }
 ?>

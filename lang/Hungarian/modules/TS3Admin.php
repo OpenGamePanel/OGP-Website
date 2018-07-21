@@ -35,7 +35,7 @@ define('OGP_LANG_e_upload_failed', "Feltöltés sikertelen.");
 define('OGP_LANG_e_server_responded', "A szerver válasza:");
 define('OGP_LANG_e_conn_serverquery', "Nem sikerült létrehozni a ServerQuery hozzáférést.");
 define('OGP_LANG_e_conn_vserver', "Nem sikerült választani virtuális szervert.");
-define('OGP_LANG_e_session_timedout', "A munkamenet lejárt.");
+define('OGP_LANG_e_session_timedout', "A munkamenet ideje lejárt.");
 define('OGP_LANG_js_error', "Hiba");
 define('OGP_LANG_js_ajax_error', "Egy AJAX hiba történt: %1.");
 define('OGP_LANG_js_confirm_server_stop', "Tényleg le akarod állítani a(z) #%1 szervert?");
