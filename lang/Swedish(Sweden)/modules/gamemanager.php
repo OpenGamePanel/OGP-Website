@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Spelhanterare");
 define('OGP_LANG_no_games_to_monitor', "Du har inga spel upplagda som du kan kontrollera. ");
 define('OGP_LANG_status', "Status");
 define('OGP_LANG_fail_no_mods', "Inga moddar är aktiverade för detta spel! Du måste fråga din OGP-administratör för att lägga till modd(ar) för det spel som tilldelats till dig. ");
-define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
+define('OGP_LANG_no_game_homes_assigned', "Inga spelservrar har tilldelats dig. Du måste fråga din OGP-administratör för att lägga till spel till dig. ");
 define('OGP_LANG_select_game_home_to_configure', "Välj en spelserver du vill konfigurera");
 define('OGP_LANG_file_manager', "Filhanterare");
 define('OGP_LANG_configure_mods', "Konfigurera moddar ");
@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_steam_update', "Misslyckades med att starta Ste
 define('OGP_LANG_failed_to_start_rsync_update', "Misslyckades med att starta Rsync-uppdateringen. Se agentlogg. ");
 define('OGP_LANG_update_completed', "Uppdateringen lyckades. ");
 define('OGP_LANG_update_in_progress', "Pågående uppdatering, vänta...");
-define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
+define('OGP_LANG_refresh_steam_status', "Uppdatera steamstatus");
 define('OGP_LANG_refresh_rsync_status', "Uppdatera rsyncstatus ");
 define('OGP_LANG_server_running_cant_update', "Servern körs, så uppdatering är ej möjlig. Stoppa servern innan du uppdaterar. ");
 define('OGP_LANG_xml_steam_error', "Den valda servertypen stödjer inte steamuppdatering/installation. ");

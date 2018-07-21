@@ -93,7 +93,7 @@ define('OGP_LANG_themes', "Téma beállítások");
 define('OGP_LANG_user_admin', "Felhasználók");
 define('OGP_LANG_sub_users', "Alfelhasználók");
 define('OGP_LANG_show_groups', "Csoportok");
-define('OGP_LANG_user_games', "Játékszerverek");
+define('OGP_LANG_user_games', "Játék szerverek");
 define('OGP_LANG_addons_manager', "Kiegészítő menedzser");
 define('OGP_LANG_ftp_admin', "FTP felhasználók");
 define('OGP_LANG_orders', "Rendelések");

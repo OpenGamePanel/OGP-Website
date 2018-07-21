@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Oyun Yöneticisi");
 define('OGP_LANG_no_games_to_monitor', "You do not have any games configured to you that can be monitored.");
 define('OGP_LANG_status', "Durum");
 define('OGP_LANG_fail_no_mods', "No mods enabled for this game! You need to ask your OGP admin to add mod(s) for the game assigned for you.");
-define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
+define('OGP_LANG_no_game_homes_assigned', "No game servers assigned for you. You need to ask your OGP admin to assign games for you.");
 define('OGP_LANG_select_game_home_to_configure', "Select a game server that you want to configure");
 define('OGP_LANG_file_manager', "Dosya Yöneticisi");
 define('OGP_LANG_configure_mods', "Modları konfigüre et");
@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_steam_update', "Failed to start Steam update. S
 define('OGP_LANG_failed_to_start_rsync_update', "Failed to start Rsync update. See agent log.");
 define('OGP_LANG_update_completed', "Update completed successfully.");
 define('OGP_LANG_update_in_progress', "Update in progress, please wait...");
-define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
+define('OGP_LANG_refresh_steam_status', "Refresh steam status");
 define('OGP_LANG_refresh_rsync_status', "Refresh rsync status");
 define('OGP_LANG_server_running_cant_update', "Server running so update is not possible. Stop the server before update.");
 define('OGP_LANG_xml_steam_error', "Selected server type does not support steam install/update.");

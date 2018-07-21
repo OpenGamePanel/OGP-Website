@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "مدير اللعبة");
 define('OGP_LANG_no_games_to_monitor', "لم يكن لديك أي ألعاب تكوين لك التي يمكن رصدها.");
 define('OGP_LANG_status', "الحالة");
 define('OGP_LANG_fail_no_mods', "لا يوجد وحدات لهذه اللعبة! يجب أن تطلب من مشرف أوغب إضافة وحدة (وحدات) مود للعبة المخصصة لك.");
-define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
+define('OGP_LANG_no_game_homes_assigned', "لا خوادم لعبة مخصصة بالنسبة لك. يجب أن تطلب من مشرفك تعيين الألعاب لك.");
 define('OGP_LANG_select_game_home_to_configure', "حدد خادم لعبة تريد تكوينه");
 define('OGP_LANG_file_manager', "مدير الملفات");
 define('OGP_LANG_configure_mods', "تهيئة الـتعديلات (mods)");
@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_steam_update', "فشل بدء تحديث Steam.
 define('OGP_LANG_failed_to_start_rsync_update', "فشل بدء تحديث Rsync. انظر سجل الوكيل.");
 define('OGP_LANG_update_completed', "اكتمل التحديث بنجاح.");
 define('OGP_LANG_update_in_progress', "جار التحديث، يرجى الانتظار ...");
-define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
+define('OGP_LANG_refresh_steam_status', "تحديث حالة steam");
 define('OGP_LANG_refresh_rsync_status', "تحديث حالة rsync");
 define('OGP_LANG_server_running_cant_update', "الخادم شغال إذا التحديث ليس معقول. أوقف الخادم قبل التحديث.");
 define('OGP_LANG_xml_steam_error', "نوع الخادم المحدد لا يدعم التثبيت / التحديث Steam.");

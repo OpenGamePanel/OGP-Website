@@ -46,7 +46,7 @@
       <options>s</options>
     </text>
     <text key="control_password">
-      <default>"rconServerPassword" : "(.*)"</default>
+      <default>"rconServerPassword" : "[\w\-\s]*"</default>
       <var>"rconServerPassword" :</var>
       <filepath>storage/starbound_server.config</filepath>
       <options>sq</options>
@@ -58,7 +58,7 @@
       <options>s</options>
     </text>
     <text key="home_name">
-      <default>"serverName" : "(.*)"</default>
+      <default>"serverName" : "[\w\-\s]*"</default>
       <var>"serverName" :</var>
       <filepath>storage/starbound_server.config</filepath>
       <options>sq</options>
