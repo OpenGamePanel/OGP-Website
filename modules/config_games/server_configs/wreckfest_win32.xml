@@ -59,6 +59,7 @@
         echo "File $config not found."
         echo "Copying default config file in $config!"
         cp -f initial_$config $config
+        sed -i 's/\#mods=example,my_mod/mods=/g' server_config.cfg
     fi
   </post_install>
   <configuration_files>
