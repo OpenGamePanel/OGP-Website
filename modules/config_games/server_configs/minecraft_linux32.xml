@@ -63,6 +63,15 @@
     </param>
   </server_params>
   <custom_fields>
+    <field key="EULA" type="select">
+      <option value="false">False</option>
+      <option value="true">True</option>
+      <default>eula=.*</default>
+      <default_value>false</default_value>
+      <var>eula=</var>
+      <filepath>eula.txt</filepath>
+      <desc>Agreeing to the Minecraft End User License Agreement (EULA). Can be viewed &lt;a href=https://account.mojang.com/documents/minecraft_eula target=_blank&gt;here&lt;/a&gt;.</desc>
+    </field>
     <field key="RCON Enabled" type="select">
       <option value="true">Yes</option>
       <option value="false">No</option>
