@@ -31,7 +31,7 @@
       <option value="0">Denied</option>
       <option value="1">Accepted</option>
       <options>ns</options>
-      <desc>TeamSpeak3 server licence.</desc>
+      <desc>Agreeing to the TeamSpeak 3 server licence. Can be viewed &lt;a href=https://sales.teamspeak.com/documents/TeamSpeak_Master_License_Agreement_EN.pdf target=_blank&gt;here&lt;/a&gt;.</desc>
     </param>
     <param key="logappend=" type="select" id="LOG">
       <option value="0">Disabled</option>
