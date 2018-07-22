@@ -188,7 +188,7 @@ function api_token()
 	
 	if($request[0] == "create")
 	{
-		$user = $token = isset($request[1])?urldecode($request[1]):$_POST['user'];
+		$user = isset($request[1])?urldecode($request[1]):$_POST['user'];
 		$password = isset($request[2])?urldecode($request[2]):$_POST['password'];
 		
 		$userInfo = $db->getUser($user);
@@ -196,6 +196,12 @@ function api_token()
 		if(isset($userInfo['users_passwd']) && md5($password) == $userInfo['users_passwd'])
 		{
 			$token = bin2hex(openssl_random_pseudo_bytes(32));
+			$old_token = $db->currentApiToken($userInfo['user_id']);
+			// Update cronjob passwords in the URLs
+			if($old_token and file_exists('modules/cron/shared_cron_functions.php')){
+				require_once('modules/cron/shared_cron_functions.php');
+				updateCronJobTokens($old_token, $token);
+			}
 			$query ="INSERT INTO ".API_TABLE.
 					" (user_id, token)".
 					" VALUES".

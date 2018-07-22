@@ -3779,6 +3779,27 @@ class OGPDatabaseMySQL extends OGPDatabase
 							") ENGINE=MyISAM DEFAULT CHARSET=latin1;");
 		}
 	}
+	
+	public function currentApiToken($user_id)
+	{
+		if (is_numeric($user_id) === false)
+			return false;
+		$this->checkApiTable();
+		
+		$user_id = (int)$this->realEscapeSingle($user_id);
+		
+		$query = 'SELECT `token` FROM `%sapi_tokens` WHERE `user_id` = %2$d;';
+		$query = sprintf($query, $this->table_prefix, $user_id);
+		
+		$result = mysqli_query($this->link, $query);
+		++$this->queries_;
+		$tmp = mysqli_fetch_row($result);
+		++$this->queries_;
+		if(empty($tmp))
+			return false;
+		
+		return $tmp[0];
+	}
 }
 
 ?>

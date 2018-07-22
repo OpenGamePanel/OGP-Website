@@ -100,13 +100,7 @@ function exec_ogp_module()
 		}
 		
 		if ( $db->changeHomeControlPassword($home_id, $control_password) === TRUE )
-		{
-			// Update cronjob passwords in the URLs
-			if(file_exists('modules/cron/shared_cron_functions.php')){
-				require_once('modules/cron/shared_cron_functions.php');
-				updateCronJobPasswords($db, $remote, $home_id);
-			}
-			
+		{			
 			echo json_encode(array('result' => 'success', 'info' => get_lang("control_password_updated_successfully")));
 			$db->logger( get_lang("control_password_updated_successfully") ." HOME ID:$home_id - ". get_lang("game_control_password") .":$control_password");
 		}
