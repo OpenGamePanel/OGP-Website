@@ -105,7 +105,7 @@ function exec_ogp_module()
 	$rsync_options = array("1" => get_lang('all_available_servers'), "2" => get_lang('only_remote_servers'), "3" => get_lang('only_local_servers'));
 
 	echo "<h2>".get_lang('settings')."</h2>";
-
+	echo "<a href='?m=settings&p=api_hosts'>".get_lang('setup_api_authorized_hosts')."</a>";
 	$row = $db->getSettings();
 	$ft = new FormTable();
 	$ft->start_form("?m=settings", "post", "autocomplete=\"off\"");

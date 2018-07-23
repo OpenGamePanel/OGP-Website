@@ -85,6 +85,35 @@ if(function_exists($function))
 	define("API_TABLE", $table_prefix."api_tokens");
 	// Connect to the database server and select database.
 	$db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
+	$autorized_hosts = array($_SERVER['SERVER_NAME'], getHostByName(getHostName()), '127.0.0.1', 'localhost');
+	$remote_servers = $db->getRemoteServers();
+	foreach($remote_servers as $remote_server)
+	{
+		foreach(gethostbynamel($remote_server['agent_ip']) as $agent_ip)
+		{
+			if(!in_array($agent_ip, $autorized_hosts))
+				$autorized_hosts[] = $agent_ip;
+		}
+	}
+	
+	$api_hosts_file = 'api_authorized.hosts';
+	if(file_exists($api_hosts_file))
+	{
+		$hosts_list = file_get_contents($api_hosts_file);
+		$hosts = preg_split("/[\r\n]+/", $hosts_list);
+		foreach($hosts as $host)
+		{
+			$host = trim($host);
+			if($host == '')
+				continue;
+			if(!in_array($host, $autorized_hosts))
+				$autorized_hosts[] = $host;
+		}
+	}
+	
+	if(!in_array($_SERVER['REMOTE_ADDR'], $autorized_hosts))
+		outputJSON(array("status" => '401', "message" => 'Unauthorized host'));
+	
 	$settings = $db->getSettings();
 	$db->checkApiTable();
 	$logged_in = false;
