@@ -449,7 +449,7 @@ function exec_ogp_module() {
 							<img src='" . check_theme_image("images/steam.png") ."' title='". get_lang("install_update_steam") ."'>
 							<span>". get_lang("install_update_steam") ."</span>
 						</a>";
-						$manager .= "<a class='monitorbutton getAutoUpdateLink' copyfail='" . get_lang("auto_update_copy_me_fail") . "' copysuccess='" . get_lang("auto_update_copy_me_success") . "' autoupdatetext='" . get_lang("auto_update_title_popup") . "' autoupdatehtml='" . htmlentities(get_lang("auto_update_popup_html")) . "' copyme='" . get_lang("auto_update_copy_me") . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?action=autoUpdateSteamHome&homeid=" . $server_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>
+						$manager .= "<a class='monitorbutton getAutoUpdateLink' copyfail='" . get_lang("auto_update_copy_me_fail") . "' copysuccess='" . get_lang("auto_update_copy_me_success") . "' autoupdatetext='" . get_lang("auto_update_title_popup") . "' autoupdatehtml='" . htmlentities(get_lang("auto_update_popup_html")) . "' copyme='" . get_lang("auto_update_copy_me") . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?gamemanager/update&token=".$db->getApiToken($_SESSION['user_id'])."&ip=".$server_home['ip']."&port=".$server_home['port']."&mod_key=".$server_home['mod_key']."&type=steam'>
 							<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_lang("get_steam_autoupdate_api_link") . "'>
 							<span>". get_lang("get_steam_autoupdate_api_link") . "</span>
 						</a>";
