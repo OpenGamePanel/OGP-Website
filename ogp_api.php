@@ -94,7 +94,7 @@ if(function_exists($function))
 		if(isset($_POST['token']))
 		{
 			$token = $_POST['token'];
-			$query = "SELECT user_id FROM ".API_TABLE." WHERE `token` = '".$token."';";
+			$query = "SELECT user_id FROM ".API_TABLE." WHERE `token` = '".$db->real_escape_string($token)."';";
 			$result = $db->resultQuery($query);
 			if(isset($result[0]['user_id']))
 			{
@@ -163,7 +163,7 @@ function api_token()
 	if($request[0] == "test")
 	{
 		$token = isset($request[1])?$request[1]:$_POST['token'];
-		$query = "SELECT user_id FROM ".API_TABLE." WHERE `token` = '".$token."';";
+		$query = "SELECT user_id FROM ".API_TABLE." WHERE `token` = '".$db->real_escape_string($token)."';";
 		$result = $db->resultQuery($query);
 		if(isset($result[0]['user_id']))
 		{
@@ -205,7 +205,7 @@ function api_token()
 			$query ="INSERT INTO ".API_TABLE.
 					" (user_id, token)".
 					" VALUES".
-					" ('".$userInfo['user_id']."', '".$token."')".
+					" ('".$userInfo['user_id']."', '".$db->realEscapeSingle($token)."')".
 					" ON DUPLICATE KEY UPDATE".
 					" user_id = VALUES(user_id),".
 					" token = VALUES(token);";
@@ -1498,7 +1498,7 @@ function api_addonsmanager()
 		else
 		{
 			$status = "342";
-			$message = "Addon installation failed, file download could not be started.";
+			$message = "Addon installation failed, file download could not be started.($retval)";
 		}
 	}
 	
