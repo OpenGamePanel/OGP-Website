@@ -47,7 +47,7 @@ function get_function_args($main_request)
 	$functions["litefm/remove"] = array("token" => true, "ip" => true, "port" => true, "relative_path" => true);
 
 	//______________ Addons Manager
-	$functions["addonsmanager/list"] = array("token" => true, "ip" => true, "port" => true);
+	$functions["addonsmanager/list"] = array("token" => true);
 	$functions["addonsmanager/install"] = array("token" => true, "ip" => true, "port" => true, "addon_id" => true);
 
 	//______________ Steam Workshop

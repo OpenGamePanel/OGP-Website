@@ -845,8 +845,17 @@ function api_gamemanager()
 	
 	$isAdmin = $db->isAdmin($user_info['user_id']);
 	
-	if(!$isAdmin and $db->getUserGameHome($user_info['user_id'], $home_info['home_id']) === FALSE)
-		return array("status" => '329', "message" => "The given address ($ip:$port) does not belong to your account.");
+	if($isAdmin)
+	{
+		$access_rights = 'ufpetc';
+	}
+	else
+	{
+		$game_home = $db->getUserGameHome($user_info['user_id'], $home_info['home_id']);
+		if($game_home === FALSE)
+			return array("status" => '329', "message" => "The given address ($ip:$port) does not belong to your account.");
+		$access_rights = $game_home['access_rights'];
+	}
 	
     $server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$home_info['home_cfg_file']);
 
@@ -1073,6 +1082,8 @@ function api_gamemanager()
 	
 	if($request[0] == "update")
 	{
+		if(!strstr($access_rights,'u'))
+			return array("status" => '352', "message" => "You don't have access right to update the server at $ip:$port.");
 		if($_POST['type'] == "steam")
 		{
 			if($server_xml->installer == "steamcmd")
@@ -1294,8 +1305,19 @@ function api_litefm()
 	
 	$isAdmin = $db->isAdmin($user_info['user_id']);
 	
-	if(!$isAdmin and $db->getUserGameHome($user_info['user_id'], $home_info['home_id']) === FALSE)
-		return array("status" => '329', "message" => "The given address ($ip:$port) does not belong to your account.");
+	if($isAdmin)
+	{
+		$access_rights = 'ufpetc';
+	}
+	else
+	{
+		$game_home = $db->getUserGameHome($user_info['user_id'], $home_info['home_id']);
+		if($game_home === FALSE)
+			return array("status" => '329', "message" => "The given address ($ip:$port) does not belong to your account.");
+		$access_rights = $game_home['access_rights'];
+	}
+	if(!strstr($access_rights,'f'))
+		return array("status" => '351', "message" => "You don't have access right for file management in server at $ip:$port.");
 	
     $server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$home_info['home_cfg_file']);
 
@@ -1307,6 +1329,7 @@ function api_litefm()
 	if($host_stat !== 1)
 		return array("status" => '310', "message" => "The remote server is offline.");
 	
+	$relative_path = preg_replace("/(\.\.)(\\\|\/)+/", '/', $relative_path);
 	$path = clean_path($home_info['home_path'].'/'.$relative_path);
 	
 	if($request[0] != "save" and $remote->rfile_exists($path) === 0)
@@ -1370,7 +1393,7 @@ function api_addonsmanager()
 	{
 		$addons_rows = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXaddons");
 		$status = "200";
-		$message = $addons_rows[0];
+		$message = $addons_rows;
 	}
 	
 	if($request[0] == "install")
@@ -1425,7 +1448,7 @@ function api_addonsmanager()
 			$query_groups .= "group_id=0 OR group_id IS NULL)";
 		}
 
-		$addons_rows = $db->resultQuery("SELECT url, path, post_script FROM OGP_DB_PREFIXaddons WHERE addon_id=".$addon_id.$query_groups);
+		$addons_rows = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXaddons WHERE home_cfg_id=".$home_info['home_cfg_id']." AND addon_id=".$addon_id.$query_groups);
 
 		if($addons_rows === FALSE)
 			return array("status" => '341', "message" => "Invalid addon id #" . $addon_id . ".");
@@ -1467,7 +1490,7 @@ function api_addonsmanager()
 		}
 
 		$pid = $remote->start_file_download($addon_info['url'], $home_info['home_path']."/".$addon_info['path'], $filename, "uncompress", $post_script);
-		if($remote->is_file_download_in_progress($pid) === 1)
+		if($pid > 0)
 		{
 			$status = "200";
 			$message = "Addon installation started with process id #".$pid;
@@ -1475,7 +1498,7 @@ function api_addonsmanager()
 		else
 		{
 			$status = "342";
-			$message = "Addon installation failed, file download could not be started.";
+			$message = "Addon installation failed, file download could not be started.($retval)";
 		}
 	}
 	
