@@ -1498,7 +1498,7 @@ function api_addonsmanager()
 		else
 		{
 			$status = "342";
-			$message = "Addon installation failed, file download could not be started.($retval)";
+			$message = "Addon installation failed, file download could not be started.";
 		}
 	}
 	
