@@ -229,7 +229,7 @@ function exec_ogp_module() {
 	$ft->add_field('string','city',$userInfo['users_city']);
 	$ft->add_field('string','province',$userInfo['users_province']);
 	$ft->add_field('string','country',$userInfo['users_country']);
-	$ft->add_field('string','api_token',$db->getApiToken($_SESSION['user_id']), 64, "readonly");
+	$ft->add_field('string','api_token',$db->getApiToken($userInfo['user_id']), 64, "readonly");
 	if ( $isAdmin && $userInfo['users_role'] != "subuser" ) {
 		$ft->add_custom_field('user_role',
 			create_drop_box_from_array(array('user', 'admin'),"newrole", $userInfo['users_role']));
