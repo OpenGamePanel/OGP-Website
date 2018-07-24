@@ -356,7 +356,7 @@ function removeOldPanelFiles(){ // Should run post panel update to remove old fi
 
 function runPostUpdateOperations(){
 	if(file_exists('modules/cron/shared_cron_functions.php')){
-		// Update cronjobs to use the new token based API
+		// Update cronjobs to use the new token based API (should work)
 		require_once('modules/cron/shared_cron_functions.php');
 		if(function_exists("updateCronJobsToNewApi")){
 			updateCronJobsToNewApi();
