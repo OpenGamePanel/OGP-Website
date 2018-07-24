@@ -274,6 +274,10 @@ function exec_ogp_module()
 				if(function_exists("removeOldPanelFiles")){
 					removeOldPanelFiles();
 				}
+				
+				if(function_exists("runPostUpdateOperations")){
+					runPostUpdateOperations();
+				}
 			}
 			else
 			{

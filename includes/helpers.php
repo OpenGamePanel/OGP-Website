@@ -354,6 +354,16 @@ function removeOldPanelFiles(){ // Should run post panel update to remove old fi
 	}	
 }
 
+function runPostUpdateOperations(){
+	// Update cronjob passwords in the URLs
+	if(file_exists('modules/cron/shared_cron_functions.php')){
+		require_once('modules/cron/shared_cron_functions.php');
+		if(function_exists("updateCronJobsToNewApi")){
+			updateCronJobsToNewApi();
+		}
+	}
+}
+
 function getOGPGitHubURL($gitHubUsername, $repo){
 	$OGPGitHub = "https://github.com/OpenGamePanel/";
 	$gitHubURL = $OGPGitHub; 
