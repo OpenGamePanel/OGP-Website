@@ -132,4 +132,11 @@ define('OGP_LANG_show_server_id_game_monitor', "Voir les IDs des Serveurs dans l
 define('OGP_LANG_show_server_id_game_monitor_info', "Afficher la colonne des IDs des Serveurs dans la page de Gestion des Serveurs qui correspondent aux IDs attribués lors de la création des Serveurs de Jeu.");
 define('OGP_LANG_default_game_server_home_path_prefix', "Dossier par défaut des serveurs de jeu");
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Entrer un préfixe de chemin où vous souhaitez que les dossiers des serveurs de jeu soient créés.  Vous pouvez utiliser \"{USERNAME}\" dans le chemin qui sera ensuite remplacé par le nom d&apos;utilisateur OGP auquel le serveur est assigné. Vous pouvez utiliser \"{GAMEKEY}\" dans le chemin qui sera ensuite remplacé par un nom de jeu en minuscule.  Vous pouvez utiliser \"{SKIPID}\" n&apos;importe où dans le chemin pour empêcher d&apos;apposer l&apos;ID du serveur de jeu au chemin.  Exemple: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} deviendra /ogp/games/username/arkse/.  Exemple 2:  /ogp/games deviendra /ogp/games/1 où 1 est l&apos;ID du serveur de jeu.");
+define('OGP_LANG_setup_api_authorized_hosts', "Paramétrer les hôtes autorisés pour l'API");
+define('OGP_LANG_autohorized_hosts', "Hôtes autorisés");
+define('OGP_LANG_add_host', "Ajouter un hôte");
+define('OGP_LANG_remove_hosts', "Enlever les hôtes");
+define('OGP_LANG_default_hosts', "Hôtes par défaut");
+define('OGP_LANG_custom_hosts', "Hôtes personnalisés");
+
 ?>

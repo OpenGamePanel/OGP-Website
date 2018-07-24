@@ -136,4 +136,11 @@ exemplo: /home/{USERNAME}/{GAMEKEY}
 você terá: /home/joao/arkse/1
 exemplo: /home/{USERNAME}/{GAMEKEY}{SKIPID}
 você terá: /home/joao/arkse/");
+define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
+define('OGP_LANG_autohorized_hosts', "Authorized hosts");
+define('OGP_LANG_add_host', "Add host");
+define('OGP_LANG_remove_hosts', "Remove hosts");
+define('OGP_LANG_default_hosts', "Default hosts");
+define('OGP_LANG_custom_hosts', "Custom hosts");
+
 ?>

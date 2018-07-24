@@ -132,4 +132,11 @@ define('OGP_LANG_show_server_id_game_monitor', "Показывать ID серв
 define('OGP_LANG_show_server_id_game_monitor_info', "Показывает ID Игрового сервер на странице Мониторинга для сопоставления созданных файлов Агентом на Актуальном Игровом сервере.");
 define('OGP_LANG_default_game_server_home_path_prefix', "Префикс домашней директории игрового сервера по умолчанию");
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Введите префикс пути для  домашнего пути игрового сервера  по умолчанию. Вы можете использовать \"{USERNAME}\" в пути, который будет заменен на имя пользователя OGP, которому назначен игровой сервер. Вы можете использовать  \"{GAMEKEY}\" в пути, который будет заменен дружественным строчным именем. Вы можете использовать \"{SKIPID}\" в любом месте пути, чтобы пропустить добавление домашнего идентификатора к пути. Пример: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} станет / ogp / games / username / arkse /. Пример 2:  /ogp/games will become /ogp/games/1, где 1 - идентификатор игровых серверов.");
+define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
+define('OGP_LANG_autohorized_hosts', "Authorized hosts");
+define('OGP_LANG_add_host', "Add host");
+define('OGP_LANG_remove_hosts', "Remove hosts");
+define('OGP_LANG_default_hosts', "Default hosts");
+define('OGP_LANG_custom_hosts', "Custom hosts");
+
 ?>
