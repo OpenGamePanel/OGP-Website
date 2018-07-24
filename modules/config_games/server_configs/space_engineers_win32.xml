@@ -16,6 +16,7 @@
 		<mod key='space_engineers'>
 			<name>none</name>
 			<installer_name>298740</installer_name>
+			<installer_login>anonymous</installer_login>
 	 </mod>
 	</mods>
 	<replace_texts>
