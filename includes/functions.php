@@ -609,7 +609,7 @@ function getOGPSiteURL(){
 		}
 	}
 	
-	if(hasValue($ip)){
+	if(isset($ip) and !empty($ip)){
 		$url .= $ip;
 	}else{
 		$url .= $_SERVER['HTTP_HOST'];
