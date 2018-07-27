@@ -109,4 +109,5 @@ define('OGP_LANG_valid_user', "Por favor especifica un usuario valido.");
 define('OGP_LANG_enter_valid_username', "Por favor introduzca un nombre de usuario valido.");
 define('OGP_LANG_unexpected_role', "Rol de usuario inválido");
 define('OGP_LANG_search', "Buscar");
+define('OGP_LANG_api_token', "Token API");
 ?>

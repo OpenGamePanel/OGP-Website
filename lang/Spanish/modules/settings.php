@@ -143,11 +143,11 @@ Ejemplo 2:
 se convertiría en 
 /ogp/games/1 
 donde 1 es el identificador del servidor.");
-define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
-define('OGP_LANG_autohorized_hosts', "Authorized hosts");
-define('OGP_LANG_add_host', "Add host");
-define('OGP_LANG_remove_hosts', "Remove hosts");
-define('OGP_LANG_default_hosts', "Default hosts");
-define('OGP_LANG_custom_hosts', "Custom hosts");
+define('OGP_LANG_setup_api_authorized_hosts', "Configurar servidores autorizados de API");
+define('OGP_LANG_autohorized_hosts', "Servidores autorizados");
+define('OGP_LANG_add_host', "Añadir servidor");
+define('OGP_LANG_remove_hosts', "Eliminar servidor");
+define('OGP_LANG_default_hosts', "Servidores por defecto");
+define('OGP_LANG_custom_hosts', "Servidores personalizados");
 
 ?>

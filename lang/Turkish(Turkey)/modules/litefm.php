@@ -23,12 +23,12 @@
  */
 
 define('OGP_LANG_dir_not_found', "Directory '%s' not found from the server.");
-define('OGP_LANG_filename', "Filename");
-define('OGP_LANG_filesize', "Filesize");
-define('OGP_LANG_bytes', "Bytes");
-define('OGP_LANG_owner', "Owner");
+define('OGP_LANG_filename', "Dosya Adı");
+define('OGP_LANG_filesize', "Dosya boyutu");
+define('OGP_LANG_bytes', "Bayt");
+define('OGP_LANG_owner', "Sahip");
 define('OGP_LANG_group', "Group");
-define('OGP_LANG_empty_directory', "Directory is empty.");
+define('OGP_LANG_empty_directory', "Dizin yolu boş");
 define('OGP_LANG_currently_viewing', "Currently viewing directory '%s'");
 define('OGP_LANG_wrote_changes', "Changes saved successfully.");
 define('OGP_LANG_failed_write', "Failed to write file to remote server.");

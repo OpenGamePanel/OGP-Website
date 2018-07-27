@@ -109,4 +109,5 @@ define('OGP_LANG_valid_user', "Kérlek, adj meg egy érvényes felhasználót.")
 define('OGP_LANG_enter_valid_username', "Kérlek, adj meg egy érvényes felhasználónevet.");
 define('OGP_LANG_unexpected_role', "Váratlan felhasználói szerepet kapott.");
 define('OGP_LANG_search', "Keresés");
+define('OGP_LANG_api_token', "API token");
 ?>

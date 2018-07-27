@@ -109,4 +109,5 @@ define('OGP_LANG_valid_user', "Укажите действительного п�
 define('OGP_LANG_enter_valid_username', "Пожалуйста введите действительное имя пользователя.");
 define('OGP_LANG_unexpected_role', "Неизвестная роль пользователя");
 define('OGP_LANG_search', "Поиск");
+define('OGP_LANG_api_token', "API token");
 ?>
