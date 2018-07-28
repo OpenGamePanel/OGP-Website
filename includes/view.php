@@ -161,7 +161,11 @@ class OGPView {
 		
 		// Include our global JS
 		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
-
+	    
+		if ($db->isModuleInstalled('tickets')) {
+			$this->header_code .= '<script type="text/javascript" src="modules/tickets/js/notifications.js"></script>' . "\n";
+		}
+	    
 		$fc = array(
 			$path . MODULES . $module."/".$subpage.".js",
 			$path . MODULES . $module."/".$module.".js"
