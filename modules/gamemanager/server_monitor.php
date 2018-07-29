@@ -163,7 +163,7 @@ function exec_ogp_module() {
 	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
 	
 	
-	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !(isset($_GET['limit']) and !empty($_GET['limit']))){
 		$home_limit = $loggedInUserInfo["users_page_limit"];
 	}
 	
