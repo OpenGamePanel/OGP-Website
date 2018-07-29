@@ -85,7 +85,6 @@ define('OGP_LANG_add_user', "Add User");
 define('OGP_LANG_remove_from_group', "Remove from group");
 define('OGP_LANG_add_server_to_group', "Add server to group");
 define('OGP_LANG_add_server', "Add Server");
-define('OGP_LANG_no_remote_servers', "No remote servers available.");
 define('OGP_LANG_servers_in_group', "Servers in group");
 define('OGP_LANG_no_servers_in_group', "No servers in group %s.");
 define('OGP_LANG_available_groups', "Available Groups");

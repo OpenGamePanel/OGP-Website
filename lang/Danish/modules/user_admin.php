@@ -85,7 +85,6 @@ define('OGP_LANG_add_user', "Tilføj Bruger");
 define('OGP_LANG_remove_from_group', "Fjern fra gruppe");
 define('OGP_LANG_add_server_to_group', "Tilføj server til gruppe");
 define('OGP_LANG_add_server', "Tilføj Server");
-define('OGP_LANG_no_remote_servers', "Ingen fjern servere tilgængelige.");
 define('OGP_LANG_servers_in_group', "Servere I en gruppe");
 define('OGP_LANG_no_servers_in_group', "Ingen servere I gruppen %s.");
 define('OGP_LANG_available_groups', "Tilgængelig Grupper");

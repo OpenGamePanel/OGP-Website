@@ -57,30 +57,7 @@ class OGPView {
         // Our global CSS goes first so that themes can override
         $this->header_code = '<link rel="stylesheet" href="css/global.css">' . "\n";
 
-        $path = "";
-
-        if ( isset($_SESSION['users_theme']) &&
-            !empty($_SESSION['users_theme']) &&
-            is_dir( 'themes/'.$_SESSION['users_theme'] ) &&
-            is_file( 'themes/'.$_SESSION['users_theme'].'/layout.html') )
-        {
-            $path = 'themes/'.$_SESSION['users_theme'].'/';
-        }
-        // Using default theme if there is not one selected.
-        else if ( !isset($panel_settings['theme']) )
-        {
-            $path = 'themes/Revolution/';
-        }
-        else if ( is_dir( 'themes/'.$panel_settings['theme'] ) &&
-            is_file( 'themes/'.$panel_settings['theme'].'/layout.html') )
-        {
-            $path = 'themes/'.$panel_settings['theme'].'/';
-        }
-        // In case the theme that was selected is invalid print error and use default.
-        else
-        {
-            $path = 'themes/Revolution/';
-        }
+        $path = getThemePath();
 
 		$page = file_get_contents($path.'layout.html');
 		@$top = file_get_contents($path.'top.html');

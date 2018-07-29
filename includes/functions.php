@@ -842,4 +842,33 @@ if (!function_exists('boolval')) {
 		return (bool) $val;
 	}
 }
+
+function getThemePath()
+{
+	global $settings;
+	$path = "";
+	if ( isset($_SESSION['users_theme']) &&
+		!empty($_SESSION['users_theme']) &&
+		is_dir( 'themes/'.$_SESSION['users_theme'] ) &&
+		is_file( 'themes/'.$_SESSION['users_theme'].'/layout.html') )
+	{
+		$path = 'themes/'.$_SESSION['users_theme'].'/';
+	}
+	// Using default theme if there is not one selected.
+	else if ( !isset($settings['theme']) )
+	{
+		$path = 'themes/Revolution/';
+	}
+	else if ( is_dir( 'themes/'.$settings['theme'] ) &&
+		is_file( 'themes/'.$settings['theme'].'/layout.html') )
+	{
+		$path = 'themes/'.$settings['theme'].'/';
+	}
+	// In case the theme that was selected is invalid print error and use default.
+	else
+	{
+		$path = 'themes/Revolution/';
+	}
+	return $path;
+}
 ?>
