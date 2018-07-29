@@ -43,43 +43,24 @@ function exec_ogp_module()
 	
 	if( $user_homes === FALSE )
 	{
-		// If there are no games, then there can not be any mods either.
-		print_failure('No game homes assigned');
-		if ( $isAdmin )
-		{
-		echo "<p><a href='?m=user_games&amp;p=assign&amp;user_id=$_SESSION[user_id]'>Assign game homes</a></p>";
-		}
 		return;
 	}
 	if( empty( $_GET['home_id'] ) )
 	{
 		unset($_GET['home_id']);
 	}
-	if (!isset($_GET['home_id'])) 
-	{
-		create_home_selector($_GET['m'], FALSE, $user_homes);
-		$show_all = TRUE;
-	}
-	else
-	{
-		create_home_selector($_GET['m'], FALSE, $user_homes);
-		create_home_selector($_GET['m'], FALSE, "show_all");
-		$show_all = FALSE;
-	}
+	
 	if( isset($_GET['home_id']) ) $_SESSION['home_id'] = $_GET['home_id'];
 	$_SESSION['settings'] = $settings;
 	$_SESSION['remote_servers'] = $db->getRemoteServers();
 	$_SESSION['isAdmin'] = $isAdmin;
 	$_SESSION['user_homes'] = $user_homes;
 	?>	<IFRAME SRC="modules/ftp/index.php<?php if( isset($_GET['home_id']) ) echo "?home_id=".$_GET['home_id']; ?>" ALIGN=center WIDTH=100% HEIGHT=460 style="border:1px solid transparent;background-color:white" >	</IFRAME>	<?php
-	if($show_all == FALSE)
-	{
-		echo "<form action='' method='get'>
-			  <input type='hidden' name='m' value='gamemanager' />
-			  <input type='hidden' name='p' value='game_monitor' />
-			  <input type='hidden' name='home_id' value='".$_GET['home_id']."' />
-			  <input type='submit' value='".get_lang('back')."' />
-			  </form>";
-	}
+	echo "<div align='center'><form action='' method='get'>
+		  <input type='hidden' name='m' value='gamemanager' />
+		  <input type='hidden' name='p' value='game_monitor' />
+		  <input type='hidden' name='home_id' value='".$_GET['home_id']."' />
+		  <input type='submit' value='".get_lang('back')."' />
+		  </form></div>";
 }
 ?>
