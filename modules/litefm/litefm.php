@@ -79,7 +79,7 @@ function litefm_check($home_id)
 					$_SESSION['fm_cwd_'.$home_id] = @$_SESSION['fm_cwd_'.$home_id] . "/" . $path;
 					$_SESSION['fm_cwd_'.$home_id] = clean_path($_SESSION['fm_cwd_'.$home_id]);
 				}else{
-					if(!endsWith($_SESSION['fm_cwd_'.$home_id], $path)){
+					if((isset($_SESSION['fm_cwd_'.$home_id]) and !endsWith($_SESSION['fm_cwd_'.$home_id], $path)) or !isset($_SESSION['fm_cwd_'.$home_id])){
 						$_SESSION['fm_cwd_'.$home_id] = @$_SESSION['fm_cwd_'.$home_id] . "/" . $path;
 						$_SESSION['fm_cwd_'.$home_id] = clean_path($_SESSION['fm_cwd_'.$home_id]);
 					}
