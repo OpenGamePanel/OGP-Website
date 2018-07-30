@@ -45,7 +45,7 @@ define('OGP_LANG_feed_enable_info', "Si votre hébergement web a un pare-feu (fi
 define('OGP_LANG_feed_url', "URL de Feed");
 define('OGP_LANG_feed_url_info', "GrayCube.com partage un 'LGSL Feed' depuis l&apos;URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Encodage des caractères");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Remplace l'encodage de caractères défini dans les fichiers de langue. Laissez vide pour utiliser l&apos;encodage défini dans les fichiers de langue.");
+define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Remplace l&apos;encodage de caractères défini dans les fichiers de langue. Laissez vide pour utiliser l&apos;encodage défini dans les fichiers de langue.");
 define('OGP_LANG_steam_user', "Nom d'utilisateur Steam");
 define('OGP_LANG_steam_user_info', "Ce nom d&apos;utilisateur est utilisé pour se connecter à Steam et télécharger les serveurs de jeux comme CS:GO.");
 define('OGP_LANG_steam_pass', "Mot de passe Steam");
