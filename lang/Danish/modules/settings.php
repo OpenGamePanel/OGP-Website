@@ -45,7 +45,7 @@ define('OGP_LANG_feed_enable_info', "If your webhost has a firewall which is blo
 define('OGP_LANG_feed_url', "Feed URL");
 define('OGP_LANG_feed_url_info', "GrayCube.com deler LGSL feed lin til:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Character Encoding");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Leave it blank to use ISO encoding.");
+define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
 define('OGP_LANG_steam_user', "Steam Bruger");
 define('OGP_LANG_steam_user_info', "Denne bruger bruges til at logge ind på steam, for at downloade nogle nye spil, så som CS: GO.");
 define('OGP_LANG_steam_pass', "Steam Adgangskode");
