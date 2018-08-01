@@ -1,11 +1,11 @@
 <game_config>
-<game_key>big_brother_bot_win32</game_key>
-<game_name>BigBrotherBot (exe)</game_name>         <!-- BigBrotherBot Windows Package:      http://forum.bigbrotherbot.net/downloads/?cat=10    -->
-  <server_exec_name>b3_run.exe</server_exec_name>      <!--                           I Adivce the ZIP package                     -->
-  <console_log>b3.log</console_log>                  
+  <game_key>bigbrotherbot_linux32</game_key>
+  <game_name>Big Brother Bot</game_name>
+  <server_exec_name>b3_run.py</server_exec_name>
+  <console_log>b3.log</console_log>
   <mods>
-    <mod key='b3'>
-      <name>none</name>
+    <mod key='b3'>                              
+      <name>None</name>
     </mod>
   </mods>
   <custom_fields>
@@ -13,7 +13,7 @@
       <default>set</default>
       <default_value>ChangeMe</default_value>
       <var>\s+name="rcon_password"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>The RCON pass of your gameserver. !!Must match server, otherwise B3 unable to communicate with the gameserver.</desc>
     </field>
@@ -21,7 +21,7 @@
       <default>set</default>
       <default_value>LOCATION_TO_GAME_LOG! (SERVER/main/games_mp.log)</default_value>
       <var>\s+name="game_log"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>The gameserver generates a logfile, put the path and name here. !!Important!! (Some mods use their FS_GAME path for the logfile to be written.)</desc>
     </field>
@@ -29,7 +29,7 @@
       <default>set</default>
       <default_value>28960</default_value>
       <var>\s+name="port"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>The RCON port of the gameserver.</desc>
     </field>
@@ -37,7 +37,7 @@
       <default>set</default>
       <default_value>EXAMPLE_62.210.129.153</default_value>
       <var>\s+name="public_ip"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>The public IP your gameserver is residing on. Your external ip.</desc>
     </field>
@@ -45,7 +45,7 @@
       <default>set</default>
       <default_value>127.0.0.1</default_value>
       <var>\s+name="rcon_ip"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>This must match your net_ip var. Otherwise, local address</desc>
     </field>
@@ -53,7 +53,7 @@
       <default>set</default>
       <default_value>cod</default_value>
       <var>\s+name="parser"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>The used game parser, cod/cod2/cod4/cod5/cod6/cod7/cod8/iourt41/iourt42/bfbc2/bf3/moh/etpro/altitude/oa081/smg/sof2/wop/wop15homefront/ro2/csgo/ravaged/arma2</desc>
     </field>
@@ -61,7 +61,7 @@
       <default>set</default>
       <default_value>mysql://USER:PASSWORD@localhost/DATABASE</default_value>
       <var>\s+name="database"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>Your database info: [mysql]://[db-user]:[db-password]@[db-server[:port]]/[db-name]</desc>
     </field>
@@ -69,7 +69,7 @@
       <default>set</default>
       <default_value>b3</default_value>
       <var>\s+name="bot_name"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>Name of the bot</desc>
     </field>
@@ -77,7 +77,7 @@
       <default>set</default>
       <default_value>^0(^2b3^0)^7:</default_value>
       <var>\s+name="bot_prefix"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>Ingame messages are prefixed with this code, you can use colorcodes.</desc>
     </field>
@@ -85,7 +85,7 @@
       <default>set</default>
       <default_value>off</default_value>
       <var>\s+name="punkbuster"</var>
-      <filepath>conf/b3.xml</filepath>
+      <filepath>b3/conf/b3.xml</filepath>
       <options>tags</options>
       <desc>Is the gameserver running PunkBuster Anticheat: on/off</desc>
     </field>
