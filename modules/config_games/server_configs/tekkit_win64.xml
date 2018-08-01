@@ -54,11 +54,13 @@
   <param key="-Xms" type="text" id="XMS">
       <default>1024M</default>
       <options>ns</options>
+      <access>admin</access>
       <desc>Initial memory size for Java can be specified.</desc>
     </param>
     <param key="-Xmx" type="text" id="XMX">
       <default>1024M</default>
       <options>ns</options>
+      <access>admin</access>
       <desc>Maximum memory size for Java can be specified.</desc>
     </param>
   </server_params>
@@ -77,6 +79,7 @@
       <default_value>25575</default_value>
       <var>rcon.port=</var>
       <filepath>server.properties</filepath>
+      <access>admin</access>
       <desc>Sets the port to RCON.</desc>
     </field>
   </custom_fields>
