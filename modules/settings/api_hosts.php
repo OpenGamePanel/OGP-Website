@@ -23,88 +23,170 @@
  */
 
 function exec_ogp_module()
-{
+{	
 	global $db;
+	require_once 'includes/api_functions.php';
 	$api_hosts_file = 'api_authorized.hosts';
+	$api_fwd_hosts_file = 'api_authorized.fwd_hosts';
+		
 	echo "<h2>".get_lang('autohorized_hosts')."</h2>";
-	if(isset($_POST['remove_hosts']))
-	{
-		if(file_exists($api_hosts_file))
-		{
-			$new_hosts = array();
-			$hosts_list = file_get_contents($api_hosts_file);
-			$hosts = preg_split("/[\r\n]+/", $hosts_list);
-			foreach($hosts as $host)
-			{
-				$host = trim($host);
-				if($host == '')
-					continue;
-				if(in_array($host, $_POST['hosts_to_remove']))
-					continue;
-				$new_hosts[] = $host;
-			}
-			file_put_contents($api_hosts_file, implode("\n", $new_hosts));
-		}
-	}
 	
-	if(isset($_POST['add_host']))
+	if(isset($_POST['remove_hosts']) or isset($_POST['remove_fwd_hosts']))
 	{
-		if(file_exists($api_hosts_file))
+		if(isset($_POST['remove_hosts']))
 		{
-			$new_hosts = array();
-			$hosts_list = file_get_contents($api_hosts_file);
-			$hosts = preg_split("/[\r\n]+/", $hosts_list);
-			foreach($hosts as $host)
-			{
-				$host = trim($host);
-				if($host == '')
-					continue;
-				$new_hosts[] = $host;
-			}
-			$new_hosts[] = trim($_POST['host_to_add']);
-			file_put_contents($api_hosts_file, implode("\n", $new_hosts));
+			$hosts_file = $api_hosts_file;
+			$to_remove = $_POST['hosts_to_remove'];
 		}
 		else
 		{
-			file_put_contents($api_hosts_file, trim($_POST['host_to_add']));
+			$hosts_file = $api_fwd_hosts_file;
+			$to_remove = $_POST['fwd_hosts_to_remove'];
+		}
+		
+		if(file_exists($hosts_file))
+		{
+			$hosts_list = file_get_contents($hosts_file);
+			$hosts = preg_split("/[\r\n]+/", $hosts_list);
+			$new_hosts = array();
+			foreach($hosts as $host)
+			{
+				$host = trim($host);
+				if($host == '')
+					continue;
+				if(in_array($host, $to_remove))
+					continue;
+				$new_hosts[] = $host;
+			}
+			file_put_contents($hosts_file, implode("\n", $new_hosts));
 		}
 	}
-	$autorized_hosts = array($_SERVER['SERVER_NAME'], getHostByName(getHostName()), '127.0.0.1', 'localhost');
+	
+	if(isset($_POST['add_host']) or isset($_POST['add_fwd_host']))
+	{
+		if(isset($_POST['add_host']))
+		{
+			$hosts_file = $api_hosts_file;
+			$host_to_add = trim($_POST['host_to_add']);
+		}
+		else
+		{
+			$hosts_file = $api_fwd_hosts_file;
+			$host_to_add = trim($_POST['fwd_host_to_add']);
+		}
+		
+		$new_hosts = array();
+		
+		if(file_exists($hosts_file))
+		{
+			$hosts_list = file_get_contents($hosts_file);
+			$hosts = preg_split("/[\r\n]+/", $hosts_list);
+			
+			foreach($hosts as $host)
+			{
+				$host = trim($host);
+				if($host == '' or in_array($host, $new_hosts))
+					continue;
+				$new_hosts[] = $host;
+			}
+		}
+				
+		if(strstr($host_to_add, '/'))
+		{
+			list($ip, $range) = explode('/', $host_to_add, 2);
+			if(is_valid_ipv4($ip) and !in_array($host_to_add, $new_hosts))
+				$new_host = $host_to_add;
+			elseif(is_valid_ipv6($ip) and !in_array(ipv6_compress($ip)."/".$range, $new_hosts))
+				$new_host = ipv6_compress($ip)."/".$range;
+		}
+		else
+		{
+			$ip = getHostByName($host_to_add);
+			if(is_valid_ipv4($ip) and !in_array($ip, $new_hosts))
+				$new_host = $ip;
+			elseif(is_valid_ipv6($ip) and !in_array(ipv6_compress($ip), $new_hosts))
+				$new_host = ipv6_compress($ip);
+		}
+				
+		if(file_exists($hosts_file))
+		{
+			if(isset($new_host))
+				$new_hosts[] = $new_host;
+			file_put_contents($hosts_file, implode("\n", $new_hosts));
+		}
+		else
+		{
+			if(isset($new_host))
+				file_put_contents($hosts_file, $new_host);
+		}
+	}
+	
+	$authorized_hosts = array();
+	$ip = getHostByName(getHostName());
+	if(filter_var($ip, FILTER_VALIDATE_IP))
+		$authorized_hosts[] = $ip;
+	
 	$remote_servers = $db->getRemoteServers();
 	foreach($remote_servers as $remote_server)
 	{
-		foreach(gethostbynamel($remote_server['agent_ip']) as $agent_ip)
-		{
-			if(!in_array($agent_ip, $autorized_hosts))
-				$autorized_hosts[] = $agent_ip;
-		}
+		$ip = getHostByName($remote_server['agent_ip']);
+		if(filter_var($ip, FILTER_VALIDATE_IP))
+			if(!in_array($ip, $authorized_hosts))
+				$authorized_hosts[] = $ip;
 	}
-	echo "<h4>".get_lang('default_hosts')."</h4>\n<br>\n<div align='center'>\n";
-	foreach($autorized_hosts as $autorized_host)
+	
+	echo "<h4>".get_lang('default_trusted_hosts')."</h4>\n<br>\n<div align='center'>\n";
+	foreach($authorized_hosts as $authorized_host)
 	{
-		echo $autorized_host."<br>\n";
+		echo $authorized_host."<br>\n";
 	}
-	echo "</div>\n<br>\n<form method=POST action='?m=settings&p=api_hosts'>\n<div align='center'>\n";
+	echo "</div>\n<br>\n<form method=POST action='?m=settings&p=api_hosts'>\n<div align='center'>\n".
+		 "<h4>".get_lang('trusted_host_or_proxy_addresses_or_cidr')."</h4>\n<br>\n";
 	if(file_exists($api_hosts_file))
 	{
 		$hosts_list = file_get_contents($api_hosts_file);
 		$hosts = preg_split("/[\r\n]+/", $hosts_list);
 		if(!empty(array_filter($hosts)))
 		{
-			echo "<h4>".get_lang('custom_hosts')."</h4>\n<br>\n";
 			foreach($hosts as $host)
 			{
 				$host = trim($host);
 				if($host == '')
 					continue;
-				echo "<input type=checkbox id='$host' name='hosts_to_remove[]' value='$host' ><label for='host'>$host</label><br>\n";
+				echo "<input type=checkbox id='$host' name='hosts_to_remove[]' value='$host' ><label for='$host'>$host</label><br>\n";
 			}
-			echo "<br><input type=submit name=remove_hosts value='".get_lang('remove_hosts')."'>\n<br>\n<br>\n";
+			echo "<br><input type=submit name=remove_hosts value='".get_lang('remove')."'>\n<br>\n<br>\n";
 		}
 	}
 	
 	echo "<input type=text name='host_to_add' >\n".
-		 "<input type=submit name=add_host value='".get_lang('add_host')."'>\n".
+		 "<input type=submit name=add_host value='".get_lang('add')."'>\n".
+		 "</div>\n".
+		 "</form>\n".
+		 "<br>\n".
+		 "<br>\n";
+		 
+	echo "<form method=POST action='?m=settings&p=api_hosts'>\n<div align='center'>\n".
+		 "<h4>".get_lang('trusted_forwarded_ip_addresses_or_cidr')."</h4>\n<br>\n";
+	if(file_exists($api_fwd_hosts_file))
+	{
+		$fwd_hosts_list = file_get_contents($api_fwd_hosts_file);
+		$fwd_hosts = preg_split("/[\r\n]+/", $fwd_hosts_list);
+		if(!empty(array_filter($fwd_hosts)))
+		{
+			foreach($fwd_hosts as $fwd_host)
+			{
+				$fwd_host = trim($fwd_host);
+				if($fwd_host == '')
+					continue;
+				echo "<input type=checkbox id='$fwd_host' name='fwd_hosts_to_remove[]' value='$fwd_host' ><label for='$fwd_host'>$fwd_host</label><br>\n";
+			}
+			echo "<br><input type=submit name=remove_fwd_hosts value='".get_lang('remove')."'>\n<br>\n<br>\n";
+		}
+	}
+	
+	echo "<input type=text name='fwd_host_to_add' >\n".
+		 "<input type=submit name=add_fwd_host value='".get_lang('add')."'>\n".
 		 "</div>\n".
 		 "</form>\n".
 		 "<br>\n".

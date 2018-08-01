@@ -357,4 +357,254 @@ function get_download_filename($url)
 		$filename = basename($url);
 	return trim($filename);
 }
+
+function getClientForwardedIP(){
+	if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) and !empty($_SERVER['HTTP_CF_CONNECTING_IP']))
+		return $_SERVER['HTTP_CF_CONNECTING_IP'];
+	if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) and !empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+		return $_SERVER['HTTP_X_FORWARDED_FOR'];
+	if(isset($_SERVER['HTTP_X_REAL_IP']) and !empty($_SERVER['HTTP_X_REAL_IP']))
+		return $_SERVER['HTTP_X_REAL_IP'];
+	return false;
+}
+
+function is_valid_ipv4($ip)
+{
+	if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4))
+		return true;
+	return false;
+}
+
+function is_valid_ipv6($ip)
+{
+	if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6))
+		return true;
+	return false;
+}
+
+// https://github.com/rmccue/Requests/blob/master/library/Requests/IPv6.php
+function ipv6_uncompress($ip)
+{
+	if (substr_count($ip, '::') !== 1) {
+		return $ip;
+	}
+	list($ip1, $ip2) = explode('::', $ip);
+	$c1 = ($ip1 === '') ? -1 : substr_count($ip1, ':');
+	$c2 = ($ip2 === '') ? -1 : substr_count($ip2, ':');
+	if (strpos($ip2, '.') !== false) {
+		$c2++;
+	}
+	// ::
+	if ($c1 === -1 && $c2 === -1) {
+		$ip = '0:0:0:0:0:0:0:0';
+	}
+	// ::xxx
+	else if ($c1 === -1) {
+		$fill = str_repeat('0:', 7 - $c2);
+		$ip = str_replace('::', $fill, $ip);
+	}
+	// xxx::
+	else if ($c2 === -1) {
+		$fill = str_repeat(':0', 7 - $c1);
+		$ip = str_replace('::', $fill, $ip);
+	}
+	// xxx::xxx
+	else {
+		$fill = ':' . str_repeat('0:', 6 - $c2 - $c1);
+		$ip = str_replace('::', $fill, $ip);
+	}
+	return $ip;
+}
+
+function split_v6_v4($ip) {
+	if (strpos($ip, '.') !== false) {
+		$pos = strrpos($ip, ':');
+		$ipv6_part = substr($ip, 0, $pos);
+		$ipv4_part = substr($ip, $pos + 1);
+		return array($ipv6_part, $ipv4_part);
+	}
+	else {
+		return array($ip, '');
+	}
+}
+
+function ipv6_compress($ip)
+{ 
+	// Prepare the IP to be compressed
+	$ip = ipv6_uncompress($ip);
+	$ip_parts = split_v6_v4($ip);
+	// Replace all leading zeros
+	$ip_parts[0] = preg_replace('/(^|:)0+([0-9])/', '\1\2', $ip_parts[0]);
+	// Find bunches of zeros
+	if (preg_match_all('/(?:^|:)(?:0(?::|$))+/', $ip_parts[0], $matches, PREG_OFFSET_CAPTURE)) {
+		$max = 0;
+		$pos = null;
+		foreach ($matches[0] as $match) {
+			if (strlen($match[0]) > $max) {
+				$max = strlen($match[0]);
+				$pos = $match[1];
+			}
+		}
+		$ip_parts[0] = substr_replace($ip_parts[0], '::', $pos, $max);
+	}
+	if ($ip_parts[1] !== '') {
+		return implode(':', $ip_parts);
+	}
+	else {
+		return $ip_parts[0];
+	}
+}
+
+function is_authorized()
+{
+	require_once 'includes/ip_in_range.php';
+	$api_hosts_file = 'api_authorized.hosts';
+	$api_fwd_hosts_file = 'api_authorized.fwd_hosts';
+	global $db;
+	
+	$authorized_hosts = array();
+	$ip = getHostByName(getHostName());
+	if(is_valid_ipv4($ip))
+		$authorized_hosts['address']['ipv4'][] = $ip;
+	elseif(is_valid_ipv6($ip))
+		$authorized_hosts['address']['ipv6'][] = $ip;
+	
+	$remote_servers = $db->getRemoteServers();
+	foreach($remote_servers as $remote_server)
+	{
+		$ip = getHostByName($remote_server['agent_ip']);
+		if(is_valid_ipv4($ip) and !in_array($ip, $authorized_hosts['address']['ipv4']))
+			$authorized_hosts['address']['ipv4'][] = $ip;
+		elseif(is_valid_ipv6($ip) and !in_array($ip, $authorized_hosts['address']['ipv6']))
+			$authorized_hosts['address']['ipv6'][] = $ip;
+		unset($ip);
+	}
+	
+	if(file_exists($api_hosts_file))
+	{
+		$hosts_list = file_get_contents($api_hosts_file);
+		$hosts = preg_split("/[\r\n]+/", $hosts_list);
+		foreach($hosts as $host)
+		{
+			$host = trim($host);
+			
+			if($host == '')
+				continue;
+
+			if(strstr($host, '/'))
+			{
+				list($ip, $range) = explode('/', $host, 2);
+				if(is_valid_ipv4($ip) and !in_array($host, $authorized_hosts['cidr']['ipv4']))
+					$authorized_hosts['cidr']['ipv4'][] = $host;
+				elseif(is_valid_ipv6($ip) and !in_array(ipv6_compress($ip)."/".$range, $authorized_hosts['cidr']['ipv6']))
+					$authorized_hosts['cidr']['ipv6'][] = ipv6_compress($ip)."/".$range;
+				unset($ip, $range);
+			}
+			else
+			{
+				$ip = getHostByName($host);
+				if(is_valid_ipv4($ip) and !in_array($ip, $authorized_hosts['address']['ipv4']))
+					$authorized_hosts['address']['ipv4'][] = $ip;
+				elseif(is_valid_ipv6($ip) and !in_array(ipv6_compress($ip), $authorized_hosts['address']['ipv6']))
+					$authorized_hosts['address']['ipv6'][] = ipv6_compress($ip);
+				unset($ip);
+			}
+		}
+	}
+		
+	$client_forwarded_ip = getClientForwardedIP();
+	$client_ip = $_SERVER['REMOTE_ADDR'];
+	
+	## Check authorized_hosts
+	$authorized_host = false;
+	if(is_valid_ipv4($client_ip))
+	{
+		if(in_array($client_ip, $authorized_hosts['address']['ipv4']))
+			$authorized_host = true;
+		else
+		{
+			foreach($authorized_hosts['cidr']['ipv4'] as $ipv4_cidr)
+				if(ipv4_in_range($client_ip, $ipv4_cidr))
+					$authorized_host = true;
+		}
+	}
+	elseif(is_valid_ipv6($client_ip))
+	{
+		if(in_array(ipv6_compress($client_ip), $authorized_hosts['address']['ipv6']))
+			$authorized_host = true;
+		else
+		{
+			foreach($authorized_hosts['cidr']['ipv6'] as $ipv6_cidr)
+				if(ipv6_in_range(ipv6_compress($client_ip), $ipv6_cidr))
+					$authorized_host = true;
+		}
+	}
+	
+	if($authorized_host)
+	{
+		if($client_forwarded_ip)
+		{
+			## Check also authorized_fwd_hosts
+			$authorized_fwd_hosts = array();
+			if(file_exists($api_fwd_hosts_file))
+			{
+				$fwd_hosts_list = file_get_contents($api_fwd_hosts_file);
+				$fwd_hosts = preg_split("/[\r\n]+/", $fwd_hosts_list);
+				foreach($fwd_hosts as $fwd_host)
+				{
+					$fwd_host = trim($fwd_host);
+					
+					if($fwd_host == '')
+						continue;
+
+					if(strstr($fwd_host, '/'))
+					{
+						list($ip, $range) = explode('/', $fwd_host, 2);
+						if(is_valid_ipv4($ip) and !in_array($fwd_host, $authorized_fwd_hosts['cidr']['ipv4']))
+							$authorized_fwd_hosts['cidr']['ipv4'][] = $fwd_host;
+						elseif(is_valid_ipv6($ip) and !in_array(ipv6_compress($ip)."/".$range, $authorized_fwd_hosts['cidr']['ipv6']))
+							$authorized_fwd_hosts['cidr']['ipv6'][] = ipv6_compress($ip)."/".$range;
+						unset($ip, $range);
+					}
+					else
+					{
+						$ip = getHostByName($fwd_host);
+						if(is_valid_ipv4($ip) and !in_array($ip, $authorized_fwd_hosts['address']['ipv4']))
+							$authorized_fwd_hosts['address']['ipv4'][] = $ip;
+						elseif(is_valid_ipv6($ip) and !in_array(ipv6_compress($ip), $authorized_fwd_hosts['address']['ipv6']))
+							$authorized_fwd_hosts['address']['ipv6'][] = ipv6_compress($ip);
+						unset($ip);
+					}
+				}
+				
+				if(is_valid_ipv4($client_forwarded_ip))
+				{
+					if(in_array($client_forwarded_ip, $authorized_fwd_hosts['address']['ipv4']))
+						return true;
+					else
+					{
+						foreach($authorized_fwd_hosts['cidr']['ipv4'] as $ipv4_cidr)
+							if(ipv4_in_range($client_forwarded_ip, $ipv4_cidr))
+								return true;
+					}
+				}
+				elseif(is_valid_ipv6($client_forwarded_ip))
+				{
+					if(in_array(ipv6_compress($client_forwarded_ip), $authorized_fwd_hosts['address']['ipv6']))
+						return true;
+					else
+					{
+						foreach($authorized_fwd_hosts['cidr']['ipv6'] as $ipv6_cidr)
+							if(ipv6_in_range(ipv6_compress($client_forwarded_ip), $ipv6_cidr))
+								return true;
+					}
+				}
+			}
+		}
+		else
+			return true;
+	}
+	return false;
+}
+
 ?>
