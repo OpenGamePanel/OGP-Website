@@ -73,7 +73,7 @@ function exec_ogp_module()
 	$ft->start_table();
 	$ft->add_custom_field('theme',get_theme_html_str(@$row['theme']));
 	$ft->add_field('on_off','welcome_title',@$row['welcome_title']);
-	$ft->add_field('text','welcome_title_message',@$row['welcome_title_message']);
+	$ft->add_field('text','welcome_title_message',@$row['welcome_title_message'], 38);
 	$ft->add_field('string','logo_link',@$row['logo_link']);
 	$ft->add_custom_field('bg_wrapper',
 		 create_drop_box_from_array($bg_wrapper,"bg_wrapper",@$row['bg_wrapper'],false));
