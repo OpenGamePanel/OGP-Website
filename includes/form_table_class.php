@@ -108,7 +108,7 @@ class FormTable {
 		}
 		else if ($type === "text")
 		{
-			echo "<textarea id='".$name."' name='".$name."' cols='38' rows='3' $extra >";
+			echo "<textarea id='".$name."' name='".$name."' cols='".$size."' rows='3' $extra />";
 
 			if (isset($value))
 				echo $value;
