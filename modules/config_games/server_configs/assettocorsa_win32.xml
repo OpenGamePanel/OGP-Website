@@ -43,6 +43,7 @@
       <default_value>8081</default_value>
       <var>HTTP_PORT=</var>
       <filepath>cfg/server_cfg.ini</filepath>
+      <access>admin</access>
       <desc>Lobby port number.</desc>
     </field>
     <field key="CLIENT_SEND_INTERVAL_HZ" type="text">
@@ -50,6 +51,7 @@
       <default_value>18</default_value>
       <var>CLIENT_SEND_INTERVAL_HZ=</var>
       <filepath>cfg/server_cfg.ini</filepath>
+      <access>admin</access>
       <desc>Refresh rate of packet sending by the server.</desc>
     </field>
   </custom_fields>
