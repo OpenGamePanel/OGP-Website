@@ -94,65 +94,78 @@ class OGPView {
 		if ( isset($panel_settings['header_code']) &&
             !empty($panel_settings['header_code']))  
 			$this->header_code .= $panel_settings['header_code']."\n";
-		
-		$module = isset($_GET['m']) ? $_GET['m'] : "";
-		$subpage = isset($_GET['p']) ? $_GET['p'] : $module;
-		
-		$fc = array(
-			$path . MODULES . $module."/".$subpage.".css",
-			$path . MODULES . $module."/".$module.".css",
-			MODULES . $module."/".$subpage.".css",
-			MODULES . $module."/".$module.".css"
-		);
-		foreach($fc as $file_check){
-			if(file_exists($file_check)){
-				$this->header_code .= "<link rel='stylesheet' href='".$file_check."'>\n";
-				break;
-			}
-		}
-		
+				
 		$module_name = isset($_GET['m']) ? get_lang($_GET['m']) : "";
 		$page_name = isset($_GET['p']) ? get_lang($_GET['p']) : "";
 		$title = $page_name == "" ? $module_name : "$module_name - $page_name";
 		$title = str_replace("_", " ", $title);
 		$this->title = $title == "" ? $this->title : $this->title . " [$title]";
 		
-		// Include jQuery, jQuery UI, and our global CSS file in the header code
-		$this->header_code .= '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">' . "\n";
-		$this->header_code .= '<script type="text/javascript" src="js/jquery/jquery.min.js"></script><script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>' . "\n";
-		
-		// Include magnific popup
-		$this->header_code .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>' . "\n";
-		$this->header_code .= '<link rel="stylesheet" href="js/magnific/magnific.css">' . "\n";
-		
-		// Include tablesorter, table collapse, and quick search
-		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>' . "\n";
-		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>' . "\n";
-		$this->header_code .= '<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>' . "\n";
-		
 		// Dump defined constants to json (for language javascript)
 		$jsonStrConsts = getOGPLangConstantsJSON();
 		if($jsonStrConsts !== false){
 			$this->header_code .= '<script type="text/javascript">var langConsts = ' . $jsonStrConsts . ';' . "\n" . 'var langConstPrefix = "' . $OGPLangPre . '";</script>' . "\n";
 		}
+				
+		// Include jQuery, jQuery UI, and our global CSS file in the header code
+		$stylesheet = '<link rel="stylesheet" href="js/jquery/ui/jquery-ui.min.css">' . "\n";
+		$javascript = '<script type="text/javascript" src="js/jquery/jquery.min.js"></script>' . "\n" .
+					  '<script type="text/javascript" src="js/jquery/ui/jquery-ui.min.js"></script>' . "\n";
+		
+		// Include magnific popup
+		$javascript .= '<script type="text/javascript" src="js/magnific/magnific.js"></script>' . "\n";
+		$stylesheet .= '<link rel="stylesheet" href="js/magnific/magnific.css">' . "\n";
+		
+		// Include tablesorter, table collapse, and quick search
+		$javascript .= '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.collapsible.js"></script>' . "\n" .
+					   '<script type="text/javascript" src="js/jquery/plugins/jquery.tablesorter.min.js"></script>' . "\n" .
+					   '<script type="text/javascript" src="js/jquery/plugins/jquery.quicksearch.js"></script>' . "\n";
 		
 		// Include our global JS
-		$this->header_code .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
-	    
-		if ($db->isModuleInstalled('tickets')) {
-			$this->header_code .= '<script type="text/javascript" src="modules/tickets/js/notifications.js"></script>' . "\n";
+		$javascript .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
+		
+		// Include global JS for modules
+		foreach($db->getInstalledModules() as $m)
+		{
+			$global_js_file = 'js/' . MODULES . "{$m['folder']}_global.js";
+			if(is_readable($path . $global_js_file)) // Priority to the theme's js
+				$javascript .= "<script type=\"text/javascript\" src=\"${path}${global_js_file}\"></script>\n";
+			elseif(is_readable($global_js_file))
+				$javascript .= "<script type=\"text/javascript\" src=\"${global_js_file}\"></script>\n";
 		}
-	    
-		$fc = array(
-			$path . MODULES . $module."/".$subpage.".js",
-			$path . MODULES . $module."/".$module.".js"
-		);
-		foreach($fc as $file_check){
-			if(file_exists($file_check)){
-				$this->header_code .= "<script type='text/javascript' src='".$file_check."'></script>\n";
-				break;
+		
+		// Include CSS and JS for the current module page
+		if(isset($_GET['m']) and !empty($_GET['m']))
+		{
+			$subpage = (isset($_GET['p']) and !empty($_GET['p']))?$_GET['p']:$_GET['m'];
+			$fc = array(
+				$path . MODULES . "{$_GET['m']}/${subpage}.css",
+				$path . MODULES . "{$_GET['m']}/{$_GET['m']}.css",
+				MODULES . "{$_GET['m']}/${subpage}.css",
+				MODULES . "{$_GET['m']}/{$_GET['m']}.css"
+			);
+			
+			foreach($fc as $file_check){
+				if(is_readable($file_check)){
+					$stylesheet .= "<link rel=\"stylesheet\" href=\"${file_check}\">\n";
+					break;
+				}
+			}
+			
+			$fc = array(
+				$path . MODULES . "{$_GET['m']}/{$subpage}.js",
+				$path . MODULES . "{$_GET['m']}/{$_GET['m']}.js"
+			);
+			
+			foreach($fc as $file_check){
+				if(is_readable($file_check)){
+					$javascript .= "<script type=\"text/javascript\" src=\"${file_check}\"></script>\n";
+					break;
+				}
 			}
 		}
+		
+		$this->header_code .= $stylesheet.$javascript;
 		
         $buffer = ob_get_contents();
         ob_end_clean();
@@ -216,7 +229,7 @@ class OGPView {
 			// Attempt to automatically delete the install file only if an admin user has already been created and exists
 			if(is_object($db)){
 				$admins = $db->getAdmins();
-				if (file_exists($filename) && is_array($admins) && !empty($admins)) {
+				if (is_readable($filename) && is_array($admins) && !empty($admins)) {
 					unlink($filename);
 				}
 			}
