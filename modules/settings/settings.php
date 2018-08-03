@@ -119,10 +119,10 @@ function exec_ogp_module()
 	$ft->add_custom_field('time_zone',
 		create_drop_box_from_array($zones,"time_zone",@$row['time_zone'],false));
 	$ft->add_field('string','charset',@$row['charset']);
-	$ft->add_field('text','header_code',@$row['header_code']);
+	$ft->add_field('text','header_code',@$row['header_code'], 38);
 	$ft->add_field('on_off','maintenance_mode',@$row['maintenance_mode']);
 	$ft->add_field('string','maintenance_title',@$row['maintenance_title']);
-	$ft->add_field('text','maintenance_message',@$row['maintenance_message']);
+	$ft->add_field('text','maintenance_message',@$row['maintenance_message'], 38);
 	$ft->add_field('on_off','page_auto_refresh',@$row['page_auto_refresh']);
 	$ft->add_field('string','panel_email_address',@$row['panel_email_address']);
 	$ft->add_field('string','smtp_server',@$row['smtp_server']);
@@ -151,7 +151,7 @@ function exec_ogp_module()
 	$ft->add_custom_field('rsync_available',
 		 create_drop_box_from_array($rsync_options,"rsync_available",@$row['rsync_available'],false));
 	$ft->add_field('string','support_widget_title',@$row['support_widget_title']);
-	$ft->add_field('text','support_widget_content',@$row['support_widget_content']);
+	$ft->add_field('text','support_widget_content',@$row['support_widget_content'], 38);
 	$ft->add_field('string','support_widget_link',@$row['support_widget_link']);
 	$ft->add_custom_field('check_expiry_by',
 		create_drop_box_from_array(array('once_logged_in' => once_logged_in, 'cron_job' => cron_job),"check_expiry_by",@$row['check_expiry_by'],false));

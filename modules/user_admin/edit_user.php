@@ -233,7 +233,7 @@ function exec_ogp_module() {
 	if ( $isAdmin && $userInfo['users_role'] != "subuser" ) {
 		$ft->add_custom_field('user_role',
 			create_drop_box_from_array(array('user', 'admin'),"newrole", $userInfo['users_role']));
-		$ft->add_field('text','comment',$userInfo['users_comment']);
+		$ft->add_field('text','comment',$userInfo['users_comment'], 48);
 	?>
 		<tr>
 		<td align='right'><?php print_lang('expires'); ?>:</td>
