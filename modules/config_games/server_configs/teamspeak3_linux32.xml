@@ -48,6 +48,6 @@
     </param>
   </server_params>
   <lock_files>
-    teamspeak3-server_linux_amd64/ts3server
+    teamspeak3-server_linux_x86/ts3server
   </lock_files>
 </game_config>
