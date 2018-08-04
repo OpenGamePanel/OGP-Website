@@ -226,7 +226,7 @@ function exec_ogp_module() {
 		unset( $_GET['home_id-mod_id-ip-port'] );
 	if ( empty( $_GET['home_id'] ) )
 		unset( $_GET['home_id'] );
-	if ( isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] ==  game_type  )
+	if ( isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] ==  get_lang('game_type') )
 		unset( $_GET['home_cfg_id'] );
 
 	create_home_selector_game_type($_GET['m'], $_GET['p'], $show_games_type);

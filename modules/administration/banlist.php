@@ -40,16 +40,19 @@ function exec_ogp_module()
 	$ban_list = $db->resultQuery("SELECT logging_attempts, banned_until, client_ip FROM `OGP_DB_PREFIXban_list`;");
 	$ban_qty = 0;
 	$ban_table = '';
-	foreach($ban_list as $ban)
+	if($ban_list)
 	{
-		if($ban['logging_attempts'] >= $settings["login_attempts_before_banned"])
+		foreach($ban_list as $ban)
 		{
-			$ban_table .= "<tr><td><input type=checkbox name='".$ban_qty."' value='".$ban['client_ip']."' /></td><td>".$ban['client_ip']."</td><td>".date("r",$ban['banned_until'])."</td></tr>\n";
-			$ban_qty++;
-		}
-		else
-		{
-			continue;
+			if($ban['logging_attempts'] >= $settings["login_attempts_before_banned"])
+			{
+				$ban_table .= "<tr><td><input type=checkbox name='".$ban_qty."' value='".$ban['client_ip']."' /></td><td>".$ban['client_ip']."</td><td>".date("r",$ban['banned_until'])."</td></tr>\n";
+				$ban_qty++;
+			}
+			else
+			{
+				continue;
+			}
 		}
 	}
 	if($ban_qty == 0)

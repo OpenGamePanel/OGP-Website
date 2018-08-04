@@ -131,7 +131,7 @@ function exec_ogp_module()
 	$tls = (isset($row['smtp_tls']) and $row['smtp_tls'] == 1) ? "checked='checked'" : "";
 	$no = (!isset($row['smtp_ssl']) or $row['smtp_ssl'] == 0 AND !isset($row['smtp_tls']) or ( isset($row['smtp_tls']) and $row['smtp_tls'] == 0)) ? "checked='checked'" : "";
 	$ft->add_custom_field('smtp_secure','<input type=radio name=smtp_secure value=0 '.$no.
-										'>'.no.'&nbsp;&nbsp;<input type=radio name=smtp_secure value=ssl '.$ssl.
+										'>'.get_lang('no').'&nbsp;&nbsp;<input type=radio name=smtp_secure value=ssl '.$ssl.
 										'>SSL&nbsp;&nbsp;<input  type=radio name=smtp_secure value=tls '.$tls.'>TLS');
 	$ft->add_field('string','smtp_login',@$row['smtp_login']);
 	$ft->add_field('password','smtp_passw',@$row['smtp_passw']);
@@ -154,7 +154,7 @@ function exec_ogp_module()
 	$ft->add_field('text','support_widget_content',@$row['support_widget_content'], 38);
 	$ft->add_field('string','support_widget_link',@$row['support_widget_link']);
 	$ft->add_custom_field('check_expiry_by',
-		create_drop_box_from_array(array('once_logged_in' => once_logged_in, 'cron_job' => cron_job),"check_expiry_by",@$row['check_expiry_by'],false));
+		create_drop_box_from_array(array('once_logged_in' => get_lang('once_logged_in'), 'cron_job' => get_lang('cron_job')),"check_expiry_by",@$row['check_expiry_by'],false));
 	$ft->add_field('string','recaptcha_site_key',@$row['recaptcha_site_key']);
 	$ft->add_field('string','recaptcha_secret_key',@$row['recaptcha_secret_key']);
 	$ft->add_field('on_off','recaptcha_use_login',@$row['recaptcha_use_login']);

@@ -40,10 +40,10 @@ function getAssignedServerUsers()
 		}
 	}
 	$subusers = $db->getUsersSubUsersIds($_SESSION['user_id']);
+	$subusersb = array();
+	$subusers_list = array();
 	if(is_array($subusers))
 	{
-		$subusers_list = array();
-		$subusersb = array();
 		foreach($subusers as $subuser)
 		{
 			if(!in_array($subuser,$users_assigned))
@@ -197,17 +197,6 @@ class TS3webinterface
 	
 	private function loadLanguage($lang=false)
 	{
-		$includeStandardFile = 'lang/English/modules/TS3Admin.php';
-		$includeLangFile = 'lang/'.(($lang != false) ? $lang : TS3WEBINTERFACE_LANG).'/modules/TS3Admin.php';
-
-		if( $includeLangFile != $includeStandardFile && file_exists($includeLangFile) )
-		{
-			require($includeLangFile);// overwrite standard strings
-		}
-		else
-		{
-			require($includeStandardFile);
-		}
 		$constants = get_defined_constants(true);
 		$this->language = $constants['user'];
 	}
@@ -616,24 +605,17 @@ class TS3webinterface
 			
 			if( $this->session['lvserver'] == 0 )
 			{
-				$this->template->assign('title', $this->language['title'].' :: '.$this->language['login']);
 				$this->template->display('header.tpl');
 
 				$addData = array();
-
-				/*if( !isset($_GET['do']) ) $_GET['do'] = '';
-				switch($_GET['do'])
-				{
-				case 'addserver':*/
+				
 				if( isset($_GET['do']) && $_GET['do'] == 'addserver' )
 				{
 					if( isset($_POST['serverAddSubmit']) && !empty($_POST['servername']) && !empty($_POST['serverslots']) )
 					{
 						if( $addData = $this->server->r_servercreate($_POST['servername'], array(array('virtualserver_maxclients', $_POST['serverslots']))) )
 						{
-							//$addData = $this->server->de_escape($addData[0]);
 							$addData = $addData[0];
-
 							array_unshift($addData, 'OK');
 						}
 						else
@@ -647,9 +629,7 @@ class TS3webinterface
 						$addData = array('ERROR', 0, $this->language['e_fill_out']);
 					}
 				}
-					/*break;
-				}*/
-
+				
 				$vServerList = $this->server->r_serverlist();
 				if( !isset($vServerList[0]) )
 				{
@@ -681,7 +661,6 @@ class TS3webinterface
 				if( isset($_GET['liveview']) ) $this->template->assign('liveviewAutoUpdate', true);
 				else $this->template->assign('liveviewAutoUpdate', false);
 				
-				$this->template->assign('title', $this->language['title']);
 				$this->template->display('header.tpl');
 				
 				$updateAvailable = $this->checkForUpdate();
@@ -815,7 +794,8 @@ class TS3webinterface
 					$subusers_installed = $db->isModuleInstalled('subusers');
 					if( $subusers_installed )
 					{
-						$assigned_info = getAssignedServerUsers();
+						if(defined('TS3WEBINTERFACE_VSERVER_ID'))
+							$assigned_info = getAssignedServerUsers();
 						if( isset($_POST['assign_subuser']) and
 							in_array($_POST['user_id'],$assigned_info['subusers']) )
 						{
@@ -841,15 +821,18 @@ class TS3webinterface
 											"';" );
 							$assigned_info = getAssignedServerUsers();
 						}
-						$this->template->assign('subusers_assigned', $assigned_info['subusers_assigned_list']);
-						$this->template->assign('subusers', $assigned_info['subusers_list']);
-						$is_parent_user = is_array($assigned_info['subusers']);
+						if(defined('TS3WEBINTERFACE_VSERVER_ID'))
+						{
+							$this->template->assign('subusers_assigned', $assigned_info['subusers_assigned_list']);
+							$this->template->assign('subusers', $assigned_info['subusers_list']);
+							$is_parent_user = is_array($assigned_info['subusers']);
+						}
 					}
 					$this->template->assign('is_parent_user', $is_parent_user);
 					$this->template->assign('subusers_installed', $subusers_installed);
 
-	                                $getPublicIp = $db->resultQuery("SELECT display_public_ip FROM OGP_DB_PREFIXremote_servers WHERE remote_server_id=".$_SESSION['rserver_id']);
-        	                        $display_ip = checkDisplayPublicIP($getPublicIp[0]['display_public_ip'],$this->serverIP);
+					$getPublicIp = $db->resultQuery("SELECT display_public_ip FROM OGP_DB_PREFIXremote_servers WHERE remote_server_id=".$_SESSION['rserver_id']);
+					$display_ip = checkDisplayPublicIP($getPublicIp[0]['display_public_ip'],$this->serverIP);
 
 					$this->template->assign('display_public_ip', $display_ip);
 
