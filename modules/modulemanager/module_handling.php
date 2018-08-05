@@ -107,6 +107,15 @@ function install_module($db, $module, $install_if_optional = TRUE)
         }
     }
 	
+	$db->clearModuleAccessRights($module_id);
+	if(isset($module_access_rights) and is_array($module_access_rights) and !empty($module_access_rights))
+	{
+		foreach($module_access_rights as $flag => $description)
+		{
+			$db->setModuleAccessRight($module_id, $flag, $description);
+		}
+	}
+	
     return 1;
 }
 
@@ -127,7 +136,9 @@ function uninstall_module($db, $module_id, $module, $adminOverride = false)
 		}
 
 		include("modules/".$module."/module.php");
-
+		
+		$db->clearModuleAccessRights($module_id);
+		
 		if ( isset( $uninstall_queries ) )
 		{
 			foreach ( $uninstall_queries as $query )
@@ -206,6 +217,16 @@ function update_module($db, $module_id, $module)
 			++$i;
 		}
 	}
+	
+	$db->clearModuleAccessRights($module_id);
+	if(isset($module_access_rights) and is_array($module_access_rights) and !empty($module_access_rights))
+	{
+		foreach($module_access_rights as $flag => $description)
+		{
+			$db->setModuleAccessRight($module_id, $flag, $description);
+		}
+	}
+	
 	$db->updateModule($module_id, $module_version, $db_version);
 	echo "<p>".get_lang_f('updated_module',$module_title)." - ".$module_info['db_version'] ." to ". $db_version."</p>";
 }

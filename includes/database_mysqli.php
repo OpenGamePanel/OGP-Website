@@ -2284,6 +2284,45 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		return true;
 	}
+	
+	public function clearModuleAccessRights($module_id)
+	{
+		$query = sprintf("DELETE FROM `%smodule_access_rights` WHERE `module_id` = %d",
+			$this->table_prefix,
+			$this->realEscapeSingle($module_id));
+		++$this->queries_;
+		if ( mysqli_query($this->link,$query) === FALSE )
+			return FALSE;
+		return TRUE;
+	}
+	
+	public function setModuleAccessRight($module_id, $flag, $description)
+	{
+		$module_id = $this->realEscapeSingle($module_id);
+		$flag = $this->realEscapeSingle($flag);
+		$description = $this->realEscapeSingle($description);
+		$query = "INSERT INTO `".$this->table_prefix."module_access_rights` (`module_id`, `flag`, `description` )
+			VALUES ( '$module_id', '$flag', '$description' );";
+
+		++$this->queries_;
+		if ( mysqli_query($this->link,$query) === FALSE )
+			return FALSE;
+
+		return TRUE;
+	}
+	
+	public function getModulesAccessRights()
+	{
+		$query = sprintf('SELECT * FROM `%1$smodule_access_rights`;', $this->table_prefix);
+		++$this->queries_;
+		$result = mysqli_query($this->link,$query);
+		if (!$result or mysqli_num_rows($result) == 0)
+			return FALSE;
+		$results = array();
+		while($row = mysqli_fetch_assoc($result))
+			array_push($results,$row);
+		return $results;
+	}
 
 	// User game functions
 

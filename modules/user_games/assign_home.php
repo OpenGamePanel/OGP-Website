@@ -78,15 +78,15 @@ function exec_ogp_module()
 		echo "<p class='note'>".get_lang("not_available")."</p>";
 		return;
 	}
-
-	/// \todo We might want to save this information to XML file?
-	$selections = array( "allow_updates" => "u",
-		"allow_file_management" => "f",
-		"allow_parameter_usage" => "p",
-		"allow_extra_params" => "e",
-		"allow_ftp" => "t",
-		"allow_custom_fields" => "c");
-
+	
+	$selections = array();
+	$full_access = '';
+	foreach($db->getModulesAccessRights() as $ar)
+	{
+		$selections[$ar['description']] = $ar['flag'];
+		$full_access .= $ar['flag'];
+	}
+	
 	if ( isset($_REQUEST['user_id']) )
 	{
 		$assign_id = $_REQUEST['user_id'];
@@ -207,7 +207,7 @@ function exec_ogp_module()
 			<?php
 			if( $isAdmin )
 			{
-				$access_rights = "ufpetc";
+				$access_rights = $full_access;
 			}
 			else
 			{
