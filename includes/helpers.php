@@ -305,9 +305,9 @@ function isCoreModule($module){
 }
 
 function recursiveDelete($str) {
-	if (is_file($str)) {
+	if (file_exists($str) && is_file($str)) {
 		return @unlink($str);
-	}else if(is_dir($str)){
+	}else if(file_exists($str) && is_dir($str)){
 		// Strip the trailing slash from the directory if there is one
 		$str = rtrim($str,'/');
 		
@@ -336,6 +336,46 @@ function recursiveDelete($str) {
 function removeOldGameConfigs(){ // Wrote this function in-case we rename config files like we did for TS3 (https://sourceforge.net/p/hldstart/svn/3376/)
 	$oldConfigsToRemove = array(
 		'modules/config_games/server_configs/teamspeak3_32bit.xml', 
+		'modules/config_games/server_configs/teamspeak3_64bit.xml',
+		'modules/config_games/server_configs/big_brother_bot.xml',
+		'modules/config_games/server_configs/big_brother_bot_win.xml',
+		'modules/config_games/server_configs/egs_win64.xml',
+		'modules/config_games/server_configs/7_days_to_die_linux.xml',
+		'modules/config_games/server_configs/7_days_to_die_linux64.xml',
+		'modules/config_games/server_configs/TrackManiaForever.xml',
+		'modules/config_games/server_configs/trackmania_nations.xml',
+		'modules/config_games/server_configs/ventrilo.xml',
+		'modules/config_games/server_configs/ventrilo_win.xml',
+		'modules/config_games/server_configs/vice_city_multiplayer.xml',
+		'modules/config_games/server_configs/vice_city_multiplayer_win.xml',
+		'modules/config_games/server_configs/san_andreas_multiplayer.xml',
+		'modules/config_games/server_configs/san_andreas_multiplayer_win.xml',
+		'modules/config_games/server_configs/MultiTheftAuto.xml',
+		'modules/config_games/server_configs/MultiTheftAuto_win.xml',
+		'modules/config_games/server_configs/alienvspredator2010.xml',
+		'modules/config_games/server_configs/cod_mw2_win.xml',
+		'modules/config_games/server_configs/cod_uo_win.xml',
+		'modules/config_games/server_configs/cod_1_win.xml',
+		'modules/config_games/server_configs/cod_mw3_win.xml',
+		'modules/config_games/server_configs/cod2.xml',
+		'modules/config_games/server_configs/cod2_win.xml',
+		'modules/config_games/server_configs/cod4.xml',
+		'modules/config_games/server_configs/cod4_win.xml',
+		'modules/config_games/server_configs/cod5.xml',
+		'modules/config_games/server_configs/cod_world_at_war_win.xml',
+		'modules/config_games/server_configs/minecraft_tekkit.xml',
+		'modules/config_games/server_configs/minecraft_tekkit_win.xml',
+		'modules/config_games/server_configs/minecraft_bukkit.xml',
+		'modules/config_games/server_configs/minecraft_bukkit_win.xml',
+		'modules/config_games/server_configs/minecraft_server.xml',
+		'modules/config_games/server_configs/minecraft_server_win.xml',
+		'modules/config_games/server_configs/life_is_feudal_win32.xml',
+		'modules/config_games/server_configs/cs2d.xml',
+		'modules/config_games/server_configs/cs2d_linux32.xml',
+		'modules/config_games/server_configs/openttd.xml',
+		'modules/config_games/server_configs/ark_linux.xml',
+		'modules/config_games/server_configs/ark_win.xml',
+		'modules/config_games/server_configs/teamspeak3_32bit.xml',
 		'modules/config_games/server_configs/teamspeak3_64bit.xml'
 	);
 	
