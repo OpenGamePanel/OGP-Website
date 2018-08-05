@@ -33,7 +33,7 @@ define('OGP_LANG_not_installed', "Kurulmamış");
 define('OGP_LANG_installed', "Kuruldu");
 define('OGP_LANG_download_update', "İndir/Güncelle");
 define('OGP_LANG_are_you_sure', "Emin misiniz");
-define('OGP_LANG_uninstalling_module_dataloss', "By uninstalling a module you will lose all data related to it.");
+define('OGP_LANG_uninstalling_module_dataloss', "Bir modülü kaldırarak bununla ilgili tüm verileri kaybedersiniz.");
 define('OGP_LANG_remove_files_for', "Would you like to remove all files for");
 define('OGP_LANG_confirm', "Kabul Et");
 define('OGP_LANG_cancel', "İptal Et");

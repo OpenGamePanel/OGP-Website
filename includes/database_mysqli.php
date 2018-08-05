@@ -3729,6 +3729,77 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$tmp = mysqli_fetch_row($result);
 		return $tmp[0];
 	}
+	
+	public function getApiToken($user_id)
+	{
+		if (is_numeric($user_id) === false)
+			return false;
+		$this->checkApiTable();
+		
+		$user_id = (int)$this->realEscapeSingle($user_id);
+		
+		$query = 'SELECT `token` FROM `%sapi_tokens` WHERE `user_id` = %2$d;';
+		$query = sprintf($query, $this->table_prefix, $user_id);
+		
+		$result = mysqli_query($this->link, $query);
+		++$this->queries_;
+		$tmp = mysqli_fetch_row($result);
+		++$this->queries_;
+		if(empty($tmp))
+		{
+			$token = bin2hex(openssl_random_pseudo_bytes(32));
+			$query ='INSERT INTO %sapi_tokens'.
+					' (user_id, token)'.
+					' VALUES'.
+					' (\'%2$d\', \'%3$s\')'.
+					' ON DUPLICATE KEY UPDATE'.
+					' user_id = VALUES(user_id),'.
+					' token = VALUES(token);';
+			$query = sprintf($query, $this->table_prefix, $user_id, $token);
+			if(!$this->query($query))
+				return false;
+		}
+		else
+		{
+			$token = $tmp[0];
+		}
+		
+		return $token;
+	}
+	
+	public function checkApiTable()
+	{
+		if(!$this->query('SELECT 1 FROM '.$this->table_prefix.'api_tokens LIMIT 1'))
+		{
+			$this->query(	"CREATE TABLE IF NOT EXISTS `".$this->table_prefix.'api_tokens'."` (".
+							"`user_id` int(11) NOT NULL,".
+							"`token` varchar(64) NOT NULL,".
+							"PRIMARY KEY  (`user_id`),".
+							"UNIQUE KEY user_id (user_id)".
+							") ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+		}
+	}
+	
+	public function currentApiToken($user_id)
+	{
+		if (is_numeric($user_id) === false)
+			return false;
+		$this->checkApiTable();
+		
+		$user_id = (int)$this->realEscapeSingle($user_id);
+		
+		$query = 'SELECT `token` FROM `%sapi_tokens` WHERE `user_id` = %2$d;';
+		$query = sprintf($query, $this->table_prefix, $user_id);
+		
+		$result = mysqli_query($this->link, $query);
+		++$this->queries_;
+		$tmp = mysqli_fetch_row($result);
+		++$this->queries_;
+		if(empty($tmp))
+			return false;
+		
+		return $tmp[0];
+	}
 }
 
 ?>

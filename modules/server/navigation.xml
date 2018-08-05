@@ -7,4 +7,5 @@
   <page key="log" file="view_log.php" access="admin" />
   <page key="arrange_ports" file="arrange_ports.php" access="admin" />
   <page key="firewall" file="firewall.php" access="admin" />
+  <page key="mon_stats" file="mon_stats.php" access="admin" />
 </navigation>

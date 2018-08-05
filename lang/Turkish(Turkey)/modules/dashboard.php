@@ -22,15 +22,15 @@
  *
  */
 
-define('OGP_LANG_dashboard_ftp_text', "The FTP client can compress files and send them via email, can uncompress too, edit text files and much more.");
-define('OGP_LANG_dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
-define('OGP_LANG_dashboard_game_monitor_text', "Watch and monitor your traffic & logs quickly. You can see what servers are up and down.");
-define('OGP_LANG_dashboard_support_text', "Get support from the OGP Professional Team on the forum. Fast response and great attention.");
-define('OGP_LANG_welcome_text', "Welcome to the Open Game Panel (OGP). OGP is an open-source software, that allows you to install, start and monitor different game servers.");
+define('OGP_LANG_dashboard_ftp_text', "FTP istemcisi dosyaları sıkıştırıp mail ile gönderebilir, ayrıca çıkarabilirde, yazı dosyalarını düzenle ve daha fazlası");
+define('OGP_LANG_dashboard_addons_manager_text', "OGP ile tüm farklı hizmetleri yönetin. Doğrudan OGP tarafından sağlanan 115'ten fazla sunucu arasından seçim yapın.");
+define('OGP_LANG_dashboard_game_monitor_text', "Trafiğini ve log kayıtlarını hızlıca görüntüle ve izle. Hangi sunucuların çevrimiçi veya çevrimdışı olduğunu görebilirsin.");
+define('OGP_LANG_dashboard_support_text', "Forum'daki OGP Profesyonel Takımından destek alın. Hızlı dönüt ve mükemmel dikkat");
+define('OGP_LANG_welcome_text', "Open Game Panel'e (OGP) Hoşgeldiniz. OGP farklı oyun sunucularını yüklemenizi, başlatmanızı ve görüntülemenizi sağlayan açık kaynak kodlu bir yazılımdır.");
 define('OGP_LANG_any_server_is_online', "Herhangi bir sunucu Çevrimiçi");
 define('OGP_LANG_current_map', "Şu Anki Harita");
 define('OGP_LANG_server_ip_port', "IP:Port");
-define('OGP_LANG_statistics', "İstatiskler");
+define('OGP_LANG_statistics', "Istatistikler");
 define('OGP_LANG_servers', "Sunucular");
 define('OGP_LANG_players', "Oyuncular");
 define('OGP_LANG_server_status', "Sunucu Durumu");

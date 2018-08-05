@@ -63,7 +63,9 @@ function exec_ogp_module()
 	//Logic to open the file we're editing
 	$remote = new OGPRemoteLibrary($home_cfg['agent_ip'], $home_cfg['agent_port'], $home_cfg['encryption_key'], $home_cfg['timeout']);
 	$data = "";
-	$file_info =  $remote->remote_readfile($home_cfg['home_path']."/".$_SESSION['fm_cwd_'.$home_id],$data);
+	$rel_path = isset($_SESSION['fm_cwd_'.$home_id]) ? $_SESSION['fm_cwd_'.$home_id]:'';
+	$filepath = clean_path($home_cfg['home_path']."/".$rel_path);
+	$file_info =  $remote->remote_readfile($filepath ,$data);
 	if ( $file_info === 0 )
 	{
 		print_failure(get_lang("not_found"));
@@ -92,7 +94,7 @@ function exec_ogp_module()
     editor.setTheme("ace/theme/tomorrow");
     (function () {
         var modelist = ace.require("ace/ext/modelist");
-        var filePath = "<?=$_SESSION['fm_cwd_'.$home_id]?>";
+        var filePath = "<?=$rel_path?>";
         var mode = modelist.getModeForPath(filePath).mode;
         console.log(mode);
         editor.session.setMode(mode);

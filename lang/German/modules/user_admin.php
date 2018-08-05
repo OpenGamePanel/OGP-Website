@@ -85,7 +85,6 @@ define('OGP_LANG_add_user', "Benutzer hinzufügen");
 define('OGP_LANG_remove_from_group', "Benutzer von Gruppe entfernen");
 define('OGP_LANG_add_server_to_group', "Add server to group");
 define('OGP_LANG_add_server', "Add Server");
-define('OGP_LANG_no_remote_servers', "No remote servers available.");
 define('OGP_LANG_servers_in_group', "Servers in group");
 define('OGP_LANG_no_servers_in_group', "No servers in group %s.");
 define('OGP_LANG_available_groups', "Verfügbare Gruppen");
@@ -109,4 +108,5 @@ define('OGP_LANG_valid_user', "Please specify a valid user.");
 define('OGP_LANG_enter_valid_username', "Please enter a valid username.");
 define('OGP_LANG_unexpected_role', "Unexpected user role received.");
 define('OGP_LANG_search', "Search");
+define('OGP_LANG_api_token', "API token");
 ?>

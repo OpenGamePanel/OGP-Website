@@ -85,7 +85,6 @@ define('OGP_LANG_add_user', "Felhasználó hozzáadása");
 define('OGP_LANG_remove_from_group', "Eltávolítás a csoportból");
 define('OGP_LANG_add_server_to_group', "Szerver hozzáadása a csoporthoz");
 define('OGP_LANG_add_server', "Szerver hozzáadása");
-define('OGP_LANG_no_remote_servers', "Nincs elérheto távoli szerver.");
 define('OGP_LANG_servers_in_group', "Csoportban található szerverek");
 define('OGP_LANG_no_servers_in_group', "Nincsenek szerverek a(z) %s csoportban.");
 define('OGP_LANG_available_groups', "Elérhető csoportok");
@@ -109,4 +108,5 @@ define('OGP_LANG_valid_user', "Kérlek, adj meg egy érvényes felhasználót.")
 define('OGP_LANG_enter_valid_username', "Kérlek, adj meg egy érvényes felhasználónevet.");
 define('OGP_LANG_unexpected_role', "Váratlan felhasználói szerepet kapott.");
 define('OGP_LANG_search', "Keresés");
+define('OGP_LANG_api_token', "API token");
 ?>

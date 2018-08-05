@@ -193,15 +193,15 @@ function exec_ogp_module() {
 	$ft->start_table();
 
 	$login_option = ( !$isAdmin ) ? 'readonly="readonly"' : "";
-	$ft->add_field('string','login',$userInfo['users_login'],50,$login_option);
+	$ft->add_field('string','login',$userInfo['users_login'],64,$login_option);
 
 	if ( $my_user_id === $user_id )
 	{
-		$ft->add_field('password','current_password','');
+		$ft->add_field('password','current_password','', 64);
 	}
 
-	$ft->add_field('password','new_password','');
-	$ft->add_field('password','retype_new_password','');
+	$ft->add_field('password','new_password','', 64);
+	$ft->add_field('password','retype_new_password','', 64);
 	$locale_files = makefilelist("lang/", ".|..|.svn", true, "folders");
 	array_push($locale_files,"-");
 	sort($locale_files);
@@ -218,21 +218,22 @@ function exec_ogp_module() {
 	}
 
 	$ft->add_custom_field('theme', get_theme_html_str($theme, $add_empty));
-	$ft->add_field('string','page_limit',$userInfo['users_page_limit']);
-	$ft->add_field('string','first_name',$userInfo['users_fname']);
-	$ft->add_field('string','last_name',$userInfo['users_lname']);
-	$ft->add_field('string','phone_number',$userInfo['users_phone']);
+	$ft->add_field('string','page_limit',$userInfo['users_page_limit'], 64);
+	$ft->add_field('string','first_name',$userInfo['users_fname'], 64);
+	$ft->add_field('string','last_name',$userInfo['users_lname'], 64);
+	$ft->add_field('string','phone_number',$userInfo['users_phone'], 64);
 
 	$email_option = ( !$isAdmin and isset( $settings['editable_email'] ) and $settings['editable_email'] == "0" ) ? 'readonly="readonly"' : "";
-	$ft->add_field('string','email_address',$userInfo['users_email'],50,$email_option);
+	$ft->add_field('string','email_address',$userInfo['users_email'],64,$email_option);
 
-	$ft->add_field('string','city',$userInfo['users_city']);
-	$ft->add_field('string','province',$userInfo['users_province']);
-	$ft->add_field('string','country',$userInfo['users_country']);
+	$ft->add_field('string','city',$userInfo['users_city'], 64);
+	$ft->add_field('string','province',$userInfo['users_province'], 64);
+	$ft->add_field('string','country',$userInfo['users_country'], 64);
+	$ft->add_field('string','api_token',$db->getApiToken($userInfo['user_id']), 64, "readonly");
 	if ( $isAdmin && $userInfo['users_role'] != "subuser" ) {
 		$ft->add_custom_field('user_role',
 			create_drop_box_from_array(array('user', 'admin'),"newrole", $userInfo['users_role']));
-		$ft->add_field('text','comment',$userInfo['users_comment']);
+		$ft->add_field('text','comment',$userInfo['users_comment'], 48);
 	?>
 		<tr>
 		<td align='right'><?php print_lang('expires'); ?>:</td>

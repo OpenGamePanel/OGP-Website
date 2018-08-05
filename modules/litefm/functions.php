@@ -2,6 +2,7 @@
 function return_bytes($val) {
 	$val = trim($val);
 	$last = strtolower($val[strlen($val)-1]);
+	$val = str_replace($val[strlen($val)-1], '', $val);
 	switch($last) {
 		// El modificador 'G' está disponble desde PHP 5.1.0
 		case 'g':

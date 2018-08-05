@@ -45,7 +45,7 @@ define('OGP_LANG_feed_enable_info', "If your webhost has a firewall which is blo
 define('OGP_LANG_feed_url', "Feed URL");
 define('OGP_LANG_feed_url_info', "GrayCube.com is sharing a LGSL feed on the URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Character Encoding");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Leave it blank to use ISO encoding.");
+define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
 define('OGP_LANG_steam_user', "Steam User");
 define('OGP_LANG_steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('OGP_LANG_steam_pass', "Steam Password");
@@ -132,4 +132,12 @@ define('OGP_LANG_show_server_id_game_monitor', "Show Server IDs on Game Monitor 
 define('OGP_LANG_show_server_id_game_monitor_info', "Show the game server ID column on the Game Monitor for matching up files created by the Agent to the actual game server.");
 define('OGP_LANG_default_game_server_home_path_prefix', "Default game server home directory prefix");
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Enter a path prefix for where you want game server homes to be created by default. You can use \"{USERNAME}\" in the path which will be replaced with the OGP username the game server is being assigned to.  You can use \"{GAMEKEY}\" in the path which will be replaced with a friendly lowercase name.  You can use \"{SKIPID}\" anywhere in the path to skip appending the home ID to the path.  Example: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} will become /ogp/games/username/arkse/.  Example 2:  /ogp/games will become /ogp/games/1 where 1 is the game servers ID.");
+define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
+define('OGP_LANG_autohorized_hosts', "Authorized hosts");
+define('OGP_LANG_add', "Add");
+define('OGP_LANG_remove', "Remove");
+define('OGP_LANG_default_trusted_hosts', "Default Trusted Hosts");
+define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Trusted Hosts or Proxies (IPv4/IPv6 Addresses or CIDR)");
+define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Trusted Forwarded IPs (IPv4/IPv6 Addresses or CIDR)");
+
 ?>

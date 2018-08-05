@@ -171,7 +171,7 @@ function exec_ogp_module() {
 	$ft = new FormTable();
 	$ft->start_form("?m=server&amp;p=firewall&amp;rhost_id=$rhost_id");
 	$ft->start_table();
-	$ft->add_field('text','default_allowed',$firewall_settings['default_allowed']);
+	$ft->add_field('text','default_allowed',$firewall_settings['default_allowed'], 38);
 	$ft->add_field('string','allow_port_command',$firewall_settings['allow_port_command']);
 	$ft->add_field('string','deny_port_command',$firewall_settings['deny_port_command']);
 	$ft->add_field('string','allow_ip_port_command',$firewall_settings['allow_ip_port_command']);

@@ -39,5 +39,5 @@ define('OGP_LANG_online_servers', "Online серверы");
 define('OGP_LANG_add_games_in', "Добавить новые сервера можно здесь: %s");
 define('OGP_LANG_currently_online', "Пользователей online");
 define('OGP_LANG_game_servers', "Игровые Сервера");
-define('OGP_LANG_select_remote_server', "Select Remote Server");
+define('OGP_LANG_select_remote_server', "Выбрать сервер");
 ?>

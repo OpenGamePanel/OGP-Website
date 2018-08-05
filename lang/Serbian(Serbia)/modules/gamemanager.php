@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Менаџер игара");
 define('OGP_LANG_no_games_to_monitor', "Ви немате конфигурисане игре које можете надгледати.");
 define('OGP_LANG_status', "Статус");
 define('OGP_LANG_fail_no_mods', "Нема модова омогућених за ову игру! Морате да питате вашег админа да дода мод(ове) за игру додељену вама.");
-define('OGP_LANG_no_game_homes_assigned', "Нема сервера додељених вама. Морате да затражите од админа да вам додели игре.");
+define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
 define('OGP_LANG_select_game_home_to_configure', "Одабери сервер који желите да конфигуришете");
 define('OGP_LANG_file_manager', "Менаџер датотека");
 define('OGP_LANG_configure_mods', "Конфигуриши модове");
@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_steam_update', "Failed to start Steam update. S
 define('OGP_LANG_failed_to_start_rsync_update', "Failed to start Rsync update. See agent log.");
 define('OGP_LANG_update_completed', "Update completed successfully.");
 define('OGP_LANG_update_in_progress', "Update in progress, please wait...");
-define('OGP_LANG_refresh_steam_status', "Refresh steam status");
+define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
 define('OGP_LANG_refresh_rsync_status', "Refresh rsync status");
 define('OGP_LANG_server_running_cant_update', "Server running so update is not possible. Stop the server before update.");
 define('OGP_LANG_xml_steam_error', "Selected server type does not support steam install/update.");

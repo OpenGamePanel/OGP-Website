@@ -1189,7 +1189,7 @@ class OGPRemoteLibrary
 			$lines = explode('\n',$data_tmp);
 			foreach ($lines as $line)
 			{
-				list($string_name, $mod_title) = explode(':', base64_decode($line), 2);
+				@list($string_name, $mod_title) = explode(':', base64_decode($line), 2);
 				if($string_name != "" and $mod_title != "")
 					$data["$string_name"] = $mod_title;
 			}

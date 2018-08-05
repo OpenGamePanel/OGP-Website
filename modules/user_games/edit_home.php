@@ -100,13 +100,7 @@ function exec_ogp_module()
 		}
 		
 		if ( $db->changeHomeControlPassword($home_id, $control_password) === TRUE )
-		{
-			// Update cronjob passwords in the URLs
-			if(file_exists('modules/cron/shared_cron_functions.php')){
-				require_once('modules/cron/shared_cron_functions.php');
-				updateCronJobPasswords($db, $remote, $home_id);
-			}
-			
+		{			
 			echo json_encode(array('result' => 'success', 'info' => get_lang("control_password_updated_successfully")));
 			$db->logger( get_lang("control_password_updated_successfully") ." HOME ID:$home_id - ". get_lang("game_control_password") .":$control_password");
 		}
@@ -719,24 +713,6 @@ function exec_ogp_module()
 	echo "<input type='submit' name='change_control_password' value='". get_lang("change_control_password") ."' />";
 	echo "</form></td></tr>";
 	echo "<tr><td colspan='2' class='info'>". get_lang("change_control_password_info") ."</td></tr>";
-	if ( preg_match("/t/",$game_home['access_rights']) > 0 && $ftp_installed && $db->IsFtpEnabled($home_id) )
-	{
-		// Form to edit control ftp login
-		$ftp_login = isset($home_info['ftp_login']) ? $home_info['ftp_login'] : $home_id;
-		echo "<tr><td class='right'>". get_lang("server_ftp_login") .":</td><td class='left'>";
-		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
-		echo "<input type='text' size='30' name='ftp_login' value=\"".str_replace('"', "&quot;", $ftp_login)."\" />";
-		echo "<input type='submit' name='change_ftp_login' value='". get_lang("change_ftp_login") ."' />";
-		echo "</form></td></tr>";
-		echo "<tr><td  colspan='2' class='info'>". get_lang("change_ftp_login_info") ."</td></tr>";
-		// Form to edit control ftp password
-		echo "<tr><td class='right'>". get_lang("server_ftp_password") .":</td><td class='left'>";
-		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
-		echo "<input type='text' size='30' name='ftp_password' value=\"".str_replace('"', "&quot;", $home_info['ftp_password'])."\" />";
-		echo "<input type='submit' name='change_ftp_password' value='". get_lang("change_ftp_password") ."' />";
-		echo "</form></td></tr>";
-		echo "<tr><td  colspan='2' class='info'>". get_lang("change_ftp_password_info") ."</td></tr>";
-	}
 	if ( $isAdmin && $ftp_installed )
 	{
 		// Forms to enable/disable ftp account
@@ -759,7 +735,25 @@ function exec_ogp_module()
 		echo "<tr><td  colspan='2' class='info'>". get_lang("change_ftp_account_status_info") ."</td>";
 		echo "</tr>";
 	}
-	
+	if ( preg_match("/t/",$game_home['access_rights']) > 0 && $ftp_installed && $db->IsFtpEnabled($home_id) )
+	{
+		// Form to edit control ftp login
+		$ftp_login = isset($home_info['ftp_login']) ? $home_info['ftp_login'] : $home_id;
+		echo "<tr><td class='right'>". get_lang("server_ftp_login") .":</td><td class='left'>";
+		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
+		echo "<input type='text' size='30' name='ftp_login' value=\"".str_replace('"', "&quot;", $ftp_login)."\" />";
+		echo "<input type='submit' name='change_ftp_login' value='". get_lang("change_ftp_login") ."' />";
+		echo "</form></td></tr>";
+		echo "<tr><td  colspan='2' class='info'>". get_lang("change_ftp_login_info") ."</td></tr>";
+		// Form to edit control ftp password
+		echo "<tr><td class='right'>". get_lang("server_ftp_password") .":</td><td class='left'>";
+		echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>";
+		echo "<input type='text' size='30' name='ftp_password' value=\"".str_replace('"', "&quot;", $home_info['ftp_password'])."\" />";
+		echo "<input type='submit' name='change_ftp_password' value='". get_lang("change_ftp_password") ."' />";
+		echo "</form></td></tr>";
+		echo "<tr><td  colspan='2' class='info'>". get_lang("change_ftp_password_info") ."</td></tr>";
+	}
+		
 	if ( $isAdmin )
 	{
 		$master_server_home_id = $db->getMasterServer( $home_info['remote_server_id'], $home_info['home_cfg_id'] );

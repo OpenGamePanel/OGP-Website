@@ -163,7 +163,7 @@ function exec_ogp_module() {
 	$search_field = (isset($_GET['search']) && !empty($_GET['search'])) ? $_GET['search'] : false;
 	
 	
-	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !(isset($_GET['limit']) and !empty($_GET['limit']))){
 		$home_limit = $loggedInUserInfo["users_page_limit"];
 	}
 	
@@ -226,7 +226,7 @@ function exec_ogp_module() {
 		unset( $_GET['home_id-mod_id-ip-port'] );
 	if ( empty( $_GET['home_id'] ) )
 		unset( $_GET['home_id'] );
-	if ( isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] ==  game_type  )
+	if ( isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] ==  get_lang('game_type') )
 		unset( $_GET['home_cfg_id'] );
 
 	create_home_selector_game_type($_GET['m'], $_GET['p'], $show_games_type);
@@ -280,29 +280,12 @@ function exec_ogp_module() {
 		 "</tr>".
 		 "</thead>".
 		 "<tbody>";
-
-	$litefm_installed = $db->isModuleInstalled('litefm');
-	$ftp_installed = $db->isModuleInstalled('ftp');
-	$addonsmanager_installed = $db->isModuleInstalled('addonsmanager');
-	$mysql_installed = $db->isModuleInstalled('mysql');
+	
 	if( isset( $_GET['home_id-mod_id-ip-port']) )
 		list( $post_home_id,
 			  $post_mod_id, 
 			  $post_ip, 
 			  $post_port ) = explode( "-", $_GET['home_id-mod_id-ip-port'] );
-			  
-	if($addonsmanager_installed)
-	{
-		$query_groups = "";
-		if(!$isAdmin)
-		{
-			$groups = $db->getUsersGroups($_SESSION['user_id']);
-			$query_groups .= " AND (";
-			foreach($groups as $group)
-				$query_groups .= "group_id=".$group['group_id']." OR ";
-			$query_groups .= "group_id=0 OR group_id IS NULL)";
-		}
-	}
 	
 	foreach( $server_homes as $server_home )
 	{
@@ -332,12 +315,8 @@ function exec_ogp_module() {
 				  $name,
 				  $mod_name,
 				  $SrvCtrl,
-				  $lite_fm,
-				  $manager,
 				  $user,
 				  $pos,
-				  $ftp,
-				  $addonsmanager,
 				  $ctrlChkBoxes,
 				  $expiration_dates);
 			
@@ -358,57 +337,6 @@ function exec_ogp_module() {
 			if(isset($server_home['user_group_expiration_date']) and $server_home['user_expiration_date'] != "X")
 				$expiration_dates .= assign_expiration_date . " (" . group . "): " . date('d/m/Y H:i:s', $server_home["user_group_expiration_date"]);
 			
-			$get_size = "<a class='monitorbutton size' data-home_id='".$server_home["home_id"]."'>
-				<img src='" . check_theme_image("images/file_size.png") . "' title='". get_lang("get_size") ."'>
-				<span>". get_lang("get_size") ."</span>
-			</a>";
-
-			$manager = "<a class='monitorbutton' href='?m=user_games&amp;p=edit&amp;home_id=".$server_home['home_id']."'>
-				<img src='" . check_theme_image("images/edit.png") . "' title='". get_lang("edit") ."'>
-				<span>". get_lang("edit") ."</span>
-			</a>";
-
-			// Only show the filemanager link when the litefm is installed.
-			if ( preg_match("/f/",$server_home['access_rights']) > 0 && $litefm_installed )
-			{
-				$lite_fm = "<a class='monitorbutton' href='?m=litefm&amp;home_id=".$server_home['home_id']."'>
-					<img src='" . check_theme_image("images/filemanager.png") . "' title='". get_lang("file_manager") ."'>
-					<span>". get_lang("file_manager") ."</span>
-				</a>";
-			}
-			
-			if ( preg_match("/t/",$server_home['access_rights']) > 0 && $ftp_installed )
-			{
-				$ftp = "<a class='monitorbutton' href='?m=ftp&amp;home_id=".$server_home['home_id']."'>
-                            <img src='" . check_theme_image("images/ftp.png") . "' title='". get_lang("ftp") ."'>
-							<span>". get_lang("ftp") ."</span>
-						</a>";
-			}
-			if ( $addonsmanager_installed )
-			{				
-				$addons = $db->resultQuery("SELECT addon_id FROM OGP_DB_PREFIXaddons WHERE home_cfg_id=".$server_home['home_cfg_id'].$query_groups);
-				$addons_qty = count($addons);
-				if($addons and $addons_qty >= 1){
-					$addonsmanager = "<a class='monitorbutton' href='?m=addonsmanager&amp;p=user_addons&amp;home_id=".
-                                                                         $server_home['home_id']."&amp;mod_id=".$server_home['mod_id'].
-                                                                         "&amp;ip=".$server_home['ip']."&amp;port=".$server_home['port']."'>
-                	                        <img src='" . check_theme_image("modules/administration/images/addons_manager.png") . "' title='". get_lang("addons") ."'>
-        	                                <span>". get_lang("addons") ." (".$addons_qty.")</span>
-	                                </a>";
-				}
-			}
-			
-			if ( $mysql_installed )
-			{
-				$mysql_dbs = $db->resultQuery("SELECT db_id FROM OGP_DB_PREFIXmysql_databases WHERE enabled=1 AND home_id=".$server_home['home_id']);
-
-				if(!empty($mysql_dbs))
-					$mysql = "<a class='monitorbutton' href='?m=mysql&p=user_db&home_id=".$server_home['home_id']."'>
-                	                        <img src='" . check_theme_image("modules/administration/images/mysql_admin.png") . "' title='". get_lang("mysql_databases") ."'>
-        	                                <span>". get_lang("mysql_databases") ."</span>
-	                                </a>";
-			}
-
 			if( !isset($server_home['mod_id']) )
 			{
 				$ministart = get_lang("fail_no_mods");
@@ -420,93 +348,7 @@ function exec_ogp_module() {
 			}
 
 			$server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$server_home['home_cfg_file']);
-			
-			if ( $server_xml )
-			{
-				if (preg_match("/u/",$server_home['access_rights']))
-				{
-					$master_server_home_id = $db->getMasterServer( $server_home['remote_server_id'], $server_home['home_cfg_id'] );
-					if ( $master_server_home_id != FALSE )
-					{
-						if ( !$db->getGameHomeWithoutMods($master_server_home_id) )
-						{
-							$db->setMasterServer("remove", $master_server_home_id, $server_home['home_cfg_id'], $server_home['remote_server_id']);
-							$master_server_home_id = FALSE;
-						}
-					}
-					// In case game is compatible with steam we offer a way to use steam with the updates.
-					if( $server_xml->installer == "steamcmd" )
-					{						
-						if( $master_server_home_id != FALSE AND $master_server_home_id != $server_home['home_id']  )
-						{
-							$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=update&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;master_server_home_id=".$master_server_home_id."&amp;update=update'>
-								<img src='" . check_theme_image("images/master.png") . "' title='". get_lang("update_from_local_master_server") ."'>
-								<span>". get_lang("update_from_local_master_server") ."</span>
-							</a>";
-						}
-
-						$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=update&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
-							<img src='" . check_theme_image("images/steam.png") ."' title='". get_lang("install_update_steam") ."'>
-							<span>". get_lang("install_update_steam") ."</span>
-						</a>";
-						$manager .= "<a class='monitorbutton getAutoUpdateLink' copyfail='" . get_lang("auto_update_copy_me_fail") . "' copysuccess='" . get_lang("auto_update_copy_me_success") . "' autoupdatetext='" . get_lang("auto_update_title_popup") . "' autoupdatehtml='" . htmlentities(get_lang("auto_update_popup_html")) . "' copyme='" . get_lang("auto_update_copy_me") . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?action=autoUpdateSteamHome&homeid=" . $server_home['home_id'] . "&controlpass=" . $server_home['control_password'] . "'>
-							<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_lang("get_steam_autoupdate_api_link") . "'>
-							<span>". get_lang("get_steam_autoupdate_api_link") . "</span>
-						</a>";
-					}
-					// In other cases manual update is provided.
-					else
-					{
-						$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=update_manual&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
-							<img src='" . check_theme_image("images/install.png") . "' title='". get_lang("install_update_manual") ."'>
-							<span>". get_lang("install_update_manual") ."</span>
-						</a>";
-
-
-						$sync_name = get_sync_name($server_xml);
-						$sync_list = @file("modules/gamemanager/rsync.list", get_lang("FILE_IGNORE_NEW_LINES"));
-						if ( in_array($sync_name, $sync_list) OR ($master_server_home_id != FALSE and $master_server_home_id != $server_home['home_id']) )
-						{
-							$manager .= "<a class='monitorbutton' href='?m=gamemanager&amp;p=rsync_install&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
-								<img src='" . check_theme_image("images/rsync.png") . "' title='". rsync_install ."'>
-								<span>". get_lang("rsync_install") ."</span>
-							</a>";
-
-						}
-					}
-				}
-
-				if ($db->isModuleInstalled("editconfigfiles") && !empty($server_xml->configuration_files)) {
-					$manager .= "<a href=\"?m=editconfigfiles&home_id=".(int)$server_home['home_id']."\" class=\"monitorbutton\">
-									<img src='" . check_theme_image("images/editconfig.png") . "' title='". get_lang("edit_configuration_files") ."'>
-									<span>". get_lang("edit_configuration_files") ."</span>
-					</a>";
-				}
-
-				if (preg_match("/c/",$server_home['access_rights'])){
-					if( isset($server_xml->custom_fields) ) {
-						$manager .= "<a href=\"?m=user_games&p=custom_fields&home_id=".$server_home['home_id']."\" class=\"monitorbutton\">
-										<img src='" . check_theme_image("images/customfields.png") . "' title='". get_lang("custom_fields") ."'>
-										<span>". get_lang("custom_fields") ."</span>
-									</a>";
-					}
-				}
-
-			}
-
-			if( $isAdmin )
-			{
-				if ( ( $server_xml->control_protocol and preg_match("/^(rcon|lcon|rcon2|armabe)$/" ,$server_xml->control_protocol) ) OR 
-					 ( $server_xml->gameq_query_name and $server_xml->gameq_query_name == 'minecraft' ) )
-				{
-					$manager .= "<a class='monitorbutton' href='home.php?m=gamemanager&amp;p=rcon_presets&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."'>
-						<img src='" . check_theme_image("images/rcon_preset.png") . "' title='".get_lang("rcon_presets")."'>
-						<span>".get_lang("rcon_presets")."</span>
-					</a>";
-
-				}
-			}
-			
+						
 			$mod = $server_home['mod_key'];
 			// If query name does not exist use mod key instead.
 			if ($server_xml->protocol == "gameq")
@@ -554,17 +396,9 @@ function exec_ogp_module() {
 				}
 			}
 			$other_owners = $other_owners != "" ? $other_owners = "<b>". get_lang("assigned_to") ."</b><br>".$other_owners : "";
-
-			$view_log = "<a class='monitorbutton' href='?m=gamemanager&amp;p=log&amp;home_id-mod_id-ip-port=".$server_home['home_id']."-".$server_home['mod_id']."-".$server_home['ip']."-".$server_home['port']."'>
-				<img src='" . check_theme_image("images/log.png") . "' title='". get_lang("view_log") ."'>
-				<span>". get_lang("view_log") ."</span>
-			</a>";
-
-
-			$btns = $view_log.
-					@$ftp.
-					@$lite_fm.
-					@$addonsmanager;
+			
+			$btns = get_monitor_buttons($server_home, $server_xml);
+			
 			//End
 
 			$remote = new OGPRemoteLibrary($server_home['agent_ip'], $server_home['agent_port'], $server_home['encryption_key'], $server_home['timeout']);
@@ -673,7 +507,7 @@ function exec_ogp_module() {
 				@$second .= "<td colspan='4'>" . $refresh->getdiv($pos,"width:100%;") . "$offlineT</td>";
 				$second .= "<td class='owner' >$other_owners$groupsus</td>";
 				if( $server_xml->protocol != "teamspeak3" OR ($startup_file_exists and $server_xml->protocol == "teamspeak3") OR ($status == "offline" and $server_xml->protocol == "teamspeak3") )
-					@$second .= "<td class='operations'><div class='inline-block monitorButtonContainer'>" . trim($btns) . trim($manager) . trim($mysql) . trim($get_size) . trim($ts3opt) . "<b class='failure' style='float:left;' >$expiration_dates</b></div></td>";
+					@$second .= "<td class='operations'><div class='inline-block monitorButtonContainer'>" . trim($btns) . trim($ts3opt) . "<b class='failure' style='float:left;' >$expiration_dates</b></div></td>";
 				else
 					$second .= "<td class='operations' >$ts3opt</td>";
 			$second .= "</tr>";
@@ -709,8 +543,7 @@ function exec_ogp_module() {
 			$homes_count = $db->getHomesFor_count('user_and_group',$_SESSION['user_id'], $home_cfg_id,$search_field);
 		}	
 	}
-
-
+	
 	if(isset($_GET['home_cfg_id']) && !empty($_GET['home_cfg_id'])){
 	$uri = '?m=gamemanager&p=game_monitor&home_cfg_id='.$_GET['home_cfg_id'].''.($search_field ? "&search=$search_field" : "").'&limit='.$home_limit.'&page=';
 	}

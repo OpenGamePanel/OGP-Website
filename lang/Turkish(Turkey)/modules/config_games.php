@@ -34,7 +34,7 @@ define('OGP_LANG_updating_config_from_file', "Yapılandırma %s dosyasından gü
 define('OGP_LANG_error_when_handling_file', "Error occurred when handling file %s.");
 define('OGP_LANG_error_while_adding_cfg_to_db', "Error occurred when adding data from %s to database.");
 define('OGP_LANG_no_configs_found', "No configuration found from %s file.");
-define('OGP_LANG_select_game', "Select Game");
+define('OGP_LANG_select_game', "Oyun seç");
 define('OGP_LANG_create_xml_configs', "Create XML Configs");
 define('OGP_LANG_failed_to_delete_config_from_db', "Failed to delete %s config from database");
 define('OGP_LANG_failed_removing_file', "Falied removing the file %s.");

@@ -63,8 +63,8 @@ define('OGP_LANG_addon_name_info', "Bu Eklenti için bir ad girin, bu kullanıc�
 define('OGP_LANG_url_info', "İndirilecek bir dosyayı içeren bir web adresi girin, zip biçiminde sıkıştırılmışsa veya tar.gz dosyasının, sunucunun kök dizininde veya aşağıda verilen yolda açılması gerekir.");
 define('OGP_LANG_path_info', "Yol, sunucu klasörüne göreli olmalı ve başında veya sonunda eğik çizgi içermemelidir, örneğin: cstrike / cfg. Boş bırakılırsa sunucu kök yolu kullanılır");
 define('OGP_LANG_post-script_info', "Bash dil kodunu girin, bu komut dosyası olarak yürütülecektir, yüklemeyi özelleştirmek için metin değiştirmelerini kullanabilir, eklentiyi yüklediğiniz sunucudaki verilerle değiştirilecektir. Komut dosyası sunucunun kök dizininden veya belirtilen yoldan başlayacaktır.");
-define('OGP_LANG_show_to_group', "Show to group");
-define('OGP_LANG_all_groups', "All groups");
-define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
-define('OGP_LANG_group', "Group");
+define('OGP_LANG_show_to_group', "Gruba göster");
+define('OGP_LANG_all_groups', "Tüm gruplar");
+define('OGP_LANG_show_addons_for_selected_group', "Seçilen gruplar için eklentileri göster");
+define('OGP_LANG_group', "Grup");
 ?>

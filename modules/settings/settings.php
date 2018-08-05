@@ -105,7 +105,7 @@ function exec_ogp_module()
 	$rsync_options = array("1" => get_lang('all_available_servers'), "2" => get_lang('only_remote_servers'), "3" => get_lang('only_local_servers'));
 
 	echo "<h2>".get_lang('settings')."</h2>";
-
+	echo "<h4><a href='?m=settings&p=api_hosts'>".get_lang('setup_api_authorized_hosts')."</a></h4>";
 	$row = $db->getSettings();
 	$ft = new FormTable();
 	$ft->start_form("?m=settings", "post", "autocomplete=\"off\"");
@@ -119,10 +119,10 @@ function exec_ogp_module()
 	$ft->add_custom_field('time_zone',
 		create_drop_box_from_array($zones,"time_zone",@$row['time_zone'],false));
 	$ft->add_field('string','charset',@$row['charset']);
-	$ft->add_field('text','header_code',@$row['header_code']);
+	$ft->add_field('text','header_code',@$row['header_code'], 38);
 	$ft->add_field('on_off','maintenance_mode',@$row['maintenance_mode']);
 	$ft->add_field('string','maintenance_title',@$row['maintenance_title']);
-	$ft->add_field('text','maintenance_message',@$row['maintenance_message']);
+	$ft->add_field('text','maintenance_message',@$row['maintenance_message'], 38);
 	$ft->add_field('on_off','page_auto_refresh',@$row['page_auto_refresh']);
 	$ft->add_field('string','panel_email_address',@$row['panel_email_address']);
 	$ft->add_field('string','smtp_server',@$row['smtp_server']);
@@ -131,7 +131,7 @@ function exec_ogp_module()
 	$tls = (isset($row['smtp_tls']) and $row['smtp_tls'] == 1) ? "checked='checked'" : "";
 	$no = (!isset($row['smtp_ssl']) or $row['smtp_ssl'] == 0 AND !isset($row['smtp_tls']) or ( isset($row['smtp_tls']) and $row['smtp_tls'] == 0)) ? "checked='checked'" : "";
 	$ft->add_custom_field('smtp_secure','<input type=radio name=smtp_secure value=0 '.$no.
-										'>'.no.'&nbsp;&nbsp;<input type=radio name=smtp_secure value=ssl '.$ssl.
+										'>'.get_lang('no').'&nbsp;&nbsp;<input type=radio name=smtp_secure value=ssl '.$ssl.
 										'>SSL&nbsp;&nbsp;<input  type=radio name=smtp_secure value=tls '.$tls.'>TLS');
 	$ft->add_field('string','smtp_login',@$row['smtp_login']);
 	$ft->add_field('password','smtp_passw',@$row['smtp_passw']);
@@ -151,10 +151,10 @@ function exec_ogp_module()
 	$ft->add_custom_field('rsync_available',
 		 create_drop_box_from_array($rsync_options,"rsync_available",@$row['rsync_available'],false));
 	$ft->add_field('string','support_widget_title',@$row['support_widget_title']);
-	$ft->add_field('text','support_widget_content',@$row['support_widget_content']);
+	$ft->add_field('text','support_widget_content',@$row['support_widget_content'], 38);
 	$ft->add_field('string','support_widget_link',@$row['support_widget_link']);
 	$ft->add_custom_field('check_expiry_by',
-		create_drop_box_from_array(array('once_logged_in' => once_logged_in, 'cron_job' => cron_job),"check_expiry_by",@$row['check_expiry_by'],false));
+		create_drop_box_from_array(array('once_logged_in' => get_lang('once_logged_in'), 'cron_job' => get_lang('cron_job')),"check_expiry_by",@$row['check_expiry_by'],false));
 	$ft->add_field('string','recaptcha_site_key',@$row['recaptcha_site_key']);
 	$ft->add_field('string','recaptcha_secret_key',@$row['recaptcha_secret_key']);
 	$ft->add_field('on_off','recaptcha_use_login',@$row['recaptcha_use_login']);

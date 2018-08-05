@@ -45,7 +45,7 @@ define('OGP_LANG_feed_enable_info', "Se o seu webhost tiver um firewall que este
 define('OGP_LANG_feed_url', "URL do feed");
 define('OGP_LANG_feed_url_info', "GrayCube.com está compartilhando um feed LGSL na URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Codificação de Caracteres");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Deixe em branco para utilizar codificação ISO");
+define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
 define('OGP_LANG_steam_user', "Usuário Steam");
 define('OGP_LANG_steam_user_info', "Um usuário e senha Steam é necessário para efetuar o download de alguns servidores de jogos como o CS:GO.");
 define('OGP_LANG_steam_pass', "Senha do Steam");
@@ -136,4 +136,11 @@ exemplo: /home/{USERNAME}/{GAMEKEY}
 você terá: /home/joao/arkse/1
 exemplo: /home/{USERNAME}/{GAMEKEY}{SKIPID}
 você terá: /home/joao/arkse/");
+define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
+define('OGP_LANG_autohorized_hosts', "Authorized hosts");
+define('OGP_LANG_add_host', "Add host");
+define('OGP_LANG_remove_hosts', "Remove hosts");
+define('OGP_LANG_default_hosts', "Default hosts");
+define('OGP_LANG_custom_hosts', "Custom hosts");
+
 ?>

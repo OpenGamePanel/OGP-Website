@@ -36,7 +36,7 @@ function exec_ogp_module()
 	$page_user = (isset($_GET['page']) && (int)$_GET['page'] > 0) ? (int)$_GET['page'] : 1; // thanks for Adjokip
 	$limit_user = isset($_GET['limit']) ? $_GET['limit'] : 10;
 	
-	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !hasValue($_GET['limit'])){
+	if(hasValue($loggedInUserInfo) && is_array($loggedInUserInfo) && $loggedInUserInfo["users_page_limit"] && !(isset($_GET['limit']) and !empty($_GET['limit']))){
  		$limit_user = $loggedInUserInfo["users_page_limit"];
  	}	
 	
@@ -200,9 +200,9 @@ function exec_ogp_module()
 	$content[3] = $player_list; 
 	$href[3] = null;
 	// FTP
-	$title[4] = get_lang('ftp');
-	$content[4] = '<img src="themes/' . $settings['theme'] . '/images/icons/folder.png" style="width:48px;float:right;margin:0 0 0 8px" />' . get_lang('dashboard_ftp_text');
-	$href[4] = 'home.php?m=ftp';
+	$title[4] = get_lang('login');
+	$content[4] = '<img src="themes/' . $settings['theme'] . '/images/icons/folder.png" style="width:48px;float:right;margin:0 0 0 8px" />' . get_lang('welcome_text');
+	$href[4] = 'home.php?m=user_admin&p=edit_user&user_id='.$_SESSION['user_id'];
 	// Support
 	$title[5] = (isset($settings['support_widget_title']) && $settings['support_widget_title'] != "") ?
 				 $settings['support_widget_title'] : get_lang('support');

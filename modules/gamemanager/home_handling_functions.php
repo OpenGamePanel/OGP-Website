@@ -23,18 +23,17 @@
  */
 
 function get_query_port($server_xml, $server_port) {
+	if ($server_xml->query_port) {
+		if ($server_xml->query_port['type'] == 'add') {
+			return $server_port + $server_xml->query_port;
+		}
 
-   if ($server_xml->query_port) {
-      if ($server_xml->query_port['type'] == 'add') {
-         return $server_port + $server_xml->query_port;
-      }
+		if ($server_xml->query_port['type'] == 'subtract') {
+			return $server_port - $server_xml->query_port;
+		}
+	}
 
-      if ($server_xml->query_port['type'] == 'subtract') {
-         return $server_port - $server_xml->query_port;
-      }
-   }
-
-   return $server_port;
+	return $server_port;
 }
 
 function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$db)
@@ -441,5 +440,25 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 			return TRUE;
 		}
 	}
+}
+
+function get_monitor_buttons($server_home, $server_xml)
+{
+	global $db;
+	$buttons = array();
+	foreach($db->getInstalledModules() as $installed_module)
+	{
+		$buttons_file = "modules/$installed_module[folder]/monitor_buttons.php";
+		if(file_exists($buttons_file))
+		{
+			require($buttons_file);
+			$buttons = array_merge($buttons, $module_buttons);
+			unset($module_buttons);
+		}
+	}
+	$buttons_html = "";
+	foreach($buttons as $button)
+		$buttons_html .= $button."\n";
+	return $buttons_html;
 }
 ?>
