@@ -457,9 +457,17 @@ function install() {
         @add_lang_module('modulemanager');
         $modules = list_available_modules();
 
+		if(in_array('modulemanager', $modules))
+		{
+			// Install module manager first
+			$fail = $fail || install_module($db, 'modulemanager', FALSE) < 0;
+		}
+		
         foreach ( $modules as $module )
         {
-            $fail = $fail || install_module($db,$module,FALSE) < 0;
+            if($module == 'modulemanager')//Has already been installed
+				continue;
+			$fail = $fail || install_module($db,$module,FALSE) < 0;
         }
 
         if ( $fail ) {
