@@ -2366,6 +2366,36 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		return TRUE;
 	}
+	
+	public function updateAccessRightsFor($id_type,$assign_id,$home_id,$access_rights)
+	{
+		if ( $id_type == "user" )
+		{
+			$template = "UPDATE `%suser_homes` SET `access_rights` = '%s' WHERE `user_id` = %d AND home_id = %d";	
+		}
+		else if ( $id_type == "group")
+		{
+			$template = "UPDATE `%suser_group_homes` SET `access_rights` = '%s' WHERE `group_id` = %d AND home_id = %d";
+		}
+		else
+		{
+			return FALSE;
+		}
+
+		$query = sprintf($template,
+			$this->table_prefix,
+			$this->realEscapeSingle($access_rights),
+			$this->realEscapeSingle($assign_id),
+			$this->realEscapeSingle($home_id));
+
+		++$this->queries_;
+		mysqli_query($this->link,$query);
+
+		if ( mysqli_affected_rows($this->link) != 1 )
+			return FALSE;
+
+		return TRUE;
+	}
 
 	public function unassignHomeFrom($id_type, $assign_id, $home_id)
 	{

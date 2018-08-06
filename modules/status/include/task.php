@@ -39,7 +39,7 @@ if( isset($_GET['remote_server_id']) && $_GET['remote_server_id'] != "webhost")
 	}else{
 		if($os == "linux"){
 			$taskoutput = array();
-			$taskoutput["task"] = shell_exec ("ps aux");
+			$taskoutput["task"] = shell_exec ('ps -p $(ps --no-headers -a -o tty,pid|grep ^[^?] | awk -vORS=, \'{ print $2 }\' | sed \'s/,$/\n/\') -o comm,etime,%cpu,%mem,args');
 		}
 	}
 }
