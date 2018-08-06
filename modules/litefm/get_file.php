@@ -42,6 +42,9 @@ function exec_ogp_module()
 	if ($home_cfg === FALSE)
 		return;
 	
+	if ( preg_match("/f/",$home_cfg['access_rights']) != 1 )
+		return;
+	
 	$downloads_folder = "modules/litefm/downloads";
 	
 	if(isset($_GET['remove_did']))

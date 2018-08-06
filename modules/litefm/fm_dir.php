@@ -47,6 +47,13 @@ function exec_ogp_module()
 		print_failure( get_lang("no_access_to_home") );
 		return;
 	}
+	
+	if ( preg_match("/f/",$home_cfg['access_rights']) != 1 )
+	{
+		print_failure( get_lang("no_rights") );
+		echo "<table class='center'><tr><td><a href='?m=gamemanager&amp;p=game_monitor&amp;home_id=".$home_cfg['home_id']."'><< ". get_lang("back") ."</a></td></tr></table>";
+		return;
+	}
 
 	litefm_check($home_id);
 	

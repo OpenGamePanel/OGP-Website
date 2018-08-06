@@ -1605,7 +1605,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$user_group_expiration_dates = $this->listQuery($query3);
 				foreach($servers as $key => $server)
 				{
-					$servers[$key]['access_rights'] = "ufpetc";
+					$servers[$key]['access_rights'] = $this->getFullAccessRightsString();
 					if($user_expiration_dates)
 					{
 						foreach($user_expiration_dates as $user_expiration_date)
@@ -1982,7 +1982,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$user_group_expiration_dates = $this->listQuery($query3);
 				foreach($servers as $key => $server)
 				{
-					$servers[$key]['access_rights'] = "ufpetc";
+					$servers[$key]['access_rights'] = $this->getFullAccessRightsString();
 					if($user_expiration_dates)
 					{
 						foreach($user_expiration_dates as $user_expiration_date)
@@ -2323,6 +2323,14 @@ class OGPDatabaseMySQL extends OGPDatabase
 			array_push($results,$row);
 		return $results;
 	}
+	
+	public function getFullAccessRightsString()
+	{
+		$full_rights = '';
+		foreach($this->getModulesAccessRights() as $ar)
+			$full_rights .= $ar['flag'];
+		return $full_rights;
+	}
 
 	// User game functions
 
@@ -2456,7 +2464,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$game_home['mods'] = $mods_array;
 		// Since this function is only called for administrators
 		// we must give all access rights
-		$game_home['access_rights'] = "ufpetc";
+		$game_home['access_rights'] = $this->getFullAccessRightsString();
 		// Return the game home and mods.
 		return $game_home;
 	}

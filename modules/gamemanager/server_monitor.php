@@ -321,9 +321,8 @@ function exec_ogp_module() {
 				  $expiration_dates);
 			
 			if ( $isAdmin )
-			{
-				$server_home['access_rights'] = "ufpetc";
-			}
+				$server_home['access_rights'] = $db->getFullAccessRightsString();
+			
 			if ($server_home['mod_name'] == "none" OR $server_home['mod_name'] == "None")
 				$mod_name = "";
 			elseif($server_home['mod_name'] != $server_home['game_name'])
