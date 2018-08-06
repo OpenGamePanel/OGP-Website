@@ -27,7 +27,8 @@ function change_access_rights(id_type, assign_id)
 	addpost[ 'id_type' ] = id_type;
 	addpost[ 'change_access_rights' ] = 'true';
 	addpost.flags = [];
-	var destURL = "home.php?m=user_games&p=assign&" + id_type + "_id=" + assign_id + "&type=cleared";
+	var destURL = "home.php?m=user_games&p=assign&" + id_type + "_id=" + assign_id;
+	var destURLCleared = destURL + "&type=cleared";
 	$('#dialog').html(check_access_rights);
 	$('#dialog').dialog({
 		autoOpen: true,
@@ -40,10 +41,10 @@ function change_access_rights(id_type, assign_id)
 				});
 				$.ajax({
 						type: "POST",
-						url: destURL,
+						url: destURLCleared,
 						data: addpost,
 						success: function(data){
-							location.reload(true);
+							location.href = destURL;
 						}
 				});
 				$( this ).dialog( "close" );
