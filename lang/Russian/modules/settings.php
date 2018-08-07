@@ -134,9 +134,10 @@ define('OGP_LANG_default_game_server_home_path_prefix', "Префикс дома
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Введите префикс пути для  домашнего пути игрового сервера  по умолчанию. Вы можете использовать \"{USERNAME}\" в пути, который будет заменен на имя пользователя OGP, которому назначен игровой сервер. Вы можете использовать  \"{GAMEKEY}\" в пути, который будет заменен дружественным строчным именем. Вы можете использовать \"{SKIPID}\" в любом месте пути, чтобы пропустить добавление домашнего идентификатора к пути. Пример: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} станет / ogp / games / username / arkse /. Пример 2:  /ogp/games will become /ogp/games/1, где 1 - идентификатор игровых серверов.");
 define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
 define('OGP_LANG_autohorized_hosts', "Authorized hosts");
-define('OGP_LANG_add_host', "Add host");
-define('OGP_LANG_remove_hosts', "Remove hosts");
-define('OGP_LANG_default_hosts', "Default hosts");
-define('OGP_LANG_custom_hosts', "Custom hosts");
+define('OGP_LANG_add', "Add");
+define('OGP_LANG_remove', "Remove");
+define('OGP_LANG_default_trusted_hosts', "Default Trusted Hosts");
+define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Trusted Hosts or Proxies (IPv4/IPv6 Addresses or CIDR)");
+define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Trusted Forwarded IPs (IPv4/IPv6 Addresses or CIDR)");
 
 ?>

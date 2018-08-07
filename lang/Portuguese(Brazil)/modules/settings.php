@@ -138,9 +138,10 @@ exemplo: /home/{USERNAME}/{GAMEKEY}{SKIPID}
 você terá: /home/joao/arkse/");
 define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
 define('OGP_LANG_autohorized_hosts', "Authorized hosts");
-define('OGP_LANG_add_host', "Add host");
-define('OGP_LANG_remove_hosts', "Remove hosts");
-define('OGP_LANG_default_hosts', "Default hosts");
-define('OGP_LANG_custom_hosts', "Custom hosts");
+define('OGP_LANG_add', "Add");
+define('OGP_LANG_remove', "Remove");
+define('OGP_LANG_default_trusted_hosts', "Default Trusted Hosts");
+define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Trusted Hosts or Proxies (IPv4/IPv6 Addresses or CIDR)");
+define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Trusted Forwarded IPs (IPv4/IPv6 Addresses or CIDR)");
 
 ?>

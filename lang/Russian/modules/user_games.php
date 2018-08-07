@@ -219,4 +219,5 @@ define('OGP_LANG_search', "Поиск");
 define('OGP_LANG_ftp_account_username_too_long', "Имя FTP-пользователя слишком длинное. Название должно быть не более 20 символов.");
 define('OGP_LANG_ftp_account_password_too_long', "Пароль FTP-пользователя слишком длинный. Пароль должно быть не более 20 символов.");
 define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
- ?>
+define('OGP_LANG_change_access_rights_for_selected_servers', "Change access rights for selected servers");
+?>
