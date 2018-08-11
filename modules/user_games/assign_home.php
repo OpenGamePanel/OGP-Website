@@ -303,7 +303,7 @@ function exec_ogp_module()
 				</tr>";
 		}
 		echo "</table>";
-		echo "<button onclick=\"change_access_rights('".trim($id_type)."', '".trim($assign_id),"')\">".get_lang('change_access_rights_for_selected_servers')."</button>\n".
+		echo "<button id=\"change_access_rights_submit\" onclick=\"change_access_rights('".trim($id_type)."', '".trim($assign_id),"')\">".get_lang('change_access_rights_for_selected_servers')."</button>\n".
 			 "<div id='dialog' ";
 		foreach ( $selections as $selection => $flag)
 		{

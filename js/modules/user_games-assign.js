@@ -1,3 +1,19 @@
+$('document').ready(function(){
+	$('#change_access_rights_submit').prop('disabled', true);
+	$(".change_access_rights").each( function( index, element ){
+		$(element).on('change', function(){
+			if($(".change_access_rights:checked").length > 0)
+			{
+				$('#change_access_rights_submit').prop('disabled', false);
+			}
+			else
+			{
+				$('#change_access_rights_submit').prop('disabled', true);
+			}
+		});
+	});
+});
+
 function change_access_rights(id_type, assign_id)
 {
 	var rights = $("#dialog").data();
