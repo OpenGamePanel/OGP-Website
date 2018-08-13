@@ -71,7 +71,7 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 		// Move current home_id home_path to the front of the array so that it is selected by default if no other option has been selected.
 		$homes = customShift($homes, "home_id", $home_id);
 		
-		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:other_game_server_path_additional}]'" . $disabledString . ">";
+		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:$paramType}]'" . $disabledString . ">";
 		foreach($homes as $home){
 			if($home["home_path"][strlen($home["home_path"])-1] != "/"){
 				$home["home_path"] = $home["home_path"] . "/";
