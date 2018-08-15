@@ -494,9 +494,11 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 						processParamValue($param, $server_xml, $paramKey, $savedValue, $save_param, $start_cmd);
 				}
 				
-				if ($param['id'] != NULL && $param['id'] != ""){
+				if ($param['id'] != NULL && $param['id'] != "")
 					$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
-				}
+				
+				if(isset($realKey))
+					unset($realKey);
 			}
 		}
 		elseif( !$param_access_enabled )
