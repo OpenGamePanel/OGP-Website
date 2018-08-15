@@ -452,8 +452,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 				if (array_key_exists($paramKey, $last_param))
 					$savedValue = (string)$last_param[$paramKey];
 				
-				if(property_exists($param, 'access') and $param->access == "admin" && !$isAdmin)
-					$lockedByAdmin = true;
+				$lockedByAdmin = (property_exists($param, 'access') and $param->access == "admin" and !$isAdmin);
 				
 				// Dependency fields...
 				if($paramType == "other_game_server_path" or $paramType == "other_game_server_path_additional")
@@ -499,6 +498,9 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 				
 				if(isset($realKey))
 					unset($realKey);
+				
+				if(isset($savedValue))
+					unset($savedValue);
 			}
 		}
 		elseif( !$param_access_enabled )
