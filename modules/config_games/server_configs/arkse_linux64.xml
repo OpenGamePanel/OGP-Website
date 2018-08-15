@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>ARK: Survival Evolved</game_name>
   <server_exec_name>ShooterGameServer</server_exec_name>
-  <cli_template>%MAP%%IP%%PORT%%QUERY_PORT%%PLAYERS%%RCON%%CONTROL_PASSWORD%%PDS%%PDI%%PDD%%PUS%%PUI%%PUD%%ASDN%%POP%%POPI%%PTA%?listen %AMM% %CDO% %CID% %FACF% %NTFF% -server -log</cli_template>
+  <cli_template>%MAP%%IP%%PORT%%PLAYERS%%PDS%%PDI%%PDD%%PUS%%PUI%%PUD%%ASDN%%POP%%POPI%%PTA%?listen%RCON%%QUERY_PORT%%CONTROL_PASSWORD% %AMM% %CDO% %CID% %FACF% %NTFF% -server -log</cli_template>
   <cli_params>
     <cli_param id="MAP" cli_string="" />
     <cli_param id="IP" cli_string="?Multihome=" />
