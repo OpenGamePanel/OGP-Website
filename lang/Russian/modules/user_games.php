@@ -39,7 +39,7 @@ define('OGP_LANG_no_remote_servers_configured', "Не добавлено ни о
 define('OGP_LANG_no_game_configurations_found', "Файлы конфигурации не найдены");
 define('OGP_LANG_game_configurations', "Установка конфигураций игры");
 define('OGP_LANG_add_remote_server', "Добавить физический сервер");
-define('OGP_LANG_wine_games', "Wine Games");
+define('OGP_LANG_wine_games', "Wine игры");
 define('OGP_LANG_home_path', "Путь к серверу");
 define('OGP_LANG_change_home_info', "Путь установленного сервера. Например: /home/ogp/my_server/");
 define('OGP_LANG_game_server_name', "Название игрового сервера");
@@ -152,7 +152,7 @@ define('OGP_LANG_select_home', "Выбрать сервер для назнач�
 define('OGP_LANG_assign_new_home_to_user', "Назначить новый сервер пользователю  %s");
 define('OGP_LANG_assign_new_home_to_group', "Назначить новый сервер группе %s");
 define('OGP_LANG_assigned_home_to_user', "Сервер привязан (ID: %d) к пользователю %s.");
-define('OGP_LANG_failed_to_assign_home_to_user', "Failed to assign home (ID: %d) to user %s.");
+define('OGP_LANG_failed_to_assign_home_to_user', "Не удалось назначить (ID: %d) пользователю %s.");
 define('OGP_LANG_assigned_home_to_group', "Сервер привязан(ID: %d) к группе %s.");
 define('OGP_LANG_unassigned_home_from_user', "Назначение сервера (ID: %d) отменено для пользователя%s.");
 define('OGP_LANG_unassigned_home_from_group', "Назначение сервера (ID: %d) отменено для группы %s.");
@@ -218,6 +218,6 @@ define('OGP_LANG_expiration_date_could_not_be_changed', "Дата истечен
 define('OGP_LANG_search', "Поиск");
 define('OGP_LANG_ftp_account_username_too_long', "Имя FTP-пользователя слишком длинное. Название должно быть не более 20 символов.");
 define('OGP_LANG_ftp_account_password_too_long', "Пароль FTP-пользователя слишком длинный. Пароль должно быть не более 20 символов.");
-define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
-define('OGP_LANG_change_access_rights_for_selected_servers', "Change access rights for selected servers");
+define('OGP_LANG_other_servers_exist_with_path_please_change', "Другие сервера существуют с одним и тем же путем. Рекомендуется (но не обязательно), чтобы вы изменили этот путь на нечто уникальное. У вас могут быть проблемы, если вы не сделаете этого.");
+define('OGP_LANG_change_access_rights_for_selected_servers', "Изменить права доступа для выбранных серверов");
 ?>

@@ -24,7 +24,7 @@
 
 define('OGP_LANG_maintenance_mode', "Karbantartás");
 define('OGP_LANG_maintenance_mode_info', "A Panel kikapcsolása a normál felhasználók számára. Csak rendszergazdák férhetnek hozzá a karbantartás alatt.");
-define('OGP_LANG_maintenance_title', "Karbantartás címe");
+define('OGP_LANG_maintenance_title', "Karbantartási cím");
 define('OGP_LANG_maintenance_title_info', "A cím, amely megjelenik a normál felhasználók számára a karbantartás során.");
 define('OGP_LANG_maintenance_message', "Karbantartási üzenet");
 define('OGP_LANG_maintenance_message_info', "Az üzenet, ami megjelenik a rendes felhasználóknak a karbantartás alatt.");

@@ -26,7 +26,7 @@ define('OGP_LANG_game_manager', "Менеджер серверов");
 define('OGP_LANG_no_games_to_monitor', "У вас еще нету настроенных серверов, которые могли бы быть просмотрены.");
 define('OGP_LANG_status', "Статус");
 define('OGP_LANG_fail_no_mods', "Конфигурация не была установлена для данной игры. Обратитесь к администратору для решения этой проблемы.");
-define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
+define('OGP_LANG_no_game_homes_assigned', "У вас нет серверов назначенных специально для вашего аккаунта.");
 define('OGP_LANG_select_game_home_to_configure', "Выберите сервер который вы хотите настроить.");
 define('OGP_LANG_file_manager', "Файлы");
 define('OGP_LANG_configure_mods', "Настройка конфигураций");
@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_steam_update', "Ошибка при обнов�
 define('OGP_LANG_failed_to_start_rsync_update', "Ошибка при обновлении через Rsync, подробности смотрите в логе.");
 define('OGP_LANG_update_completed', "Обновление прошло успешно.");
 define('OGP_LANG_update_in_progress', "Обновление в процессе, пожалуйста подождите...");
-define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
+define('OGP_LANG_refresh_steam_status', "Обновить статус steam");
 define('OGP_LANG_refresh_rsync_status', "Обновить статус rsync");
 define('OGP_LANG_server_running_cant_update', "При запущеном сервере обновление невозможно. Остановите его прежде чем запускать обновление.");
 define('OGP_LANG_xml_steam_error', "Выбранный сервер не поддерживает установку/обновление через steam.");
