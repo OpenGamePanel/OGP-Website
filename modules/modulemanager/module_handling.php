@@ -218,12 +218,17 @@ function update_module($db, $module_id, $module)
 		}
 	}
 	
-	$db->clearModuleAccessRights($module_id);
+	if(method_exists($db, "clearModuleAccessRights")){
+		$db->clearModuleAccessRights($module_id);
+	}
+	
 	if(isset($module_access_rights) and is_array($module_access_rights) and !empty($module_access_rights))
 	{
 		foreach($module_access_rights as $flag => $description)
 		{
-			$db->setModuleAccessRight($module_id, $flag, $description);
+			if(method_exists($db, "setModuleAccessRight")){
+				$db->setModuleAccessRight($module_id, $flag, $description);
+			}
 		}
 	}
 	
