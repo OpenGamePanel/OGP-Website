@@ -2,7 +2,7 @@
  <game_key>dayz_arma2co_linux</game_key>
  <protocol>lgsl</protocol>
  <lgsl_query_name>dayzmod</lgsl_query_name>
- <game_name>DayZ</game_name>
+ <game_name>DayZ Mod (CO)</game_name>
  <server_exec_name>server</server_exec_name><!-- arma2arrowhead -->
  <cli_template>-server -mod="@hive;@dayz" -config="cfgdayz/server.cfg" -cfg="cfgdayz/basic.cfg" %PORT% -beta="expansion/beta;expansion/beta/expansion" -noSound -noPause -world=Chernarus -profiles=cfgdayz -name=cfgdayz %CPUCOUNT% -showscripterrors %PID_FILE% %MEMORY%</cli_template>
  <cli_params>
