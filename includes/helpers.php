@@ -369,7 +369,6 @@ function removeOldGameConfigs(){ // Wrote this function in-case we rename config
 		'modules/config_games/server_configs/minecraft_server_win.xml',
 		'modules/config_games/server_configs/life_is_feudal_win32.xml',
 		'modules/config_games/server_configs/cs2d.xml',
-		'modules/config_games/server_configs/cs2d_linux32.xml',
 		'modules/config_games/server_configs/openttd.xml',
 		'modules/config_games/server_configs/ark_linux.xml',
 		'modules/config_games/server_configs/ark_win.xml',
