@@ -1,0 +1,55 @@
+<game_config>
+  <game_key>dayz_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>dayz</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>DayZ</game_name>
+  <server_exec_name>DayZServer_x64.exe</server_exec_name>
+  <query_port type="add">24714</query_port>
+  <cli_template>-config=serverDZ.cfg %PORT% -profiles="%HOME_PATH%" -dologs -adminlog -netlog %FC%</cli_template>
+  <cli_params>
+    <cli_param id="PORT" cli_string="-port=" />
+    <cli_param id="HOME_PATH" cli_string="" />
+  </cli_params>
+  <max_user_amount>60</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>223350</installer_name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="query_port">
+      <default>(steamQueryPort\s*=\s*)(.*)(;)</default>
+      <var>steamQueryPort = %key%;</var>
+      <filepath>serverDZ.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="max_players">
+      <default>(maxPlayers\s*=\s*)(.*)(;)</default>
+      <var>maxPlayers = %key%;</var>
+      <filepath>serverDZ.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="control_password">
+      <default>(passwordAdmin\s*=\s*")(.*)(";)</default>
+      <var>passwordAdmin = "%key%";</var>
+      <filepath>serverDZ.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="home_name">
+      <default>(hostname\s*=\s*")(.*)(";)</default>
+      <var>hostname = "%key%";</var>
+      <filepath>serverDZ.cfg</filepath>
+      <options>key-regex</options>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-freezecheck" type="checkbox_key_value" id="FC">
+      <desc>Stops the server when frozen for more than 5 min and create a dump file.</desc>
+    </param>
+  </server_params>
+  <configuration_files>
+    <file description="Server Configurations">serverDZ.cfg</file>
+  </configuration_files>
+</game_config>
