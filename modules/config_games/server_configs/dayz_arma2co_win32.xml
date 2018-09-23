@@ -2,7 +2,7 @@
  <game_key>dayz_arma2co_win32</game_key>
  <protocol>lgsl</protocol>
  <lgsl_query_name>dayzmod</lgsl_query_name>
- <game_name>DayZ</game_name>
+ <game_name>DayZ Mod (CO)</game_name>
  <server_exec_name>Expansion\beta\arma2oaserver.exe</server_exec_name>
  <cli_template>-mod=Expansion\beta;Expansion\beta\expansion;ca;@hive;@dayz -name=cfgdayz -config=cfgdayz\server.cfg -cfg=cfgdayz\arma2.cfg -profiles=cfgdayz %MEMORY% %PORT%</cli_template>
  <cli_params>

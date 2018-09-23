@@ -335,8 +335,6 @@ function recursiveDelete($str) {
 
 function removeOldGameConfigs(){ // Wrote this function in-case we rename config files like we did for TS3 (https://sourceforge.net/p/hldstart/svn/3376/)
 	$oldConfigsToRemove = array(
-		'modules/config_games/server_configs/teamspeak3_32bit.xml', 
-		'modules/config_games/server_configs/teamspeak3_64bit.xml',
 		'modules/config_games/server_configs/big_brother_bot.xml',
 		'modules/config_games/server_configs/big_brother_bot_win.xml',
 		'modules/config_games/server_configs/egs_win64.xml',

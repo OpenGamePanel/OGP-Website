@@ -60,7 +60,7 @@
   <post_install>
     cfg1="Engine.ini"
     cfg2="Game.ini"
-    if [ -f "Citadel/Saved/Config/WindowsServer" ]
+    if [ -d "Citadel/Saved/Config/WindowsServer" ]
       then
         echo "Config files already generated or fixed. OK!"
       else
