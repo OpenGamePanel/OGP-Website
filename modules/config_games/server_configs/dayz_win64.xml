@@ -6,11 +6,12 @@
   <game_name>DayZ</game_name>
   <server_exec_name>DayZServer_x64.exe</server_exec_name>
   <query_port type="add">24714</query_port>
-  <cli_template>-config=serverDZ.cfg %PORT% -profiles="%HOME_PATH%" -dologs -adminlog -netlog %FC%</cli_template>
+  <cli_template>-config=serverDZ.cfg %PORT% -profiles="%HOME_PATH%/profiles" -dologs -adminlog -netlog %FC% %NFP% %CC%</cli_template>
   <cli_params>
     <cli_param id="PORT" cli_string="-port=" />
     <cli_param id="HOME_PATH" cli_string="" />
   </cli_params>
+  <console_log>profiles/server_console.log</console_log>
   <max_user_amount>60</max_user_amount>
   <mods>
     <mod key="default">
@@ -45,8 +46,17 @@
     </text>
   </replace_texts>
   <server_params>
+    <param key="-cpuCount=" type="text" id="CC">
+      <default>1</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>Sets the number of logical CPU cores to use for parallel tasks processing. It should be less or equal than the numbers of available cores.</desc>
+    </param>
     <param key="-freezecheck" type="checkbox_key_value" id="FC">
       <desc>Stops the server when frozen for more than 5 min and create a dump file.</desc>
+    </param>
+    <param key="-noFilePatching" type="checkbox_key_value" id="NFP">
+      <desc>Ensures that only PBOs are loaded and NO unpacked data.</desc>
     </param>
   </server_params>
   <configuration_files>

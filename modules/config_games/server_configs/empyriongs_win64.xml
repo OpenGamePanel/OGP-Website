@@ -3,9 +3,9 @@
   <protocol>lgsl</protocol>
   <lgsl_query_name>empyriongs</lgsl_query_name>
   <installer>steamcmd</installer>
-  <game_name>Empyrion – Galactic Survival (WIP)</game_name>
-  <server_exec_name>EmpyrionLauncher.exe</server_exec_name>
-  <cli_template>-startDedi -dedicated dedicated.yaml</cli_template>
+  <game_name>Empyrion – Galactic Survival</game_name>
+  <server_exec_name>EmpyrionDedicated.exe</server_exec_name>
+  <cli_template>-batchmode -nographics -logFile Logs/Dedicated.log -dedicated dedicated.yaml</cli_template>
   <console_log>Logs/Dedicated.log</console_log>
   <max_user_amount>128</max_user_amount>
   <mods>

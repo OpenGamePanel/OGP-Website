@@ -335,6 +335,9 @@ function recursiveDelete($str) {
 
 function removeOldGameConfigs(){ // Wrote this function in-case we rename config files like we did for TS3 (https://sourceforge.net/p/hldstart/svn/3376/)
 	$oldConfigsToRemove = array(
+		'modules/config_games/server_configs/ins_win32.xml',
+		'modules/config_games/server_configs/ins.xml',
+		'modules/config_games/server_configs/insurgency.xml',
 		'modules/config_games/server_configs/big_brother_bot.xml',
 		'modules/config_games/server_configs/big_brother_bot_win.xml',
 		'modules/config_games/server_configs/egs_win64.xml',
@@ -369,7 +372,6 @@ function removeOldGameConfigs(){ // Wrote this function in-case we rename config
 		'modules/config_games/server_configs/minecraft_server_win.xml',
 		'modules/config_games/server_configs/life_is_feudal_win32.xml',
 		'modules/config_games/server_configs/cs2d.xml',
-		'modules/config_games/server_configs/cs2d_linux32.xml',
 		'modules/config_games/server_configs/openttd.xml',
 		'modules/config_games/server_configs/ark_linux.xml',
 		'modules/config_games/server_configs/ark_win.xml',
