@@ -125,13 +125,15 @@ class OGPView {
 		$javascript .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
 		
 		// Include global JS for modules
-		foreach($db->getInstalledModules() as $m)
-		{
-			$global_js_file = 'js/' . MODULES . "{$m['folder']}_global.js";
-			if(is_readable($path . $global_js_file)) // Priority to the theme's js
-				$javascript .= "<script type=\"text/javascript\" src=\"${path}${global_js_file}\"></script>\n";
-			elseif(is_readable($global_js_file))
-				$javascript .= "<script type=\"text/javascript\" src=\"${global_js_file}\"></script>\n";
+		if(is_object($db) && array_key_exists("OGPDatabase", class_parents($db))){
+			foreach($db->getInstalledModules() as $m)
+			{
+				$global_js_file = 'js/' . MODULES . "{$m['folder']}_global.js";
+				if(is_readable($path . $global_js_file)) // Priority to the theme's js
+					$javascript .= "<script type=\"text/javascript\" src=\"${path}${global_js_file}\"></script>\n";
+				elseif(is_readable($global_js_file))
+					$javascript .= "<script type=\"text/javascript\" src=\"${global_js_file}\"></script>\n";
+			}
 		}
 		
 		// Include CSS and JS for the current module page
