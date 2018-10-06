@@ -68,7 +68,6 @@
 		echo KF-BurningParis >> maplist.txt
 		echo KF-Catacombs >> maplist.txt
 		echo KF-ContainmentStation >> maplist.txt
-		echo KF-Airship >> maplist.txt
 		echo KF-EvacuationPoint >> maplist.txt
 		echo KF-Farmhouse >> maplist.txt
 		echo KF-HostileGrounds >> maplist.txt
