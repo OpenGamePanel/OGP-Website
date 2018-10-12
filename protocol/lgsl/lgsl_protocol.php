@@ -146,6 +146,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"tribes"		=> "Tribes ( Starsiege )",
 		"tribes2"		=> "Tribes 2",
 		"tribesv"		=> "Tribes Vengeance",
+		"unturned"		=> "Unturned",
 		"urbanterror"	=> "UrbanTerror",
 		"ut"			=> "Unreal Tournament",
 		"ut2003"		=> "Unreal Tournament 2003",
@@ -303,6 +304,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"tribesv"		=> "09",
 		"warsow"		=> "02",
 		"warsowold"		=> "02",
+		"unturned"		=> "05",
 		"urbanterror"	=> "02",
 		"ut"			=> "03",
 		"ut2003"		=> "13",
@@ -453,6 +455,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"tribes"		=> "qtracker://{IP}:{S_PORT}?game=Tribes&action=show",
 		"tribes2"		=> "qtracker://{IP}:{S_PORT}?game=Tribes2&action=show",
 		"tribesv"		=> "qtracker://{IP}:{S_PORT}?game=TribesVengeance&action=show",
+		"unturned"		=> "steam://connect/{IP}:{S_PORT}",
 		"urbanterror"	=> "qtracker://{IP}:{S_PORT}?game=UrbanTerror&action=show",
 		"ut"			=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament&action=show",
 		"ut2003"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2003&action=show",
@@ -548,6 +551,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "swat4"			: $c_to_q = 1;		$c_def = 10780;	$q_def = 10781;	$c_to_s = 0;	break;
 			case "theforest"		: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 0;	break;
 			case "tribesv"			: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 0;	break;
+			case "unturned"			: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 0;	break;
 			case "ut"				: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 0;	break;
 			case "ut2003"			: $c_to_q = 1;		$c_def = 7757;	$q_def = 7758;	$c_to_s = 10;	break;
 			case "ut2003_"			: $c_to_q = 10;		$c_def = 7757;	$q_def = 7767;	$c_to_s = 0;	break;
