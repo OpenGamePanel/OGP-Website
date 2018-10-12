@@ -12,7 +12,7 @@
     <cli_param id="HOME_PATH" cli_string="" />
   </cli_params>
   <console_log>profiles/server_console.log</console_log>
-  <max_user_amount>60</max_user_amount>
+  <max_user_amount>127</max_user_amount>
   <mods>
     <mod key="default">
       <name>None</name>

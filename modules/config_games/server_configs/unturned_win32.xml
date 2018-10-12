@@ -1,0 +1,66 @@
+<game_config>
+  <game_key>unturned_win32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>unturned</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Unturned</game_name>
+  <server_exec_name>Unturned.exe</server_exec_name>
+  <query_port type='add'>1</query_port>
+  <cli_template>-nographics -batchmode +secureserver/Server</cli_template>
+  <maps_location>Maps</maps_location>
+  <console_log>Logs/Server_Server.log</console_log>
+  <max_user_amount>48</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>304930</installer_name>
+      <steam_bitness>32</steam_bitness>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+      <default>Bind.*</default>
+      <var>Bind</var>
+      <filepath>Servers/Server/Server/Commands.dat</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>Port.*</default>
+      <var>Port</var>
+      <filepath>Servers/Server/Server/Commands.dat</filepath>
+      <options>s</options>
+    </text>
+    <text key="home_name">
+      <default>Name.*</default>
+      <var>Name</var>
+      <filepath>Servers/Server/Server/Commands.dat</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>MaxPlayers.*</default>
+      <var>MaxPlayers</var>
+      <filepath>Servers/Server/Server/Commands.dat</filepath>
+      <options>s</options>
+    </text>
+    <text key="map">
+      <default>Map.*</default>
+      <var>Map</var>
+      <filepath>Servers/Server/Server/Commands.dat</filepath>
+      <options>s</options>
+    </text>
+  </replace_texts>
+  <post_install>
+    if [ -f "Servers/Server/Server" ]
+      then
+        echo "Config folder found. OK!"
+      else
+        echo "Config folder not found."
+        echo "Creating config folder!"
+        mkdir -p Servers/Server/Server
+    fi
+  </post_install>
+  <configuration_files>
+    <file description="Server Configurations">Servers/Server/Server/Commands.dat</file>
+    <file description="Server Configurations">Servers/Server/Config.json</file>
+  </configuration_files>
+</game_config>
