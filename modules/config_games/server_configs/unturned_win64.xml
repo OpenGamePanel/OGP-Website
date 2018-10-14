@@ -6,9 +6,9 @@
   <game_name>Unturned</game_name>
   <server_exec_name>Unturned.exe</server_exec_name>
   <query_port type='add'>1</query_port>
-  <cli_template>-nographics -batchmode +secureserver/Server</cli_template>
+  <cli_template>-nographics -batchmode -logfile Logs/server.log +secureserver/Server</cli_template>
   <maps_location>Maps</maps_location>
-  <console_log>Logs/Server_Server.log</console_log>
+  <console_log>Logs/server.log</console_log>
   <max_user_amount>48</max_user_amount>
   <mods>
     <mod key="default">

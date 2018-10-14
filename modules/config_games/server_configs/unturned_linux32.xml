@@ -1,10 +1,10 @@
 <game_config>
-  <game_key>unturned_win32</game_key>
+  <game_key>unturned_linux32</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>unturned</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Unturned</game_name>
-  <server_exec_name>Unturned.exe</server_exec_name>
+  <server_exec_name>Unturned.x86</server_exec_name>
   <query_port type='add'>1</query_port>
   <cli_template>-nographics -batchmode -logfile Logs/server.log +secureserver/Server</cli_template>
   <maps_location>Maps</maps_location>
@@ -59,6 +59,12 @@
         mkdir -p Servers/Server/Server
     fi
   </post_install>
+  <environment_variables>
+    export LD_LIBRARY_PATH={OGP_HOME_DIR}:{OGP_HOME_DIR}/bin:{$LD_LIBRARY_PATH}
+  </environment_variables>
+  <lock_files>
+    Unturned_Headless.x86
+  </lock_files>
   <configuration_files>
     <file description="Server Configurations">Servers/Server/Server/Commands.dat</file>
     <file description="Server Configurations">Servers/Server/Config.json</file>
