@@ -60,7 +60,7 @@
     fi
   </post_install>
   <environment_variables>
-    export LD_LIBRARY_PATH={OGP_HOME_DIR}:{OGP_HOME_DIR}/bin:{$LD_LIBRARY_PATH}
+    export LD_LIBRARY_PATH={OGP_HOME_DIR}/lib
   </environment_variables>
   <lock_files>
     Unturned_Headless.x86
