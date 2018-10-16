@@ -29,7 +29,7 @@ define('OGP_LANG_dwl_update', "تحميل التحديث...");
 define('OGP_LANG_dwl_complete', "تم التحميل");
 define('OGP_LANG_install_update', "تثبيت التحديث...");
 define('OGP_LANG_update_complete', "تم التحديث");
-define('OGP_LANG_ignored_files', "%s ملف تم تجاهله");
+define('OGP_LANG_ignored_files', "%s ignored file(s)");
 define('OGP_LANG_not_updated_files_blacklisted', "لم يتم تحديث / تثبيت الملفات (القائمة السوداء):<br>%s");
 define('OGP_LANG_latest_version', "احدث اصدار");
 define('OGP_LANG_panel_version', "نسخة اللوحة");
