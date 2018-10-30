@@ -330,11 +330,11 @@ function exec_ogp_module() {
 				
 			$expiration_dates = "";
 			if(isset($server_home['server_expiration_date']) and $server_home['server_expiration_date'] != "X")
-				$expiration_dates .= server_expiration_date . ": " . date('d/m/Y H:i:s', $server_home["server_expiration_date"]) . "<br>";
+				$expiration_dates .= get_lang("server_expiration_date") . ": " . date('d/m/Y H:i:s', $server_home["server_expiration_date"]) . "<br>";
 			if(isset($server_home['user_expiration_date']) and $server_home['user_expiration_date'] != "X")
-				$expiration_dates .= assign_expiration_date . " (" . user . "): " . date('d/m/Y H:i:s', $server_home["user_expiration_date"]) . "<br>";
+				$expiration_dates .= get_lang("assign_expiration_date") . " (" . user . "): " . date('d/m/Y H:i:s', $server_home["user_expiration_date"]) . "<br>";
 			if(isset($server_home['user_group_expiration_date']) and $server_home['user_expiration_date'] != "X")
-				$expiration_dates .= assign_expiration_date . " (" . group . "): " . date('d/m/Y H:i:s', $server_home["user_group_expiration_date"]);
+				$expiration_dates .= get_lang("assign_expiration_date") . " (" . group . "): " . date('d/m/Y H:i:s', $server_home["user_group_expiration_date"]);
 			
 			if( !isset($server_home['mod_id']) )
 			{
