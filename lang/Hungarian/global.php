@@ -79,7 +79,7 @@ define('OGP_LANG_unable_to_load_xml', "Nem lehet betölteni a(z) '%s' XML fájlt
 define('OGP_LANG_gamemanager', "Szerver kezelő");
 define('OGP_LANG_game_monitor', "Játékfigyelő");
 define('OGP_LANG_dashboard', "Irányítópult");
-define('OGP_LANG_user_addons', "Kiegészítések");
+define('OGP_LANG_user_addons', "Kiegészítők");
 define('OGP_LANG_ftp', "FTP");
 define('OGP_LANG_shop', "Bolt");
 define('OGP_LANG_shop_guest', "Bolt");
@@ -94,7 +94,7 @@ define('OGP_LANG_user_admin', "Felhasználók");
 define('OGP_LANG_sub_users', "Alfelhasználók");
 define('OGP_LANG_show_groups', "Csoportok");
 define('OGP_LANG_user_games', "Játékszerverek");
-define('OGP_LANG_addons_manager', "Kiegészítő menedzser");
+define('OGP_LANG_addons_manager', "Kiegészítőkezelő");
 define('OGP_LANG_ftp_admin', "FTP felhasználók");
 define('OGP_LANG_orders', "Rendelések");
 define('OGP_LANG_services', "Szolgáltatások");
