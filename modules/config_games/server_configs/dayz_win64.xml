@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>DayZ</game_name>
   <server_exec_name>DayZServer_x64.exe</server_exec_name>
-  <query_port type="add">24714</query_port>
+  <query_port type="add">3</query_port>
   <cli_template>-config=serverDZ.cfg %PORT% -profiles="%HOME_PATH%/profiles" -dologs -adminlog -netlog %FC% %NFP% %CC%</cli_template>
   <cli_params>
     <cli_param id="PORT" cli_string="-port=" />
