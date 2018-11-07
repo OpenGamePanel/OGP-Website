@@ -144,6 +144,7 @@
         echo "Generating new maplist file in $maplist!"
         touch $maplist
         echo Aberration_P> $maplist
+        echo Extinction>> $maplist
         echo Ragnarok>> $maplist
         echo ScorchedEarth_P>> $maplist
         echo TheCenter>> $maplist
