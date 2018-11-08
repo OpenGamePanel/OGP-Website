@@ -76,7 +76,7 @@ define('OGP_LANG_online', "Online");
 define('OGP_LANG_invalid_url', "Invalid URL");
 define('OGP_LANG_xml_file_not_valid', "XML file '%s' could not be validated with schema '%s'.");
 define('OGP_LANG_unable_to_load_xml', "Unable to load XML file '%s'. Permission issue?");
-define('OGP_LANG_gamemanager', "Server Manager");
+define('OGP_LANG_gamemanager', "Game Manager");
 define('OGP_LANG_game_monitor', "Game Monitor");
 define('OGP_LANG_dashboard', "Dashboard");
 define('OGP_LANG_user_addons', "Addons");
