@@ -36,7 +36,7 @@ if (!function_exists('processParamValue')) {
 		if ($paramKey == $paramValue) // it's a checkbox
 		{
 			$new_param = $paramKey;
-			$save_param[$paramKey] = True;
+			$save_param[$paramKey] = $paramValue;
 		}
 		elseif($param->option == "ns" or $param->options == "ns")
 		{
@@ -440,120 +440,115 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	
 	$save_param = array();
 	
-	if( isset($server_xml->server_params->param) )
+	if(isset($server_xml->server_params->param))
 	{
-		if ( $param_access_enabled && isset($_REQUEST['params']) )
+		if($param_access_enabled and isset($_POST['params']))
 		{
 			foreach($server_xml->server_params->param as $param)
 			{
+				$paramKey = (string)$param['key'];
+				$paramType = (string)$param['type'];
 				// Get the last saved value of this param or its default value
-				if (array_key_exists((string)$param['key'], $last_param)){
-					$origValue = (string)$last_param[(string)$param['key']];
-				}else{
-					$origValue = "";
-				}
+				if (array_key_exists($paramKey, $last_param))
+					$savedValue = (string)$last_param[$paramKey];
 				
-				// Loop through each posted param and process them
-				$found = 0;
-				foreach ( $_REQUEST['params'] as $paramKey => $paramValue )
-				{						
-					// Dependency fields...				
-					if(stripos($paramKey, "{DEPENDS") !== false){
-						$dependsSection = strrpos($paramKey, "{DEPENDS");
-						$realKey = substr($paramKey, 0, $dependsSection);
-						$dependsSection = substr($paramKey, $dependsSection);
+				$lockedByAdmin = (property_exists($param, 'access') and $param->access == "admin" and !$isAdmin);
+				
+				// Dependency fields...
+				if($paramType == "other_game_server_path" or $paramType == "other_game_server_path_additional")
+				{
+					$postKey = $paramKey."{DEPENDS:$paramType}";
+					if(isset($_POST['params'][$postKey]) and !empty($_POST['params'][$postKey]))
+					{
+						$dependsSection = strrpos($postKey, "{DEPENDS");
+						$realKey = substr($postKey, 0, $dependsSection);
+						$dependsSection = substr($postKey, $dependsSection);
 						$dependsKey = str_replace("{DEPENDS:", "", $dependsSection);
 						$dependsKey = str_replace("}", "", $dependsKey);
-						if(hasValue($_REQUEST['params'][$dependsKey])){
-							$additionalValue = $_REQUEST['params'][$dependsKey];
-							
-							// Remove leading slashes if there are any for additional game path
-							if($dependsKey == "other_game_server_path_additional"){
-								$additionalValue = ltrim($additionalValue,'/');
-							}
-							
-							$paramValue .= $additionalValue;
-						}
-						$paramKey = $realKey;
+						$_POST['params'][$paramKey] = $_POST['params'][$postKey];
+						if($dependsKey == "other_game_server_path_additional" and isset($_POST['params'][$dependsKey]))
+							$_POST['params'][$paramKey] .= ltrim($_POST['params'][$dependsKey],'/');
 					}
-					
-					if ($param['key'] == $paramKey)
+				}
+				
+				if(isset($_POST['params'][$paramKey]))
+				{
+					$processIt = true;
+					$paramValue = $_POST['params'][$paramKey];
+					if($lockedByAdmin)
 					{
-						// If locked by an admin, ignore the value posted by the user
-						$lockedByAdmin = false;
-						if(property_exists($param, 'access') && $param->access == "admin")
-						{
-							$lockedByAdmin = true;
-							if(!$isAdmin){
-								$paramValue = $origValue; // Set it to the old saved value (which was last set by an admin) or set it to its default value
-							}														
-						}
-						
-						// Process the param value for the start command and for the save params
-						processParamValue($param, $server_xml, $paramKey, $paramValue, $save_param, $start_cmd);
-						
-						$found++;
-						break; // More efficient
-					}			  
+						if(isset($savedValue))
+							$paramValue = $savedValue;
+						else
+							$processIt = false;
+					}
+					$paramKey = isset($realKey) ? $realKey : $paramKey;
+					// Process the param value for the start command and for the save params unless its locked by admin and there's no saved value.
+					if($processIt)
+						processParamValue($param, $server_xml, $paramKey, $paramValue, $save_param, $start_cmd);			  
+				}
+				else// If the parameter wasn't posted (because it may have been disabled due to access param or a sneaky user deleted it to circumvent security)
+				{
+					if($lockedByAdmin and isset($savedValue))
+						processParamValue($param, $server_xml, $paramKey, $savedValue, $save_param, $start_cmd);
 				}
 				
-				// If the parameter wasn't posted (because it may have been disabled due to access param) or a sneaky user deleted it to circumvent security
-				if($found == 0 && !empty($origValue)){
-					processParamValue($param, $server_xml, (string)$param['key'], $origValue, $save_param, $start_cmd);
-				}
-				
-				if ($param['id'] != NULL && $param['id'] != ""){
+				if ($param['id'] != NULL && $param['id'] != "")
 					$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
-				}
+				
+				if(isset($realKey))
+					unset($realKey);
+				
+				if(isset($savedValue))
+					unset($savedValue);
 			}
 		}
 		elseif( !$param_access_enabled )
 		{
 			foreach($server_xml->server_params->param as $param)
 			{
-				foreach ( $last_param as $paramKey => $paramValue )
+				$paramKey = (string)$param['key'];
+				if(isset($last_param[$paramKey]) and strlen((string)$last_param[$paramKey]) != 0)
 				{
-					if ($param['key'] == $paramKey)
+					$paramValue = (string)$last_param[$paramKey];
+					
+					if ($paramKey == $paramValue) // it's a checkbox
 					{
-						if (0 == strlen($paramValue))
-							continue;
-						if ($paramKey == $paramValue) // it's a checkbox
-						{
-							$new_param = $paramKey;
-							$save_param[$paramKey] = True;
-						}
-						elseif($param->option == "ns" or $param->options == "ns")
-						{
-							$new_param = $paramKey.clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
-							$save_param[$paramKey] = $paramValue;
-						}
-						elseif($param->option == "q" or $param->options == "q"){
-							$new_param = $paramKey . '"' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
-							$save_param[$paramKey] = $paramValue;
-						}
-						elseif($param->option == "s" or $param->options == "s"){
-							$new_param = $paramKey . ' ' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
-							$save_param[$paramKey] = $paramValue;
-						}
-						else
-						{
-							$new_param = $paramKey.' "'.clean_server_param_value($paramValue, $server_xml->cli_allow_chars).'"';
-							$save_param[$paramKey] = $paramValue;
-						}
-					  
-						if ($param['id'] == NULL || $param['id'] == "")
-						{
-							$start_cmd .= ' '.$new_param;
-						}
-						else
-						{
-							$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
-						}
+						$new_param = $paramKey;
+						$save_param[$paramKey] = $paramValue;
+					}
+					elseif($param->option == "ns" or $param->options == "ns")
+					{
+						$new_param = $paramKey.clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
+						$save_param[$paramKey] = $paramValue;
+					}
+					elseif($param->option == "q" or $param->options == "q"){
+						$new_param = $paramKey . '"' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars) . '"';
+						$save_param[$paramKey] = $paramValue;
+					}
+					elseif($param->option == "s" or $param->options == "s"){
+						$new_param = $paramKey . ' ' . clean_server_param_value($paramValue, $server_xml->cli_allow_chars);
+						$save_param[$paramKey] = $paramValue;
+					}
+					else
+					{
+						$new_param = $paramKey.' "'.clean_server_param_value($paramValue, $server_xml->cli_allow_chars).'"';
+						$save_param[$paramKey] = $paramValue;
+					}
+				  
+					if($param['id'] == NULL or $param['id'] == "")
+					{
+						$start_cmd .= ' '.$new_param;
+					}
+					else
+					{
+						$start_cmd = preg_replace( "/%".$param['id']."%/", $new_param, $start_cmd );
 					}			  
 				}
-				
-				if ($param['id'] != NULL && $param['id'] != ""){
-					$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
+				else
+				{
+					if($param['id'] != NULL and $param['id'] != "")
+						$start_cmd = preg_replace( "/%".$param['id']."%/", '', $start_cmd );
 				}
 			} 
 		}
@@ -574,7 +569,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	{
 		// If user does not have access to modify extra params then we use
 		// the last param or default set by admins.
-		$extra = ($last_param !== NULL and array_key_exists('extra', $last_param) and $last_param['extra'] != "") ? 
+		$extra = ($last_param !== NULL and array_key_exists('extra', $last_param) and (string)$last_param['extra'] != "") ? 
 				  $last_param['extra'] : $server_home['extra_params'];
 		
 		$start_cmd .= " ".str_replace("\\\\", "\\", clean_server_param_value($extra, $server_xml->cli_allow_chars));

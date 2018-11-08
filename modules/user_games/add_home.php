@@ -57,12 +57,9 @@ function exec_ogp_module()
 
 	echo "<p> <span class='note'>".get_lang('note').":</span> ".get_lang('add_mods_note')."</p>";
 	
-	$selections = array( "allow_updates" => "u",
-		"allow_file_management" => "f",
-		"allow_parameter_usage" => "p",
-		"allow_extra_params" => "e",
-		"allow_ftp" => "t",
-		"allow_custom_fields" => "c");
+	$selections = array();
+	foreach($db->getModulesAccessRights() as $ar)
+		$selections[$ar['description']] = $ar['flag'];
 	
 	if ( isset($_REQUEST['add_game_home']) )
 	{

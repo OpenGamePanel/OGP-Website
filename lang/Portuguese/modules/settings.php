@@ -134,9 +134,10 @@ define('OGP_LANG_default_game_server_home_path_prefix', "Prefixo do directório 
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Digite um prefixo de caminho para onde você deseja que as casas do servidor do jogo sejam criadas por padrão. Você pode usar \"{USERNAME}\" no caminho que será substituído pelo nome de usuário Do seu Painel, o servidor do jogo está sendo atribuído a.  Você pode usar \"{GAMEKEY}\" no caminho que será substituído por um nome de minúscula.  Você pode usar \"{SKIPID}\" em qualquer lugar no caminho para pular anexando o ID inicial ao caminho.  Exemplo: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} irá se tornar /ogp/games/username/arkse/.  Exemplo2:  /ogp/games ira se tornar /ogp/games/2 onde 2 é a identificação dos servidores do jogo.");
 define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
 define('OGP_LANG_autohorized_hosts', "Authorized hosts");
-define('OGP_LANG_add_host', "Add host");
-define('OGP_LANG_remove_hosts', "Remove hosts");
-define('OGP_LANG_default_hosts', "Default hosts");
-define('OGP_LANG_custom_hosts', "Custom hosts");
+define('OGP_LANG_add', "Add");
+define('OGP_LANG_remove', "Remove");
+define('OGP_LANG_default_trusted_hosts', "Default Trusted Hosts");
+define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Trusted Hosts or Proxies (IPv4/IPv6 Addresses or CIDR)");
+define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Trusted Forwarded IPs (IPv4/IPv6 Addresses or CIDR)");
 
 ?>

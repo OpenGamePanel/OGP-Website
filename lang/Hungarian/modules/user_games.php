@@ -219,4 +219,5 @@ define('OGP_LANG_search', "Keresés");
 define('OGP_LANG_ftp_account_username_too_long', "Az FTP felhasználónév túl hosszú. Próbálkozz rövidebb, legfeljebb 20 karakter hosszú felhasználónévvel.");
 define('OGP_LANG_ftp_account_password_too_long', "Az FTP jelszó túl hosszú. Próbálkozz rövidebb, legfeljebb 20 karakter hosszú jelszóval.");
 define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
- ?>
+define('OGP_LANG_change_access_rights_for_selected_servers', "Change access rights for selected servers");
+?>

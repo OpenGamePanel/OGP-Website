@@ -71,7 +71,7 @@ function renderParam($param, $last_param, $param_access_enabled, $home_id)
 		// Move current home_id home_path to the front of the array so that it is selected by default if no other option has been selected.
 		$homes = customShift($homes, "home_id", $home_id);
 		
-		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:other_game_server_path_additional}]'" . $disabledString . ">";
+		$inputElementString = "<select $idString name='params[" . $param['key'] . "{DEPENDS:$paramType}]'" . $disabledString . ">";
 		foreach($homes as $home){
 			if($home["home_path"][strlen($home["home_path"])-1] != "/"){
 				$home["home_path"] = $home["home_path"] . "/";
@@ -321,9 +321,8 @@ function exec_ogp_module() {
 				  $expiration_dates);
 			
 			if ( $isAdmin )
-			{
-				$server_home['access_rights'] = "ufpetc";
-			}
+				$server_home['access_rights'] = $db->getFullAccessRightsString();
+			
 			if ($server_home['mod_name'] == "none" OR $server_home['mod_name'] == "None")
 				$mod_name = "";
 			elseif($server_home['mod_name'] != $server_home['game_name'])
@@ -331,11 +330,11 @@ function exec_ogp_module() {
 				
 			$expiration_dates = "";
 			if(isset($server_home['server_expiration_date']) and $server_home['server_expiration_date'] != "X")
-				$expiration_dates .= server_expiration_date . ": " . date('d/m/Y H:i:s', $server_home["server_expiration_date"]) . "<br>";
+				$expiration_dates .= get_lang("server_expiration_date") . ": " . date('d/m/Y H:i:s', $server_home["server_expiration_date"]) . "<br>";
 			if(isset($server_home['user_expiration_date']) and $server_home['user_expiration_date'] != "X")
-				$expiration_dates .= assign_expiration_date . " (" . user . "): " . date('d/m/Y H:i:s', $server_home["user_expiration_date"]) . "<br>";
+				$expiration_dates .= get_lang("assign_expiration_date") . " (" . user . "): " . date('d/m/Y H:i:s', $server_home["user_expiration_date"]) . "<br>";
 			if(isset($server_home['user_group_expiration_date']) and $server_home['user_expiration_date'] != "X")
-				$expiration_dates .= assign_expiration_date . " (" . group . "): " . date('d/m/Y H:i:s', $server_home["user_group_expiration_date"]);
+				$expiration_dates .= get_lang("assign_expiration_date") . " (" . group . "): " . date('d/m/Y H:i:s', $server_home["user_group_expiration_date"]);
 			
 			if( !isset($server_home['mod_id']) )
 			{

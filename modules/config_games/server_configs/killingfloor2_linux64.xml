@@ -62,7 +62,8 @@
 		echo "File $maplist not found"
 		echo "Generating new maplist file in $maplist"
 		touch maplist.txt
-		echo KF-BioticsLab > maplist.txt
+		echo KF-Airship > maplist.txt
+		echo KF-BioticsLab >> maplist.txt
 		echo KF-BlackForest >> maplist.txt
 		echo KF-BurningParis >> maplist.txt
 		echo KF-Catacombs >> maplist.txt
@@ -71,9 +72,13 @@
 		echo KF-Farmhouse >> maplist.txt
 		echo KF-HostileGrounds >> maplist.txt
 		echo KF-InfernalRealm >> maplist.txt
+		echo KF-KrampusLair >> maplist.txt
+		echo KF-Lockdown >> maplist.txt
+		echo KF-MonsterBall >> maplist.txt
 		echo KF-Nightmare >> maplist.txt
 		echo KF-Nuked >> maplist.txt
 		echo KF-Outpost >> maplist.txt
+		echo KF-PowerCore_Holdout >> maplist.txt
 		echo KF-Prison >> maplist.txt
 		echo KF-TheDescent >> maplist.txt
 		echo KF-TragicKingdom >> maplist.txt

@@ -32,11 +32,20 @@ function exec_ogp_module()
     require_once('modules/modulemanager/module_handling.php');
 
     $modules = $db->getInstalledModules();
-    
-    //print_r($modules)
+    // update module manager first
+    foreach ( $modules as $row )
+	{
+		if($row['folder'] == 'modulemanager')
+		{
+			update_module($db, $row['id'], $row['folder']);
+			break;
+		}
+	}
     
     foreach ( $modules as $row )
     {
+		if($row['folder'] == 'modulemanager')//already updated
+			continue;
 		update_module($db, $row['id'], $row['folder']);
     }
 

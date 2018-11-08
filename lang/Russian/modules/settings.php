@@ -41,11 +41,11 @@ define('OGP_LANG_panel_email_address_info', "Адрес откуда будет 
 define('OGP_LANG_panel_name', "Название панели");
 define('OGP_LANG_panel_name_info', "Название Панели которое будет показано в Заголовке. ");
 define('OGP_LANG_feed_enable', "Включить LGSL Feed");
-define('OGP_LANG_feed_enable_info', "If your webhost has a firewall which is blocking the query port, then you need to open the port manually.");
-define('OGP_LANG_feed_url', "Feed URL");
+define('OGP_LANG_feed_enable_info', "Если на вашем веб-хостинге есть брандмауэр, который блокирует query порт, тогда вам следует открыть данный порт вручную.");
+define('OGP_LANG_feed_url', "URL канала");
 define('OGP_LANG_feed_url_info', "GrayCube.com распространяет LGSL feed через URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Кодировка текста");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
+define('OGP_LANG_charset_info', "UTF8, ISO, ASCII и т.д. Переопределяет кодировку символов, которая находится в языковых файлах. Оставьте поле пустым, чтобы использовать язык по умолчанию.");
 define('OGP_LANG_steam_user', "Пользователь Steam");
 define('OGP_LANG_steam_user_info', "Этот пользователь необходим для входа в Steam для загрузки некоторых новых игр, таких как CS:GO.");
 define('OGP_LANG_steam_pass', "Пароль Steam");
@@ -69,8 +69,8 @@ define('OGP_LANG_query_num_servers_stop_info', "Используйте этот 
 define('OGP_LANG_editable_email', "Возможность редактировать E-Mail пользователем");
 define('OGP_LANG_editable_email_info', "Разрешает редактировать пользователям свой e-mail адрес");
 define('OGP_LANG_old_dashboard_behavior', "Старый вид Главной страница OGP");
-define('OGP_LANG_old_dashboard_behavior_info', "The old Dashboard was running slower, but shows more server informations (e.g. current players and maps).");
-define('OGP_LANG_rsync_available', "Available Rsync servers");
+define('OGP_LANG_old_dashboard_behavior_info', "Старая панель мониторинга работает медленнее, но отображает больше информации о сервере (например, текущие игроки, карту и т.д.).");
+define('OGP_LANG_rsync_available', "Доступные сервера Rsync");
 define('OGP_LANG_rsync_available_info', "Выберите список серверов, который будет показан в установке rsync.");
 define('OGP_LANG_all_available_servers', "Все доступные серверы ( rsync_sites.list + rsync_sites_local.list )");
 define('OGP_LANG_only_remote_servers', "Только удаленные сервера ( rsync_sites.list )");
@@ -103,9 +103,9 @@ define('OGP_LANG_theme_settings', "Настройки темы");
 define('OGP_LANG_theme', "Тема");
 define('OGP_LANG_theme_info', "Выбранная тема будет установлена всем пользователям по умолчанию, но они смогут ее сменить в настройках своего профиля.");
 define('OGP_LANG_welcome_title', "Приветственное Сообщение");
-define('OGP_LANG_welcome_title_info', "Enables the title that is displayed at the top of the Dashboard.");
+define('OGP_LANG_welcome_title_info', "Включает заголовок, который отображается в верхней части панели инструментов.");
 define('OGP_LANG_welcome_title_message', "Тело приветственное Сообщение");
-define('OGP_LANG_welcome_title_message_info', "The title message that is displayed at the top of the Dashboard (HTML code allowed).");
+define('OGP_LANG_welcome_title_message_info', "Заголовок, отображаемый в верхней части панели инструментов (разрешен HTML-код).");
 define('OGP_LANG_logo_link', "Ссылка на логотип");
 define('OGP_LANG_logo_link_info', "Ссылка на логотип. <b style='font-size:10px; font-weight:normal;'>(Если оставить пустым, то будет отображен логотип OGP)</b>");
 define('OGP_LANG_custom_tab', "Настраиваемые вкладки меню");
@@ -132,11 +132,12 @@ define('OGP_LANG_show_server_id_game_monitor', "Показывать ID серв
 define('OGP_LANG_show_server_id_game_monitor_info', "Показывает ID Игрового сервер на странице Мониторинга для сопоставления созданных файлов Агентом на Актуальном Игровом сервере.");
 define('OGP_LANG_default_game_server_home_path_prefix', "Префикс домашней директории игрового сервера по умолчанию");
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Введите префикс пути для  домашнего пути игрового сервера  по умолчанию. Вы можете использовать \"{USERNAME}\" в пути, который будет заменен на имя пользователя OGP, которому назначен игровой сервер. Вы можете использовать  \"{GAMEKEY}\" в пути, который будет заменен дружественным строчным именем. Вы можете использовать \"{SKIPID}\" в любом месте пути, чтобы пропустить добавление домашнего идентификатора к пути. Пример: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} станет / ogp / games / username / arkse /. Пример 2:  /ogp/games will become /ogp/games/1, где 1 - идентификатор игровых серверов.");
-define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
-define('OGP_LANG_autohorized_hosts', "Authorized hosts");
-define('OGP_LANG_add_host', "Add host");
-define('OGP_LANG_remove_hosts', "Remove hosts");
-define('OGP_LANG_default_hosts', "Default hosts");
-define('OGP_LANG_custom_hosts', "Custom hosts");
+define('OGP_LANG_setup_api_authorized_hosts', "Настройка API авторизованных хостов");
+define('OGP_LANG_autohorized_hosts', "Авторизованные хосты");
+define('OGP_LANG_add', "Добавить");
+define('OGP_LANG_remove', "Удалить");
+define('OGP_LANG_default_trusted_hosts', "Доверенные хосты по умолчанию");
+define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Доверенные хосты или прокси (адреса IPv4 / IPv6 или CIDR)");
+define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Доверенные переадресованные IP-адреса (адреса IPv4 / IPv6 или CIDR)");
 
 ?>

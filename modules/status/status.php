@@ -135,7 +135,7 @@ function exec_ogp_module()
 					<h4>".get_lang('process_monitor')."</h4>
 					<div class=\"dragbox-content\">";
 		if(isset($taskoutput) && is_array($taskoutput) && isset($taskoutput["task"]) && !empty($taskoutput["task"])){
-			echo "<pre>" . $taskoutput["task"] . "</pre>";
+			echo "<pre>" . htmlentities($taskoutput["task"]) . "</pre>";
 		}
 
 		echo '		</div>

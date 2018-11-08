@@ -29,7 +29,7 @@ define('OGP_LANG_dwl_update', "بروزرسانی درحال دانلود است
 define('OGP_LANG_dwl_complete', "دانلود به پایان رسید");
 define('OGP_LANG_install_update', "بروزرسانی در حال نصب است...");
 define('OGP_LANG_update_complete', "بروزرسانی به پایان رسید");
-define('OGP_LANG_ignored_files', "%s نادیده گرفته شدند.");
+define('OGP_LANG_ignored_files', "%s ignored file(s)");
 define('OGP_LANG_not_updated_files_blacklisted', "Not updated/installed files (blacklisted):<br>%s");
 define('OGP_LANG_latest_version', "نسخه آخر");
 define('OGP_LANG_panel_version', "نسخه پنل");

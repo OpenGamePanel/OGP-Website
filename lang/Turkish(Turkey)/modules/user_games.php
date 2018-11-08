@@ -22,17 +22,17 @@
  *
  */
 
-define('OGP_LANG_add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
-define('OGP_LANG_game_servers', "Game Servers");
-define('OGP_LANG_game_path', "Game Path");
-define('OGP_LANG_game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
-define('OGP_LANG_game_server_name_info', "Server name helps users to identify their servers.");
-define('OGP_LANG_control_password', "Control password");
-define('OGP_LANG_control_password_info', "This password is used for server control, such as RCON password. If the password is empty then other means are used.");
-define('OGP_LANG_add_game_home', "Add game server");
-define('OGP_LANG_game_path_empty', "Game path can not be empty.");
-define('OGP_LANG_game_home_added', "Game server added successfully. Redirecting to home edit page.");
-define('OGP_LANG_failed_to_add_home_to_db', "Failed to add home to database. Error: %s");
+define('OGP_LANG_add_mods_note', "Kullanıcıya sunucu ekledikten sonra mod eklemeniz gerekir. Bu, sunucunun düzenlenmesiyle yapılabilir.");
+define('OGP_LANG_game_servers', "Oyun Sunucuları");
+define('OGP_LANG_game_path', "Oyun Yolu");
+define('OGP_LANG_game_path_info', "Mutlak bir sunucu yolu. Örnek: /home /ogpbot/OGP_User_Files /My_Server");
+define('OGP_LANG_game_server_name_info', "Sunucu adı, kullanıcıların sunucularını tanımlamasına yardımcı olur.");
+define('OGP_LANG_control_password', "Şifre Kontrol");
+define('OGP_LANG_control_password_info', "Bu şifre RCON şifresi gibi sunucu kontrolü için kullanılır. Şifre boş ise, başka araçlar kullanılır.");
+define('OGP_LANG_add_game_home', "Oyun sunucusu ekle");
+define('OGP_LANG_game_path_empty', "Oyun yolu boş bırakılamaz.");
+define('OGP_LANG_game_home_added', "Oyun sunucusu başarıyla eklendi. Ana sayfa düzenleme sayfasına yönlendiriliyor.");
+define('OGP_LANG_failed_to_add_home_to_db', "Veritabanına ev eklenemedi. Hata: %s");
 define('OGP_LANG_caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Caution!</b> The Agent is offline, can not get OS type and architecture,<br> Showing servers for all platforms:");
 define('OGP_LANG_select_remote_server', "Select Remote Server");
 define('OGP_LANG_no_remote_servers_configured', "No remote servers configured to the Open Game Panel.<br>You need to add remote servers before you can add servers for the users.");
@@ -219,4 +219,5 @@ define('OGP_LANG_search', "Search");
 define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
 define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
- ?>
+define('OGP_LANG_change_access_rights_for_selected_servers', "Change access rights for selected servers");
+?>

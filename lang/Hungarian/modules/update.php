@@ -29,7 +29,7 @@ define('OGP_LANG_dwl_update', "Frissítés letöltése...");
 define('OGP_LANG_dwl_complete', "A letöltés kész");
 define('OGP_LANG_install_update', "Frissítés telepítése...");
 define('OGP_LANG_update_complete', "A frissítés befejeződött");
-define('OGP_LANG_ignored_files', "%s fájl figyelmen kívül hagyva.");
+define('OGP_LANG_ignored_files', "%s figyelmen kívül hagyott fájl");
 define('OGP_LANG_not_updated_files_blacklisted', "Nem frissített/telepített fájlok (feketelistás):<br>%s");
 define('OGP_LANG_latest_version', "Legújabb verzió");
 define('OGP_LANG_panel_version', "Panel verzió");

@@ -63,8 +63,8 @@ define('OGP_LANG_addon_name_info', "Geben Sie einen Namen für diese Erweiterung
 define('OGP_LANG_url_info', "Bitte geben Sie eine Webadresse ein, die die zu herunterladende Datei enthält. Wenn sich die Datei im zip oder tar.gz-Format befindet wird sie im Hauptverzeichnis des Servers oder im eingegebenen Pfad entpackt.");
 define('OGP_LANG_path_info', "Der Pfad muss relativ sein und am Anfang oder Ende keine Schrägstriche enthalten, z.B.: cstrike/cfg. Wenn er leer ist, wird das Hauptverzeichnis des Servers verwendet.");
 define('OGP_LANG_post-script_info', "Geben Sie Bash-Code ein, welcher als Script ausgeführt wird. Sie können Textersetzungen verwenden um die Installation anzupassen. Die Textersetzungen werden mit Daten vom Server ersetzt auf dem die Erweiterung installiert wird. Das Script startet vom Hauptverzeichnis des entsprechenden Servers oder einem eingegebenen Pfad.");
-define('OGP_LANG_show_to_group', "Show to group");
-define('OGP_LANG_all_groups', "All groups");
-define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
-define('OGP_LANG_group', "Group");
+define('OGP_LANG_show_to_group', "Mit der Gruppe anzeigen");
+define('OGP_LANG_all_groups', "Alle Gruppen");
+define('OGP_LANG_show_addons_for_selected_group', "Zeige Erweiterungen für die ausgewählte Gruppe");
+define('OGP_LANG_group', "Gruppe");
 ?>

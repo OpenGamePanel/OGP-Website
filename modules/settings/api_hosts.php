@@ -146,7 +146,8 @@ function exec_ogp_module()
 	{
 		$hosts_list = file_get_contents($api_hosts_file);
 		$hosts = preg_split("/[\r\n]+/", $hosts_list);
-		if(!empty(array_filter($hosts)))
+		$hosts = array_filter($hosts);
+		if(!empty($hosts))
 		{
 			foreach($hosts as $host)
 			{
@@ -172,7 +173,8 @@ function exec_ogp_module()
 	{
 		$fwd_hosts_list = file_get_contents($api_fwd_hosts_file);
 		$fwd_hosts = preg_split("/[\r\n]+/", $fwd_hosts_list);
-		if(!empty(array_filter($fwd_hosts)))
+		$fwd_hosts = array_filter($fwd_hosts);
+		if(!empty($fwd_hosts))
 		{
 			foreach($fwd_hosts as $fwd_host)
 			{

@@ -1605,7 +1605,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$user_group_expiration_dates = $this->listQuery($query3);
 				foreach($servers as $key => $server)
 				{
-					$servers[$key]['access_rights'] = "ufpetc";
+					$servers[$key]['access_rights'] = $this->getFullAccessRightsString();
 					if($user_expiration_dates)
 					{
 						foreach($user_expiration_dates as $user_expiration_date)
@@ -1982,7 +1982,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$user_group_expiration_dates = $this->listQuery($query3);
 				foreach($servers as $key => $server)
 				{
-					$servers[$key]['access_rights'] = "ufpetc";
+					$servers[$key]['access_rights'] = $this->getFullAccessRightsString();
 					if($user_expiration_dates)
 					{
 						foreach($user_expiration_dates as $user_expiration_date)
@@ -2284,6 +2284,53 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 		return true;
 	}
+	
+	public function clearModuleAccessRights($module_id)
+	{
+		$query = sprintf("DELETE FROM `%smodule_access_rights` WHERE `module_id` = %d",
+			$this->table_prefix,
+			$this->realEscapeSingle($module_id));
+		++$this->queries_;
+		if ( mysqli_query($this->link,$query) === FALSE )
+			return FALSE;
+		return TRUE;
+	}
+	
+	public function setModuleAccessRight($module_id, $flag, $description)
+	{
+		$module_id = $this->realEscapeSingle($module_id);
+		$flag = $this->realEscapeSingle($flag);
+		$description = $this->realEscapeSingle($description);
+		$query = "INSERT INTO `".$this->table_prefix."module_access_rights` (`module_id`, `flag`, `description` )
+			VALUES ( '$module_id', '$flag', '$description' );";
+
+		++$this->queries_;
+		if ( mysqli_query($this->link,$query) === FALSE )
+			return FALSE;
+
+		return TRUE;
+	}
+	
+	public function getModulesAccessRights()
+	{
+		$query = sprintf('SELECT * FROM `%1$smodule_access_rights`;', $this->table_prefix);
+		++$this->queries_;
+		$result = mysqli_query($this->link,$query);
+		if (!$result or mysqli_num_rows($result) == 0)
+			return FALSE;
+		$results = array();
+		while($row = mysqli_fetch_assoc($result))
+			array_push($results,$row);
+		return $results;
+	}
+	
+	public function getFullAccessRightsString()
+	{
+		$full_rights = '';
+		foreach($this->getModulesAccessRights() as $ar)
+			$full_rights .= $ar['flag'];
+		return $full_rights;
+	}
 
 	// User game functions
 
@@ -2310,6 +2357,36 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$this->realEscapeSingle($assign_id),
 			$this->realEscapeSingle($home_id),
 			$this->realEscapeSingle($access_rights));
+
+		++$this->queries_;
+		mysqli_query($this->link,$query);
+
+		if ( mysqli_affected_rows($this->link) != 1 )
+			return FALSE;
+
+		return TRUE;
+	}
+	
+	public function updateAccessRightsFor($id_type,$assign_id,$home_id,$access_rights)
+	{
+		if ( $id_type == "user" )
+		{
+			$template = "UPDATE `%suser_homes` SET `access_rights` = '%s' WHERE `user_id` = %d AND home_id = %d";	
+		}
+		else if ( $id_type == "group")
+		{
+			$template = "UPDATE `%suser_group_homes` SET `access_rights` = '%s' WHERE `group_id` = %d AND home_id = %d";
+		}
+		else
+		{
+			return FALSE;
+		}
+
+		$query = sprintf($template,
+			$this->table_prefix,
+			$this->realEscapeSingle($access_rights),
+			$this->realEscapeSingle($assign_id),
+			$this->realEscapeSingle($home_id));
 
 		++$this->queries_;
 		mysqli_query($this->link,$query);
@@ -2417,7 +2494,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$game_home['mods'] = $mods_array;
 		// Since this function is only called for administrators
 		// we must give all access rights
-		$game_home['access_rights'] = "ufpetc";
+		$game_home['access_rights'] = $this->getFullAccessRightsString();
 		// Return the game home and mods.
 		return $game_home;
 	}

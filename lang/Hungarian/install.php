@@ -29,7 +29,7 @@ define('OGP_LANG_OK', "Rendben");
 define('OGP_LANG_write_permission_required', "Írási engedély szükséges");
 define('OGP_LANG_execute_permission_required', "Végrehajtási engedély szükséges");
 define('OGP_LANG_create_an_empty_file', "Hozz létre egy üres fájlt.");
-define('OGP_LANG_found', "Található");
+define('OGP_LANG_found', "Megtalálva");
 define('OGP_LANG_not_found', "Nem található");
 define('OGP_LANG_pear_xxtea_info', "A Pear Crypt_XXTEA szükséges az OGP használatához. A legtöbb Linux disztribúcióban ez a modul a következő Pear paranccsal telepíthető 'pear install Crypt_XXTEA-beta'.");
 define('OGP_LANG_refresh', "Frissítés");

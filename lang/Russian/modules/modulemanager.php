@@ -52,5 +52,5 @@ define('OGP_LANG_failed_del_db', "Не удалось удалить модул�
 define('OGP_LANG_updated_module', "Модуль обовлён: '%s'.");
 define('OGP_LANG_updating_modules', "Обновление модулей");
 define('OGP_LANG_updating_finished', "Обновление завершено");
-define('OGP_LANG_prereqs_missing', "Prerequisites of %s must be installed on the server before %s can be installed.");
+define('OGP_LANG_prereqs_missing', "Необходимые требования для %sдолжны быть установлены на сервер до того, как %s может быть установлен.");
 ?>

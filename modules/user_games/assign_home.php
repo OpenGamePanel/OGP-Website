@@ -1,3 +1,4 @@
+<script type="text/javascript" src="js/modules/user_games-assign.js"></script>
 <?php
 /*
  *
@@ -37,7 +38,7 @@ function exec_ogp_module()
 	global $db;
 	
 	$isAdmin = $db->isAdmin($_SESSION['user_id']);
-	
+		
 	if(isset($_REQUEST['user_id'])){
 		if(empty($_REQUEST['user_id']) || $db->getUserById($_REQUEST['user_id']) == null)
 		{
@@ -78,15 +79,43 @@ function exec_ogp_module()
 		echo "<p class='note'>".get_lang("not_available")."</p>";
 		return;
 	}
-
-	/// \todo We might want to save this information to XML file?
-	$selections = array( "allow_updates" => "u",
-		"allow_file_management" => "f",
-		"allow_parameter_usage" => "p",
-		"allow_extra_params" => "e",
-		"allow_ftp" => "t",
-		"allow_custom_fields" => "c");
-
+	
+	$selections = array();
+	$full_access = '';
+	foreach($db->getModulesAccessRights() as $ar)
+	{
+		$selections[$ar['description']] = $ar['flag'];
+		$full_access .= $ar['flag'];
+	}
+	
+	if(isset($_POST['change_access_rights']))
+	{		
+		if(is_array($_POST['home_ids']))
+		{
+			if($isAdmin)
+				$access_right_flags = implode('',$_POST['flags']);
+			
+			foreach($_POST['home_ids'] as $i => $home_id)
+			{
+				if(!$isAdmin)
+				{
+					$home_info = $db->getUserGameHome($_SESSION['user_id'],$home_id);
+					$access_rights = $home_info['access_rights'];
+					$flags = $_POST['flags'];
+					foreach($flags as $i => $flag)
+					{
+						if(!strstr($access_rights, $flag))
+							unset($flags[$i]);
+					}
+					$access_right_flags = implode('',$flags);
+				}
+				if(!$db->updateAccessRightsFor($_POST['id_type'],$_POST['assign_id'],$home_id,$access_right_flags))
+					print_failure(get_lang_f("failed_to_assign_game_for_",$id_type,$db->getError()));
+			}
+		}
+		return;
+	}
+	
 	if ( isset($_REQUEST['user_id']) )
 	{
 		$assign_id = $_REQUEST['user_id'];
@@ -207,7 +236,7 @@ function exec_ogp_module()
 			<?php
 			if( $isAdmin )
 			{
-				$access_rights = "ufpetc";
+				$access_rights = $full_access;
 			}
 			else
 			{
@@ -233,8 +262,7 @@ function exec_ogp_module()
 	else
 	{
 		echo "<h2>".get_lang("no_more_homes_available_that_can_be_assigned_for_this_$id_type")."</h2>";
-		//print_lang('you_can_add_a_new_game_server_from');
-		//echo "<a href='?m=user_games'>".game_servers."</a>.</p>";
+		
 		if( $isAdmin )
 			echo get_lang_f("you_can_add_a_new_game_server_from","<a href='?m=user_games'>".get_lang("game_servers")."</a>")."</p>";
 	}
@@ -260,7 +288,7 @@ function exec_ogp_module()
 			$access_rights = empty($row['access_rights']) ? "-" : $row['access_rights'];
 			$type = $id_type == "group" ? "user_group_expiration_date" : "user_expiration_date";
 			$expiration = $row[$type] == "X" ? "X" : date('d/m/Y H:i:s', $row[$type]);
-			echo "<tr><td>$row[home_id]</td>
+			echo "<tr><td><input type=checkbox class='change_access_rights' data-home_id='$row[home_id]' >$row[home_id]</td>
 				<td>".$row['agent_ip']." (Agent)</td>
 				<td>$row[game_name]</td>
 				<td>$row[home_path]</td>
@@ -275,7 +303,13 @@ function exec_ogp_module()
 				</tr>";
 		}
 		echo "</table>";
-
+		echo "<button id=\"change_access_rights_submit\" onclick=\"change_access_rights('".trim($id_type)."', '".trim($assign_id),"')\">".get_lang('change_access_rights_for_selected_servers')."</button>\n".
+			 "<div id='dialog' ";
+		foreach ( $selections as $selection => $flag)
+		{
+			echo "data-$flag=\"$selection\" ";
+		}
+		echo "></div>";
 	}
 
 	if ( $id_type === "group" )

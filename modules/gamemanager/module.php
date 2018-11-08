@@ -24,10 +24,11 @@
 
 // Module general information
 $module_title = "Game manager";
-$module_version = "1.32";
+$module_version = "1.33";
 $db_version = 7;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => 'game_monitor', 'name'=>'Game Monitor', 'group'=>'user' ) );
+$module_access_rights = array('u' => 'allow_updates', 'p' => 'allow_parameter_usage', 'e' => 'allow_extra_params', 'c' => 'allow_custom_fields');
 
 $install_queries[0] = array(
     "DROP TABLE IF EXISTS `".OGP_DB_PREFIX."home_ip_ports`;",

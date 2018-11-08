@@ -36,7 +36,7 @@ define('OGP_LANG_players', "Oyuncular");
 define('OGP_LANG_server_status', "Sunucu Durumu");
 define('OGP_LANG_no_games_to_monitor', "Şu anda hiç çevrimiçi/çevrimdışı sunucu yok");
 define('OGP_LANG_online_servers', "Çevrimiçi Sunucular");
-define('OGP_LANG_add_games_in', "If you want to add games you can do it in %s");
+define('OGP_LANG_add_games_in', "Oyun eklemek isterseniz %s üzerinden ekleyebilirsiniz.");
 define('OGP_LANG_currently_online', "Şu Anda Çevrimiçi");
 define('OGP_LANG_game_servers', "Oyun Sunucuları");
 define('OGP_LANG_select_remote_server', "Uzak Sunucuyu Seçin");

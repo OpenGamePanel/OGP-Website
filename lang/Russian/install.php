@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_install_lang', "Выберите нужный язык");
-define('OGP_LANG_install_welcome', "Welcome to the Open Game Panel Installer");
+define('OGP_LANG_install_welcome', "Добро пожаловать в меню установки Open Game Panel");
 define('OGP_LANG_file_permission_check', "Проверка файлов на права доступа");
 define('OGP_LANG_OK', "Ок");
 define('OGP_LANG_write_permission_required', "Требуется права на запись");
@@ -33,8 +33,8 @@ define('OGP_LANG_found', "Найдено");
 define('OGP_LANG_not_found', "Не найдено");
 define('OGP_LANG_pear_xxtea_info', "Pear Crypt_XXTEA требуется для использования OGP. В большинстве Linux систем этот модуль может быть установлен при помощи команды \"pear install Crypt_XXTEA-beta\".");
 define('OGP_LANG_refresh', "Обновить");
-define('OGP_LANG_checking_required_modules', "Checking required modules");
-define('OGP_LANG_checking_optional_modules', "Checking optional modules");
+define('OGP_LANG_checking_required_modules', "Проверка необходимых модулей");
+define('OGP_LANG_checking_optional_modules', "Проверка желательных модулей");
 define('OGP_LANG_database_type', "Тип базы данных");
 define('OGP_LANG_database_settings', "Настройки доступа к базе данных");
 define('OGP_LANG_database_hostname', "Сервер БД");
@@ -55,7 +55,7 @@ define('OGP_LANG_repeat_password', "Повторить пароль");
 define('OGP_LANG_email', "E-mail адрес");
 define('OGP_LANG_back', "Назад");
 define('OGP_LANG_database_setup_failure', "При установке не удалось подключиться к базе данных. Проверьте ваши настройки.");
-define('OGP_LANG_php_version_check', "Checking PHP version");
+define('OGP_LANG_php_version_check', "Проверка версии PHP");
 define('OGP_LANG_invalid_username', "Вы ввели неправильное имя пользователя.");
 define('OGP_LANG_password_too_short', "Пароль слишком короткий. Он должен быть не меньше '%d' символов.");
 define('OGP_LANG_password_contains_invalid_characters', "Ваш пароль содержит недопустимые символы.");
