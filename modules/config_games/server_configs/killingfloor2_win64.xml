@@ -10,7 +10,7 @@
     <cli_param id="MAP" cli_string="" />
     <cli_param id="IP" cli_string="-MultiHome=" />
     <cli_param id="PORT" cli_string="-Port=" />
-	<cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
   </cli_params>
   <reserve_ports>
     <port type="add" id="WEB_ADMIN_PORT" cli_string="-WebAdminPort=">10</port>
@@ -22,15 +22,14 @@
   <exe_location>Binaries/Win64</exe_location>
   <max_user_amount>12</max_user_amount>
   <mods>
-    <mod key="killingfloor2">
-      <name>none</name>
+    <mod key="default">
+      <name>None</name>
       <installer_name>232130</installer_name> 
       <installer_login>anonymous</installer_login>
     </mod>
   </mods>
   <server_params>
     <param id="DIFFICULTY" key="?Difficulty=" type="select">
-      <option value=""></option>
       <option value="0">Normal</option>
       <option value="1">Hard</option>
       <option value="2">Suicidal</option>
@@ -40,14 +39,13 @@
       <desc>This sets the server difficulty. Leave empty to configure this parameter in the config files or webadmin</desc>
     </param>
     <param id="GAMELENGTH" key="?GameLength=" type="select">
-      <option value=""></option>
       <option value="0">Short</option>
       <option value="1">Medium</option>
       <option value="2">Long</option>
       <options>ns</options>
       <caption>Game Length</caption>
       <desc>This sets the game length. Leave empty to configure this parameter in the config files or webadmin</desc>
-     </param>
+    </param>
     <param id="GAMEMODE" key="?Game=" type="text">
       <option>ns</option>
       <caption>Game Mode</caption>
@@ -81,5 +79,5 @@
 		echo KF-VolterManor >> maplist.txt
 		echo KF-ZedLanding >> maplist.txt
 		fi
-	</post_install>
+  </post_install>
 </game_config>
