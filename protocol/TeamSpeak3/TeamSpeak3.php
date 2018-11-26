@@ -66,7 +66,7 @@ class TeamSpeak3
   /**
    * TeamSpeak 3 PHP Framework version.
    */
-  const LIB_VERSION = "1.1.33";
+  const LIB_VERSION = "1.1.34";
 
   /*@
    * TeamSpeak 3 protocol separators.
@@ -287,6 +287,8 @@ class TeamSpeak3
    * === Supported Options ===
    *   - timeout
    *   - blocking
+   *   - tls (TeaSpeak only)
+   *   - ssh (TeamSpeak only)
    *   - nickname
    *   - no_query_clients
    *   - use_offline_as_virtual
@@ -302,6 +304,9 @@ class TeamSpeak3
    *
    * === URI Examples ===
    *   - serverquery://127.0.0.1:10011/
+   *   - serverquery://127.0.0.1:10022/?ssh=1 (TeamSpeak ONLY)
+   *   - serverquery://127.0.0.1:10011/?tls=1 (TeaSpeak ONLY)
+   *   - serverquery://127.0.0.1:10022/?ssh=1&server_port=9987
    *   - serverquery://127.0.0.1:10011/?server_port=9987&channel_id=1
    *   - serverquery://127.0.0.1:10011/?server_port=9987&channel_id=1#no_query_clients
    *   - serverquery://127.0.0.1:10011/?server_port=9987&client_name=ScP
@@ -320,9 +325,15 @@ class TeamSpeak3
     $uri = new TeamSpeak3_Helper_Uri($uri);
 
     $adapter = self::getAdapterName($uri->getScheme());
-    $options = array("host" => $uri->getHost(), "port" => $uri->getPort(), "timeout" => (int) $uri->getQueryVar("timeout", 10), "blocking" => (int) $uri->getQueryVar("blocking", 1), "tls" => (int) $uri->getQueryVar("tls", 0));
+    $options = array("host" => $uri->getHost(), "port" => $uri->getPort(), "timeout" => (int) $uri->getQueryVar("timeout", 10), "blocking" => (int) $uri->getQueryVar("blocking", 1), "tls" => (int) $uri->getQueryVar("tls", 0), "ssh" => (int) $uri->getQueryVar("ssh", 0));
 
     self::loadClass($adapter);
+
+    if($options["ssh"])
+    {
+      $options["username"] = $uri->getUser();
+      $options["password"] = $uri->getPass();
+    }
 
     $object = new $adapter($options);
 
