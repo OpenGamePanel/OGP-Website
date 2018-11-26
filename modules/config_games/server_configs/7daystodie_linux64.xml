@@ -6,7 +6,6 @@
   <game_name>7 Days to Die</game_name>
   <server_exec_name>7DaysToDieServer.x86_64</server_exec_name>
   <cli_template>-logfile 7DaysToDieServer_Data/output_log.txt -quit -batchmode -nographics -configfile=serverconfig.xml -dedicated</cli_template>
-  <maps_location>Data/Worlds</maps_location>
   <console_log>7DaysToDieServer_Data/output_log.txt</console_log>
   <max_user_amount>64</max_user_amount>
   <mods>
@@ -38,12 +37,6 @@
     <text key="max_players">
       <default>property</default>
       <var>ServerMaxPlayerCount</var>
-      <filepath>serverconfig.xml</filepath>
-      <options>tagValueByName</options>
-    </text>
-    <text key="map">
-      <default>property</default>
-      <var>GameWorld</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
     </text>
@@ -133,6 +126,9 @@
       <desc>Making this number too large (more than about 80) may cause servers to run at poor framerates which will effect lag and play quality for clients.</desc>
     </field>
   </custom_fields>
+  <environment_variables>
+    export LD_LIBRARY_PATH={OGP_HOME_DIR}/7DaysToDieServer_Data/Plugins/x86_64
+  </environment_variables>
   <lock_files>
     7DaysToDieServer.x86
   </lock_files>

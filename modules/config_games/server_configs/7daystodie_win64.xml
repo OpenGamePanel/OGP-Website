@@ -6,7 +6,6 @@
   <game_name>7 Days to Die</game_name>
   <server_exec_name>7DaysToDieServer.exe</server_exec_name>
   <cli_template>-logfile 7DaysToDieServer_Data/output_log.txt -quit -batchmode -nographics -configfile=serverconfig.xml -dedicated</cli_template>
-  <maps_location>Data/Worlds</maps_location>
   <console_log>7DaysToDieServer_Data/output_log.txt</console_log>
   <max_user_amount>64</max_user_amount>
   <mods>
@@ -38,12 +37,6 @@
     <text key="max_players">
       <default>property</default>
       <var>ServerMaxPlayerCount</var>
-      <filepath>serverconfig.xml</filepath>
-      <options>tagValueByName</options>
-    </text>
-    <text key="map">
-      <default>property</default>
-      <var>GameWorld</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
     </text>
