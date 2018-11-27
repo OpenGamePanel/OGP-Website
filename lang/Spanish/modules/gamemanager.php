@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_game_manager', "Gestión de Servidores");
 define('OGP_LANG_no_games_to_monitor', "Actualmente no hay servidores de juegos instalados.");
 define('OGP_LANG_status', "Estado");
 define('OGP_LANG_fail_no_mods', "No hay ningún mod para este juego. Habla con el administrador del panel para que añada mod(s) para este juego");
@@ -73,7 +72,7 @@ define('OGP_LANG_failed_to_start_rsync_update', "Fallo la actualización de Rsyn
 define('OGP_LANG_update_completed', "Actualización completa.");
 define('OGP_LANG_update_in_progress', "Actualización en progreso, espere...");
 define('OGP_LANG_refresh_steam_status', "Refrescar estado de Steam");
-define('OGP_LANG_refresh_rsync_status', "Refrescar estado de Rsync");
+define('OGP_LANG_refresh_rsync_status', "Refresh Rsync status");
 define('OGP_LANG_server_running_cant_update', "No se puede actualizar el juego mientras esté en marcha.");
 define('OGP_LANG_xml_steam_error', "El juego seleccionado no soporta instalación/actualización de Steam");
 define('OGP_LANG_mod_key_not_found_from_xml', "No se encontro mod_key en el XML");

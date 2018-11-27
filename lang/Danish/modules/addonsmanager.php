@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "Vis Addons For Valgte Spil");
 define('OGP_LANG_linux_games', "Linux Spil:");
 define('OGP_LANG_windows_games', "Windows Spil:");
 define('OGP_LANG_create_addon', "Opret Addon");
-define('OGP_LANG_addons_db', "Addons DataBase");
+define('OGP_LANG_addons_db', "Addons Database");
 define('OGP_LANG_addon_has_been_created', "Addon %s er bleven oprettet.");
 define('OGP_LANG_remove_addon', "Fjern Addon");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Vær venlig, at indsætte URL addresse for komprimeret fil.");

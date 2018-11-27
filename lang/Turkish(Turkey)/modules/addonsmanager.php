@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "Seçili Oyun İçin Eklentiler
 define('OGP_LANG_linux_games', "Linux Oyunları");
 define('OGP_LANG_windows_games', "Windows Oyunları");
 define('OGP_LANG_create_addon', "Eklenti oluştur");
-define('OGP_LANG_addons_db', "Eklenti Veri Tabanı");
+define('OGP_LANG_addons_db', "Addons Database");
 define('OGP_LANG_addon_has_been_created', "Eklenti %s oluşturuldu.");
 define('OGP_LANG_remove_addon', "Eklenti Sil");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Lütfen sıkıştırılmış bir dosya için bir URL adresi doldurun.");

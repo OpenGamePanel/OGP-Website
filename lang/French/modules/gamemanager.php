@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_game_manager', "Game Manager");
 define('OGP_LANG_no_games_to_monitor', "Vous n'avez aucun serveur de jeu à administrer.");
 define('OGP_LANG_status', "Statut");
 define('OGP_LANG_fail_no_mods', "Aucun mod activé pour ce jeu! Vous devez demander à votre Administrateur de rajouter un/des mod(s) pour ce jeu.");
@@ -73,7 +72,7 @@ define('OGP_LANG_failed_to_start_rsync_update', "Impossible de démarrer la mise
 define('OGP_LANG_update_completed', "Mise à jour effectuée avec succès.");
 define('OGP_LANG_update_in_progress', "Mise à jour en cours, veuillez patienter...");
 define('OGP_LANG_refresh_steam_status', "Actualiser l'état de Steam");
-define('OGP_LANG_refresh_rsync_status', "Refraîchir le statut Rsync");
+define('OGP_LANG_refresh_rsync_status', "Rafraîchir le statut Rsync");
 define('OGP_LANG_server_running_cant_update', "Serveur démarré donc mise à jour impossible. Stoppez le serveur avant la mise à jour.");
 define('OGP_LANG_xml_steam_error', "Le type de serveur sélectionné ne supporte pas l'installation ou la mise à jour via Steam.");
 define('OGP_LANG_mod_key_not_found_from_xml', "Clé du mod '%s' non trouvée dans le fichier XML.");

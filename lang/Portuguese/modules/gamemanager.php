@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_game_manager', "Gestão do Servidor");
 define('OGP_LANG_no_games_to_monitor', "Você não possui nenhum jogo configurado que possa ser exibido.");
 define('OGP_LANG_status', "Estado");
 define('OGP_LANG_fail_no_mods', "Não há mods habilitados para este jogo! Você precisa pedir ao seu administrador do painel para adicionar mod(s) ao jogo que lhe foi atribuído.");
@@ -73,7 +72,7 @@ define('OGP_LANG_failed_to_start_rsync_update', "Falha ao iniciar o Rsync. Verif
 define('OGP_LANG_update_completed', "Atualização concluída com sucesso.");
 define('OGP_LANG_update_in_progress', "Atualização em andamento, por favor aguarde...");
 define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
-define('OGP_LANG_refresh_rsync_status', "Actualize o status rsync");
+define('OGP_LANG_refresh_rsync_status', "Refresh Rsync status");
 define('OGP_LANG_server_running_cant_update', "Servidor em execução, não é possível actualizá-lo. Por favor,  encerre-o primeiro antes de qualquer actualização.");
 define('OGP_LANG_xml_steam_error', "O tipo de servidor seleccionado não suporta actualizações via Steam.");
 define('OGP_LANG_mod_key_not_found_from_xml', "Tecla Mod '%s' não encontrado a partir do arquivo XML");

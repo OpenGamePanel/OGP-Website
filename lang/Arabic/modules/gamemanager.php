@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_game_manager', "مدير اللعبة");
 define('OGP_LANG_no_games_to_monitor', "ليس لديك أي ألعاب مخصصة لك يمكنك مراقبتها.");
 define('OGP_LANG_status', "الحالة");
 define('OGP_LANG_fail_no_mods', "لا يوجد مودات مفعلة لهذه اللعبة! يجب أن تطلب من المشرف أو مدير لوحة التحكم إضافة مودات للعبة المخصصة لك.");
@@ -73,7 +72,7 @@ define('OGP_LANG_failed_to_start_rsync_update', "فشل بدء تحديث Rsync.
 define('OGP_LANG_update_completed', "اكتمل التحديث بنجاح.");
 define('OGP_LANG_update_in_progress', "جار التحديث، يرجى الانتظار ...");
 define('OGP_LANG_refresh_steam_status', "تحديث حالة Steam");
-define('OGP_LANG_refresh_rsync_status', "تحديث حالة rsync");
+define('OGP_LANG_refresh_rsync_status', "Refresh Rsync status");
 define('OGP_LANG_server_running_cant_update', "الخادم شغال إذا التحديث ليس معقول. أوقف الخادم قبل التحديث.");
 define('OGP_LANG_xml_steam_error', "نوع الخادم المحدد لا يدعم التثبيت / التحديث Steam.");
 define('OGP_LANG_mod_key_not_found_from_xml', "مفتاح التعديل '%s' لم يتم العثور عليه من ملف XML.");

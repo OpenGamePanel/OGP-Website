@@ -34,10 +34,10 @@ define('OGP_LANG_statistics', "Statistik");
 define('OGP_LANG_servers', "Server");
 define('OGP_LANG_players', "Spieler");
 define('OGP_LANG_server_status', "Serverstatus");
-define('OGP_LANG_no_games_to_monitor', "Es gibt derzeit keine Gameserver die online/offline sind");
+define('OGP_LANG_no_games_to_monitor', "Es gibt derzeit keine Spieleserver die online/offline sind");
 define('OGP_LANG_online_servers', "Server Online");
 define('OGP_LANG_add_games_in', "Wenn du Spiele hinzufügen möchtest, kannst du dies hier tun: %s");
 define('OGP_LANG_currently_online', "Momentan Online");
-define('OGP_LANG_game_servers', "Game Server");
-define('OGP_LANG_select_remote_server', "Remote-Server auswählen");
+define('OGP_LANG_game_servers', "Spieleserver");
+define('OGP_LANG_select_remote_server', "Entfernten Server auswählen");
 ?>

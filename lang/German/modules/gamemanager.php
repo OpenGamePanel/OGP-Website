@@ -22,11 +22,10 @@
  *
  */
 
-define('OGP_LANG_game_manager', "Spiel Manager");
 define('OGP_LANG_no_games_to_monitor', "Es gibt derzeit keine Gameserver die online/offline sind");
 define('OGP_LANG_status', "Status");
 define('OGP_LANG_fail_no_mods', "Keine Mods für dieses Spiel aktiviert! Sie müssen einen OGP Admin bitten, Mods für das Spiel hinzuzufügen, das Ihnen zugeteilt wird.");
-define('OGP_LANG_no_game_homes_assigned', "Ihrem Account sind keine Server zugewiesen.");
+define('OGP_LANG_no_game_homes_assigned', "Ihrem Konto sind keine Server zugewiesen.");
 define('OGP_LANG_select_game_home_to_configure', "Wählen Sie einen Gameserver aus, den Sie konfigurieren möchten");
 define('OGP_LANG_file_manager', "Dateimanager");
 define('OGP_LANG_configure_mods', "Mods verwalten");
@@ -77,8 +76,7 @@ define('OGP_LANG_update_completed', "Update erfolgreich abgeschlossen.
 ");
 define('OGP_LANG_update_in_progress', "Update im Gange, bitte warten...");
 define('OGP_LANG_refresh_steam_status', "Steam-Status aktualisieren");
-define('OGP_LANG_refresh_rsync_status', "Rsync status aktualisieren
-");
+define('OGP_LANG_refresh_rsync_status', "Refresh Rsync status");
 define('OGP_LANG_server_running_cant_update', "Ein Update ist nicht möglich, da der Server derzeit läuft. Stoppe den Server bevor du ihn updatest.");
 define('OGP_LANG_xml_steam_error', "Der ausgewählte Servertyp unterstützt die Installation / Aktualisierung von Steam nicht.");
 define('OGP_LANG_mod_key_not_found_from_xml', "Mod key '%s' wurde von der XML Datei nicht gefunden.");
@@ -167,9 +165,9 @@ define('OGP_LANG_edit_presets', "Voreinstellungen bearbeiten");
 define('OGP_LANG_del_preset', "Löschen");
 define('OGP_LANG_change_preset', "Ändern");
 define('OGP_LANG_send_command', "Befehl senden");
-define('OGP_LANG_starting_copy_with_master_server_named', "Starting copy with master server named '%s'...");
+define('OGP_LANG_starting_copy_with_master_server_named', "Starte Kopie mit Masterserver '%s'...");
 define('OGP_LANG_starting_sync_with', "Starte sync mit %s...");
-define('OGP_LANG_refresh_interval', "Log refreshing interval");
+define('OGP_LANG_refresh_interval', "Aktualisierungsrate des Logs");
 define('OGP_LANG_finished_manual_update', "Manuelle Aktualisierung beendet.");
 define('OGP_LANG_failed_to_start_file_download', "Konnte Datei-Download nicht starten.");
 define('OGP_LANG_game_name', "Spiel name");
@@ -188,13 +186,13 @@ define('OGP_LANG_check_dev_console', "Error during uploading file, please check 
 define('OGP_LANG_uploaded_successfully', "Erfolgreich hochgeladen.");
 define('OGP_LANG_cant_create_folder', "Ordner konnte nicht erstellt werden: <br><b>%s</b>");
 define('OGP_LANG_cant_write_file', "Datei konnte nicht erstellst werden: <br><b>%s</b>");
-define('OGP_LANG_exceeded_php_directive', "Exceeded PHP directive.<br><b>%s</b>.");
+define('OGP_LANG_exceeded_php_directive', "PHP-Direktive überschritten. <br><b>%s</b>.");
 define('OGP_LANG_unknown_errors', "Unbekannte Fehler.");
 define('OGP_LANG_directory', "Ordner-Pfad");
 define('OGP_LANG_view_player_commands', "Befehle für Spieler anzeigen");
 define('OGP_LANG_hide_player_commands', "Befehle für Spieler verstecken");
 define('OGP_LANG_no_online_players', "Es sind keine Spieler online.");
-define('OGP_LANG_invalid_game_mod_id', "Invalid Game/Mod ID specified.");
+define('OGP_LANG_invalid_game_mod_id', "Ungültige Spiel/Mod ID angegeben.");
 define('OGP_LANG_auto_update_title_popup', "Steam Auto Update Link");
 define('OGP_LANG_auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
 define('OGP_LANG_auto_update_copy_me', "Kopieren");
@@ -212,5 +210,5 @@ define('OGP_LANG_cid', "CID");
 define('OGP_LANG_phan', "Phantom");
 define('OGP_LANG_sec', "Sekunden");
 define('OGP_LANG_unknown_rsync_mirror', "You attempted to start an update from a mirror which doesn't exist.");
-define('OGP_LANG_custom_fields', "Custom Fields");
+define('OGP_LANG_custom_fields', "Benutzerdefinierte Felder");
 ?>

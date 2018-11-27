@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "Visa tillägg för valt spel")
 define('OGP_LANG_linux_games', "Linuxspel:");
 define('OGP_LANG_windows_games', "Windowsspel: ");
 define('OGP_LANG_create_addon', "Skapa tillägg");
-define('OGP_LANG_addons_db', "Tilläggsdatabas ");
+define('OGP_LANG_addons_db', "Addons Database");
 define('OGP_LANG_addon_has_been_created', "Tillägget %s har blivit skapat. ");
 define('OGP_LANG_remove_addon', "Ta bort tillägg");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Fyll i en URL-adress för en komprimerad fil. ");
