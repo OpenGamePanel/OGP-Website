@@ -108,13 +108,39 @@
       <options>tagValueByName</options>
       <desc>Enables/Disables EasyAntiCheat.</desc>
     </field>
+    <field key="Game World" type="select">
+      <option value="Navezgane">Navezgane</option>
+      <option value="RWG">RWG</option>
+      <default>property</default>
+      <default_value>Navezgane</default_value>
+      <var>GameWorld</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>Defines the map of the server.</desc>
+    </field>
+    <field key="WorldGen Seed" type="text">
+      <default>property</default>
+      <default_value>asdf</default_value>
+      <var>WorldGenSeed</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>If RWG this seed decides the map to load, if already generated, it will simply load it.</desc>
+    </field>
+    <field key="WorldGen Size" type="text">
+      <default>property</default>
+      <default_value>4096</default_value>
+      <var>WorldGenSize</var>
+      <filepath>serverconfig.xml</filepath>
+      <options>tagValueByName</options>
+      <desc>RWG map size, this is in width and height, this value will modify the seed as well providing a unique map name even if using the same GenSeed.</desc>
+    </field>
     <field key="Game Name" type="text">
       <default>property</default>
       <default_value>My Game</default_value>
       <var>GameName</var>
       <filepath>serverconfig.xml</filepath>
       <options>tagValueByName</options>
-      <desc>Whatever you want the game name to be (this controls the random generation seed as well).</desc>
+      <desc>Whatever you want the game name to be (this controls the random generation seed).</desc>
     </field>
     <field key="Max Spawned Zombies" type="text">
       <default>property</default>
