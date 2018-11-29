@@ -22,23 +22,23 @@
  *
  */
 
-define('OGP_LANG_recover', "Recover a forgotten password");
-define('OGP_LANG_back', "Back");
-define('OGP_LANG_incomplete', "Please go back and complete all the fields in the form.");
-define('OGP_LANG_subject', "Password request");
-define('OGP_LANG_password_message', "Hello,<br><br>Your password has been successfully reseted.<br><br>New Password: %s<br><br>Remember to change your password often.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
-define('OGP_LANG_send', "Your password has been sent! Please check your email!");
-define('OGP_LANG_here', "Here");
-define('OGP_LANG_to_login', "to login");
-define('OGP_LANG_errormail', "Your email address is not correct.");
-define('OGP_LANG_submit', "Submit");
-define('OGP_LANG_click', "Click");
-define('OGP_LANG_mail_settings_missing', "Panel mail settings are not complete so it can not send your password. Contact your OGP admin.");
-define('OGP_LANG_mail_failed', "Failed to send email.");
-define('OGP_LANG_email', "Email");
-define('OGP_LANG_enter_email', "Please enter your email address");
+define('OGP_LANG_recover', "Obnova zaboravljene lozinke");
+define('OGP_LANG_back', "Natrag");
+define('OGP_LANG_incomplete', "Vratite se i ispunite sva polja u obrascu.");
+define('OGP_LANG_subject', "Zahtjev za zaporku");
+define('OGP_LANG_password_message', "Bok, <br><br>Vaša je lozinka uspješno resetirana.<br><br>Nova Lozinka: %s<br><br>Ne zaboravite često promijeniti zaporku.<br><br>Molimo ne odgovarajte na ovaj email!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_send', "Zaporka je poslana! Provjerite e-poštu!");
+define('OGP_LANG_here', "Ovdje");
+define('OGP_LANG_to_login', "za prijavu");
+define('OGP_LANG_errormail', "Vaša adresa e-pošte nije točna.");
+define('OGP_LANG_submit', "Potvrditi");
+define('OGP_LANG_click', "Stisni");
+define('OGP_LANG_mail_settings_missing', "Postavke Panel pošte nisu potpune pa ne može poslati vašu zaporku. Kontaktirajte svog administratora OGP-a.");
+define('OGP_LANG_mail_failed', "Slanje e-pošte nije uspjelo.");
+define('OGP_LANG_email', "E-pošta");
+define('OGP_LANG_enter_email', "Molim upišite svoju adresu e-pošte");
 define('OGP_LANG_webmaster', "Webmaster");
-define('OGP_LANG_confirm_send', "For security reasons we have sent you a confirmation link before you restart your password.<br><b style='color:red;'>Please check your inbox.</b>");
-define('OGP_LANG_confirm_change_subject', "Password reset, confirmation email");
-define('OGP_LANG_confirm_change_password_message', "Hello,<br><br>Please click on the link below to reset your password:<br><br>%s<br><br>Note: If you do not have requested the reset of your password, you can ignore this email.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_confirm_send', "Iz sigurnosnih razloga poslali smo vam vezu za potvrdu prije ponovno postavljanje zaporke.<br><b style='color:red;'>Provjerite svoju pristiglu poštu.</b>");
+define('OGP_LANG_confirm_change_subject', "Ponovno postavljanje zaporke, e-pošta potvrde");
+define('OGP_LANG_confirm_change_password_message', "Bok,<br><br>Molimo kliknite vezu u nastavku da biste poništili zaporku:<br><br>%s<br><br>Oprez: Ako niste zatražili ponovno postavljanje lozike, možete ignorirati ovu e-poštu.<br><br>Molimo ne odgovarajte na ovaj email!<br><br>______________________________<br>OGP Mailer");
 ?>

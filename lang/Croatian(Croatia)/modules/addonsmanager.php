@@ -34,7 +34,7 @@ define('OGP_LANG_failed_to_start_file_download', "Preuzimanje datoteke nije uspj
 define('OGP_LANG_no_games_servers_available', "Na vašem računu nema dostupnih servera.");
 define('OGP_LANG_addon_installed_successfully', "Addon uspješno je instaliran");
 define('OGP_LANG_path', "Putanje");
-define('OGP_LANG_wait_while_decompressing', "Pričekajte dok se datoteka %s ne dekomprimira.");
+define('OGP_LANG_wait_while_decompressing', "Pričekajte dok se datoteka %s  ne dekomprimira.");
 define('OGP_LANG_addon_name', "Ime Addona");
 define('OGP_LANG_url', "URL");
 define('OGP_LANG_select_game_type', "Odaberite Vrstu Igre");
