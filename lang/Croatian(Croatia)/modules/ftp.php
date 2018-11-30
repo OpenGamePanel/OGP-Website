@@ -26,7 +26,7 @@ define('OGP_LANG_ftp_address', "FTP adresa %s:%s");
 define('OGP_LANG_change_account_details', "Promjena detalji računa");
 define('OGP_LANG_remove_account', "Izbriši račun");
 define('OGP_LANG_ftp_account_already_exists', "Ovaj FTP račun već postoji.");
-define('OGP_LANG_full_path', "Direktorij");
+define('OGP_LANG_full_path', "Home Direktorij");
 define('OGP_LANG_add_ftp_account', "Dodati FTP račun");
 define('OGP_LANG_remote_server', "Udaljeni server");
 define('OGP_LANG_server_name', "Ime servera");

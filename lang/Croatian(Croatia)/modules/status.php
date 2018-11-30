@@ -44,5 +44,5 @@ define('OGP_LANG_storage_used', "Korišteno");
 define('OGP_LANG_storage_free', "Slobodan prostor");
 define('OGP_LANG_process_monitor', "Proces Monitora");
 define('OGP_LANG_status_extension_required', "Potrebni dodatak");
-define('OGP_LANG_gd_info', "GD dodatak za PHP potreban je za generiranje ovih BAR slika!");
+define('OGP_LANG_gd_info', "<a href=\"http://php.net/manual/en/image.installation.php\">GD</a> dodatak za PHP potreban je za generiranje ovih BAR slika!");
 ?>
