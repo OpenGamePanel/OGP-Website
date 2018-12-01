@@ -55,7 +55,7 @@ define('OGP_LANG_status', "Status");
 define('OGP_LANG_stop_firewall', "Zaustaviti Vatrozid");
 define('OGP_LANG_start_firewall', "Pokrenuti Vatrozid");
 define('OGP_LANG_seconds', "Sekunde");
-define('OGP_LANG_reboot', "Ponovno pokretanje Udaljenog Poslužitelja");
+define('OGP_LANG_reboot', "Ponovno pokretanje  Poslužitelja");
 define('OGP_LANG_restart', "Ponovno pokretanje Agenta");
 define('OGP_LANG_confirm_reboot', "Jeste li sigurni da želite ponovno pokrenuti fizički kompletni poslužitelj pod nazivom '%s'?");
 define('OGP_LANG_confirm_restart', "Jeste li sigurno da želite ponovno pokrenuti Agent pod nazivom '%s'?");
