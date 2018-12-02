@@ -88,7 +88,7 @@ define('OGP_LANG_add_server', "Dodati Server");
 define('OGP_LANG_servers_in_group', "Svi serveri u grupi");
 define('OGP_LANG_no_servers_in_group', "Žao nam je, ali nema servera u ovoj grupi %s.");
 define('OGP_LANG_available_groups', "Dostupne Grupe");
-define('OGP_LANG_assign_homes', "Dodijeliti Home-ove");
+define('OGP_LANG_assign_homes', "Dodijeliti Server");
 define('OGP_LANG_successfully_added_group', "Grupa %s uspješno dodana.");
 define('OGP_LANG_group_name_empty', "Naziv grupe ne smije biti prazno.");
 define('OGP_LANG_failed_to_add_group', "Dodavanje grupe %s nije uspjelo.");

@@ -22,22 +22,22 @@
  *
  */
 
-define('OGP_LANG_add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
-define('OGP_LANG_game_servers', "Game Servers");
-define('OGP_LANG_game_path', "Game Path");
-define('OGP_LANG_game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
-define('OGP_LANG_game_server_name_info', "Server name helps users to identify their servers.");
-define('OGP_LANG_control_password', "Control password");
-define('OGP_LANG_control_password_info', "This password is used for server control, such as RCON password. If the password is empty then other means are used.");
-define('OGP_LANG_add_game_home', "Add game server");
-define('OGP_LANG_game_path_empty', "Game path can not be empty.");
-define('OGP_LANG_game_home_added', "Game server added successfully. Redirecting to home edit page.");
-define('OGP_LANG_failed_to_add_home_to_db', "Failed to add home to database. Error: %s");
-define('OGP_LANG_caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Caution!</b> The Agent is offline, can not get OS type and architecture,<br> Showing servers for all platforms:");
-define('OGP_LANG_select_remote_server', "Select Remote Server");
-define('OGP_LANG_no_remote_servers_configured', "No remote servers configured to the Open Game Panel.<br>You need to add remote servers before you can add servers for the users.");
-define('OGP_LANG_no_game_configurations_found', "No game configuration found. You need to add game configurations from the");
-define('OGP_LANG_game_configurations', ">game configuration page");
+define('OGP_LANG_add_mods_note', "Morate dodati modove nakon dodavanja servera korisniku. To se može učiniti uređivanjem servera.");
+define('OGP_LANG_game_servers', "Serveri");
+define('OGP_LANG_game_path', "Putanje Igre");
+define('OGP_LANG_game_path_info', "Apsolutno putanje servera. Primjer: /home/ogpbot/OGP_User_Files / My_Server");
+define('OGP_LANG_game_server_name_info', "Ime servera pomaže korisnicima da identificiraju svoje servere.");
+define('OGP_LANG_control_password', "Upravljačka lozinka");
+define('OGP_LANG_control_password_info', "Ova se lozinka koristi za kontrolu servera, kao što je RCON lozinka. Ako je lozinka prazna, upotrebljavaju se druga sredstva.");
+define('OGP_LANG_add_game_home', "Dodati Igru");
+define('OGP_LANG_game_path_empty', "Putanje igre ne smije biti prazna.");
+define('OGP_LANG_game_home_added', "Igrica je uspješno dodana. Preusmjeravanje na stranicu uređivanja Home-a.");
+define('OGP_LANG_failed_to_add_home_to_db', "Dodavanje Home-a u bazu podataka nije uspjelo. Pogreška: %s");
+define('OGP_LANG_caution_agent_offline_can_not_get_os_and_arch_showing_servers_for_all_platforms', "<b>Oprez!</b>Agent je izvan mreže, ne može dobiti vrstu i arhitekturu OS-a,<br> Prikaz servera za sve platforme:");
+define('OGP_LANG_select_remote_server', "Odaberite Udaljeni Server");
+define('OGP_LANG_no_remote_servers_configured', "Nijedan udaljeni poslužitelj nije konfiguriran za Open Game Panel. Najprije morate dodati udaljene poslužitelje pa tek onda možete korisnicima dizati servere.");
+define('OGP_LANG_no_game_configurations_found', "Nije pronađena konfiguracija igre. Morate dodati konfiguracije igara iz");
+define('OGP_LANG_game_configurations', "> stranice za konfiguraciju igre");
 define('OGP_LANG_add_remote_server', "Add a server.");
 define('OGP_LANG_wine_games', "Wine Games");
 define('OGP_LANG_home_path', "Home path");

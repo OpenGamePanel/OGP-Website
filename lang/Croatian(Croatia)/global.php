@@ -67,7 +67,7 @@ define('OGP_LANG_contact_admin_to_enable_account', "Kontaktirajte svog administr
 define('OGP_LANG_maintenance_mode_on', "Način održavanja je uključen");
 define('OGP_LANG_logging_out_10', "Odjava za 10 sekundi");
 define('OGP_LANG_invalid_redirect', "Preusmjeravanje");
-define('OGP_LANG_login_title', "Prijava Kontrolne Ploče");
+define('OGP_LANG_login_title', "Prijava na Panel");
 define('OGP_LANG_module_not_installed', "Modul nije instaliran.");
 define('OGP_LANG_no_access_to_home', "Nemate pristup ovom Home-u.");
 define('OGP_LANG_not_available', "N/A");
@@ -95,7 +95,7 @@ define('OGP_LANG_sub_users', "Pod Korisnici");
 define('OGP_LANG_show_groups', "Grupe");
 define('OGP_LANG_user_games', "Igrice");
 define('OGP_LANG_addons_manager', "Upravitelj Dodataka");
-define('OGP_LANG_ftp_admin', "FTP korisnici");
+define('OGP_LANG_ftp_admin', "FTP Korisnici");
 define('OGP_LANG_orders', "Narudžbe");
 define('OGP_LANG_services', "Postavke Prodaje");
 define('OGP_LANG_shop_settings', "Postavke Trgovine");
