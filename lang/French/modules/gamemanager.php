@@ -148,7 +148,7 @@ define('OGP_LANG_execute_operations', "Exécuter les opérations");
 define('OGP_LANG_account_expiration', "Expiration du compte");
 define('OGP_LANG_mysql_databases', "Base de données MySQL");
 define('OGP_LANG_failed_querying_server', "* Impossible d'interroger le serveur.");
-define('OGP_LANG_query_protocol_not_supported', "* Il n'y a pas de protocole d'interrogation dans OGP qui supporte ce serveur.");
+define('OGP_LANG_query_protocol_not_supported', "* Il n’existe aucun protocole de requête dans OGP pouvant prendre en charge ce serveur.");
 define('OGP_LANG_queries_disabled_by_setting_disable_queries_after', "Interrogations désactivées dans les paramètres: Désactiver interrogation après: %s, et vous avez %s serveurs.<br>");
 define('OGP_LANG_presets_for_game_and_mod', "RCON prédéfinis pour %s et mod %s");
 define('OGP_LANG_name', "Nom");
