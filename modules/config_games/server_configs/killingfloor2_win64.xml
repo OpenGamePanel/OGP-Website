@@ -81,6 +81,8 @@
 		echo KF-Outpost >> maplist.txt
 		echo KF-PowerCore_Holdout >> maplist.txt
 		echo KF-Prison >> maplist.txt
+		echo KF-SantasWorkshop >> maplist.txt
+		echo KF-ShoppingSpree >> maplist.txt
 		echo KF-TheDescent >> maplist.txt
 		echo KF-TragicKingdom >> maplist.txt
 		echo KF-VolterManor >> maplist.txt
