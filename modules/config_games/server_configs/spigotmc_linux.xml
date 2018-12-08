@@ -92,7 +92,7 @@ while test $# -gt 0; do
 	esac
 	shift
 done
-# java -Xincgc -Xmx1024M -XX:MaxPermSize=128M -jar spigot.jar nogui
+# java -XX:+UseConcMarkSweepGC -Xmx1024M -XX:MaxPermSize=128M -jar spigot.jar nogui
 RUNCMD=&quot;java$ARGS&quot;
 BTURL=&quot;https://hub.spigotmc.org/jenkins/job/BuildTools/lastSuccessfulBuild/artifact/target/BuildTools.jar&quot;
 BT=&quot;BuildTools.jar&quot;
