@@ -60,11 +60,12 @@
     <param key="+game_type" type="select">
       <option value="0">Classic</option>
       <option value="1">Arms/DeathMatch</option>
+      <option value="6">Free For All</option>
       <caption>Game Type</caption>
       <desc>Select a Game Type.</desc>
     </param>
     <param key="+game_mode" type="select">
-      <option value="0">Casual/Race</option>
+      <option value="0">Casual/Race/Survival</option>
       <option value="1">Competitive/Demolition</option>
       <option value="2">DeathMatch</option>
       <caption>Game Mode</caption>
