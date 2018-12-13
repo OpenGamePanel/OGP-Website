@@ -48,11 +48,15 @@
     </field>
     <field key="CLIENT_SEND_INTERVAL_HZ" type="text">
       <default>CLIENT_SEND_INTERVAL_HZ=.*</default>
-      <default_value>18</default_value>
+      <default_value>15</default_value>
       <var>CLIENT_SEND_INTERVAL_HZ=</var>
       <filepath>cfg/server_cfg.ini</filepath>
       <access>admin</access>
-      <desc>Refresh rate of packet sending by the server.</desc>
+      <desc>Refresh rate of packet sending by the server. 10Hz = ~100ms. Higher number = higher MP quality = higher bandwidth resources needed. Really high values can create connection issues.</desc>
     </field>
   </custom_fields>
+  <configuration_files>
+    <file description="Server Configurations">/cfg/server_cfg.ini</file>
+    <file description="More Server Configurations">/cfg/entry_list.ini</file>
+  </configuration_files>
 </game_config>
