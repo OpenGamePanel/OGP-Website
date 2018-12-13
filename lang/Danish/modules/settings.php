@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_maintenance_mode', "Vedligeholdelse");
-define('OGP_LANG_maintenance_mode_info', "Disable the Panel for normal users. Only administrators can access it during maintenance.");
+define('OGP_LANG_maintenance_mode_info', "Slå panelet fra for normale brugere. Kun administratore kan tilgå det under Vedligeholdelse ");
 define('OGP_LANG_maintenance_title', "Vedligeholdes Title");
 define('OGP_LANG_maintenance_title_info', "Denne title bliver vist, til normale brugere, under vedligeholdes.");
 define('OGP_LANG_maintenance_message', "Vedligeholde Besked");
@@ -39,9 +39,9 @@ define('OGP_LANG_smtp_server_info', "Dette er en udgående mail server (SMTP ser
 define('OGP_LANG_panel_email_address', "Udgående E-Mail Addresse");
 define('OGP_LANG_panel_email_address_info', "Dette er e-mail adressen, som er fra feltet, hvor adgangskoder bliver sendt til brugerne.");
 define('OGP_LANG_panel_name', "Panel navn");
-define('OGP_LANG_panel_name_info', "Name of the Panel that is shown in the page title. This value will overrule all page titles, if it's not empty.");
+define('OGP_LANG_panel_name_info', "Navnet af panelet som er vist på side titlen. Denne Værdi vil overskive alle side titlerne, Hvis ikke den er tom.");
 define('OGP_LANG_feed_enable', "Aktivere LGSL Feed");
-define('OGP_LANG_feed_enable_info', "If your webhost has a firewall which is blocking the query port, then you need to open the port manually.");
+define('OGP_LANG_feed_enable_info', "Hvis din internetudbyder har en firewall  som blokere query porten, så skal du åbne porten manuelt.");
 define('OGP_LANG_feed_url', "Feed URL");
 define('OGP_LANG_feed_url_info', "GrayCube.com deler LGSL feed lin til:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Character Encoding");
@@ -64,15 +64,15 @@ define('OGP_LANG_time_zone', "Tids Zone");
 define('OGP_LANG_time_zone_info', "Sætter den standarde tidszone, bruges af alle dato/tids funktioner.");
 define('OGP_LANG_query_cache_life', "Query cache liv");
 define('OGP_LANG_query_cache_life_info', "Indstil timeout i sekunder, før serveren status bliver genopfrisket.");
-define('OGP_LANG_query_num_servers_stop', "Disable Game Server Queries After");
-define('OGP_LANG_query_num_servers_stop_info', "Use this setting to disable queries if a user owns more game servers than this amount specified to speed up panel loading.");
-define('OGP_LANG_editable_email', "Editable E-Mail Address");
-define('OGP_LANG_editable_email_info', "Select if users can edit their e-mail address or not.");
-define('OGP_LANG_old_dashboard_behavior', "Old Dashboard behavior");
-define('OGP_LANG_old_dashboard_behavior_info', "The old Dashboard was running slower, but shows more server informations (e.g. current players and maps).");
-define('OGP_LANG_rsync_available', "Available Rsync servers");
-define('OGP_LANG_rsync_available_info', "Select what servers list will be shown in the rsync installation.");
-define('OGP_LANG_all_available_servers', "All available servers ( rsync_sites.list + rsync_sites_local.list )");
+define('OGP_LANG_query_num_servers_stop', "fraslå Game Server Queries efter");
+define('OGP_LANG_query_num_servers_stop_info', "brug denne indstilling til at fraslå queries hvis en bruger ejer flere Spil servere end dette antal specificeret til at få panelet til at indlæse hurtigere.");
+define('OGP_LANG_editable_email', "Redigerbar E-mail Addrese");
+define('OGP_LANG_editable_email_info', "Vælg om brugere kan redigere deres e-mail adresser eller ikke.");
+define('OGP_LANG_old_dashboard_behavior', "Gammel Instrumentpanel adfærd");
+define('OGP_LANG_old_dashboard_behavior_info', "Det gamle instrumentpanel kørte langsommere, men viser mere server information  (f.eks. Nuværende spillere og maps).");
+define('OGP_LANG_rsync_available', "Tilgængelige Rsync servere");
+define('OGP_LANG_rsync_available_info', "Vælg hvilke serverliste der vil blive vist i rsync installationen");
+define('OGP_LANG_all_available_servers', "Alle tilgængelige servere ( rsync_sites.list + rsync_sites_local.list )");
 define('OGP_LANG_only_remote_servers', "Only remote servers ( rsync_sites.list )");
 define('OGP_LANG_only_local_servers', "Only local servers ( rsync_sites_local.list )");
 define('OGP_LANG_header_code', "Header code");

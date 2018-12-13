@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_resetting_configs', "Nulstiller alle configs");
-define('OGP_LANG_updating_configs', "Updating old configs");
+define('OGP_LANG_updating_configs', "Opdatere gamle konfigurationer");
 define('OGP_LANG_configs_updated_ok', "Konfiguration genlæst succesfuldt.");
 define('OGP_LANG_reset_old_configs', "Nulstil gamle konfigurationer");
 define('OGP_LANG_update_configs', "Opdatere Config");
@@ -36,8 +36,8 @@ define('OGP_LANG_error_while_adding_cfg_to_db', "Fejl opstod, når data tilføje
 define('OGP_LANG_no_configs_found', "Ingen konfiguration fundet fra %s.");
 define('OGP_LANG_select_game', "Vælg Spil");
 define('OGP_LANG_create_xml_configs', "Opret XML Configs");
-define('OGP_LANG_failed_to_delete_config_from_db', "Failed to delete %s config from database");
-define('OGP_LANG_failed_removing_file', "Falied removing the file %s.");
-define('OGP_LANG_removed_game_cfg_from_disk_and_datbase', "Removed config for %s from storage and database.");
-define('OGP_LANG_delete_game_config_for', "Delete game configuration for %s from disk and database.");
+define('OGP_LANG_failed_to_delete_config_from_db', "Fejlede sletning af %s konfiguration fra database");
+define('OGP_LANG_failed_removing_file', "Fejlede fjernelsen af %s.");
+define('OGP_LANG_removed_game_cfg_from_disk_and_datbase', "Fjerne konfigurationen %s fra lager og database.");
+define('OGP_LANG_delete_game_config_for', "Slet spil konfiguration for %s fra lager og database.");
 ?>
