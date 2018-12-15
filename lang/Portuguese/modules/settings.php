@@ -45,7 +45,7 @@ define('OGP_LANG_feed_enable_info', "Se o seu webhost tiver um firewall que este
 define('OGP_LANG_feed_url', "URL do feed");
 define('OGP_LANG_feed_url_info', "GrayCube.com está compartilhando um feed LGSL na URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Codificação de Caracteres");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
+define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Verifica a codificação de caracteres definida em arquivos de idioma. Deixe em branco para usar o idioma padrão.");
 define('OGP_LANG_steam_user', "Usuário Steam");
 define('OGP_LANG_steam_user_info', "Um usuário e senha Steam é necessário para efetuar o download de alguns servidores de jogos como o CS:GO.");
 define('OGP_LANG_steam_pass', "Senha do Steam");
@@ -136,8 +136,8 @@ define('OGP_LANG_setup_api_authorized_hosts', "Define o API das hosts autorizada
 define('OGP_LANG_autohorized_hosts', "Hosts Autorizadas");
 define('OGP_LANG_add', "Adicionar");
 define('OGP_LANG_remove', "Remover");
-define('OGP_LANG_default_trusted_hosts', "Default Trusted Hosts");
-define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Trusted Hosts or Proxies (IPv4/IPv6 Addresses or CIDR)");
-define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Trusted Forwarded IPs (IPv4/IPv6 Addresses or CIDR)");
+define('OGP_LANG_default_trusted_hosts', "Hosts Confiáveis Padrão");
+define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Hosts Confiáveis ou Proxies (IPv4/IPv6 endereços ou CIDR*Classless Inter-Domain Routing*)");
+define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "IPs Confiaveis de Encaminhamentos (IPv4/IPv6 Endereços ou *Classless Inter-Domain Routing*)");
 
 ?>
