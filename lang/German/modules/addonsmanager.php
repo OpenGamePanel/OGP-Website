@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "Zeige Erweiterungen für selek
 define('OGP_LANG_linux_games', "Linux Spiele: ");
 define('OGP_LANG_windows_games', "Windows Spiele: ");
 define('OGP_LANG_create_addon', "Erstelle Erweiterung");
-define('OGP_LANG_addons_db', "Addons Database");
+define('OGP_LANG_addons_db', "Addons-Datenbank");
 define('OGP_LANG_addon_has_been_created', "Die Erweiterung %s wurde erstellt.");
 define('OGP_LANG_remove_addon', "Entferne Erweiterung");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Bitte fügen Sie eine URL zur komprimierten Datei ein.");

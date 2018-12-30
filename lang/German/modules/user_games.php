@@ -22,7 +22,7 @@
  *
  */
 
-define('OGP_LANG_add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
+define('OGP_LANG_add_mods_note', "Sie müssen Mods hinzufügen, nachdem Sie dem Benutzer einen Server hinzugefügt haben. Dies kann durch Bearbeiten des Servers erfolgen.");
 define('OGP_LANG_game_servers', "Spielserver ");
 define('OGP_LANG_game_path', "Game Pfad");
 define('OGP_LANG_game_path_info', "Der absolute Server Pfad. Beispiel: /home/ogpbot/OGP_User_Files/My_Server");
