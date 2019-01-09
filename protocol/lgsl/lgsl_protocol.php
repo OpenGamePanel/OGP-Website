@@ -91,6 +91,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor2"	=> "Killing Floor 2",
 		"kingpin"		=> "Kingpin: Life of Crime",
 		"lifeisfeudal"	=> "Life is Feudal",
+		"miscreated"	=> "Miscreated",
 		"moh"			=> "Medal of Honor",
 		"mohaa"			=> "Medal of Honor: Allied Assault",
 		"mohaab"		=> "Medal of Honor: Allied Assault Breakthrough",
@@ -243,6 +244,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor2"	=> "05",
 		"kingpin"		=> "03",
 		"lifeisfeudal"	=> "05",
+		"miscreated"    => "05",
 		"moh"			=> "30",
 		"mohaa"			=> "03",
 		"mohaab"		=> "03",
@@ -403,6 +405,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"killingfloor2" => "steam://connect/{IP}:{S_PORT}",
 		"kingpin"		=> "qtracker://{IP}:{S_PORT}?game=Kingpin&action=show",
 		"lifeisfeudal"	=> "steam://connect/{IP}:{Q_PORT}",
+		"miscreated"	=> "steam://connect/{IP}:{Q_PORT}",
 		"mohaa"			=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssault&action=show",
 		"mohaab"		=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssaultBreakthrough&action=show",
 		"mohaas"		=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssaultSpearhead&action=show",
@@ -529,6 +532,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "killingfloor"		: $c_to_q = 1;		$c_def = 7708;	$q_def = 7709;	$c_to_s = 0;	break;
 			case "killingfloor2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "lifeisfeudal"		: $c_to_q = 2;		$c_def = 28000; $q_def = 28002; $c_to_s = 0;	break;
+			case "miscreated"		: $c_to_q = 2;		$c_def = 64090;	$q_def = 64091;	$c_to_s = 0;	break;
 			case "mohaa"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
 			case "mohaab"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
 			case "mohaas"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;

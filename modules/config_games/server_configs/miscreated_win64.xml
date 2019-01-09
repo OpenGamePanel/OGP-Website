@@ -1,0 +1,49 @@
+<game_config>
+  <game_key>miscreated_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>miscreated</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Miscreated</game_name>
+  <server_exec_name>Bin64_dedicated\MiscreatedServer.exe</server_exec_name>
+  <cli_template>%IP% %PORT% %HOSTNAME% %PLAYERS% %MAP% %GAMESERVERID%</cli_template>
+  <cli_params>
+   <cli_param cli_string="-sv_port" id="PORT" options="s"/>
+   <cli_param cli_string="+sv_maxplayers" id="PLAYERS" options="s"/>
+   <cli_param cli_string="-sv_bind" id="IP" options="s"/>
+   <cli_param id="HOSTNAME" cli_string="+sv_servername" options="sq" />
+  </cli_params>
+  <console_log>server.log</console_log>
+  <max_user_amount>200</max_user_amount>
+  <mods>
+   <mod key='MiscreatedDedicatedServer'>
+    <name>none</name>
+    <installer_name>302200</installer_name>
+   </mod>
+  </mods>
+  <replace_texts>
+   <text key="home_name">
+    <default>(sv_servername\s*=\s*")(.*)(")</default>
+    <var>sv_servername="%key%"</var>
+    <filepath>hosting.cfg</filepath>
+    <options>key-regex</options>
+   </text>
+   <text key="control_password">
+    <default>(http_password\s*=\s*")(.*)(")</default>
+    <var>http_password="%key%"</var>
+    <filepath>hosting.cfg</filepath>
+    <options>key-regex</options>
+   </text>
+  </replace_texts>
+  <server_params>
+   <param id="MAP" key="+map" type="text">
+    <default>islands</default>
+    <caption>Map</caption>
+    <desc>Server Map</desc>
+   </param>
+   <param id="GAMESERVERID" key="-mis_gameserverid" type="text">
+    <default>100</default>
+    <caption>Game Server ID</caption>
+    <desc>Game Server ID</desc>
+   </param>
+  </server_params>
+</game_config>
