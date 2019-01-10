@@ -49,4 +49,7 @@
     <desc>Game Server ID</desc>
    </param>
   </server_params>
+  <configuration_files>
+    <file description="Server Configuration">hosting.cfg</file>
+  </configuration_files>
 </game_config>
