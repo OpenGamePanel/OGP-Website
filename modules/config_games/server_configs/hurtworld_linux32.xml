@@ -17,7 +17,7 @@
   </reserve_ports>
   <map_list>maplist.txt</map_list>
   <console_log>gamelog.txt</console_log>
-  <max_user_amount>60</max_user_amount>
+  <max_user_amount>120</max_user_amount>
   <mods>
     <mod key="default">
       <name>None</name>
