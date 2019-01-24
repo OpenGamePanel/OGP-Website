@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "Mostrar del juego seleccionado
 define('OGP_LANG_linux_games', "Juegos Linux:");
 define('OGP_LANG_windows_games', "Juegos Windows:");
 define('OGP_LANG_create_addon', "Crear Añadido");
-define('OGP_LANG_addons_db', "Addons Database");
+define('OGP_LANG_addons_db', "agregar base de datos");
 define('OGP_LANG_addon_has_been_created', "El añadido %s ha sido creado.");
 define('OGP_LANG_remove_addon', "Eliminar añadido");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Por favor, rellene la dirección URL para el archivo comprimido.");
