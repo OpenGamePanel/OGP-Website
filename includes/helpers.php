@@ -405,6 +405,9 @@ function runPostUpdateOperations(){
 		if(function_exists("updateCronJobsToNewApi")){
 			updateCronJobsToNewApi();
 		}
+		if(function_exists("updateAllPanelModules")){
+			updateAllPanelModules();
+		}
 	}
 }
 

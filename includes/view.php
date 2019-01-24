@@ -56,8 +56,11 @@ class OGPView {
         
         // Our global CSS goes first so that themes can override
         $this->header_code = '<link rel="stylesheet" href="css/global.css">' . "\n";
-
-        $path = getThemePath();
+		if(function_exists("getThemePath")){
+			$path = getThemePath();
+		}else{
+			$path = 'themes/Revolution/';
+		}
 
 		$page = file_get_contents($path.'layout.html');
 		@$top = file_get_contents($path.'top.html');
