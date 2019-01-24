@@ -230,30 +230,32 @@ function exec_ogp_module()
 		$colhtml[3] = '<div class="column one_fourth" id="column3" >';
 		foreach($widgets as $widget)
 		{
-			if( (!isset($settings['old_dashboard_behavior']) or $settings['old_dashboard_behavior'] == 0) AND $widget['widget_id'] == "3" )
-				continue;
-			$colhtml[$widget['column_id']] .= '<div class="dragbox bloc rounded" id="item'.$widget['widget_id'].'">'.
-											  '<h4><span class="configure"></span>';
-			if(!is_null($title[$widget['widget_id']]))
-				$colhtml[$widget['column_id']] .= $title[$widget['widget_id']];
-			
-			$colhtml[$widget['column_id']] .= '</h4><div class="dragbox-content" '; 
-			if(!is_null($href[$widget['widget_id']]))
-			{
-				$colhtml[$widget['column_id']] .= "onclick=\"location.href='". $href[$widget['widget_id']] . "'\" style=\"cursor:pointer;";
-				if($widget['collapsed']==1)  
-					$colhtml[$widget['column_id']] .= 'display:none;';
-				$colhtml[$widget['column_id']] .= '"';
+			if(array_key_exists($widget["widget_id"], $title)){
+				if( (!isset($settings['old_dashboard_behavior']) or $settings['old_dashboard_behavior'] == 0) AND $widget['widget_id'] == "3" )
+					continue;
+				$colhtml[$widget['column_id']] .= '<div class="dragbox bloc rounded" id="item'.$widget['widget_id'].'">'.
+												  '<h4><span class="configure"></span>';
+				if(!is_null($title[$widget['widget_id']]))
+					$colhtml[$widget['column_id']] .= $title[$widget['widget_id']];
+				
+				$colhtml[$widget['column_id']] .= '</h4><div class="dragbox-content" '; 
+				if(!is_null($href[$widget['widget_id']]))
+				{
+					$colhtml[$widget['column_id']] .= "onclick=\"location.href='". $href[$widget['widget_id']] . "'\" style=\"cursor:pointer;";
+					if($widget['collapsed']==1)  
+						$colhtml[$widget['column_id']] .= 'display:none;';
+					$colhtml[$widget['column_id']] .= '"';
+				}
+				elseif($widget['collapsed']==1)  
+					$colhtml[$widget['column_id']] .= 'style="display:none;"';
+
+				$colhtml[$widget['column_id']] .= '>';
+
+				if(!is_null($content[$widget['widget_id']]))
+					$colhtml[$widget['column_id']] .= $content[$widget['widget_id']];
+
+				$colhtml[$widget['column_id']] .= '</div></div>'; 
 			}
-			elseif($widget['collapsed']==1)  
-				$colhtml[$widget['column_id']] .= 'style="display:none;"';
-
-			$colhtml[$widget['column_id']] .= '>';
-
-			if(!is_null($content[$widget['widget_id']]))
-				$colhtml[$widget['column_id']] .= $content[$widget['widget_id']];
-
-			$colhtml[$widget['column_id']] .= '</div></div>'; 
 		}
 		foreach($colhtml as $html )
 			echo $html.'</div>';
