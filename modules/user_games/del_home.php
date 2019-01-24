@@ -149,6 +149,14 @@ function exec_ogp_module() {
 			}
 		}
 		
+		// Delete cronjobs
+		if(file_exists('modules/cron/shared_cron_functions.php')){
+			require_once('modules/cron/shared_cron_functions.php');
+			if(function_exists("deleteJobsByHomeServerID")){
+				deleteJobsByHomeServerID($home_id);
+			}
+		}
+		
 		if ( $db->deleteGameHome($home_id) === FALSE )
 		{
 			print_failure(get_lang("failed_to_remove_gamehome_from_database"));

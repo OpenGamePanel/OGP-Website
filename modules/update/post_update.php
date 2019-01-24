@@ -22,17 +22,12 @@
  *
  */
 
+ // todo, make checking and updating functions for updateing on the background.
+ // todo, more specified updates in smaller packages
+
 function exec_ogp_module()
 {
-    global $db;
-    global $view;
-
-    print "<h2>".get_lang_f('updating_modules')."</h2>";
-
-    updateAllPanelModules();
-
-	print "<p>".get_lang_f('updating_finished')."</p>";
-	
-    $view->refresh("?m=modulemanager",30);
+	global $db, $settings;
+	runPostUpdateOperations();
 }
 ?>

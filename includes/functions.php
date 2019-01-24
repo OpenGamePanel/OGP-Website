@@ -871,4 +871,29 @@ function getThemePath()
 	}
 	return $path;
 }
+
+function updateAllPanelModules(){
+	global $db;
+	if(file_exists('modules/modulemanager/module_handling.php')){
+		require_once('modules/modulemanager/module_handling.php');
+
+		$modules = $db->getInstalledModules();
+		// update module manager first
+		foreach ( $modules as $row )
+		{
+			if($row['folder'] == 'modulemanager')
+			{
+				update_module($db, $row['id'], $row['folder']);
+				break;
+			}
+		}
+		
+		foreach ( $modules as $row )
+		{
+			if($row['folder'] == 'modulemanager')//already updated
+				continue;
+			update_module($db, $row['id'], $row['folder']);
+		}
+	}
+}
 ?>

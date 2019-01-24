@@ -2458,6 +2458,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 			FROM `%1$sremote_servers` 
 			NATURAL JOIN `%1$sserver_homes` 
 			NATURAL JOIN `%1$sconfig_homes`
+			NATURAL JOIN `%1$sremote_server_ips`
+			NATURAL JOIN `%1$shome_ip_ports`
 			WHERE `home_id` = %2$d;',
 			$this->table_prefix,
 			$this->realEscapeSingle($home_id));

@@ -150,8 +150,12 @@ function get_user_uid_gid_from_passwd($input_array,$name)
 function check_theme_image($base_image_path)
 {
 	$base_image_path = ltrim($base_image_path, "/");
-	return file_exists( getThemePath() . $base_image_path ) ? 
+	if(function_exists("getThemePath")){
+		return file_exists( getThemePath() . $base_image_path ) ? 
 						getThemePath() . $base_image_path :
 						$base_image_path;
+	}
+	
+	return $base_image_path;
 }
 ?>
