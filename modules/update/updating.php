@@ -289,6 +289,11 @@ function exec_ogp_module()
 				if(function_exists("runPostUpdateOperations")){
 					runPostUpdateOperations();
 				}
+				
+				// Inject AJAX to run post update operations again (which will reload functions and helpers in case there are changes there we need now that aren't available once this script finishes running
+				echo '<script type="text/javascript">
+					     $.get("home.php?m=update&p=postupdate", function(msg){});
+					  </script>';
 			}
 			else
 			{

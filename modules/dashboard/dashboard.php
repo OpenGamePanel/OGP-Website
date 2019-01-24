@@ -199,10 +199,13 @@ function exec_ogp_module()
 	$title[3] = get_lang('currently_online');
 	$content[3] = $player_list; 
 	$href[3] = null;
+	
+	// Commented out per https://github.com/OpenGamePanel/OGP-Website/issues/407
 	// FTP
-	$title[4] = get_lang('login');
-	$content[4] = '<img src="themes/' . $settings['theme'] . '/images/icons/folder.png" style="width:48px;float:right;margin:0 0 0 8px" />' . get_lang('welcome_text');
-	$href[4] = 'home.php?m=user_admin&p=edit_user&user_id='.$_SESSION['user_id'];
+	// $title[4] = get_lang('login');
+	// $content[4] = '<img src="themes/' . $settings['theme'] . '/images/icons/folder.png" style="width:48px;float:right;margin:0 0 0 8px" />' . get_lang('welcome_text');
+	// $href[4] = 'home.php?m=user_admin&p=edit_user&user_id='.$_SESSION['user_id'];
+	
 	// Support
 	$title[5] = (isset($settings['support_widget_title']) && $settings['support_widget_title'] != "") ?
 				 $settings['support_widget_title'] : get_lang('support');
