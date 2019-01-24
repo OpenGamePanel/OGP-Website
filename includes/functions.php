@@ -873,6 +873,7 @@ function getThemePath()
 }
 
 function updateAllPanelModules(){
+	global $db;
 	if(file_exists('modules/modulemanager/module_handling.php')){
 		require_once('modules/modulemanager/module_handling.php');
 
