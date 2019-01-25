@@ -241,7 +241,7 @@ abstract class OGPDatabase {
 
     /// \return FALSE if game home does not exist
     /// \return array containing the information of the gamehome.
-    abstract public function getGameHome($home_id);
+    abstract public function getGameHome($home_id, $getIPInfo = false);
 
     /// \return FALSE if game home does not exist or user does not have access to it.
     /// \return array information of the gamehome.
