@@ -45,10 +45,11 @@
       <desc>Interval in Seconds for save</desc>
     </param>
     <param key="-worldtype=" type="select" id="MAP">      
-      <option value="Moon">Moon</option>
-      <option value="Space">Space</option>
-      <option value="Mars">Mars</option>      
-	  <options>ns</options>
+      <option value="Moon">Moon - Survival</option>      
+      <option value="Mars">Mars - Survival</option>
+      <option value="Europa">Europa - Survival</option>      
+      <option value="Space">Space - Creative</option>
+      <options>ns</options>
       <desc>Defines the map of the server.</desc>
     </param>
   </server_params>   
