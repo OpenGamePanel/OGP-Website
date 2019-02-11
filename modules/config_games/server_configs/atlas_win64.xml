@@ -1,0 +1,72 @@
+<game_config>
+  <game_key>atlas_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>atlas</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Atlas</game_name>
+  <server_exec_name>ShooterGameServer.exe</server_exec_name>
+  <cli_template>Ocean%SX%%SY%%ASDN%%CONTROL_PASSWORD%%PLAYERS%%RPS%%QUERY_PORT%%PORT%%IP%%RCON%%RCON_PORT%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="?SeamlessIP=" />
+    <cli_param id="PORT" cli_string="?Port=" />
+    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
+    <cli_param id="CONTROL_PASSWORD" cli_string="?ServerAdminPassword=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=">51800</port>
+  </reserve_ports>
+  <exe_location>ShooterGame/Binaries/Win64</exe_location>
+  <max_user_amount>127</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>1006030</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+    <param key="?ReservedPlayerSlots=" type="text" id="RPS">
+      <default>0</default>
+      <options>ns</options>
+      <desc>Number of reserved player slots.</desc>
+    </param>
+    <param key="?AltSaveDirectoryName=" type="text" id="ASDN">
+      <options>ns</options>
+      <desc>Name of the save folder.</desc>
+    </param>
+    <param key="?ServerX=" type="text" id="SX">
+      <default>0</default>
+      <options>ns</options>
+      <desc>Set X value.</desc>
+    </param>
+    <param key="?ServerY=" type="text" id="SY">
+      <default>0</default>
+      <options>ns</options>
+      <desc>Set Y value.</desc>
+    </param>
+    <param key="-server" type="checkbox_key_value">
+      <desc>Enable server admin logs.</desc>
+    </param>
+    <param key="-log" type="checkbox_key_value">
+      <desc>Log file will contain a timestamped kills and winners log listing Steam ID, Steam name, character name, etc.</desc>
+    </param>
+    <param key="-NoBattlEye" type="checkbox_key_value">
+      <desc>Disables Anti-Cheat.</desc>
+    </param>
+    <param key="?RCONEnable=" type="select" id="RCON">
+      <option value="True">True</option>
+      <option value="False">False</option>
+      <options>ns</options>
+      <desc>Enable or disable remote control.</desc>
+    </param>
+    <param key="?RCONPort=" type="text" id="RCON_PORT">
+      <default>28000</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>Port of remote control.</desc>
+    </param>
+  </server_params>
+<!--  <pre_start>
+    cmd /c AtlasTools\RedisDatabase\redis-server_start.bat
+  </pre_start>-->
+</game_config>

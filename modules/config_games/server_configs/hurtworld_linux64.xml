@@ -15,9 +15,9 @@
   <reserve_ports>
     <port type="add" id="QUERY_PORT" cli_string="queryport" options="s">10</port>
   </reserve_ports>
-  <maps_location>Hurtworld_Data/maps</maps_location>
+  <map_list>maplist.txt</map_list>
   <console_log>gamelog.txt</console_log>
-  <max_user_amount>60</max_user_amount>
+  <max_user_amount>120</max_user_amount>
   <mods>
     <mod key="default">
       <name>None</name>
@@ -25,6 +25,18 @@
       <installer_login>anonymous</installer_login>
     </mod>
   </mods>
+  <post_install>
+    maplist="maplist.txt"
+    if [ -s "$maplist" ]
+      then
+        echo "File $maplist found. OK!"
+      else
+        echo "File $maplist not found."
+        echo "Generating new maplist file in $maplist!"
+        touch $maplist
+        echo Nullius> $maplist
+    fi
+  </post_install>
   <lock_files>
     Hurtworld.x86
   </lock_files>
