@@ -47,7 +47,7 @@ define('OGP_LANG_err_last_name', "Vezetéknév nincs megadva.");
 define('OGP_LANG_err_phone_number', "A telefonszám üres.");
 define('OGP_LANG_err_email_address', "Üres vagy érvénytelen e-mail cím.");
 define('OGP_LANG_err_users_parent', "Az al-felhasználói fiókok nem hozhatnak létre más felhasználókat.");
-define('OGP_LANG_err_parent_user', "The parent user ID must reference a valid pre-existing user.");
+define('OGP_LANG_err_parent_user', "A szülő felhasználói azonosítónak érvényes, meglévő felhasználóra kell hivatkoznia.");
 define('OGP_LANG_err_email_address_already_in_use_by', "Az e-mail cím már használatban van <b>%s</b> által.");
 define('OGP_LANG_user_registration', "Felhasználó regisztráció");
 define('OGP_LANG_your_account_details_has_been_sent_by_email_to', "A fiók adataid e-mailben elküldve a(z) <b>%s</b> címre.");
