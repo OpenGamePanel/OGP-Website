@@ -53,7 +53,7 @@
     <param key="-NoBattlEye" type="checkbox_key_value">
       <desc>Disables Anti-Cheat.</desc>
     </param>
-    <param key="?RCONEnable=" type="select" id="RCON">
+    <param key="?RCONEnabled=" type="select" id="RCON">
       <option value="True">True</option>
       <option value="False">False</option>
       <options>ns</options>
