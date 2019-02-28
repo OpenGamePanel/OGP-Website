@@ -29,7 +29,7 @@ define('OGP_LANG_dwl_update', "Carregando a atualização ...");
 define('OGP_LANG_dwl_complete', "Download completo");
 define('OGP_LANG_install_update', "Instalando atualização...");
 define('OGP_LANG_update_complete', "Atualização completa");
-define('OGP_LANG_ignored_files', "%s ignored file(s)");
+define('OGP_LANG_ignored_files', "%s ficheiro(s) ignorado(s)");
 define('OGP_LANG_not_updated_files_blacklisted', "Arquivos não atualizados/instalados (lista negra):<br>%s");
 define('OGP_LANG_latest_version', "Última versão");
 define('OGP_LANG_panel_version', "Versão do painel");

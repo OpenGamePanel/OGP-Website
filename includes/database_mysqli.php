@@ -2453,12 +2453,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $homeid;
 	}
 
-	public function getGameHome($home_id) {
-		$query = sprintf('SELECT *
+	public function getGameHome($home_id, $getIPInfo = false) {
+		$queryStr = 'SELECT *
 			FROM `%1$sremote_servers` 
 			NATURAL JOIN `%1$sserver_homes` 
-			NATURAL JOIN `%1$sconfig_homes`
-			WHERE `home_id` = %2$d;',
+			NATURAL JOIN `%1$sconfig_homes`';
+		if($getIPInfo){
+			$queryStr .= ' NATURAL JOIN `%1$sremote_server_ips` NATURAL JOIN `%1$shome_ip_ports`';
+		}
+		$queryStr .= ' WHERE `home_id` = %2$d;';
+		$query = sprintf($queryStr,
 			$this->table_prefix,
 			$this->realEscapeSingle($home_id));
 		++$this->queries_;

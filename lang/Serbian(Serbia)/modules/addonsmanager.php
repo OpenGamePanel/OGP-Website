@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "Прикажи додатке 
 define('OGP_LANG_linux_games', "Игре за линукс:");
 define('OGP_LANG_windows_games', "Игре за виндоус:");
 define('OGP_LANG_create_addon', "Креирај додатак");
-define('OGP_LANG_addons_db', "База додатака");
+define('OGP_LANG_addons_db', "Addons Database");
 define('OGP_LANG_addon_has_been_created', "Додатак %s је креиран.");
 define('OGP_LANG_remove_addon', "Уклони додатак");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Молимо вас да унесете линк ка компресованом фајлу.");

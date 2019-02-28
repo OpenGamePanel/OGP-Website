@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_game_manager', "مدير اللعبة");
 define('OGP_LANG_no_games_to_monitor', "ليس لديك أي ألعاب مخصصة لك يمكنك مراقبتها.");
 define('OGP_LANG_status', "الحالة");
 define('OGP_LANG_fail_no_mods', "لا يوجد مودات مفعلة لهذه اللعبة! يجب أن تطلب من المشرف أو مدير لوحة التحكم إضافة مودات للعبة المخصصة لك.");
@@ -73,7 +72,7 @@ define('OGP_LANG_failed_to_start_rsync_update', "فشل بدء تحديث Rsync.
 define('OGP_LANG_update_completed', "اكتمل التحديث بنجاح.");
 define('OGP_LANG_update_in_progress', "جار التحديث، يرجى الانتظار ...");
 define('OGP_LANG_refresh_steam_status', "تحديث حالة Steam");
-define('OGP_LANG_refresh_rsync_status', "تحديث حالة rsync");
+define('OGP_LANG_refresh_rsync_status', "تحديث حالة Rsync");
 define('OGP_LANG_server_running_cant_update', "الخادم شغال إذا التحديث ليس معقول. أوقف الخادم قبل التحديث.");
 define('OGP_LANG_xml_steam_error', "نوع الخادم المحدد لا يدعم التثبيت / التحديث Steam.");
 define('OGP_LANG_mod_key_not_found_from_xml', "مفتاح التعديل '%s' لم يتم العثور عليه من ملف XML.");
@@ -150,7 +149,7 @@ define('OGP_LANG_account_expiration', "انتهاء صلاحية الحساب");
 define('OGP_LANG_mysql_databases', "قواعد بيانات MySQL");
 define('OGP_LANG_failed_querying_server', "* فشل الاستعلام عن السيرفر.");
 define('OGP_LANG_query_protocol_not_supported', "* لا يوجد بروتوكول استعلام في OGP يمكنه دعم هذا السيرفر.");
-define('OGP_LANG_queries_disabled_by_setting_disable_queries_after', "Queries disabled by setting: Disable queries after: %s, since you have %s servers.<br>");
+define('OGP_LANG_queries_disabled_by_setting_disable_queries_after', "تم تعطيل الاستعلامات من خلال الإعداد: تعطيل طلبات البحث بعد: %s, بما لديك %s خادم.<br>");
 define('OGP_LANG_presets_for_game_and_mod', "RCON presets for %s and mod %s");
 define('OGP_LANG_name', "الاسم");
 define('OGP_LANG_command', "RCON&nbsp;Command");
@@ -201,7 +200,7 @@ define('OGP_LANG_hide_server_id', "Hide Server IDs");
 define('OGP_LANG_edit_configuration_files', "Edit Configuration Files");
 define('OGP_LANG_admin', "مشرف");
 define('OGP_LANG_cid', "CID");
-define('OGP_LANG_phan', "Phantom");
+define('OGP_LANG_phan', "وهمي");
 define('OGP_LANG_sec', "ثواني");
 define('OGP_LANG_unknown_rsync_mirror', "لقد حاولت بدء تحديث من مرآة غير موجودة.");
 define('OGP_LANG_custom_fields', "الحقول المخصصة");

@@ -2,4 +2,5 @@
   <page key="default" file="update.php" access="admin" />
   <page key="updating" file="updating.php" access="admin" />
   <page key="blacklist" file="blacklist.php" access="admin" />
+  <page key="postupdate" file="post_update.php" access="admin" />
 </navigation>

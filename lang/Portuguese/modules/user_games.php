@@ -219,5 +219,5 @@ define('OGP_LANG_search', "Pesquisar");
 define('OGP_LANG_ftp_account_username_too_long', "O nome do usuário FTP é demasiado longo. Experimente um nome de usuário mais curto que não contenha mais de 20 caracteres.");
 define('OGP_LANG_ftp_account_password_too_long', "O nome do usuário FTP é demasiado longo. Experimente um nome de usuário mais curto que não contenha mais de 20 caracteres.");
 define('OGP_LANG_other_servers_exist_with_path_please_change', "Existem outros directórios com o mesmo caminho. É recomendado (mas não é necessário) que você altere esse caminho para algo único. Se não você poderá obter alguns erros de futuro.");
-define('OGP_LANG_change_access_rights_for_selected_servers', "Change access rights for selected servers");
+define('OGP_LANG_change_access_rights_for_selected_servers', "Alterar direitos de acesso para servidores seleccionados");
 ?>

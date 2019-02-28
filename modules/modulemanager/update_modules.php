@@ -29,25 +29,7 @@ function exec_ogp_module()
 
     print "<h2>".get_lang_f('updating_modules')."</h2>";
 
-    require_once('modules/modulemanager/module_handling.php');
-
-    $modules = $db->getInstalledModules();
-    // update module manager first
-    foreach ( $modules as $row )
-	{
-		if($row['folder'] == 'modulemanager')
-		{
-			update_module($db, $row['id'], $row['folder']);
-			break;
-		}
-	}
-    
-    foreach ( $modules as $row )
-    {
-		if($row['folder'] == 'modulemanager')//already updated
-			continue;
-		update_module($db, $row['id'], $row['folder']);
-    }
+    updateAllPanelModules();
 
 	print "<p>".get_lang_f('updating_finished')."</p>";
 	

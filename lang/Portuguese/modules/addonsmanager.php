@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "Mostrar Addons por Jogos");
 define('OGP_LANG_linux_games', "Jogos Linux");
 define('OGP_LANG_windows_games', "Jogos Windows");
 define('OGP_LANG_create_addon', "Criar Addons adicionais");
-define('OGP_LANG_addons_db', "Módulo Banco de dados");
+define('OGP_LANG_addons_db', "Addons da Base de Dados");
 define('OGP_LANG_addon_has_been_created', "O Módulo %s foi criado.");
 define('OGP_LANG_remove_addon', "Remover Addon");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Por favor, substitua o endereço do URL para comprimir o arquivo");
@@ -63,8 +63,8 @@ define('OGP_LANG_addon_name_info', "Digite um nome para este addon, este é o no
 define('OGP_LANG_url_info', "Insira um endereço da Web que contenha um arquivo para download, se compactado por zip ou tar.gz será descompactado no directório raiz do servidor ou no caminho fornecido abaixo.");
 define('OGP_LANG_path_info', "O caminho deve ser relativo à pasta do servidor e não contém barras no início ou no fim, por exemplo: cstrike/cfg. Se deixado em branco, este utilizará o caminho raiz do servidor.");
 define('OGP_LANG_post-script_info', "Digite os códigos de comando, pois estes serão executados em primeiro lugar, este será executado como um script, você pode usar substituições de texto para personalizar a instalação, eles serão substituídos por dados do servidor no qual você instala o addon. O script será iniciado a partir da pasta raiz do servidor no caminho especificado.");
-define('OGP_LANG_show_to_group', "Show to group");
-define('OGP_LANG_all_groups', "All groups");
-define('OGP_LANG_show_addons_for_selected_group', "Show addons for selected group");
-define('OGP_LANG_group', "Group");
+define('OGP_LANG_show_to_group', "Mostrar ao grupo");
+define('OGP_LANG_all_groups', "Todos os Grupos");
+define('OGP_LANG_show_addons_for_selected_group', "Mostrar addons para os grupos selecionados");
+define('OGP_LANG_group', "Grupo");
 ?>

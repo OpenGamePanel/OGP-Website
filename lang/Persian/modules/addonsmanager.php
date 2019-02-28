@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "نمایش افزونه های
 define('OGP_LANG_linux_games', "بازی های Linux:");
 define('OGP_LANG_windows_games', "بازی های Windows:");
 define('OGP_LANG_create_addon', "ساختن افزونه");
-define('OGP_LANG_addons_db', "پایگاه داده افزونه ها");
+define('OGP_LANG_addons_db', "Addons Database");
 define('OGP_LANG_addon_has_been_created', "افزونه %s ساخته شد.");
 define('OGP_LANG_remove_addon', "پاک کردن افزونه");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Please, fill an URL address for a compressed file.");

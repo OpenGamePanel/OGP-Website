@@ -22,7 +22,7 @@
  *
  */
 
-define('OGP_LANG_add_mods_note', "You need to add mods after adding server to user. This can be done by editing the server.");
+define('OGP_LANG_add_mods_note', "Sie müssen Mods hinzufügen, nachdem Sie dem Benutzer einen Server hinzugefügt haben. Dies kann durch Bearbeiten des Servers erfolgen.");
 define('OGP_LANG_game_servers', "Spielserver ");
 define('OGP_LANG_game_path', "Game Pfad");
 define('OGP_LANG_game_path_info', "Der absolute Server Pfad. Beispiel: /home/ogpbot/OGP_User_Files/My_Server");
@@ -109,7 +109,7 @@ define('OGP_LANG_set_as_master_server_for_local_clon_update', "Set as master ser
 define('OGP_LANG_only_available_for', "Only available for '%s' hosted on the remote server named '%s'.");
 define('OGP_LANG_ftp_on', "FTP aktivieren");
 define('OGP_LANG_ftp_off', "FTP deaktivieren");
-define('OGP_LANG_change_ftp_account_status', "Change FTP account status");
+define('OGP_LANG_change_ftp_account_status', "Status des FTP-Kontos ändern");
 define('OGP_LANG_change_ftp_account_status_info', "Once a FTP account is enabled or disabled, it is added or removed from the FTP's database.");
 define('OGP_LANG_server_ftp_login', "Server FTP Login");
 define('OGP_LANG_change_ftp_login_info', "Change the FTP Login with a customized one.");
@@ -189,7 +189,7 @@ define('OGP_LANG_sure_to_delete_serverid_from_remoteip_and_directory', "Are you 
 define('OGP_LANG_yes_and_delete_the_files', "Yes and Delete the files");
 define('OGP_LANG_failed_to_remove_gamehome_from_database', "Failed to remove gamehome from database.");
 define('OGP_LANG_successfully_deleted_game_server_with_id', "Successfully deleted game server with ID %s.");
-define('OGP_LANG_failed_to_remove_ftp_account_from_remote_server', "Failed to remove FTP account from remote server.");
+define('OGP_LANG_failed_to_remove_ftp_account_from_remote_server', "Beseitigen des FTP-Kontos auf dem entfernten Server ist fehlgeschlagen");
 define('OGP_LANG_remove_it_anyway', "Möchten Sie es trotzdem entfernen?");
 define('OGP_LANG_sucessfully_deleted', "Erfolgreich gelöscht %s");
 define('OGP_LANG_the_agent_had_a_problem_deleting', "The Agent had a problem while deleting %s. Please, check the Agent's log.");

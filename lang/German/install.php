@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_install_lang', "Wähle deine Primäre Sprache");
-define('OGP_LANG_install_welcome', "Welcome to the Open Game Panel Installer");
+define('OGP_LANG_install_welcome', "Willkommen beim Open Game Panel Installer");
 define('OGP_LANG_file_permission_check', "Überprüfe benötigte Datei-Rechte");
 define('OGP_LANG_OK', "OK");
 define('OGP_LANG_write_permission_required', "Schreibrechte benötigt");
@@ -33,8 +33,8 @@ define('OGP_LANG_found', "Gefunden");
 define('OGP_LANG_not_found', "Nicht gefunden");
 define('OGP_LANG_pear_xxtea_info', "Pear Crypt_XXTEA wird für die Benutzung von OGP benötigt. Bei den meisten Linux Distributionen kann dieses Modul mit dem folgenden Befehl nachinstalliert werden 'pear install Crypt_XXTEA-beta'.");
 define('OGP_LANG_refresh', "Aktuallisieren");
-define('OGP_LANG_checking_required_modules', "Checking required modules");
-define('OGP_LANG_checking_optional_modules', "Checking optional modules");
+define('OGP_LANG_checking_required_modules', "Überprüfe benötigte Module");
+define('OGP_LANG_checking_optional_modules', "Überprüfe optionale Module");
 define('OGP_LANG_database_type', "Datenbank Typ");
 define('OGP_LANG_database_settings', "Datenbank Zugangseinstellungen");
 define('OGP_LANG_database_hostname', "Datenbank Hostname");
@@ -55,7 +55,7 @@ define('OGP_LANG_repeat_password', "Passwort wiederholen");
 define('OGP_LANG_email', "E-Mail-Adresse");
 define('OGP_LANG_back', "Zurück");
 define('OGP_LANG_database_setup_failure', "Das Setup konnte die Datenbank nicht erstellen. Bitte überprüfe deine Datenbank-Konfiguration.");
-define('OGP_LANG_php_version_check', "Checking PHP version");
+define('OGP_LANG_php_version_check', "Überprüfe PHP-Version");
 define('OGP_LANG_invalid_username', "Du hast einen ungülltigen Benutzernamen eingegeben.");
 define('OGP_LANG_password_too_short', "Dein Passwort ist zu kurz. Es muss mindestens '%d' Zeichen lang sein.");
 define('OGP_LANG_password_contains_invalid_characters', "Dein Passwort beinhaltet ungültige Zeichen.");
