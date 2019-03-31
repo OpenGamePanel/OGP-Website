@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_game_manager', "Szerverkezelő");
 define('OGP_LANG_no_games_to_monitor', "Nincs egyetlen játék sem konfigurálva neked, amit felügyelhetnél.");
 define('OGP_LANG_status', "Állapot");
 define('OGP_LANG_fail_no_mods', "Nincs mod engedélyezve ehhez a játékhoz! Meg kell kérned az adminisztrátort, hogy legalább egy játék modot engedélyezzen a számodra.");
@@ -73,7 +72,7 @@ define('OGP_LANG_failed_to_start_rsync_update', "Az Rsync frissítés elindítá
 define('OGP_LANG_update_completed', "Frissítés sikeresen befejezve.");
 define('OGP_LANG_update_in_progress', "Frissítés folyamatban, kérlek várj...");
 define('OGP_LANG_refresh_steam_status', "Steam állapot frissítése");
-define('OGP_LANG_refresh_rsync_status', "Rsync állapot frissítése");
+define('OGP_LANG_refresh_rsync_status', "Refresh Rsync status");
 define('OGP_LANG_server_running_cant_update', "Szerver fut, így a frissítés nem lehetséges. Állítsd le a szervert frissítés előtt.");
 define('OGP_LANG_xml_steam_error', "A kiválasztott szerver típus nem támogatja a Steam telepítést/frissítést.");
 define('OGP_LANG_mod_key_not_found_from_xml', "A(z) '%s' mod kulcs nem található az XML fájlban.");

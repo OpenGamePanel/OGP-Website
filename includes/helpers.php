@@ -406,6 +406,14 @@ function runPostUpdateOperations(){
 			updateCronJobsToNewApi();
 		}
 	}
+	
+	if(function_exists("updateAllPanelModules")){
+		updateAllPanelModules();
+	}
+	
+	if(function_exists("removeOldPanelFiles")){
+		removeOldPanelFiles();
+	}
 }
 
 function getOGPGitHubURL($gitHubUsername, $repo){

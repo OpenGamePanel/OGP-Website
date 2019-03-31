@@ -34,8 +34,8 @@ define('OGP_LANG_modules', "Moduler");
 define('OGP_LANG_update_modules', "Opdatere Moduler");
 define('OGP_LANG_no_installed_modules', "Ingen installeret moduler fundet.");
 define('OGP_LANG_not_complete', "Slet/Installere funktion er ikke komplet, og vil nok ikke fungere korrekt. Advarsels: Data fra ogp database vil nok blive mistet!");
-define('OGP_LANG_core_mods_installed', "Installed Core Modules:");
-define('OGP_LANG_custom_mods_installed', "Installed Custom Modules:");
+define('OGP_LANG_core_mods_installed', "Installeret Core Moduler:");
+define('OGP_LANG_custom_mods_installed', "Installeret brugerdefineret Moduler:");
 define('OGP_LANG_installing_module', "Installere modul '%s'");
 define('OGP_LANG_successfully_installed_module', "Modulet blev installeret succesfuldt %s.");
 define('OGP_LANG_failed_to_install_module', "Fejlet i at installere modul %s.");
@@ -52,5 +52,5 @@ define('OGP_LANG_failed_del_db', "Fejlet I at slette modulet fra database.");
 define('OGP_LANG_updated_module', "Opdatere modul: '%s'.");
 define('OGP_LANG_updating_modules', "Opdatere moduler");
 define('OGP_LANG_updating_finished', "Opdatering Færdig");
-define('OGP_LANG_prereqs_missing', "Prerequisites of %s must be installed on the server before %s can be installed.");
+define('OGP_LANG_prereqs_missing', "Forudsætningerne for %s skal installeres på serveren før %s kan installeres.");
 ?>

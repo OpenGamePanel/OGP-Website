@@ -49,7 +49,7 @@ define('OGP_LANG_show_addons_for_selected_game', "Mutasd a kiegészítőket a ki
 define('OGP_LANG_linux_games', "Linux játékok:");
 define('OGP_LANG_windows_games', "Windows játékok:");
 define('OGP_LANG_create_addon', "Kiegészítő létrehozása");
-define('OGP_LANG_addons_db', "Kiegészítő adatbázisa");
+define('OGP_LANG_addons_db', "Kiegészítő adatbázis");
 define('OGP_LANG_addon_has_been_created', "A(z) %s kiegészítő létrehozva.");
 define('OGP_LANG_remove_addon', "Kiegészítő eltávolítása");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Kérlek, add meg a linkjét a betömörített fájlnak.");

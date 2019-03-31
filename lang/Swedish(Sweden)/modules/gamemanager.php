@@ -22,7 +22,6 @@
  *
  */
 
-define('OGP_LANG_game_manager', "Spelhanterare");
 define('OGP_LANG_no_games_to_monitor', "Du har inga spel upplagda som du kan kontrollera. ");
 define('OGP_LANG_status', "Status");
 define('OGP_LANG_fail_no_mods', "Inga moddar är aktiverade för detta spel! Du måste fråga din OGP-administratör för att lägga till modd(ar) för det spel som tilldelats till dig. ");
@@ -73,7 +72,7 @@ define('OGP_LANG_failed_to_start_rsync_update', "Misslyckades med att starta Rsy
 define('OGP_LANG_update_completed', "Uppdateringen lyckades. ");
 define('OGP_LANG_update_in_progress', "Pågående uppdatering, vänta...");
 define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
-define('OGP_LANG_refresh_rsync_status', "Uppdatera rsyncstatus ");
+define('OGP_LANG_refresh_rsync_status', "Refresh Rsync status");
 define('OGP_LANG_server_running_cant_update', "Servern körs, så uppdatering är ej möjlig. Stoppa servern innan du uppdaterar. ");
 define('OGP_LANG_xml_steam_error', "Den valda servertypen stödjer inte steamuppdatering/installation. ");
 define('OGP_LANG_mod_key_not_found_from_xml', "Moddnyckel '%s' hittades inte i XML-filen. ");

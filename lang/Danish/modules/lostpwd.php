@@ -37,7 +37,7 @@ define('OGP_LANG_mail_settings_missing', "Panels mail opsætninge er ikke færdi
 define('OGP_LANG_mail_failed', "Fejlet I at sende email.");
 define('OGP_LANG_email', "Email addresse");
 define('OGP_LANG_enter_email', "Venlig skriv din email adresse");
-define('OGP_LANG_webmaster', "Webmaster");
+define('OGP_LANG_webmaster', "Web master");
 define('OGP_LANG_confirm_send', "Af sikkerhedsmæssige grunde, har vi sendt dig et aktiverings link, før din adgangskode bliver nulstillet.<br><b style='color:red;'>Venlig tjek din indbakke.</b>");
 define('OGP_LANG_confirm_change_subject', "Adgangskoden er nustillet, bekræftelses email");
 define('OGP_LANG_confirm_change_password_message', "Hejsa,<br>Du eller en anden, har anmodet om, at få ændret din adgangskode,<br>hvis du gerne vil, ændre din adganskode, så besøg dennee URL address:<br><br>%s<br><br>Efter besøg på linket, ville en anden email blive sendt, med din nye adgangskode.<br><br>På forhånd tak!<br>An administrator.<br><br>Dette er et automatiseret svar, venlig ikke svar tilbage på den!");
