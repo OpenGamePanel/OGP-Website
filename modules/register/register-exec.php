@@ -43,8 +43,10 @@ function exec_ogp_module()
 	$admins = $db->getAdmins();
 	if(is_array($admins) && count($admins) > 0){
 		foreach($admins as $admin){
-			$adminEmail = $admin['users_email'];
-			$adminEmailList .= $adminEmail . ',';
+			if($admin['user_receives_emails']){
+				$adminEmail = $admin['users_email'];
+				$adminEmailList .= $adminEmail . ',';
+			}
 		}
 	}
 	
@@ -187,7 +189,7 @@ function exec_ogp_module()
 				else
 					$subject = get_lang_f('subject',$settings['panel_name']);
 				
-				$message = get_lang_f('register_message',$users_login,$_POST['users_passwd']);
+				$message = get_lang_f('register_message', getOGPSiteURL(), $users_login);
 				
 				$mail = mymail($to, $subject, $message, $settings);
 				

@@ -98,13 +98,13 @@ class FormTable {
 			if ( @$value == 0 )
 				echo "selected='selected'";
 
-			echo ">".'off'."</option>";
+			echo ">". get_lang("off") ."</option>";
 			echo "<option value='1' ";
 
 			if ( @$value == 1 )
 				echo "selected='selected'";
 
-			echo ">".'on'."</option></select>";
+			echo ">". get_lang("on") ."</option></select>";
 		}
 		else if ($type === "text")
 		{
