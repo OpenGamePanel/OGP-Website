@@ -143,6 +143,11 @@ function exec_ogp_module() {
 			$fields['users_comment'] = sanitizeInputStr($_POST['comment']);
 			$fields['user_expires'] = $expire_timestamp;
 			$fields['users_login'] = $login;
+			
+			// Handle email preference
+			if(isset($_POST['user_receives_emails']) && is_numeric($_POST['user_receives_emails'])){
+				$fields['user_receives_emails'] = sanitizeInputStr($_POST['user_receives_emails']);
+			}
 		}
 
 		if ( empty($theme) )
@@ -230,6 +235,12 @@ function exec_ogp_module() {
 	$ft->add_field('string','province',$userInfo['users_province'], 64);
 	$ft->add_field('string','country',$userInfo['users_country'], 64);
 	$ft->add_field('string','api_token',$db->getApiToken($userInfo['user_id']), 64, "readonly");
+	
+	// Receives email notifications (for admins only --- really)
+	if ( $isAdmin ) {
+		$ft->add_field('on_off','user_receives_emails',$userInfo['user_receives_emails']);
+	}
+	
 	if ( $isAdmin && $userInfo['users_role'] != "subuser" ) {
 		$ft->add_custom_field('user_role',
 			create_drop_box_from_array(array('user', 'admin'),"newrole", $userInfo['users_role']));

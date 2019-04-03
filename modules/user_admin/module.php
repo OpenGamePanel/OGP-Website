@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "User admin";
 $module_version = "1.1";
-$db_version = 6;
+$db_version = 7;
 $module_required = TRUE;
 $module_menus = array(
     array( 'subpage' => '', 'name'=>'User Admin', 'group'=>'admin' ),
@@ -91,4 +91,5 @@ $install_queries[3] = array(
 $install_queries[4] = array("UPDATE ".OGP_DB_PREFIX."users SET users_email = DEFAULT WHERE users_email = '';");
 $install_queries[5] = array("ALTER TABLE `".OGP_DB_PREFIX."user_groups` MODIFY group_id int(11) NOT NULL;");
 $install_queries[6] = array("ALTER TABLE `".OGP_DB_PREFIX."users` ADD `users_page_limit` int(11) NULL DEFAULT 25;");
+$install_queries[7] = array("ALTER TABLE `".OGP_DB_PREFIX."users` ADD `user_receives_emails` tinyint(1) NOT NULL DEFAULT 1;");
 ?>
