@@ -40,7 +40,7 @@ define('OGP_LANG_successfull', "Concluído");
 define('OGP_LANG_click_here', "clique aqui");
 define('OGP_LANG_to_login', "Para logar");
 define('OGP_LANG_registered_on', "Registado em :: %s");
-define('OGP_LANG_register_message', "Olá,<br>Sua conta foi criada.<br><br>Usuário: %s<br>Password: %s<br><br>Você pode alterar a senha de sua conta.<br>Obrigado!<br>Um administrador.<br>Este e-mail foi criado automaticamente, ¡Por favor, não responda isso!");
+define('OGP_LANG_register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may <a href='%s' target='_blank'>login now</a>.<br><br>Username: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
 define('OGP_LANG_err_captcha', "Captcha incorrecto.");
 define('OGP_LANG_err_login_name', "Nome de usuário está vazio ou em uso.");
 define('OGP_LANG_err_first_name', "Deve especificar o seu nome.");

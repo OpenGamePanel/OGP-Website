@@ -40,7 +40,7 @@ define('OGP_LANG_successfull', "Başarılı");
 define('OGP_LANG_click_here', "Buraya tıklayın");
 define('OGP_LANG_to_login', "giriş için.");
 define('OGP_LANG_registered_on', "%s olarak kayıt olundu.");
-define('OGP_LANG_register_message', "Merhaba,<br><br>Open Game Panel hesabınız oluşturuldu. Panele giriş yapmak için aşağıdaki bilgileri kullanın:<br><br>Kullanıcı Adı: %s<br>Şifre:%s<br><br>İlk girişinizde şifrenizi değiştirmeyi unutmayın.<br><br>Lütfen bu e-postayı cevaplamayın!<br><br>______________________________<br> OGP Mail Servisi");
+define('OGP_LANG_register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may <a href='%s' target='_blank'>login now</a>.<br><br>Username: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
 define('OGP_LANG_err_captcha', "Captcha eşleşmiyor.");
 define('OGP_LANG_err_login_name', "Kullanıcı adı boş veya kullanımda.");
 define('OGP_LANG_err_first_name', "Adınızı girin.");

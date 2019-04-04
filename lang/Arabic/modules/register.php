@@ -40,7 +40,7 @@ define('OGP_LANG_successfull', "نجح");
 define('OGP_LANG_click_here', "انقر هنا");
 define('OGP_LANG_to_login', "لتسجيل الدخول.");
 define('OGP_LANG_registered_on', "مسجل في: %s.");
-define('OGP_LANG_register_message', "مرحبا، <br><br>تم إنشاء حساب Open Game Panel، ويمكنك الآن تسجيل الدخول باستخدام معلومات الحساب التالية:<br><br>اسم المستخدم: %s<br>كلمه السر: %s<br><br>تذكر تغيير كلمة المرور الخاصة بك في كثير من الأحيان، وأول مرة تقوم بتسجيل الدخول.<br><br>رجاءا لا ترد على هذا الأيميل!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may <a href='%s' target='_blank'>login now</a>.<br><br>Username: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
 define('OGP_LANG_err_captcha', "لا يتطابق CAPTCHA.");
 define('OGP_LANG_err_login_name', "اسم المستخدم فارغ أو قيد الاستخدام.");
 define('OGP_LANG_err_first_name', "أدخل أسمك.");
