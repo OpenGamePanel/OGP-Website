@@ -66,7 +66,7 @@
       <desc>Port of remote control.</desc>
     </param>
   </server_params>
-<!--  <pre_start>
+  <pre_start>
     cmd /c AtlasTools\RedisDatabase\redis-server_start.bat
-  </pre_start>-->
+  </pre_start>
 </game_config>

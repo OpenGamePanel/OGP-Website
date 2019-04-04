@@ -6,7 +6,7 @@
   <game_name>Empyrion – Galactic Survival</game_name>
   <server_exec_name>EmpyrionDedicated.exe</server_exec_name>
   <cli_template>-batchmode -nographics -logFile Logs/Dedicated.log -dedicated dedicated.yaml</cli_template>
-  <console_log>Logs/Dedicated.log</console_log>
+  <exe_location>DedicatedServer</exe_location>
   <max_user_amount>128</max_user_amount>
   <mods>
     <mod key="empyriongs1">
