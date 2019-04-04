@@ -197,11 +197,9 @@ function ogpHome()
 					$button_name = htmlentities($server_home['home_name']);
 					if( ! preg_match("/none/i", $server_home['mod_name']) ) 
 						$button_name .= " - ".$server_home['mod_name'];
-						
-					$homeIPAddr = ($server_home['use_nat'] == 1 ? $server_home['agent_ip'] : $server_home['ip']);
-					$game_homes_list .= "<li><a title='".$homeIPAddr.':'.$server_home['port'].
+					$game_homes_list .= "<li><a title='".$server_home['ip'].':'.$server_home['port'].
 										"' class='user_menu_link' href='?m=gamemanager&p=game_monitor&home_id-mod_id-ip-port=".
-										$server_home['home_id'].'-'.$server_home['mod_id'].'-'.$homeIPAddr.'-'.
+										$server_home['home_id'].'-'.$server_home['mod_id'].'-'.$server_home['ip'].'-'.
 										$server_home['port']."'>".$button_name."</a></li>\n";
 				}
 				$game_homes_list .= "</ul>\n</li>\n";
