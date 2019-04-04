@@ -1624,14 +1624,14 @@ class OGPDatabaseMySQL extends OGPDatabase
 					}
 				}
 			}
-			return $servers;
+			return adjustServerHomeIPDependingOnNATSetting($servers);
 		}
 		else
 		{
 			$query = sprintf($template,
 				$this->table_prefix,
 				$this->realEscapeSingle($assign_id) );
-			return $this->listQuery($query);
+			return adjustServerHomeIPDependingOnNATSetting($this->listQuery($query));
 		}
 	}
 	
@@ -2001,14 +2001,14 @@ class OGPDatabaseMySQL extends OGPDatabase
 					}
 				}
 			}
-			return $servers;
+			return adjustServerHomeIPDependingOnNATSetting($servers);
 		}
 		else
 		{
 			$query = sprintf($template,
 				$this->table_prefix,
 				$assign_id);
-			return $this->listQuery($query);
+			return adjustServerHomeIPDependingOnNATSetting($this->listQuery($query));
 		}
 	}
 
@@ -2149,7 +2149,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			$this->table_prefix,
 			$this->realEscapeSingle($user_id) );
 							
-		return $this->listQuery($query);
+		return adjustServerHomeIPDependingOnNATSetting($this->listQuery($query));
 	}
 	
 	public function getIpPorts( $ip_id = 0 ) {
@@ -2209,7 +2209,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			) ORDER BY %1$shome_ip_ports.home_id ASC LIMIT '.$user_request_page.','.$limit_dashboardlist.';',
 			$this->table_prefix );
 
-		return $this->listQuery($query);
+		return adjustServerHomeIPDependingOnNATSetting($this->listQuery($query));
 	}
 	
 
@@ -3036,7 +3036,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		$query = sprintf('SELECT %1$sserver_homes.*,%1$sremote_servers.*, %1$sconfig_homes.*
 			FROM `%1$sserver_homes` NATURAL JOIN `%1$sconfig_homes` NATURAL JOIN `%1$sremote_servers`;',
 			$this->table_prefix);
-		return $this->listQuery($query);
+		return adjustServerHomeIPDependingOnNATSetting($this->listQuery($query));
 	}
 	
 	public function getGameHomes_limit($page_gameHomes, $limit_gameHomes, $searchType, $searchString) {

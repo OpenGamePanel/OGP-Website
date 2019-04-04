@@ -896,4 +896,28 @@ function updateAllPanelModules(){
 		}
 	}
 }
+
+function adjustServerHomeIPDependingOnNATSetting($homes){ // Can adjust one server_home or many server_homes
+	$finalHomes = $homes;
+	
+	if(is_array($homes)){
+		if(!is_array($homes[0])){
+			$homes = array($homes);
+		}
+	}
+	
+	if(is_array($homes) && is_array($homes[0])){
+		$finalHomes = array();
+		foreach($homes as $home){
+			if ($home['use_nat'] == 1){
+				$home['ip'] = $home['agent_ip'];
+			}else{
+				$home['ip'] = $home['ip'] != $home['agent_ip'] ? $home['ip'] : $home['agent_ip'];
+			}
+			$finalHomes[] = $home;
+		}
+	}
+	
+	return $finalHomes;
+}
 ?>
