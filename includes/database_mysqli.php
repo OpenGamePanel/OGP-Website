@@ -1422,9 +1422,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 
 	// Gamemanager functions
 	public function getHomeIpPorts($home_id){
-		$query = sprintf("SELECT ip_id,ip,port,force_mod_id
-			FROM %shome_ip_ports NATURAL JOIN %sremote_server_ips
+		$query = sprintf("SELECT ip_id, ip, port, force_mod_id, agent_ip, use_nat 
+			FROM %shome_ip_ports NATURAL JOIN %sremote_server_ips NATURAL JOIN %sremote_servers
 			WHERE home_id = %d;",
+			$this->table_prefix,
 			$this->table_prefix,
 			$this->table_prefix,
 			$this->realEscapeSingle($home_id));

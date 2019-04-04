@@ -297,7 +297,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	$ip_port = $_POST['ip_port'];
 	list($ip, $port) = explode(":", $ip_port);
 	
-	if($server_home['ip'] == $ip && $server_home['port'] == $port) 
+	if(($server_home['ip'] == $ip || ($ip == $server_home['agent_ip'] && $server_home['use_nat'] == 1)) && $server_home['port'] == $port) 
 	{
 		$cli_param_data['IP'] = $server_home['ip'];
 		$cli_param_data['PORT'] = $server_home['port'];
