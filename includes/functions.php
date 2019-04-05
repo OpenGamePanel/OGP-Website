@@ -901,12 +901,12 @@ function adjustServerHomeIPDependingOnNATSetting($homes){ // Can adjust one serv
 	$finalHomes = $homes;
 	
 	if(is_array($homes)){
-		if(!is_array($homes[0])){
+		if(!is_array($homes[0]) && array_key_exists("ip", $homes)){
 			$homes = array($homes);
 		}
 	}
 	
-	if(is_array($homes) && is_array($homes[0])){
+	if(is_array($homes) && is_array($homes[0]) && array_key_exists("ip", $homes[0])){
 		$finalHomes = array();
 		foreach($homes as $home){
 			if ($home['use_nat'] == 1){
