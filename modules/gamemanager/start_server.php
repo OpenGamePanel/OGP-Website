@@ -80,7 +80,7 @@ function exec_ogp_module()
 		
 		{
 		
-			$ip = $ip_ports_row['ip'];
+			$ip = $_REQUEST['ip'];
 			
 			$port = $ip_ports_row['port'];
 			

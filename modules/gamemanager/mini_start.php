@@ -299,7 +299,7 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	
 	if(($server_home['ip'] == $ip || ($ip == $server_home['agent_ip'] && $server_home['use_nat'] == 1)) && $server_home['port'] == $port) 
 	{
-		$cli_param_data['IP'] = $server_home['ip'];
+		$cli_param_data['IP'] = $ip;
 		$cli_param_data['PORT'] = $server_home['port'];
 	}
 	
