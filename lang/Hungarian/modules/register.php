@@ -40,7 +40,7 @@ define('OGP_LANG_successfull', "Sikeres");
 define('OGP_LANG_click_here', "Kattints ide");
 define('OGP_LANG_to_login', "a bejelentkezéshez.");
 define('OGP_LANG_registered_on', "Regisztrált: %s.");
-define('OGP_LANG_register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may <a href='%s' target='_blank'>login now</a>.<br><br>Username: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_register_message', "Szia,<br><br>Az Open Game Panel fiókod elkészült és most már <a href='%s' target='_blank'>bejelentkezhetsz</a>.<br><br>Felhasználónév: %s<br><br>Ne felejtsd el néha megváltoztatni a jelszavadat és az első belépést követően.<br><br>Kérlek, ne válaszolj erre az e-mailre!<br><br>______________________________<br>OGP Postázó");
 define('OGP_LANG_err_captcha', "Captcha nem egyezik.");
 define('OGP_LANG_err_login_name', "A felhasználónév üres vagy már foglalt.");
 define('OGP_LANG_err_first_name', "Add meg a neved.");

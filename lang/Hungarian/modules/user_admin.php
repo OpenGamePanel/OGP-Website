@@ -109,5 +109,5 @@ define('OGP_LANG_enter_valid_username', "Kérlek, adj meg egy érvényes felhasz
 define('OGP_LANG_unexpected_role', "Váratlan felhasználói szerepet kapott.");
 define('OGP_LANG_search', "Keresés");
 define('OGP_LANG_api_token', "API token");
-define('OGP_LANG_user_receives_emails', "Receive emails");
+define('OGP_LANG_user_receives_emails', "E-mail fogadása");
 ?>
