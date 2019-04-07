@@ -109,4 +109,5 @@ define('OGP_LANG_enter_valid_username', "Venligst indtast et gyldigt brugernavn.
 define('OGP_LANG_unexpected_role', "Uventet bruger rolle modtaget.");
 define('OGP_LANG_search', "Søg");
 define('OGP_LANG_api_token', "API token");
+define('OGP_LANG_user_receives_emails', "Receive emails");
 ?>

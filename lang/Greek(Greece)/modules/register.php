@@ -40,7 +40,7 @@ define('OGP_LANG_successfull', "Επιτυχής");
 define('OGP_LANG_click_here', "Κάντε κλικ εδώ");
 define('OGP_LANG_to_login', "για να συνδεθείτε.");
 define('OGP_LANG_registered_on', "Εγγραφήκατε στο: %s.");
-define('OGP_LANG_register_message', "Γεια σας,<br><br>Ο λογαριασμός σας Open Game Panel έχει δημιουργηθεί και μπορείτε να συνδεθείτε χρησιμοποιώντας τις παρακάτω πληροφορίες λογαριασμού:<br><br>Όνομα χρήστη: %s<br>Κωδικός πρόσβασης: %s<br><br>Να θυμάστε να αλλάζετε τον κωδικό σας συχνά και την πρώτη φορά που θα συνδεθείτε.<br><br>Παρακαλώ μην απαντήσετε σε αυτό το μήνυμα ηλεκτρονικού ταχυδρομείου!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may <a href='%s' target='_blank'>login now</a>.<br><br>Username: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
 define('OGP_LANG_err_captcha', "Το Captcha δεν ταιριάζει.");
 define('OGP_LANG_err_login_name', "Το όνομα χρήστη είναι κενό ή χρησιμοποιείται.");
 define('OGP_LANG_err_first_name', "Εισάγετε το όνομά σας.");

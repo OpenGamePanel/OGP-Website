@@ -109,4 +109,5 @@ define('OGP_LANG_enter_valid_username', "Digite um nome de usuário válido.");
 define('OGP_LANG_unexpected_role', "Função de usuário inesperada recebida.");
 define('OGP_LANG_search', "Pesquisa");
 define('OGP_LANG_api_token', "API token");
+define('OGP_LANG_user_receives_emails', "Receive emails");
 ?>
