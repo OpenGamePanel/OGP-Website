@@ -16,7 +16,7 @@
     <port type="subtract" id="QUERY_PORT" cli_string="-queryport=">359</port>
   </reserve_ports>
   <console_log>Outlaws/Saved/Logs/Outlaws_2.log</console_log>
-  <max_user_amount>127</max_user_amount>
+  <max_user_amount>150</max_user_amount>
   <mods>
     <mod key="default">
       <name>None</name>
