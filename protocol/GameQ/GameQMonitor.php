@@ -14,9 +14,9 @@ else
 if($num_of_servers < $numberservers_to_skip_query)
 {
 	if ( $server_home['use_nat'] == 1 )
-		$query_ip = $server_home['agent_ip'];
+		$internal_query_ip = $server_home['agent_ip'];
 	else
-		$query_ip = $server_home['ip'];
+		$internal_query_ip = $server_home['ip'];
 	
 	$query_cache_life = ( isset($settings['query_cache_life']) and is_numeric($settings['query_cache_life']) )? $settings['query_cache_life'] : 30;
 	$ip_id = $db->getIpIdByIp($server_home['ip']);
@@ -34,7 +34,7 @@ if($num_of_servers < $numberservers_to_skip_query)
 		$server = array(
 							'id' => 'server',
 							'type' => $server_xml->gameq_query_name,
-							'host' => $query_ip . ":" . $query_port,
+							'host' => $internal_query_ip . ":" . $query_port,
 						);
 		$gq->addServer($server);
 		$gq->setOption('timeout', 4);
@@ -65,7 +65,7 @@ if($num_of_servers < $numberservers_to_skip_query)
 		if(isset($results['gq_joinlink']) and $results['gq_joinlink'] != "")
 			$address = "<a href='$results[gq_joinlink]'>$ip:$port</a>";
 		elseif($server_xml->installer == 'steamcmd')
-			$address = "<a href='steam://connect/$query_ip:$port'>$ip:$port</a>";
+			$address = "<a href='steam://connect/$internal_query_ip:$port'>$ip:$port</a>";
 		else
 			$address = "$ip:$port";
 		$playersList = $results['server']['players'];

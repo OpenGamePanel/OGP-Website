@@ -46,7 +46,7 @@ if(isset($server_home['control_password']) && $server_home['control_password'] !
 			else
 				$cfg["host"] = $server_home['ip'];
 			
-			$query_ip = $cfg["host"];
+			$internal_query_ip = $cfg["host"];
 			$port = $cfg["voice"];
 			$status = "online";
 			try
