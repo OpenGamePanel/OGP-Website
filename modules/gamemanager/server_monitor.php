@@ -406,7 +406,7 @@ function exec_ogp_module() {
 			if( $host_stat === 1)
 			{
 				$ip = $server_home['ip'];
-				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$ip);
+				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'], ($server_home['use_nat'] == 1 ? $server_home['agent_ip'] : $ip));
 				$address = $query_ip . ":" . $server_home['port'];
 
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;
