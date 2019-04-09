@@ -24,9 +24,9 @@ if($num_of_servers < $numberservers_to_skip_query)
 	else
 	{
 		if ( $server_home['use_nat'] == 1 )
-			$ip = $server_home['agent_ip'];
+			$query_ip = $server_home['agent_ip'];
 		else
-			$ip = $server_home['ip'];
+			$query_ip = $server_home['ip'];
 		$port = $server_home['port'];		
 		$get_q_and_s = lgsl_port_conversion((string)$server_xml->lgsl_query_name, $port, "", "");
 		//Connection port
@@ -35,8 +35,8 @@ if($num_of_servers < $numberservers_to_skip_query)
 		$q_port = $get_q_and_s['1'];
 		//software port
 		$s_port = $get_q_and_s['2'];
-		$data = lgsl_query_live((string)$server_xml->lgsl_query_name, $ip, $c_port, $q_port, $s_port, "sp");
-		$data['link'] = "<a href='" . lgsl_software_link((string)$server_xml->lgsl_query_name, $ip, $c_port, $q_port, $s_port) . "'>".$ip.":".$port."</a>";
+		$data = lgsl_query_live((string)$server_xml->lgsl_query_name, $query_ip, $c_port, $q_port, $s_port, "sp");
+		$data['link'] = "<a href='" . lgsl_software_link((string)$server_xml->lgsl_query_name, $query_ip, $c_port, $q_port, $s_port) . "'>".$ip.":".$port."</a>";
 		//-----------------------------------+
 		$data['s']['game'] = preg_replace("/[^A-Za-z0-9 \_\-]/",
 			"_", strtolower($data['s']['game']));
