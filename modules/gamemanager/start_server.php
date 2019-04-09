@@ -76,7 +76,7 @@ function exec_ogp_module()
 
 	{
 	
-		if(($ip_ports_row['ip'] == $_REQUEST['ip'] || ($_REQUEST['ip'] == $ip_ports_row['agent_ip'] && $ip_ports_row['use_nat'] == 1)) && $ip_ports_row['port'] == $_REQUEST['port']) 
+		if($ip_ports_row['ip'] == $_REQUEST['ip'] && $ip_ports_row['port'] == $_REQUEST['port']) 
 		
 		{
 		

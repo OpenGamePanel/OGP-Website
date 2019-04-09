@@ -296,7 +296,7 @@ function exec_ogp_module() {
 		
 		if( $show_all 
 			OR ( isset( $_GET['home_id'] ) and $_GET['home_id'] == $server_home['home_id'] ) 
-			OR ( isset( $_GET['home_id-mod_id-ip-port'] ) and $server_home['home_id'] == $post_home_id and $server_home['mod_id'] == $post_mod_id and ($post_ip == $server_home['ip'] || ($post_ip == $server_home['agent_ip'] && $server_home['use_nat'] == 1)) and $post_port == $server_home['port'] ) 
+			OR ( isset( $_GET['home_id-mod_id-ip-port'] ) and $server_home['home_id'] == $post_home_id and $server_home['mod_id'] == $post_mod_id and $post_ip == $server_home['ip'] and $post_port == $server_home['port'] ) 
 			OR ( isset( $_GET['home_cfg_id'] ) and $_GET['home_cfg_id'] == $server_home['home_cfg_id'] ) 
 		  )
 		{
@@ -405,11 +405,7 @@ function exec_ogp_module() {
 
 			if( $host_stat === 1)
 			{
-				if($server_home['use_nat'] == 1 ){
-					$ip = $server_home['agent_ip'];
-				}else{
-					$ip = $server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip'];
-				}
+				$ip = $server_home['ip'];
 				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$ip);
 				$address = $query_ip . ":" . $server_home['port'];
 

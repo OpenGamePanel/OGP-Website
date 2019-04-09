@@ -63,10 +63,7 @@ function exec_ogp_module()
 	$mod = "";
 	$stats_players = 0;
 	$stats_maxplayers = 0;
-	if ( $server_home['use_nat'] == 1 )
-		$ip = $server_home['agent_ip'];
-	else
-		$ip = $server_home['ip'];
+	$ip = $server_home['ip'];
 	$port = $server_home['port'];
 	// Check if the screen running the server is running.
 	if ($server_xml->protocol == "gameq")
@@ -139,7 +136,7 @@ function exec_ogp_module()
 			 $server_home['port'] . "' ><img style='border:0;height:12px;' src='images/magnifglass.png'/>" . 
 			 htmlentities($server_home['home_name']) . "</a></div>".
 			 "<div><div style='font-size:8pt;' ></div> </div>".
-			 "<div id='gamelink' >$ip:$port</div>";
+			 "<div id='gamelink' >" . $server_home['ip'] . ":$port</div>";
 		if(isset($_SESSION[$server_key]['online_players']))
 			unset($_SESSION[$server_key]['online_players']);
 	}
