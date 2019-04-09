@@ -150,6 +150,7 @@ function exec_ogp_module() {
 
         echo "<h2>".get_lang_f('remote_ips_for',$remote_server['remote_server_name'])."</h2>";
         echo "<p class='info'>". get_lang("hint") .": ". get_lang("add_more_ips") ."</p>";
+        echo "<p class='info'>" . get_lang("ips_can_be_internal_external") . "</p>";
 		
         $remote_server_ips = $db->getRemoteServerIPs($remote_server['remote_server_id']);
         if ( !empty($remote_server_ips) )

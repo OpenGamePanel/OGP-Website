@@ -140,11 +140,8 @@ function exec_ogp_module()
 				{
 					require_once("modules/config_games/server_config_parser.php");
 					$server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$server_home['home_cfg_file']);
-					if ( $server_home['use_nat'] == 1 ){
-						$ip = $server_home['agent_ip'];
-					}else{
-						$ip = $server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip'];
-					}
+					
+					$ip = $server_home['ip'];
 					$ip = checkDisplayPublicIP($server_home['display_public_ip'],$ip);
 
 					$port = $server_home['port'];

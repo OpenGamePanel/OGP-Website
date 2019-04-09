@@ -46,7 +46,7 @@ if(isset($server_home['control_password']) && $server_home['control_password'] !
 			else
 				$cfg["host"] = $server_home['ip'];
 			
-			$ip = $cfg["host"];
+			$internal_query_ip = $cfg["host"];
 			$port = $cfg["voice"];
 			$status = "online";
 			try
@@ -94,7 +94,6 @@ if(isset($server_home['control_password']) && $server_home['control_password'] !
 		
 		if ( $ts3['status'] == "online" )
 		{
-			$ip = $ts3['ip'];
 			$port = $ts3['port'];
 			$player_list = $ts3['player_list'];
 			$maplocation = $ts3['maplocation'];

@@ -296,7 +296,7 @@ function exec_ogp_module() {
 		
 		if( $show_all 
 			OR ( isset( $_GET['home_id'] ) and $_GET['home_id'] == $server_home['home_id'] ) 
-			OR ( isset( $_GET['home_id-mod_id-ip-port'] ) and $server_home['home_id'] == $post_home_id and $server_home['mod_id'] == $post_mod_id and ($post_ip == $server_home['ip'] || ($post_ip == $server_home['agent_ip'] && $server_home['use_nat'] == 1)) and $post_port == $server_home['port'] ) 
+			OR ( isset( $_GET['home_id-mod_id-ip-port'] ) and $server_home['home_id'] == $post_home_id and $server_home['mod_id'] == $post_mod_id and $post_ip == $server_home['ip'] and $post_port == $server_home['port'] ) 
 			OR ( isset( $_GET['home_cfg_id'] ) and $_GET['home_cfg_id'] == $server_home['home_cfg_id'] ) 
 		  )
 		{
@@ -405,13 +405,10 @@ function exec_ogp_module() {
 
 			if( $host_stat === 1)
 			{
-				if($server_home['use_nat'] == 1 ){
-					$ip = $server_home['agent_ip'];
-				}else{
-					$ip = $server_home['ip'] != $server_home['agent_ip'] ? $server_home['ip'] : $server_home['agent_ip'];
-				}
-				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'],$ip);
-				$address = $query_ip . ":" . $server_home['port'];
+				$ip = $server_home['ip'];
+				$query_ip = checkDisplayPublicIP($server_home['display_public_ip'], ($server_home['use_nat'] == 1 ? $server_home['agent_ip'] : $ip));
+				$displayIP =  checkDisplayPublicIP($server_home['display_public_ip'], $ip);
+				$address = $displayIP . ":" . $server_home['port'];
 
 				$screen_running = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$server_home['home_id']) === 1;
 				$update_in_progress = $remote->is_screen_running(OGP_SCREEN_TYPE_UPDATE,$server_home['home_id']) === 1;
@@ -429,12 +426,12 @@ function exec_ogp_module() {
 						$q_port = $get_q_and_s['1'];
 						//software port
 						$s_port = $get_q_and_s['2'];
-						$address = "<a href='" . lgsl_software_link($query_name, $query_ip, $c_port, $q_port, $s_port) . "'>".$query_ip.":".$server_home['port']."</a>";
+						$address = "<a href='" . lgsl_software_link($query_name, $query_ip, $c_port, $q_port, $s_port) . "'>".$displayIP.":".$server_home['port']."</a>";
 					}
 					if ($server_xml->protocol == "teamspeak3")
-						$address = "<a href='ts3server://" . $query_ip . ":" . $server_home['port'] . "'>".$query_ip.":".$server_home['port']."</a>";
+						$address = "<a href='ts3server://" . $query_ip . ":" . $server_home['port'] . "'>".$displayIP.":".$server_home['port']."</a>";
 					if($server_xml->protocol == "gameq" and $server_xml->installer == 'steamcmd')
-						$address = "<a href='steam://connect/" . $query_ip . ":" . $server_home['port'] . "'>" . $query_ip . ":" . $server_home['port'] . "</a>";
+						$address = "<a href='steam://connect/" . $query_ip . ":" . $server_home['port'] . "'>" . $displayIP . ":" . $server_home['port'] . "</a>";
 					$pos = $refresh->add("home.php?m=gamemanager&p=ref_servermonitor&type=cleared&home_id=". $server_home['home_id'] . "&mod_id=". $server_home['mod_id'] . "&ip=" . $server_home['ip'] . "&port=" . $server_home['port']);
 					if ($server_xml->protocol == "teamspeak3")
 					{
