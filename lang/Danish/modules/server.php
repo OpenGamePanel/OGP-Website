@@ -69,7 +69,7 @@ define('OGP_LANG_remote_server_settings_changed', "Skift indstillinger på fjern
 define('OGP_LANG_save_settings', "Gem Indstilinger");
 define('OGP_LANG_set_ips', "Set IPs");
 define('OGP_LANG_remote_ip', "Fjern IP");
-define('OGP_LANG_remote_ips_for', "Fjern IPs til server kaldet '%s'");
+define('OGP_LANG_remote_ips_for', "IPs for Game Servers To Use on Agent Server '%s'");
 define('OGP_LANG_ips_set_for_server', "IPs er sat for server kaldet '%s' successfully.");
 define('OGP_LANG_could_not_remove_ip', "Kunne ikke fjerne gamle IP's fra database.");
 define('OGP_LANG_could_add_ip', "Kunne ikke tilføje fjern server IP til database.");
@@ -96,7 +96,7 @@ define('OGP_LANG_failed_add_ip', "Fejlet I at tilføje IP");
 define('OGP_LANG_timeout', "Tiden Udløb");
 define('OGP_LANG_timeout_info', "The time limit in seconds to get response from this Agent.");
 define('OGP_LANG_use_nat', "Brug NAT");
-define('OGP_LANG_use_nat_info', "Aktivere hvis din fjernserver bruger NAT regler.");
+define('OGP_LANG_use_nat_info', "Enable if your remote server is using NAT rules. Use this setting if your game servers are running on internal private LAN IP addresses so that the panel will use your real remote IP address to query the game servers.");
 define('OGP_LANG_arrange_ports', "Arrange ports");
 define('OGP_LANG_assign_new_ports_range_for_ip', "Assign new ports range for IP %s");
 define('OGP_LANG_assigned_port_ranges_for_ip', "Assigned port ranges for IP %s");
@@ -135,4 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Save firewall settings");
 define('OGP_LANG_reset_firewall', "Reset Firewall");
 define('OGP_LANG_firewall_settings', "Firewall Settings");
 define('OGP_LANG_display_public_ip', "Display Public IP");
+define('OGP_LANG_ips_can_be_internal_external', "Enter usable IP addresses.&nbsp; Public IP addresses and internal LAN IP addresses (for NAT setups) can be used.");
 ?>

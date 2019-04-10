@@ -69,7 +69,7 @@ define('OGP_LANG_remote_server_settings_changed', "Uspješno su promjenjene post
 define('OGP_LANG_save_settings', "Spremiti Postavke");
 define('OGP_LANG_set_ips', "Postaviti IP adrese");
 define('OGP_LANG_remote_ip', "IP Poslužitelja");
-define('OGP_LANG_remote_ips_for', "IP adrese za poslužitelja pod nazviom '%s'");
+define('OGP_LANG_remote_ips_for', "IPs for Game Servers To Use on Agent Server '%s'");
 define('OGP_LANG_ips_set_for_server', "Uspješno su postavljeni IP adrese za poslužitelja pod nazivom '%s'.");
 define('OGP_LANG_could_not_remove_ip', "Nije moguće ukloniti stare IP adrese od baze podataka.");
 define('OGP_LANG_could_add_ip', "Mogli bi dodati IP poslužitelja u bazu podataka.");
@@ -96,7 +96,7 @@ define('OGP_LANG_failed_add_ip', "Dodavanje IP adrese nije uspjelo");
 define('OGP_LANG_timeout', "Isteklo Vrijeme");
 define('OGP_LANG_timeout_info', "Vremensko ograničenje u sekundama za dobivanje odgovora od ovog Agenta.");
 define('OGP_LANG_use_nat', "Koristi NAT");
-define('OGP_LANG_use_nat_info', "Aktivirati ukoliko vaš udaljeni poslužitelj koristi NAT pravila.");
+define('OGP_LANG_use_nat_info', "Enable if your remote server is using NAT rules. Use this setting if your game servers are running on internal private LAN IP addresses so that the panel will use your real remote IP address to query the game servers.");
 define('OGP_LANG_arrange_ports', "Rasporediti portove");
 define('OGP_LANG_assign_new_ports_range_for_ip', "Dodijelite novih raspon portova za IP %s");
 define('OGP_LANG_assigned_port_ranges_for_ip', "Dodijeljeni raspon portovi za IP %s");
@@ -135,4 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Spremiti postavke za vatrozid");
 define('OGP_LANG_reset_firewall', "Ponovo postavite vatrozid");
 define('OGP_LANG_firewall_settings', "Vatrozid Postavke");
 define('OGP_LANG_display_public_ip', "Prikazati Javnu IP Adresu");
+define('OGP_LANG_ips_can_be_internal_external', "Enter usable IP addresses.&nbsp; Public IP addresses and internal LAN IP addresses (for NAT setups) can be used.");
 ?>
