@@ -5,8 +5,9 @@
   <installer>steamcmd</installer>
   <game_name>Outlaws of the Old West</game_name>
   <server_exec_name>OutlawsServer.exe</server_exec_name>
-  <cli_template>/Game/Maps/MainMap/MainMap -log %PORT% %QUERY_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %TYPE%</cli_template>
+  <cli_template>/Game/Maps/MainMap/MainMap -log %IP% %PORT% %QUERY_PORT% %HOSTNAME% %PLAYERS% %CONTROL_PASSWORD% %TYPE%</cli_template>
   <cli_params>
+    <cli_param id="IP" cli_string="-Multihome=" />
     <cli_param id="PORT" cli_string="-port=" />
     <cli_param id="PLAYERS" cli_string="-PlayerCount=" />
     <cli_param id="CONTROL_PASSWORD" cli_string="-AdminPassword=" options="q" />
@@ -15,7 +16,7 @@
   <reserve_ports>
     <port type="subtract" id="QUERY_PORT" cli_string="-queryport=">359</port>
   </reserve_ports>
-  <console_log>Outlaws/Saved/Logs/Outlaws_2.log</console_log>
+  <console_log>Outlaws/Saved/Logs/Outlaws.log</console_log>
   <max_user_amount>150</max_user_amount>
   <mods>
     <mod key="default">
