@@ -135,5 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Enregistrer les paramètres du Firewa
 define('OGP_LANG_reset_firewall', "Reset du Firewall");
 define('OGP_LANG_firewall_settings', "Paramètres du Firewall");
 define('OGP_LANG_display_public_ip', "Adresse IP Publique par Défaut");
-define('OGP_LANG_ips_can_be_internal_external', "Entrer des adresses IP utilisables.&nbsp; Des adresses IP publique et adresses IP LAN internes (pour le NAT) peuvent être utilisées.");
+define('OGP_LANG_ips_can_be_internal_external', "Entrer des adresses IP utilisables.&nbsp; Des adresses IP publiques et adresses IP LAN internes (pour le NAT) peuvent être utilisées.");
 ?>
