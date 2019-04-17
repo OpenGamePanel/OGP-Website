@@ -28,6 +28,7 @@
   <server_params>
     <param key="-Type=" type="select" id="TYPE">
       <option value="PVP">PvP</option>
+      <option value="ORR">ORR</option>
       <option value="PVE">PvE</option>
       <option value="RP">RP</option>
       <options>ns</options>
