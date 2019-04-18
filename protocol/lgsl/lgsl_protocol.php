@@ -125,6 +125,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ror"			=> "Rigs of Rods",
 		"rust"			=> "Rust",
 		"samp"			=> "San Andreas Multiplayer",
+		"sandstorm"		=> "Insurgency: Sandstorm",
 		"savage"		=> "Savage",
 		"savage2"		=> "Savage 2",
 		"serioussam"	=> "Serious Sam",
@@ -285,6 +286,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ror"			=> "36",
 		"rust"			=> "05",
 		"samp"			=> "12",
+		"sandstorm"		=> "05",
 		"savage"		=> "17",
 		"savage2"		=> "18",
 		"serioussam"	=> "03",
@@ -442,6 +444,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ror"			=> "http://www.rigsofrods.com/servers/",
 		"rust"			=> "steam://connect/{IP}:{S_PORT}",
 		"samp"			=> "samp://{IP}:{C_PORT}",
+		"sandstorm"		=> "steam://connect/{IP}:{S_PORT}",
 		"savage"		=> "http://en.wikipedia.org/wiki/Savage:_The_Battle_for_Newerth",
 		"savage2"		=> "http://en.wikipedia.org/wiki/Savage_2:_A_Tortured_Soul",
 		"serioussam"	=> "qtracker://{IP}:{S_PORT}?game=SeriousSam&action=show",
@@ -555,6 +558,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "reignofkings"		: $c_to_q = 19665;	$c_def = 7350;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "rfactor"			: $c_to_q = -100;	$c_def = 34397;	$q_def = 34297;	$c_to_s = 0;	break;
 			case "risingstorm2"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
+			case "sandstorm"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;	break;
 			case "serioussam"		: $c_to_q = 1;		$c_def = 25600;	$q_def = 25601;	$c_to_s = 0;	break;
 			case "sniperelitev2"	: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 0;	break;
 			case "soldat"			: $c_to_q = 123;	$c_def = 23073;	$q_def = 23196;	$c_to_s = 0;	break;
