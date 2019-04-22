@@ -69,7 +69,7 @@ define('OGP_LANG_remote_server_settings_changed', "Changement des paramètres po
 define('OGP_LANG_save_settings', "Sauvegarder les paramètres");
 define('OGP_LANG_set_ips', "Définir IPs");
 define('OGP_LANG_remote_ip', "IP distante");
-define('OGP_LANG_remote_ips_for', "IPs distantes pour le serveur '%s'");
+define('OGP_LANG_remote_ips_for', "Adresses IPs pour les Serveurs de Jeu à utiliser pour l&apos;Agent '%s'");
 define('OGP_LANG_ips_set_for_server', "IPs pour le serveur nommé '%s' définies avec succès.");
 define('OGP_LANG_could_not_remove_ip', "Impossible de supprimer l'IP de la base de données.");
 define('OGP_LANG_could_add_ip', "Peut ajouter l'IP du serveur distant à la base de données.");
@@ -96,7 +96,7 @@ define('OGP_LANG_failed_add_ip', "Impossible d'ajouter l'IP");
 define('OGP_LANG_timeout', "Time Out");
 define('OGP_LANG_timeout_info', "La limite de temps en secondes pour avoir une réponse de l&apos;Agent.");
 define('OGP_LANG_use_nat', "Utiliser le NAT");
-define('OGP_LANG_use_nat_info', "Activez le si votre serveur distant utlise les règles NAT.");
+define('OGP_LANG_use_nat_info', "Activer si votre serveur distant utilise les règles NAT. Utiliser ce paramètre si vos serveurs de jeu sont lancés sur des adresses IP privées LAN internes pour que le Panel utilise votre adresse IP distante réelle pour interroger les Serveurs de Jeu.");
 define('OGP_LANG_arrange_ports', "Arranger les ports");
 define('OGP_LANG_assign_new_ports_range_for_ip', "Assigner nouvelle plage de ports pour l'IP %s");
 define('OGP_LANG_assigned_port_ranges_for_ip', "Plages de ports assignées pour l'IP %s");
@@ -135,4 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Enregistrer les paramètres du Firewa
 define('OGP_LANG_reset_firewall', "Reset du Firewall");
 define('OGP_LANG_firewall_settings', "Paramètres du Firewall");
 define('OGP_LANG_display_public_ip', "Adresse IP Publique par Défaut");
+define('OGP_LANG_ips_can_be_internal_external', "Entrer des adresses IP utilisables.&nbsp; Des adresses IP publiques et adresses IP LAN internes (pour le NAT) peuvent être utilisées.");
 ?>

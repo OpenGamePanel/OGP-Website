@@ -69,7 +69,7 @@ define('OGP_LANG_remote_server_settings_changed', "Zmiana ustawień dla hosta '%
 define('OGP_LANG_save_settings', "Zapisz Ustawienia");
 define('OGP_LANG_set_ips', "Ustaw IP");
 define('OGP_LANG_remote_ip', "IP Hosta");
-define('OGP_LANG_remote_ips_for', "Adresy IP dla serwera Hosta o nazwie '%s'");
+define('OGP_LANG_remote_ips_for', "IPs for Game Servers To Use on Agent Server '%s'");
 define('OGP_LANG_ips_set_for_server', "IP zostało pomyślnie ustawione dla Hosta '%s'");
 define('OGP_LANG_could_not_remove_ip', "Nie można usunąć starych adresów IP z bazy danych.");
 define('OGP_LANG_could_add_ip', "Możliwość dodania zdalnego serwera IP do bazy danych.");
@@ -96,7 +96,7 @@ define('OGP_LANG_failed_add_ip', "Błąd przy dodawaniu IP");
 define('OGP_LANG_timeout', "Time Out");
 define('OGP_LANG_timeout_info', "The time limit in seconds to get response from this Agent.");
 define('OGP_LANG_use_nat', "Użyj NAT");
-define('OGP_LANG_use_nat_info', "Włącz, jeśli zdalny serwer używa reguły NAT.");
+define('OGP_LANG_use_nat_info', "Enable if your remote server is using NAT rules. Use this setting if your game servers are running on internal private LAN IP addresses so that the panel will use your real remote IP address to query the game servers.");
 define('OGP_LANG_arrange_ports', "Arrange ports");
 define('OGP_LANG_assign_new_ports_range_for_ip', "Assign new ports range for IP %s");
 define('OGP_LANG_assigned_port_ranges_for_ip', "Assigned port ranges for IP %s");
@@ -135,4 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Zapisz ustawienia zapory");
 define('OGP_LANG_reset_firewall', "Restart zapory");
 define('OGP_LANG_firewall_settings', "Ustawienia Zapory");
 define('OGP_LANG_display_public_ip', "Display Public IP");
+define('OGP_LANG_ips_can_be_internal_external', "Enter usable IP addresses.&nbsp; Public IP addresses and internal LAN IP addresses (for NAT setups) can be used.");
 ?>

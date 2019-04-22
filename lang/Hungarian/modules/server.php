@@ -69,7 +69,7 @@ define('OGP_LANG_remote_server_settings_changed', "Beállítások sikeresen megv
 define('OGP_LANG_save_settings', "Beállítások mentése");
 define('OGP_LANG_set_ips', "IPk beállítása");
 define('OGP_LANG_remote_ip', "Távoli IP");
-define('OGP_LANG_remote_ips_for', "Távoli IPk a(z) '%s' nevü szerverhez");
+define('OGP_LANG_remote_ips_for', "IPs for Game Servers To Use on Agent Server '%s'");
 define('OGP_LANG_ips_set_for_server', "Az IP(k) a(z) '%s' nevű szerverhez  sikeresen beállítva.");
 define('OGP_LANG_could_not_remove_ip', "Nem sikerült eltávolítani a régi IPket az adatbázisból.");
 define('OGP_LANG_could_add_ip', "Nem sikerült hozzáadni a távoli szerver IP-t az adatbázishoz.");
@@ -96,7 +96,7 @@ define('OGP_LANG_failed_add_ip', "Nem sikerült az IP hozzáadása");
 define('OGP_LANG_timeout', "Időtúllépés");
 define('OGP_LANG_timeout_info', "A határidő másodpercben, hogy megkapja az Agent válaszát.");
 define('OGP_LANG_use_nat', "NAT használta");
-define('OGP_LANG_use_nat_info', "engedélyezése, ha a távoli szerver NAT mögött.");
+define('OGP_LANG_use_nat_info', "Enable if your remote server is using NAT rules. Use this setting if your game servers are running on internal private LAN IP addresses so that the panel will use your real remote IP address to query the game servers.");
 define('OGP_LANG_arrange_ports', "Portok elrendezése");
 define('OGP_LANG_assign_new_ports_range_for_ip', "Új port tartomány hozzárendelése a(z) %s IPhez");
 define('OGP_LANG_assigned_port_ranges_for_ip', "Port tartományok hozzárendelve a(z) %s IPhez");
@@ -135,4 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Tűzfal beállítások mentése");
 define('OGP_LANG_reset_firewall', "Tűzfal visszaállítása");
 define('OGP_LANG_firewall_settings', "Tűzfal beállítások");
 define('OGP_LANG_display_public_ip', "Nyilvános IP megjelenítése");
+define('OGP_LANG_ips_can_be_internal_external', "Enter usable IP addresses.&nbsp; Public IP addresses and internal LAN IP addresses (for NAT setups) can be used.");
 ?>

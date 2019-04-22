@@ -72,7 +72,7 @@ define('OGP_LANG_failed_to_start_rsync_update', "Ошибка при обнов�
 define('OGP_LANG_update_completed', "Обновление прошло успешно.");
 define('OGP_LANG_update_in_progress', "Обновление в процессе, пожалуйста подождите...");
 define('OGP_LANG_refresh_steam_status', "Обновить статус steam");
-define('OGP_LANG_refresh_rsync_status', "Refresh Rsync status");
+define('OGP_LANG_refresh_rsync_status', "Обновить статус Rsync");
 define('OGP_LANG_server_running_cant_update', "При запущеном сервере обновление невозможно. Остановите его прежде чем запускать обновление.");
 define('OGP_LANG_xml_steam_error', "Выбранный сервер не поддерживает установку/обновление через steam.");
 define('OGP_LANG_mod_key_not_found_from_xml', "Ключ '%s' не найден в XML файле.");
