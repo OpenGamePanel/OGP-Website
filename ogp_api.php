@@ -928,7 +928,8 @@ function api_gamemanager()
 												 $home_info['mods'][$mod_id]['nice'],
 												 $preStart,
 												 $envVars,
-												 $server_xml->game_key
+												 $server_xml->game_key,
+												 (isset( $server_xml->console_log ) ? $server_xml->console_log : "")
 												 );
 		
 		if( $start_retval == AGENT_ERROR_NOT_EXECUTABLE)

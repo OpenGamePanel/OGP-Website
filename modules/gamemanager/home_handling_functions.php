@@ -403,7 +403,8 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 												 $home_info['mods'][$mod_id]['nice'],
 												 $preStart,
 												 $envVars,
-												 $server_xml->game_key
+												 $server_xml->game_key,
+												 (isset( $server_xml->console_log ) ? $server_xml->console_log : "")
 												 );
 		$db->logger(get_lang('server_started') . " (".$home_info['home_name']." $ip:$port)");
 		if( $start_retval == AGENT_ERROR_NOT_EXECUTABLE or $start_retval <= 0)

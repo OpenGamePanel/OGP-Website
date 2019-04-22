@@ -577,10 +577,10 @@ class OGPRemoteLibrary
 	/// \todo Other return values?
 	// Starts game server
 	public function universal_start($home_id, $game_home, $game_binary, $run_dir, $startup_cmd,
-		$server_port, $server_ip, $cpu, $nice, $preStart, $envVars, $game_key)
+		$server_port, $server_ip, $cpu, $nice, $preStart, $envVars, $game_key, $console_log = "")
 	{
 		$params_array = $this->encrypt_params($home_id, $game_home, $game_binary,
-			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice, $preStart, $envVars, $game_key);
+			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice, $preStart, $envVars, $game_key, $console_log);
 		$this->add_enc_chk($params_array);
 		$request = xmlrpc_encode_request("universal_start", $params_array);
 		$response = $this->sendRequest($request);
