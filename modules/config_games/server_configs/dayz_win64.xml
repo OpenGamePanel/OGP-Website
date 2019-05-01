@@ -6,12 +6,12 @@
   <game_name>DayZ</game_name>
   <server_exec_name>DayZServer_x64.exe</server_exec_name>
   <query_port type="add">3</query_port>
-  <cli_template>-config=serverDZ.cfg %PORT% -profiles="%HOME_PATH%/profiles" -dologs -adminlog -netlog %FC% %NFP% %CC%</cli_template>
+  <cli_template>-config=serverDZ.cfg %PORT% -profiles="%HOME_PATH%" -dologs -adminlog -netlog %FC% %NFP% %CC%</cli_template>
   <cli_params>
     <cli_param id="PORT" cli_string="-port=" />
     <cli_param id="HOME_PATH" cli_string="" />
   </cli_params>
-  <console_log>profiles/server_console.log</console_log>
+  <console_log>server_console.log</console_log>
   <max_user_amount>127</max_user_amount>
   <mods>
     <mod key="default">
@@ -61,5 +61,6 @@
   </server_params>
   <configuration_files>
     <file description="Server Configurations">serverDZ.cfg</file>
+    <file description="BattlEye Configuration">battleye/BEServer_x64.cfg</file>
   </configuration_files>
 </game_config>
