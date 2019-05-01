@@ -59,6 +59,15 @@
       <desc>Ensures that only PBOs are loaded and NO unpacked data.</desc>
     </param>
   </server_params>
+  <post_install>
+    if grep -q logFile "serverDZ.cfg"
+      then
+        echo Configuration for logging already fixed.
+      else
+        echo Fixing the configuration for logging.
+        echo -e "\n\nlogFile = \"server_console.log\";// Saves the server console log to a file in the folder with the other server logs">> serverDZ.cfg
+    fi
+  </post_install>
   <configuration_files>
     <file description="Server Configurations">serverDZ.cfg</file>
     <file description="BattlEye Configuration">battleye/BEServer_x64.cfg</file>
