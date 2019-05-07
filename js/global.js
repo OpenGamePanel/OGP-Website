@@ -86,6 +86,7 @@ function showAPILinks(elem){
 					apiURL += additionalParamsToAdd;
 				}
 				$("input.updateLink").val(apiURL);
+				copyInput($("input.updateLink"), $("span.copyStatus"), elem);
 			});
 			
 			$("input.updateLink").click(function(e){
