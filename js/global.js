@@ -75,28 +75,30 @@ function showAPILinks(elem){
 		}
 		selectListHTML += '</select>';
 	
-		$("div.mangificWrapper .magnificContentsDiv").html(getLang('api_links_popup_html') + '<p>' + getLang('actions') +':&nbsp; ' + selectListHTML + '</p><p><input class="updateLink" style="width: 75%;" type="text" value="' + $(elem).attr('autoupdatelink') + '"><button class="copyButton">' + $(elem).attr('copyme') + '</button>&nbsp; <span class="copyStatus"></span></p>');
+		$("div.mangificWrapper .magnificContentsDiv").html($(getLang('api_links_popup_html')) + '<p>' + getLang('actions') +':&nbsp; ' + selectListHTML + '</p><p><input class="updateLink" style="width: 75%;" type="text" value=""><button class="copyButton">' + $(elem).attr('copyme') + '</button>&nbsp; <span class="copyStatus"></span></p>');
 			
 		showPopup(function(){
-			$(".ogpAPIActions", elem).change(function(e){
+			$(".ogpAPIActions").change(function(e){
 				var newActionValue = $(this).val();
 				var apiURL = panelURL + '/' + newActionValue + '&token=' + apiToken + '&ip=' + ipAddr + '&port=' + port + '&mod_key=' + modKey;
 				var additionalParamsToAdd = $(this).attr('additional');
 				if(additionalParamsToAdd){
 					apiURL += additionalParamsToAdd;
 				}
-				$("input.updateLink", elem).val(apiURL);
+				$("input.updateLink").val(apiURL);
 			});
 			
-			$("input.updateLink", elem).click(function(e){
+			$("input.updateLink").click(function(e){
 				$(this).select();
 			});
 			
-			$(".copyButton", elem).click(function(e){
+			$(".copyButton").click(function(e){
 				copyInput($("input.updateLink"), $("span.copyStatus"), elem);
 			});
 			
 			copyInput($("input.updateLink"), $("span.copyStatus"), elem);
+			
+			$(".ogpAPIActions").trigger('change');
 		});
 	}
 }
