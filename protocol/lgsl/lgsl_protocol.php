@@ -98,6 +98,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"mohaab"		=> "Medal of Honor: Allied Assault Breakthrough",
 		"mohaas"		=> "Medal of Honor: Allied Assault Spearhead",
 		"mohpa"			=> "Medal of Honor: Pacific Assault",
+		"mordhau"		=> "Mordhau",
 		"mta"			=> "Multi Theft Auto",
 		"murmur"		=> "Murmur ( Mumble Server )",
 		"nascar2004"	=> "Nascar Thunder 2004",
@@ -258,6 +259,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"mohaab_"		=> "02",
 		"mohaas_"		=> "02",
 		"mohpa_"		=> "02",
+		"mordhau"		=> "05",
 		"mta"			=> "08",
 		"murmur"		=> "34",
 		"nascar2004"	=> "09",
@@ -417,6 +419,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"mohaab"		=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssaultBreakthrough&action=show",
 		"mohaas"		=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorAlliedAssaultSpearhead&action=show",
 		"mohpa"			=> "qtracker://{IP}:{S_PORT}?game=MedalofHonorPacificAssault&action=show",
+		"mordhau"		=> "steam://connect/{IP}:{Q_PORT}",
 		"mta"			=> "mtasa://{IP}:{C_PORT}",
 		"murmur"		=> "mumble://{IP}:{C_PORT}/?version=1.2.0",
 		"nascar2004"	=> "http://en.wikipedia.org/wiki/NASCAR_Thunder_2004",
@@ -546,6 +549,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "mohaab"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
 			case "mohaas"			: $c_to_q = 97;		$c_def = 12203;	$q_def = 12300;	$c_to_s = 0;	break;
 			case "mohpa"			: $c_to_q = 97;		$c_def = 13203;	$q_def = 13300;	$c_to_s = 0;	break;
+			case "mordhau"			: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "mta"				: $c_to_q = 123;	$c_def = 22003;	$q_def = 22126;	$c_to_s = 0;	break;
 			case "murmur"			: $c_to_q = 2;		$c_def = 64738;	$q_def = 64740;	$c_to_s = 0;	break;
 			case "ns2"				: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 1;	break;
