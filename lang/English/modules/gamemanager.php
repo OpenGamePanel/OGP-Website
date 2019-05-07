@@ -188,7 +188,7 @@ define('OGP_LANG_no_online_players', "There are no online players.");
 define('OGP_LANG_invalid_game_mod_id', "Invalid Game/Mod ID specified.");
 define('OGP_LANG_auto_update_title_popup', "Steam Auto Update Link");
 define('OGP_LANG_auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
-define('OGP_LANG_api_links_popup_html', "<p>Select an action you would like to perform using the OGP API for this game server.&nbsp; Then, use the link below to perform your desired action.&nbsp; You can run your desired action using a cronjob or making a direct request to it.</p>");
+define('OGP_LANG_api_links_popup_html', "<p>Select an action you would like to perform using the OGP API for this game server.&nbsp; Then, use the link below to perform your desired action.&nbsp; You can run your desired action using a cronjob or by making a direct request to it.</p>");
 define('OGP_LANG_auto_update_copy_me', "Copy");
 define('OGP_LANG_auto_update_copy_me_success', "Copied!");
 define('OGP_LANG_auto_update_copy_me_fail', "Failed to copy. Please, manually copy the link.");
