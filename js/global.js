@@ -9,8 +9,8 @@ function wireClicks(){
 		handleVersionClick();
 	});
 	
-	$(".getAutoUpdateLink").click(function(e){
-		showSteamUpdateLink($(this));
+	$(".getAPILinks").click(function(e){
+		showAPILinks($(this));
 	});
 	
 	$(".serverIdToggle").click(function(e){
@@ -46,21 +46,59 @@ function animateProgressBars(){
 	});
 }
 
-function showSteamUpdateLink(elem){
+function showAPILinks(elem){
 	$("div.mangificWrapper .magnificTitle").text($(elem).attr('autoupdatetext'));
-	$("div.mangificWrapper .magnificContentsDiv").html('<p>' + $(elem).attr('autoupdatehtml') + '</p><p><input class="updateLink" style="width: 75%;" type="text" value="' + $(elem).attr('autoupdatelink') + '"><button class="copyButton">' + $(elem).attr('copyme') + '</button>&nbsp; <span class="copyStatus"></span></p>');
+	
+	var apiToken = elem.attr('token');
+	var ipAddr = elem.attr('ip');
+	var port = elem.attr('port');
+	var modKey = elem.attr('modkey');
+	var panelURL = elem.attr('panelurl');
+	
+	if(apiToken && ipAddr && port && modKey && panelURL){
 		
-	showPopup(function(){
-		$("input.updateLink").click(function(e){
-			$(this).select();
-		});
+		var actions = new Array(
+			{url: 'ogp_api.php?gamemanager/start', lang: 'start_server'}, 
+			{url: 'ogp_api.php?gamemanager/stop', lang: 'stop_server'},
+			{url: 'ogp_api.php?gamemanager/restart', lang: 'restart_server'},
+			{url: 'ogp_api.php?gamemanager/rcon', lang: 'rcon_command_title', additional: '&command={YOUR_RCON_COMMAND}'}
+		); 
 		
-		$(".copyButton").click(function(e){
+		var isSteam = elem.attr('hassteam');
+		if(isSteam && isSteam === 'true'){
+			actions.push({url: 'ogp_api.php?gamemanager/update', lang: 'get_steam_autoupdate_api_link', additional: '&type=steam', selected: true});
+		}
+		
+		var selectListHTML = '<select class="ogpAPIActions">';
+		for(var i = 0; i < actions.length; i++){
+			selectListHTML += '<option value="' + actions[i]["url"] + '" ' + (actions[i].hasOwnProperty('additional') && actions[i].additional ? 'additional="' + actions[i].additional + '"' : '') + ' ' + (actions[i].hasOwnProperty('selected') && actions[i]["selected"] && actions[i]["selected"] == true ? 'selected' : '') + '>' + getLang(actions[i]["lang"]) + '</option>'; 
+		}
+		selectListHTML += '</select>';
+	
+		$("div.mangificWrapper .magnificContentsDiv").html(getLang('api_links_popup_html') + '<p>' + getLang('actions') +':&nbsp; ' + selectListHTML + '</p><p><input class="updateLink" style="width: 75%;" type="text" value="' + $(elem).attr('autoupdatelink') + '"><button class="copyButton">' + $(elem).attr('copyme') + '</button>&nbsp; <span class="copyStatus"></span></p>');
+			
+		showPopup(function(){
+			$(".ogpAPIActions", elem).change(function(e){
+				var newActionValue = $(this).val();
+				var apiURL = panelURL + '/' + newActionValue + '&token=' + apiToken + '&ip=' + ipAddr + '&port=' + port + '&mod_key=' + modKey;
+				var additionalParamsToAdd = $(this).attr('additional');
+				if(additionalParamsToAdd){
+					apiURL += additionalParamsToAdd;
+				}
+				$("input.updateLink", elem).val(apiURL);
+			});
+			
+			$("input.updateLink", elem).click(function(e){
+				$(this).select();
+			});
+			
+			$(".copyButton", elem).click(function(e){
+				copyInput($("input.updateLink"), $("span.copyStatus"), elem);
+			});
+			
 			copyInput($("input.updateLink"), $("span.copyStatus"), elem);
 		});
-		
-		copyInput($("input.updateLink"), $("span.copyStatus"), elem);
-	});
+	}
 }
 
 function copyInput(input, resultArea, elemWithAttr){
@@ -180,7 +218,7 @@ function toggleEvents(){
 		cssDesc: "headerSortDown",
 		cssChildRow: "expand-child",
 		sortInitialOrder: "asc",
-		sortMultiSortKey: "shiftKey",
+		sortMultiSortKey: "shiftKey"
 	});
 }
 
