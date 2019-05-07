@@ -47,7 +47,7 @@ function animateProgressBars(){
 }
 
 function showAPILinks(elem){
-	$("div.mangificWrapper .magnificTitle").text($(elem).attr('autoupdatetext'));
+	$("div.mangificWrapper .magnificTitle").text(getLang('api_links'));
 	
 	var apiToken = elem.attr('token');
 	var ipAddr = elem.attr('ip');
@@ -81,7 +81,7 @@ function showAPILinks(elem){
 			$(".ogpAPIActions").change(function(e){
 				var newActionValue = $(this).val();
 				var apiURL = panelURL + '/' + newActionValue + '&token=' + apiToken + '&ip=' + ipAddr + '&port=' + port + '&mod_key=' + modKey;
-				var additionalParamsToAdd = $(this).attr('additional');
+				var additionalParamsToAdd = $('option:selected', $(this)).attr('additional');
 				if(additionalParamsToAdd){
 					apiURL += additionalParamsToAdd;
 				}
@@ -240,6 +240,6 @@ function decodeEntities(encodedString) {
   var textArea = document.createElement('textarea');
   textArea.innerHTML = encodedString;
   var toReturn = textArea.value;
-  textArea.parentNode.removeChild(textArea);
+  textArea.remove();
   return toReturn;
 }

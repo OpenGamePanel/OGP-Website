@@ -194,6 +194,7 @@ define('OGP_LANG_auto_update_copy_me_success', "Copied!");
 define('OGP_LANG_auto_update_copy_me_fail', "Failed to copy. Please, manually copy the link.");
 define('OGP_LANG_get_steam_autoupdate_api_link', "Auto Update Link");
 define('OGP_LANG_show_api_actions', "Show API Actions");
+define('OGP_LANG_show_api_links', "API Links");
 define('OGP_LANG_update_attempt_from_nonmaster_server', "User %s attempted to update home_id %d from a non-master server. (Home ID: %d)");
 define('OGP_LANG_attempting_nonmaster_update', "You are attempting to update this server from a non-master server.");
 define('OGP_LANG_cannot_update_from_own_self', "Local server update may not run on a Master server.");
