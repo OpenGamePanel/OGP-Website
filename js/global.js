@@ -75,7 +75,7 @@ function showAPILinks(elem){
 		}
 		selectListHTML += '</select>';
 	
-		$("div.mangificWrapper .magnificContentsDiv").html($(getLang('api_links_popup_html')) + '<p>' + getLang('actions') +':&nbsp; ' + selectListHTML + '</p><p><input class="updateLink" style="width: 75%;" type="text" value=""><button class="copyButton">' + $(elem).attr('copyme') + '</button>&nbsp; <span class="copyStatus"></span></p>');
+		$("div.mangificWrapper .magnificContentsDiv").html(decodeEntities(getLang('api_links_popup_html')) + '<p>' + getLang('actions') +':&nbsp; ' + selectListHTML + '</p><p><input class="updateLink" style="width: 75%;" type="text" value=""><button class="copyButton">' + $(elem).attr('copyme') + '</button>&nbsp; <span class="copyStatus"></span></p>');
 			
 		showPopup(function(){
 			$(".ogpAPIActions").change(function(e){
@@ -234,4 +234,12 @@ function getLang(key){
 	}
 	
 	return false;
+}
+
+function decodeEntities(encodedString) {
+  var textArea = document.createElement('textarea');
+  textArea.innerHTML = encodedString;
+  var toReturn = textArea.value;
+  textArea.parentNode.removeChild(textArea);
+  return toReturn;
 }
