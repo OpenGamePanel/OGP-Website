@@ -69,6 +69,7 @@ function exec_ogp_module()
 			"custom_github_update_username" => $_REQUEST['custom_github_update_username'],
 			"show_server_id_game_monitor" => $_REQUEST['show_server_id_game_monitor'],
 			"default_game_server_home_path_prefix" => $_REQUEST['default_game_server_home_path_prefix'],
+			"use_authorized_hosts" => $_REQUEST['use_authorized_hosts'],
 		);
 		
 		$db->setSettings($settings);
@@ -104,9 +105,14 @@ function exec_ogp_module()
 	
 	$rsync_options = array("1" => get_lang('all_available_servers'), "2" => get_lang('only_remote_servers'), "3" => get_lang('only_local_servers'));
 
-	echo "<h2>".get_lang('settings')."</h2>";
-	echo "<h4><a href='?m=settings&p=api_hosts'>".get_lang('setup_api_authorized_hosts')."</a></h4>";
 	$row = $db->getSettings();
+
+	echo "<h2>".get_lang('settings')."</h2>";
+	
+	if(@$row['use_authorized_hosts']){
+		echo "<h4><a href='?m=settings&p=api_hosts'>".get_lang('setup_api_authorized_hosts')."</a></h4>";
+	}
+	
 	$ft = new FormTable();
 	$ft->start_form("?m=settings", "post", "autocomplete=\"off\"");
 	$ft->start_table();
@@ -167,6 +173,9 @@ function exec_ogp_module()
 	$ft->add_field('on_off','show_server_id_game_monitor',@$row['show_server_id_game_monitor']);
 	
 	$ft->add_field('string','default_game_server_home_path_prefix',@$row['default_game_server_home_path_prefix']);
+	
+	// Use authorized hosts for API - this should be disabled by default since using the KEY alone should be secure enough
+	$ft->add_field('on_off','use_authorized_hosts',@$row['use_authorized_hosts']);	
 	
 	$ft->end_table();
 	$ft->add_button("submit","update_settings",get_lang('update_settings'));
