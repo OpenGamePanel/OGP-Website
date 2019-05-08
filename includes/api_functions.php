@@ -460,7 +460,11 @@ function is_authorized()
 	require_once 'includes/ip_in_range.php';
 	$api_hosts_file = 'api_authorized.hosts';
 	$api_fwd_hosts_file = 'api_authorized.fwd_hosts';
-	global $db;
+	global $db, $settings;
+	
+	if(!@$settings['use_authorized_hosts']){
+		return true;
+	}
 	
 	$authorized_hosts = array();
 	$ip = getHostByName(getHostName());
