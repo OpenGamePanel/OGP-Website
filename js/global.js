@@ -60,9 +60,14 @@ function showAPILinks(elem){
 		var actions = new Array(
 			{url: 'ogp_api.php?gamemanager/start', lang: 'start_server'}, 
 			{url: 'ogp_api.php?gamemanager/stop', lang: 'stop_server'},
-			{url: 'ogp_api.php?gamemanager/restart', lang: 'restart_server'},
-			{url: 'ogp_api.php?gamemanager/rcon', lang: 'rcon_command_title', additional: '&command={YOUR_RCON_COMMAND}'}
+			{url: 'ogp_api.php?gamemanager/restart', lang: 'restart_server'}
 		); 
+		
+		
+		var hasRcon = elem.attr('hasrcon');
+		if(hasRcon && hasRcon === 'true'){
+			actions.push({url: 'ogp_api.php?gamemanager/rcon', lang: 'rcon_command_title', additional: '&command={YOUR_RCON_COMMAND}'});
+		}
 		
 		var isSteam = elem.attr('hassteam');
 		if(isSteam && isSteam === 'true'){

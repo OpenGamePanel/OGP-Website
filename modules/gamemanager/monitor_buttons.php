@@ -83,7 +83,7 @@ if (preg_match("/u/",$server_home['access_rights']))
 		}
 	}
 	
-	$module_buttons[] = "<a class='monitorbutton getAPILinks' hassteam='" . ($hasSteamAutoUpdate ? 'true' : 'false') . "' copyfail='" . get_lang("auto_update_copy_me_fail") . "' copysuccess='" . get_lang("auto_update_copy_me_success") . "' autoupdatetext='" . get_lang("auto_update_title_popup") . "' copyme='" . get_lang("auto_update_copy_me") . "' token='".$db->getApiToken($_SESSION['user_id'])."' ip='".$server_home['ip']."' port='".$server_home['port']."' modkey='".$server_home['mod_key']."' panelurl='" . getOGPSiteURL() . "'>
+	$module_buttons[] = "<a class='monitorbutton getAPILinks' hassteam='" . ($hasSteamAutoUpdate ? 'true' : 'false') . "' hasrcon='" . ($server_xml->control_protocol || ($server_xml->lgsl_query_name and $server_xml->lgsl_query_name == "7dtd") || ($server_xml->gameq_query_name and $server_xml->gameq_query_name == "minecraft") ? 'true' : 'false') . "' copyfail='" . get_lang("auto_update_copy_me_fail") . "' copysuccess='" . get_lang("auto_update_copy_me_success") . "' autoupdatetext='" . get_lang("auto_update_title_popup") . "' copyme='" . get_lang("auto_update_copy_me") . "' token='".$db->getApiToken($_SESSION['user_id'])."' ip='".$server_home['ip']."' port='".$server_home['port']."' modkey='".$server_home['mod_key']."' panelurl='" . getOGPSiteURL() . "'>
 		<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_lang("show_api_actions") . "'>
 		<span>". get_lang("show_api_actions") . "</span>
 		</a>";
