@@ -85,11 +85,11 @@ if(function_exists($function))
 	define("API_TABLE", $table_prefix."api_tokens");
 	// Connect to the database server and select database.
 	$db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
+	$settings = $db->getSettings();
 	
 	if(!is_authorized())
 		outputJSON(array("status" => '401', "message" => 'Unauthorized host'));
 	
-	$settings = $db->getSettings();
 	$db->checkApiTable();
 	$logged_in = false;
 	
