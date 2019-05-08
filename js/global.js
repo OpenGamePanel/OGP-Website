@@ -91,7 +91,6 @@ function showAPILinks(elem){
 					apiURL += additionalParamsToAdd;
 				}
 				$("input.updateLink").val(apiURL);
-				copyInput($("input.updateLink"), $("span.copyStatus"), elem);
 			});
 			
 			$("input.updateLink").click(function(e){
@@ -110,14 +109,14 @@ function showAPILinks(elem){
 }
 
 function copyInput(input, resultArea, elemWithAttr){
-	$(input).select();
+	input.select();
 	var successful = document.execCommand('copy');
 	var msg = successful ? 'successful' : 'unsuccessful';
 	logToConsole('Copying text command was ' + msg);
 	if(successful){
-		$(resultArea).text($(elemWithAttr).attr('copysuccess')).fadeIn('fast').delay(500).fadeOut('slow').delay(500).fadeIn('slow').delay(500).fadeOut('slow').delay(500).fadeIn('fast').delay(2000).fadeIn('fast');
+		$(resultArea).text($(elemWithAttr).attr('copysuccess')).fadeIn('fast').delay(500).fadeOut('slow').delay(500).fadeIn('slow').delay(500).fadeOut('slow').delay(500).fadeIn('fast').delay(2000).fadeIn('fast').fadeOut('slow');
 	}else{
-		$(resultArea).text($(elemWithAttr).attr('copyfail')).fadeIn('fast').delay(500).fadeOut('slow').delay(500).fadeIn('slow').delay(500).fadeOut('slow').delay(500).fadeIn('fast').delay(2000).fadeIn('fast');
+		$(resultArea).text($(elemWithAttr).attr('copyfail')).fadeIn('fast').delay(500).fadeOut('slow').delay(500).fadeIn('slow').delay(500).fadeOut('slow').delay(500).fadeIn('fast').delay(2000).fadeIn('fast').fadeOut('slow');
 	}
 }
 
