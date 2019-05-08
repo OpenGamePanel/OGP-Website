@@ -36,6 +36,7 @@ $module_buttons = array(
 
 if (preg_match("/u/",$server_home['access_rights']))
 {
+	$hasSteamAutoUpdate = false;
 	$master_server_home_id = $db->getMasterServer( $server_home['remote_server_id'], $server_home['home_cfg_id'] );
 	if ( $master_server_home_id != FALSE )
 	{
@@ -60,10 +61,8 @@ if (preg_match("/u/",$server_home['access_rights']))
 			<img src='" . check_theme_image("images/steam.png") ."' title='". get_lang("install_update_steam") ."'>
 			<span>". get_lang("install_update_steam") ."</span>
 		</a>";
-		$module_buttons[] = "<a class='monitorbutton getAutoUpdateLink' copyfail='" . get_lang("auto_update_copy_me_fail") . "' copysuccess='" . get_lang("auto_update_copy_me_success") . "' autoupdatetext='" . get_lang("auto_update_title_popup") . "' autoupdatehtml='" . htmlentities(get_lang("auto_update_popup_html")) . "' copyme='" . get_lang("auto_update_copy_me") . "' autoupdatelink='" . getOGPSiteURL() . "/ogp_api.php?gamemanager/update&token=".$db->getApiToken($_SESSION['user_id'])."&ip=".$server_home['ip']."&port=".$server_home['port']."&mod_key=".$server_home['mod_key']."&type=steam'>
-			<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_lang("get_steam_autoupdate_api_link") . "'>
-			<span>". get_lang("get_steam_autoupdate_api_link") . "</span>
-		</a>";
+		
+		$hasSteamAutoUpdate = true;
 	}
 	// In other cases manual update is provided.
 	else
@@ -83,6 +82,11 @@ if (preg_match("/u/",$server_home['access_rights']))
 			</a>";
 		}
 	}
+	
+	$module_buttons[] = "<a class='monitorbutton getAPILinks' hassteam='" . ($hasSteamAutoUpdate ? 'true' : 'false') . "' hasrcon='" . ($server_xml->control_protocol || ($server_xml->lgsl_query_name and $server_xml->lgsl_query_name == "7dtd") || ($server_xml->gameq_query_name and $server_xml->gameq_query_name == "minecraft") ? 'true' : 'false') . "' copyfail='" . get_lang("auto_update_copy_me_fail") . "' copysuccess='" . get_lang("auto_update_copy_me_success") . "' autoupdatetext='" . get_lang("auto_update_title_popup") . "' copyme='" . get_lang("auto_update_copy_me") . "' token='".$db->getApiToken($_SESSION['user_id'])."' ip='".$server_home['ip']."' port='".$server_home['port']."' modkey='".$server_home['mod_key']."' panelurl='" . getOGPSiteURL() . "'>
+		<img src='" . check_theme_image("images/auto_update.png") . "' title='". get_lang("show_api_actions") . "'>
+		<span>". get_lang("show_api_actions") . "</span>
+		</a>";
 }
 
 

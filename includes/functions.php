@@ -896,4 +896,67 @@ function updateAllPanelModules(){
 		}
 	}
 }
+
+function getRemoteContent($url, $timeout = 5, $referrer = ""){
+	$useCURL = false;
+	$agent = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0';
+	
+	try{
+		$currentTimeout = ini_get('default_socket_timeout');
+		ini_set('default_socket_timeout', $timeout); // Timeout in seconds
+			
+		$streamOptions = array(
+			'http' => array(
+				'method' => 'GET',
+				'user_agent' => $agent,
+				'timeout' => ($timeout + 3) // https://stackoverflow.com/questions/10236166/does-file-get-contents-have-a-timeout-setting#answer-10236480
+			),
+			'ssl'=> array(
+				'verify_peer' => false,
+				'verify_peer_name' => false,
+			)
+		);
+		
+		if(!empty($referrer)){
+			$streamOptions['header'] = array("Referer: $referer\r\n");
+		}
+		
+		stream_context_set_default($streamOptions);
+		
+		$content = file_get_contents($url);
+		if(empty($content) || strlen($content) <=5){
+			$useCURL = true;
+		}else{
+			ini_set('default_socket_timeout', $currentTimeout); // Set it back to the original
+			return $content;
+		}
+	}catch (Exception $e) {
+		$useCURL = true;
+	}
+	
+	if($useCURL && cURLEnabled()){
+		try{
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+			curl_setopt($ch, CURLOPT_TIMEOUT, ($timeout + 3));
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+			@curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+			curl_setopt($ch, CURLOPT_USERAGENT, $agent);
+			if(!empty($referrer)){
+				curl_setopt($ch, CURLOPT_REFERER, $referrer);
+			}
+			$data = curl_exec($ch);
+			curl_close($ch);
+			if(!empty($data)){
+				return $data;
+			}
+		} catch (Exception $e) {
+				
+		}
+	}
+	
+	return false;
+}
 ?>
