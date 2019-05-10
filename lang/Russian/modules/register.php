@@ -40,7 +40,7 @@ define('OGP_LANG_successfull', "успешно");
 define('OGP_LANG_click_here', "Нажмите здесь");
 define('OGP_LANG_to_login', "чтобы залогиниться.");
 define('OGP_LANG_registered_on', "Зарегистрировано :: %s");
-define('OGP_LANG_register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may <a href='%s' target='_blank'>login now</a>.<br><br>Username: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_register_message', "Здравствуйте, <br><br> Ваша учетная запись Open Game Panel была создана, и вы можете <a href='%s' target='_blank'>войти в систему сейчас</a>. Имя пользователя: %s<br><br>Не забывайте сменить пароль при первом входе в систему и часто менять его в дальнейшем. <br><br>Пожалуйста, не отвечайте на это письмо!<br><br> ______________________________<br>OGP Mailer");
 define('OGP_LANG_err_captcha', "Каптча введена неверно.");
 define('OGP_LANG_err_login_name', "Имя пользователя пусто или занято.");
 define('OGP_LANG_err_first_name', "Введите свое имя.");

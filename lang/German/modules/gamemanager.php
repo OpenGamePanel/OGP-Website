@@ -156,7 +156,7 @@ define('OGP_LANG_mysql_databases', "MySQL Datenbank");
 define('OGP_LANG_failed_querying_server', "* Fehler beim Abfragen des Servers.");
 define('OGP_LANG_query_protocol_not_supported', "* Es gibt kein Abfrageprotokoll in OGP, das diesen Server unterstützen kann.
 ");
-define('OGP_LANG_queries_disabled_by_setting_disable_queries_after', "Queries disabled by setting: Disable queries after: %s, since you have %s servers.<br>");
+define('OGP_LANG_queries_disabled_by_setting_disable_queries_after', "Abfragen durch Einstellung abgeschaltet: Abfragen nach %s abgeschaltet, da sie %s Server haben.");
 define('OGP_LANG_presets_for_game_and_mod', "RCON Voreinstellungen für %s und mod %s");
 define('OGP_LANG_name', "Name");
 define('OGP_LANG_command', "RCON&nbsp;Command");
@@ -195,10 +195,13 @@ define('OGP_LANG_no_online_players', "Es sind keine Spieler online.");
 define('OGP_LANG_invalid_game_mod_id', "Ungültige Spiel/Mod ID angegeben.");
 define('OGP_LANG_auto_update_title_popup', "Steam Auto Update Link");
 define('OGP_LANG_auto_update_popup_html', "<p>Verwenden Sie den Link unten, um Ihren Spieleserver bei Bedarf zu überprüfen und automatisch über Steam zu aktualisieren. &Nbsp; Sie können es mit einem Cron-Job abfragen oder den Prozess manuell einleiten.</p>");
+define('OGP_LANG_api_links_popup_html', "<p>Select an action you would like to perform using the OGP API for this game server.&nbsp; Then, use the link below to perform your desired action.&nbsp; You can run your desired action using a cronjob or by making a direct request to it.</p>");
 define('OGP_LANG_auto_update_copy_me', "Kopieren");
 define('OGP_LANG_auto_update_copy_me_success', "Kopiert!");
 define('OGP_LANG_auto_update_copy_me_fail', "Kopieren fehlgeschlagen. Bitte kopieren Sie den Link von Hand");
 define('OGP_LANG_get_steam_autoupdate_api_link', "Auto Update Link");
+define('OGP_LANG_show_api_actions', "Show API Actions");
+define('OGP_LANG_api_links', "API Links");
 define('OGP_LANG_update_attempt_from_nonmaster_server', "Benutzer %s hat versucht, home_id %d zu aktualisieren von einem Nicht-Master-Server.
 (Verzeichnis ID: %d)");
 define('OGP_LANG_attempting_nonmaster_update', "Sie versuchen, diesen Server von einem Nicht-Master-Server zu aktualisieren.");

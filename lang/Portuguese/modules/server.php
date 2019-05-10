@@ -69,7 +69,7 @@ define('OGP_LANG_remote_server_settings_changed', "Mudou as configurações para
 define('OGP_LANG_save_settings', "Salvar configurações");
 define('OGP_LANG_set_ips', "Definir IPs");
 define('OGP_LANG_remote_ip', "IP remoto");
-define('OGP_LANG_remote_ips_for', "IPs for Game Servers To Use on Agent Server '%s'");
+define('OGP_LANG_remote_ips_for', "IPs para servidores de jogos a usar no servidor do agente '%s'");
 define('OGP_LANG_ips_set_for_server', "Os IPs definidos para o servidor chamados '%s' com sucesso.");
 define('OGP_LANG_could_not_remove_ip', "Não foi possível remover os antigos IP do banco de dados.");
 define('OGP_LANG_could_add_ip', "Poderia adicionar IP do servidor remoto ao banco de dados.");
@@ -96,7 +96,7 @@ define('OGP_LANG_failed_add_ip', "Falha ao adicionar IP");
 define('OGP_LANG_timeout', "Tempo esgotado");
 define('OGP_LANG_timeout_info', "O limite de tempo em segundos para obter a resposta deste Agente.");
 define('OGP_LANG_use_nat', "Usar NAT");
-define('OGP_LANG_use_nat_info', "Enable if your remote server is using NAT rules. Use this setting if your game servers are running on internal private LAN IP addresses so that the panel will use your real remote IP address to query the game servers.");
+define('OGP_LANG_use_nat_info', "Ativar apenas se o seu servidor remoto estiver a usar regras NAT. Use essas configurações se os servidores do seus jogos estiverem a ser executados em endereços IP internos da LAN, para que o painel use um endereço IP remoto real, assim consultar os servidores de jogos.");
 define('OGP_LANG_arrange_ports', "Organizar portas");
 define('OGP_LANG_assign_new_ports_range_for_ip', "Atribuir uma nova faixa de portas para IP %s");
 define('OGP_LANG_assigned_port_ranges_for_ip', "Faixas de portas atribuídas para IP %s");
@@ -135,5 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Salvar configurações de firewall");
 define('OGP_LANG_reset_firewall', "Redefinir Firewall");
 define('OGP_LANG_firewall_settings', "Configurações do Firewall");
 define('OGP_LANG_display_public_ip', "Exibir IP público");
-define('OGP_LANG_ips_can_be_internal_external', "Enter usable IP addresses.&nbsp; Public IP addresses and internal LAN IP addresses (for NAT setups) can be used.");
+define('OGP_LANG_ips_can_be_internal_external', "Digite os endereços IP utilizáveis.&nbsp; Endereços IP públicos e endereços IP internos da LAN (para configurações NAT) podem ser usados.");
 ?>

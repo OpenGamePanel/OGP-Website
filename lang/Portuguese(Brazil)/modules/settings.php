@@ -136,6 +136,8 @@ exemplo: /home/{USERNAME}/{GAMEKEY}
 você terá: /home/joao/arkse/1
 exemplo: /home/{USERNAME}/{GAMEKEY}{SKIPID}
 você terá: /home/joao/arkse/");
+define('OGP_LANG_use_authorized_hosts', "Limit API to Defined Authorized Hosts");
+define('OGP_LANG_use_authorized_hosts_info', "Enable this setting to only allow API calls from pre-defined and approved IP addresses.&nbsp; Approved addresses can be set on this page once the setting has been enabled.&nbsp; If this setting is disabled, a user using a valid key will have access to the API from any IP address.&nbsp; Users using a valid key will be able to use the API to manage any game server they have permissions to administrate.");
 define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
 define('OGP_LANG_autohorized_hosts', "Authorized hosts");
 define('OGP_LANG_add', "Add");

@@ -188,10 +188,13 @@ define('OGP_LANG_no_online_players', "لا يوجد لاعبين متواجدي�
 define('OGP_LANG_invalid_game_mod_id', "Invalid Game/Mod ID specified.");
 define('OGP_LANG_auto_update_title_popup', "رابط تحديث تلقائي لSteam");
 define('OGP_LANG_auto_update_popup_html', "<p>استخدم الرابط أدناه للتحقق من خادم اللعبة وتحديثه تلقائيًا عبر Steam إذا لزم الأمر.&nbsp; يمكنك الاستعلام عنها باستخدام cronjob أو بدء العملية يدويًا.</p>");
+define('OGP_LANG_api_links_popup_html', "<p>Select an action you would like to perform using the OGP API for this game server.&nbsp; Then, use the link below to perform your desired action.&nbsp; You can run your desired action using a cronjob or by making a direct request to it.</p>");
 define('OGP_LANG_auto_update_copy_me', "نسخ");
 define('OGP_LANG_auto_update_copy_me_success', "تم النسخ!");
 define('OGP_LANG_auto_update_copy_me_fail', "فشل النسخ. يرجى نسخ الرابط يدويًا.");
 define('OGP_LANG_get_steam_autoupdate_api_link', "رابط التحديث التلقائي");
+define('OGP_LANG_show_api_actions', "Show API Actions");
+define('OGP_LANG_api_links', "API Links");
 define('OGP_LANG_update_attempt_from_nonmaster_server', "User %s attempted to update home_id %d from a non-master server. (Home ID: %d)");
 define('OGP_LANG_attempting_nonmaster_update', "You are attempting to update this server from a non-master server.");
 define('OGP_LANG_cannot_update_from_own_self', "Local server update may not run on a Master server.");
