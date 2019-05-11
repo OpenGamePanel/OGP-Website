@@ -29,7 +29,6 @@
 			<default>AdminPassword=.*</default>
 			<var>AdminPassword=</var>
 			<filepath>Mordhau/Saved/Config/LinuxServer/Game.ini</filepath>
-		<options>ns</options>
 		</text>
 		<text key="max_players">
 			<default>MaxSlots=.*</default>
