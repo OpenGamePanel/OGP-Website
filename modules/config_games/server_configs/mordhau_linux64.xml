@@ -88,6 +88,8 @@ BR_Taiga" > maplist.txt
 		then
 		echo "File $gameini found. OK!"
 		else
+		echo "File $gameini not found"
+		echo "Generating new config file in $gameini"
 		echo "[/Script/Mordhau.MordhauGameMode]
 PlayerRespawnTime=5.000000
 BallistaRespawnTime=30.000000
