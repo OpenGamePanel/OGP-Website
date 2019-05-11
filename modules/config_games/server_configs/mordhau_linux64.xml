@@ -90,6 +90,91 @@ BR_Taiga" > maplist.txt
 		else
 		echo "File $gameini not found"
 		echo "Generating new config file in $gameini"
+		mkdir -p Mordhau/Saved/Config/LinuxServer/
+		touch Mordhau/Saved/Config/LinuxServer/Game.ini
+		echo "[/Script/Mordhau.MordhauGameMode]
+PlayerRespawnTime=5.000000
+BallistaRespawnTime=30.000000
+CatapultRespawnTime=30.000000
+HorseRespawnTime=30.000000
+DamageFactor=1.000000
+TeamDamageFactor=0.500000
+MapRotation=FFA_ThePit
+MapRotation=TDM_Camp
+MapRotation=SKM_Grad
+MapRotation=FFA_Contraband
+MapRotation=TDM_Tourney
+MapRotation=SKM_MountainPeak
+MapRotation=FFA_Taiga
+MapRotation=TDM_ThePit
+MapRotation=SKM_Camp
+MapRotation=FFA_Grad
+MapRotation=TDM_Contraband
+MapRotation=SKM_Tourney
+MapRotation=FFA_MountainPeak
+MapRotation=TDM_Taiga
+MapRotation=SKM_ThePit
+MapRotation=FFA_Camp
+MapRotation=TDM_Grad
+MapRotation=SKM_Contraband
+MapRotation=FFA_Tourney
+MapRotation=TDM_MountainPeak
+MapRotation=SKM_Taiga
+
+[/Script/Mordhau.MordhauGameSession]
+MaxSlots=16
+ServerName=Server
+ServerPassword=
+AdminPassword=
+BannedPlayers=()" > Mordhau/Saved/Config/LinuxServer/Game.ini
+		fi
+	</post_install>
+	<configuration_files>
+		<file description="Main Config File">Mordhau/Saved/Config/LinuxServer/Game.ini</file>
+	</configuration_files>
+</game_config>
+FL_Grad
+SKM_Contraband
+SKM_Camp
+SKM_Grad
+SKM_ThePit
+SKM_MountainPeak
+SKM_Tourney
+SKM_Taiga
+SKM_Taiga_64
+SKM_MountainPeak_64
+SKM_Grad_64
+SKM_Camp_64
+TDM_Contraband
+TDM_Camp
+TDM_Grad
+TDM_ThePit
+TDM_MountainPeak
+TDM_Taiga
+TDM_Tourney
+TDM_Taiga_64
+TDM_Camp_64
+FFA_Contraband
+FFA_Camp
+FFA_Grad
+FFA_ThePit
+FFA_MountainPeak
+FFA_Taiga
+FFA_Tourney
+HRD_Camp
+HRD_Grad
+HRD_Taiga
+HRD_MountainPeak
+BR_Grad
+BR_Taiga" > maplist.txt
+		fi
+		gameini="Mordhau/Saved/Config/LinuxServer/Game.ini"
+		if [ -s "$gameini" ]
+		then
+		echo "File $gameini found. OK!"
+		else
+		echo "File $gameini not found"
+		echo "Generating new config file in $gameini"
 		echo "[/Script/Mordhau.MordhauGameMode]
 PlayerRespawnTime=5.000000
 BallistaRespawnTime=30.000000
