@@ -1,32 +1,132 @@
 <game_config>
-  <game_key>mordhau_linux64</game_key>
-  <protocol>lgsl</protocol>
-  <lgsl_query_name>mordhau</lgsl_query_name>
-  <installer>steamcmd</installer>
-  <game_name>Mordhau</game_name>
-  <server_exec_name>MordhauServer-Linux-Shipping</server_exec_name>
-  <cli_template>%MAP%%IP%%PORT%%QUERY_PORT%%PLAYERS% -server -log</cli_template>
-  <cli_params>
-    <cli_param id="MAP" cli_string="" />
-    <cli_param id="IP" cli_string="?Multihome=" />
-    <cli_param id="PORT" cli_string="?Port=" />
-    <cli_param id="PLAYERS" cli_string="?MaxPlayers=" />
-    <cli_param id="CONTROL_PASSWORD" cli_string="?ServerAdminPassword=" />
-  </cli_params>
-  <reserve_ports>
-    <port type="add" id="QUERY_PORT" cli_string="?QueryPort=" options="s">19238</port>
-  </reserve_ports>
-  <console_log>Mordhau/Saved/Logs/Mordhau.log</console_log>
-  <exe_location>Mordhau/Binaries/Linux</exe_location>
-  <max_user_amount>64</max_user_amount>
-  <mods>
-    <mod key="default">
-      <name>None</name>
-      <installer_name>629800</installer_name>
-      <installer_login>anonymous</installer_login>
-    </mod>
-  </mods>
-  <configuration_files>
-    <file description="Main Config File">Mordhau/Saved/Config/LinuxServer/Game.ini</file>
-  </configuration_files>
- </game_config>
+	<game_key>mordhau_linux64</game_key>
+	<protocol>lgsl</protocol>
+	<lgsl_query_name>mordhau</lgsl_query_name>
+	<installer>steamcmd</installer>
+	<game_name>Mordhau</game_name>
+	<server_exec_name>MordhauServer-Linux-Shipping</server_exec_name>
+	<cli_template>%MAP%%PORT%%QUERY_PORT% -server -log</cli_template>
+	<cli_params>
+		<cli_param id="MAP" cli_string="" />
+		<cli_param id="PORT" cli_string="?Port=" />
+	</cli_params>
+	<reserve_ports>
+		<port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
+	</reserve_ports>
+	<map_list>maplist.txt</map_list>
+	<!-- <console_log>Mordhau/Saved/Logs/Mordhau.log</console_log> -->
+	<exe_location>Mordhau/Binaries/Linux</exe_location>
+	<max_user_amount>64</max_user_amount>
+	<mods>
+		<mod key="default">
+			<name>None</name>
+			<installer_name>629800</installer_name>
+			<installer_login>anonymous</installer_login>
+		</mod>
+	</mods>
+	<replace_texts>
+		<text key="control_password">
+			<default>AdminPassword=.*</default>
+			<var>AdminPassword=</var>
+			<filepath>Mordhau/Saved/Config/LinuxServer/Game.ini</filepath>
+		<options>ns</options>
+		</text>
+		<text key="max_players">
+			<default>MaxSlots=.*</default>
+			<var>MaxSlots=</var>
+			<filepath>Mordhau/Saved/Config/LinuxServer/Game.ini</filepath>
+		</text>
+	</replace_texts>
+	<post_install>
+		maplist="maplist.txt"
+		if [ -s "$maplist" ]
+		then
+		echo "File $maplist found. OK!"
+		else
+		echo "File $maplist not found"
+		echo "Generating new maplist file in $maplist"
+		touch maplist.txt
+		echo "FL_Taiga
+FL_MountainPeak
+FL_Camp
+FL_Grad
+SKM_Contraband
+SKM_Camp
+SKM_Grad
+SKM_ThePit
+SKM_MountainPeak
+SKM_Tourney
+SKM_Taiga
+SKM_Taiga_64
+SKM_MountainPeak_64
+SKM_Grad_64
+SKM_Camp_64
+TDM_Contraband
+TDM_Camp
+TDM_Grad
+TDM_ThePit
+TDM_MountainPeak
+TDM_Taiga
+TDM_Tourney
+TDM_Taiga_64
+TDM_Camp_64
+FFA_Contraband
+FFA_Camp
+FFA_Grad
+FFA_ThePit
+FFA_MountainPeak
+FFA_Taiga
+FFA_Tourney
+HRD_Camp
+HRD_Grad
+HRD_Taiga
+HRD_MountainPeak
+BR_Grad
+BR_Taiga" > maplist.txt
+		fi
+		gameini="Mordhau/Saved/Config/LinuxServer/Game.ini"
+		if [ -s "$gameini" ]
+		then
+		echo "File $gameini found. OK!"
+		else
+		echo "[/Script/Mordhau.MordhauGameMode]
+PlayerRespawnTime=5.000000
+BallistaRespawnTime=30.000000
+CatapultRespawnTime=30.000000
+HorseRespawnTime=30.000000
+DamageFactor=1.000000
+TeamDamageFactor=0.500000
+MapRotation=FFA_ThePit
+MapRotation=TDM_Camp
+MapRotation=SKM_Grad
+MapRotation=FFA_Contraband
+MapRotation=TDM_Tourney
+MapRotation=SKM_MountainPeak
+MapRotation=FFA_Taiga
+MapRotation=TDM_ThePit
+MapRotation=SKM_Camp
+MapRotation=FFA_Grad
+MapRotation=TDM_Contraband
+MapRotation=SKM_Tourney
+MapRotation=FFA_MountainPeak
+MapRotation=TDM_Taiga
+MapRotation=SKM_ThePit
+MapRotation=FFA_Camp
+MapRotation=TDM_Grad
+MapRotation=SKM_Contraband
+MapRotation=FFA_Tourney
+MapRotation=TDM_MountainPeak
+MapRotation=SKM_Taiga
+
+[/Script/Mordhau.MordhauGameSession]
+MaxSlots=16
+ServerName=Server
+ServerPassword=
+AdminPassword=
+BannedPlayers=()" > Mordhau/Saved/Config/LinuxServer/Game.ini
+		fi
+	</post_install>
+	<configuration_files>
+		<file description="Main Config File">Mordhau/Saved/Config/LinuxServer/Game.ini</file>
+	</configuration_files>
+</game_config>
