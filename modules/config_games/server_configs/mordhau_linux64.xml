@@ -5,13 +5,15 @@
 	<installer>steamcmd</installer>
 	<game_name>Mordhau</game_name>
 	<server_exec_name>MordhauServer-Linux-Shipping</server_exec_name>
-	<cli_template>%MAP%%PORT%%QUERY_PORT% -server -log</cli_template>
+	<cli_template>%MAP% -log %IP% %PORT% %BEACON_PORT% %QUERY_PORT%</cli_template>
 	<cli_params>
 		<cli_param id="MAP" cli_string="" />
-		<cli_param id="PORT" cli_string="?Port=" />
+		<cli_param id="IP" cli_string="-MultiHome=" />
+		<cli_param id="PORT" cli_string="-Port=" />
 	</cli_params>
 	<reserve_ports>
-		<port type="add" id="QUERY_PORT" cli_string="?QueryPort=">19238</port>
+		<port type="add" id="QUERY_PORT" cli_string="-QueryPort=">19238</port>
+		<port type="add" id="BEACON_PORT" cli_string="-BeaconPort=">7223</port>
 	</reserve_ports>
 	<map_list>maplist.txt</map_list>
 	<!-- <console_log>Mordhau/Saved/Logs/Mordhau.log</console_log> -->
@@ -120,7 +122,7 @@ MapRotation=SKM_Contraband
 MapRotation=FFA_Tourney
 MapRotation=TDM_MountainPeak
 MapRotation=SKM_Taiga
-
+ 
 [/Script/Mordhau.MordhauGameSession]
 MaxSlots=16
 ServerName=Server
@@ -131,5 +133,6 @@ BannedPlayers=()" > Mordhau/Saved/Config/LinuxServer/Game.ini
 	</post_install>
 	<configuration_files>
 		<file description="Main Config File">Mordhau/Saved/Config/LinuxServer/Game.ini</file>
+		<!-- <file description="Log File">Mordhau/Saved/Logs/Mordhau.log</file> -->
 	</configuration_files>
 </game_config>
