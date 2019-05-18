@@ -22,22 +22,22 @@
  *
  */
 
-define('OGP_LANG_dashboard_ftp_text', "The FTP client can compress files and send them via email, can uncompress too, edit text files and much more.");
-define('OGP_LANG_dashboard_addons_manager_text', "Manage all different types of services with OGP. Choose from over 115 servers, which supplied directly by OGP.");
-define('OGP_LANG_dashboard_game_monitor_text', "Watch and monitor your traffic & logs quickly. You can see what servers are up and down.");
-define('OGP_LANG_dashboard_support_text', "Get support from the OGP Professional Team on the forum. Fast response and great attention.");
-define('OGP_LANG_welcome_text', "Welcome to the Open Game Panel (OGP). OGP is an open-source software, that allows you to install, start and monitor different game servers.");
-define('OGP_LANG_any_server_is_online', "Any server is Online");
-define('OGP_LANG_current_map', "Current Map");
+define('OGP_LANG_dashboard_ftp_text', "Clientul FTP poate comprima fișierele și le poate trimite prin e-mail, poate decomprima, edita fișiere text și multe altele.");
+define('OGP_LANG_dashboard_addons_manager_text', "Gestionați toate tipurile de servicii cu OGP. Alegeți dintre cele peste 115 servere, furnizate direct de OGP.");
+define('OGP_LANG_dashboard_game_monitor_text', "Urmăriți și monitorizați rapid traficul și jurnalele. Puteți vedea ce servere sunt pornite sau oprite.");
+define('OGP_LANG_dashboard_support_text', "Obțineți asistență de la echipa profesionista OGP pe forum. Răspuns rapid și o atenție deosebită.");
+define('OGP_LANG_welcome_text', "Bine ați venit în Panoul Open Game (OGP). OGP este un software open source, care vă permite să instalați, să porniți și să monitorizați diferite servere de jocuri.");
+define('OGP_LANG_any_server_is_online', "Serverul este online");
+define('OGP_LANG_current_map', "Harta curentă");
 define('OGP_LANG_server_ip_port', "IP:Port");
-define('OGP_LANG_statistics', "Statistics");
-define('OGP_LANG_servers', "Servers");
-define('OGP_LANG_players', "Players");
-define('OGP_LANG_server_status', "Server Status");
-define('OGP_LANG_no_games_to_monitor', "There are currently no online/offline game servers");
-define('OGP_LANG_online_servers', "Online Servers");
-define('OGP_LANG_add_games_in', "If you want to add games you can do it in %s");
-define('OGP_LANG_currently_online', "Currently Online");
-define('OGP_LANG_game_servers', "Game Servers");
-define('OGP_LANG_select_remote_server', "Select Remote Server");
+define('OGP_LANG_statistics', "Statistici");
+define('OGP_LANG_servers', "Servere");
+define('OGP_LANG_players', "Jucători");
+define('OGP_LANG_server_status', "Starea serverului");
+define('OGP_LANG_no_games_to_monitor', "În prezent nu există servere de jocuri online / offline");
+define('OGP_LANG_online_servers', "Servere online");
+define('OGP_LANG_add_games_in', "Dacă vreți să adaugați jocuri puteți să o faceți în %s");
+define('OGP_LANG_currently_online', "Acum online");
+define('OGP_LANG_game_servers', "Servere jocuri");
+define('OGP_LANG_select_remote_server', "Selectați Remote server");
 ?>

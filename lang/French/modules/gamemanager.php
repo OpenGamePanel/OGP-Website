@@ -42,7 +42,7 @@ define('OGP_LANG_ip_and_port', "IP et Port");
 define('OGP_LANG_available_maps', "Cartes disponibles");
 define('OGP_LANG_map_path', "Chemin vers les cartes");
 define('OGP_LANG_available_parameters', "Paramètres disponibles");
-define('OGP_LANG_start_server', "Démarrer");
+define('OGP_LANG_start_server', "Démarrer le serveur");
 define('OGP_LANG_start_wait_note', "Le démarrage du serveur peut prendre du temps. Veuillez patienter sans fermer votre navigateur.");
 define('OGP_LANG_game_type', "Type de Jeu");
 define('OGP_LANG_map', "Carte");
@@ -50,7 +50,7 @@ define('OGP_LANG_starting_server', "Démarrage du serveur, veuillez patienter...
 define('OGP_LANG_starting_server_settings', "Démarrage du serveur avec les paramètres suivants");
 define('OGP_LANG_startup_params', "Paramètres de démarrage");
 define('OGP_LANG_startup_cpu', "CPU assigné au serveur de jeu");
-define('OGP_LANG_startup_nice', "Priorité (nice) assignée au serveur de jeu");
+define('OGP_LANG_startup_nice', "Priorité (niceness) assignée au serveur de jeu");
 define('OGP_LANG_game_home', "Chemin du serveur");
 define('OGP_LANG_server_started', "Serveur démarré avec succès.");
 define('OGP_LANG_no_parameter_access', "Vous n'avez pas accès aux paramètres.");

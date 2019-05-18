@@ -22,11 +22,10 @@
  *
  */
 
-define('OGP_LANG_game_manager', "Game Manager");
 define('OGP_LANG_no_games_to_monitor', "You do not have any games configured to you that can be monitored.");
 define('OGP_LANG_status', "Status");
 define('OGP_LANG_fail_no_mods', "No mods enabled for this game! You need to ask your OGP admin to add mod(s) for the game assigned for you.");
-define('OGP_LANG_no_game_homes_assigned', "No game servers assigned for you. You need to ask your OGP admin to assign games for you.");
+define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
 define('OGP_LANG_select_game_home_to_configure', "Select a game server that you want to configure");
 define('OGP_LANG_file_manager', "File Manager");
 define('OGP_LANG_configure_mods', "Configure mods");
@@ -72,8 +71,8 @@ define('OGP_LANG_failed_to_start_steam_update', "Failed to start Steam update. S
 define('OGP_LANG_failed_to_start_rsync_update', "Failed to start Rsync update. See agent log.");
 define('OGP_LANG_update_completed', "Update completed successfully.");
 define('OGP_LANG_update_in_progress', "Update in progress, please wait...");
-define('OGP_LANG_refresh_steam_status', "Refresh steam status");
-define('OGP_LANG_refresh_rsync_status', "Refresh rsync status");
+define('OGP_LANG_refresh_steam_status', "Refresh Steam status");
+define('OGP_LANG_refresh_rsync_status', "Refresh Rsync status");
 define('OGP_LANG_server_running_cant_update', "Server running so update is not possible. Stop the server before update.");
 define('OGP_LANG_xml_steam_error', "Selected server type does not support steam install/update.");
 define('OGP_LANG_mod_key_not_found_from_xml', "Mod key '%s' not found from the XML file.");
@@ -189,10 +188,13 @@ define('OGP_LANG_no_online_players', "There are no online players.");
 define('OGP_LANG_invalid_game_mod_id', "Invalid Game/Mod ID specified.");
 define('OGP_LANG_auto_update_title_popup', "Steam Auto Update Link");
 define('OGP_LANG_auto_update_popup_html', "<p>Use the link below to check and automatically update your game server via Steam if needed.&nbsp; You can query it using a cronjob or manually initiate the process.</p>");
+define('OGP_LANG_api_links_popup_html', "<p>Select an action you would like to perform using the OGP API for this game server.&nbsp; Then, use the link below to perform your desired action.&nbsp; You can run your desired action using a cronjob or by making a direct request to it.</p>");
 define('OGP_LANG_auto_update_copy_me', "Copy");
 define('OGP_LANG_auto_update_copy_me_success', "Copied!");
 define('OGP_LANG_auto_update_copy_me_fail', "Failed to copy. Please, manually copy the link.");
 define('OGP_LANG_get_steam_autoupdate_api_link', "Auto Update Link");
+define('OGP_LANG_show_api_actions', "Show API Actions");
+define('OGP_LANG_api_links', "API Links");
 define('OGP_LANG_update_attempt_from_nonmaster_server', "User %s attempted to update home_id %d from a non-master server. (Home ID: %d)");
 define('OGP_LANG_attempting_nonmaster_update', "You are attempting to update this server from a non-master server.");
 define('OGP_LANG_cannot_update_from_own_self', "Local server update may not run on a Master server.");
