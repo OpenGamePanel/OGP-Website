@@ -4,7 +4,7 @@
   <lgsl_query_name>squad</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Squad</game_name>
-  <server_exec_name>SquadServer.exe</server_exec_name>
+  <server_exec_name>SquadGameServer.exe</server_exec_name>
   <cli_template>%IP% %PORT% %QUERY_PORT% %PLAYERS% %TICKRATE% %MAP% -log</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="MultiHome=" />
@@ -14,7 +14,7 @@
   <reserve_ports>
     <port type="add" id="QUERY_PORT" cli_string="QueryPort=">19378</port>
   </reserve_ports>
-  <console_log>Squad/Saved/Logs/Squad.log</console_log>
+  <console_log>SquadGame/Saved/Logs/SquadGame.log</console_log>
   <max_user_amount>80</max_user_amount>
   <mods>
     <mod key="default">
@@ -27,22 +27,23 @@
     <text key="home_name">
       <default>ServerName=.*</default>
       <var>ServerName=</var>
-      <filepath>Squad/ServerConfig/Server.cfg</filepath>
+      <filepath>SquadGame/ServerConfig/Server.cfg</filepath>
+      <options>q</options>
     </text>
     <text key="max_players">
       <default>MaxPlayers=.*</default>
       <var>MaxPlayers=</var>
-      <filepath>Squad/ServerConfig/Server.cfg</filepath>
+      <filepath>SquadGame/ServerConfig/Server.cfg</filepath>
     </text>
     <text key="ip">
       <default>Ip=.*</default>
       <var>Ip=</var>
-      <filepath>Squad/ServerConfig/Rcon.cfg</filepath>
+      <filepath>SquadGame/ServerConfig/Rcon.cfg</filepath>
     </text>
     <text key="control_password">
       <default>Password=.*</default>
       <var>Password=</var>
-      <filepath>Squad/ServerConfig/Rcon.cfg</filepath>
+      <filepath>SquadGame/ServerConfig/Rcon.cfg</filepath>
     </text>
   </replace_texts>
   <server_params>
@@ -65,19 +66,19 @@
       <default>Port=.*</default>
       <default_value>21114</default_value>
       <var>Port=</var>
-      <filepath>Squad/ServerConfig/Rcon.cfg</filepath>
+      <filepath>SquadGame/ServerConfig/Rcon.cfg</filepath>
       <access>admin</access>
       <desc>Sets the port to RCON.</desc>
     </field>
   </custom_fields>
   <post_install>
-    sed -i '4s/IP/Ip/g' Squad/ServerConfig/Rcon.cfg
+    sed -i '4s/IP/Ip/g' SquadGame/ServerConfig/Rcon.cfg
   </post_install>
   <configuration_files>
-    <file description="Server Configurations">Squad/ServerConfig/Server.cfg</file>
-    <file description="RCON Configurations">Squad/ServerConfig/Rcon.cfg</file>
-    <file description="Admin Configurations">Squad/ServerConfig/Admins.cfg</file>
-    <file description="Map Rotation Configurations">Squad/ServerConfig/MapRotation.cfg</file>
-    <file description="Server Messages Configurations">Squad/ServerConfig/ServerMessages.cfg</file>
+    <file description="Server Configurations">SquadGame/ServerConfig/Server.cfg</file>
+    <file description="RCON Configurations">SquadGame/ServerConfig/Rcon.cfg</file>
+    <file description="Admin Configurations">SquadGame/ServerConfig/Admins.cfg</file>
+    <file description="Map Rotation Configurations">SquadGame/ServerConfig/MapRotation.cfg</file>
+    <file description="Server Messages Configurations">SquadGame/ServerConfig/ServerMessages.cfg</file>
   </configuration_files>
 </game_config>

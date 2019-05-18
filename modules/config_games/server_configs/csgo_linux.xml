@@ -86,6 +86,7 @@
     <param key="-tickrate" type="select">
       <option value="64">64</option>
       <option value="128">128</option>
+      <access>admin</access>
       <desc>Specifies server tickrate.</desc>
     </param>
     <param key="-nohltv" type="checkbox_key_value">
