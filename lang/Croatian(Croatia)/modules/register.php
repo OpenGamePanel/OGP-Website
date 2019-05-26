@@ -40,7 +40,7 @@ define('OGP_LANG_successfull', "Uspješno");
 define('OGP_LANG_click_here', "Kliknite ovdje");
 define('OGP_LANG_to_login', "za prijavu.");
 define('OGP_LANG_registered_on', "Registriran na %s.");
-define('OGP_LANG_register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may <a href='%s' target='_blank'>login now</a>.<br><br>Username: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_register_message', "Poštovani,<br><br>Vaš Open Game Panel račun je uspješno kreiran i vi se sada <a href='%s' target='_blank'>možete prijaviti</a>.<br><br>Korisničko ime: %s<br><br>Ne zaboravite često mijenjati zaporku i prvi put kada se prijavite.<br><br>Molimo ne odgovarajte na ovaj email!<br><br>______________________________<br>OGP Pošta");
 define('OGP_LANG_err_captcha', "Captcha se ne podudara.");
 define('OGP_LANG_err_login_name', "Korisničko Ime je prazno ili zauzeto.");
 define('OGP_LANG_err_first_name', "Unesite vaše Ime");

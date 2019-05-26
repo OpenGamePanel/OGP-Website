@@ -25,7 +25,7 @@
 include 'update.php';
 define('OGP_LANG_unable_download', "Nije moguće preuzeti %s");
 define('OGP_LANG_md5_failed', "Test MD5 nije uspio %s, pokušajte ponovo.");
-define('OGP_LANG_uninstall', "Deinstalirati");
+define('OGP_LANG_uninstall', "Ukloniti");
 define('OGP_LANG_install', "Instalirati");
 define('OGP_LANG_uptodate', "Ažurirano");
 define('OGP_LANG_update_available', "Dostupno ažuriranje");
