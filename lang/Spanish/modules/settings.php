@@ -143,8 +143,8 @@ Ejemplo 2:
 se convertiría en 
 /ogp/games/1 
 donde 1 es el identificador del servidor.");
-define('OGP_LANG_use_authorized_hosts', "Limit API to Defined Authorized Hosts");
-define('OGP_LANG_use_authorized_hosts_info', "Enable this setting to only allow API calls from pre-defined and approved IP addresses.&nbsp; Approved addresses can be set on this page once the setting has been enabled.&nbsp; If this setting is disabled, a user using a valid key will have access to the API from any IP address.&nbsp; Users using a valid key will be able to use the API to manage any game server they have permissions to administrate.");
+define('OGP_LANG_use_authorized_hosts', "Limitar API a hosts autorizados definidos");
+define('OGP_LANG_use_authorized_hosts_info', "Habilite esta configuración para permitir solo llamadas a la API desde direcciones IP predefinidas y aprobadas.&nbsp; Las direcciones aprobadas se pueden establecer en esta página una vez que se haya habilitado la configuración.&nbsp; Si esta configuración está deshabilitada, un usuario que use una clave válida tendrá acceso a la API desde cualquier dirección IP.&nbsp; Los usuarios que utilicen una clave válida podrán usar la API para administrar cualquier servidor de juegos que tengan permisos para administrar.");
 define('OGP_LANG_setup_api_authorized_hosts', "Configurar servidores autorizados de API");
 define('OGP_LANG_autohorized_hosts', "Servidores autorizados");
 define('OGP_LANG_add', "Añadir");
