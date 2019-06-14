@@ -690,8 +690,9 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	{
 		if(isset($server_xml->lgsl_query_name))$query_name = $server_xml->lgsl_query_name;
 		else $query_name = $server_xml->gameq_query_name;
-	}
-	else $query_name = $server_xml->mods->mod['key'];
+	} elseif ($server_xml->protocol == "teamspeak3") {
+		$query_name = 'ts3';
+	} else $query_name = $server_xml->mods->mod['key'];
 	
 	if ( $server_xml->map_list || $server_xml->maps_location )
 	{
