@@ -46,4 +46,9 @@
     <desc>Maximum usable memory in MB, for example: 1024</desc>
    </param>
   </server_params>
+<configuration_files>
+    <file description="Server Configurations">server.cfg</file>
+<file description="basic Configurations">basic.cfg</file>
+    <file description="arma 3 profile">profile/home/Player/Player.Arma3Profile</file>
+  </configuration_files>
 </game_config>
