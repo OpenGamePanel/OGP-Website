@@ -2,6 +2,7 @@
   <game_key>fivem_linux32</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>fivem</lgsl_query_name>
+  <installer>steamcmd</installer>
   <game_name>FiveM</game_name>
   <server_exec_name>run.sh</server_exec_name>
   <cli_template>+exec server.cfg</cli_template>
@@ -9,6 +10,8 @@
   <mods>
     <mod key="default">
       <name>None</name>
+      <installer_name>0</installer_name>
+      <installer_login>anonymous</installer_login>
     </mod>
   </mods>
   <replace_texts>
