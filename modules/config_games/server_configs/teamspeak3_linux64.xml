@@ -29,16 +29,16 @@
   </replace_texts>
   <server_params>
     <param key="license_accepted=" type="select" id="LICENS">
+	  <option value="1">Accepted</option>
       <option value="0">Denied</option>
-      <option value="1">Accepted</option>
       <options>ns</options>
       <desc>Agreeing to the TeamSpeak 3 server licence. Can be viewed &lt;a href=https://sales.teamspeak.com/documents/TeamSpeak_Master_License_Agreement_EN.pdf target=_blank&gt;here&lt;/a&gt;.</desc>
     </param>
     <param key="logappend=" type="select" id="LOG">
+	  <option value="1">Enabled</option>
       <option value="0">Disabled</option>
-      <option value="1">Enabled</option>
       <options>ns</options>
-      <desc>The log output will be appended to the previous log file.</desc>
+      <desc>The log output will be appended to the previous log file (disabling will cause OGP to be unable to return the server log contents in the panel).</desc>
     </param>
     <param key="query_protocols=" type="select" id="QP">
       <option value="raw">Classic</option>
