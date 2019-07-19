@@ -32,7 +32,7 @@ if(isset($_POST['function']))
 {
 	$get_req = $_POST['method'] == 'POST'? "?".$_POST['function']:"";
 ?>
-<form method='<?=$_POST['method']?>' action="ogp_api.php<?=$get_req?>" target="_blank">
+<form method='<?php echo $_POST['method']; ?>' action="ogp_api.php<?php echo $get_req; ?>" target="_blank">
 <?php
 if($_POST['method'] == 'GET')
 	echo "<input type=hidden name='$_POST[function]'>";

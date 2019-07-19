@@ -92,7 +92,7 @@ function exec_ogp_module()
 <div id="editor_wrapper" >
 	<xmp id="editor"><?php echo $data;?></xmp>
 </div>
-<button onclick="saveToFile()"><?=get_lang('save')?></button>
+<button onclick="saveToFile()"><?php echo get_lang('save'); ?></button>
 <link rel="stylesheet" type="text/css" href="modules/litefm/fm_read.css">
 <script src="modules/litefm/ace/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="modules/litefm/ace/ext-modelist.js" type="text/javascript" charset="utf-8"></script>
@@ -101,7 +101,7 @@ function exec_ogp_module()
     editor.setTheme("ace/theme/tomorrow");
     (function () {
         var modelist = ace.require("ace/ext/modelist");
-        var filePath = "<?=$rel_path?>";
+        var filePath = "<?php echo $rel_path; ?>";
         var mode = modelist.getModeForPath(filePath).mode;
         console.log(mode);
         editor.session.setMode(mode);
@@ -122,7 +122,7 @@ function exec_ogp_module()
 		var hiddenField = document.createElement("input");
 		hiddenField.setAttribute("type", "hidden");
 		hiddenField.setAttribute("name", "home_id");
-		hiddenField.setAttribute("value", "<?=$home_id?>");
+		hiddenField.setAttribute("value", "<?php echo $home_id; ?>");
 		form.appendChild(hiddenField);
 		
 		var submitButton = document.createElement("input");
