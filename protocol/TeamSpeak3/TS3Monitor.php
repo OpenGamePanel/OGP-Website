@@ -71,7 +71,7 @@ if(isset($server_home['control_password']) && $server_home['control_password'] !
 				$ts3['player_list'] = '<div style="width: 100%; height: 100%; overflow: scroll; border: 1px dashed black">' . $viewer . '</div>';
 				$ts3['maplocation'] = "protocol/lgsl/maps/ts3/teamspeak3.png";
 				$ts3['address'] = "<a href='ts3server://" . $cfg["host"] . ":" . $cfg["voice"]  . "'>" . $cfg["host"] . ":" . $cfg["voice"]  . "</a>";
-				$ts3['name'] = addslashes($ts3_ServerInstance["virtualserver_name"]);
+				$ts3['name'] = $ts3_ServerInstance["virtualserver_name"];
 				$ts3['map'] = "teamspeak3";
 				$ts3['playersmax'] = $ts3_ServerInstance["virtualserver_maxclients"];
 				$ts3['ip'] = $cfg["host"];
