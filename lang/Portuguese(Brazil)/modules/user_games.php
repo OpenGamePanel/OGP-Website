@@ -23,11 +23,11 @@
  */
 
 define('OGP_LANG_add_mods_note', "Você precisa adicionar mods depois de adicionar qualquer servidor ao usuário. Isso pode ser feito editando o servidor.");
-define('OGP_LANG_game_servers', "Game Servers");
+define('OGP_LANG_game_servers', "Servidores de Jogo");
 define('OGP_LANG_game_path', "Caminho do jogo");
 define('OGP_LANG_game_path_info', "Um caminho absoluto do servidor. Exemplo: /home/panelbot/panel_User_Files/My_Server");
 define('OGP_LANG_game_server_name_info', "O nome de cada servidor ajuda os usuários a identificar seus servidores.");
-define('OGP_LANG_control_password', "Control password");
+define('OGP_LANG_control_password', "Senha de controle");
 define('OGP_LANG_control_password_info', "Esta senha é usada para o controle do servidor, como a senha do RCON. Se a senha estiver vazia, outros meios serão usados.");
 define('OGP_LANG_add_game_home', "Adicionar servidor de jogos");
 define('OGP_LANG_game_path_empty', "O caminho do jogo não pode estar vazio.");
@@ -39,7 +39,7 @@ define('OGP_LANG_no_remote_servers_configured', "Nenhum servidor remoto configur
 define('OGP_LANG_no_game_configurations_found', "Nenhuma configuração de jogo encontrada. Você precisa adicionar configurações de jogos do");
 define('OGP_LANG_game_configurations', ">página de configuração do jogo");
 define('OGP_LANG_add_remote_server', "Adicione um servidor.");
-define('OGP_LANG_wine_games', "Wine Games");
+define('OGP_LANG_wine_games', "Jogos Wine");
 define('OGP_LANG_home_path', "Caminho \"Home\"");
 define('OGP_LANG_change_home_info', "A localização do servidor de jogos instalado. Exemplo: /home/ogp/my_server/");
 define('OGP_LANG_game_server_name', "Nome do servidor do jogo");
@@ -127,7 +127,7 @@ define('OGP_LANG_add_new_game_home', "Adicionar novo servidor de jogo");
 define('OGP_LANG_no_game_homes_found', "Nenhum servidor de jogos encontrado");
 define('OGP_LANG_available_game_homes', "Servidores de jogos disponíveis");
 define('OGP_LANG_home_id', "Home ID");
-define('OGP_LANG_game_server', "Game Server");
+define('OGP_LANG_game_server', "Servidor de Jogos");
 define('OGP_LANG_game_type', "Tipo de jogo");
 define('OGP_LANG_game_home', "Caminho Raiz");
 define('OGP_LANG_game_home_name', "Nome do Servidor do Jogo");
@@ -216,8 +216,8 @@ define('OGP_LANG_cpu_affinity_info', "Selecione o(s) núcleos do CPU que deseja 
 define('OGP_LANG_expiration_date_changed', "A data de validade para o diretório selecionado foi alterada.");
 define('OGP_LANG_expiration_date_could_not_be_changed', "A data de validade para o diretório selecionado não pôde ser alterada.");
 define('OGP_LANG_search', "Pesquisa");
-define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
-define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
-define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
-define('OGP_LANG_change_access_rights_for_selected_servers', "Change access rights for selected servers");
+define('OGP_LANG_ftp_account_username_too_long', "O nome de usuário do FTP é muito longo. Tente um nome de usuário mais curto, com no máximo 20 caracteres.");
+define('OGP_LANG_ftp_account_password_too_long', "A senha do FTP é muito longa. Tente uma senha mais curta, com no máximo 20 caracteres.");
+define('OGP_LANG_other_servers_exist_with_path_please_change', "Outras homes existem com o mesmo caminho. É recomendado (mas não obrigatório) que você altere esse caminho para algo único. Você pode ter problemas se você não fizer isso.");
+define('OGP_LANG_change_access_rights_for_selected_servers', "Alterar direitos de acesso para servidores selecionados");
 ?>

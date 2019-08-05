@@ -45,7 +45,7 @@ define('OGP_LANG_feed_enable_info', "Se o seu webhost tiver um firewall que este
 define('OGP_LANG_feed_url', "URL do feed");
 define('OGP_LANG_feed_url_info', "GrayCube.com está compartilhando um feed LGSL na URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Codificação de Caracteres");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
+define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Substitui a codificação de caracteres definida nos arquivos de idioma. Deixe em branco para usar o idioma padrão.");
 define('OGP_LANG_steam_user', "Usuário Steam");
 define('OGP_LANG_steam_user_info', "Um usuário e senha Steam é necessário para efetuar o download de alguns servidores de jogos como o CS:GO.");
 define('OGP_LANG_steam_pass', "Senha do Steam");
@@ -69,8 +69,8 @@ define('OGP_LANG_query_num_servers_stop_info', "Use esta configuração para des
 define('OGP_LANG_editable_email', "Endereço de E-mail editável ");
 define('OGP_LANG_editable_email_info', "Selecione se os usuários podem editar seu endereço de e-mail ou não.");
 define('OGP_LANG_old_dashboard_behavior', "Comportamento antigo do Dashboard");
-define('OGP_LANG_old_dashboard_behavior_info', "The old Dashboard was running slower, but shows more server informations (e.g. current players and maps).");
-define('OGP_LANG_rsync_available', "Available Rsync servers");
+define('OGP_LANG_old_dashboard_behavior_info', "O painel antigo estava sendo executado mais lentamente, mas mostra mais informações do servidor (por exemplo, jogadores atuais e mapas).");
+define('OGP_LANG_rsync_available', "Servidores Rsync Disponíveis");
 define('OGP_LANG_rsync_available_info', "Selecione a lista de servidores que será exibida na instalação rsync.");
 define('OGP_LANG_all_available_servers', "Todos os servidores disponíveis ( rsync_sites.list + rsync_sites_local.list )");
 define('OGP_LANG_only_remote_servers', "Somente servidores remotos ( rsync_sites.list )");
@@ -103,18 +103,18 @@ define('OGP_LANG_theme_settings', "Definições de tema");
 define('OGP_LANG_theme', "Tema");
 define('OGP_LANG_theme_info', "Tema selecionado aqui será o tema padrão para todos os usuários Os usuários podem alterar seu tema de sua página do perfil..");
 define('OGP_LANG_welcome_title', "Bem-vindo Título");
-define('OGP_LANG_welcome_title_info', "Enables the title that is displayed at the top of the Dashboard.");
+define('OGP_LANG_welcome_title_info', "Ativa o título exibido na parte superior do painel.");
 define('OGP_LANG_welcome_title_message', "Bem-vindo a Mensagem de título");
-define('OGP_LANG_welcome_title_message_info', "The title message that is displayed at the top of the Dashboard (HTML code allowed).");
+define('OGP_LANG_welcome_title_message_info', "A mensagem do título exibida na parte superior do Painel (código HTML permitido).");
 define('OGP_LANG_logo_link', "Logos Link");
-define('OGP_LANG_logo_link_info', "The logos hyperlink. <b style='font-size:10px; font-weight:normal;'>(Leaving it blank will link it to the Dashboard)</b>");
+define('OGP_LANG_logo_link_info', "O link dos logotipos. <b style='font-size:10px; font-weight:normal;'>(Deixando em branco irá ligá-lo ao painel)</b>");
 define('OGP_LANG_custom_tab', "Tab personalizado");
 define('OGP_LANG_custom_tab_info', "Adiciona uma guia personalizável no final do menu. <b style='font-size:10px; font-weight:normal;'>(Aplique e atualize esta página para editar as configurações da aba)</b>");
 define('OGP_LANG_custom_tab_name', "Nome da guia personalizada");
 define('OGP_LANG_custom_tab_name_info', "As guias exibem o nome.");
 define('OGP_LANG_custom_tab_link', "Link de guia personalizado");
 define('OGP_LANG_custom_tab_link_info', "O hiperlink de guias.");
-define('OGP_LANG_custom_tab_sub', "Custom Sub-Tabs");
+define('OGP_LANG_custom_tab_sub', "Sub-Guias Personalizadas");
 define('OGP_LANG_custom_tab_sub_info', "Adiciona sub-guias personalizáveis ​​ao pairar sobre o 'separador personalizado'.");
 define('OGP_LANG_custom_tab_sub_name', "Sub-Tab #1 Nome");
 define('OGP_LANG_custom_tab_sub_link', "Sub-Tab #1 Link");
@@ -136,14 +136,14 @@ exemplo: /home/{USERNAME}/{GAMEKEY}
 você terá: /home/joao/arkse/1
 exemplo: /home/{USERNAME}/{GAMEKEY}{SKIPID}
 você terá: /home/joao/arkse/");
-define('OGP_LANG_use_authorized_hosts', "Limit API to Defined Authorized Hosts");
-define('OGP_LANG_use_authorized_hosts_info', "Enable this setting to only allow API calls from pre-defined and approved IP addresses.&nbsp; Approved addresses can be set on this page once the setting has been enabled.&nbsp; If this setting is disabled, a user using a valid key will have access to the API from any IP address.&nbsp; Users using a valid key will be able to use the API to manage any game server they have permissions to administrate.");
-define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
-define('OGP_LANG_autohorized_hosts', "Authorized hosts");
-define('OGP_LANG_add', "Add");
-define('OGP_LANG_remove', "Remove");
-define('OGP_LANG_default_trusted_hosts', "Default Trusted Hosts");
-define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Trusted Hosts or Proxies (IPv4/IPv6 Addresses or CIDR)");
-define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Trusted Forwarded IPs (IPv4/IPv6 Addresses or CIDR)");
+define('OGP_LANG_use_authorized_hosts', "Limitar a API a Hosts Autorizados Definidos");
+define('OGP_LANG_use_authorized_hosts_info', "Ative esta configuração para permitir somente chamadas de API de endereços IP predefinidos e aprovados.&nbsp; Os endereços aprovados podem ser definidos nesta página quando a configuração estiver ativada.&nbsp; Se essa configuração estiver desabilitada, um usuário usando uma chave válida terá acesso à API de qualquer endereço IP.&nbsp; Os usuários que usam uma chave válida poderão usar a API para gerenciar qualquer servidor de jogo que eles tenham permissão para administrar.");
+define('OGP_LANG_setup_api_authorized_hosts', "Hosts autorizados da API de instalação");
+define('OGP_LANG_autohorized_hosts', "Hosts autorizados");
+define('OGP_LANG_add', "Adicionar");
+define('OGP_LANG_remove', "Remover");
+define('OGP_LANG_default_trusted_hosts', "Hosts Confiáveis ​​Padrão");
+define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Hosts Confiáveis ​​ou Proxies (Endereços IPv4 / IPv6 ou CIDR)");
+define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "IPs Encaminhados Confiáveis ​​(Endereços IPv4 / IPv6 ou CIDR)");
 
 ?>

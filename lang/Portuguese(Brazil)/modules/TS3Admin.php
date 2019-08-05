@@ -24,12 +24,11 @@
 
 define('OGP_LANG_error', "Erro");
 define('OGP_LANG_title', "TeamSpeak 3 Web Interface");
-define('OGP_LANG_update_available', "<h3>Atenção: uma nova versão (v%1) deste software está disponível sob
- <a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
+define('OGP_LANG_update_available', "<h3>Atenção: uma nova versão (v%1) deste software está disponível em <a href=\"%2\" target=\"_blank\">%2</a>.</h3>");
 define('OGP_LANG_head_logout', "Sair");
 define('OGP_LANG_head_vserver_switch', "Alterar vServer");
 define('OGP_LANG_head_vserver_overview', "Visão geral do vServer");
-define('OGP_LANG_head_vserver_token', "Token Management");
+define('OGP_LANG_head_vserver_token', "Gerenciamento de Tokens");
 define('OGP_LANG_head_vserver_liveview', "Visualização ao vivo");
 define('OGP_LANG_e_fill_out', "Preencha todos os campos obrigatórios.");
 define('OGP_LANG_e_upload_failed', "Envio sem sucesso.");
@@ -45,7 +44,7 @@ define('OGP_LANG_js_notice_server_deleted', "O servidor %1 foi excluído com êx
 define('OGP_LANG_js_prompt_banduration', "Duração em horas (0=ilimitado):");
 define('OGP_LANG_js_prompt_banreason', "Razão (opcional): ");
 define('OGP_LANG_js_prompt_msg_to', "Mensagem de texto para %1 #%2: ");
-define('OGP_LANG_js_prompt_poke_to', "Poke Message to Client #%1: ");
+define('OGP_LANG_js_prompt_poke_to', "Poke Mensagem para o cliente #% 1:");
 define('OGP_LANG_js_prompt_new_propvalue', "Novo valor para '%1': ");
 define('OGP_LANG_n_server_responded', "O servidor respondeu: ");
 define('OGP_LANG_login_serverquery', "ServerQuery Login");

@@ -23,7 +23,7 @@
  */
 
 define('OGP_LANG_install_lang', "Selecione seu idioma preferido");
-define('OGP_LANG_install_welcome', "Welcome to the Open Game Panel Installer");
+define('OGP_LANG_install_welcome', "Bem-vindo ao Instalador do Open Game Panel");
 define('OGP_LANG_file_permission_check', "Checando as permissões exigidas para os arquivos");
 define('OGP_LANG_OK', "OK");
 define('OGP_LANG_write_permission_required', "Permissão de escrita exigida");
@@ -33,8 +33,8 @@ define('OGP_LANG_found', "encontrado");
 define('OGP_LANG_not_found', "Não encontrado");
 define('OGP_LANG_pear_xxtea_info', "Pear Crypt_XXTEA  é necessário para o uso do painel. Na maioria das distribuições Linux, este módulo pode ser instalado com o seguinte comando Pear 'pear install Crypt_XXTEA-beta'.");
 define('OGP_LANG_refresh', "Atualizar");
-define('OGP_LANG_checking_required_modules', "Checking required modules");
-define('OGP_LANG_checking_optional_modules', "Checking optional modules");
+define('OGP_LANG_checking_required_modules', "Verificando os módulos necessários");
+define('OGP_LANG_checking_optional_modules', "Verificando os módulos opcionais");
 define('OGP_LANG_database_type', "Tipo de banco de dados");
 define('OGP_LANG_database_settings', "Configurações do banco de dados");
 define('OGP_LANG_database_hostname', "Hostname do banco de dados");
@@ -55,7 +55,7 @@ define('OGP_LANG_repeat_password', "Repita a senha");
 define('OGP_LANG_email', "Endereço de e-mail");
 define('OGP_LANG_back', "Voltar");
 define('OGP_LANG_database_setup_failure', "O instalador não conseguiu criar o banco de dados. Por favor verifique os dados inseridos.");
-define('OGP_LANG_php_version_check', "Checking PHP version");
+define('OGP_LANG_php_version_check', "Verificando PHP Versão");
 define('OGP_LANG_invalid_username', "Você digitou um usuário inválido.");
 define('OGP_LANG_password_too_short', "Sua senha é muito curta. A senha deve conter pelo menos '%d' caracteres.");
 define('OGP_LANG_password_contains_invalid_characters', "Sua senha contém caracteres inválidos.");

@@ -22,11 +22,11 @@
  *
  */
 
-define('OGP_LANG_no_games_to_monitor', "You do not have any games configured to you that can be monitored.");
+define('OGP_LANG_no_games_to_monitor', "Size Gösterilecek Henüz Bir Oyun Sunucusu Verilmedi.");
 define('OGP_LANG_status', "Durum");
-define('OGP_LANG_fail_no_mods', "No mods enabled for this game! You need to ask your OGP admin to add mod(s) for the game assigned for you.");
-define('OGP_LANG_no_game_homes_assigned', "You don't have any servers assigned to your account.");
-define('OGP_LANG_select_game_home_to_configure', "Select a game server that you want to configure");
+define('OGP_LANG_fail_no_mods', "Bu oyun için etkin mod yok! OGP yöneticinizden size atanan oyuna mod (modlar) eklemesini istemeniz gerekir.");
+define('OGP_LANG_no_game_homes_assigned', "Hesabınıza Verilmiş Henüz Bir Sunucu Bulunmuyor");
+define('OGP_LANG_select_game_home_to_configure', "Özelleştirmek İstediğiniz Sunucuyu Seçiniz.");
 define('OGP_LANG_file_manager', "Dosya Yöneticisi");
 define('OGP_LANG_configure_mods', "Modları konfigüre et");
 define('OGP_LANG_install_update_steam', "Steam ile Kur/Güncelle");
