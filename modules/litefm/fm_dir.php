@@ -232,7 +232,7 @@ function exec_ogp_module()
 					$new_item_path = clean_path( $path . "/" . $new_item );
 					if ($item_path != $new_item_path)
 					{
-						$remote->shell_action('move', "$item_path;$new_item_path");
+						$remote->shell_action('rename', "$item_path;$new_item_path");
 						$db->logger( get_lang("rename") . ": $item_path " . get_lang("to") . " $new_item_path" );
 					}
 				}
