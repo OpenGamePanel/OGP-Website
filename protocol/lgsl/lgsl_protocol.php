@@ -133,6 +133,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"shoutcast"		=> "SHOUTcast Server", 
 		"serioussam2"	=> "Serious Sam 2",
 		"shatteredh"	=> "Shattered Horizon",
+		"sinusbot"		=> "SinusBot for TS 3 and Discord",
 		"sniperelitev2"	=> "Sniper Elite V2",
 		"sof2"			=> "Soldier of Fortune 2",
 		"soldat"		=> "Soldat",
@@ -295,6 +296,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"serioussam2"	=> "09",
 		"shatteredh"	=> "05",
 		"shoutcast"		=> "37",
+		"sinusbot"		=> "42",
 		"sniperelitev2"	=> "31",
 		"sof2"			=> "02",
 		"soldat"		=> "08",
@@ -454,6 +456,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"serioussam2"	=> "qtracker://{IP}:{S_PORT}?game=Serious_Sam2&action=show",
 		"shatteredh"	=> "http://en.wikipedia.org/wiki/Shattered_Horizon",
 		"shoutcast"		=> "http://{IP}:{S_PORT}/index.html",
+		"sinusbot"		=> "http://{IP}:{C_PORT}",
 		"sniperelitev2"	=> "steam://connect/{IP}:{Q_PORT}",
 		"sof2"			=> "qtracker://{IP}:{S_PORT}?game=SoldierOfFortune2&action=show",
 		"soldat"		=> "http://www.soldat.pl",
@@ -564,6 +567,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "risingstorm2"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "sandstorm"		: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;	break;
 			case "serioussam"		: $c_to_q = 1;		$c_def = 25600;	$q_def = 25601;	$c_to_s = 0;	break;
+			case "sinusbot"			: $c_to_q = 0; 		$c_def = 7777; 	$q_def = 0; $c_to_s = 0;  		break;
 			case "sniperelitev2"	: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 0;	break;
 			case "soldat"			: $c_to_q = 123;	$c_def = 23073;	$q_def = 23196;	$c_to_s = 0;	break;
 			case "stalker"			: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
@@ -4343,6 +4347,16 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 	}
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
+
+//------------------------------------------------------------------------------------------------------------+
+//------------------------------------------------------------------------------------------------------------+
+	function lgsl_query_42(&$server, &$lgsl_need, &$lgsl_fp)
+	{
+	  return true;
+	}
+//------------------------------------------------------------------------------------------------------------+
+//------------------------------------------------------------------------------------------------------------+
+
 	function lgsl_query_feed(&$server, $request, $lgsl_feed_method, $lgsl_feed_url, $home_info = False)
 	{
 		$lgsl_feed_error = 0;
