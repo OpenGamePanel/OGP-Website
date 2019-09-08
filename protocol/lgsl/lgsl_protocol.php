@@ -4348,20 +4348,23 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 //------------------------------------------------------------------------------------------------------------+
 	function lgsl_query_42(&$server, &$lgsl_need, &$lgsl_fp)
 	{
+	//---------------------------------------------------------+
+	//  Check for a 200 status code on http://ip:port/  
+
 		$ip = $server['b']['ip'];
 		$port = $server['b']['c_port'];
 		$server_url = "http://$ip:$port/";
 		$ch = curl_init();
 		curl_setopt ( $ch, CURLOPT_URL, $server_url );
 		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-		curl_setopt ( $ch, CURLOPT_TIMEOUT,10 );
+		curl_setopt ( $ch, CURLOPT_TIMEOUT, 10 );
 		$http_respond = curl_exec($ch);
 		$http_respond = trim( strip_tags( $http_respond ) );
 		$http_code = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
+		curl_close( $ch );
 		if ( ( $http_code == "200" ) ) {
 		  return true;
 		} 
-		curl_close( $ch );
 	}
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
