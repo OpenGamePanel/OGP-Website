@@ -133,6 +133,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"shoutcast"		=> "SHOUTcast Server", 
 		"serioussam2"	=> "Serious Sam 2",
 		"shatteredh"	=> "Shattered Horizon",
+		"sinusbot"		=> "SinusBot for TS 3 and Discord",
 		"sniperelitev2"	=> "Sniper Elite V2",
 		"sof2"			=> "Soldier of Fortune 2",
 		"soldat"		=> "Soldat",
@@ -295,6 +296,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"serioussam2"	=> "09",
 		"shatteredh"	=> "05",
 		"shoutcast"		=> "37",
+		"sinusbot"		=> "42",
 		"sniperelitev2"	=> "31",
 		"sof2"			=> "02",
 		"soldat"		=> "08",
@@ -454,6 +456,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"serioussam2"	=> "qtracker://{IP}:{S_PORT}?game=Serious_Sam2&action=show",
 		"shatteredh"	=> "http://en.wikipedia.org/wiki/Shattered_Horizon",
 		"shoutcast"		=> "http://{IP}:{S_PORT}/index.html",
+		"sinusbot"		=> "http://{IP}:{C_PORT}",
 		"sniperelitev2"	=> "steam://connect/{IP}:{Q_PORT}",
 		"sof2"			=> "qtracker://{IP}:{S_PORT}?game=SoldierOfFortune2&action=show",
 		"soldat"		=> "http://www.soldat.pl",
@@ -4340,6 +4343,28 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		}
 
 		return true;
+	}
+//------------------------------------------------------------------------------------------------------------+
+//------------------------------------------------------------------------------------------------------------+
+	function lgsl_query_42(&$server, &$lgsl_need, &$lgsl_fp)
+	{
+	//---------------------------------------------------------+
+	//  Check for a 200 status code on http://ip:port/  
+
+		$ip = $server['b']['ip'];
+		$port = $server['b']['c_port'];
+		$server_url = "http://$ip:$port/";
+		$ch = curl_init();
+		curl_setopt ( $ch, CURLOPT_URL, $server_url );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
+		curl_setopt ( $ch, CURLOPT_TIMEOUT, 10 );
+		$http_respond = curl_exec($ch);
+		$http_respond = trim( strip_tags( $http_respond ) );
+		$http_code = curl_getinfo( $ch, CURLINFO_HTTP_CODE );
+		curl_close( $ch );
+		if ( ( $http_code == "200" ) ) {
+		  return true;
+		} 
 	}
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
