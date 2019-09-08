@@ -28,6 +28,18 @@
     </mod>
   </mods>
   <server_params>
+    <param key="-GSLTToken=" type="text">
+      <caption>Game Server Login Token</caption>
+      <desc>Manage your tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
+    </param>
+    <param key="-GameStats" type="checkbox_key_value">
+      <caption>Game Stats</caption>
+      <desc>Enable Game Stats.</desc>
+    </param>
+    <param key="-ruleset=OfficialRules" type="checkbox_key_value">
+      <caption>Official Rules</caption>
+      <desc>Enable Official Rules.</desc>
+    </param>
     <param id="SERVERNAME" key="-hostname=" type="text">
       <option>q</option>
       <caption>Server name</caption>
