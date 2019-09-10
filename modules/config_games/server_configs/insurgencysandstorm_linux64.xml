@@ -37,9 +37,11 @@
       <caption>Game Stats</caption>
       <desc>Enable Game Stats</desc>
     </param>
-    <param key="-ruleset=OfficialRules" type="checkbox_key_value">
-      <caption>Official Rules</caption>
-      <desc>Enable Official Rules</desc>
+    <param key="-mutators=" type="text">
+      <default>OfficialRules</default>
+      <caption>Mutators</caption>
+      <desc>Mutators to be used on the server, separate multiple mutators with a comma and no space</desc>
+      <option>ns</option>
     </param>
     <param id="SERVERNAME" key="-hostname=" type="text">
       <option>q</option>
