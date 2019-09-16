@@ -101,8 +101,8 @@ function heading()
         $info = $db->getUserById($_SESSION['user_id']);
         
         // Use parent expiration date for subusers
-		if(!is_null($row['users_parent']) && is_numeric($row['users_parent'])){
-			$parentInfo = $db->getUserById($row['users_parent']);
+		if(!is_null($info['users_parent']) && is_numeric($info['users_parent'])){
+			$parentInfo = $db->getUserById($info['users_parent']);
 			if(is_array($parentInfo) && array_key_exists("user_expires", $parentInfo) && $parentInfo['user_expires'] != "X"){
 				$info['user_expires'] = $parentInfo['user_expires'];
 			}
