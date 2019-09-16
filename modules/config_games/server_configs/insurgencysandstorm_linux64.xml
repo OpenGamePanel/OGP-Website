@@ -28,6 +28,21 @@
     </mod>
   </mods>
   <server_params>
+    <param key="-GSLTToken=" type="text">
+      <caption>Game Server Login Token</caption>
+      <desc>Manage your tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
+      <option>ns</option>
+    </param>
+    <param key="-GameStats" type="checkbox_key_value">
+      <caption>Game Stats</caption>
+      <desc>Enable Game Stats</desc>
+    </param>
+    <param key="-mutators=" type="text">
+      <default>OfficialRules</default>
+      <caption>Mutators</caption>
+      <desc>Mutators to be used on the server, separate multiple mutators with a comma and no space</desc>
+      <option>ns</option>
+    </param>
     <param id="SERVERNAME" key="-hostname=" type="text">
       <option>q</option>
       <caption>Server name</caption>

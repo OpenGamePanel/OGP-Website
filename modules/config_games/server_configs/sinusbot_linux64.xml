@@ -1,0 +1,110 @@
+<game_config>
+  <game_key>sinusbot_linux64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>sinusbot</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>SinusBot for TS 3 and Discord</game_name>
+  <server_exec_name>sinusbot</server_exec_name>
+  <cli_template>%CONTROL_PASSWORD%</cli_template>
+  <cli_params>
+    <cli_param id="CONTROL_PASSWORD" cli_string="--override-password=" />
+  </cli_params>
+  <max_user_amount>1</max_user_amount>
+  <mods>
+    <mod key="sinusbot">
+      <name>none</name>
+      <installer_name>0</installer_name> 
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+      <default>ListenHost.*</default>
+      <var>ListenHost =</var>
+      <filepath>config.ini</filepath>
+      <options>sq</options>
+    </text>
+    <text key="port">
+      <default>ListenPort.*</default>
+      <var>ListenPort =</var>
+      <filepath>config.ini</filepath>
+      <options>s</options>
+    </text>
+  </replace_texts>
+  <post_install>
+rm -R steamapps
+if [ ! -s "sinusbot_installer.sh" ]; then
+  wget https://raw.githubusercontent.com/SinusBot/installer-linux/master/sinusbot_installer.sh
+  chmod +x sinusbot_installer.sh
+fi
+if [ ! -s "diagSinusbot.sh" ]; then
+  wget https://raw.githubusercontent.com/patschi/sinusbot-tools/master/tools/diagSinusbot.sh
+  chmod +x diagSinusbot.sh
+fi
+if [ ! -s "sinusbot" ]; then
+  echo "Sinusbot is not installed!"
+fi
+OGPUSERNAME=$(whoami)
+mkdir -p tempogp
+echo
+echo
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   R E A D    T H I S   ////////////////////"
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ////////////////////////////////"
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   R E A D    T H I S   ////////////////////"
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ ////////////////////////////////"
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   R E A D    T H I S   ////////////////////"
+echo
+echo
+echo "Install Sinusbot with the provided script with the following command:"
+echo
+echo "sudo su - $OGPUSERNAME"
+echo "sudo $PWD/sinusbot_installer.sh"
+echo
+echo "Use the 'INSTALL' option, then select 'Own path' and use this location:"
+echo
+echo "$PWD"
+echo
+echo "Note that the path needs to have NO '/' at the end. Continue by carefuly following"
+echo "the instructions and when asked, use the following user name for sinusbot: $OGPUSERNAME"
+echo
+echo "Follow the Teamspeak client install instructions."
+echo "Basically you will need to press in order the ENTER, q, y, and ENTER keys."
+echo
+echo "WARNING: After Installation, you will need to REMOVE the Sinusbot service by executing"
+echo "the sinusbot_installer.sh script again. This is mandatory or else you will have"
+echo "Sinusbot running as a service in the background and messing with OGP!"
+echo
+echo "sudo su - $OGPUSERNAME"
+echo "sudo $PWD/sinusbot_installer.sh"
+echo
+echo "Select the 'REMOVE' option, then select 'Own path' and be sure to use this location:"
+echo
+echo "$PWD/tempogp"
+echo
+echo "after that, when asked confirm and continue, DO NOT remove Youtube-DL, confirm the 'tempogp' folder location,"
+echo "DO NOT remove the '$OGPUSERNAME' user, and finish you're done, this should have you a working installation."
+echo
+echo
+echo "At any time, to make sure you have all dependencies before starting Sinusbot you can use the"
+echo "diagnostic script available in this folder, execute the following command from terminal:"
+echo
+echo "sudo $PWD/diagSinusbot.sh"
+echo
+echo "Follow the instructions to install all the dependencies"
+echo "Once all is clear you should be able to start the bot"
+echo
+echo
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   R E A D    T H I S    A B O V E   ///////////////////"
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ /////////////////////////////////////"
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   R E A D    T H I S    A B O V E   ///////////////////"
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ /////////////////////////////////////"
+echo "\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\   R E A D    T H I S    A B O V E   ///////////////////"
+echo
+  </post_install>
+  <lock_files>
+	teamspeak3-client/ts3client_linux_amd64
+  </lock_files>
+  <configuration_files>
+    <file description="Main Config File">config.ini</file>
+  </configuration_files>
+</game_config>
