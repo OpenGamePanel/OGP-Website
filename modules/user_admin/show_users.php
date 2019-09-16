@@ -96,7 +96,12 @@ function exec_ogp_module() {
 		$ownedBy = "";
 		if(!is_null($row['users_parent'])){
 			$ownedBy = $row['users_parent'];
+			$parentInfo = $db->getUserById($ownedBy);
+			if(is_array($parentInfo) && array_key_exists("user_expires", $parentInfo) && $parentInfo['user_expires'] != "X"){
+				$row['user_expires'] = $parentInfo['user_expires'];
+			}
 		}
+		
         $user_expires = read_expire($row['user_expires']);
         print "<tr class='tr".($i++%2)." ";
         print $row['users_role'] . " ";
