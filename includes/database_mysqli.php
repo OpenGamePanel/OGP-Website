@@ -2984,7 +2984,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				(
 					SELECT `home_id` FROM `%1$suser_homes`
 					WHERE `user_id` = %2$d
-				);';
+				) ORDER BY home_user_order ASC, home_id ASC;';
 		}
 		else if ( $id_type == "group" )
 		{
@@ -2993,7 +2993,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				(
 					SELECT `home_id` FROM `%1$suser_group_homes`
 					WHERE `group_id` = %2$d
-				);';
+				) ORDER BY home_user_order ASC, home_id ASC;';
 		}
 		else
 		{
@@ -3022,7 +3022,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						(
 							SELECT `home_id` FROM `%1$suser_group_homes`
 							WHERE `group_id` = %2$d
-						)';
+						) ORDER BY home_user_order ASC, home_id ASC';
 		}
 		else
 		{
