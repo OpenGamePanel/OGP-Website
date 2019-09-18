@@ -242,9 +242,11 @@ function getLang(key){
 }
 
 function decodeEntities(encodedString) {
-  var textArea = document.createElement('textarea');
-  textArea.innerHTML = encodedString;
-  var toReturn = textArea.value;
-  textArea.remove();
-  return toReturn;
+	var textArea = document.createElement('textarea');
+	textArea.innerHTML = encodedString;
+	var toReturn = textArea.value;
+	textArea.remove();
+	return toReturn;
 }
+
+

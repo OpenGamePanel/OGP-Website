@@ -1086,6 +1086,30 @@ function api_gamemanager()
 		}
 	}
 	
+	if($request[0] == "reorder")
+	{
+		$isAdmin = $db->isAdmin($user_info['user_id']);
+		if($isAdmin){
+			$data = json_decode(file_get_contents('php://input'), true);
+			if(array_key_exists("order", $data) && is_array($data["order"])){
+				$updatedOrder = $db->saveGameServerOrder($data["order"]);
+				if($updatedOrder){
+					$status = "200";
+					$message = "Game server order was successfully saved.";
+				}else{
+					$status = "335";
+					$message = "Game server order was NOT saved.";
+				}
+			}else{
+				$status = "335";
+				$message = "Invalid inputs.";
+			}
+		}else{
+			$status = "335";
+			$message = "Only admin users can save the game server display order.";
+		}
+	}
+	
 	if($request[0] == "update")
 	{
 		if(!strstr($access_rights,'u'))

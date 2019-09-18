@@ -127,6 +127,13 @@ class OGPView {
 		// Include our global JS
 		$javascript .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
 		
+		// Set some useful variables
+		$javascript .= '<script type="text/javascript" src="js/global.js">';
+		if(array_key_exists("users_api_key", $_SESSION) && !empty($_SESSION['users_api_key'])){
+			$javascript .= 'var userAPIKey = "' . $_SESSION['users_api_key'] . '";';
+		}
+		$javascript .= '</script>' . "\n";
+		
 		// Include global JS for modules
 		if(is_object($db) && array_key_exists("OGPDatabase", class_parents($db))){
 			foreach($db->getInstalledModules() as $m)

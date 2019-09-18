@@ -1470,13 +1470,13 @@ class OGPDatabaseMySQL extends OGPDatabase
 							FROM `%1$shome_ip_ports`
 							WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 						)
-						OR %1$shome_ip_ports.force_mod_id IS NULL;';
-			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d;';
+						OR %1$shome_ip_ports.force_mod_id IS NULL ORDER BY %1$sserver_homes.home_user_order ASC;';
+			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d ORDER BY %1$sserver_homes.home_user_order ASC;';
 			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
 							SELECT %1$suser_groups.group_id
 							FROM %1$suser_groups
 							WHERE %1$suser_groups.user_id=%2$d
-						  );';
+						  ) ORDER BY %1$sserver_homes.home_user_order ASC;';
 		}
 		else if ( $id_type == "user" )
 		{
@@ -1484,7 +1484,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				%1$suser_homes.user_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
 				FROM %1$sremote_servers NATURAL JOIN %1$suser_homes
 				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_homes.user_id = %2$d ORDER BY home_id ASC;';
+				WHERE %1$suser_homes.user_id = %2$d ORDER BY %1$sserver_homes.home_user_order ASC;';
 		}
 		else if ( $id_type == "group" )
 		{
@@ -1492,7 +1492,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				%1$suser_group_homes.user_group_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
 				FROM %1$sremote_servers NATURAL JOIN %1$suser_group_homes
 				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_group_homes.group_id = %2$d;';
+				WHERE %1$suser_group_homes.group_id = %2$d ORDER BY %1$sserver_homes.home_user_order ASC;';
 		}
 		else if ( $id_type == "user_and_group" )
 		{
@@ -1581,7 +1581,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 							)
 							OR %1$shome_ip_ports.force_mod_id IS NULL
-						);';
+						) ORDER BY %1$sserver_homes.home_user_order ASC;';
 		}
 		else
 		{
@@ -1801,14 +1801,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
 						OR ip LIKE \'%%'.$search_field.'%%\'
 						' : '').'
-						').' OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+						').' OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.'
 						
-			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d;';
+						ORDER BY %1$sserver_homes.home_user_order ASC;';
+						
+			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d ORDER BY %1$sserver_homes.home_user_order ASC;';
 			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
 							SELECT %1$suser_groups.group_id
 							FROM %1$suser_groups
 							WHERE %1$suser_groups.user_id=%2$d
-						  );';
+						  ) ORDER BY %1$sserver_homes.home_user_order ASC;';
 		}
 		else if ( $id_type == "user" )
 		{
@@ -1816,7 +1818,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				%1$suser_homes.user_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
 				FROM %1$sremote_servers NATURAL JOIN %1$suser_homes
 				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_homes.user_id = %2$d '.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').' ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+				WHERE %1$suser_homes.user_id = %2$d '.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').' %1$sserver_homes.home_user_order ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else if ( $id_type == "group" )
 		{
@@ -1824,7 +1826,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				%1$suser_group_homes.user_group_expiration_date, %1$sremote_servers.*, %1$sconfig_homes.*
 				FROM %1$sremote_servers NATURAL JOIN %1$suser_group_homes
 				NATURAL JOIN %1$sserver_homes NATURAL JOIN %1$sconfig_homes
-				WHERE %1$suser_group_homes.group_id = %2$d '.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').' ORDER BY home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+				WHERE %1$suser_group_homes.group_id = %2$d '.($home_cfg_id ? 'AND %1$sserver_homes.home_cfg_id = '.$home_cfg_id : '').' ORDER BY %1$sserver_homes.home_user_order ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else if ( $id_type == "user_and_group" )
 		{
@@ -1958,7 +1960,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						').'
 							OR %1$shome_ip_ports.force_mod_id IS NULL 
 						) 
-						LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+						ORDER BY%1$sserver_homes.home_user_order ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else
 		{
@@ -3881,6 +3883,43 @@ class OGPDatabaseMySQL extends OGPDatabase
 			return false;
 		
 		return $tmp[0];
+	}
+	
+	public function saveGameServerOrder($order){
+		if(is_array($order) && count($order)){
+			$sql = "";
+			foreach($order as $homeOrder){
+				if(is_numeric($homeOrder["home_id"]) && is_numeric($homeOrder["order"])){
+					$sql .= sprintf("UPDATE %sserver_homes SET home_user_order='%d'
+						WHERE home_id = '%d';",
+						$this->table_prefix,
+						$this->realEscapeSingle($homeOrder["order"]),
+						$this->realEscapeSingle($homeOrder["home_id"]));
+				}
+			}
+			
+			if ( !$this->link || empty($sql)) return FALSE;
+			return $this->runMultiSQLQuery($sql);
+		}
+		
+		return false;
+	}
+	
+	public function runMultiSQLQuery($sql){
+		if(!empty($sql) || !$this->link){
+			$success = mysqli_multi_query($this->link, $sql);
+			if($success !== false){
+				do {
+					if($result = mysqli_store_result($this->link)){
+						mysqli_free_result($this->link);
+					}
+				} while(mysqli_next_result($this->link));
+				
+				return $success;
+			}
+		}
+		
+		return false;
 	}
 }
 
