@@ -106,6 +106,13 @@ class FormTable {
 
 			echo ">". get_lang("on") ."</option></select>";
 		}
+		else if ($type === "checkbox")
+		{
+			echo "<input type='checkbox' id='".$name."' name='".$name."' value='1' $extra ";
+			if ( @$value == 1 )
+				echo "selected='selected'";
+			echo ">";
+		}
 		else if ($type === "text")
 		{
 			echo "<textarea id='".$name."' name='".$name."' cols='".$size."' rows='3' $extra />";

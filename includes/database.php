@@ -288,6 +288,12 @@ abstract class OGPDatabase {
     abstract public function getTablePrefix();
     
     abstract public function getHomeAffinity($home_id);
+    
+    abstract public function saveGameServerOrder($order);
+    
+    abstract public function resetGameServerOrder();
+    
+    abstract public function runMultiSQLQuery($sql);
 }
 
 ?>

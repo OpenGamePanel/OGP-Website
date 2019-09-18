@@ -3925,6 +3925,16 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return false;
 	}
 	
+	public function resetGameServerOrder(){
+		$query = sprintf("UPDATE %sserver_homes SET home_user_order=99999;",
+			$this->table_prefix);
+		++$this->queries_;
+		$result = mysqli_query($this->link,$query);
+		if( mysqli_affected_rows($this->link) == '0' )
+			return FALSE;
+		return TRUE;
+	}
+	
 	public function runMultiSQLQuery($sql){
 		if(!empty($sql) || !$this->link){
 			$success = mysqli_multi_query($this->link, $sql);
