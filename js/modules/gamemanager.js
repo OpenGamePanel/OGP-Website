@@ -211,7 +211,7 @@ function saveGameServerOrder(){
 		// Make the call		
 		$.ajax({
 			type: "POST",
-			url: "ogp_api.php?gamemanager/reorder/&token=" + userAPIKey,
+			url: "ogp_api.php?gamemanager/reorder&token=" + userAPIKey,
 			data: postData,
 			success: function(e){
 				logToConsole("Game server order successfully saved!");
