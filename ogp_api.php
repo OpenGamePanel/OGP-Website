@@ -1088,7 +1088,6 @@ function api_gamemanager()
 	
 	if($request[0] == "reorder")
 	{
-		$isAdmin = $db->isAdmin($user_info['user_id']);
 		if($isAdmin){
 			$data = json_decode(file_get_contents('php://input'), true);
 			if(array_key_exists("order", $data) && is_array($data["order"])){
