@@ -1502,6 +1502,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_homes.*, 
 								%1$shome_ip_ports.port,
 								%1$shome_ip_ports.force_mod_id,
+								%1$shome_ip_ports.home_id as hid,
 								%1$sremote_server_ips.ip_id,
 								%1$sremote_server_ips.ip,
 								%1$sgame_mods.mod_id,
@@ -1543,6 +1544,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_homes.*, 
 								%1$shome_ip_ports.port,
 								%1$shome_ip_ports.force_mod_id,
+								%1$shome_ip_ports.home_id as hid,
 								%1$sremote_server_ips.ip_id,
 								%1$sremote_server_ips.ip,
 								%1$sgame_mods.mod_id,
@@ -1581,7 +1583,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 							)
 							OR %1$shome_ip_ports.force_mod_id IS NULL
-						) ORDER BY home_user_order ASC, %1$shome_ip_ports.home_id ASC;';
+						) ORDER BY home_user_order ASC, hid ASC;';
 		}
 		else
 		{
@@ -1835,6 +1837,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_homes.*, 
 								%1$shome_ip_ports.port,
 								%1$shome_ip_ports.force_mod_id,
+								%1$shome_ip_ports.home_id as hid,
 								%1$sremote_server_ips.ip_id,
 								%1$sremote_server_ips.ip,
 								%1$sgame_mods.mod_id,
@@ -1900,6 +1903,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								%1$sconfig_homes.*, 
 								%1$shome_ip_ports.port,
 								%1$shome_ip_ports.force_mod_id,
+								%1$shome_ip_ports.home_id as hid,
 								%1$sremote_server_ips.ip_id,
 								%1$sremote_server_ips.ip,
 								%1$sgame_mods.mod_id,
@@ -1958,7 +1962,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						').'
 							OR %1$shome_ip_ports.force_mod_id IS NULL 
 						) 
-						ORDER BY home_user_order ASC, %1$shome_ip_ports.home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+						ORDER BY home_user_order ASC, hid ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else
 		{
