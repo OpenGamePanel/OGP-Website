@@ -39,7 +39,9 @@ function get_function_args($main_request)
 	$functions["gamemanager/restart"] = array("token" => true, "ip" => true, "port" => true, "mod_key" => false);
 	$functions["gamemanager/rcon"] = array("token" => true, "ip" => true, "port" => true, "mod_key" => false, "command" => true);
 	$functions["gamemanager/update"] = array("token" => true, "ip" => true, "port" => true, "mod_key" => false, "type" => true, "manual_url" => false);
-	$functions["gamemanager/reorder"] = array("token" => true);
+	
+	//______________ Game Manager Admin
+	$functions["gamemanager_admin/reorder"] = array("token" => true);
 
 	//______________ Lite File Manager
 	$functions["litefm/list"] = array("token" => true, "ip" => true, "port" => true, "relative_path" => true);

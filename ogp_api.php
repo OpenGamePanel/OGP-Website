@@ -816,6 +816,38 @@ function api_user_admin()
 	return array("status" => $status, "message" => $message);
 }
 
+function api_gamemanager_admin()
+{
+	global $request, $db, $user_info, $settings;
+	
+	$isAdmin = $db->isAdmin($user_info['user_id']);
+	
+	if($request[0] == "reorder")
+	{
+		if($isAdmin){
+			$data = json_decode(file_get_contents('php://input'), true);
+			if(array_key_exists("order", $data) && is_array($data["order"])){
+				$updatedOrder = $db->saveGameServerOrder($data["order"]);
+				if($updatedOrder){
+					$status = "200";
+					$message = "Game server order was successfully saved.";
+				}else{
+					$status = "335";
+					$message = "Game server order was NOT saved.";
+				}
+			}else{
+				$status = "335";
+				$message = "Invalid inputs.";
+			}
+		}else{
+			$status = "335";
+			$message = "Only admin users can save the game server display order.";
+		}
+	}
+	
+	return array("status" => $status, "message" => $message);
+}
+
 function api_gamemanager()
 {
 	global $request, $db, $user_info, $settings;
@@ -823,7 +855,7 @@ function api_gamemanager()
 	$ip = trim($_POST['ip']);
 	$port = (int) trim($_POST['port']);
 	$mod_key = isset($_POST['mod_key'])?trim($_POST['mod_key']):'';
-		
+	
 	if(!isPortValid($port))
 		return array("status" => '309', "message" => "The given port is not a valid port.");
 	if(!preg_match("/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/",$ip))
@@ -1083,29 +1115,6 @@ function api_gamemanager()
 		{
 			$status = "200";
 			$message = $response;
-		}
-	}
-	
-	if($request[0] == "reorder")
-	{
-		if($isAdmin){
-			$data = json_decode(file_get_contents('php://input'), true);
-			if(array_key_exists("order", $data) && is_array($data["order"])){
-				$updatedOrder = $db->saveGameServerOrder($data["order"]);
-				if($updatedOrder){
-					$status = "200";
-					$message = "Game server order was successfully saved.";
-				}else{
-					$status = "335";
-					$message = "Game server order was NOT saved.";
-				}
-			}else{
-				$status = "335";
-				$message = "Invalid inputs.";
-			}
-		}else{
-			$status = "335";
-			$message = "Only admin users can save the game server display order.";
 		}
 	}
 	
