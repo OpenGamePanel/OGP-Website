@@ -1801,9 +1801,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
 						OR ip LIKE \'%%'.$search_field.'%%\'
 						' : '').'
-						').' OR %1$shome_ip_ports.force_mod_id IS NULL LIMIT '.$gethome_page_forlimit.','.$home_limit.'
-						
-						ORDER BY home_user_order ASC;';
+						').' OR %1$shome_ip_ports.force_mod_id IS NULL ORDER BY home_user_order ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 						
 			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d ORDER BY home_id ASC;';
 			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
