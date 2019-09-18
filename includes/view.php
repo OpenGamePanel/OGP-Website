@@ -128,7 +128,7 @@ class OGPView {
 		$javascript .= '<script type="text/javascript" src="js/global.js"></script>' . "\n";
 		
 		// Set some useful variables
-		$javascript .= '<script type="text/javascript" src="js/global.js">';
+		$javascript .= '<script type="text/javascript">';
 		if(array_key_exists("users_api_key", $_SESSION) && !empty($_SESSION['users_api_key'])){
 			$javascript .= 'var userAPIKey = "' . $_SESSION['users_api_key'] . '";';
 		}
