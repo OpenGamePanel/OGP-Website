@@ -175,7 +175,7 @@ function ogpHome()
 				}
 				$servers_by_game_name["$server_home[game_name]"][] = $server_home;
 			}
-			// ksort($servers_by_game_name);
+			ksort($servers_by_game_name);
 			$game_homes_list = "<ul id='submenu_0' >\n";
 			require_once("modules/config_games/server_config_parser.php");
 			foreach( $servers_by_game_name as $game_name => $server_homes )
