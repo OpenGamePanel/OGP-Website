@@ -201,7 +201,7 @@ function saveGameServerOrder(){
 		$('table#servermonitor tbody .maintr:visible').each(function(e){
 			homeId = $('td.serverId', $(this)).text();
 			if(homeId){
-				postData.order.push({home_id: homeId, order: i);
+				postData.order.push({home_id: homeId, order: i});
 				i++;
 			}
 		});
