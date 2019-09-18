@@ -3076,7 +3076,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			}
 		}
 
-		$sql .= "ORDER BY home_id ASC LIMIT $game_home_id, $limit_gameHomes;";
+		$sql .= "ORDER BY home_user_order ASC, home_id ASC LIMIT $game_home_id, $limit_gameHomes;";
 		$sql = sprintf($sql, $this->table_prefix);
 
 		return $this->listQuery($sql);
