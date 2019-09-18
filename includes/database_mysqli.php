@@ -1470,7 +1470,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 							FROM `%1$shome_ip_ports`
 							WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 						)
-						OR %1$shome_ip_ports.force_mod_id IS NULL ORDER BY home_user_order ASC, home_id ASC;';
+						OR %1$shome_ip_ports.force_mod_id IS NULL ORDER BY home_user_order ASC, %1$shome_ip_ports.home_id ASC;';
 			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d;';
 			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
 							SELECT %1$suser_groups.group_id
@@ -1581,7 +1581,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 								WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 							)
 							OR %1$shome_ip_ports.force_mod_id IS NULL
-						) ORDER BY home_user_order ASC, home_id ASC;';
+						) ORDER BY home_user_order ASC, %1$shome_ip_ports.home_id ASC;';
 		}
 		else
 		{
@@ -1801,7 +1801,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						OR agent_ip = \''.$search_field.'\' OR port = \''.$search_field.'\'
 						OR ip LIKE \'%%'.$search_field.'%%\'
 						' : '').'
-						').' OR %1$shome_ip_ports.force_mod_id IS NULL ORDER BY home_user_order ASC, home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+						').' OR %1$shome_ip_ports.force_mod_id IS NULL ORDER BY home_user_order ASC, %1$shome_ip_ports.home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 						
 			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d ORDER BY home_id ASC;';
 			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
@@ -1958,7 +1958,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 						').'
 							OR %1$shome_ip_ports.force_mod_id IS NULL 
 						) 
-						ORDER BY home_user_order ASC, home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
+						ORDER BY home_user_order ASC, %1$shome_ip_ports.home_id ASC LIMIT '.$gethome_page_forlimit.','.$home_limit.';';
 		}
 		else
 		{
@@ -2207,7 +2207,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				SELECT `force_mod_id`
 				FROM `%1$shome_ip_ports`
 				WHERE '.$ip_id_and.'(`force_mod_id` = %1$sgame_mods.mod_id OR `force_mod_id` = "0")
-			) ORDER BY home_user_order ASC, home_id ASC LIMIT '.$user_request_page.','.$limit_dashboardlist.';',
+			) ORDER BY home_user_order ASC, %1$shome_ip_ports.home_id ASC LIMIT '.$user_request_page.','.$limit_dashboardlist.';',
 			$this->table_prefix );
 
 		return $this->listQuery($query);
@@ -3076,7 +3076,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			}
 		}
 
-		$sql .= "ORDER BY home_user_order ASC, home_id ASC LIMIT $game_home_id, $limit_gameHomes;";
+		$sql .= "ORDER BY home_user_order ASC, %1$shome_ip_ports.home_id ASC LIMIT $game_home_id, $limit_gameHomes;";
 		$sql = sprintf($sql, $this->table_prefix);
 
 		return $this->listQuery($sql);
@@ -3920,5 +3920,4 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return false;
 	}
 }
-
 ?>
