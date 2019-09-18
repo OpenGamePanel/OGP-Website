@@ -1471,12 +1471,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 							WHERE `force_mod_id` = %1$sgame_mods.mod_id OR %1$shome_ip_ports.force_mod_id = 0
 						)
 						OR %1$shome_ip_ports.force_mod_id IS NULL ORDER BY home_user_order ASC;';
-			$template2 = 'SELECT user_expiration_date, home_id, home_user_order FROM %1$suser_homes WHERE user_id = %2$d ORDER BY home_user_order ASC;';
-			$template3 = 'SELECT user_group_expiration_date, home_id, home_user_order FROM %1$suser_group_homes WHERE group_id IN(
+			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d ORDER BY home_id ASC;';
+			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
 							SELECT %1$suser_groups.group_id
 							FROM %1$suser_groups
 							WHERE %1$suser_groups.user_id=%2$d
-						  ) ORDER BY home_user_order ASC;';
+						  );';
 		}
 		else if ( $id_type == "user" )
 		{
@@ -1805,12 +1805,12 @@ class OGPDatabaseMySQL extends OGPDatabase
 						
 						ORDER BY home_user_order ASC;';
 						
-			$template2 = 'SELECT user_expiration_date, home_id, home_user_order FROM %1$suser_homes WHERE user_id = %2$d ORDER BY home_user_order ASC;';
-			$template3 = 'SELECT user_group_expiration_date, home_id, home_user_order FROM %1$suser_group_homes WHERE group_id IN(
+			$template2 = 'SELECT user_expiration_date, home_id FROM %1$suser_homes WHERE user_id = %2$d ORDER BY home_id ASC;';
+			$template3 = 'SELECT user_group_expiration_date, home_id FROM %1$suser_group_homes WHERE group_id IN(
 							SELECT %1$suser_groups.group_id
 							FROM %1$suser_groups
 							WHERE %1$suser_groups.user_id=%2$d
-						  ) ORDER BY home_user_order ASC;';
+						  );';
 		}
 		else if ( $id_type == "user" )
 		{
