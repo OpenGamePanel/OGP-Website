@@ -2207,7 +2207,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				SELECT `force_mod_id`
 				FROM `%1$shome_ip_ports`
 				WHERE '.$ip_id_and.'(`force_mod_id` = %1$sgame_mods.mod_id OR `force_mod_id` = "0")
-			) ORDER BY %1$shome_ip_ports.home_id ASC LIMIT '.$user_request_page.','.$limit_dashboardlist.';',
+			) ORDER BY home_user_order ASC LIMIT '.$user_request_page.','.$limit_dashboardlist.';',
 			$this->table_prefix );
 
 		return $this->listQuery($query);
