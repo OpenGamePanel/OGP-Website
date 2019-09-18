@@ -3010,19 +3010,37 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getAvailableUserHomesFor($id_type, $assign_id, $user_id) {
 		if ( $id_type == "group" )
 		{
+			$gid = array();
+			$currentGroups = $this->getUsersGroups($user_id);
+			foreach($currentGroups as $group){
+				$gid[] = $group["group_id"];
+			}
+			
 			$template ='SELECT * FROM `%1$sserver_homes`
-						WHERE
+						WHERE (
 						`home_id` IN
 						(
 							SELECT `home_id` FROM `%1$suser_homes`
 							WHERE `user_id` = %3$d
-						)
-						AND
+						)';
+						
+			if(count($gid)){
+				
+				$template .= ' OR `home_id` IN
+						(
+							SELECT `home_id` FROM `%1$suser_group_homes`
+							WHERE `group_id` IN (' . implode(',', $gid) . ')
+						)';
+			}
+						
+			$template .= ') AND
 						`home_id` NOT IN
 						(
 							SELECT `home_id` FROM `%1$suser_group_homes`
 							WHERE `group_id` = %2$d
-						) ORDER BY home_user_order ASC, home_id ASC';
+						)';
+						
+			$template .= ' ORDER BY home_user_order ASC, home_id ASC';
 		}
 		else
 		{
