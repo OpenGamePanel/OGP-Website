@@ -184,6 +184,8 @@ function handleOrderingGameServers(){
 				if(helperItemBeingDragged.length){
 					helperItemBeingDragged.css('cursor', '');
 				}
+			},
+			update: function(event, ui){
 				saveGameServerOrder();
 			}
 		});
@@ -209,7 +211,7 @@ function saveGameServerOrder(){
 		// Make the call		
 		$.ajax({
 			type: "POST",
-			url: "ogp_api.php?gamemanager/reorder/" + userAPIKey,
+			url: "ogp_api.php?gamemanager/reorder/&token=" + userAPIKey,
 			data: postData,
 			success: function(e){
 				logToConsole("Game server order successfully saved!");
