@@ -77,7 +77,7 @@ function exec_ogp_module()
 		<th>".get_lang('server_expiration_date')."</th>
 		<th>".get_lang('actions')."</th></tr>";
 	$i = 0;
-	sort($game_homes);
+	// sort($game_homes);
 	foreach( $game_homes as $row )
 	{
 		$display_ip = checkDisplayPublicIP($row['display_public_ip'], (isset($row['ip']) and $row['ip'] != $row['agent_ip']) ? $row['ip'] : $row['agent_ip']);
