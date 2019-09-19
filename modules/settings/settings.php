@@ -73,6 +73,11 @@ function exec_ogp_module()
 		);
 		
 		$db->setSettings($settings);
+		
+		if(array_key_exists("reset_game_server_order", $_REQUEST) && $_REQUEST["reset_game_server_order"] == 1){
+			$db->resetGameServerOrder();
+		}
+		
 		echo "<h2>".get_lang('settings')."</h2>";
 		print_success(get_lang('settings_updated'));
 		$view->refresh("?m=settings");
@@ -176,6 +181,9 @@ function exec_ogp_module()
 	
 	// Use authorized hosts for API - this should be disabled by default since using the KEY alone should be secure enough
 	$ft->add_field('on_off','use_authorized_hosts',@$row['use_authorized_hosts']);	
+	
+	// Add option to reset game server order to default
+	$ft->add_field('checkbox','reset_game_server_order','0');	
 	
 	$ft->end_table();
 	$ft->add_button("submit","update_settings",get_lang('update_settings'));

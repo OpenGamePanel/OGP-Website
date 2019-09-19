@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "Game manager";
 $module_version = "1.33";
-$db_version = 7;
+$db_version = 8;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => 'game_monitor', 'name'=>'Game Monitor', 'group'=>'user' ) );
 $module_access_rights = array('u' => 'allow_updates', 'p' => 'allow_parameter_usage', 'e' => 'allow_extra_params', 'c' => 'allow_custom_fields');
@@ -107,4 +107,7 @@ $install_queries[6] = array(
 $install_queries[7] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` drop index `remote_server_id`;"
 	);
+	
+$install_queries[8] = array(
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` ADD `home_user_order` INT NOT NULL default 99999;");
 ?>

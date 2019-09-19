@@ -155,4 +155,67 @@ $(document).ready(function(){
 			}
 		});
 	});
+	
+	// Allow admin users to set game server order
+	handleOrderingGameServers();
 });
+
+
+function handleOrderingGameServers(){
+	var elemBeingDragged = null;
+	var childExpanderRow = null;
+	var helperItemBeingDragged = null;
+	if($('h2.isAdminUser').length){
+		$('table#servermonitor tbody').sortable({
+			start: function( event, ui ) {
+				$('.expand-child td').css('display', 'none');
+				ui.helper.css('cursor', 'move');
+				elemBeingDragged = ui.item;	
+				childExpanderRow = elemBeingDragged.nextAll('tr.expand-child').first();
+				helperItemBeingDragged = ui.helper;
+			},
+			stop: function( event, ui ) {
+				if(childExpanderRow && childExpanderRow.length && elemBeingDragged && elemBeingDragged.length){
+					elemBeingDragged.after(childExpanderRow.detach());
+					if(childExpanderRow.next('tr.expand-child').length){
+						elemBeingDragged.before(childExpanderRow.next('tr.expand-child').detach());
+					}
+				}
+				if(helperItemBeingDragged.length){
+					helperItemBeingDragged.css('cursor', '');
+				}
+			},
+			update: function(event, ui){
+				saveGameServerOrder();
+			}
+		});
+	}
+}
+
+function saveGameServerOrder(){
+	var i = 0;
+	var postData = {order: new Array()};
+	var homeId = null;
+	
+	if(userAPIKey){
+		
+		// Build the data
+		$('table#servermonitor tbody .maintr:visible').each(function(e){
+			homeId = $('td.serverId', $(this)).text();
+			if(homeId){
+				postData.order.push({home_id: homeId, order: i});
+				i++;
+			}
+		});
+		
+		// Make the call		
+		$.ajax({
+			type: "POST",
+			url: "ogp_api.php?gamemanager_admin/reorder&token=" + userAPIKey,
+			data: JSON.stringify(postData),
+			success: function(e){
+				logToConsole("Game server order successfully saved!");
+			}
+		});
+	}
+}

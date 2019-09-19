@@ -280,6 +280,7 @@ function ogpHome()
 				$_SESSION['users_group'] = $userInfo['users_role'];
 				$_SESSION['users_lang'] = isset( $_GET['lang'] ) ? $_GET['lang'] : $userInfo['users_lang'];
 				$_SESSION['users_theme'] = $userInfo['users_theme'];
+				$_SESSION['users_api_key'] = $db->getApiToken($userInfo['user_id']);
 				print_success( get_lang("logging_in") ."...");
 				$db->logger( get_lang("logging_in") ."...");
 				$db->query("DELETE FROM `OGP_DB_PREFIXban_list` WHERE client_ip='$client_ip';");

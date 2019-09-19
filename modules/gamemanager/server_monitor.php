@@ -148,7 +148,7 @@ function get_sync_name($server_xml)
 
 function exec_ogp_module() {
 	global $db, $settings, $loggedInUserInfo;
-	echo "<h2>". get_lang("game_monitor") ."</h2>";
+	echo "<h2 class='gameMonitor " . ($db->isAdmin( $_SESSION['user_id'] ) ? "isAdminUser" : "") . "'>". get_lang("game_monitor") ."</h2>";
 	$refresh = new refreshed();
 	set_time_limit(0);
 	$stats_servers_online = 0;
@@ -287,10 +287,13 @@ function exec_ogp_module() {
 			  $post_ip, 
 			  $post_port ) = explode( "-", $_GET['home_id-mod_id-ip-port'] );
 	
+	$j = 1;
 	foreach( $server_homes as $server_home )
 	{
-		if( ( $show_all or isset($_GET['home_cfg_id']) ) AND ( !isset($server_home['ip']) or !isset($server_home['mod_id']) ) )
+		if( ( $show_all or isset($_GET['home_cfg_id']) ) AND ( !isset($server_home['ip']) or !isset($server_home['mod_id']) ) ){
+			$j++;
 			continue;
+		}
 		// Count the number of servers.
 		$stats_servers++;
 		
@@ -416,7 +419,7 @@ function exec_ogp_module() {
 				{
 					// Check if the screen running the server is running.
 					$status = "online";
-					$order=1;
+					$order = 1 + $j;
 					if ($server_xml->protocol == "lgsl")
 					{
 						$get_q_and_s = lgsl_port_conversion($query_name, $server_home['port'], "", "");
@@ -467,7 +470,7 @@ function exec_ogp_module() {
 											 '" type="radio"><img style="border:0;height:15px;" src="' . check_theme_image("images/start.png") . '"/></div><div>&nbsp;'.
 											  get_lang("start_server") .'</div></div>';
 					}
-					$order = 3;
+					$order = 1000 + $j;
 					if(isset($server_home['mod_id']))
 					{
 						ob_start();
@@ -483,7 +486,7 @@ function exec_ogp_module() {
 			}
 			else{
 				$status = "offline";
-				$order = 3;
+				$order = 1000 + $j;
 				$address = "<span style='color:darkred;font-weight:bold;'>Agent Offline</span>";
 			}
 			$user = $db->getUserById($server_home['user_id_main']);
@@ -510,6 +513,7 @@ function exec_ogp_module() {
 			//Echo them all
 			echo "$first$second";
 		}
+		$j++;
 	}
 	echo "</tbody>";
 
