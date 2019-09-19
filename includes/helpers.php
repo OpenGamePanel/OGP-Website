@@ -414,6 +414,10 @@ function runPostUpdateOperations(){
 	if(function_exists("removeOldPanelFiles")){
 		removeOldPanelFiles();
 	}
+	
+	if(!array_key_exists("users_api_key", $_SESSION)){
+		$_SESSION['users_api_key'] = $db->getApiToken($_SESSION['user_id']);
+	}
 }
 
 function getOGPGitHubURL($gitHubUsername, $repo){
