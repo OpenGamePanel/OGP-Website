@@ -141,5 +141,8 @@ define('OGP_LANG_remove', "Ukloniti");
 define('OGP_LANG_default_trusted_hosts', "Zadani Pouzdani Poslužitelji");
 define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Pouzdani Poslužitelji ili Proxy (IPv4/IPv6 Adrese ili CIDR)");
 define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Pouzdani prosljeđeni IP-ovi (IPv4/IPv6 Addresses or CIDR)");
+define('OGP_LANG_reset_game_server_order', "Reset Game Server Ordering");
+define('OGP_LANG_reset_game_server_order_info', "Resets game server ordering back to the default of using the server ID");
+
 
 ?>

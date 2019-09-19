@@ -141,5 +141,8 @@ define('OGP_LANG_remove', "Удалить");
 define('OGP_LANG_default_trusted_hosts', "Доверенные хосты по умолчанию");
 define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Доверенные хосты или прокси (адреса IPv4 / IPv6 или CIDR)");
 define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Доверенные переадресованные IP-адреса (адреса IPv4 / IPv6 или CIDR)");
+define('OGP_LANG_reset_game_server_order', "Reset Game Server Ordering");
+define('OGP_LANG_reset_game_server_order_info', "Resets game server ordering back to the default of using the server ID");
+
 
 ?>
