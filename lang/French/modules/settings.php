@@ -132,8 +132,8 @@ define('OGP_LANG_show_server_id_game_monitor', "Voir les IDs des Serveurs dans l
 define('OGP_LANG_show_server_id_game_monitor_info', "Afficher la colonne des IDs des Serveurs dans la page de Gestion des Serveurs qui correspondent aux IDs attribués lors de la création des Serveurs de Jeu.");
 define('OGP_LANG_default_game_server_home_path_prefix', "Dossier par défaut des serveurs de jeu");
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Entrer un préfixe de chemin où vous souhaitez que les dossiers des serveurs de jeu soient créés.  Vous pouvez utiliser \"{USERNAME}\" dans le chemin qui sera ensuite remplacé par le nom d&apos;utilisateur OGP auquel le serveur est assigné. Vous pouvez utiliser \"{GAMEKEY}\" dans le chemin qui sera ensuite remplacé par un nom de jeu en minuscule.  Vous pouvez utiliser \"{SKIPID}\" n&apos;importe où dans le chemin pour empêcher d&apos;apposer l&apos;ID du serveur de jeu au chemin.  Exemple: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} deviendra /ogp/games/username/arkse/.  Exemple 2:  /ogp/games deviendra /ogp/games/1 où 1 est l&apos;ID du serveur de jeu.");
-define('OGP_LANG_use_authorized_hosts', "Limiter l&aposAPI aux Hôtes Authorisés");
-define('OGP_LANG_use_authorized_hosts_info', "Activer ce paramètre pour seulement autoriser les appels à l&apos;API par les IP des hôtes approuvés.&nbsp; Les adresses approuvées peuvent être définies sur cette page une fois le paramètre activé.&nbsp; Si ce paramètre est désactivé, un utilisateur possédant un clé valide d&apos;API aura accès à l&apos;API à partir de n&aposimporte quelle adresse IP.&nbsp; Des utilisateurs possédant une clé valide pourra utiliser l&apos;API pourra gérer tous les serveurs de jeux pour qu&apos;ils sont autorisés à administrer.");
+define('OGP_LANG_use_authorized_hosts', "Limiter l'API aux Hôtes Autorisés");
+define('OGP_LANG_use_authorized_hosts_info', "Activer ce paramètre pour seulement autoriser les appels à l&apos;API par les IP des hôtes approuvés.&nbsp; Les adresses approuvées peuvent être définies sur cette page une fois le paramètre activé.&nbsp; Si ce paramètre est désactivé, un utilisateur possédant un clé valide d&apos;API aura accès à l&apos;API à partir de n&apos;importe quelle adresse IP.&nbsp; Des utilisateurs possédant une clé valide pourra utiliser l&apos;API pourra gérer tous les serveurs de jeux pour qu&apos;ils sont autorisés à administrer.");
 define('OGP_LANG_setup_api_authorized_hosts', "Paramétrer les hôtes autorisés pour l'API");
 define('OGP_LANG_autohorized_hosts', "Hôtes autorisés");
 define('OGP_LANG_add', "Ajouter");
@@ -141,5 +141,8 @@ define('OGP_LANG_remove', "Supprimer");
 define('OGP_LANG_default_trusted_hosts', "Hôtes de confiance par défaut");
 define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Hôtes de confiance ou Proxys (Adresses IPv4/IPv6 ou CIDR)");
 define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "IPs de confiance transférées (Adresses IPv4/IPv6 ou CIDR)");
+define('OGP_LANG_reset_game_server_order', "Réinitialiser l'ordre des serveurs");
+define('OGP_LANG_reset_game_server_order_info', "Remettre l&apos;ordre des serveurs par défaut en utilisant l&apos;ID du serveur");
+
 
 ?>
