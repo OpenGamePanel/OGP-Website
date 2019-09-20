@@ -167,6 +167,7 @@ function handleOrderingGameServers(){
 	var helperItemBeingDragged = null;
 	if($('h2.isAdminUser').length){
 		$('table#servermonitor tbody').sortable({
+			delay: 250, // https://stackoverflow.com/questions/22913592/jquery-ui-sortable-any-event-to-trigger-once-delay-completed
 			start: function( event, ui ) {
 				$('.expand-child td').css('display', 'none');
 				ui.helper.css('cursor', 'move');
