@@ -167,9 +167,11 @@ function handleOrderingGameServers(){
 	var helperItemBeingDragged = null;
 	if($('h2.isAdminUser').length){
 		$('table#servermonitor tbody').sortable({
+			handle: '.sortHandle', // https://stackoverflow.com/questions/15554951/sortable-rows-only-when-a-specific-column-is-dragged#answer-16753297
 			delay: 250, // https://stackoverflow.com/questions/22913592/jquery-ui-sortable-any-event-to-trigger-once-delay-completed
 			start: function( event, ui ) {
 				$('.expand-child td').css('display', 'none');
+				$('td', ui.item).removeClass('expanded');
 				ui.helper.css('cursor', 'move');
 				elemBeingDragged = ui.item;	
 				childExpanderRow = elemBeingDragged.nextAll('tr.expand-child').first();
