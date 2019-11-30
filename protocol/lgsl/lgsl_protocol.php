@@ -111,6 +111,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"painkiller"	=> "PainKiller",
 		"pixark"		=> "PixARK",
 		"plainsight"	=> "Plain Sight",
+		"postscriptum"	=> "Post Scriptum",
 		"prey"			=> "Prey",
 		"quakeworld"	=> "Quake World",
 		"quakewars"		=> "Enemy Territory: Quake Wars",
@@ -138,6 +139,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"sof2"			=> "Soldier of Fortune 2",
 		"soldat"		=> "Soldat",
 		"source"		=> "Source ( Half-Life 2 )",
+		"squad"			=> "Squad",
 		"stalker"		=> "S.T.A.L.K.E.R.",
 		"stalkercs"		=> "S.T.A.L.K.E.R. Clear Sky",
 		"startrekef"	=> "StarTrek Elite-Force",
@@ -145,7 +147,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"starwarsbf2"	=> "Star Wars: Battlefront 2",
 		"starwarsrc"	=> "Star Wars: Republic Commando",
 		"stationeers"	=> "Stationeers",
-		"squad"			=> "Squad",
 		"swat4"			=> "SWAT 4",
 		"test"			=> "Test ( For PHP Developers )",
 		"teeworlds"		=> "Teeworlds",
@@ -274,6 +275,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"painkiller_"	=> "09",
 		"pixark"		=> "05",
 		"plainsight"	=> "32",
+		"postscriptum"	=> "05",
 		"prey"			=> "10",
 		"quakeworld"	=> "07",
 		"quakewars"		=> "10",
@@ -301,6 +303,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"sof2"			=> "02",
 		"soldat"		=> "08",
 		"source"		=> "05",
+		"squad"			=> "05",
 		"stalker"		=> "06",
 		"stalkercs"		=> "09",
 		"startrekef"	=> "02",
@@ -308,7 +311,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"starwarsbf2"	=> "09",
 		"starwarsrc"	=> "09",
 		"stationeers"	=> "05",
-		"squad"			=> "05",
 		"swat4"			=> "03",
 		"test"			=> "01",
 		"teeworlds"		=> "21",
@@ -434,6 +436,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"painkiller"	=> "qtracker://{IP}:{S_PORT}?game=Painkiller&action=show",
 		"pixark"		=> "steam://connect/{IP}:{Q_PORT}",
 		"plainsight"	=> "http://www.plainsightgame.com",
+		"postscriptum"	=> "steam://connect/{IP}:{S_PORT}",
 		"prey"			=> "qtracker://{IP}:{S_PORT}?game=Prey&action=show",
 		"quakeworld"	=> "qtracker://{IP}:{S_PORT}?game=QuakeWorld&action=show",
 		"quakewars"		=> "qtracker://{IP}:{S_PORT}?game=EnemyTerritoryQuakeWars&action=show",
@@ -461,6 +464,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"sof2"			=> "qtracker://{IP}:{S_PORT}?game=SoldierOfFortune2&action=show",
 		"soldat"		=> "http://www.soldat.pl",
 		"source"		=> "steam://connect/{IP}:{S_PORT}",
+		"squad"			=> "steam://connect/{IP}:{S_PORT}",
 		"stalker"		=> "qtracker://{IP}:{S_PORT}?game=STALKER_ShadowChernobyl&action=show",
 		"stalkercs"		=> "qtracker://{IP}:{S_PORT}?game=STALKER_ClearSky&action=show",
 		"startrekef"	=> "http://en.wikipedia.org/wiki/Star_Trek:_Voyager:_Elite_Force",
@@ -468,7 +472,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"starwarsbf2"	=> "qtracker://{IP}:{S_PORT}?game=StarWarsBattlefront2&action=show",
 		"starwarsrc"	=> "qtracker://{IP}:{S_PORT}?game=StarWarsRepublicCommando&action=show",
 		"stationeers"	=> "steam://connect/{IP}:{Q_PORT}",
-		"squad"			=> "steam://connect/{IP}:{S_PORT}",
 		"swat4"			=> "qtracker://{IP}:{S_PORT}?game=SWAT4&action=show",
 		"test"			=> "http://www.greycube.com",
 		"teeworlds"		=> "http://www.teeworlds.com",
@@ -559,6 +562,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "ootow"			: $c_to_q = -359;	$c_def = 27374;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "painkiller"		: $c_to_q = 123;	$c_def = 3455;	$q_def = 3578;	$c_to_s = 0;	break;
 			case "pixark"			: $c_to_q = 20016;	$c_def = 7003;	$q_def = 27019;	$c_to_s = 0;	break;
+			case "postscriptum"		: $c_to_q = 19378;	$c_def = 7787;	$q_def = 27165;	$c_to_s = 0;	break;
 			case "ravenshield"		: $c_to_q = 1000;	$c_def = 7777;	$q_def = 8777;	$c_to_s = 0;	break;
 			case "redorchestra"		: $c_to_q = 1;		$c_def = 7758;	$q_def = 7759;	$c_to_s = 0;	break;
 			case "redorchestra2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
@@ -569,11 +573,11 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "serioussam"		: $c_to_q = 1;		$c_def = 25600;	$q_def = 25601;	$c_to_s = 0;	break;
 			case "sniperelitev2"	: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 0;	break;
 			case "soldat"			: $c_to_q = 123;	$c_def = 23073;	$q_def = 23196;	$c_to_s = 0;	break;
+			case "squad"			: $c_to_q = 19378;	$c_def = 7787;	$q_def = 27165;	$c_to_s = 0;	break;
 			case "stalker"			: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
 			case "stalkercs"		: $c_to_q = 2;		$c_def = 5447;	$q_def = 5445;	$c_to_s = 0;	break;
 			case "starwarsrc"		: $c_to_q = 0;		$c_def = 7777;	$q_def = 11138;	$c_to_s = 0;	break;
 			case "stationeers"		: $c_to_q = -485;	$c_def = 27500;	$q_def = 27015;	$c_to_s = 0;	break;
-			case "squad"			: $c_to_q = 19378;	$c_def = 7787;	$q_def = 27165;	$c_to_s = 0;	break;
 			case "swat4"			: $c_to_q = 1;		$c_def = 10780;	$q_def = 10781;	$c_to_s = 0;	break;
 			case "theforest"		: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 0;	break;
 			case "tribesv"			: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 0;	break;
