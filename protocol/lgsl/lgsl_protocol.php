@@ -562,7 +562,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "ootow"			: $c_to_q = -359;	$c_def = 27374;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "painkiller"		: $c_to_q = 123;	$c_def = 3455;	$q_def = 3578;	$c_to_s = 0;	break;
 			case "pixark"			: $c_to_q = 20016;	$c_def = 7003;	$q_def = 27019;	$c_to_s = 0;	break;
-			case "postscriptum"		: $c_to_q = 19378;	$c_def = 7787;	$q_def = 27165;	$c_to_s = 0;	break;
+			case "postscriptum"		: $c_to_q = 10;		$c_def = 10027;	$q_def = 10037;	$c_to_s = 0;	break;
 			case "ravenshield"		: $c_to_q = 1000;	$c_def = 7777;	$q_def = 8777;	$c_to_s = 0;	break;
 			case "redorchestra"		: $c_to_q = 1;		$c_def = 7758;	$q_def = 7759;	$c_to_s = 0;	break;
 			case "redorchestra2"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
