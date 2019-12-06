@@ -240,7 +240,8 @@ function install() {
             array( "name" => "PHP XML Reader", "type" => "c", "value" => "XMLReader" ),
 			array( "name" => "PHP JSON Extension", "type" => "f", "value" => "json_decode" ),
 			array( "name" => "PHP Zip Extension", "type" => "c", "value" => "ZipArchive" ),
-			array( "name" => "PHP mbstring Extension", "type" => "x", "value" => "mbstring" ));
+			array( "name" => "PHP mbstring Extension", "type" => "x", "value" => "mbstring" ),
+			array( "name" => "PHP MySQLi Extension", "type" => "f", "value" => "mysqli_connect" ));
 			
 		$optional_properties_to_check = array(
 			array( "name" => "PHP BCMath Extension", "type" => "f", "value" => "bcadd" ),
