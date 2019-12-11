@@ -49,11 +49,7 @@ define('OGP_LANG_charset_info', "UTF-8, ISO, ASCII, etc... Overrides the charact
 define('OGP_LANG_steam_user', "Steam User");
 define('OGP_LANG_steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('OGP_LANG_steam_pass', "Steam Password");
-define('OGP_LANG_steam_pass_info', "Set here the steam account password.FRFR
-9+
-
-9+
-");
+define('OGP_LANG_steam_pass_info', "Set here the steam account password.");
 define('OGP_LANG_steam_guard', "Steam Guard");
 define('OGP_LANG_steam_guard_info', "Some users have steam guard activated to protect their accounts from hackers,<br>this code is sent to the account email when the first steam update is started.");
 define('OGP_LANG_smtp_port', "SMTP Port");
