@@ -45,11 +45,15 @@ define('OGP_LANG_feed_enable_info', "If your webhost has a firewall which is blo
 define('OGP_LANG_feed_url', "Feed URL");
 define('OGP_LANG_feed_url_info', "GrayCube.com is sharing a LGSL feed on the URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
 define('OGP_LANG_charset', "Character Encoding");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
+define('OGP_LANG_charset_info', "UTF-8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default. Using invalid value here may break some Panel functionnalities.");
 define('OGP_LANG_steam_user', "Steam User");
 define('OGP_LANG_steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('OGP_LANG_steam_pass', "Steam Password");
-define('OGP_LANG_steam_pass_info', "Set here the steam account password.");
+define('OGP_LANG_steam_pass_info', "Set here the steam account password.FRFR
+9+
+
+9+
+");
 define('OGP_LANG_steam_guard', "Steam Guard");
 define('OGP_LANG_steam_guard_info', "Some users have steam guard activated to protect their accounts from hackers,<br>this code is sent to the account email when the first steam update is started.");
 define('OGP_LANG_smtp_port', "SMTP Port");
