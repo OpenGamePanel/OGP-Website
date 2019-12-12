@@ -44,8 +44,6 @@ define('OGP_LANG_feed_enable', "Activar Feed LGSL");
 define('OGP_LANG_feed_enable_info', "Si su webhost tiene un firewall que está bloqueando el puerto de consulta, entonces usted necesita para abrir el puerto manualmente.");
 define('OGP_LANG_feed_url', "URL del Feed");
 define('OGP_LANG_feed_url_info', "GrayCube.com comparte un feed LGSL en la URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
-define('OGP_LANG_charset', "Codificación de caracteres");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Anula la codificación de caracteres definida en los archivos de traducción. Déjelo en blanco para usar la codificación de caracteres por defecto.");
 define('OGP_LANG_steam_user', "Usuario de Steam");
 define('OGP_LANG_steam_user_info', "Esta cuenta se necesita para descargar algunos juegos nuevos desde Steam como CS:GO.");
 define('OGP_LANG_steam_pass', "Contraseña de Steam");

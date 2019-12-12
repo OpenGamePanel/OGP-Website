@@ -38,7 +38,6 @@ function exec_ogp_module()
 			"maintenance_message" => $_REQUEST['maintenance_message'],
 			"panel_language" => $_REQUEST['panel_language'],
 			"time_zone" => $_REQUEST['time_zone'],
-			"charset" => $_REQUEST['charset'],
 			"page_auto_refresh" => $_REQUEST['page_auto_refresh'],
 			"smtp_server" => $_REQUEST['smtp_server'],
 			"smtp_port" => $_REQUEST['smtp_port'],
@@ -129,7 +128,6 @@ function exec_ogp_module()
 	$zones = array('' => "-") + $zones;
 	$ft->add_custom_field('time_zone',
 		create_drop_box_from_array($zones,"time_zone",@$row['time_zone'],false));
-	$ft->add_field('string','charset',@$row['charset']);
 	$ft->add_field('text','header_code',@$row['header_code'], 38);
 	$ft->add_field('on_off','maintenance_mode',@$row['maintenance_mode']);
 	$ft->add_field('string','maintenance_title',@$row['maintenance_title']);

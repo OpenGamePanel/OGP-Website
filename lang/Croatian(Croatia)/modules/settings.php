@@ -44,8 +44,6 @@ define('OGP_LANG_feed_enable', "Omogući LGSL feed");
 define('OGP_LANG_feed_enable_info', "Ako vaš webhost ima vatrozid koji blokira port upita, onda ručno ga morate otvoriti port.");
 define('OGP_LANG_feed_url', "URL feeda");
 define('OGP_LANG_feed_url_info', "GrayCube.com dijeli LGSL feed na URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
-define('OGP_LANG_charset', "Kodiranje znakova");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, itd...Prebacuje kodiranje znakova definiranog jezičnim datotekama. Ostavite ga prazno da biste koristili zadanu postavku jezika.");
 define('OGP_LANG_steam_user', "Steam Korisnik");
 define('OGP_LANG_steam_user_info', "Ovaj korisnik je potreban za prijavu u Steam-u za preuzimanje nekih novih igara poput CS: GO.");
 define('OGP_LANG_steam_pass', "Steam Lozinka");
