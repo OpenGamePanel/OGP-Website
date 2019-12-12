@@ -44,8 +44,6 @@ define('OGP_LANG_feed_enable', "Enable LGSL Feed");
 define('OGP_LANG_feed_enable_info', "If your webhost has a firewall which is blocking the query port, then you need to open the port manually.");
 define('OGP_LANG_feed_url', "Feed URL");
 define('OGP_LANG_feed_url_info', "GrayCube.com is sharing a LGSL feed on the URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
-define('OGP_LANG_charset', "Character Encoding");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
 define('OGP_LANG_steam_user', "Steam User");
 define('OGP_LANG_steam_user_info', "This user is needed to log in to steam for download some new games like CS:GO.");
 define('OGP_LANG_steam_pass', "Steam Password");

@@ -76,13 +76,6 @@ class OGPView {
             !empty($panel_settings['bg_wrapper']))
             $this->bg_wrapper = $panel_settings['bg_wrapper'];
 		
-		if ( isset($panel_settings['charset']) &&
-            !empty($panel_settings['charset']))
-        {
-            $this->charset = $panel_settings['charset'];
-			ini_set('default_charset', $panel_settings['charset']);
-        }
-		
 		if ( isset($panel_settings['time_zone']) &&
             !empty($panel_settings['time_zone']))
         {

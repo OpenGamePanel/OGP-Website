@@ -44,8 +44,6 @@ define('OGP_LANG_feed_enable', "LGSL Feed engedélyezése");
 define('OGP_LANG_feed_enable_info', "Ha a webtárhelyednek van tűzfala ami blokkolja a lekérdező portot, akkor meg kell nyitnod manuálisan.");
 define('OGP_LANG_feed_url', "Feed URL");
 define('OGP_LANG_feed_url_info', "GrayCube.com megosztja a LGSL feed URL:<br><b>http://www.greycube.co.uk/lgsl/feed/lgsl_files/lgsl_feed.php</b>");
-define('OGP_LANG_charset', "Karakterkódolás");
-define('OGP_LANG_charset_info', "UTF8, ISO, ASCII, etc... Overrides the character encoding defined in language files. Leave it blank to use language default.");
 define('OGP_LANG_steam_user', "Steam felhasználó");
 define('OGP_LANG_steam_user_info', "Ennek a felhasználónak be kell jelentkeznie a Steam letölteni néhány új játékot pl. CS:GO.");
 define('OGP_LANG_steam_pass', "Steam jelszó");
