@@ -55,7 +55,7 @@
       <options>s</options>
       <desc>Sets the license key. A license can be generated at: &lt;a href="https://keymaster.fivem.net/"&gt;https://keymaster.fivem.net/&lt;/a&gt;</desc>
     </field>
-	  <field key="set steam_webApiKey" type="text">
+    <field key="set steam_webApiKey" type="text">
       <default>set steam_webApiKey.*</default>
       <default_value></default_value>
       <var>set steam_webApiKey</var>
