@@ -7,6 +7,8 @@
   <cli_template>+exec server.cfg</cli_template>
   <console_log>CitizenFX.log</console_log>
   <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
   <mods>
     <mod key="default">
       <name>None</name>
@@ -53,6 +55,14 @@
       <options>s</options>
       <desc>Sets the license key. A license can be generated at: &lt;a href="https://keymaster.fivem.net/"&gt;https://keymaster.fivem.net/&lt;/a&gt;</desc>
     </field>
+	  <field key="set steam_webApiKey" type="text">
+      <default>set steam_webApiKey.*</default>
+      <default_value></default_value>
+      <var>set steam_webApiKey</var>
+      <filepath>server.cfg</filepath>
+      <options>sq</options>
+      <desc>Steam Web API key, if you want to use Steam authentication: &lt;a href="https://steamcommunity.com/dev/apikey/"&gt;https://steamcommunity.com/dev/apikey/&lt;/a&gt;</desc>
+    </field>    
   </custom_fields>
   <post_install>
 BASE="https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/"
@@ -75,15 +85,15 @@ cat > $PWD/server.cfg &lt;&lt;END
 endpoint_add_tcp "0.0.0.0:30120"
 endpoint_add_udp "0.0.0.0:30120"
 
-start mapmanager
-start chat
-start spawnmanager
-start sessionmanager
-start fivem
-start hardcap
-start rconlog
-start scoreboard
-start playernames
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure sessionmanager
+ensure fivem
+ensure hardcap
+ensure rconlog
+ensure scoreboard
+ensure playernames
 
 sv_scriptHookAllowed 1
 
@@ -121,10 +131,17 @@ sv_maxclients 30
 
 # license key for server (https://keymaster.fivem.net)
 sv_licenseKey superduperkey
+    
+# Steam Web API key, if you want to use Steam authentication (https://steamcommunity.com/dev/apikey)
+# -> replace "" with the key
+set steam_webApiKey ""
+    
 END
 
 rm tmp server.zip cfx-server-data.zip
 rm -rf $PWD/server-data
+echo "@echo off" > run.cmd
+echo "%~dp0\FXServer +set citizen_dir %~dp0\citizen\ %* > CitizenFX.log" >> run.cmd    
   </post_install>
   
   <configuration_files>
