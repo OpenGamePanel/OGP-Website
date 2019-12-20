@@ -1,0 +1,143 @@
+<game_config>
+  <game_key>redm_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>redm</lgsl_query_name>
+  <game_name>RedM</game_name>
+  <server_exec_name>run.sh</server_exec_name>
+  <cli_template>+set gamename rdr3 +exec server.cfg</cli_template>
+  <max_user_amount>32</max_user_amount>
+   <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>sv_hostname.*</default>
+      <var>sv_hostname</var>
+      <filepath>server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>rcon_password.*</default>
+      <var>rcon_password</var>
+      <filepath>server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="max_players">
+      <default>sv_maxclients.*</default>
+      <var>sv_maxclients</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="ip_port">
+      <default>endpoint_add_tcp.*</default>
+      <var>endpoint_add_tcp</var>
+      <filepath>server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="ip_port">
+      <default>endpoint_add_udp.*</default>
+      <var>endpoint_add_udp</var>
+      <filepath>server.cfg</filepath>
+      <options>sq</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="sv_licenseKey" type="text">
+      <default>sv_licenseKey.*</default>
+      <default_value></default_value>
+      <var>sv_licenseKey</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+      <desc>Sets the license key. A license can be generated at: &lt;a href="https://keymaster.fivem.net/"&gt;https://keymaster.fivem.net/&lt;/a&gt;</desc>
+    </field>
+	 <field key="set steam_webApiKey" type="text">
+      <default>set steam_webApiKey.*</default>
+      <default_value></default_value>
+      <var>set steam_webApiKey</var>
+      <filepath>server.cfg</filepath>
+      <options>sq</options>
+      <desc>Steam Web API key, if you want to use Steam authentication: &lt;a href="https://steamcommunity.com/dev/apikey/"&gt;https://steamcommunity.com/dev/apikey/&lt;/a&gt;</desc>
+    </field>    
+  </custom_fields>
+  <post_install>
+BASE="https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/"
+
+wget $BASE -Otmp
+
+# Assuming the version schema isn't changed or the url above isn't moved, this will always work.
+LATEST_VERSION=$(grep -Po '(?&lt;=href=")[^"]*' tmp | tail -1)
+
+wget "${BASE}${LATEST_VERSION}/fx.tar.xz"
+wget https://github.com/citizenfx/cfx-server-data/archive/master.zip -Ocfx-server-data.zip
+
+tar -xvf fx.tar.xz -C $PWD
+unzip cfx-server-data.zip -d $PWD/server-data
+mv $PWD/server-data/cfx-server-data-master/resources $PWD/resources
+
+cat > $PWD/server.cfg &lt;&lt;END
+# you probably don't want to change these!
+# only change them if you're using a server with multiple network interfaces
+endpoint_add_tcp "0.0.0.0:30120"
+endpoint_add_udp "0.0.0.0:30120"
+
+ensure mapmanager
+ensure chat
+ensure spawnmanager
+ensure rconlog
+ensure basic-gamemode
+
+sv_scriptHookAllowed 1
+
+# change this
+rcon_password ogpPassword
+
+sv_hostname "My new FXServer!"
+
+# nested configs!
+# exec server_internal.cfg
+
+# loading a server icon (96x96 PNG file)
+#load_server_icon myLogo.png
+
+# convars for use from script
+# set temp_convar "hey world!"
+
+# disable announcing? clear out the master by uncommenting this
+#sv_master1 ""
+
+# want to only allow players authenticated with a third-party provider like Steam?
+#sv_authMaxVariance 1
+#sv_authMinTrust 5
+
+# add system admins
+# add_ace group.admin command allow # allow all commands
+# add_ace group.admin command.quit deny # but don't allow quit
+# add_principal identifier.steam:110000112345678 group.admin # add the admin to the group
+
+# remove the # to hide player endpoints in external log output
+#sv_endpointprivacy true
+
+# server slots limit (must be between 1 and 31)
+sv_maxclients 30
+
+# license key for server (https://keymaster.fivem.net)
+sv_licenseKey superduperkey
+ 
+# Steam Web API key, if you want to use Steam authentication (https://steamcommunity.com/dev/apikey)
+# -> replace "" with the key
+set steam_webApiKey ""   
+    
+END
+
+rm tmp fx.tar.xz cfx-server-data.zip
+rm -rf $PWD/server-data
+  </post_install>
+
+  <configuration_files>
+    <file description="Main Config File">server.cfg</file>
+  </configuration_files>
+</game_config>
