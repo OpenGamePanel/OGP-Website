@@ -1,10 +1,10 @@
 <game_config>
-  <game_key>fivem_linux32</game_key>
+  <game_key>redm_linux32</game_key>
   <protocol>lgsl</protocol>
-  <lgsl_query_name>fivem</lgsl_query_name>
-  <game_name>FiveM</game_name>
+  <lgsl_query_name>redm</lgsl_query_name>
+  <game_name>RedM</game_name>
   <server_exec_name>run.sh</server_exec_name>
-  <cli_template>+exec server.cfg</cli_template>
+  <cli_template>+set gamename rdr3 +exec server.cfg</cli_template>
   <max_user_amount>32</max_user_amount>
    <control_protocol>rcon</control_protocol>
   <control_protocol_type>old</control_protocol_type>
@@ -54,7 +54,7 @@
       <options>s</options>
       <desc>Sets the license key. A license can be generated at: &lt;a href="https://keymaster.fivem.net/"&gt;https://keymaster.fivem.net/&lt;/a&gt;</desc>
     </field>
-	  <field key="set steam_webApiKey" type="text">
+	 <field key="set steam_webApiKey" type="text">
       <default>set steam_webApiKey.*</default>
       <default_value></default_value>
       <var>set steam_webApiKey</var>
@@ -87,12 +87,8 @@ endpoint_add_udp "0.0.0.0:30120"
 ensure mapmanager
 ensure chat
 ensure spawnmanager
-ensure sessionmanager
-ensure fivem
-ensure hardcap
 ensure rconlog
-ensure scoreboard
-ensure playernames
+ensure basic-gamemode
 
 sv_scriptHookAllowed 1
 
