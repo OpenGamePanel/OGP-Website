@@ -1,0 +1,87 @@
+<game_config>
+  <game_key>bms_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>halflife</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>BlackMesa Source - Server</game_name>
+  <server_exec_name>srcds_run</server_exec_name>
+  <cli_template>%GAME_TYPE% %PID_FILE% %MAP% %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="PID_FILE" cli_string="-pidfile ../" />
+    <cli_param id="MAP" cli_string="+map" options="s" />
+    <cli_param id="IP" cli_string="+ip" options="s" />
+    <cli_param id="PORT" cli_string="+port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxplayers" options="s" />
+  </cli_params>
+  <maps_location>bms/maps/</maps_location>
+  <map_list>bms/mapcycle.txt</map_list>
+  <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <mods>
+    <mod key="bms">
+      <name>none</name>
+      <installer_name>346680</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="control_password">
+      <default>rcon_password.*</default>
+      <var>rcon_password</var>
+      <filepath>bms/cfg/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>hostname.*</default>
+      <var>hostname</var>
+      <filepath>bms/cfg/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-game bms" type="checkbox_key_value">
+      <caption>Starte als BlackMesa Server</caption>
+      <desc>Startet den HL Server mit BlackMesa Mod.</desc>
+    </param>
+    <param key="-autoupdate -steam_dir {OGP_STEAM_CMD_DIR} -steamcmd_script {STEAMCMD_INSTALL_FILE}" type="checkbox_key_value">
+      <caption>Auto-Update</caption>
+      <desc>The server will automatically download official updates as they are released.</desc>
+    </param>
+    <param key="-insecure" type="checkbox_key_value">
+      <caption>Disable Valve Anti-Cheat</caption>
+      <desc>Will start the server without Valve Anti-Cheat technology.</desc>
+    </param>
+    <param key="-norestart" type="checkbox_key_value">
+      <caption>No Restart</caption>
+      <desc>Won't attempt to restart failed servers.</desc>
+    </param>
+  </server_params>
+  <custom_fields>
+     
+  </custom_fields>
+  <list_players_command>status</list_players_command>
+  <player_info_regex>#\#\s*\d*\s*\"(.*)\"\s*(\d*)\s*.*#</player_info_regex>
+  <player_info>
+    <index key="1">Name</index>
+    <index key="2">userid</index>
+  </player_info>
+  <player_commands>
+    <command key="Kick" type="hidden">
+	  <string>kick #%userid%</string>
+	</command>
+    <command key="Ban" type="select">
+	  <option value="0">Permanent</option>
+	  <option value="15">15m</option>
+	  <option value="30">30m</option>
+      <option value="60">1h</option>
+	  <option value="1440">1D</option>
+	  <option value="10080">1W</option>
+	  <option value="43200">30D</option>
+	  <string>banid %input% #%userid% kick</string>
+	</command>
+	<command key="Change Nick" type="text">
+	  <default>new nick</default>
+	  <string>amx_nick "%Name%" "%input%"</string>
+	</command>
+  </player_commands>
+</game_config>
