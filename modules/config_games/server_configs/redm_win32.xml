@@ -1,12 +1,13 @@
 <game_config>
-  <game_key>fivem_linux32</game_key>
+  <game_key>redm_win32</game_key>
   <protocol>lgsl</protocol>
-  <lgsl_query_name>fivem</lgsl_query_name>
-  <game_name>FiveM</game_name>
-  <server_exec_name>run.sh</server_exec_name>
-  <cli_template>+exec server.cfg</cli_template>
+  <lgsl_query_name>redm</lgsl_query_name>
+  <game_name>RedM</game_name>
+  <server_exec_name>run.cmd</server_exec_name>
+  <cli_template>+set gamename rdr3 +exec server.cfg</cli_template>
+  <console_log>CitizenFX.log</console_log>
   <max_user_amount>32</max_user_amount>
-   <control_protocol>rcon</control_protocol>
+  <control_protocol>rcon</control_protocol>
   <control_protocol_type>old</control_protocol_type>
   <mods>
     <mod key="default">
@@ -54,7 +55,7 @@
       <options>s</options>
       <desc>Sets the license key. A license can be generated at: &lt;a href="https://keymaster.fivem.net/"&gt;https://keymaster.fivem.net/&lt;/a&gt;</desc>
     </field>
-	  <field key="set steam_webApiKey" type="text">
+    <field key="set steam_webApiKey" type="text">
       <default>set steam_webApiKey.*</default>
       <default_value></default_value>
       <var>set steam_webApiKey</var>
@@ -64,17 +65,17 @@
     </field>    
   </custom_fields>
   <post_install>
-BASE="https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/"
+BASE="https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/"
 
 wget $BASE -Otmp
 
 # Assuming the version schema isn't changed or the url above isn't moved, this will always work.
 LATEST_VERSION=$(grep -Po '(?&lt;=href=")[^"]*' tmp | tail -1)
 
-wget "${BASE}${LATEST_VERSION}/fx.tar.xz"
+wget "${BASE}${LATEST_VERSION}/server.zip"
 wget https://github.com/citizenfx/cfx-server-data/archive/master.zip -Ocfx-server-data.zip
 
-tar -xvf fx.tar.xz -C $PWD
+unzip server.zip
 unzip cfx-server-data.zip -d $PWD/server-data
 mv $PWD/server-data/cfx-server-data-master/resources $PWD/resources
 
@@ -87,12 +88,8 @@ endpoint_add_udp "0.0.0.0:30120"
 ensure mapmanager
 ensure chat
 ensure spawnmanager
-ensure sessionmanager
-ensure fivem
-ensure hardcap
 ensure rconlog
-ensure scoreboard
-ensure playernames
+ensure basic-gamemode
 
 sv_scriptHookAllowed 1
 
@@ -130,17 +127,19 @@ sv_maxclients 30
 
 # license key for server (https://keymaster.fivem.net)
 sv_licenseKey superduperkey
- 
+    
 # Steam Web API key, if you want to use Steam authentication (https://steamcommunity.com/dev/apikey)
 # -> replace "" with the key
-set steam_webApiKey ""   
+set steam_webApiKey ""
     
 END
 
-rm tmp fx.tar.xz cfx-server-data.zip
+rm tmp server.zip cfx-server-data.zip
 rm -rf $PWD/server-data
+echo "@echo off" > run.cmd
+echo "%~dp0\FXServer +set citizen_dir %~dp0\citizen\ %* > CitizenFX.log" >> run.cmd    
   </post_install>
-
+  
   <configuration_files>
     <file description="Main Config File">server.cfg</file>
   </configuration_files>
