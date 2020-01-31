@@ -188,9 +188,13 @@ function exec_ogp_module() {
 		
 	echo "<h2>Update $home_info[home_name]</h2>";
 	
-	if ( $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_id) == 1 )
+	$screenRunningForHome = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_id);
+	if ($screenRunningForHome === 1)
 	{
 		print_failure( get_lang("server_running_cant_update") );
+		return;
+	}else if($screenRunningForHome === -1){
+		print_failure( get_lang("agent_offline") );
 		return;
 	}
 	$update_active = $remote->get_log(OGP_SCREEN_TYPE_UPDATE,
@@ -271,17 +275,15 @@ function exec_ogp_module() {
 			print_failure( get_lang("failed_to_start_rsync_update") );
 			return;
 		}
-		else if ( $rsync === 1 )
+		else if ( $rsync === 1 || $rsync === -1)
 		{
+			if($rsync === -1){
+				print_failure(get_lang("timed_out"));
+			}
 			print_success(get_lang("update_started"));
 			echo "<p><a href=\"?m=gamemanager&amp;p=rsync_install&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id$master\">".
 				 get_lang("refresh_rsync_status") ."</a></p>";
 			$view->refresh("?m=gamemanager&amp;p=rsync_install&amp;update=refresh&amp;home_id=$home_id&amp;mod_id=$mod_id$master",5);
-			return;
-		}
-		elseif( $rsync === 0 )
-		{
-			print_failure( get_lang("agent_offline") );
 			return;
 		}
 	}
