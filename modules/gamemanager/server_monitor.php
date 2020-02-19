@@ -497,8 +497,8 @@ function exec_ogp_module() {
 				$first .= "<td class='collapsible sortHandle'>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
 				$first .= "<td class='collapsible serverId hide sortHandle'>" . $server_home["home_id"] . "</td>";
 				$first .= "<td class='collapsible serverName ignoreSortable' data-status='$status' data-pos='$pos'><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
-				$first .= "<td class='collapsible serverIPAddress ignoreSortable'>" . $address . "</td>";
-				$first .= "<td class='owner collapsible serverOwner ignoreSortable'>" . $user['users_login'] . "</td>";
+				$first .= "<td class='collapsible serverIPAddress ignoreSortable' data-status='$status' data-pos='$pos'>" . $address . "</td>";
+				$first .= "<td class='owner collapsible serverOwner ignoreSortable' data-status='$status' data-pos='$pos'>" . $user['users_login'] . "</td>";
 				$first .= "<td style='width:328px;padding:0px;'>$ctrlChkBoxes</td>";
 			$first .= "</tr>";
 
