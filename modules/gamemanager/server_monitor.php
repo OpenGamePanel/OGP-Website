@@ -494,7 +494,7 @@ function exec_ogp_module() {
 			// Template
 			@$first = "<tr class='maintr$trclass'>";
 				$first .= "<td class='collapsible sortHandle' data-status='$status' data-pos='$pos'><span class='hidden'>$order</span>" . "<img src='" . check_theme_image("images/$status.png") . "' />" . "</td>";
-				$first .= "<td class='collapsible sortHandle'>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
+				$first .= "<td class='collapsible sortHandle' data-status='$status' data-pos='$pos'>" . "<span class='hidden'>$mod</span><img src='$icon_path' />" . "</td>";
 				$first .= "<td class='collapsible serverId hide sortHandle'>" . $server_home["home_id"] . "</td>";
 				$first .= "<td class='collapsible serverName ignoreSortable' data-status='$status' data-pos='$pos'><b>" . htmlentities($server_home['home_name']) . "</b>$mod_name</td>";
 				$first .= "<td class='collapsible serverIPAddress ignoreSortable' data-status='$status' data-pos='$pos'>" . $address . "</td>";
