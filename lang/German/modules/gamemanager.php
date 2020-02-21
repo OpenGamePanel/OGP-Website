@@ -200,7 +200,7 @@ define('OGP_LANG_auto_update_copy_me', "Kopieren");
 define('OGP_LANG_auto_update_copy_me_success', "Kopiert!");
 define('OGP_LANG_auto_update_copy_me_fail', "Kopieren fehlgeschlagen. Bitte kopieren Sie den Link von Hand");
 define('OGP_LANG_get_steam_autoupdate_api_link', "Auto Update Link");
-define('OGP_LANG_show_api_actions', "Show API Actions");
+define('OGP_LANG_show_api_actions', "Zeige API Befehle");
 define('OGP_LANG_api_links', "API Links");
 define('OGP_LANG_update_attempt_from_nonmaster_server', "Benutzer %s hat versucht, home_id %d zu aktualisieren von einem Nicht-Master-Server.
 (Verzeichnis ID: %d)");
