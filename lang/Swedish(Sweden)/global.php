@@ -140,4 +140,5 @@ define('OGP_LANG_mysql_admin', "MySQL-Administratör");
 define('OGP_LANG_copied', "Kopierad!");
 define('OGP_LANG_ticket_settings', "Ticket-inställningar");
 define('OGP_LANG_form', "Registrera");
+define('OGP_LANG_timed_out', "Operation timed out (but may still successfully complete).");
 ?>

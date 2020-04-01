@@ -140,4 +140,5 @@ define('OGP_LANG_mysql_admin', "Administrator MySQL");
 define('OGP_LANG_copied', "Skopiowano!");
 define('OGP_LANG_ticket_settings', "Ustawienia zgłoszeń");
 define('OGP_LANG_form', "Rejestracja");
+define('OGP_LANG_timed_out', "Operation timed out (but may still successfully complete).");
 ?>

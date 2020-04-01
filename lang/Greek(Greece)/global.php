@@ -140,4 +140,5 @@ define('OGP_LANG_mysql_admin', "Διαχειριστής MySQL");
 define('OGP_LANG_copied', "Αντιγράφτηκε!");
 define('OGP_LANG_ticket_settings', "Ρυθμίσεις Εισιτηρίων");
 define('OGP_LANG_form', "Εγγραφείτε");
+define('OGP_LANG_timed_out', "Operation timed out (but may still successfully complete).");
 ?>
