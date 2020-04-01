@@ -2,7 +2,7 @@
   <game_key>mohspdemo_win32</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>mohaa</lgsl_query_name>
-  <game_name>Medal Of Honor: Spearhead Demo Server (Windows)</game_name>
+  <game_name>Medal Of Honor: Spearhead Demo</game_name>
   <server_exec_name>moh_spearhead_demo.exe</server_exec_name>
   <query_port type="add">97</query_port>
   <cli_template>+set dedicated 1 +set net_noipx 1 +exec server.cfg %IP% %PORT% %PLAYERS%</cli_template>
