@@ -522,12 +522,6 @@ function install() {
             echo "<p><a href='?step=2'>".get_lang('back')."</a></p>";
             return;
         }
-        if (!preg_match("/^[0-9A-Z@]{6,20}$/i", $password1))
-        {
-            print_failure(get_lang('password_contains_invalid_characters'));
-            echo "<p><a href='?step=2'>".get_lang('back')."</a></p>";
-            return;
-        }
         if ( $password1 != $password2 )
         {
             print_failure(get_lang('password_mismatch'));
