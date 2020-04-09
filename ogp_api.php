@@ -58,6 +58,16 @@ $request = explode('/', $main_request);
 unset($_GET["$main_request"]);
 if(!empty($_GET))
 	$_POST = array_merge($_POST,$_GET);
+	
+// Allow json requests to the API as well
+$jsonData = file_get_contents('php://input');
+if(!empty($jsonData)){
+	$jsonArr = json_decode($jsonData, true);
+}
+if(isset($jsonArr) && is_array($jsonArr) && !empty($jsonArr)){
+	$_POST = array_merge($_POST, $jsonArr);
+}
+	
 //Retirieve the function name
 $function = 'api_'.$request[0];
 //Remove the main function from the request
