@@ -18,8 +18,8 @@ ogp_api.php?server/edit_ip					(POST/GET {token}{remote_server_id}{old_ip}{new_i
 ______________ Game Servers
 ogp_api.php?user_games/list_games			(POST/GET {token}{system(windows|linux)}{architecture(32|64)})
 ogp_api.php?user_games/list_servers			(POST/GET {token})
-ogp_api.php?user_games/create 				(POST/GET {token}{remote_server_id}{server_name}{home_cfg_id}{mod_cfg_id}{ip}{port}{control_password}{enable_ftp}{ftp_password}{slots}{affinity}{nice}{custom_user_login_homepath}) // {custom_user_login_homepath} is only used when a default_game_server_home_path_prefix setting is defined and used
-ogp_api.php?user_games/clone 				(POST/GET {token}{origin_home_id}{new_server_name}{new_ip}{new_port}{control_password}{enable_ftp}{ftp_password}{slots}{affinity}{nice}{custom_user_login_homepath}) // {custom_user_login_homepath} is only used when a default_game_server_home_path_prefix setting is defined and used
+ogp_api.php?user_games/create 				(POST/GET {token}{remote_server_id}{server_name}{home_cfg_id}{mod_cfg_id}{ip}{port}{control_password}{enable_ftp}{ftp_password}{slots}{affinity}{nice}{assign_to_username}{custom_user_login_homepath}) // {custom_user_login_homepath} is only used when a default_game_server_home_path_prefix setting is defined and used
+ogp_api.php?user_games/clone 				(POST/GET {token}{origin_home_id}{new_server_name}{new_ip}{new_port}{control_password}{enable_ftp}{ftp_password}{slots}{affinity}{nice}{assign_to_username}{custom_user_login_homepath}) // {custom_user_login_homepath} is only used when a default_game_server_home_path_prefix setting is defined and used
 ogp_api.php?user_games/set_expiration 		(POST/GET {token}{home_id}{timestamp})
 
 ______________ Users
@@ -423,6 +423,15 @@ function api_user_games()
 			$homeForUser = $_POST['custom_user_login_homepath'];
 		}
 		
+		$assignGameServerToUserId = $user_info['user_id'];
+		if(array_key_exists('assign_to_username', $_POST) && !empty($_POST['assign_to_username'])){
+			$assignToAccountUser = $_POST['assign_to_username'];
+			$userInfo = $db->getUser($assignToAccountUser);
+			if($userInfo){
+				$assignGameServerToUserId = $userInfo['user_id'];
+			}
+		}
+		
 		$remote_server = $db->getRemoteServer($remote_server_id);
 		if($remote_server === FALSE)
 			return array("status" => '304', "message" => "Remote Server ID#$remote_server_id does not exists");
@@ -484,7 +493,7 @@ function api_user_games()
 		
 		$game_path = clean_path($game_path); // Clean it
 		
-		$home_id = $db->addGameHome($remote_server_id, $user_info['user_id'], $home_cfg_id, $game_path, $server_name, $control_password, $ftp_password, $skipId);
+		$home_id = $db->addGameHome($remote_server_id, $assignGameServerToUserId, $home_cfg_id, $game_path, $server_name, $control_password, $ftp_password, $skipId);
 		if($home_id === FALSE)
 			return array("status" => '311', "message" => "Server could not be added to the database.");
 		
@@ -541,6 +550,15 @@ function api_user_games()
 		$game_home = $db->getGameHome($home_id);
 		if($game_home === FALSE)
 			return array("status" => '315', "message" => "There is no game home with home_id #" . $home_id . ".");
+			
+		$assignGameServerToUserId = $game_home['user_id_main'];
+		if(array_key_exists('assign_to_username', $_POST) && !empty($_POST['assign_to_username'])){
+			$assignToAccountUser = $_POST['assign_to_username'];
+			$userInfo = $db->getUser($assignToAccountUser);
+			if($userInfo){
+				$assignGameServerToUserId = $userInfo['user_id'];
+			}
+		}
 		
 		$remote = new OGPRemoteLibrary($game_home['agent_ip'],$game_home['agent_port'],$game_home['encryption_key'],$game_home['timeout']);
 		$host_stat = $remote->status_chk();
@@ -576,7 +594,7 @@ function api_user_games()
 		
 		$game_path = clean_path($game_path); // Clean it
 		
-		$clone_home_id = $db->addGameHome($game_home['remote_server_id'], $game_home['user_id_main'],
+		$clone_home_id = $db->addGameHome($game_home['remote_server_id'], $assignGameServerToUserId,
 			$game_home['home_cfg_id'], $game_path, $server_name, $control_password, $ftp_password, $skipId);
 		
 		if ($clone_home_id === FALSE)
