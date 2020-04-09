@@ -18,8 +18,8 @@ ogp_api.php?server/edit_ip					(POST/GET {token}{remote_server_id}{old_ip}{new_i
 ______________ Game Servers
 ogp_api.php?user_games/list_games			(POST/GET {token}{system(windows|linux)}{architecture(32|64)})
 ogp_api.php?user_games/list_servers			(POST/GET {token})
-ogp_api.php?user_games/create 				(POST/GET {token}{remote_server_id}{server_name}{home_cfg_id}{mod_cfg_id}{ip}{port}{control_password}{enable_ftp}{ftp_password}{slots}{affinity}{nice})
-ogp_api.php?user_games/clone 				(POST/GET {token}{origin_home_id}{new_server_name}{new_ip}{new_port}{control_password}{enable_ftp}{ftp_password}{slots}{affinity}{nice})
+ogp_api.php?user_games/create 				(POST/GET {token}{remote_server_id}{server_name}{home_cfg_id}{mod_cfg_id}{ip}{port}{control_password}{enable_ftp}{ftp_password}{slots}{affinity}{nice}{custom_user_login_homepath}) // {custom_user_login_homepath} is only used when a default_game_server_home_path_prefix setting is defined and used
+ogp_api.php?user_games/clone 				(POST/GET {token}{origin_home_id}{new_server_name}{new_ip}{new_port}{control_password}{enable_ftp}{ftp_password}{slots}{affinity}{nice}{custom_user_login_homepath}) // {custom_user_login_homepath} is only used when a default_game_server_home_path_prefix setting is defined and used
 ogp_api.php?user_games/set_expiration 		(POST/GET {token}{home_id}{timestamp})
 
 ______________ Users
@@ -408,6 +408,11 @@ function api_user_games()
 		$affinity = $_POST['affinity'];
 		$nice = $_POST['nice'];
 		
+		$homeForUser = $user_info['users_login'];
+		if(array_key_exists('custom_user_login_homepath', $_POST) && !empty($_POST['custom_user_login_homepath'])){
+			$homeForUser = $_POST['custom_user_login_homepath'];
+		}
+		
 		$remote_server = $db->getRemoteServer($remote_server_id);
 		if($remote_server === FALSE)
 			return array("status" => '304', "message" => "Remote Server ID#$remote_server_id does not exists");
@@ -453,7 +458,7 @@ function api_user_games()
 		if(hasValue($settings["default_game_server_home_path_prefix"]))
 		{
 			// Replace some user supported variables with actual value.
-			$game_path = str_replace("{USERNAME}", $user_info['users_login'], $settings["default_game_server_home_path_prefix"]);
+			$game_path = str_replace("{USERNAME}", $homeForUser, $settings["default_game_server_home_path_prefix"]);
 			if(stripos($game_path, "{SKIPID}") !== false){
 				$game_path = str_replace("{SKIPID}", "",  $game_path);
 				$skipId = true;
@@ -517,6 +522,11 @@ function api_user_games()
 		$slots = $_POST['slots'];
 		$affinity = $_POST['affinity'];
 		$nice = $_POST['nice'];
+		
+		$homeForUser = $user_info['users_login'];
+		if(array_key_exists('custom_user_login_homepath', $_POST) && !empty($_POST['custom_user_login_homepath'])){
+			$homeForUser = $_POST['custom_user_login_homepath'];
+		}
 				
 		$game_home = $db->getGameHome($home_id);
 		if($game_home === FALSE)
@@ -540,7 +550,7 @@ function api_user_games()
 		if(hasValue($settings["default_game_server_home_path_prefix"]))
 		{
 			// Replace some user supported variables with actual value.
-			$game_path = str_replace("{USERNAME}", $user_info['users_login'], $settings["default_game_server_home_path_prefix"]);
+			$game_path = str_replace("{USERNAME}", $homeForUser, $settings["default_game_server_home_path_prefix"]);
 			if(stripos($game_path, "{SKIPID}") !== false){
 				$game_path = str_replace("{SKIPID}", "",  $game_path);
 				$skipId = true;
