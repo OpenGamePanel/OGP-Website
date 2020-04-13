@@ -147,7 +147,7 @@ class FormTable {
 		echo "<tr><td align='right' $td_extra><label for='".$name."'>".get_lang($name).":</label></td>";
 		echo "<td align='left'>".$data."</td>\n";
 
-		if ( defined($name."_info") )
+		if ( defined("OGP_LANG_".$name."_info") )
 		{
 			echo "<td><div class='image-tip' id='".$this->i."' ><img src='images/icon_help_small.gif' ><span class='tip' id='".$this->i."' >".str_replace("'",'"',get_lang($name."_info"))."</span></div></td>\n</tr>\n";
 			$this->i++;
