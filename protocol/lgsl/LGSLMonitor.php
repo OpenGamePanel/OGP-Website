@@ -68,7 +68,8 @@ if($num_of_servers < $numberservers_to_skip_query)
 		$mapRaw = $data['s']['map'];
 		$address = $data['link'];
 		
-		if ( $data['s']['players'] > 0 )
+		if ( $data['s']['players'] > 0 && $_GET['m'] !== "dashboard" )
+
 			$player_list = print_player_list($data['p'],$players,$playersmax);
 			
 		$playersList = $data['p'];
