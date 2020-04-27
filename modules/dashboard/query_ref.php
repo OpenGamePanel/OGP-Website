@@ -73,6 +73,7 @@ function exec_ogp_module()
 	}
 	else if ($server_xml->protocol == "lgsl")
 	{
+		require('protocol/lgsl/functions.php');
 		require('protocol/lgsl/LGSLMonitor.php');
 	}
 	else if ($server_xml->protocol == "teamspeak3")
