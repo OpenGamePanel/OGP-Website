@@ -22,28 +22,28 @@
  *
  */
 
-define('OGP_LANG_external_links', "External Links");
-define('OGP_LANG_url', "URL");
-define('OGP_LANG_name', "Name");
-define('OGP_LANG_add_it', "Add");
-define('OGP_LANG_link_has_been_removed', "%s link has been removed.");
-define('OGP_LANG_db_backup', "DB Backup");
-define('OGP_LANG_download_db_backup', "Download DB Backup");
-define('OGP_LANG_restore_db_backup', "Restore DB Backup");
-define('OGP_LANG_sql_file', "file(.sql)");
-define('OGP_LANG_change_buttons_order', "Change buttons order");
-define('OGP_LANG_when', "Date/Time");
-define('OGP_LANG_who', "Username");
-define('OGP_LANG_where', "IP address");
-define('OGP_LANG_what', "Action");
-define('OGP_LANG_search', "Search");
-define('OGP_LANG_empty_logger', "Empty Logger");
-define('OGP_LANG_ban_list', "Ban list");
-define('OGP_LANG_no_banned_ips', "There are no banned IPs");
-define('OGP_LANG_unban', "Unban IP");
-define('OGP_LANG_client_ip', "Client IP");
-define('OGP_LANG_banned_until', "Banned until");
-define('OGP_LANG_unban_selected_ips', "Unban selected IPs");
-define('OGP_LANG_view', "View");
-define('OGP_LANG_per_page', "log entries per page");
+define('OGP_LANG_external_links', "קישורים חיצוניים");
+define('OGP_LANG_url', "כתובת אתר");
+define('OGP_LANG_name', "שם");
+define('OGP_LANG_add_it', "הוסף");
+define('OGP_LANG_link_has_been_removed', "%sהקישור הוסר");
+define('OGP_LANG_db_backup', "גיבוי מאגר נתונים");
+define('OGP_LANG_download_db_backup', "הורדת גיבוי מאגר נתונים");
+define('OGP_LANG_restore_db_backup', "שחזר גיבוי מאגר נתונים");
+define('OGP_LANG_sql_file', "קובץ(.sql)");
+define('OGP_LANG_change_buttons_order', "שנה את סדר הכפתורים");
+define('OGP_LANG_when', "תאריך/שעה");
+define('OGP_LANG_who', "שם משתמש");
+define('OGP_LANG_where', "כתובת אייפי");
+define('OGP_LANG_what', "פעולה");
+define('OGP_LANG_search', "חיפוש");
+define('OGP_LANG_empty_logger', "רוקן לוגים");
+define('OGP_LANG_ban_list', "רשימת באנים");
+define('OGP_LANG_no_banned_ips', "לא נמצאה כתובת אייפי חסומה");
+define('OGP_LANG_unban', "הסר באן אייפי");
+define('OGP_LANG_client_ip', "אייפי לקוח");
+define('OGP_LANG_banned_until', "חסום עד");
+define('OGP_LANG_unban_selected_ips', "הורד באן לכתובות אייפי שנבחרו");
+define('OGP_LANG_view', "צפיה");
+define('OGP_LANG_per_page', "רשומות לוג לכל דף");
 ?>

@@ -107,8 +107,8 @@ define('OGP_LANG_master_server_for_clon_update', "Master server for local update
 define('OGP_LANG_set_as_master_server', "Set as master server");
 define('OGP_LANG_set_as_master_server_for_local_clon_update', "Set as master server for local update.");
 define('OGP_LANG_only_available_for', "Only available for '%s' hosted on the remote server named '%s'.");
-define('OGP_LANG_ftp_on', "Enable FTP");
-define('OGP_LANG_ftp_off', "Disable FTP");
+define('OGP_LANG_ftp_on', "تفعيل FTP");
+define('OGP_LANG_ftp_off', "تعطيل FTP");
 define('OGP_LANG_change_ftp_account_status', "Change FTP account status");
 define('OGP_LANG_change_ftp_account_status_info', "Once a FTP account is enabled or disabled, it is added or removed from the FTP's database.");
 define('OGP_LANG_server_ftp_login', "Server FTP Login");
