@@ -161,7 +161,7 @@ else
 }
 
 function output($result, $function){
-	if($function == "setting"){
+	if($function == "api_setting"){
 		if(is_array($result) && array_key_exists("status", $result) && $result["status"] != 200){
 			outputPlainText("-1");
 		}else{
