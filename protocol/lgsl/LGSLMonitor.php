@@ -36,7 +36,7 @@ if($num_of_servers < $numberservers_to_skip_query)
 		
 		if(strpos((string)$server_xml->lgsl_query_name, 'mohaa') !== false){
 			require_once("includes/functions.php");
-			$realQPort = getRemoteContent("http://mohaaservers.tk/get_query_port.php?ip=" . $internal_query_ip . ":" . $port);
+			$realQPort = getRemoteContent("http://mohaaservers.tk/get_query_port_fast.php?ip=" . $internal_query_ip . ":" . $port);
 			if($realQPort != -1 && is_numeric($realQPort)){
 				$q_port = $realQPort;
 			}
