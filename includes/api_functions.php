@@ -55,6 +55,10 @@ function get_function_args($main_request)
 
 	//______________ Steam Workshop
 	$functions["steam_workshop/install"] = array("token" => true, "ip" => true, "port" => true, "mod_key" => false, "mods_list" => true);
+	
+	//______________ Settings
+	$functions["setting/get"] = array("token" => true, "setting_name" => true);
+	
 	if($main_request == "all")
 		return $functions;
 	return isset($functions["$main_request"])?$functions["$main_request"]:false;

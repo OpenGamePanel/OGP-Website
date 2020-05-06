@@ -51,6 +51,9 @@ ogp_api.php?addonsmanager/install			(POST/GET {token}{ip}{port}{mod_key}{addon_i
 
 ______________ Steam Workshop
 ogp_api.php?steam_workshop/install 			(POST/GET {token}{ip}{port}{mods_list})
+* 
+ ______________ Panel Setting
+ogp_api.php?setting/get 			(POST/GET {token}{setting_name})
 
 */
 $main_request = key($_GET);
@@ -133,14 +136,14 @@ if(function_exists($function))
 			$function_args = get_function_args("$func_req");
 		
 		if(!$function_args)
-			outputJSON(array("status" => "400", "message" => "BAD REQUEST"));
+			outputJSON(array("status" => "400", "message" => "BAD REQUEST - CANT FIND FUNCTION ARGS"));
 		elseif(!(($func_req == "token/test" and isset($request[1])) OR ($func_req == "token/create" and isset($request[1]) and isset($request[2]))))
 		{
 			foreach($function_args as $arg => $mandatory)
 			{
 				if($mandatory and !isset($_POST["$arg"]))
 				{
-					outputJSON(array("status" => "400", "message" => "BAD REQUEST", "fields_supplied" => $_POST, "fields_required" => $function_args));
+					outputJSON(array("status" => "400", "message" => "BAD REQUEST - MISSING REQUIRED ARGS", "fields_supplied" => $_POST, "fields_required" => $function_args));
 					break;
 				}
 			}
@@ -1766,5 +1769,27 @@ function api_steam_workshop()
 	}
 		
 	return array("status" => $status, "message" => $message);
+}
+
+function api_setting()
+{
+	global $request, $db, $user_info, $settings;
+	
+	if($request[0] == "get")
+	{
+		$setting = $_POST['setting_name'];
+		if(array_key_exists($setting, $settings)){
+			$status = "200";
+			$message = $settings[$setting];
+			
+			header("Content-Type: text/plain");
+			echo $message;
+			exit();
+		}
+	}
+		
+	header("Content-Type: text/plain");
+	echo "-1";
+	exit();
 }
 ?>
