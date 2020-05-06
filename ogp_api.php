@@ -101,7 +101,7 @@ if(function_exists($function))
 	$settings = $db->getSettings();
 	
 	if(!is_authorized())
-		outputJSON(array("status" => '401', "message" => 'Unauthorized host'));
+		output(array("status" => '401', "message" => 'Unauthorized host'), $function);
 	
 	$db->checkApiTable();
 	$logged_in = false;
@@ -122,7 +122,7 @@ if(function_exists($function))
 		}
 		else
 		{
-			outputJSON(array("status" => "300", "message" => "No token supplied"));
+			output(array("status" => "300", "message" => "No token supplied"), $function);
 		}
 	}
 	
@@ -131,39 +131,57 @@ if(function_exists($function))
 		//call the function and output the returned data as json
 		$func_req = str_replace('api_','',$function)."/".$request[0];
 		if($main_request == "all")
-			outputJSON(array("status" => "400", "message" => "BAD REQUEST"));
+			output(array("status" => "400", "message" => "BAD REQUEST"), $function);
 		else
 			$function_args = get_function_args("$func_req");
 		
 		if(!$function_args)
-			outputJSON(array("status" => "400", "message" => "BAD REQUEST - CANT FIND FUNCTION ARGS"));
+			output(array("status" => "400", "message" => "BAD REQUEST - CANT FIND FUNCTION ARGS"), $function);
 		elseif(!(($func_req == "token/test" and isset($request[1])) OR ($func_req == "token/create" and isset($request[1]) and isset($request[2]))))
 		{
 			foreach($function_args as $arg => $mandatory)
 			{
 				if($mandatory and !isset($_POST["$arg"]))
 				{
-					outputJSON(array("status" => "400", "message" => "BAD REQUEST - MISSING REQUIRED ARGS", "fields_supplied" => $_POST, "fields_required" => $function_args));
+					output(array("status" => "400", "message" => "BAD REQUEST - MISSING REQUIRED ARGS", "fields_supplied" => $_POST, "fields_required" => $function_args), $function);
 					break;
 				}
 			}
 		}
-		outputJSON($function());
+		output($function(), $function);
 	}
 	else
 	{
-		outputJSON(array("status" => "301", "message" => "Invalid Token"));
+		output(array("status" => "301", "message" => "Invalid Token"), $function);
 	}
 }
 else
 {
-	outputJSON(array("status" => "400", "message" => "BAD REQUEST"));
+	output(array("status" => "400", "message" => "BAD REQUEST"), $function);
+}
+
+function output($result, $function){
+	if($function == "api_setting"){
+		if(is_array($result) && array_key_exists("status", $result) && $result["status"] != 200){
+			outputPlainText("-1");
+		}else{
+			outputPlainText($result);
+		}
+	}else{
+		outputJSON($result);
+	}
 }
 
 function outputJSON($result){	
 	// Send JSON output
 	header('Content-Type: application/json');
 	echo json_encode($result);
+	exit();
+}
+
+function outputPlainText($result){
+	header("Content-Type: text/plain");
+	echo $result;
 	exit();
 }
 
@@ -1776,9 +1794,7 @@ function api_setting()
 	global $request, $db, $user_info, $settings;
 	
 	if($user_info['users_role'] != "admin"){
-		header("Content-Type: text/plain");
-		echo "-1";
-		exit();
+		outputPlainText("-1");
 	}
 	
 	if($request[0] == "get")
@@ -1788,14 +1804,10 @@ function api_setting()
 			$status = "200";
 			$message = $settings[$setting];
 			
-			header("Content-Type: text/plain");
-			echo $message;
-			exit();
+			outputPlainText($message);
 		}
 	}
 		
-	header("Content-Type: text/plain");
-	echo "-1";
-	exit();
+	outputPlainText("-1");
 }
 ?>
