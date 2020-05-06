@@ -136,14 +136,14 @@ if(function_exists($function))
 			$function_args = get_function_args("$func_req");
 		
 		if(!$function_args)
-			outputJSON(array("status" => "400", "message" => "BAD REQUEST"));
+			outputJSON(array("status" => "400", "message" => "BAD REQUEST - CANT FIND FUNCTION ARGS"));
 		elseif(!(($func_req == "token/test" and isset($request[1])) OR ($func_req == "token/create" and isset($request[1]) and isset($request[2]))))
 		{
 			foreach($function_args as $arg => $mandatory)
 			{
 				if($mandatory and !isset($_POST["$arg"]))
 				{
-					outputJSON(array("status" => "400", "message" => "BAD REQUEST", "fields_supplied" => $_POST, "fields_required" => $function_args));
+					outputJSON(array("status" => "400", "message" => "BAD REQUEST - MISSING REQUIRED ARGS", "fields_supplied" => $_POST, "fields_required" => $function_args));
 					break;
 				}
 			}
