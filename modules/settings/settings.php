@@ -69,6 +69,7 @@ function exec_ogp_module()
 			"show_server_id_game_monitor" => $_REQUEST['show_server_id_game_monitor'],
 			"default_game_server_home_path_prefix" => $_REQUEST['default_game_server_home_path_prefix'],
 			"use_authorized_hosts" => $_REQUEST['use_authorized_hosts'],
+			"allow_setting_cpu_affinity" => $_REQUEST['allow_setting_cpu_affinity'],
 		);
 		
 		$db->setSettings($settings);
@@ -179,6 +180,9 @@ function exec_ogp_module()
 	
 	// Use authorized hosts for API - this should be disabled by default since using the KEY alone should be secure enough
 	$ft->add_field('on_off','use_authorized_hosts',@$row['use_authorized_hosts']);	
+	
+	// Allow setting the cpu affinity for game servers
+	$ft->add_field('on_off','allow_setting_cpu_affinity',@$row['allow_setting_cpu_affinity']);	
 	
 	// Add option to reset game server order to default
 	$ft->add_field('checkbox','reset_game_server_order','0');	
