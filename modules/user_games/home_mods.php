@@ -155,7 +155,7 @@ function exec_ogp_module()
 		{
 			echo "<form action='?m=user_games&p=edit&home_id=".$home_id."' method='post'>\n".
 				 "<input type='hidden' name='home_id' value=\"$home_id\" />\n".
-				 "<p>". available_mods .": <select name='mod_cfg_id'>\n";
+				 "<p>" . get_lang("available_mods") . ": <select name='mod_cfg_id'>\n";
 			foreach ( $game_mods as $game_mod )
 			{
 				echo "<option value='".$game_mod['mod_cfg_id']."'>".$game_mod['mod_name']."</option>\n";
