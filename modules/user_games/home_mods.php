@@ -165,12 +165,12 @@ function exec_ogp_module()
 				 "</form>";
 		}
 
-		echo '<h3>'.get_lang('cpu_affinity').'</h3>';
-		echo "<p class='info'>". get_lang("cpu_affinity_info") ."</p>\n";
-		echo '<div id="cpu_select" class="cpu_select_div inline-block">';
-		
 		// Get the selected cores if the setting is enabled
 		if(@$settings['allow_setting_cpu_affinity']){
+			echo '<h3>'.get_lang('cpu_affinity').'</h3>';
+			echo "<p class='info'>". get_lang("cpu_affinity_info") ."</p>\n";
+			echo '<div id="cpu_select" class="cpu_select_div inline-block">';
+		
 			$enabledCores = $db->getHomeAffinity($home_id);
 			$cores = array();
 			
