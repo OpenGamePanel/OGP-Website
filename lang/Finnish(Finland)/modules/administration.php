@@ -22,28 +22,28 @@
  *
  */
 
-define('OGP_LANG_external_links', "External Links");
+define('OGP_LANG_external_links', "Ulkoiset linkit");
 define('OGP_LANG_url', "URL");
-define('OGP_LANG_name', "Name");
-define('OGP_LANG_add_it', "Add");
-define('OGP_LANG_link_has_been_removed', "%s link has been removed.");
-define('OGP_LANG_db_backup', "DB Backup");
-define('OGP_LANG_download_db_backup', "Download DB Backup");
-define('OGP_LANG_restore_db_backup', "Restore DB Backup");
-define('OGP_LANG_sql_file', "file(.sql)");
-define('OGP_LANG_change_buttons_order', "Change buttons order");
-define('OGP_LANG_when', "Date/Time");
-define('OGP_LANG_who', "Username");
-define('OGP_LANG_where', "IP address");
-define('OGP_LANG_what', "Action");
-define('OGP_LANG_search', "Search");
-define('OGP_LANG_empty_logger', "Empty Logger");
-define('OGP_LANG_ban_list', "Ban list");
-define('OGP_LANG_no_banned_ips', "There are no banned IPs");
-define('OGP_LANG_unban', "Unban IP");
-define('OGP_LANG_client_ip', "Client IP");
-define('OGP_LANG_banned_until', "Banned until");
-define('OGP_LANG_unban_selected_ips', "Unban selected IPs");
-define('OGP_LANG_view', "View");
-define('OGP_LANG_per_page', "log entries per page");
+define('OGP_LANG_name', "Nimi");
+define('OGP_LANG_add_it', "Lisää");
+define('OGP_LANG_link_has_been_removed', "%s linkki on poistettu.");
+define('OGP_LANG_db_backup', "DB Varmuuskopio");
+define('OGP_LANG_download_db_backup', "Lataa DB Varmuuskopio");
+define('OGP_LANG_restore_db_backup', "Palauta DB Varmuuskopio");
+define('OGP_LANG_sql_file', "tiedosto(.sql)");
+define('OGP_LANG_change_buttons_order', "Muuta painikkeiden järjestystä");
+define('OGP_LANG_when', "Päivämäärä/Aika");
+define('OGP_LANG_who', "Käyttäjänimi");
+define('OGP_LANG_where', "IP-osoite");
+define('OGP_LANG_what', "Toiminta");
+define('OGP_LANG_search', "Haku");
+define('OGP_LANG_empty_logger', "Tyhjennä loki");
+define('OGP_LANG_ban_list', "Estoluettelo");
+define('OGP_LANG_no_banned_ips', "Ei estettyjä IP-osoitteita");
+define('OGP_LANG_unban', "Kumoa IP:n esto");
+define('OGP_LANG_client_ip', "Asiakas IP");
+define('OGP_LANG_banned_until', "Estetty asti");
+define('OGP_LANG_unban_selected_ips', "Kumoa valitun IP:n esto");
+define('OGP_LANG_view', "Tarkastele");
+define('OGP_LANG_per_page', "lokimerkintää per sivu");
 ?>

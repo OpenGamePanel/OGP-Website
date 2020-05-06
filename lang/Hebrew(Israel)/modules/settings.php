@@ -23,15 +23,17 @@
  */
 
 define('OGP_LANG_maintenance_mode', "תחזוקה");
-define('OGP_LANG_maintenance_mode_info', "Disable the Panel for normal users. Only administrators can access it during maintenance.");
+define('OGP_LANG_maintenance_mode_info', "השבת את הפאנל למשתמשים רגילים.
+רק מנהלים יכולים לגשת אליו במהלך התחזוקה.");
 define('OGP_LANG_maintenance_title', "כותרת תחזוקה");
-define('OGP_LANG_maintenance_title_info', "The title that is displayed to normal users during maintenance.");
-define('OGP_LANG_maintenance_message', "Maintenance Message");
-define('OGP_LANG_maintenance_message_info', "The message that is displayed to normal users during maintenance.");
+define('OGP_LANG_maintenance_title_info', "הכותרת שמוצגת למשתמשים רגילים במהלך תחזוקה.");
+define('OGP_LANG_maintenance_message', "הודעת תחזוקה");
+define('OGP_LANG_maintenance_message_info', "ההודעה שתוצג למשתמשים רגילים במהלך התחזוקה.");
 define('OGP_LANG_update_settings', "עדכן הגדרות");
 define('OGP_LANG_settings_updated', "הגדרות עודכנו מחדש בהצלחה.");
 define('OGP_LANG_panel_language', "שפת פאנל");
-define('OGP_LANG_panel_language_info', "This language is the default language of the panel. Users can change their own language from their profile editing page.");
+define('OGP_LANG_panel_language_info', "שפה זו היא שפת ברירת המחדל של הפאנל.
+משתמשים יכולים לשנות את השפה שלהם מדף עריכת הפרופיל שלהם.");
 define('OGP_LANG_page_auto_refresh', "רענון דף אוטומטי");
 define('OGP_LANG_page_auto_refresh_info', "Page Auto Refresh settings is mainly used in panel debugging. In normal usage this should be set to On.");
 define('OGP_LANG_smtp_server', "Outgoing E-Mail Server");
@@ -132,6 +134,8 @@ define('OGP_LANG_default_game_server_home_path_prefix', "Default game server hom
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Enter a path prefix for where you want game server homes to be created by default. You can use \"{USERNAME}\" in the path which will be replaced with the OGP username the game server is being assigned to.  You can use \"{GAMEKEY}\" in the path which will be replaced with a friendly lowercase name.  You can use \"{SKIPID}\" anywhere in the path to skip appending the home ID to the path.  Example: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} will become /ogp/games/username/arkse/.  Example 2:  /ogp/games will become /ogp/games/1 where 1 is the game servers ID.");
 define('OGP_LANG_use_authorized_hosts', "Limit API to Defined Authorized Hosts");
 define('OGP_LANG_use_authorized_hosts_info', "Enable this setting to only allow API calls from pre-defined and approved IP addresses.&nbsp; Approved addresses can be set on this page once the setting has been enabled.&nbsp; If this setting is disabled, a user using a valid key will have access to the API from any IP address.&nbsp; Users using a valid key will be able to use the API to manage any game server they have permissions to administrate.");
+define('OGP_LANG_allow_setting_cpu_affinity', "Allow Setting CPU Core Assignment for Game Servers");
+define('OGP_LANG_allow_setting_cpu_affinity_info', "If enabled, the admin creating a game home will be shown CPU affinity (core assignment) options for the game server.");
 define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
 define('OGP_LANG_autohorized_hosts', "Authorized hosts");
 define('OGP_LANG_add', "הוסף");

@@ -143,6 +143,8 @@ se convertiría en
 donde 1 es el identificador del servidor.");
 define('OGP_LANG_use_authorized_hosts', "Limitar API a hosts autorizados definidos");
 define('OGP_LANG_use_authorized_hosts_info', "Habilite esta configuración para permitir solo llamadas a la API desde direcciones IP predefinidas y aprobadas.&nbsp; Las direcciones aprobadas se pueden establecer en esta página una vez que se haya habilitado la configuración.&nbsp; Si esta configuración está deshabilitada, un usuario que use una clave válida tendrá acceso a la API desde cualquier dirección IP.&nbsp; Los usuarios que utilicen una clave válida podrán usar la API para administrar cualquier servidor de juegos que tengan permisos para administrar.");
+define('OGP_LANG_allow_setting_cpu_affinity', "Allow Setting CPU Core Assignment for Game Servers");
+define('OGP_LANG_allow_setting_cpu_affinity_info', "If enabled, the admin creating a game home will be shown CPU affinity (core assignment) options for the game server.");
 define('OGP_LANG_setup_api_authorized_hosts', "Configurar servidores autorizados de API");
 define('OGP_LANG_autohorized_hosts', "Servidores autorizados");
 define('OGP_LANG_add', "Añadir");
