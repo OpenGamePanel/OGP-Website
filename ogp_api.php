@@ -53,7 +53,7 @@ ______________ Steam Workshop
 ogp_api.php?steam_workshop/install 			(POST/GET {token}{ip}{port}{mods_list})
 * 
  ______________ Panel Setting
-ogp_api.php?setting/get 			(POST/GET {setting_name})
+ogp_api.php?setting/get 			(POST/GET {token}{setting_name})
 
 */
 $main_request = key($_GET);
