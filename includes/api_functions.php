@@ -617,5 +617,4 @@ function is_authorized()
 	}
 	return false;
 }
-
 ?>
