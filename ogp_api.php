@@ -1775,6 +1775,12 @@ function api_setting()
 {
 	global $request, $db, $user_info, $settings;
 	
+	if($user_info['users_role'] != "admin"){
+		header("Content-Type: text/plain");
+		echo "-1";
+		exit();
+	}
+	
 	if($request[0] == "get")
 	{
 		$setting = $_POST['setting_name'];
