@@ -51,6 +51,9 @@ ogp_api.php?addonsmanager/install			(POST/GET {token}{ip}{port}{mod_key}{addon_i
 
 ______________ Steam Workshop
 ogp_api.php?steam_workshop/install 			(POST/GET {token}{ip}{port}{mods_list})
+* 
+ ______________ Panel Setting
+ogp_api.php?setting/get 			(POST/GET {setting_name})
 
 */
 $main_request = key($_GET);
@@ -1766,5 +1769,27 @@ function api_steam_workshop()
 	}
 		
 	return array("status" => $status, "message" => $message);
+}
+
+function api_setting()
+{
+	global $request, $db, $user_info, $settings;
+	
+	if($request[0] == "get")
+	{
+		$setting = $_POST['setting_name'];
+		if(array_key_exists($setting, $settings)){
+			$status = "200";
+			$message = $settings[$setting];
+			
+			header("Content-Type: text/plain");
+			echo $message;
+			exit();
+		}
+	}
+		
+	header("Content-Type: text/plain");
+	echo "-1";
+	exit();
 }
 ?>
