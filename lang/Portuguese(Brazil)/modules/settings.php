@@ -136,6 +136,8 @@ exemplo: /home/{USERNAME}/{GAMEKEY}{SKIPID}
 você terá: /home/joao/arkse/");
 define('OGP_LANG_use_authorized_hosts', "Limitar a API a Hosts Autorizados Definidos");
 define('OGP_LANG_use_authorized_hosts_info', "Ative esta configuração para permitir somente chamadas de API de endereços IP predefinidos e aprovados.&nbsp; Os endereços aprovados podem ser definidos nesta página quando a configuração estiver ativada.&nbsp; Se essa configuração estiver desabilitada, um usuário usando uma chave válida terá acesso à API de qualquer endereço IP.&nbsp; Os usuários que usam uma chave válida poderão usar a API para gerenciar qualquer servidor de jogo que eles tenham permissão para administrar.");
+define('OGP_LANG_allow_setting_cpu_affinity', "Allow Setting CPU Core Assignment for Game Servers");
+define('OGP_LANG_allow_setting_cpu_affinity_info', "If enabled, the admin creating a game home will be shown CPU affinity (core assignment) options for the game server.");
 define('OGP_LANG_setup_api_authorized_hosts', "Hosts autorizados da API de instalação");
 define('OGP_LANG_autohorized_hosts', "Hosts autorizados");
 define('OGP_LANG_add', "Adicionar");

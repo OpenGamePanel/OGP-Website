@@ -132,6 +132,8 @@ define('OGP_LANG_default_game_server_home_path_prefix', "البادئة الرئ
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Enter a path prefix for where you want game server homes to be created by default. You can use \"{USERNAME}\" in the path which will be replaced with the OGP username the game server is being assigned to.  You can use \"{GAMEKEY}\" in the path which will be replaced with a friendly lowercase name.  You can use \"{SKIPID}\" anywhere in the path to skip appending the home ID to the path.  Example: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} will become /ogp/games/username/arkse/.  Example 2:  /ogp/games will become /ogp/games/1 where 1 is the game servers ID.");
 define('OGP_LANG_use_authorized_hosts', "Limit API to Defined Authorized Hosts");
 define('OGP_LANG_use_authorized_hosts_info', "Enable this setting to only allow API calls from pre-defined and approved IP addresses.&nbsp; Approved addresses can be set on this page once the setting has been enabled.&nbsp; If this setting is disabled, a user using a valid key will have access to the API from any IP address.&nbsp; Users using a valid key will be able to use the API to manage any game server they have permissions to administrate.");
+define('OGP_LANG_allow_setting_cpu_affinity', "Allow Setting CPU Core Assignment for Game Servers");
+define('OGP_LANG_allow_setting_cpu_affinity_info', "If enabled, the admin creating a game home will be shown CPU affinity (core assignment) options for the game server.");
 define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
 define('OGP_LANG_autohorized_hosts', "المضيفون المعتمدون");
 define('OGP_LANG_add', "أضف");

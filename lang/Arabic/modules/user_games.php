@@ -66,7 +66,7 @@ define('OGP_LANG_mods', "مودز");
 define('OGP_LANG_ip', "IP");
 define('OGP_LANG_port', "Port");
 define('OGP_LANG_no_ip_ports_assigned', "يجب إضافة زوج من ال IP:Port لل Home");
-define('OGP_LANG_successfully_assigned_ip_port', "Successfully assigned IP:Port pair to home.");
+define('OGP_LANG_successfully_assigned_ip_port', "تم تعيين IP:PORT كلاهما إلى المنزل بنجاح");
 define('OGP_LANG_port_range_error', "يجب أن يكون المنفذ بين النطاق 0 و 65535.");
 define('OGP_LANG_failed_to_assing_mod_to_home', "Failed to assing mod with id %d to home.");
 define('OGP_LANG_successfully_assigned_mod_to_home', "Successfully assigned mod with id %d to home.");
@@ -75,7 +75,7 @@ define('OGP_LANG_back_to_game_monitor', "العودة إلى مراقب اللع
 define('OGP_LANG_back_to_game_servers', "العودة إلى خوادم الألعاب");
 define('OGP_LANG_user_id_main', "المالك الأساسى");
 define('OGP_LANG_change_user_id_main', "تغير المالك الأساسى");
-define('OGP_LANG_change_user_id_main_info', "The main server home owner.");
+define('OGP_LANG_change_user_id_main_info', "صاحب المنزل الخادم الرئيسي.");
 define('OGP_LANG_server_ftp_password', "كلمة مرور FTP");
 define('OGP_LANG_change_ftp_password', "تغيير كلمة مرور FTP");
 define('OGP_LANG_change_ftp_password_info', "This is the password to login to FTP server for this home.");
@@ -91,7 +91,7 @@ define('OGP_LANG_ftp_can_not_be_switched_off', "لا يمكن إيقاف تشغ�
 define('OGP_LANG_invalid_home_id_entered', "تم إدخال أيدي غير صالح.");
 define('OGP_LANG_ip_port_already_in_use', "%s:%s قيد الاستخدام بالفعل. اختر واحد اخر.");
 define('OGP_LANG_successfully_assigned_ip_port_to_server_id', "تم التعيين %s بنجاح:%s إلى المنزل مع معرف%s.");
-define('OGP_LANG_no_ip_addresses_configured', "Your game server does not have any IP-addresses configured to it. You can configure them from ");
+define('OGP_LANG_no_ip_addresses_configured', "ليس لدى خادم اللعبة أي عناوين IP تم تكوينها له. يمكنك تكوينها من");
 define('OGP_LANG_server_page', "صفحة السيرفر");
 define('OGP_LANG_successfully_removed_mod', "تم حذف مود اللعبة بنجاح.");
 define('OGP_LANG_warning_agent_offline_defaulting_CPU_count_to_1', "تحذير - العامل في وضع عدم الاتصال ، وتعيين وحدة المعالجة المركزية الافتراضية إلى 1");
@@ -104,8 +104,8 @@ define('OGP_LANG_edit_postinstall_cmds', "تعديل أوامر ما بعد ال
 define('OGP_LANG_save_as_default_for_this_mod', "Save as default for this mod");
 define('OGP_LANG_empty', "فارغ");
 define('OGP_LANG_master_server_for_clon_update', "Master server for local update");
-define('OGP_LANG_set_as_master_server', "Set as master server");
-define('OGP_LANG_set_as_master_server_for_local_clon_update', "Set as master server for local update.");
+define('OGP_LANG_set_as_master_server', "تعيين كخادم رئيسي");
+define('OGP_LANG_set_as_master_server_for_local_clon_update', "تعيين كخادم رئيسي للتحديث المحلي.");
 define('OGP_LANG_only_available_for', "Only available for '%s' hosted on the remote server named '%s'.");
 define('OGP_LANG_ftp_on', "تفعيل FTP");
 define('OGP_LANG_ftp_off', "تعطيل FTP");
@@ -116,7 +116,7 @@ define('OGP_LANG_change_ftp_login_info', "Change the FTP Login with a customized
 define('OGP_LANG_change_ftp_login', "Change FTP Login");
 define('OGP_LANG_ftp_login_can_not_be_changed', "Can not change FTP Login.");
 define('OGP_LANG_server_is_running_change_addresses_not_available', "The server is actually running, the IP cannot be changed.");
-define('OGP_LANG_change_game_type', "Change Game Type");
+define('OGP_LANG_change_game_type', "تغيير نوع اللعبة");
 define('OGP_LANG_change_game_type_info', "By changing the game type the current the mods configuration will be deleted.");
 define('OGP_LANG_force_mod_on_this_address', "Force mod on this address");
 define('OGP_LANG_successfully_assigned_mod_to_address', "Successfully assigned mod to address");
