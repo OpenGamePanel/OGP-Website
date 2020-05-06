@@ -22,23 +22,23 @@
  *
  */
 
-define('OGP_LANG_recover', "Recover a forgotten password");
-define('OGP_LANG_back', "Back");
-define('OGP_LANG_incomplete', "Please go back and complete all the fields in the form.");
-define('OGP_LANG_subject', "Password request");
-define('OGP_LANG_password_message', "Hello,<br><br>Your password has been successfully reseted.<br><br>New Password: %s<br><br>Remember to change your password often.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
-define('OGP_LANG_send', "Your password has been sent! Please check your email!");
-define('OGP_LANG_here', "Here");
-define('OGP_LANG_to_login', "to login");
-define('OGP_LANG_errormail', "Your email address is not correct.");
-define('OGP_LANG_submit', "Submit");
-define('OGP_LANG_click', "Click");
-define('OGP_LANG_mail_settings_missing', "Panel mail settings are not complete so it can not send your password. Contact your OGP admin.");
-define('OGP_LANG_mail_failed', "Failed to send email.");
-define('OGP_LANG_email', "Email");
-define('OGP_LANG_enter_email', "Please enter your email address");
-define('OGP_LANG_webmaster', "Webmaster");
-define('OGP_LANG_confirm_send', "For security reasons we have sent you a confirmation link before you restart your password.<br><b style='color:red;'>Please check your inbox.</b>");
-define('OGP_LANG_confirm_change_subject', "Password reset, confirmation email");
-define('OGP_LANG_confirm_change_password_message', "Hello,<br><br>Please click on the link below to reset your password:<br><br>%s<br><br>Note: If you do not have requested the reset of your password, you can ignore this email.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_recover', "שחזר סיסמה שנשכחה");
+define('OGP_LANG_back', "חזור");
+define('OGP_LANG_incomplete', "אנא חזור למלא את כל השדות בטופס.");
+define('OGP_LANG_subject', "בקשת סיסמא");
+define('OGP_LANG_password_message', "שלום, <br> <br> הססמה שלך אופסה בהצלחה. <br> <br> ססמה חדשה: %s <br> <br> זכור לשנות את הססמה שלך מדי פעם. <br><br> אל תשיב לאימייל זה בבקשה! <br> <br> ______________________________ <br> דואר OGP");
+define('OGP_LANG_send', "הסיסמה שלך נשלחה! אנה בדוק את האימייל שלך!");
+define('OGP_LANG_here', "כאן");
+define('OGP_LANG_to_login', "כדי להתחבר");
+define('OGP_LANG_errormail', "כתובת האימייל שלך אינה נכונה.");
+define('OGP_LANG_submit', "שליחה");
+define('OGP_LANG_click', "לחץ");
+define('OGP_LANG_mail_settings_missing', "הגדרות מייל פאנל לא מושלמות אז לא יכול לשלוח לך סיסמה. צור קשר עם מנהל ה OGP שלך.");
+define('OGP_LANG_mail_failed', "נכשל בשליחת האימייל");
+define('OGP_LANG_email', "אימייל");
+define('OGP_LANG_enter_email', "אנה הכנס את כתובת האימייל שלך");
+define('OGP_LANG_webmaster', "מנהל אתר");
+define('OGP_LANG_confirm_send', "בשל סיבות הבטחה שלחנו לך קישור לאישור לפני שתוכל לאפס את הסיסמה שלך. <br><b style='color:red;'> אנה בדוק את תיבת הדואר הנכנס שלך.</b>");
+define('OGP_LANG_confirm_change_subject', "איפוס סיסמה, אימייל לאישור");
+define('OGP_LANG_confirm_change_password_message', "שלום, <br><br> אנה לחץ על הקישור מתחת בשביל לאפס את ססמתך: <br><br>%s<br><br> לצומת לבך: אם לא ביקשת לאפס את ססמתך, אתה יכול להתעלם מאימייל זה.<br><br> אנה אל תשיב לאימייל זה <br> <br> ______________________________ <br> דואר OGP");
 ?>

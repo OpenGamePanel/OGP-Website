@@ -22,27 +22,27 @@
  *
  */
 
-define('OGP_LANG_system_uptime', "System Uptime");
-define('OGP_LANG_system_up_time', "Up Time");
-define('OGP_LANG_system_up_since', "Since");
-define('OGP_LANG_day_word', "Day");
-define('OGP_LANG_days_word', "Days");
-define('OGP_LANG_hour_word', "Hour");
-define('OGP_LANG_hours_word', "Hours");
-define('OGP_LANG_minute_word', "Minute");
-define('OGP_LANG_minutes_word', "Minutes");
-define('OGP_LANG_second_word', "Second");
-define('OGP_LANG_seconds_word', "Seconds");
-define('OGP_LANG_cpu_usage', "CPU Usage");
-define('OGP_LANG_cpu_load', "Load");
-define('OGP_LANG_ram_usage', "RAM Usage");
-define('OGP_LANG_ram_used', "Memory Used");
-define('OGP_LANG_ram_of', "of");
-define('OGP_LANG_storage_space', "Storage Space");
-define('OGP_LANG_storage_total', "Disk Space");
-define('OGP_LANG_storage_used', "Used");
-define('OGP_LANG_storage_free', "Free Space");
-define('OGP_LANG_process_monitor', "Process Monitor");
-define('OGP_LANG_status_extension_required', "Extension Required");
-define('OGP_LANG_gd_info', "PHP Extension <a href=\"http://php.net/manual/en/image.installation.php\">GD</a> is required to generate these bar images!");
+define('OGP_LANG_system_uptime', "זמן פעולת מערכת");
+define('OGP_LANG_system_up_time', "זמן פעולה");
+define('OGP_LANG_system_up_since', "מאז");
+define('OGP_LANG_day_word', "יום");
+define('OGP_LANG_days_word', "ימים");
+define('OGP_LANG_hour_word', "שעה");
+define('OGP_LANG_hours_word', "שעות");
+define('OGP_LANG_minute_word', "דקה");
+define('OGP_LANG_minutes_word', "דקות");
+define('OGP_LANG_second_word', "שנייה");
+define('OGP_LANG_seconds_word', "שניות");
+define('OGP_LANG_cpu_usage', "שימוש מעבד");
+define('OGP_LANG_cpu_load', "עומס");
+define('OGP_LANG_ram_usage', "שימוש ראם");
+define('OGP_LANG_ram_used', "זיכרון שומש");
+define('OGP_LANG_ram_of', "של");
+define('OGP_LANG_storage_space', "שטח אחסון");
+define('OGP_LANG_storage_total', "שימוש דיסק");
+define('OGP_LANG_storage_used', "שומש");
+define('OGP_LANG_storage_free', "שטח פנוי");
+define('OGP_LANG_process_monitor', "צג תהליכים");
+define('OGP_LANG_status_extension_required', "דרושה סיומת");
+define('OGP_LANG_gd_info', "סיומת GD<a href=\"http://php.net/manual/en/image.installation.php\"> PHP </a>  דרושה בשביל ליצור את תמונות בר אלו!");
 ?>

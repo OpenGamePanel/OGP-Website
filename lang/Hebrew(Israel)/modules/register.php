@@ -34,24 +34,23 @@ define('OGP_LANG_err_password_mismatch', "הסיסמאות לא תואמות");
 define('OGP_LANG_phone_number', "מספר פלאפון");
 define('OGP_LANG_users_email', "אימייל");
 define('OGP_LANG_register_a_new_user', "רשום משתמש חדש");
-define('OGP_LANG_password_mismatch', "אי התאמה בין סיסמאות
-
-");
+define('OGP_LANG_password_mismatch', "אי התאמה בין סיסמאות");
 define('OGP_LANG_confirm_password', "אשר סיסמה");
 define('OGP_LANG_successfull', "הצלחה");
-define('OGP_LANG_click_here', "הקלק כאן");
-define('OGP_LANG_to_login', "להתחבר");
-define('OGP_LANG_registered_on', "Registered on: %s.");
-define('OGP_LANG_register_message', "Hello,<br><br>Your Open Game Panel account has been created and you may <a href='%s' target='_blank'>login now</a>.<br><br>Username: %s<br><br>Remember to change your password often and the first time you login.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
-define('OGP_LANG_err_captcha', "Captcha does not match.");
-define('OGP_LANG_err_login_name', "User name is empty or in use.");
-define('OGP_LANG_err_first_name', "Enter your name.");
-define('OGP_LANG_err_last_name', "Last Name not entered.");
-define('OGP_LANG_err_phone_number', "Phone number is empty.");
-define('OGP_LANG_err_email_address', "Empty or incorrect email address.");
-define('OGP_LANG_err_email_address_already_in_use_by', "Email address already in use by <b>%s</b>.");
-define('OGP_LANG_user_registration', "User Registration");
-define('OGP_LANG_your_account_details_has_been_sent_by_email_to', "Your account details has been sent by email to <b>%s</b>.");
-define('OGP_LANG_account_created', "Your account has been created.");
-define('OGP_LANG_subject', "%s :: Account Information");
+define('OGP_LANG_click_here', "לחץ כאן");
+define('OGP_LANG_to_login', "כדי להתחבר");
+define('OGP_LANG_registered_on', "רשום ב:%s.");
+define('OGP_LANG_register_message', "שלום , <br><br> , חשבונך בפאנל נוצר וכעת תוכל/י <a href='%s' target='_blank'>להתחבר</a>.
+<br><br>שם משתמש : %s <br><br> זכור לשנות את סיסמתך לעיתים קרובות ובפעם הראשונה שאתה מתחבר<br><br> אנא ממך לא לצטט אימייל זה<br>______________________________<br>OPG Mailer");
+define('OGP_LANG_err_captcha', "קאפצ'ה לא מתאימה.");
+define('OGP_LANG_err_login_name', "שם המשתמש ריק או בשימוש");
+define('OGP_LANG_err_first_name', "הכנס את שמך");
+define('OGP_LANG_err_last_name', "שם המשפחה לא הוכנס.");
+define('OGP_LANG_err_phone_number', "מספר הפלאפון ריק.");
+define('OGP_LANG_err_email_address', "כתובת אימייל ריקה או שגויה. ");
+define('OGP_LANG_err_email_address_already_in_use_by', "כתובת דו\"אל זאת נמצאת בשימוש על ידי <b>%s</b>.");
+define('OGP_LANG_user_registration', "רישום משתמשים");
+define('OGP_LANG_your_account_details_has_been_sent_by_email_to', "פרטי חשבונך נשלחו בדוא\"ל אל.<b>%s</b>");
+define('OGP_LANG_account_created', "החשבון שלך נוצר");
+define('OGP_LANG_subject', "פרטי חשבון :: %s");
 ?>
