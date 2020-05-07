@@ -383,6 +383,9 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	if ( $server_xml->lgsl_query_name )
 	{
 		//error_reporting(E_ERROR);
+		require_once("includes/functions.php");
+		$query_port = getQueryPortOverridesForGame((string)$server_xml->lgsl_query_name, $ip, $port, $query_port);
+		
 		$data = lgsl_query_live((string)$server_xml->lgsl_query_name, $ip, $port, $query_port, $port, "s");
 		//error_reporting(E_ALL);
 

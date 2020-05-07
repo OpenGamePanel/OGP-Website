@@ -34,13 +34,9 @@ if($num_of_servers < $numberservers_to_skip_query)
 		//query port
 		$q_port = $get_q_and_s['1'];
 		
-		if(strpos((string)$server_xml->lgsl_query_name, 'mohaa') !== false){
-			require_once("includes/functions.php");
-			$realQPort = getRemoteContent("http://mohaaservers.tk/get_query_port_fast.php?ip=" . $internal_query_ip . ":" . $port);
-			if($realQPort != -1 && is_numeric($realQPort)){
-				$q_port = $realQPort;
-			}
-		}
+		// Get any query port overrides (if any)
+		require_once("includes/functions.php");
+		$q_port = getQueryPortOverridesForGame((string)$server_xml->lgsl_query_name, $internal_query_ip, $port, $q_port);
 		
 		//software port
 		$s_port = $get_q_and_s['2'];
