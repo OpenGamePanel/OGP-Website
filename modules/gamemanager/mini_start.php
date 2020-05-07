@@ -383,10 +383,13 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	if ( $server_xml->lgsl_query_name )
 	{
 		//error_reporting(E_ERROR);
+		require_once("includes/functions.php");
+		$query_port = getQueryPortOverridesForGame((string)$server_xml->lgsl_query_name, $ip, $port, $query_port);
+		
 		$data = lgsl_query_live((string)$server_xml->lgsl_query_name, $ip, $port, $query_port, $port, "s");
 		//error_reporting(E_ALL);
 
-		if($data['b']['status'] == '1')
+		if($data['b']['status'] == '1' && strpos((string)$server_xml->lgsl_query_name, 'mohaa') === false) // Skip this check for mohaa since the query ports are random
 		{
 			print_failure("".get_lang_f('error_server_already_running')." <b>$port</b>.");
 			return;

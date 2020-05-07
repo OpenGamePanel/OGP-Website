@@ -959,4 +959,15 @@ function getRemoteContent($url, $timeout = 5, $referrer = ""){
 	
 	return false;
 }
+
+function getQueryPortOverridesForGame($protocol, $ip, $port, $defaultQueryPort){
+	$q_port = $defaultQueryPort;
+	if(strpos($protocol, 'mohaa') !== false){
+		$realQPort = getRemoteContent("http://mohaaservers.tk/get_query_port_fast.php?ip=" . $ip . ":" . $port);
+		if($realQPort != -1 && is_numeric($realQPort)){
+			$q_port = $realQPort;
+		}
+	}
+	return $q_port;
+}
 ?>
