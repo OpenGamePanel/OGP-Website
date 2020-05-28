@@ -3792,7 +3792,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 									{
 										require_once("modules/gamemanager/home_handling_functions.php");
 										require_once("modules/config_games/server_config_parser.php");
-										exec_operation('stop', $home_id, FALSE, $address['ip'], $address['port']);
+										exec_operation('stop', $home_id, FALSE, $address['ip'], $address['port'], true);
 									}
 								}
 							}
