@@ -208,7 +208,7 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$db)
 }
 
 // This function is used to batch stop/restart servers in background.
-function exec_operation( $action, $home_id, $mod_id, $ip, $port )
+function exec_operation( $action, $home_id, $mod_id, $ip, $port, $override = false )
 {
     if(!is_numeric($port))
 		return FALSE;
@@ -216,8 +216,13 @@ function exec_operation( $action, $home_id, $mod_id, $ip, $port )
 		return FALSE;
 	
 	global $db;
-	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
-	if($isAdmin) 
+	
+	$isAdmin = false;
+	if(hasValue($_SESSION) && hasValue($_SESSION['user_id'])){
+		$isAdmin = $db->isAdmin($_SESSION['user_id']);
+	}
+	
+	if($override || $isAdmin) 
 		$home_info = $db->getGameHome($home_id);
 	else
 		$home_info = $db->getUserGameHome($_SESSION['user_id'],$home_id);
