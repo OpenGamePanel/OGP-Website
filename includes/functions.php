@@ -66,7 +66,7 @@ function genRandomString($length) {
 	return $string;
 }
 
-function get_map_path($query_name,$mod,g$map) {
+function get_map_path($query_name,$mod,$map) {
 	
 	$mod_gt = $mod;
 	
