@@ -461,6 +461,8 @@ function exec_ogp_module()
 					$dirlist['directorys'] = array_orderby($dirlist['directorys'], 'filename', SORT_ASC);
 					foreach($dirlist['directorys'] as $directory)
 					{
+						$directory['filename'] = removeInvalidFileNameCharacters($directory['filename']);
+						
 						echo "<tr>\n".
 							 "<td>".
 							 "<input type=checkbox name='folder' data-item='$i' value=\"" . str_replace('"', "&quot;", $directory['filename']) . "\" class='item' />\n".
@@ -483,6 +485,8 @@ function exec_ogp_module()
 					$dirlist['files'] = array_orderby($dirlist['files'], 'filename', SORT_ASC);
 					foreach($dirlist['files'] as $file)
 					{
+						$file['filename'] = removeInvalidFileNameCharacters($file['filename']);
+						
 						if( $os == "linux" )
 						{
 							if($isAdmin){
@@ -526,6 +530,8 @@ function exec_ogp_module()
 					$dirlist['binarys'] = array_orderby($dirlist['binarys'], 'filename', SORT_ASC);
 					foreach($dirlist['binarys'] as $binary)
 					{
+						$binary['filename'] = removeInvalidFileNameCharacters($binary['filename']);
+						
 						if( $os == "linux" )
 						{
 							if($isAdmin){
