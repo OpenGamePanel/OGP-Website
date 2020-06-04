@@ -66,7 +66,7 @@ function genRandomString($length) {
 	return $string;
 }
 
-function get_map_path($query_name,$mod,$map) {
+function get_map_path($query_name,$mod,g$map) {
 	
 	$mod_gt = $mod;
 	
@@ -575,14 +575,18 @@ function get_game_selector($os, $game_cfgs, $home_cfg_id = FALSE)
 
 function getClientIPAddress(){
 	if(isset($_SERVER['HTTP_CF_CONNECTING_IP']) && !empty($_SERVER['HTTP_CF_CONNECTING_IP'])){
-		return $_SERVER['HTTP_CF_CONNECTING_IP'];
+		$ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
 	}else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && !empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-		return $_SERVER['HTTP_X_FORWARDED_FOR'];
+		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
 	}else if(isset($_SERVER['HTTP_X_REAL_IP']) && !empty($_SERVER['HTTP_X_REAL_IP'])){
-		return $_SERVER['HTTP_X_REAL_IP'];
-	}else{
-		return $_SERVER['REMOTE_ADDR'];
+		$ip = $_SERVER['HTTP_X_REAL_IP'];
 	}
+	
+	if(filter_var($ip, FILTER_VALIDATE_IP)){
+		return $ip;
+	}
+		
+	return $_SERVER['REMOTE_ADDR'];
 }
 
 function getOGPSiteURL(){
