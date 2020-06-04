@@ -228,7 +228,7 @@ function exec_ogp_module()
 				if(isset($_SESSION['fm_files_'.$home_id][$item]))
 				{
 					$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
-					$new_item = stripslashes($_POST['values'][$i]);
+					$new_item = removeInvalidFileNameCharacters(stripslashes($_POST['values'][$i]));
 					$new_item_path = clean_path( $path . "/" . $new_item );
 					if ($item_path != $new_item_path)
 					{
@@ -324,7 +324,7 @@ function exec_ogp_module()
 	// Create file
 	elseif( isset( $_POST['create_file'] ) and $fo['create_file'] == "1" )
 	{
-		$file_name = stripslashes($_POST['file_name']);
+		$file_name = removeInvalidFileNameCharacters(stripslashes($_POST['file_name']));
 		$destination = clean_path( $path . "/" . $file_name);
 		$remote->shell_action('touch', $destination);
 		$db->logger( get_lang("create_file") . ": $destination" );
