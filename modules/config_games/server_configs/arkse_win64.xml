@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>ARK: Survival Evolved</game_name>
   <server_exec_name>ShooterGameServer.exe</server_exec_name>
-  <cli_template>%MAP%%IP%%PORT%%QUERY_PORT%%PLAYERS%%RCON%%RAW%%CONTROL_PASSWORD%%PDS%%PDI%%PDD%%PUS%%PUI%%PUD%%ASDN%%POP%%POPI%%PTA%?listen %AMM% %CDO% %CID% %FACF% %NTFF% -server -log</cli_template>
+  <cli_template>%MAP%%IP%%PORT%%QUERY_PORT%%PLAYERS%%RAW%%RCON%%CONTROL_PASSWORD%%PDS%%PDI%%PDD%%PUS%%PUI%%PUD%%ASDN%%POP%%POPI%%PTA%?listen %AMM% %CDO% %CID% %FACF% %NTFF% -server -log</cli_template>
   <cli_params>
     <cli_param id="MAP" cli_string="" />
     <cli_param id="IP" cli_string="?Multihome=" />
@@ -35,17 +35,14 @@
     </text>
   </replace_texts>
   <server_params>
+	<param key="?bRawSockets" type="checkbox_key_value" id="RAW">
+      <desc>Enable direct UDP socket connections rather than Steam's P2P.</desc>
+    </param>
     <param key="?RCONEnabled=" type="select" id="RCON">
       <option value="True">True</option>
       <option value="False">False</option>
       <options>ns</options>
       <desc>Enable or disable remote control.</desc>
-    </param>
-	<param key="?bRawSockets=" type="select" id="RAW">
-      <option value="True">True</option>
-      <option value="False">False</option>
-      <options>ns</options>
-      <desc>Enable or disable bRawSockets.</desc>
     </param>
     <param key="-automanagedmods" type="checkbox_key_value" id="AMM">
       <desc>Enable automatic MOD downloading, installing and updating.</desc>
