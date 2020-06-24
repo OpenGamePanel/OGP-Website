@@ -976,7 +976,11 @@ function getQueryPortOverridesForGame($protocol, $ip, $port, $defaultQueryPort){
 }
 
 function removeInvalidFileNameCharacters($string){
+	global $settings;
 	$pattern = '/[\^\$\*\+\?\(\)\[\{\\\|\]!@#%&=~`,\'<>"}\s]/i';
+	if(is_array($settings) && array_key_exists("regex_invalid_file_name_chars", $settings) && !empty($settings["regex_invalid_file_name_chars"])){
+		$pattern = $settings["regex_invalid_file_name_chars"];
+	}
 	$string = preg_replace($pattern, '', $string);
 	return $string;
 }
