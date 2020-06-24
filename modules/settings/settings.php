@@ -70,6 +70,7 @@ function exec_ogp_module()
 			"default_game_server_home_path_prefix" => $_REQUEST['default_game_server_home_path_prefix'],
 			"use_authorized_hosts" => $_REQUEST['use_authorized_hosts'],
 			"allow_setting_cpu_affinity" => $_REQUEST['allow_setting_cpu_affinity'],
+			"regex_invalid_file_name_chars" => html_entity_decode($_REQUEST['regex_invalid_file_name_chars'])
 		);
 		
 		$db->setSettings($settings);
@@ -185,7 +186,7 @@ function exec_ogp_module()
 	$ft->add_field('on_off','allow_setting_cpu_affinity',@$row['allow_setting_cpu_affinity']);	
 	
 	// Add regex setting for file manager
-	$ft->add_field('string','regex_invalid_file_name_chars',(empty(@$row['regex_invalid_file_name_chars']) ? '/[\^\$\*\+\?\(\)\[\{\\\|\]!@#%&=~`,\'<>"}\s]/i' : @$row['regex_invalid_file_name_chars']));
+	$ft->add_field('string','regex_invalid_file_name_chars',(empty(@$row['regex_invalid_file_name_chars']) ? htmlentities('/[\^\$\*\+\?\(\)\[\{\\\|\]!@#%&=~`,\'<>"}\s]/i') : htmlentities(@$row['regex_invalid_file_name_chars'])));
 	
 	// Add option to reset game server order to default
 	$ft->add_field('checkbox','reset_game_server_order','0');	
