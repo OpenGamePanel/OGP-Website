@@ -184,6 +184,9 @@ function exec_ogp_module()
 	// Allow setting the cpu affinity for game servers
 	$ft->add_field('on_off','allow_setting_cpu_affinity',@$row['allow_setting_cpu_affinity']);	
 	
+	// Add regex setting for file manager
+	$ft->add_field('string','regex_invalid_file_name_chars',(empty(@$row['regex_invalid_file_name_chars']) ? '/[\^\$\*\+\?\(\)\[\{\\\|\]!@#%&=~`,\'<>"}\s]/i' : @$row['regex_invalid_file_name_chars']));
+	
 	// Add option to reset game server order to default
 	$ft->add_field('checkbox','reset_game_server_order','0');	
 	
