@@ -31,7 +31,7 @@ define('OGP_LANG_welcome_text', "ברוך הבא אל פאנל ניהול שרת
 OPG היא תוכנת קוד פתוח , המאפשרת להתקין , להפעיל ולעקוב אחרי מגוון שרתי משחק.");
 define('OGP_LANG_any_server_is_online', "כל שרת פעיל");
 define('OGP_LANG_current_map', "מפה נוכחית");
-define('OGP_LANG_server_ip_port', "אייפי:פורט");
+define('OGP_LANG_server_ip_port', "IP:Port");
 define('OGP_LANG_statistics', "סטטיסטיקה");
 define('OGP_LANG_servers', "שרתים");
 define('OGP_LANG_players', "שחקנים");

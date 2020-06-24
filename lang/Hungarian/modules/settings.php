@@ -134,11 +134,11 @@ define('OGP_LANG_use_authorized_hosts', "Limit API to Defined Authorized Hosts")
 define('OGP_LANG_use_authorized_hosts_info', "Enable this setting to only allow API calls from pre-defined and approved IP addresses.&nbsp; Approved addresses can be set on this page once the setting has been enabled.&nbsp; If this setting is disabled, a user using a valid key will have access to the API from any IP address.&nbsp; Users using a valid key will be able to use the API to manage any game server they have permissions to administrate.");
 define('OGP_LANG_allow_setting_cpu_affinity', "Allow Setting CPU Core Assignment for Game Servers");
 define('OGP_LANG_allow_setting_cpu_affinity_info', "If enabled, the admin creating a game home will be shown CPU affinity (core assignment) options for the game server.");
-define('OGP_LANG_setup_api_authorized_hosts', "Setup API authorized hosts");
-define('OGP_LANG_autohorized_hosts', "Authorized hosts");
-define('OGP_LANG_add', "Add");
-define('OGP_LANG_remove', "Remove");
-define('OGP_LANG_default_trusted_hosts', "Default Trusted Hosts");
+define('OGP_LANG_setup_api_authorized_hosts', "API beállítása az engedélyezett kiszolgálókon");
+define('OGP_LANG_autohorized_hosts', "Felhatalmazott kiszolgálók");
+define('OGP_LANG_add', "Hozzáad");
+define('OGP_LANG_remove', "Eltávolít");
+define('OGP_LANG_default_trusted_hosts', "Alapértelmezett megbízható kiszolgálók");
 define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Trusted Hosts or Proxies (IPv4/IPv6 Addresses or CIDR)");
 define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Trusted Forwarded IPs (IPv4/IPv6 Addresses or CIDR)");
 define('OGP_LANG_reset_game_server_order', "Reset Game Server Ordering");
