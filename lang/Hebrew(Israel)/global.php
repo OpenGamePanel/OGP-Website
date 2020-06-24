@@ -22,7 +22,7 @@
  *
  */
 
-define('OGP_LANG_lang_charset', "קידוד UTF-8");
+define('OGP_LANG_lang_charset', "UTF-8");
 define('OGP_LANG_already_logged_in_redirecting_to_dashboard', "אתה כבר מחובר, מעביר אל לוח הבקרה.");
 define('OGP_LANG_logging_in', "מתחבר");
 define('OGP_LANG_redirecting_in', "מועבר");
