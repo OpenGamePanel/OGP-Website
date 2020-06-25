@@ -143,6 +143,6 @@ define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Trusted Hosts or Pro
 define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Trusted Forwarded IPs (IPv4/IPv6 Addresses or CIDR)");
 define('OGP_LANG_reset_game_server_order', "Reset Game Server Ordering");
 define('OGP_LANG_reset_game_server_order_info', "Resets game server ordering back to the default of using the server ID");
-
-
+define('OGP_LANG_regex_invalid_file_name_chars', "Invalid File Name Characters Regex");
+define('OGP_LANG_regex_invalid_file_name_chars_info', "Change this regex pattern if you want to allow a different set of characters in file names.");
 ?>

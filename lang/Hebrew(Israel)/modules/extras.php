@@ -25,8 +25,8 @@
 include 'update.php';
 define('OGP_LANG_unable_download', "לא ניתן להוריד %s");
 define('OGP_LANG_md5_failed', "בדיקת MD5 נכשלה עבור %s, נסה שוב.");
-define('OGP_LANG_uninstall', "הסר את ההתקנה");
-define('OGP_LANG_install', "להתקין");
+define('OGP_LANG_uninstall', "הסרת התקנה");
+define('OGP_LANG_install', "התקן");
 define('OGP_LANG_uptodate', "עדכני");
 define('OGP_LANG_update_available', "עדכון זמין");
 define('OGP_LANG_not_installed', "לא מותקן");
