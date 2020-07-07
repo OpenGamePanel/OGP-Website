@@ -118,6 +118,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"quake2"		=> "Quake 2",
 		"quake3"		=> "Quake 3",
 		"quake4"		=> "Quake 4",
+		"ragemp"		=> "Rage MP",
 		"ravenshield"	=> "Raven Shield",
 		"redm"			=> "Red Dead Redemption 2 RedM",
 		"redorchestra"	=> "Red Orchestra",
@@ -283,6 +284,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"quake2"		=> "02",
 		"quake3"		=> "02",
 		"quake4"		=> "10",
+		"ragemp"		=> "43",
 		"ravenshield"	=> "04",
 		"redm"			=> "41",
 		"redorchestra"	=> "13",
@@ -445,6 +447,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"quake2"		=> "qtracker://{IP}:{S_PORT}?game=Quake2&action=show",
 		"quake3"		=> "qtracker://{IP}:{S_PORT}?game=Quake3&action=show",
 		"quake4"		=> "qtracker://{IP}:{S_PORT}?game=Quake4&action=show",
+		"ragemp"		=> "https://cdn.rage.mp/master/",
 		"ravenshield"	=> "http://en.wikipedia.org/wiki/Tom_Clancy's_Rainbow_Six_3",
 		"redm"		=> "http://redm.gg/",
 		"redorchestra"	=> "steam://connect/{IP}:{C_PORT}",
@@ -4373,6 +4376,35 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		  return true;
 		} 
 	}
+	
+	
+//------------------------------------------------------------------------------------------------------------+
+//------------------------------------------------------------------------------------------------------------+
+	function lgsl_query_43(&$server, &$lgsl_need, &$lgsl_fp)
+	{
+	//---------------------------------------------------------+
+	//  Check Rage MP master server list
+		$url ="https://cdn.rage.mp/master/";
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt ( $ch, CURLOPT_TIMEOUT, 5 );
+		curl_setopt($ch, CURLOPT_URL, $url);
+		$data = curl_exec($ch);
+		curl_close($ch);
+
+		// Test if list contains $ip:$port 
+		$ip = $server['b']['ip'];
+		$port = $server['b']['c_port'];
+		$xserver = "$ip:$port";
+		if(strpos($data, $xserver) !== false){
+			 return true;
+		} 
+    }
+
+//------------------------------------------------------------------------------------------------------------+
+//------------------------------------------------------------------------------------------------------------+
+
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
 	function lgsl_query_feed(&$server, $request, $lgsl_feed_method, $lgsl_feed_url, $home_info = False)
