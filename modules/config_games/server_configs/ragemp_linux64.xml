@@ -3,7 +3,7 @@
   <protocol>lgsl</protocol>
   <lgsl_query_name>ragemp</lgsl_query_name>
   <installer>steamcmd</installer>
-  <game_name>Rage MP</game_name>
+  <game_name>Rage:MP</game_name>
   <server_exec_name>server</server_exec_name>
   <exe_location>ragemp-srv</exe_location>
   <max_user_amount>12</max_user_amount>
