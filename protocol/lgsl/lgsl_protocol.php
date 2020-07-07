@@ -4376,8 +4376,6 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		  return true;
 		} 
 	}
-	
-	
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
 	function lgsl_query_43(&$server, &$lgsl_need, &$lgsl_fp)
@@ -4388,22 +4386,24 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_HEADER, 0);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt ( $ch, CURLOPT_TIMEOUT, 5 );
+		curl_setopt ($ch, CURLOPT_TIMEOUT, 5);
 		curl_setopt($ch, CURLOPT_URL, $url);
 		$data = curl_exec($ch);
 		curl_close($ch);
-
 		// Test if list contains $ip:$port 
 		$ip = $server['b']['ip'];
 		$port = $server['b']['c_port'];
 		$xserver = "$ip:$port";
 		if(strpos($data, $xserver) !== false){
-			 return true;
+			// Extract info
+			$xdatas = json_decode($data,true);
+			$server['s']['name'] = $xdatas["$xserver"]['name'];
+			$server['s']['map'] = $xdatas["$xserver"]['gamemode'];
+			$server['s']['players'] = $xdatas["$xserver"]['players'];
+			$server['s']['playersmax'] = $xdatas["$xserver"]['maxplayers'];
+			return true;
 		} 
     }
-
-//------------------------------------------------------------------------------------------------------------+
-//------------------------------------------------------------------------------------------------------------+
 
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
