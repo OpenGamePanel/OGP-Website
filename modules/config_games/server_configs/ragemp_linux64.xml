@@ -1,0 +1,58 @@
+<game_config> 
+  <game_key>ragemp_linux64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>ragemp</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Rage MP</game_name>
+  <server_exec_name>server</server_exec_name>
+  <exe_location>ragemp-srv</exe_location>
+  <max_user_amount>12</max_user_amount>
+  <mods>
+    <mod key="ragemp">
+      <name>none</name>
+      <installer_name>0</installer_name> 
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="max_players">
+      <default>("maxplayers"\s*:\s*)(.*)(,)</default>
+      <var>"maxplayers" : %key%,</var>
+      <filepath>ragemp-srv/conf.json</filepath>
+      <options>key-regex</options>
+    </text>
+    <text key="port">
+      <default>("port"\s*:\s*)(.*)</default>
+      <var>"port" : %key%</var>
+      <filepath>ragemp-srv/conf.json</filepath>
+      <options>key-regex</options>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Announce" type="select">
+      <option value="false">False</option>
+      <option value="true">True</option>
+      <default_value>true</default_value>
+      <default>("announce"\s*:\s*)(.*)(,)</default>
+      <var>"announce" : %key%,</var>
+      <filepath>ragemp-srv/conf.json</filepath>
+      <options>key-regex</options>
+      <desc>Report to Rage MP official Master Server List. This enables server query in OGP.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+# Downloading server
+wget https://cdn.rage.mp/lin/ragemp-srv-037.tar.gz
+# Extract the server files
+tar -xzf ragemp-srv-037.tar.gz
+rm ragemp-srv-037.tar.gz
+# Accessing the directory
+cd ragemp-srv
+# Set executable permission
+# https://github.com/Austinb/GameQ/pull/544/files
+chmod +x server
+	</post_install>
+  <configuration_files>
+    <file description="Main Config File">ragemp-srv/conf.json</file>
+  </configuration_files>
+</game_config>
