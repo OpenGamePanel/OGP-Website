@@ -49,9 +49,8 @@ rm ragemp-srv-037.tar.gz
 # Accessing the directory
 cd ragemp-srv
 # Set executable permission
-# https://github.com/Austinb/GameQ/pull/544/files
 chmod +x server
-	</post_install>
+  </post_install>
   <configuration_files>
     <file description="Main Config File">ragemp-srv/conf.json</file>
   </configuration_files>
