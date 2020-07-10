@@ -6,7 +6,7 @@
   <game_name>Rage:MP</game_name>
   <server_exec_name>server</server_exec_name>
   <exe_location>ragemp-srv</exe_location>
-  <max_user_amount>12</max_user_amount>
+  <max_user_amount>100</max_user_amount>
   <mods>
     <mod key="ragemp">
       <name>none</name>
