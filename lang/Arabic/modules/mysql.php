@@ -22,7 +22,7 @@
  *
  */
 
-define('OGP_LANG_configured_mysql_hosts', "Configured MySQL Hosts");
+define('OGP_LANG_configured_mysql_hosts', "مكون هوست قاعدة البيانات");
 define('OGP_LANG_add_new_mysql_host', "إضافة مضيف ميسكل");
 define('OGP_LANG_enter_mysql_ip', "تفعيل ايبي ميسكل.");
 define('OGP_LANG_enter_valid_port', "أدخل بورت صالح.");
@@ -30,9 +30,9 @@ define('OGP_LANG_enter_mysql_root_password', "أدخل كلمة مرور روت 
 define('OGP_LANG_enter_mysql_name', "أدخل إسم الميسكل.");
 define('OGP_LANG_could_not_add_mysql_server', "تعذر إضافة خادم ميسكل.");
 define('OGP_LANG_game_server_name_info', "يساعد اسم الخادم المستخدمين على تحديد خوادمهم.");
-define('OGP_LANG_note_mysql_host', "Note: Using a 'Direct connection' the server must accept external connections so the servers can connect remotely, whereas connecting through a remote server it will be used just as a local connection.");
+define('OGP_LANG_note_mysql_host', "ملاحظة: باستخدام \"الاتصال المباشر\" ، يجب أن يقبل الخادم الاتصالات الخارجية حتى تتمكن الخوادم من الاتصال عن بُعد ، بينما يتم الاتصال من خلال خادم بعيد كإتصال محلي.");
 define('OGP_LANG_direct_connection', "اتصال مباشر");
-define('OGP_LANG_connection_through_remote_server_named', "Connection through remote server named %s");
+define('OGP_LANG_connection_through_remote_server_named', "الاتصال من خلال خادم بعيد مسمى%s");
 define('OGP_LANG_add_mysql_server', "إضافة سيرفر ميسكل");
 define('OGP_LANG_mysql_online', "ميسكل متصل");
 define('OGP_LANG_mysql_offline', "ميسكل غير-متصل");
@@ -48,8 +48,8 @@ define('OGP_LANG_connection_method', "طريقة الاتصال");
 define('OGP_LANG_user_privilegies', "امتيازات المستخدم");
 define('OGP_LANG_current_dbs', "قواعد البيانات الحالية");
 define('OGP_LANG_mysql_name', "اسم خادم MySQL");
-define('OGP_LANG_mysql_ip', "MySQL IP");
-define('OGP_LANG_mysql_port', "MySQL port");
+define('OGP_LANG_mysql_ip', "آي بي قاعدة البيانات");
+define('OGP_LANG_mysql_port', "منفذ/بورت قاعدة البيانات");
 define('OGP_LANG_privilegies', "امتيازات");
 define('OGP_LANG_all', "الكل");
 define('OGP_LANG_custom', "المخصصه");
@@ -76,15 +76,15 @@ define('OGP_LANG_sql_lock_tables_info', "<b>Enables use of LOCK TABLES on tables
 define('OGP_LANG_sql_select_info', "<b>Enables use of SELECT.</b>");
 define('OGP_LANG_sql_update_info', "<b>Enables use of UPDATE.</b>");	
 define('OGP_LANG_sql_grant_option_info', "<b>Enables privileges to be granted.</b>");
-define('OGP_LANG_select_game_server', "Select game server");
+define('OGP_LANG_select_game_server', "تحديد سيرفر اللعبة");
 define('OGP_LANG_invalid_mysql_server_id', "معرف خادم MySQL غير صالح.");
-define('OGP_LANG_there_is_another_db_named_or_user_named', "There is another database named <b>%s</b> or another user named <b>%s</b>.");
+define('OGP_LANG_there_is_another_db_named_or_user_named', "هناك قاعدة بيانات ذات اسم <b>%s</b> او مستخدم اخر باسم <b>%s</b>");
 define('OGP_LANG_db_added_for_home_id', "Added database for home ID <b>%s</b>.");
 define('OGP_LANG_could_not_remove_db', "تعذرت إزالة قاعدة البيانات المحددة.");
 define('OGP_LANG_db_removed_successfully_from_mysql_server_named', "تمت إزالة قاعدة البيانات من الخادم %s.");
 define('OGP_LANG_areyousure_remove_mysql_server', "Are you sure that you want remove MySQL server named <b>%s</b>?");
-define('OGP_LANG_db_changed_successfully', "The database named %s was changed successfully.");
-define('OGP_LANG_error_while_remove', "Error while remove.");
+define('OGP_LANG_db_changed_successfully', "تم تغيير قاعدة البيانات %s بنجاح.");
+define('OGP_LANG_error_while_remove', "حدث خطأ أثناء الإزالة.");
 define('OGP_LANG_mysql_server_removed', "تمت إزالة خادم MySQL المسمى <b>%s</b> بنجاح.");
 define('OGP_LANG_unable_to_set_changes_to', "تعذر تعيين التغييرات على خادم MySQL المسمى <b>%s</b>.");
 define('OGP_LANG_mysql_server_settings_changed', "تم تغيير خادم MySQL المسمى <b>%s</b> بنجاح.");
@@ -97,9 +97,9 @@ define('OGP_LANG_remove_db', "إزالة قاعدة البيانات");
 define('OGP_LANG_save_db_changes', "حفظ تغييرات قاعدة البيانات.");
 define('OGP_LANG_add_db', "إضافة قاعدة بيانات");
 define('OGP_LANG_select_db', "حدد قاعدة البيانات");
-define('OGP_LANG_db_user', "DB User");
-define('OGP_LANG_db_passwd', "DB Password");
-define('OGP_LANG_db_name', "DB name");
+define('OGP_LANG_db_user', "يوزر قاعدة البيانات");
+define('OGP_LANG_db_passwd', "باسوورد قاعدة البيانات");
+define('OGP_LANG_db_name', "اسم قاعدة البيانات");
 define('OGP_LANG_enabled', "مفعل");
 define('OGP_LANG_game_server', "خادم اللعبة");
 define('OGP_LANG_there_are_no_databases_assigned_for', "There are no databases assigned for <b>%s</b>.");
@@ -108,8 +108,8 @@ define('OGP_LANG_unable_to_create_db', "غير قادر على إنشاء قاع
 define('OGP_LANG_unable_to_select_db', "غير قادر علي اختيار قاعدة البيانات %s.");
 define('OGP_LANG_db_info', "معلومات قاعدة البيانات");
 define('OGP_LANG_db_tables', "جداول قاعدة البيانات");
-define('OGP_LANG_db_backup', "DB Backup");
-define('OGP_LANG_download_db_backup', "Download DB Backup");
-define('OGP_LANG_restore_db_backup', "Restore DB Backup");
+define('OGP_LANG_db_backup', "نسخة احتياطية لقاعدة البيانات");
+define('OGP_LANG_download_db_backup', "تحميل نسخة احتياطية لقاعدة البيانات");
+define('OGP_LANG_restore_db_backup', "استيراد نسخة احتياطية لقاعدة البيانات");
 define('OGP_LANG_sql_file', "ملف (.sql)");
 ?>
