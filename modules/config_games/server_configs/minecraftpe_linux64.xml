@@ -49,6 +49,6 @@
     </text>
   </replace_texts>
   <environment_variables>
-    export LD_LIBRARY_PATH={OGP_HOME_DIR} {OGP_HOME_DIR}bedrock_server
+    export LD_LIBRARY_PATH={OGP_HOME_DIR}
   </environment_variables>
 </game_config>
