@@ -153,7 +153,7 @@ function exec_ogp_module() {
 						'host' => $query_ip . ":" . $query_port,
 					)
 				);
-				$gq = new GameQ();
+				$gq = new \GameQ\GameQ();
 				$gq->addServers($servers);
 				$gq->setOption('timeout', 4);
 				$gq->setOption('debug', FALSE);
