@@ -81,7 +81,7 @@ function exec_ogp_module() {
 		}
 
 		// Figure out the class name
-		$class_name = 'GameQ_Protocols_'.ucfirst(pathinfo($entry, PATHINFO_FILENAME));
+		$class_name = ucfirst(pathinfo($entry, PATHINFO_FILENAME));
 
 		// Lets get some info on the class
 		$reflection = new ReflectionClass($class_name);
@@ -98,8 +98,6 @@ function exec_ogp_module() {
 		// Add it to the list
 		$protocols[$class->name()] = array(
 			'name' => $class->name_long(),
-			'port' => $class->port(),
-			'state' => $class->state(),
 		);
 
 		// Unset the class
