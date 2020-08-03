@@ -1,8 +1,8 @@
 <game_config>
-  <game_key>minecraftpe_linux32</game_key>
+  <game_key>minecraftpe_linux64</game_key>
   <protocol>gameq</protocol>
   <gameq_query_name>minecraftpe</gameq_query_name>
-  <game_name>Minecraft Bedrock Edition</game_name>
+  <game_name>Minecraft Bedrock Edition (x64)</game_name>
   <server_exec_name>bedrock_server</server_exec_name>
   <query_port type="add">1</query_port>
   <max_user_amount>250</max_user_amount>
