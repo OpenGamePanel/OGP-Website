@@ -5,8 +5,6 @@
   <game_name>Minecraft Bedrock Edition</game_name>
   <server_exec_name>bedrock_server</server_exec_name>
   <query_port type="add">1</query_port>
-  <cli_template>bedrock_server</cli_template>
-  <console_log>logs/latest.log</console_log>
   <max_user_amount>250</max_user_amount>
   <mods>
     <mod key="default">
@@ -24,9 +22,19 @@
       <var>server-port=</var>
       <filepath>server.properties</filepath>
     </text>
-    <text key="query_port">
+    <text key="port">
       <default>server-portv6=.*</default>
       <var>server-portv6=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="true">
+      <default>enable-query=.*</default>
+      <var>enable-query=true</var>
+      <filepath>server.properties</filepath>
+    </text>    
+    <text key="query_port">
+      <default>query.port=.*</default>
+      <var>query.port=</var>
       <filepath>server.properties</filepath>
     </text>
     <text key="max_players">
@@ -34,8 +42,13 @@
       <var>max-players=</var>
       <filepath>server.properties</filepath>
     </text>
+    <text key="control_password">
+      <default>rcon.password=.*</default>
+      <var>rcon.password=</var>
+      <filepath>server.properties</filepath>
+    </text>
   </replace_texts>
   <environment_variables>
-    export LD_LIBRARY_PATH={OGP_HOME_DIR} {OGP_HOME_DIR}/bedrock_server
+    export LD_LIBRARY_PATH={OGP_HOME_DIR} {OGP_HOME_DIR}bedrock_server
   </environment_variables>
 </game_config>
