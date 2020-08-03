@@ -142,7 +142,7 @@ function exec_ogp_module() {
 			}
 			elseif ( $server_xml->gameq_query_name )
 			{
-				require('protocol/GameQ/GameQ.php');
+				require_once 'protocol/GameQ/Autoloader.php';
 				
 				$query_port = get_query_port($server_xml, $port);
 				

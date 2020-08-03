@@ -27,7 +27,7 @@ if($num_of_servers < $numberservers_to_skip_query)
 	}
 	else
 	{
-		require_once 'protocol/GameQ/GameQ.php';
+		require_once 'protocol/GameQ/Autoloader.php';
 		$port = $server_home['port'];
 		$query_port = get_query_port($server_xml, $port);
 		$gq = new \GameQ\GameQ();
