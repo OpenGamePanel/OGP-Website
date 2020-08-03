@@ -380,7 +380,15 @@ function removeOldGameConfigs(){ // Wrote this function in-case we rename config
 		'modules/config_games/server_configs/ark_linux.xml',
 		'modules/config_games/server_configs/ark_win.xml',
 		'modules/config_games/server_configs/teamspeak3_32bit.xml',
-		'modules/config_games/server_configs/teamspeak3_64bit.xml'
+		'modules/config_games/server_configs/teamspeak3_64bit.xml',
+		'modules/config_games/server_configs/tekkit_linux32.xml',
+		'modules/config_games/server_configs/tekkit_linux64.xml',
+		'modules/config_games/server_configs/tekkit_win32.xml',
+		'modules/config_games/server_configs/tekkit_win64.xml',
+		'modules/config_games/server_configs/bukkit_linux32.xml',
+		'modules/config_games/server_configs/bukkit_linux64.xml',
+		'modules/config_games/server_configs/bukkit_win32.xml',
+		'modules/config_games/server_configs/bukkit_win64.xml',
 	);
 	
 	foreach($oldConfigsToRemove as $config){
