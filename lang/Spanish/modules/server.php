@@ -69,7 +69,7 @@ define('OGP_LANG_remote_server_settings_changed', "Configuracion cambiada para e
 define('OGP_LANG_save_settings', "Guardar cambios");
 define('OGP_LANG_set_ips', "Asignar IPs");
 define('OGP_LANG_remote_ip', "IP remota");
-define('OGP_LANG_remote_ips_for', "IPs for Game Servers To Use on Agent Server '%s'");
+define('OGP_LANG_remote_ips_for', "IP para servidores de juegos para usar en el servidor del agente '%s'");
 define('OGP_LANG_ips_set_for_server', "IPs asignadas al servidor remoto '%s' correctamente.");
 define('OGP_LANG_could_not_remove_ip', "No se pudo eliminar la IP.");
 define('OGP_LANG_could_add_ip', "Imposible añadir la IP.");
