@@ -27,10 +27,10 @@ if($num_of_servers < $numberservers_to_skip_query)
 	}
 	else
 	{
-		require_once 'protocol/GameQ/GameQ.php';
+		require_once 'protocol/GameQ/Autoloader.php';
 		$port = $server_home['port'];
 		$query_port = get_query_port($server_xml, $port);
-		$gq = new GameQ();
+		$gq = new \GameQ\GameQ();
 		$server = array(
 							'id' => 'server',
 							'type' => $server_xml->gameq_query_name,
@@ -39,8 +39,8 @@ if($num_of_servers < $numberservers_to_skip_query)
 		$gq->addServer($server);
 		$gq->setOption('timeout', 4);
 		$gq->setOption('debug', FALSE);
-		$gq->setFilter('normalise');
-		$results = $gq->requestData();
+		$gq->addFilter('normalise');
+		$results = $gq->process();
 		$db->saveServerStatusCache($ip_id,$port,$results);
 	}
 

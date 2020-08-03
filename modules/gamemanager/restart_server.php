@@ -142,7 +142,7 @@ function exec_ogp_module() {
 			}
 			elseif ( $server_xml->gameq_query_name )
 			{
-				require('protocol/GameQ/GameQ.php');
+				require_once 'protocol/GameQ/Autoloader.php';
 				
 				$query_port = get_query_port($server_xml, $port);
 				
@@ -153,12 +153,12 @@ function exec_ogp_module() {
 						'host' => $query_ip . ":" . $query_port,
 					)
 				);
-				$gq = new GameQ();
+				$gq = new \GameQ\GameQ();
 				$gq->addServers($servers);
 				$gq->setOption('timeout', 4);
 				$gq->setOption('debug', FALSE);
-				$gq->setFilter('normalise');
-				$game = $gq->requestData();
+				$gq->addFilter('normalise');
+				$game = $gq->process();
 						
 				if ( ! $game['server']['gq_online'] )
 				{

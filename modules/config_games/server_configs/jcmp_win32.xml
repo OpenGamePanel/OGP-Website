@@ -1,7 +1,7 @@
 <game_config>
   <game_key>jcmp_win32</game_key>
   <protocol>gameq</protocol>
-  <gameq_query_name>Jc2</gameq_query_name>
+  <gameq_query_name>Justcause2</gameq_query_name>
   <installer>steamcmd</installer>
   <game_name>Just Cause 2 Multiplayer (Windows)</game_name>
   <server_exec_name>JcmpServer.exe</server_exec_name>

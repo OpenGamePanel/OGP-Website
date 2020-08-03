@@ -391,6 +391,7 @@ function removeOldGameConfigs(){ // Wrote this function in-case we rename config
 function removeOldPanelFiles(){ // Should run post panel update to remove old files that are no longer users
 	$oldFiles = array(
 		'includes/database_mysql.php', 
+		'protocol/GameQ/gameq'
 	);
 	
 	foreach($oldFiles as $file){
