@@ -62,10 +62,10 @@ function exec_ogp_module() {
 	 }
 	 elseif($_POST['protocol'] == "gameq")
 	 {
-	  require 'protocol/GameQ/GameQ.php';
+	  require_once 'protocol/GameQ/Autoloader.php';
 
 	  // Define the protocols path
-	  $protocols_path = "protocol/GameQ/gameq/protocols/";
+	  $protocols_path = "protocol/GameQ/Protocols/";
 
 	  // Grab the dir with all the classes available
 	  $dir = dir($protocols_path);
@@ -81,7 +81,7 @@ function exec_ogp_module() {
 		}
 
 		// Figure out the class name
-		$class_name = ucfirst(pathinfo($entry, PATHINFO_FILENAME));
+		$class_name = 'GameQ\Protocols\\' . ucfirst(pathinfo($entry, PATHINFO_FILENAME));
 
 		// Lets get some info on the class
 		$reflection = new ReflectionClass($class_name);
@@ -97,7 +97,7 @@ function exec_ogp_module() {
 
 		// Add it to the list
 		$protocols[$class->name()] = array(
-			'name' => $class->name_long(),
+			'name' => $class->nameLong(),
 		);
 
 		// Unset the class
