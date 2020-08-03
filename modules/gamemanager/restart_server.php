@@ -157,8 +157,8 @@ function exec_ogp_module() {
 				$gq->addServers($servers);
 				$gq->setOption('timeout', 4);
 				$gq->setOption('debug', FALSE);
-				$gq->setFilter('normalise');
-				$game = $gq->requestData();
+				$gq->addFilter('normalise');
+				$game = $gq->process();
 						
 				if ( ! $game['server']['gq_online'] )
 				{

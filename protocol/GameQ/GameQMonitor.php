@@ -39,8 +39,8 @@ if($num_of_servers < $numberservers_to_skip_query)
 		$gq->addServer($server);
 		$gq->setOption('timeout', 4);
 		$gq->setOption('debug', FALSE);
-		$gq->setFilter('normalise');
-		$results = $gq->requestData();
+		$gq->addFilter('normalise');
+		$results = $gq->process();
 		$db->saveServerStatusCache($ip_id,$port,$results);
 	}
 
