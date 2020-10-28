@@ -70,7 +70,8 @@ function exec_ogp_module()
 			"default_game_server_home_path_prefix" => $_REQUEST['default_game_server_home_path_prefix'],
 			"use_authorized_hosts" => $_REQUEST['use_authorized_hosts'],
 			"allow_setting_cpu_affinity" => $_REQUEST['allow_setting_cpu_affinity'],
-			"regex_invalid_file_name_chars" => addslashes($_REQUEST['regex_invalid_file_name_chars'])
+			"regex_invalid_file_name_chars" => addslashes($_REQUEST['regex_invalid_file_name_chars']),
+			"login_ban_time" => $_REQUEST['login_ban_time']
 		);
 		
 		$db->setSettings($settings);
@@ -172,6 +173,7 @@ function exec_ogp_module()
 	
 	$login_attempts_before_banned = (isset($row['login_attempts_before_banned']) and $row['login_attempts_before_banned'] != "" and is_numeric($row['login_attempts_before_banned']))? $row['login_attempts_before_banned'] : "6";
 	$ft->add_field('string','login_attempts_before_banned',$login_attempts_before_banned);
+	$ft->add_field('string','login_ban_time', array_key_exists("login_ban_time", $row) && !empty($row["login_ban_time"]) && is_numeric($row["login_ban_time"]) ? $row["login_ban_time"] : '');
 	
 	$ft->add_field('string','custom_github_update_username',@$row['custom_github_update_username']);
 	
