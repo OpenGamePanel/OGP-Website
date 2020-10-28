@@ -3758,6 +3758,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 				continue;
 			if($result['expiration_date'] < time())
 			{
+				include_once(LANG_DIR . "/modules/user_games.php");
+				
 				switch ($type) {
 					case 'user':
 						$user = $this->getUserById($user_id);
