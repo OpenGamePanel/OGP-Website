@@ -1058,7 +1058,7 @@ function deleteMysqlAddonDatabasesForGameServerHome($home_id){
 					}
 				}
 				
-				if ( $modDb->removeMysqlServerDB($db_id) === FALSE )
+				if ( $modDb->removeMysqlServerDB($db_id) !== FALSE )
 				{
 					$dbDeletedCount++;
 				}
