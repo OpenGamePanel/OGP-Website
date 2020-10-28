@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "Game manager";
 $module_version = "1.33";
-$db_version = 8;
+$db_version = 9;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => 'game_monitor', 'name'=>'Game Monitor', 'group'=>'user' ) );
 $module_access_rights = array('u' => 'allow_updates', 'p' => 'allow_parameter_usage', 'e' => 'allow_extra_params', 'c' => 'allow_custom_fields');
@@ -44,11 +44,11 @@ $install_queries[0] = array(
 	`home_id` int(50) NOT NULL auto_increment,
 	`remote_server_id` int(11) NOT NULL,
 	`user_id_main` int(11) NOT NULL,
-	`home_path` varchar(100) NOT NULL,
+	`home_path` varchar(500) NOT NULL,
 	`home_cfg_id` int(50) NOT NULL,
-	`home_name` varchar(128) NOT NULL,
-	`control_password` VARCHAR( 32 ) NULL,
-	`ftp_password` VARCHAR( 16 ) NULL,
+	`home_name` varchar(500) NOT NULL,
+	`control_password` VARCHAR( 128 ) NULL,
+	`ftp_password` VARCHAR( 128 ) NULL,
 	`last_param` LONGTEXT NULL,
 	PRIMARY KEY  (`home_id`),
 UNIQUE KEY remote_server_id (remote_server_id,home_path)
@@ -110,4 +110,11 @@ $install_queries[7] = array(
 	
 $install_queries[8] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` ADD `home_user_order` INT NOT NULL default 99999;");
+	
+// Increase default column sizes
+$install_queries[9] = array(
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `home_path` VARCHAR(500);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `home_name` VARCHAR(500);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `control_password` VARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `ftp_password` VARCHAR(128);");
 ?>
