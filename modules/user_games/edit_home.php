@@ -70,7 +70,7 @@ function exec_ogp_module()
 	}
 	
 	$server_xml = read_server_config(SERVER_CONFIG_LOCATION.$home_info['home_cfg_file']);
-	include('includes/lib_remote.php');
+	include_once('includes/lib_remote.php');
 	$remote = new OGPRemoteLibrary($home_info['agent_ip'],$home_info['agent_port'],$home_info['encryption_key'],$home_info['timeout']);
 	$ftp_installed = $db->isModuleInstalled('ftp');
 		

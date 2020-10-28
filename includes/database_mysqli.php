@@ -3758,6 +3758,9 @@ class OGPDatabaseMySQL extends OGPDatabase
 				continue;
 			if($result['expiration_date'] < time())
 			{
+				include_once(LANG_DIR . "/modules/user_games.php");
+				include_once(LANG_DIR . "/modules/mysql.php");
+				
 				switch ($type) {
 					case 'user':
 						$user = $this->getUserById($user_id);
@@ -3800,6 +3803,11 @@ class OGPDatabaseMySQL extends OGPDatabase
 							if( $remote->remove_home($home_info['home_path']) == 1 )
 							{
 								$this->logger(get_lang_f('sucessfully_deleted', $home_info['home_path']));
+							}
+							
+							$dbsDeleted = deleteMysqlAddonDatabasesForGameServerHome($home_id);
+							if($dbsDeleted !== false){
+								$this->logger(get_lang_f('sucessfully_deleted', strtolower(get_lang_f('mysql_dbs_for', $home_id))));
 							}
 						}
 						if ( $this->deleteGameHome($home_id) )

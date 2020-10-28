@@ -24,7 +24,7 @@
  *
  */
 
-require('includes/lib_remote.php');
+require_once('includes/lib_remote.php');
 
 
 function exec_ogp_module() 

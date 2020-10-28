@@ -157,7 +157,7 @@ function exec_ogp_module() {
         {
 			echo "<h1>". get_lang("edit_ip") ."s</h1>";
 			
-			include('includes/lib_remote.php');
+			include_once('includes/lib_remote.php');
 			
             foreach ( $remote_server_ips as $ip_row )
             {

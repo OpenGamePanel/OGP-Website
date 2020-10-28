@@ -43,7 +43,7 @@ function exec_ogp_module()
 	echo "<h2>".get_lang_f('cloning_home',htmlentities($server_row['home_name']))."</h2>";
 	echo create_back_button('user_games');
 
-	include('includes/lib_remote.php');
+	include_once('includes/lib_remote.php');
 	$remote = new OGPRemoteLibrary($server_row['agent_ip'],$server_row['agent_port'],$server_row['encryption_key'],$server_row['timeout']);
 
 	if(isset($_REQUEST['clone_home']))
