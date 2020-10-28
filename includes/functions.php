@@ -986,14 +986,16 @@ function removeInvalidFileNameCharacters($string){
 }
 
 function deleteMysqlAddonDatabasesForGameServerHome($home_id){
-	global $db;
+	global $db, $db_host, $db_user, $db_pass, $db_name, $table_prefix;
 	if ( function_exists('mysqli_connect') )
 		require_once("modules/mysql/mysqli_database.php");
 	else
 		require_once("modules/mysql/mysql_database.php");
 		
+	require_once('includes/lib_remote.php');
+		
 	$modDb = new MySQLModuleDatabase();
-	require("includes/config.inc.php");
+	require_once("includes/config.inc.php");
 	$modDb->connect($db_host,$db_user,$db_pass,$db_name,$table_prefix);
 	
 	if(hasValue($home_id) && is_numeric($home_id)){

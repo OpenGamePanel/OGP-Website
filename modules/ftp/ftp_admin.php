@@ -25,7 +25,7 @@
 
 function exec_ogp_module()
 {
-	include('includes/lib_remote.php');
+	include_once('includes/lib_remote.php');
 	
 	global $db;
 	global $view;
