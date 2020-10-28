@@ -16,7 +16,7 @@
   </reserve_ports>
   <console_log>SquadGame/Saved/Logs/SquadGame.log</console_log>
   <exe_location>SquadGame/Binaries/Linux</exe_location>
-  <max_user_amount>80</max_user_amount>
+  <max_user_amount>100</max_user_amount>
   <mods>
     <mod key="default">
       <name>None</name>

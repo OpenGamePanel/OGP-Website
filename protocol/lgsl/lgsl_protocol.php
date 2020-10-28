@@ -105,6 +105,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"neverwinter"	=> "NeverWinter Nights",
 		"neverwinter2"	=> "NeverWinter Nights 2",
 		"nexuiz"		=> "Nexuiz",
+		"nightofthedead"	=> "Night of the Dead",
 		"ns2"			=> "Natural Selection 2",
 		"ootow"			=> "Outlaws of the Old West",
 		"openttd"		=> "Open Transport Tycoon Deluxe",
@@ -270,6 +271,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"neverwinter"	=> "09",
 		"neverwinter2"	=> "09",
 		"nexuiz"		=> "02",
+		"nightofthedead"	=> "05",
 		"ns2"			=> "05",
 		"ootow"			=> "05",
 		"openttd"		=> "22",
@@ -434,6 +436,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"neverwinter"	=> "qtracker://{IP}:{S_PORT}?game=NeverwinterNights&action=show",
 		"neverwinter2"	=> "qtracker://{IP}:{S_PORT}?game=NeverwinterNights&action=show",
 		"nexuiz"		=> "qtracker://{IP}:{S_PORT}?game=Nexuiz&action=show",
+		"nightofthedead"	=> "steam://connect/{IP}:{S_PORT}",
 		"ns2"			=> "steam://connect/{IP}:{S_PORT}",
 		"ootow"			=> "steam://connect/{IP}:{Q_PORT}",
 		"openttd"		=> "http://wwww.openttd.org",
@@ -564,6 +567,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "mordhau"			: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;  	break;
 			case "mta"				: $c_to_q = 123;	$c_def = 22003;	$q_def = 22126;	$c_to_s = 0;	break;
 			case "murmur"			: $c_to_q = 2;		$c_def = 64738;	$q_def = 64740;	$c_to_s = 0;	break;
+			case "nightofthedead"	: $c_to_q = 19238; 	$c_def = 7777; 	$q_def = 27015; $c_to_s = 0;	break;
 			case "ns2"				: $c_to_q = 1;		$c_def = 27015;	$q_def = 27016;	$c_to_s = 1;	break;
 			case "ootow"			: $c_to_q = -359;	$c_def = 27374;	$q_def = 27015;	$c_to_s = 0;	break;
 			case "painkiller"		: $c_to_q = 123;	$c_def = 3455;	$q_def = 3578;	$c_to_s = 0;	break;

@@ -4,7 +4,7 @@
   <lgsl_query_name>source</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Colony Survival</game_name>
-  <server_exec_name>colonyserverdedicated.exe</server_exec_name>
+  <server_exec_name>colonyserver.exe</server_exec_name>
   <cli_template>%IP% %PORT% %QUERY_PORT% %PLAYERS% %HOSTNAME% %MAP% %MSTON% %MSTDAY% %MSTDBL% %SEED% %VAC% +server.networktype SteamOnline -logfile output.txt</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="+server.ip" options="sq" />
