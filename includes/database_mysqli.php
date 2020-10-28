@@ -3759,6 +3759,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 			if($result['expiration_date'] < time())
 			{
 				include_once(LANG_DIR . "/modules/user_games.php");
+				include_once(LANG_DIR . "/modules/mysql.php");
 				
 				switch ($type) {
 					case 'user':
