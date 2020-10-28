@@ -987,12 +987,20 @@ function removeInvalidFileNameCharacters($string){
 
 function deleteMysqlAddonDatabasesForGameServerHome($home_id){
 	global $db;
+	if ( function_exists('mysqli_connect') )
+		require_once("modules/mysql/mysqli_database.php");
+	else
+		require_once("modules/mysql/mysql_database.php");
+		
+	$modDb = new MySQLModuleDatabase();
+	require("includes/config.inc.php");
+	$modDb->connect($db_host,$db_user,$db_pass,$db_name,$table_prefix);
 	
 	if(hasValue($home_id) && is_numeric($home_id)){
 	
 		$dbDeletedCount = 0;
 	
-		$dbsToDelete = $db->getMysqlDBsbyHomeId($home_id);
+		$dbsToDelete = $modDb->getMysqlDBsbyHomeId($home_id);
 	
 		if(is_array($dbsToDelete) && count($dbsToDelete)){
 			foreach($dbsToDelete as $dbToDel){
@@ -1048,7 +1056,7 @@ function deleteMysqlAddonDatabasesForGameServerHome($home_id){
 					}
 				}
 				
-				if ( $db->removeMysqlServerDB($db_id) === FALSE )
+				if ( $modDb->removeMysqlServerDB($db_id) === FALSE )
 				{
 					$dbDeletedCount++;
 				}
