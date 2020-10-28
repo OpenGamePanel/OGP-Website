@@ -3801,6 +3801,11 @@ class OGPDatabaseMySQL extends OGPDatabase
 							{
 								$this->logger(get_lang_f('sucessfully_deleted', $home_info['home_path']));
 							}
+							
+							$dbsDeleted = deleteMysqlAddonDatabasesForGameServerHome($home_id);
+							if($dbsDeleted !== false){
+								$this->logger(get_lang_f('sucessfully_deleted', strtolower(get_lang_f('mysql_dbs_for', $home_id))));
+							}
 						}
 						if ( $this->deleteGameHome($home_id) )
 							$this->logger(get_lang_f('successfully_deleted_game_server_with_id', $home_id));

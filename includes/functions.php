@@ -984,4 +984,84 @@ function removeInvalidFileNameCharacters($string){
 	$string = preg_replace($pattern, '', $string);
 	return $string;
 }
+
+function deleteMysqlAddonDatabasesForGameServerHome($home_id){
+	global $db;
+	
+	if(hasValue($home_id) && is_numeric($home_id)){
+	
+		$dbDeletedCount = 0;
+	
+		$dbsToDelete = $db->getMysqlDBsbyHomeId($home_id);
+	
+		if(is_array($dbsToDelete) && count($dbsToDelete)){
+			foreach($dbsToDelete as $dbToDel){
+				$mysql_db = $dbToDel;
+				if($mysql_db['remote_server_id'] != "0")
+				{
+					$remote_server = $db->getRemoteServer($mysql_db['remote_server_id']);
+					$remote = new OGPRemoteLibrary($remote_server['agent_ip'],$remote_server['agent_port'],$remote_server['encryption_key'],$remote_server['timeout']);
+					$host_stat = $remote->status_chk();
+					if($host_stat === 1 )
+					{
+						$remote->exec('mysql --host=localhost --port='.$mysql_db['mysql_port'].' -uroot -p'.$mysql_db['mysql_root_passwd'].
+									  ' -e "DROP DATABASE '.$mysql_db['db_name'].";DROP USER '".$mysql_db['db_user']."'@'%';\"");
+					}
+				}
+				else
+				{
+					if( function_exists('mysqli_connect') )
+					{
+						@$link = mysqli_connect($mysql_db['mysql_ip'], 'root', $mysql_db['mysql_root_passwd'], "", $mysql_db['mysql_port']);
+						
+						if ( $link !== FALSE )
+						{
+							$queries = array("DROP DATABASE ".$mysql_db['db_name'].";",
+											 "DROP USER '".$mysql_db['db_user']."'@'%';");
+							foreach( $queries as $query )
+							{
+								@$return = mysqli_query($link, $query);
+								if(!$return)
+									break;
+							}
+							mysqli_close($link);
+							$db->connect($db_host,$db_user,$db_pass,$db_name,$table_prefix);
+						}
+					}
+					else
+					{
+						@$link = mysql_connect($mysql_db['mysql_ip'].':'.$mysql_db['mysql_port'], 'root', $mysql_db['mysql_root_passwd']);
+						
+						if ( $link !== FALSE )
+						{
+							$queries = array("DROP DATABASE ".$mysql_db['db_name'].";",
+											 "DROP USER '".$mysql_db['db_user']."'@'%';");
+							foreach( $queries as $query )
+							{
+								@$return = mysql_query($query);
+								if(!$return)
+									break;
+							}
+							mysql_close($link);
+							$db->connect($db_host,$db_user,$db_pass,$db_name,$table_prefix);
+						}
+					}
+				}
+				
+				if ( $db->removeMysqlServerDB($db_id) === FALSE )
+				{
+					$dbDeletedCount++;
+				}
+			}
+			
+			if($dbDeletedCount == count($dbsToDelete)){
+				return true;
+			}else if($dbDeletedCount > 0){
+				return 'partial';
+			}
+		}
+	}
+	
+	return false;
+}
 ?>
