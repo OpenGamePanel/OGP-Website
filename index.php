@@ -292,7 +292,7 @@ function ogpHome()
 				$login_attempts++;
 				if( $login_attempts == $settings["login_attempts_before_banned"] )
 				{
-					$banned_until = time() + 300; // Five minutes banned from the panel.
+					$banned_until = time() + (array_key_exists("login_ban_time" , $settings) && !empty($settings["login_ban_time"]) && is_numeric($settings["login_ban_time"]) ? $settings["login_ban_time"] : 300); // Five minutes or user defined setting.
 					
 					if( !$banlist_info )
 						$db->query("INSERT INTO `OGP_DB_PREFIXban_list` (`client_ip`) VALUES('$client_ip');");
