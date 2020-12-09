@@ -25,7 +25,8 @@
 define('OGP_LANG_add_mods_note', "تحتاج إضافة مودز بعد إضافة سيرفر إلى مستخدم . يمكنك عمل ذلك بتعديل السيرفر.");
 define('OGP_LANG_game_servers', "سيرفرات الألعاب");
 define('OGP_LANG_game_path', "مسار اللعبة");
-define('OGP_LANG_game_path_info', "An absolute server path. Example: /home/ogpbot/OGP_User_Files/My_Server");
+define('OGP_LANG_game_path_info', "مسار خادم مطلق. مثال:
+/home/ogpbot/OGP_User_Files/My_Server");
 define('OGP_LANG_game_server_name_info', "اسم السيرفر يساعد المستخدمين على معرفة سيرفراتهم");
 define('OGP_LANG_control_password', "التحكم في كلمة المرور");
 define('OGP_LANG_control_password_info', "كلمةالمرور هذه تستخدم للتحكم فى السيرفر . مثل كلمة السر RCON . إذا كانت خانة كلمة المرور فارغة هذا يعنى أنها مستخدمة.");
@@ -135,7 +136,7 @@ define('OGP_LANG_clone', "Clone");
 define('OGP_LANG_unassign', "Unassign");
 define('OGP_LANG_access_rights', "Access Rights");
 define('OGP_LANG_assigned_homes', "Currently Assigned Homes");
-define('OGP_LANG_assign', "Assign");
+define('OGP_LANG_assign', "تعيين");
 define('OGP_LANG_allow_updates', "Allow Game Updates");
 define('OGP_LANG_allow_updates_info', "Allows user to update the game installation if that is possible.");
 define('OGP_LANG_allow_file_management', "Allow File Management");
@@ -203,7 +204,7 @@ define('OGP_LANG_cancel', "Cancel");
 define('OGP_LANG_set_this_path', "Set this path");
 define('OGP_LANG_select_home_path', "Select home path");
 define('OGP_LANG_folder', "Folder");
-define('OGP_LANG_owner', "Owner");
+define('OGP_LANG_owner', "المالك");
 define('OGP_LANG_group', "مجموعة");
 define('OGP_LANG_level_up', "Level up");
 define('OGP_LANG_level_up_info', "Back to the previous folder.");
@@ -219,5 +220,5 @@ define('OGP_LANG_search', "Search");
 define('OGP_LANG_ftp_account_username_too_long', "FTP username is too long. Try a shorter username no longer than 20 characters.");
 define('OGP_LANG_ftp_account_password_too_long', "FTP password is too long. Try a shorter password no longer than 20 characters.");
 define('OGP_LANG_other_servers_exist_with_path_please_change', "Other homes exist with the same path. It is recommended (but not required) that you change this path to something unique. You may have problems if you do NOT.");
-define('OGP_LANG_change_access_rights_for_selected_servers', "Change access rights for selected servers");
+define('OGP_LANG_change_access_rights_for_selected_servers', "تغيير حقوق الوصول للخوادم المحددة");
 ?>
