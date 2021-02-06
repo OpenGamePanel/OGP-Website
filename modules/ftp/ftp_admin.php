@@ -203,7 +203,7 @@ function exec_ogp_module()
 									{
 										$first_pos = array_shift($value_parts);
 										$parts = preg_split('/:|-/', $first_pos);
-										if(count(array_filter($parts, 'is_numeric') === 2))
+										if(array_filter($parts, 'is_numeric') === 2)
 										{
 											$value = $first_pos;
 											$advert = implode(" ", $value_parts);

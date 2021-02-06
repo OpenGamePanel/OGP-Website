@@ -757,8 +757,8 @@ function exec_ogp_module()
 	if ( $isAdmin )
 	{
 		$master_server_home_id = $db->getMasterServer( $home_info['remote_server_id'], $home_info['home_cfg_id'] );
-		$expiration_date = !empty($home_info['server_expiration_date']) ? date( "d/m/Y H:i:s", $home_info['server_expiration_date'] ) : '';
-		
+		$expiration_date = $home_info['server_expiration_date'] != 'X' ? date( "d/m/Y H:i:s", $home_info['server_expiration_date'] ) : '';
+
 		if( $master_server_home_id != FALSE AND $master_server_home_id == $home_id )
 			$checked = 'checked ="checked"';
 		else

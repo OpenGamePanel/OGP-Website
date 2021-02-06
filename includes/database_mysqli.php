@@ -83,9 +83,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( $result === FALSE )
 			return FALSE;
 
-		if ( mysqli_num_rows($result) == 0 )
-			return FALSE;
-
 		$results = array();
 
 		while ( $row = mysqli_fetch_assoc( $result ) )

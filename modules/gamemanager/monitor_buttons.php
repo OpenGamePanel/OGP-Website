@@ -77,7 +77,7 @@ if (preg_match("/u/",$server_home['access_rights']))
 		if ( in_array($sync_name, $sync_list) OR ($master_server_home_id != FALSE and $master_server_home_id != $server_home['home_id']) )
 		{
 			$module_buttons[] = "<a class='monitorbutton' href='?m=gamemanager&amp;p=rsync_install&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."&amp;update=update'>
-				<img src='" . check_theme_image("images/rsync.png") . "' title='". rsync_install ."'>
+				<img src='" . check_theme_image("images/rsync.png") . "' title='". get_lang("rsync_install") ."'>
 				<span>". get_lang("rsync_install") ."</span>
 			</a>";
 		}
