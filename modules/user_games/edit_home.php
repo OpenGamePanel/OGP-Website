@@ -885,7 +885,7 @@ function exec_ogp_module()
 						echo "<table class='center'><tr><td align='$align'>".$assigned_rows['ip'].":".$assigned_rows['port'].
 							 " <a href='?m=user_games&p=edit&home_id=$home_id&delete_ip&ip=".
 							 $assigned_rows['ip_id']."&port=".$assigned_rows['port'].
-							 "'>[ ". delete ." ]</a></td>\n".
+							 "'>[ ". get_lang("delete") ." ]</a></td>\n".
 							 $force_mod.
 							 "</tr>\n</table>\n";
 					}
