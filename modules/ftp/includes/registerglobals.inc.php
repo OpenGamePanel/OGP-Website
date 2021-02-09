@@ -31,7 +31,7 @@ defined("NET2FTP") or die("Direct access to this location is not allowed.");
 // 1 When a variable is submitted, quotes ' are replaced by backslash-quotes \'
 // This function removes the extra backslash that is added
 // -------------------------------------------------------------------------
-if (get_magic_quotes_gpc() == 1) {
+if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() == 1) {
 	remove_magic_quotes($_POST);
 	remove_magic_quotes($_GET);
 	remove_magic_quotes($_COOKIE);
@@ -435,7 +435,7 @@ function remove_magic_quotes(&$x, $keyname="") {
 	// http://www.php.net/manual/en/configuration.php#ini.magic-quotes-gpc (by the way: gpc = get post cookie)
 	// if (magic_quotes_gpc == 1), then PHP converts automatically " --> \", ' --> \'
 	// Has only to be done when getting info from get post cookie
-	if (get_magic_quotes_gpc() == 1) {
+	if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() == 1) {
 
 		if (is_array($x)) {
 			while (list($key,$value) = each($x)) {

@@ -249,7 +249,7 @@ foreach($file_replacements as $filepath => $replacements)
 			}
 		}
 	
-		if ( get_magic_quotes_gpc() )
+		if ( get_magic_quotes_gpc_wrapper() )
 			$file_content=stripslashes($file_content);
 	}
 	//echo "<xmp>".$file_content."</xmp>";

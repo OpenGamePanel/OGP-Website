@@ -1074,4 +1074,11 @@ function deleteMysqlAddonDatabasesForGameServerHome($home_id){
 	
 	return false;
 }
+
+function get_magic_quotes_gpc_wrapper(){
+	if(function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()){
+		return true;
+	}
+	return false;
+}
 ?>
