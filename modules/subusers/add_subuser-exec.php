@@ -41,7 +41,7 @@ function exec_ogp_module()
 	//Function to sanitize values received from the form. Prevents SQL injection
 	function clean($str) {
 		$str = @trim($str);
-		if(get_magic_quotes_gpc()) {
+		if(get_magic_quotes_gpc_wrapper()) {
 			$str = stripslashes($str);
 		}
 		return $str;
