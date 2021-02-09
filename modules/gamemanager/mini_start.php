@@ -24,7 +24,7 @@
 
 $param_access_enabled = preg_match("/p/",$server_home['access_rights']) > 0 ? TRUE : FALSE;
 $extra_param_access_enabled = preg_match("/e/",$server_home['access_rights']) > 0 ? TRUE:FALSE;
-$last_param = json_decode($server_home['last_param'], True);
+$last_param = !empty($server_home['last_param']) ? json_decode($server_home['last_param'], True) : array();
 
 $isAdmin = $db->isAdmin($_SESSION['user_id']);
 

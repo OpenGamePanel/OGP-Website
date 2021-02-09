@@ -105,7 +105,8 @@ function exec_ogp_module()
 		return;
 		
 	//get used custom value or get default
-	$custom_fields = json_decode($db->getCustomFields($home_id), True);
+	$customFieldsFromDB = $db->getCustomFields($home_id);
+	$custom_fields = $customFieldsFromDB !== false ? json_decode($customFieldsFromDB, True) : array();
 		
 	$server_xml = read_server_config(SERVER_CONFIG_LOCATION.$home_info['home_cfg_file']);
 	
