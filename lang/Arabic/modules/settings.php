@@ -145,4 +145,6 @@ define('OGP_LANG_reset_game_server_order', "إعادة ترتيب سيرفر ا�
 define('OGP_LANG_reset_game_server_order_info', "إعادة ترتيب سيرفر اللعبة للرجوع إلى الافتراضي باستخدام معرف الخادم");
 define('OGP_LANG_regex_invalid_file_name_chars', "Invalid File Name Characters Regex");
 define('OGP_LANG_regex_invalid_file_name_chars_info', "Change this regex pattern if you want to allow a different set of characters in file names.");
+define('OGP_LANG_login_ban_time', "Failed Login Ban Time (Seconds)");
+define('OGP_LANG_login_ban_time_info', "Time in seconds that an IP address is banned from attempting to login to the panel after a defined number of failed login attempts.");
 ?>

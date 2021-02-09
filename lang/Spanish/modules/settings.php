@@ -156,4 +156,6 @@ define('OGP_LANG_reset_game_server_order', "Restablecer pedidos del servidor de 
 define('OGP_LANG_reset_game_server_order_info', "Restablece los pedidos del servidor de juegos al valor predeterminado de usar la ID del servidor");
 define('OGP_LANG_regex_invalid_file_name_chars', "Nombre de archivo inválido Caracteres Regex");
 define('OGP_LANG_regex_invalid_file_name_chars_info', "Cambie este patrón de expresiones regulares si desea permitir un conjunto diferente de caracteres en los nombres de archivo.");
+define('OGP_LANG_login_ban_time', "Failed Login Ban Time (Seconds)");
+define('OGP_LANG_login_ban_time_info', "Time in seconds that an IP address is banned from attempting to login to the panel after a defined number of failed login attempts.");
 ?>
