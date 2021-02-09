@@ -1,9 +1,9 @@
 <game_config>
- <game_key>quake3_linux32</game_key>
+ <game_key>quake3e_linux32</game_key>
  <protocol>lgsl</protocol>
  <lgsl_query_name>quake3</lgsl_query_name>
- <game_name>Quake 3</game_name>
- <server_exec_name>q3ded</server_exec_name>
+ <game_name>Quake 3e</game_name>
+ <server_exec_name>quake3e.ded</server_exec_name>
  <cli_template>%PUNKBUSTER% %BASE_PATH% %MASTER% %FSGAME% %IP% %PORT% %PLAYERS% +set fs_homepath {OGP_HOME_DIR} %EXEC%</cli_template>
  <cli_params>
   <cli_param id="IP" cli_string="+set net_ip" options="s" />  <cli_param id="PORT" cli_string="+set net_port" options="s" />  <cli_param id="BASE_PATH" cli_string="+set fs_basepath" options="s" />  <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
