@@ -173,8 +173,8 @@ function exec_ogp_module() {
 					foreach($value as $subkey => $subvalue )
 					{
 						echo "<tr><td><b>$subkey<b></td><td>$subvalue</td>\n";
-						
-						list($attributes,$attrvalue)=each($subvalue);
+
+						list($attributes,$attrvalue)=[key($subvalue), current($subvalue)];
 
 						foreach($attrvalue as $attrkey => $attrval)
 						{
