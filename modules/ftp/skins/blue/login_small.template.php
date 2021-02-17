@@ -20,26 +20,26 @@
 <input type="hidden" name="url"            value="<?php echo htmlEncode2($url); ?>" />
 
 <?php if (is_array($searchoptions) == true) { ?>
-<?php		while (list($key, $value) = each($searchoptions)) { ?>
+<?php		foreach ($searchoptions as $key => $value) { ?>
 <input type="hidden" name="searchoptions[<?php echo htmlEncode2($key); ?>]" value="<?php echo htmlEncode2($value); ?>" />
 <?php		} // end while ?>
 <?php	} // end if ?>
 
 <?php if (is_array($text_splitted) == true) { ?>
-<?php		while (list($key, $value) = each($text_splitted)) { ?>
+<?php		foreach ($text_splitted as $key => $value) { ?>
 <input type="hidden" name="text_splitted[<?php echo htmlEncode2($key); ?>]" value="<?php echo htmlEncode2($value); ?>" />
 <?php		} // end while ?>
 <?php	} // end if ?>
 
 <?php if (is_array($zipactions) == true) { ?>
-<?php		while (list($key, $value) = each($zipactions)) { ?>
+<?php		foreach ($zipactions as $key => $value) { ?>
 <input type="hidden" name="zipactions[<?php echo htmlEncode2($key); ?>]" value="<?php echo htmlEncode2($value); ?>" />
 <?php		} // end while ?>
 <?php	} // end if ?>
 
 <?php if (is_array($zipactions) == true) { ?>
 <?php 	for ($i=1; $i<=sizeof($list["all"]); $i++) { ?>
-<?php 		while (list($key, $value) = each($list["all"][$i])) { ?>
+<?php 		foreach ($list["all"][$i] as $key => $value) { ?>
 <input type="hidden" name="list[<?php echo $i; ?>][<?php echo htmlEncode2($key); ?>]" value="<?php echo htmlEncode2($value); ?>" />
 <?php			} // end while ?>
 <?php 	} // end for ?>

@@ -189,7 +189,7 @@ function printSkinSelect($fieldname, $onchange, $style, $class) {
 
 	echo "<select name=\"$fieldname\" id=\"$fieldname\" $onchange_full $style_full $class_full>\n";
 
-	while (list($key,$value) = each($skinArray)) {
+	foreach ($skinArray as $key => $value) {
 	// $key loops over "blue", "pastel", ...
 	// $value will be an array like $value["name"] = "Blue"
 		if ($key == $currentskin) { $selected = "selected=\"selected\""; }

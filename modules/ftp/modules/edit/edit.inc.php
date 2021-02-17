@@ -480,7 +480,7 @@ function printTextareaSelect($onchange) {
 	if ($textareaType == "" || $textareaType == "plain") { $plainselected = "selected=\"selected\""; }
 	echo "<option value=\"plain\" $plainselected>Normal textarea</option>\n";
 
-	while(list($pluginName, $value) = each($pluginProperties)) {
+	foreach ($pluginProperties as $pluginName => $value) {
 // Print only the plugins which have 'use' set to yes
 //                        which are textareas
 //                        which are suitable for this browser

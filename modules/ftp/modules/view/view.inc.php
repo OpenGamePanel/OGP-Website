@@ -240,7 +240,7 @@ function net2ftp_module_printBody() {
 			'xml' => array('xml')
 		);
 
-		while(list($language, $extensions) = each($list_language_extensions)) {
+		foreach ($list_language_extensions as $language => $extensions) {
 			if (in_array($filename_extension, $extensions)) {
 				$luminous_language = $language;
 				break;
