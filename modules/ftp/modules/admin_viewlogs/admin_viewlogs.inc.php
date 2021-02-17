@@ -263,7 +263,7 @@ function printTable($sqlquery) {
 		$row = mysql_fetch_array($result, MYSQL_ASSOC);
 		$output .= "<tr>\n";
 		$output .= "<td>Index</td>\n";
-		while(list($fieldname, $fieldvalue) = each($row) ) { $output .= "<td>$fieldname</td>\n"; }
+		foreach ($row as $fieldname => $fieldvalue) { $output .= "<td>$fieldname</td>\n"; }
 		$output .= "</tr>\n";
 		mysql_data_seek($result, 0); // reset row pointer to the first row
 
@@ -272,7 +272,7 @@ function printTable($sqlquery) {
 		while($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			$output .= "<tr>\n";
 			$output .= "<td>$rowcounter</td>\n";
-			while(list($fieldname, $fieldvalue) = each($row) ) { $output .= "<td>" . htmlEncode2($fieldvalue) . "</td>\n"; }
+			foreach ($row as $fieldname => $fieldvalue) { $output .= "<td>" . htmlEncode2($fieldvalue) . "</td>\n"; }
 			$output .= "</tr>\n";
 			$rowcounter++;
 		}

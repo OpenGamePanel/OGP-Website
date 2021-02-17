@@ -347,7 +347,7 @@ function net2ftp_module_printBody() {
 	$icon_directory = $net2ftp_globals["application_rootdir_url"] . "/skins/" . $net2ftp_globals["skin"] . "/images/mime";
 
 // Loop over all the sort possibilities
-	while(list($key, $value) = each($sortArray)) {
+	foreach ($sortArray as $key => $value) {
 
 // The list is sorted by the current $key
 // Print the icon representing the current sortorder
@@ -549,7 +549,7 @@ function sort_list($list) {
 // Fill the $return array
 // -------------------------------------------------------------------------
 	$i=1;
-	while(list($tname, $tvalue) = each($temp)) {
+	foreach ($temp as $tname => $tvalue) {
 		$return[$i] = $list[$tname];
 		$i++;
 	}

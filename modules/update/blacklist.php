@@ -88,9 +88,9 @@ function exec_ogp_module()
 		
 		foreach($_POST['folder_files'] as $file)
 		{
-			if(in_array($file,$current_blacklist))
+			if(is_array($current_blacklist) && in_array($file,$current_blacklist))
 			{
-				if(!in_array($file,$_POST['blacklist']))
+				if(is_array($_POST['blacklist']) && !in_array($file,$_POST['blacklist']))
 				{
 					$file = $db->real_escape_string($file);
 					$db->query("DELETE FROM `OGP_DB_PREFIXupdate_blacklist` WHERE file_path='$file';");
