@@ -106,7 +106,7 @@
     </param>
     <param key="-Rcon" type="checkbox_key_value">
       <caption>RCON</caption>
-      <desc>Enable RCON protocol (on server port + 10). Use tools like &lt;a href=https://sourceforge.net/projects/mcrcon/ target=_blank&gt;McRCON&lt;/a&gt; to administer your server. RCON commands can be found &lt;a href=https://docs.google.com/document/d/1GDLg5p9jjeIya7EgBk0ibzDtDlyQ-U_jpspOzby-JmM/edit#heading=h.3axd7jsvkbbk target=_blank&gt;here&lt;/a&gt;</desc>
+      <desc>Enable RCON protocol (on server port + 10). Use tools like &lt;a href=https://www.isrt.info/ target=_blank&gt;ISRT&lt;/a&gt; to administer your server. RCON commands can be found &lt;a href=https://docs.google.com/document/d/1GDLg5p9jjeIya7EgBk0ibzDtDlyQ-U_jpspOzby-JmM/edit#heading=h.3axd7jsvkbbk target=_blank&gt;here&lt;/a&gt;</desc>
     </param>
     <param key="-EnableCheats" type="checkbox_key_value">
       <caption>Cheats</caption>
