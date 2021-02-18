@@ -32,8 +32,8 @@ if($_SESSION['users_role'] != "admin")
 	$query_groups .= "group_id=0 OR group_id IS NULL)";
 }
 $addons = $db->resultQuery("SELECT addon_id FROM OGP_DB_PREFIXaddons WHERE home_cfg_id=".$server_home['home_cfg_id'].$query_groups);
-$addons_qty = count($addons);
-if($addons and $addons_qty >= 1){
+$addons_qty = $addons ? count($addons) : 0;
+if($addons && $addons_qty >= 1){
 	$module_buttons = array(
 		"<a class='monitorbutton' href='?m=addonsmanager&amp;p=user_addons&amp;home_id=".
 			$server_home['home_id']."&amp;mod_id=".$server_home['mod_id'].

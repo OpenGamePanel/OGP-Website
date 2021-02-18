@@ -638,7 +638,11 @@ class TS3webinterface
 				}
 
 				$getPublicIp = $db->resultQuery("SELECT display_public_ip FROM OGP_DB_PREFIXremote_servers WHERE remote_server_id=".$_SESSION['rserver_id']);
-				$display_ip = checkDisplayPublicIP($getPublicIp[0]['display_public_ip'],$this->serverIP);
+				if($getPublicIp){
+					$display_ip = checkDisplayPublicIP($getPublicIp[0]['display_public_ip'],$this->serverIP);
+				}else{
+					$display_ip = $this->serverIP;
+				}
 
 				$this->template->assign('IP', $this->serverIP);
 				$this->template->assign('display_public_ip', $display_ip);
@@ -832,7 +836,11 @@ class TS3webinterface
 					$this->template->assign('subusers_installed', $subusers_installed);
 
 					$getPublicIp = $db->resultQuery("SELECT display_public_ip FROM OGP_DB_PREFIXremote_servers WHERE remote_server_id=".$_SESSION['rserver_id']);
-					$display_ip = checkDisplayPublicIP($getPublicIp[0]['display_public_ip'],$this->serverIP);
+					if($getPublicIp){
+						$display_ip = checkDisplayPublicIP($getPublicIp[0]['display_public_ip'],$this->serverIP);
+					}else{
+						$display_ip = $this->serverIP;
+					}
 
 					$this->template->assign('display_public_ip', $display_ip);
 

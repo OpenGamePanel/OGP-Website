@@ -261,11 +261,13 @@ function exec_ogp_module() {
 			<select name="addon_id">
 			<?php
 			$addons = $db->resultQuery("SELECT addon_id, name FROM OGP_DB_PREFIXaddons WHERE addon_type='".$addon_type."' AND home_cfg_id=" . $home_cfg_id . $query_groups . " ORDER BY name ASC");
-			foreach($addons as $addon) 
-			{
-			?>
-			<option value="<?php echo $addon['addon_id']; ?>"><?php echo $addon['name']; ?></option>
-			<?php 
+			if($addons){
+				foreach($addons as $addon) 
+				{
+				?>
+				<option value="<?php echo $addon['addon_id']; ?>"><?php echo $addon['name']; ?></option>
+				<?php 
+				}
 			}
 			?>
 			</select>

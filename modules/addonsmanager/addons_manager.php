@@ -73,7 +73,7 @@ function exec_ogp_module() {
 	if (isset($_POST['addon_id']) && (int)$_POST['addon_id'] > 0 && isset($_POST['edit']))
 	{
 		$addons_rows = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXaddons WHERE addon_id=".(int)$_POST['addon_id']);
-		$addon_info = $addons_rows[0];
+		$addon_info = $addons_rows ? $addons_rows[0] : array();
 		$name = isset($addon_info['name']) ? $addon_info['name'] : "";
 		$url = isset($addon_info['url']) ? $addon_info['url'] : "";
 		$path = isset($addon_info['path']) ? $addon_info['path'] : "";
@@ -346,7 +346,7 @@ function exec_ogp_module() {
 	foreach($groups as $group)
 		$group_names[$group['group_id']] = $group['group_name'];
 	
-	if (isset($result) and $result > 0)
+	if (isset($result) && $result && count($result) > 0)
 	{
 		foreach($result as $row)
 		{

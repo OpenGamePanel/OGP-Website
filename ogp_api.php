@@ -113,7 +113,7 @@ if(function_exists($function))
 			$token = $_POST['token'];
 			$query = "SELECT user_id FROM ".API_TABLE." WHERE `token` = '".$db->real_escape_string($token)."';";
 			$result = $db->resultQuery($query);
-			if(isset($result[0]['user_id']))
+			if($result && isset($result[0]['user_id']))
 			{
 				$user_info = $db->getUserById($result[0]['user_id']);
 				if(isset($user_info['users_login']))
@@ -200,7 +200,7 @@ function api_token()
 		$token = isset($request[1])?$request[1]:$_POST['token'];
 		$query = "SELECT user_id FROM ".API_TABLE." WHERE `token` = '".$db->real_escape_string($token)."';";
 		$result = $db->resultQuery($query);
-		if(isset($result[0]['user_id']))
+		if($result && isset($result[0]['user_id']))
 		{
 			$user_info = $db->getUserById($result[0]['user_id']);
 			if(isset($user_info['users_login']))

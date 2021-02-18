@@ -757,7 +757,7 @@ function exec_ogp_module()
 	if ( $isAdmin )
 	{
 		$master_server_home_id = $db->getMasterServer( $home_info['remote_server_id'], $home_info['home_cfg_id'] );
-		$expiration_date = !empty($home_info['server_expiration_date']) ? date( "d/m/Y H:i:s", $home_info['server_expiration_date'] ) : '';
+		$expiration_date = !empty($home_info['server_expiration_date']) && $home_info['server_expiration_date'] != 'X' ? date( "d/m/Y H:i:s", $home_info['server_expiration_date'] ) : '';
 		
 		if( $master_server_home_id != FALSE AND $master_server_home_id == $home_id )
 			$checked = 'checked ="checked"';
@@ -801,24 +801,26 @@ function exec_ogp_module()
 				{
 					$ip_id = $db->real_escape_string($_POST['ip']);
 					$ip_row = $db->resultQuery( "SELECT ip FROM OGP_DB_PREFIXremote_server_ips WHERE ip_id=".$ip_id );
-					$ip = $ip_row['0']['ip'];
-					$port = $_POST['port'];
-					$port = (int)(trim($port));
-					$home_id = $_POST['home_id'];
+					if($ip_row !== false){
+						$ip = $ip_row['0']['ip'];
+						$port = $_POST['port'];
+						$port = (int)(trim($port));
+						$home_id = $_POST['home_id'];
 
-					if ( !isPortValid($port) ) 
-					{
-						print_failure( get_lang("port_range_error") );
-					}
-					else
-					{
-						if ( $db->addGameIpPort($home_id, $ip_id, $port) === FALSE )
+						if ( !isPortValid($port) ) 
 						{
-							print_failure(get_lang_f('ip_port_already_in_use', $ip, $port));
+							print_failure( get_lang("port_range_error") );
 						}
-						else {
-							print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
-							$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
+						else
+						{
+							if ( $db->addGameIpPort($home_id, $ip_id, $port) === FALSE )
+							{
+								print_failure(get_lang_f('ip_port_already_in_use', $ip, $port));
+							}
+							else {
+								print_success(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
+								$db->logger(get_lang_f('successfully_assigned_ip_port_to_server_id', $ip, $port, $home_id));
+							}
 						}
 					}
 				}

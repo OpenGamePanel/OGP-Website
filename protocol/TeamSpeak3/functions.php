@@ -175,7 +175,7 @@ try
 									</form></td></tr>";
 
 			$ts3vservers = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXts3_homes WHERE vserver_id='".$ts3_ServerInstance->getId()."' AND rserver_id=".$server_home['remote_server_id'] );
-			if($ts3vservers != 0)
+			if($ts3vservers)
 			{
 				$ts3vuserlist = "<b>TeamSpeak 3</b><br>";
 				foreach($ts3vservers as $ts3vserver)
