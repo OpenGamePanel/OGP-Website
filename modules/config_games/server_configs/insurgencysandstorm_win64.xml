@@ -1,10 +1,10 @@
 <game_config> 
-  <game_key>insurgencysandstorm_linux64</game_key>
+  <game_key>insurgencysandstorm_win64</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>sandstorm</lgsl_query_name>
   <installer>steamcmd</installer>
   <game_name>Insurgency: Sandstorm</game_name>
-  <server_exec_name>InsurgencyServer-Linux-Shipping</server_exec_name>
+  <server_exec_name>InsurgencyServer-Win64-Shipping.exe</server_exec_name>
   <cli_template>%MAP%%SCENARIO%%PLAYERS%%PASSWORD% %PORT% %QUERY_PORT% %SERVERNAME% %MAPCYCLE% %CONTROL_PASSWORD% %RCON_PORT%</cli_template>
   <cli_params>
     <cli_param id="MAP" cli_string="" />
@@ -18,7 +18,8 @@
   </reserve_ports>
   <cli_allow_chars>[]</cli_allow_chars>
   <map_list>maplist.txt</map_list>
-  <exe_location>Insurgency/Binaries/Linux/</exe_location>
+  <console_log>Insurgency/Saved/Logs/Insurgency.log</console_log>
+  <exe_location>Insurgency/Binaries/Win64/</exe_location>
   <max_user_amount>32</max_user_amount>
   <mods>
     <mod key="sandstorm">
@@ -35,7 +36,7 @@
     </param>
     <param key="-GameStats" type="checkbox_key_value">
       <caption>Game Stats</caption>
-      <desc>Enable Game Stats</desc>
+      <desc>Enable Game Stats (requires a valid GSLToken</desc>
     </param>
     <param key="-mutators=" type="text">
       <caption>Mutators</caption>
@@ -148,33 +149,42 @@
 		echo "Generating new admins list in $admins"
 		touch Insurgency/Config/Server/Admins.txt
 		fi
-		configG="Insurgency/Saved/Config/LinuxServer/Game.ini"
+		mods="Insurgency/Config/Server/Mods.txt"
+		if [ -s "$mods" ]
+		then
+		echo "File $mods found. OK!"
+		else
+		echo "File $mods not found"
+		echo "Generating new admins list in $mods"
+		touch Insurgency/Config/Server/Mods.txt
+		fi
+		configG="Insurgency/Saved/Config/WindowsServer/Game.ini"
 		if [ -s "$configG" ]
 		then
 		echo "File $configG found. OK!"
 		else
 		echo "File $configG not found"
 		echo "Generating new default config file in $configG"
-		mkdir -p Insurgency/Saved/Config/LinuxServer/
-		touch Insurgency/Saved/Config/LinuxServer/Game.ini
+		mkdir -p Insurgency/Saved/Config/WindowsServer/
+		touch Insurgency/Saved/Config/WindowsServer/Game.ini
 		fi
-		configE="Insurgency/Saved/Config/LinuxServer/Engine.ini"
+		configE="Insurgency/Saved/Config/WindowsServer/Engine.ini"
 		if [ -s "$configE" ]
 		then
 		echo "File $configE found. OK!"
 		else
 		echo "File $configE not found"
 		echo "Generating new default config file in $configE"
-		mkdir -p Insurgency/Saved/Config/LinuxServer/
-		touch Insurgency/Saved/Config/LinuxServer/Engine.ini
+		mkdir -p Insurgency/Saved/Config/WindowsServer/
+		touch Insurgency/Saved/Config/WindowsServer/Engine.ini
 		echo "[/Script/ModKit.ModIOClient]
 bHasUserAcceptedTerms=True
 AccessToken=TOKEN HERE" > $configE
 		fi
 	</post_install>
 	<configuration_files>
-		<file description="Server Configs">Insurgency/Saved/Config/LinuxServer/Game.ini</file>
-		<file description="Engine Configs">Insurgency/Saved/Config/LinuxServer/Engine.ini</file>
+		<file description="Game Configs">Insurgency/Saved/Config/WindowsServer/Game.ini</file>
+		<file description="Engine Configs">Insurgency/Saved/Config/WindowsServer/Engine.ini</file>
 		<file description="Custom Map Cycle">Insurgency/Config/Server/MapCycleCustom.txt</file>
 		<file description="Admins List">Insurgency/Config/Server/Admins.txt</file>
 		<file description="Bans List">Insurgency/Config/Server/Bans.json</file>
