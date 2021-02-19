@@ -25,6 +25,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy"			=> "Americas Army",
 		"aarmy3"		=> "Americas Army 3",
 		"aliensvspredator"	=> "Aliens vs Predator",
+		"altv"			=> "Alt:V",
 		"arcasimracing"	=> "Arca Sim Racing",
 		"arkse"			=> "ARK: Survival Evolved",
 		"arma"			=> "ArmA: Armed Assault",
@@ -187,6 +188,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy_"		=> "03",
 		"aarmy3"		=> "26",
 		"aliensvspredator"	=> "31",
+		"altv"			=> "44",	
 		"arcasimracing"	=> "16",
 		"arkse"			=> "05",
 		"arma"			=> "09",
@@ -357,6 +359,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy"			=> "qtracker://{IP}:{S_PORT}?game=ArmyOperations&action=show",
 		"aarmy3"		=> "qtracker://{IP}:{S_PORT}?game=AmericasArmy3&action=show",
 		"aliensvspredator"	=> "steam://connect/{IP}:{Q_PORT}",
+		"altv"			=> "altv://connect/?ip={IP}:{S_PORT}",	
 		"arcasimracing"	=> "http://en.wikipedia.org/wiki/ARCA_Sim_Racing",
 		"arkse"			=> "steam://connect/{IP}:{Q_PORT}",
 		"arma"			=> "qtracker://{IP}:{S_PORT}?game=ArmedAssault&action=show",
@@ -4408,6 +4411,41 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			return true;
 		} 
     }
+
+//------------------------------------------------------------------------------------------------------------+
+//------------------------------------------------------------------------------------------------------------+
+	function lgsl_query_44(&$server, &$lgsl_need, &$lgsl_fp)
+       {
+	//---------------------------------------------------------+
+	//  Check alt:V master server list
+	$url ="https://api.altv.mp/servers/list/";
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt ($ch, CURLOPT_TIMEOUT, 5);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	$data = curl_exec($ch);
+	curl_close($ch);
+	// Test if list contains $ip:$port 
+	$ip = $server['b']['ip'];
+	$port = $server['b']['c_port'];
+	$xserver = "\"host\":\"$ip\",\"port\":$port";
+	if(strpos($data, $xserver) !== false) {
+		$xdatas = json_decode($data, true);
+		$key = -1;
+		foreach ($xdatas as $xdata) {
+			$key++;
+			if ($xdata["host"] == $ip && $xdata["port"] == $port) {
+				// Extract info
+				$server['s']['name'] = $xdatas[$key]["name"];
+				$server['s']['map'] = $xdatas[$key]["gameMode"];
+				$server['s']['players'] = $xdatas[$key]["players"];
+				$server['s']['playersmax'] = $xdatas[$key]["maxPlayers"];
+				return true;
+			}
+		}
+	}
+  }
 
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
