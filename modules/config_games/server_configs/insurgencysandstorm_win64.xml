@@ -29,14 +29,23 @@
     </mod>
   </mods>
   <server_params>
+    <param key="-GameStatsToken=" type="text">
+      <caption>Game Stats Token</caption>
+      <desc>Visit the GameStats Token Generator and authenticate through your Stream profile &lt;a href=https://gamestats.sandstorm.game/ target=_blank&gt;here&lt;/a&gt;</desc>
+      <option>ns</option>
+    </param>
     <param key="-GSLTToken=" type="text">
-      <caption>Game Server Login Token</caption>
+      <caption>Steam Game Server Login Token</caption>
       <desc>Manage your tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
       <option>ns</option>
     </param>
     <param key="-GameStats" type="checkbox_key_value">
       <caption>Game Stats</caption>
-      <desc>Enable Game Stats (requires a valid GSLToken</desc>
+      <desc>Enable Game Stats (requires valid tokens)</desc>
+    </param>
+    <param key="-ruleset=OfficialRules" type="checkbox_key_value">
+      <caption>Official Rules</caption>
+      <desc>Enable official rules (this locks down the options you can change on your server)</desc>
     </param>
     <param key="-mutators=" type="text">
       <caption>Mutators</caption>
