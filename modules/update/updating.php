@@ -194,7 +194,7 @@ function exec_ogp_module()
 								$overwritten_files .= $filenameLocal . "<br>";
 								$overwritten++;
 							}else{
-								$newResult["ignored_files"][$i2]["filename"] = $filenameLocal;
+								$newResult["ignored_files"][$i2] = $filenameLocal;
 								$i2++;
 							}
 						}
@@ -210,7 +210,7 @@ function exec_ogp_module()
 						$new_files .= $filenameLocal . "<br>";
 						$new++;
 					}else{
-						$newResult["ignored_files"][$i2]["filename"] = $filenameLocal;
+						$newResult["ignored_files"][$i2] = $filenameLocal;
 						$i2++;
 					}
 				}
