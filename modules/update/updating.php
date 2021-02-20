@@ -121,7 +121,6 @@ function exec_ogp_module()
 		$overwritten = 0;
 		$new = 0;
 		$all_writable = TRUE;
-		$filelist = "";
 		$overwritten_files = "";
 		$new_files = "";
 		
@@ -151,7 +150,6 @@ function exec_ogp_module()
 			// Check file by file if already exists, if it matches, compares both files 
 			// looking for changes determining if the file needs to be updated.
 			// Also determines if the file is writable
-			$filelist = array();
 			$i = 0;
 			foreach( $result['extracted_files'] as $file )
 			{
@@ -175,7 +173,7 @@ function exec_ogp_module()
 							}
 							else
 							{
-								$filelist[$i] = $file['filename'];
+								copy($temp_file, $web_file);
 								$i++;
 								$overwritten_files .= $filename . "<br>";
 								$overwritten++;
@@ -183,7 +181,7 @@ function exec_ogp_module()
 						}
 						else
 						{
-							$filelist[$i] = $file['filename'];
+							copy($temp_file, $web_file);
 							$i++;
 							if( !in_array( $filename, $blacklist  ) )
 							{
@@ -195,7 +193,7 @@ function exec_ogp_module()
 				}
 				else
 				{	
-					$filelist[$i] = $file['filename'];
+					copy($temp_file, $web_file);
 					$i++;
 					if( !in_array( $filename, $blacklist  ) )
 					{
@@ -219,9 +217,6 @@ function exec_ogp_module()
 		
 		if( $all_writable )
 		{
-			// Extract the files that are set in $filelist, to the folder at $baseDir and removes 'upload' from the beginning of the path.
-
-			$result = extractZip( $temp_dwl, preg_replace("/\/$/","",$baseDir), $unwanted_path, $blacklist, $filelist );
 			if( is_array( $result['ignored_files'] ) and !empty( $result['ignored_files'] ) )
 			{
 				print_failure(get_lang_f('ignored_files',count($result['ignored_files'])));
