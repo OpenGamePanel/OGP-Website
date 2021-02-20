@@ -233,7 +233,7 @@ function exec_ogp_module()
 			if( is_array( $newResult['ignored_files'] ) and !empty( $newResult['ignored_files'] ) )
 			{
 				print_failure(get_lang_f('ignored_files',count($newResult['ignored_files'])));
-				echo get_lang_f("not_updated_files_blacklisted", implode("<br>", $result['ignored_files']) );
+				echo get_lang_f("not_updated_files_blacklisted", implode("<br>", $newResult['ignored_files']) );
 				echo "<br><br><br>";
 			}
 			if( is_array( $newResult['extracted_files'] ) )
