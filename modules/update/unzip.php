@@ -125,4 +125,54 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = ''
 	}
 	return "${zipFile} is corrupt.\n";
 }
+
+function extractZipGitUpdateFile( $zipFile, $extract_path)
+{
+
+	if(!file_exists($extract_path))
+	{
+		return "Destination path (${extract_path}) does not exists.\n";
+	}
+
+	if(!is_writable($extract_path))
+	{
+		return "Can't extract to ${extract_path}, not writable.\n";
+	}
+
+	if($zipFile == '' or $extract_path == '')
+		return "Invalid arguments.\n";
+	if( ! file_exists( $zipFile ) )
+		return "Unable to read ${zipFile}.\n";
+
+	$zip = new ZipArchive; 
+	if ($zip)
+	{
+		if ($zip->open($zipFile) === TRUE) 
+		{ 
+			$zip->extractTo($extract_path);
+			$zip->close();
+		}
+	
+		$extracted_files = array();
+		$ignored_files = array();
+		
+		// Construct the iterator
+		$it = new RecursiveDirectoryIterator($extract_path);
+
+		// Loop through files
+		foreach(new RecursiveIteratorIterator($it) as $file) {
+			$filename = $file->getPathname();
+			$filenameRelative = $file->getFilename();
+			
+			if($filenameRelative == ".." || $filenameRelative == "."){
+				continue;
+			}
+				
+			$file_path_no_extract = preg_replace( "#$extract_path/#", "", $filename  );
+			
+			$extracted_files[$i]['filename'] = $file_path_no_extract;
+		}
+	}
+	return "${zipFile} is corrupt.\n";
+}
 ?>
