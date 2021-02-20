@@ -55,7 +55,6 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = ''
 			for($j = 0; $j < $zip->numFiles; $j++) 
 			{ 
 				$filename = $zip->getNameIndex($j);
-				$isDir = (substr($filename, -1, 1) == '/');
 				$file_path = preg_replace( "/$remove_path/", "", $filename  );
 				$dir_path = preg_replace( "/$remove_path/", "", dirname( $filename ) );
 
@@ -103,15 +102,9 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = ''
 				{
 					if ( ! preg_match( "/\/$/", $completeName) )
 					{
-						if ( $fd = fopen($completeName, 'w+'))
-						{
-							$fp = $zip->getStream($filename);
-							if($fp){
-								fwrite($fd, stream_get_contents($fp));
-								$extracted_files[$i]['filename'] = $filename;
-								$i++;
-							}
-							fclose($fd);
+						if($zip->extractTo($completeName, $filename)){
+							$extracted_files[$i]['filename'] = $filename;
+							$i++;
 						}
 						else
 						{
