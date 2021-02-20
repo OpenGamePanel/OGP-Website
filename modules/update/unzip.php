@@ -160,6 +160,7 @@ function extractZipGitUpdateFile( $zipFile, $extract_path)
 		$it = new RecursiveDirectoryIterator($extract_path);
 
 		// Loop through files
+		$i = 0;
 		foreach(new RecursiveIteratorIterator($it) as $file) {
 			$filename = $file->getPathname();
 			$filenameRelative = $file->getFilename();
@@ -171,6 +172,7 @@ function extractZipGitUpdateFile( $zipFile, $extract_path)
 			$file_path_no_extract = preg_replace( "#$extract_path/#", "", $filename  );
 			
 			$extracted_files[$i]['filename'] = $file_path_no_extract;
+			$i++;
 		}
 	}
 	return "${zipFile} is corrupt.\n";
