@@ -151,13 +151,14 @@ function exec_ogp_module()
 			// looking for changes determining if the file needs to be updated.
 			// Also determines if the file is writable
 			$i = 0;
+			$i2 = 0;
 			
 			$newResult = array('ignored_files' => array(), 'extracted_files' => array());
 			
 			foreach( $result['extracted_files'] as $file )
 			{
 				$filename = $file['filename'];	
-				$filenameLocal = str_replace( $unwanted_path, "" , $file['filename'] );
+				$filenameLocal = str_replace( $unwanted_path, "" , $filename );
 				$temp_file = $extract_path . DIRECTORY_SEPARATOR . $filename;
 				$web_file = $baseDir . $filenameLocal;
 
@@ -179,7 +180,7 @@ function exec_ogp_module()
 							{
 								copy($temp_file, $web_file);
 								$i++;
-								$overwritten_files .= $filename . "<br>";
+								$overwritten_files .= $filenameLocal . "<br>";
 								$overwritten++;
 							}
 						}
@@ -190,10 +191,11 @@ function exec_ogp_module()
 								$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
 								copy($temp_file, $web_file);
 								$i++;
-								$overwritten_files .= $filename . "<br>";
+								$overwritten_files .= $filenameLocal . "<br>";
 								$overwritten++;
 							}else{
-								$newResult["ignored_files"][$i]["filename"] = $filenameLocal;
+								$newResult["ignored_files"][$i2]["filename"] = $filenameLocal;
+								$i2++;
 							}
 						}
 					}
@@ -205,10 +207,11 @@ function exec_ogp_module()
 						$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
 						copy($temp_file, $web_file);
 						$i++;
-						$new_files .= $filename . "<br>";
+						$new_files .= $filenameLocal . "<br>";
 						$new++;
 					}else{
-						$newResult["ignored_files"][$i]["filename"] = $filenameLocal;
+						$newResult["ignored_files"][$i2]["filename"] = $filenameLocal;
+						$i2++;
 					}
 				}
 			}
