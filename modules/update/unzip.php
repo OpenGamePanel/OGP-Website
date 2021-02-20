@@ -174,6 +174,8 @@ function extractZipGitUpdateFile( $zipFile, $extract_path)
 			$extracted_files[$i]['filename'] = $file_path_no_extract;
 			$i++;
 		}
+		
+		return array('ignored_files' => $ignored_files, 'extracted_files' => $extracted_files);
 	}
 	return "${zipFile} is corrupt.\n";
 }
