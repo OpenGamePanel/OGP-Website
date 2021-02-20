@@ -52,9 +52,9 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = ''
 		$ignored_files = array();
 		if ($zip->open($zipFile) === TRUE) 
 		{ 
-			for($i = 0; $i < $zip->numFiles; $i++) 
+			for($j = 0; $j < $zip->numFiles; $j++) 
 			{ 
-				$filename = $zip->getNameIndex($i);
+				$filename = $zip->getNameIndex($j);
 				$isDir = (substr($filename, -1, 1) == '/');
 				$file_path = preg_replace( "/$remove_path/", "", $filename  );
 				$dir_path = preg_replace( "/$remove_path/", "", dirname( $filename ) );
