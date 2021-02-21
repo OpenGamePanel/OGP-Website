@@ -164,6 +164,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ut2003"		=> "Unreal Tournament 2003",
 		"ut2004"		=> "Unreal Tournament 2004",
 		"ut3"			=> "Unreal Tournament 3",
+		"valheim"               => "Valheim",	
 		"vbox"			=> "VirtualBox",
 		"vcmp"			=> "Vice City Multiplayer",
 		"vietcong"		=> "Vietcong",
@@ -336,6 +337,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ut2004"		=> "13",
 		"ut2004_"		=> "03",
 		"ut3"			=> "11",
+		"valheim"               => "05",	
 		"vbox"			=> "38",
 		"vcmp"			=> "12",
 		"vietcong"		=> "03",
@@ -497,6 +499,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ut2003"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2003&action=show",
 		"ut2004"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2004&action=show",
 		"ut3"			=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament3&action=show",
+		"valheim"               => "steam://connect/{IP}:{Q_PORT}",	
 		"vcmp"			=> "http://vc-mp.org",
 		"vietcong"		=> "qtracker://{IP}:{S_PORT}?game=Vietcong&action=show",
 		"vietcong2"		=> "qtracker://{IP}:{S_PORT}?game=Vietcong2&action=show",
@@ -601,6 +604,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "ut2004"			: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 10;	break;
 			case "ut2004_"			: $c_to_q = 10;		$c_def = 7777;	$q_def = 7787;	$c_to_s = 0;	break;
 			case "ut3"				: $c_to_q = -1277;	$c_def = 7777;	$q_def = 6500;	$c_to_s = 0;	break;
+			case "valheim"                  : $c_to_q = 1;       $c_def = 7351;   $q_def = 27015;   $c_to_s = 0;   break;	
 			case "vietcong"			: $c_to_q = 10000;	$c_def = 5425;	$q_def = 15425;	$c_to_s = 0;	break;
 			case "vietcong2"		: $c_to_q = 0;		$c_def = 5001;	$q_def = 19967;	$c_to_s = 0;	break;
 			case "wreckfest"		: $c_to_q = -6524;	$c_def = 33540;	$q_def = 27016;	$c_to_s = 0;	break;
