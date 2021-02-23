@@ -5,11 +5,11 @@
  <installer>steamcmd</installer>
  <game_name>Valheim</game_name>
  <server_exec_name>valheim_server.x86_64</server_exec_name>
- <cli_template>-name %HOSTNAME% %PORT% %HOME_PATH% %WORLD% %PASSWORD% -public= 1 </cli_template>
+ <cli_template>-name %HOSTNAME% %PORT% %HOME_PATH% %WORLD% %PASSWORD% -public=1</cli_template>
  <cli_params>
   <cli_param options="s" cli_string="-savedir" id="HOME_PATH"/>
-  <cli_param id="PORT" cli_string="-port "  />
-  <cli_param id="HOSTNAME" cli_string="" options="q" />
+  <cli_param id="PORT" cli_string="-port"/>
+  <cli_param id="HOSTNAME" cli_string="" options="q"/>
  </cli_params>
 <max_user_amount>10</max_user_amount>
  <mods>
