@@ -1,0 +1,62 @@
+<game_config>
+  <game_key>postscriptum_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>postscriptum</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Post Scriptum</game_name>
+  <server_exec_name>PostScriptumServer.exe</server_exec_name>
+  <cli_template>%PORT% %QUERY_PORT% -log</cli_template>
+  <cli_params>
+    <cli_param id="PORT" cli_string="Port=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="QueryPort=">10</port>
+  </reserve_ports>
+  <console_log>PostScriptum/Saved/Logs/PostScriptum.log</console_log>
+  <max_user_amount>80</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>746200</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="ip">
+      <default>Ip=.*</default>
+      <var>Ip=</var>
+      <filepath>PostScriptum/ServerConfig/Rcon.cfg</filepath>
+    </text>
+    <text key="control_password">
+      <default>Password=.*</default>
+      <var>Password=</var>
+      <filepath>PostScriptum/ServerConfig/Rcon.cfg</filepath>
+    </text>
+    <text key="max_players">
+      <default>MaxPlayers=.*</default>
+      <var>MaxPlayers=</var>
+      <filepath>PostScriptum/ServerConfig/Server.cfg</filepath>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="RCON Port" type="text">
+      <default>Port=.*</default>
+      <default_value>21114</default_value>
+      <var>Port=</var>
+      <filepath>PostScriptum/ServerConfig/Rcon.cfg</filepath>
+      <access>admin</access>
+      <desc>Sets the port to RCON.</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+    sed -i '4s/IP/Ip/g' PostScriptum/ServerConfig/Rcon.cfg
+  </post_install>
+  <configuration_files>
+    <file description="Server Configurations">PostScriptum/ServerConfig/Server.cfg</file>
+    <file description="RCON Configurations">PostScriptum/ServerConfig/Rcon.cfg</file>
+    <file description="Admin Configurations">PostScriptum/ServerConfig/Admins.cfg</file>
+    <file description="Map Rotation Configurations">PostScriptum/ServerConfig/MapRotation.cfg</file>
+    <file description="Map Vote Configurations">PostScriptum/ServerConfig/MapVoting.cfg</file>
+    <file description="Server Messages Configurations">PostScriptum/ServerConfig/ServerMessages.cfg</file>
+  </configuration_files>
+</game_config>
