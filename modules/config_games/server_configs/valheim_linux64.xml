@@ -7,7 +7,7 @@
  <server_exec_name>valheim_server.x86_64</server_exec_name>
  <cli_template>%HOSTNAME% %PORT% %HOME_PATH% %WORLD% %PASSWORD% -public=1</cli_template>
  <cli_params>
-  <cli_param options="s" cli_string="-savedir" id="HOME_PATH"/>
+  <cli_param options="sq" cli_string="-savedir" id="HOME_PATH"/>
   <cli_param id="PORT" cli_string="-port" options="s"/>
   <cli_param id="HOSTNAME" cli_string="-name" options="sq"/>
  </cli_params>
@@ -20,15 +20,13 @@
   </mod>
  </mods>
 <server_params>
- <param id="WORLD" key="-world " type="text">
+ <param id="WORLD" key="-world" type="text">
 <default>Dedicated</default>
-<option>q</option>
  <caption>Server World</caption>
  <desc>Save/Load this world</desc>
  </param>
- <param id="PASSWORD" key="-password " type="text">
+ <param id="PASSWORD" key="-password" type="text">
 <default>changeme</default>
-<option>q</option>
  <caption>Server Password</caption>
  <desc>Require password to join server</desc>
  </param>
