@@ -8,7 +8,7 @@
  <cli_template>%HOSTNAME% %PORT% %HOME_PATH% %WORLD% %PASSWORD% -public=1</cli_template>
  <cli_params>
   <cli_param options="s" cli_string="-savedir" id="HOME_PATH"/>
-  <cli_param id="PORT" cli_string="-port"/>
+  <cli_param id="PORT" cli_string="-port" options="s"/>
   <cli_param id="HOSTNAME" cli_string="-name" options="sq"/>
  </cli_params>
 <max_user_amount>10</max_user_amount>
