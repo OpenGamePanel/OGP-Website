@@ -1,0 +1,48 @@
+<game_config>
+  <game_key>beyondthewire_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>beyondthewire</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Beyond the Wire</game_name>
+  <server_exec_name>WireGameServer.exe</server_exec_name>
+  <cli_template>%PORT% %QUERY_PORT% %PLAYERS% %TICKRATE% %MAP% -log</cli_template>
+  <cli_params>
+    <cli_param id="PORT" cli_string="Port=" />
+    <cli_param id="PLAYERS" cli_string="FIXEDMAXPLAYERS=" />
+  </cli_params>
+  <reserve_ports>
+    <port type="add" id="QUERY_PORT" cli_string="QueryPort=">19278</port>
+  </reserve_ports>
+  <console_log>WireGame/Saved/Logs/WireGame.log</console_log>
+  <max_user_amount>100</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>1064780</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <server_params>
+  <param key="FIXEDMAXTICKRATE=" type="text" id="TICKRATE">
+      <default>35</default>
+      <options>ns</options>
+      <desc>MAX server tickrate.</desc>
+    </param>
+  <param key="RANDOM=" type="select" id="MAP">
+      <option value="ALWAYS">Always</option>
+      <option value="FIRST">First</option>
+      <option value="NONE">None</option>
+      <options>ns</options>
+      <desc>Randomize map rotation.</desc>
+    </param>
+  </server_params>
+  <configuration_files>
+    <file description="Server Configurations">WireGame/ServerConfig/Server.cfg</file>
+    <file description="MOTD - Message of the day">WireGame/ServerConfig/MOTD.cfg</file>
+    <!--<file description="RCON Configurations">WireGame/ServerConfig/Rcon.cfg</file>-->
+    <file description="Admin Configurations">WireGame/ServerConfig/Admins.cfg</file>
+    <file description="Map Rotation Configurations">WireGame/ServerConfig/MapRotation.cfg</file>
+    <file description="Server Messages Configurations">WireGame/ServerConfig/ServerMessages.cfg</file>
+    <file description="License Configurations">WireGame/ServerConfig/License.cfg</file>
+  </configuration_files>
+</game_config>
