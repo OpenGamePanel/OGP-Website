@@ -37,6 +37,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"atlas"			=> "Atlas",
 		"avorion"		=> "Avorion",
 		"avp2"			=> "Aliens VS. Predator 2",
+		"beyondthewire"	=> "Beyond the Wire",
 		"bfbc2"			=> "Battlefield Bad Company 2",
 		"bfvietnam"		=> "Battlefield Vietnam",
 		"bf1942"		=> "Battlefield 1942",
@@ -201,6 +202,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"atlas"			=> "05",
 		"avorion"		=> "05",
 		"avp2"			=> "03",
+		"beyondthewire"	=> "05",
 		"bfbc2"			=> "30",
 		"bfvietnam"		=> "09",
 		"bf1942"		=> "03",
@@ -373,6 +375,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"atlas"			=> "steam://connect/{IP}:{Q_PORT}",
 		"avorion"		=> "steam://connect/{IP}:{S_PORT}",
 		"avp2"			=> "qtracker://{IP}:{S_PORT}?game=AliensversusPredator2&action=show",
+		"beyondthewire"	=> "steam://connect/{IP}:{S_PORT}",
 		"bfbc2"			=> "http://en.wikipedia.org/wiki/Battlefield_bad_company_2",
 		"bfvietnam"		=> "qtracker://{IP}:{S_PORT}?game=BattlefieldVietnam&action=show",
 		"bf1942"		=> "qtracker://{IP}:{S_PORT}?game=Battlefield1942&action=show",
@@ -539,6 +542,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "arma3"			: $c_to_q = 1; 		$c_def = 2302; 	$q_def = 2303; 	$c_to_s = 0; 	break;
 			case "atlas"			: $c_to_q = 51800;	$c_def = 5761;	$q_def = 57561;	$c_to_s = 0;	break;
 			case "avorion"			: $c_to_q = 20; 	$c_def = 27000;	$q_def = 27020; $c_to_s = 0;  	break;
+			case "beyondthewire"	: $c_to_q = 19278; 	$c_def = 7777; 	$q_def = 27055; $c_to_s = 0;  	break;
 			case "bfbc2"			: $c_to_q = 0;		$c_def = 19567;	$q_def = 48888;	$c_to_s = 0;	break;
 			case "bfvietnam"		: $c_to_q = 0;		$c_def = 15567;	$q_def = 23000;	$c_to_s = 0;	break;
 			case "bf1942"			: $c_to_q = 0;		$c_def = 14567;	$q_def = 23000;	$c_to_s = 0;	break;
