@@ -1,0 +1,38 @@
+<game_config>
+ <game_key>valheim_win64</game_key>
+ <protocol>lgsl</protocol>
+ <lgsl_query_name>valheim</lgsl_query_name>
+ <installer>steamcmd</installer>
+ <game_name>Valheim</game_name>
+ <server_exec_name>valheim_server.exe</server_exec_name>
+ <cli_template>%HOSTNAME% %PORT% %HOME_PATH% %WORLD% %PASSWORD% -public=1</cli_template>
+ <cli_params>
+  <cli_param options="sq" cli_string="-savedir" id="HOME_PATH"/>
+  <cli_param id="PORT" cli_string="-port" options="s"/>  
+  <cli_param id="HOSTNAME" cli_string="-name" options="sq"/>
+ </cli_params>
+<console_log>logs/connection_log_29615.txt</console_log>
+<max_user_amount>10</max_user_amount>
+ <mods>
+ <mod>
+   <name>none</name>
+   <installer_name>896660</installer_name>
+   <installer_login>anonymous</installer_login>
+  </mod>
+ </mods>
+<server_params>
+<param id="WORLD" key="-world" type="text">
+ <default>Dedicated</default>
+ <caption>Server World</caption>
+ <desc>Save/Load this world</desc>
+</param>
+<param id="PASSWORD" key="-password" type="text">
+ <default>changeme</default>
+ <caption>Server Password</caption>
+ <desc>Require password to join server</desc>
+ </param>
+</server_params>
+<environment_variables>
+export SteamAppId=892970
+</environment_variables>
+</game_config>
