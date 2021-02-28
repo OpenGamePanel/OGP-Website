@@ -46,7 +46,7 @@
     </text>
   </replace_texts>
    <custom_fields>
-    <field key="announce" type="text">
+    <field key="announce" type="select">
       <default>announce.*</default>
       <option value="false">False</option>
       <option value="true">True</option>
