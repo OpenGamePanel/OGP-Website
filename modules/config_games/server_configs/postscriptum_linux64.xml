@@ -5,7 +5,7 @@
   <installer>steamcmd</installer>
   <game_name>Post Scriptum</game_name>
   <server_exec_name>PostScriptumServer</server_exec_name>
-  <cli_template>%PORT% %QUERY_PORT% %IP% -fullcrashdump -log</cli_template>
+  <cli_template>%PORT% %QUERY_PORT% %IP% -log</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="MultiHome=" />
     <cli_param id="PORT" cli_string="Port=" />

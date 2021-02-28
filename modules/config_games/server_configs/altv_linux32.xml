@@ -1,0 +1,87 @@
+<game_config>
+  <game_key>altv_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>altv</lgsl_query_name>
+  <installer>steamcmd</installer>
+  <game_name>Alt:V</game_name>
+  <server_exec_name>altv-server</server_exec_name> 
+  <max_user_amount>1000</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+      <installer_name>0</installer_name>
+      <installer_login>anonymous</installer_login>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>name:.*</default>
+      <var>name:</var>
+      <filepath>server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>password:.*</default>
+      <var>password:</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="max_players">
+      <default>players:.*</default>
+      <var>players:</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+    <text key="port">
+      <default>port:.*</default>
+      <var>port:</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+	<text key="ip">
+      <default>host:.*</default>
+      <var>host:</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+    </text>
+  </replace_texts>
+   <custom_fields>
+    <field key="announce" type="text">
+      <default>announce.*</default>
+      <option value="false">False</option>
+      <option value="true">True</option>
+      <default_value>true</default_value>
+	  <var>announce:</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+      <desc>Report to Alt:V official Master Server List. This enables server query in OGP.</desc>
+    </field>
+      <field key="token" type="text">
+      <default>token.*</default>
+      <default_value></default_value>
+	  <var>token:</var>
+      <filepath>server.cfg</filepath>
+      <options>s</options>
+      <desc>Ask @Master-Bot#3667 for masterlist token on Discord: &lt;a target="_blank" href="https://discord.com/invite/yQvKgSs/"&gt;https://discord.com/invite/yQvKgSs/&lt;/a&gt; and remove # from server.cfg</desc>
+    </field>
+  </custom_fields>
+  <post_install>
+   wget -O 'update.sh' 'https://raw.githubusercontent.com/Lhoerion/altv-serverupdater/master/update.sh'
+   #Set executable permission
+   chmod +x update.sh
+   ./update.sh
+   #Remove files
+   rm -f update.sh
+   rm -f update.cfg
+   rm -f update.log
+   # Set executable permission
+   chmod +x altv-server
+  </post_install>
+  <environment_variables>
+    BASEDIR=$(dirname $0)
+    export LD_LIBRARY_PATH=${BASEDIR}
+   </environment_variables>
+  <configuration_files>
+    <file description="Main Config File">server.cfg</file>
+  </configuration_files>
+</game_config>

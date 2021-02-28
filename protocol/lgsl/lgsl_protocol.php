@@ -25,6 +25,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy"			=> "Americas Army",
 		"aarmy3"		=> "Americas Army 3",
 		"aliensvspredator"	=> "Aliens vs Predator",
+		"altv"			=> "Alt:V",
 		"arcasimracing"	=> "Arca Sim Racing",
 		"arkse"			=> "ARK: Survival Evolved",
 		"arma"			=> "ArmA: Armed Assault",
@@ -36,6 +37,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"atlas"			=> "Atlas",
 		"avorion"		=> "Avorion",
 		"avp2"			=> "Aliens VS. Predator 2",
+		"beyondthewire"	=> "Beyond the Wire",
 		"bfbc2"			=> "Battlefield Bad Company 2",
 		"bfvietnam"		=> "Battlefield Vietnam",
 		"bf1942"		=> "Battlefield 1942",
@@ -163,6 +165,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ut2003"		=> "Unreal Tournament 2003",
 		"ut2004"		=> "Unreal Tournament 2004",
 		"ut3"			=> "Unreal Tournament 3",
+		"valheim"               => "Valheim",	
 		"vbox"			=> "VirtualBox",
 		"vcmp"			=> "Vice City Multiplayer",
 		"vietcong"		=> "Vietcong",
@@ -187,6 +190,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy_"		=> "03",
 		"aarmy3"		=> "26",
 		"aliensvspredator"	=> "31",
+		"altv"			=> "44",	
 		"arcasimracing"	=> "16",
 		"arkse"			=> "05",
 		"arma"			=> "09",
@@ -198,6 +202,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"atlas"			=> "05",
 		"avorion"		=> "05",
 		"avp2"			=> "03",
+		"beyondthewire"	=> "05",
 		"bfbc2"			=> "30",
 		"bfvietnam"		=> "09",
 		"bf1942"		=> "03",
@@ -334,6 +339,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ut2004"		=> "13",
 		"ut2004_"		=> "03",
 		"ut3"			=> "11",
+		"valheim"               => "05",	
 		"vbox"			=> "38",
 		"vcmp"			=> "12",
 		"vietcong"		=> "03",
@@ -357,6 +363,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"aarmy"			=> "qtracker://{IP}:{S_PORT}?game=ArmyOperations&action=show",
 		"aarmy3"		=> "qtracker://{IP}:{S_PORT}?game=AmericasArmy3&action=show",
 		"aliensvspredator"	=> "steam://connect/{IP}:{Q_PORT}",
+		"altv"			=> "altv://connect/?ip={IP}:{S_PORT}",	
 		"arcasimracing"	=> "http://en.wikipedia.org/wiki/ARCA_Sim_Racing",
 		"arkse"			=> "steam://connect/{IP}:{Q_PORT}",
 		"arma"			=> "qtracker://{IP}:{S_PORT}?game=ArmedAssault&action=show",
@@ -368,6 +375,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"atlas"			=> "steam://connect/{IP}:{Q_PORT}",
 		"avorion"		=> "steam://connect/{IP}:{S_PORT}",
 		"avp2"			=> "qtracker://{IP}:{S_PORT}?game=AliensversusPredator2&action=show",
+		"beyondthewire"	=> "steam://connect/{IP}:{S_PORT}",
 		"bfbc2"			=> "http://en.wikipedia.org/wiki/Battlefield_bad_company_2",
 		"bfvietnam"		=> "qtracker://{IP}:{S_PORT}?game=BattlefieldVietnam&action=show",
 		"bf1942"		=> "qtracker://{IP}:{S_PORT}?game=Battlefield1942&action=show",
@@ -494,6 +502,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		"ut2003"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2003&action=show",
 		"ut2004"		=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament2004&action=show",
 		"ut3"			=> "qtracker://{IP}:{S_PORT}?game=UnrealTournament3&action=show",
+		"valheim"               => "steam://connect/{IP}:{Q_PORT}",	
 		"vcmp"			=> "http://vc-mp.org",
 		"vietcong"		=> "qtracker://{IP}:{S_PORT}?game=Vietcong&action=show",
 		"vietcong2"		=> "qtracker://{IP}:{S_PORT}?game=Vietcong2&action=show",
@@ -533,6 +542,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "arma3"			: $c_to_q = 1; 		$c_def = 2302; 	$q_def = 2303; 	$c_to_s = 0; 	break;
 			case "atlas"			: $c_to_q = 51800;	$c_def = 5761;	$q_def = 57561;	$c_to_s = 0;	break;
 			case "avorion"			: $c_to_q = 20; 	$c_def = 27000;	$q_def = 27020; $c_to_s = 0;  	break;
+			case "beyondthewire"	: $c_to_q = 19278; 	$c_def = 7777; 	$q_def = 27055; $c_to_s = 0;  	break;
 			case "bfbc2"			: $c_to_q = 0;		$c_def = 19567;	$q_def = 48888;	$c_to_s = 0;	break;
 			case "bfvietnam"		: $c_to_q = 0;		$c_def = 15567;	$q_def = 23000;	$c_to_s = 0;	break;
 			case "bf1942"			: $c_to_q = 0;		$c_def = 14567;	$q_def = 23000;	$c_to_s = 0;	break;
@@ -598,6 +608,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			case "ut2004"			: $c_to_q = 1;		$c_def = 7777;	$q_def = 7778;	$c_to_s = 10;	break;
 			case "ut2004_"			: $c_to_q = 10;		$c_def = 7777;	$q_def = 7787;	$c_to_s = 0;	break;
 			case "ut3"				: $c_to_q = -1277;	$c_def = 7777;	$q_def = 6500;	$c_to_s = 0;	break;
+			case "valheim"                  : $c_to_q = 1;       $c_def = 7351;   $q_def = 27015;   $c_to_s = 0;   break;	
 			case "vietcong"			: $c_to_q = 10000;	$c_def = 5425;	$q_def = 15425;	$c_to_s = 0;	break;
 			case "vietcong2"		: $c_to_q = 0;		$c_def = 5001;	$q_def = 19967;	$c_to_s = 0;	break;
 			case "wreckfest"		: $c_to_q = -6524;	$c_def = 33540;	$q_def = 27016;	$c_to_s = 0;	break;
@@ -4408,6 +4419,41 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			return true;
 		} 
     }
+
+//------------------------------------------------------------------------------------------------------------+
+//------------------------------------------------------------------------------------------------------------+
+	function lgsl_query_44(&$server, &$lgsl_need, &$lgsl_fp)
+       {
+	//---------------------------------------------------------+
+	//  Check alt:V master server list
+	$url ="https://api.altv.mp/servers/list/";
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt ($ch, CURLOPT_TIMEOUT, 5);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	$data = curl_exec($ch);
+	curl_close($ch);
+	// Test if list contains $ip:$port 
+	$ip = $server['b']['ip'];
+	$port = $server['b']['c_port'];
+	$xserver = "\"host\":\"$ip\",\"port\":$port";
+	if(strpos($data, $xserver) !== false) {
+		$xdatas = json_decode($data, true);
+		$key = -1;
+		foreach ($xdatas as $xdata) {
+			$key++;
+			if ($xdata["host"] == $ip && $xdata["port"] == $port) {
+				// Extract info
+				$server['s']['name'] = $xdatas[$key]["name"];
+				$server['s']['map'] = $xdatas[$key]["gameMode"];
+				$server['s']['players'] = $xdatas[$key]["players"];
+				$server['s']['playersmax'] = $xdatas[$key]["maxPlayers"];
+				return true;
+			}
+		}
+	}
+  }
 
 //------------------------------------------------------------------------------------------------------------+
 //------------------------------------------------------------------------------------------------------------+
