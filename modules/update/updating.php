@@ -166,7 +166,7 @@ function exec_ogp_module()
 				$temp_file = $extract_path . DIRECTORY_SEPARATOR . $filename;
 				$web_file = $baseDir . $filenameLocal;
 
-				if( file_exists( $web_file ) )
+				if(file_exists($web_file) && file_exists($temp_file))
 				{
 					$temp = file_get_contents($temp_file);
 					$web = file_get_contents($web_file);
