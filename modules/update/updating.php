@@ -179,6 +179,7 @@ function exec_ogp_module()
 							}
 							else
 							{
+								$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
 								copy($temp_file, $web_file);
 								$i++;
 								$overwritten_files .= $filenameLocal . "<br>";

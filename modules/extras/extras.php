@@ -74,7 +74,9 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	if( !file_exists($temp_dir) )
 		mkdir($temp_dir, 0775);
 	
-	$result = extractZip( $temp_dwl, $temp_dir . DIRECTORY_SEPARATOR, $info['remove_path'] );
+	$result = extractZipGitUpdateFile($temp_dwl, $temp_dir . DIRECTORY_SEPARATOR);
+	
+	$newResult = array('ignored_files' => array(), 'extracted_files' => array());
 		
 	if ( is_array($result['extracted_files']) and count($result['extracted_files']) > 0 )
 	{
@@ -85,6 +87,8 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 		// Also determines if the file is writable
 		$filelist = array();
 		$i = 0;
+		$i2 = 0;
+		
 		foreach( $result['extracted_files'] as $file )
 		{
 			if( DIRECTORY_SEPARATOR == '\\')
@@ -93,11 +97,12 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 				$filename = $file['filename'];
 			
 			$filename = preg_replace( "/".preg_quote($info['remove_path'])."/", "", $filename);
+			
 			$install_nfo .= realpath($base_dir) . $filename . "\n";
 			$temp_file = $temp_dir . DIRECTORY_SEPARATOR . $filename;
 			$web_file = $base_dir . $filename;
 			
-			if( file_exists( $web_file ) )
+			if(file_exists($web_file) && file_exists($temp_file))
 			{
 				if(!in_array($filename, $current_blacklist)){
 					$temp = file_get_contents($temp_file);
@@ -114,7 +119,8 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 							}
 							else
 							{
-								$filelist[$i] = $file['filename'];
+								$newResult["extracted_files"][$i]["filename"] = $filename;
+								copy($temp_file, $web_file);
 								$i++;
 								$overwritten_files .= $filename . "\n";
 								$overwritten++;
@@ -122,20 +128,24 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 						}
 						else
 						{
-							$filelist[$i] = $file['filename'];
+							$newResult["extracted_files"][$i]["filename"] = $filename;
+							copy($temp_file, $web_file);
 							$i++;
 							$overwritten_files .= $filename . "\n";
 							$overwritten++;
 						}
 					}
 				}else{
+					$newResult["ignored_files"][$i2] = $filename;
+					$i2++;
 					$not_overwritten_files .= $filename . "\n";
 					$not_overwritten++;
 				}
 			}
 			else
 			{	
-				$filelist[$i] = $file['filename'];
+				$newResult["extracted_files"][$i]["filename"] = $filename;
+				copy($temp_file, $web_file);
 				$i++;
 				$new_files .= $filename . "\n";
 				$new++;
@@ -160,9 +170,7 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	if( $all_writable )
 	{
 		// Extract the files that are set in $filelist, to the folder at $base_dir.
-		$result = extractZip( $temp_dwl, $base_dir, $info['remove_path'], '', $filelist );
-		
-		if( is_array( $result['extracted_files'] ) )
+		if( is_array( $newResult['extracted_files'] ) )
 		{
 			// Updated files
 			if ( $overwritten > 0 )
@@ -394,6 +402,9 @@ function exec_ogp_module()
 	foreach($repos_info_array as $key => $repository)
 	{
 		if(preg_match('/^(OGP-Website|OGP-Agent-Linux|OGP-Agent-Windows)$/',$repository['name']))
+			continue;
+			
+		if(!preg_match('/^(Module-|Theme-)$/',$repository['name']))
 			continue;
 		
 		$REMOTE_REPO_FILE = $gitHubURL . $repository['name'] . '/commits/master.atom';
