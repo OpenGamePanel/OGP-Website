@@ -73,7 +73,7 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	if( !file_exists($temp_dir) )
 		mkdir($temp_dir, 0775);
 	
-	$result = extractZipGitUpdateFile($temp_dwl, $temp_dir . DIRECTORY_SEPARATOR);
+	$result = extractZipGitUpdateFile($temp_dwl, $temp_dir);
 	
 	$newResult = array('ignored_files' => array(), 'extracted_files' => array());
 		
