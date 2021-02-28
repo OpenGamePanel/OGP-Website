@@ -401,7 +401,7 @@ function exec_ogp_module()
 		if(preg_match('/^(OGP-Website|OGP-Agent-Linux|OGP-Agent-Windows)$/',$repository['name']))
 			continue;
 			
-		if(!preg_match('/^(Module-|Theme-)$/',$repository['name']))
+		if(!preg_match('/^(Module-|Theme-).*$/',$repository['name']))
 			continue;
 		
 		$REMOTE_REPO_FILE = $gitHubURL . $repository['name'] . '/commits/master.atom';
