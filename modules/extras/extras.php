@@ -65,7 +65,6 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	$not_overwritten = 0;
 	$new = 0;
 	$all_writable = TRUE;
-	$filelist = "";
 	$overwritten_files = "";
 	$not_overwritten_files = "";
 	$new_files = "";
@@ -85,7 +84,6 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 		// Check file by file if already exists, if it matches, compares both files 
 		// looking for changes determining if the file needs to be updated.
 		// Also determines if the file is writable
-		$filelist = array();
 		$i = 0;
 		$i2 = 0;
 		
@@ -169,7 +167,6 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	
 	if( $all_writable )
 	{
-		// Extract the files that are set in $filelist, to the folder at $base_dir.
 		if( is_array( $newResult['extracted_files'] ) )
 		{
 			// Updated files
