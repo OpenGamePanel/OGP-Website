@@ -106,7 +106,8 @@ function exec_ogp_module()
 	{
 		/// Checking for changes in the main update files:
 		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/update.php',
-									'modules/update/updating.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
+									'modules/update/updating.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/updating.php',
+									'modules/update/unzip.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/unzip.php');
 		$refresh = False;
 		foreach($main_update_files as $local_path => $remote_url)
 		{
