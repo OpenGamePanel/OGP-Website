@@ -5,7 +5,7 @@
  <installer>steamcmd</installer>
  <game_name>Valheim</game_name>
  <server_exec_name>valheim_server.exe</server_exec_name>
- <cli_template>%HOSTNAME% %PORT% %HOME_PATH% %WORLD% %PASSWORD% -public=1</cli_template>
+ <cli_template>%HOSTNAME% %PORT% %HOME_PATH% %WORLD% %PASSWORD% %PUBLIC%</cli_template>
  <cli_params>
   <cli_param options="sq" cli_string="-savedir" id="HOME_PATH"/>
   <cli_param id="PORT" cli_string="-port" options="s"/>  
@@ -30,6 +30,11 @@
  <default>changeme</default>
  <caption>Server Password</caption>
  <desc>Require password to join server</desc>
+ </param>
+  <param id="PUBLIC" key="-public" type="select">
+  <option value="1">Public</option>
+  <option value="0">Private</option>
+  <desc>Public or private server.</desc>
  </param>
 </server_params>
 <environment_variables>
