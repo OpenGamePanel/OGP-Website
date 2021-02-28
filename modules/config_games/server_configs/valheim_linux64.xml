@@ -1,5 +1,5 @@
 <game_config>
- <game_key>valheim_linux</game_key>
+ <game_key>valheim_linux64</game_key>
    <protocol>lgsl</protocol>
   <lgsl_query_name>valheim</lgsl_query_name>
  <installer>steamcmd</installer>
