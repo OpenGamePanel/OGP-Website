@@ -144,7 +144,11 @@ function exec_ogp_module()
 		}
 		
 		include ( 'unzip.php' );     // array|false extractZip( string $zipFile, string $extract_path [, string $remove_path, array $blacklist, array $whitelist] )
-		$result = extractZipGitUpdateFile( $temp_dwl, $extract_path);
+		if(function_exists("extractZipGitUpdateFile")){
+			$result = extractZipGitUpdateFile($temp_dwl, $extract_path);
+		}else{
+			$result = extractZip($temp_dwl, $extract_path, $unwanted_path, '', '');
+		}
 		if ( is_array( $result['extracted_files'] ) and count($result['extracted_files']) > 0 )
 		{
 			// Check file by file if already exists, if it matches, compares both files 
