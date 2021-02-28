@@ -163,57 +163,61 @@ function exec_ogp_module()
 				$temp_file = $extract_path . DIRECTORY_SEPARATOR . $filename;
 				$web_file = $baseDir . $filenameLocal;
 
-				if(file_exists($web_file) && file_exists($temp_file))
-				{
-					$temp = file_get_contents($temp_file);
-					$web = file_get_contents($web_file);
-					
-					if( $temp != $web )
+				if(file_exists($temp_file)){
+					if(file_exists($web_file))
 					{
-						if( !is_writable( $web_file ) )
+						$temp = file_get_contents($temp_file);
+						$web = file_get_contents($web_file);
+						
+						if( $temp != $web )
 						{
-							if ( ! @chmod( $web_file, 0775 ) )
+							if( !is_writable( $web_file ) )
 							{
-								$all_writable = FALSE;
-								$not_writable .= $web_file."<br>";
+								if ( ! @chmod( $web_file, 0775 ) )
+								{
+									$all_writable = FALSE;
+									$not_writable .= $web_file."<br>";
+								}
+								else
+								{
+									$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
+									copy($temp_file, $web_file);
+									$i++;
+									$overwritten_files .= $filenameLocal . "<br>";
+									$overwritten++;
+								}
 							}
 							else
 							{
-								$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
-								copy($temp_file, $web_file);
-								$i++;
-								$overwritten_files .= $filenameLocal . "<br>";
-								$overwritten++;
-							}
-						}
-						else
-						{
-							if( !in_array( $filenameLocal, $blacklist  ) )
-							{
-								$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
-								copy($temp_file, $web_file);
-								$i++;
-								$overwritten_files .= $filenameLocal . "<br>";
-								$overwritten++;
-							}else{
-								$newResult["ignored_files"][$i2] = $filenameLocal;
-								$i2++;
+								if( !in_array( $filenameLocal, $blacklist  ) )
+								{
+									$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
+									copy($temp_file, $web_file);
+									$i++;
+									$overwritten_files .= $filenameLocal . "<br>";
+									$overwritten++;
+								}else{
+									$newResult["ignored_files"][$i2] = $filenameLocal;
+									$i2++;
+								}
 							}
 						}
 					}
-				}
-				else
-				{	
-					if( !in_array( $filenameLocal, $blacklist  ) )
-					{
-						$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
-						copy($temp_file, $web_file);
-						$i++;
-						$new_files .= $filenameLocal . "<br>";
-						$new++;
-					}else{
-						$newResult["ignored_files"][$i2] = $filenameLocal;
-						$i2++;
+					else
+					{	
+						if( !in_array( $filenameLocal, $blacklist  ) )
+						{
+							$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
+							$webDir = dirname($web_file);
+							@mkdir($webDir, 0775, true);
+							copy($temp_file, $web_file);
+							$i++;
+							$new_files .= $filenameLocal . "<br>";
+							$new++;
+						}else{
+							$newResult["ignored_files"][$i2] = $filenameLocal;
+							$i2++;
+						}
 					}
 				}
 			}

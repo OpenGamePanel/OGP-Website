@@ -94,26 +94,36 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 			else
 				$filename = $file['filename'];
 			
+			$fullFilename = $filename;
 			$filename = preg_replace( "/".preg_quote($info['remove_path'])."/", "", $filename);
-			
 			$install_nfo .= realpath($base_dir) . $filename . "\n";
-			$temp_file = $temp_dir . DIRECTORY_SEPARATOR . $filename;
+			$temp_file = $temp_dir . DIRECTORY_SEPARATOR . $fullFilename;
 			$web_file = $base_dir . $filename;
 			
-			if(file_exists($web_file) && file_exists($temp_file))
-			{
-				if(!in_array($filename, $current_blacklist)){
-					$temp = file_get_contents($temp_file);
-					$web = file_get_contents($web_file);
-					
-					if( $temp != $web )
-					{
-						if( !is_writable( $web_file ) )
+			if(file_exists($temp_file)){
+				if(file_exists($web_file))
+				{
+					if(!in_array($filename, $current_blacklist)){
+						$temp = file_get_contents($temp_file);
+						$web = file_get_contents($web_file);
+						
+						if( $temp != $web )
 						{
-							if ( ! @chmod( $web_file, 0644 ) )
+							if( !is_writable( $web_file ) )
 							{
-								$all_writable = FALSE;
-								$not_writable .= $web_file."\n";
+								if ( ! @chmod( $web_file, 0644 ) )
+								{
+									$all_writable = FALSE;
+									$not_writable .= $web_file."\n";
+								}
+								else
+								{
+									$newResult["extracted_files"][$i]["filename"] = $filename;
+									copy($temp_file, $web_file);
+									$i++;
+									$overwritten_files .= $filename . "\n";
+									$overwritten++;
+								}
 							}
 							else
 							{
@@ -124,29 +134,23 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 								$overwritten++;
 							}
 						}
-						else
-						{
-							$newResult["extracted_files"][$i]["filename"] = $filename;
-							copy($temp_file, $web_file);
-							$i++;
-							$overwritten_files .= $filename . "\n";
-							$overwritten++;
-						}
+					}else{
+						$newResult["ignored_files"][$i2] = $filename;
+						$i2++;
+						$not_overwritten_files .= $filename . "\n";
+						$not_overwritten++;
 					}
-				}else{
-					$newResult["ignored_files"][$i2] = $filename;
-					$i2++;
-					$not_overwritten_files .= $filename . "\n";
-					$not_overwritten++;
 				}
-			}
-			else
-			{	
-				$newResult["extracted_files"][$i]["filename"] = $filename;
-				copy($temp_file, $web_file);
-				$i++;
-				$new_files .= $filename . "\n";
-				$new++;
+				else
+				{	
+					$newResult["extracted_files"][$i]["filename"] = $filename;
+					$webDir = dirname($web_file);
+					@mkdir($webDir, 0775, true);
+					copy($temp_file, $web_file);
+					$i++;
+					$new_files .= $filename . "\n";
+					$new++;
+				}
 			}
 		}
 	}
