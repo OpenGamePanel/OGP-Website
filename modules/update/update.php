@@ -172,7 +172,7 @@ function exec_ogp_module()
 									break;
 								}
 								echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v['sha'],0,7).'...</a><br>';
-								echo '<b>'.$v['commit']['message'] .'</b></li><br>';
+								echo '<b>'.str_replace("*", "<br><br>", $v['commit']['message']) .'</b></li><br>';
 								++$commitsStart;
 							}
 							echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits/master" target="_blank">View more commits...</a>';
