@@ -402,15 +402,26 @@ function exec_ogp_module()
 
 	foreach($repos_info_array as $key => $repository)
 	{
+		$isTheme = false;
+		$isModule = false;
+		
 		if(preg_match('/^(OGP-Website|OGP-Agent-Linux|OGP-Agent-Windows)$/',$repository['name']))
 			continue;
 			
 		if(!preg_match('/^(Module-|Theme-).*$/',$repository['name']))
 			continue;
+			
+		if(preg_match('/^(Module-).*$/',$repository['name'])){
+			$isModule = true;
+		}else if(preg_match('/^(Theme-).*$/',$repository['name'])){
+			$isTheme = true;
+		}
 		
 		$REMOTE_REPO_FILE = $gitHubURL . $repository['name'] . '/commits/master.atom';
 		$LOCAL_REPO_FILE = DATA_PATH . $repository['name'] . '.atom';
-		if(!file_exists($LOCAL_REPO_FILE) OR (isset($_GET['searchForUpdates']) and $_GET['searchForUpdates'] == $repository['name']) OR isset($_POST['update']))
+		if(!file_exists($LOCAL_REPO_FILE) 
+			OR (isset($_GET['searchForUpdates']) and $_GET['searchForUpdates'] == $repository['name']) 
+			OR ( isset($_POST['update']) && ( (in_array($m, $_POST["module"]) && $isModule) || (in_array($t, $_POST["theme"]) && $isTheme) ) ) )
 		{
 			$used_file = $REMOTE_REPO_FILE;
 			$contents = file_get_contents($used_file);
