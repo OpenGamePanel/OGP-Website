@@ -128,7 +128,7 @@ function exec_ogp_module()
 		
 		if($refresh)
 		{
-			header("Refresh:3");
+			header("Refresh:0");
 			return;
 		}
 		
