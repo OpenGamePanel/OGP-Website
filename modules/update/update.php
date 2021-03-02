@@ -30,7 +30,7 @@ function check_file($local_path, $remote_url)
 	$remote_file = file_get_contents($remote_url);
 	// Load local file contents in to variable
 	$local_file = file_get_contents($local_path);
-	if( $remote_file != $local_file and preg_match("/exec_ogp_module/", $remote_file) )
+	if( $remote_file != $local_file )
 	{
 		// The file have changes, save them:
 		if( ! file_put_contents($local_path, $remote_file) )
@@ -106,7 +106,8 @@ function exec_ogp_module()
 	{
 		/// Checking for changes in the main update files:
 		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/update.php',
-									'modules/update/updating.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/updating.php' );
+									'modules/update/updating.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/updating.php',
+									'modules/update/unzip.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/unzip.php');
 		$refresh = False;
 		foreach($main_update_files as $local_path => $remote_url)
 		{

@@ -121,7 +121,6 @@ function exec_ogp_module()
 		$overwritten = 0;
 		$new = 0;
 		$all_writable = TRUE;
-		$filelist = "";
 		$overwritten_files = "";
 		$new_files = "";
 		
@@ -145,62 +144,80 @@ function exec_ogp_module()
 		}
 		
 		include ( 'unzip.php' );     // array|false extractZip( string $zipFile, string $extract_path [, string $remove_path, array $blacklist, array $whitelist] )
-		$result = extractZip( $temp_dwl, $extract_path, $unwanted_path, '', '' );
+		$result = extractZipGitUpdateFile($temp_dwl, $extract_path);
+		
 		if ( is_array( $result['extracted_files'] ) and count($result['extracted_files']) > 0 )
 		{
 			// Check file by file if already exists, if it matches, compares both files 
 			// looking for changes determining if the file needs to be updated.
 			// Also determines if the file is writable
-			$filelist = array();
 			$i = 0;
+			$i2 = 0;
+			
+			$newResult = array('ignored_files' => array(), 'extracted_files' => array());
+			
 			foreach( $result['extracted_files'] as $file )
 			{
-				$filename = str_replace( $unwanted_path, "" , $file['filename'] );				
+				$filename = $file['filename'];	
+				$filenameLocal = str_replace( $unwanted_path, "" , $filename );
 				$temp_file = $extract_path . DIRECTORY_SEPARATOR . $filename;
-				$web_file = $baseDir . $filename;
+				$web_file = $baseDir . $filenameLocal;
 
-				if( file_exists( $web_file ) )
-				{
-					$temp = file_get_contents($temp_file);
-					$web = file_get_contents($web_file);
-					
-					if( $temp != $web )
+				if(file_exists($temp_file)){
+					if(file_exists($web_file))
 					{
-						if( !is_writable( $web_file ) )
+						$temp = file_get_contents($temp_file);
+						$web = file_get_contents($web_file);
+						
+						if( $temp != $web )
 						{
-							if ( ! @chmod( $web_file, 0775 ) )
+							if( !is_writable( $web_file ) )
 							{
-								$all_writable = FALSE;
-								$not_writable .= $web_file."<br>";
+								if ( ! @chmod( $web_file, 0775 ) )
+								{
+									$all_writable = FALSE;
+									$not_writable .= $web_file."<br>";
+								}
+								else
+								{
+									$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
+									copy($temp_file, $web_file);
+									$i++;
+									$overwritten_files .= $filenameLocal . "<br>";
+									$overwritten++;
+								}
 							}
 							else
 							{
-								$filelist[$i] = $file['filename'];
-								$i++;
-								$overwritten_files .= $filename . "<br>";
-								$overwritten++;
-							}
-						}
-						else
-						{
-							$filelist[$i] = $file['filename'];
-							$i++;
-							if( !in_array( $filename, $blacklist  ) )
-							{
-								$overwritten_files .= $filename . "<br>";
-								$overwritten++;
+								if( !in_array( $filenameLocal, $blacklist  ) )
+								{
+									$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
+									copy($temp_file, $web_file);
+									$i++;
+									$overwritten_files .= $filenameLocal . "<br>";
+									$overwritten++;
+								}else{
+									$newResult["ignored_files"][$i2] = $filenameLocal;
+									$i2++;
+								}
 							}
 						}
 					}
-				}
-				else
-				{	
-					$filelist[$i] = $file['filename'];
-					$i++;
-					if( !in_array( $filename, $blacklist  ) )
-					{
-						$new_files .= $filename . "<br>";
-						$new++;
+					else
+					{	
+						if( !in_array( $filenameLocal, $blacklist  ) )
+						{
+							$newResult["extracted_files"][$i]["filename"] = $filenameLocal;
+							$webDir = dirname($web_file);
+							@mkdir($webDir, 0775, true);
+							copy($temp_file, $web_file);
+							$i++;
+							$new_files .= $filenameLocal . "<br>";
+							$new++;
+						}else{
+							$newResult["ignored_files"][$i2] = $filenameLocal;
+							$i2++;
+						}
 					}
 				}
 			}
@@ -219,16 +236,13 @@ function exec_ogp_module()
 		
 		if( $all_writable )
 		{
-			// Extract the files that are set in $filelist, to the folder at $baseDir and removes 'upload' from the beginning of the path.
-
-			$result = extractZip( $temp_dwl, preg_replace("/\/$/","",$baseDir), $unwanted_path, $blacklist, $filelist );
-			if( is_array( $result['ignored_files'] ) and !empty( $result['ignored_files'] ) )
+			if( is_array( $newResult['ignored_files'] ) and !empty( $newResult['ignored_files'] ) )
 			{
-				print_failure(get_lang_f('ignored_files',count($result['ignored_files'])));
-				echo get_lang_f("not_updated_files_blacklisted", implode("<br>", $result['ignored_files']) );
+				print_failure(get_lang_f('ignored_files',count($newResult['ignored_files'])));
+				echo get_lang_f("not_updated_files_blacklisted", implode("<br>", $newResult['ignored_files']) );
 				echo "<br><br><br>";
 			}
-			if( is_array( $result['extracted_files'] ) )
+			if( is_array( $newResult['extracted_files'] ) )
 			{
 				// Updated files
 				if ( $overwritten > 0 )

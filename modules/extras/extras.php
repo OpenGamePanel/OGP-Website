@@ -65,7 +65,6 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	$not_overwritten = 0;
 	$new = 0;
 	$all_writable = TRUE;
-	$filelist = "";
 	$overwritten_files = "";
 	$not_overwritten_files = "";
 	$new_files = "";
@@ -74,7 +73,9 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	if( !file_exists($temp_dir) )
 		mkdir($temp_dir, 0775);
 	
-	$result = extractZip( $temp_dwl, $temp_dir . DIRECTORY_SEPARATOR, $info['remove_path'] );
+	$result = extractZipGitUpdateFile($temp_dwl, $temp_dir);
+	
+	$newResult = array('ignored_files' => array(), 'extracted_files' => array());
 		
 	if ( is_array($result['extracted_files']) and count($result['extracted_files']) > 0 )
 	{
@@ -83,8 +84,9 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 		// Check file by file if already exists, if it matches, compares both files 
 		// looking for changes determining if the file needs to be updated.
 		// Also determines if the file is writable
-		$filelist = array();
 		$i = 0;
+		$i2 = 0;
+		
 		foreach( $result['extracted_files'] as $file )
 		{
 			if( DIRECTORY_SEPARATOR == '\\')
@@ -92,53 +94,63 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 			else
 				$filename = $file['filename'];
 			
+			$fullFilename = $filename;
 			$filename = preg_replace( "/".preg_quote($info['remove_path'])."/", "", $filename);
 			$install_nfo .= realpath($base_dir) . $filename . "\n";
-			$temp_file = $temp_dir . DIRECTORY_SEPARATOR . $filename;
+			$temp_file = $temp_dir . DIRECTORY_SEPARATOR . $fullFilename;
 			$web_file = $base_dir . $filename;
 			
-			if( file_exists( $web_file ) )
-			{
-				if(!in_array($filename, $current_blacklist)){
-					$temp = file_get_contents($temp_file);
-					$web = file_get_contents($web_file);
-					
-					if( $temp != $web )
-					{
-						if( !is_writable( $web_file ) )
+			if(file_exists($temp_file)){
+				if(file_exists($web_file))
+				{
+					if(!in_array($filename, $current_blacklist)){
+						$temp = file_get_contents($temp_file);
+						$web = file_get_contents($web_file);
+						
+						if( $temp != $web )
 						{
-							if ( ! @chmod( $web_file, 0644 ) )
+							if( !is_writable( $web_file ) )
 							{
-								$all_writable = FALSE;
-								$not_writable .= $web_file."\n";
+								if ( ! @chmod( $web_file, 0644 ) )
+								{
+									$all_writable = FALSE;
+									$not_writable .= $web_file."\n";
+								}
+								else
+								{
+									$newResult["extracted_files"][$i]["filename"] = $filename;
+									copy($temp_file, $web_file);
+									$i++;
+									$overwritten_files .= $filename . "\n";
+									$overwritten++;
+								}
 							}
 							else
 							{
-								$filelist[$i] = $file['filename'];
+								$newResult["extracted_files"][$i]["filename"] = $filename;
+								copy($temp_file, $web_file);
 								$i++;
 								$overwritten_files .= $filename . "\n";
 								$overwritten++;
 							}
 						}
-						else
-						{
-							$filelist[$i] = $file['filename'];
-							$i++;
-							$overwritten_files .= $filename . "\n";
-							$overwritten++;
-						}
+					}else{
+						$newResult["ignored_files"][$i2] = $filename;
+						$i2++;
+						$not_overwritten_files .= $filename . "\n";
+						$not_overwritten++;
 					}
-				}else{
-					$not_overwritten_files .= $filename . "\n";
-					$not_overwritten++;
 				}
-			}
-			else
-			{	
-				$filelist[$i] = $file['filename'];
-				$i++;
-				$new_files .= $filename . "\n";
-				$new++;
+				else
+				{	
+					$newResult["extracted_files"][$i]["filename"] = $filename;
+					$webDir = dirname($web_file);
+					@mkdir($webDir, 0775, true);
+					copy($temp_file, $web_file);
+					$i++;
+					$new_files .= $filename . "\n";
+					$new++;
+				}
 			}
 		}
 	}
@@ -159,10 +171,7 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	
 	if( $all_writable )
 	{
-		// Extract the files that are set in $filelist, to the folder at $base_dir.
-		$result = extractZip( $temp_dwl, $base_dir, $info['remove_path'], '', $filelist );
-		
-		if( is_array( $result['extracted_files'] ) )
+		if( is_array( $newResult['extracted_files'] ) )
 		{
 			// Updated files
 			if ( $overwritten > 0 )
@@ -307,7 +316,7 @@ function exec_ogp_module()
 	}
 	#return;
 	define('REPO_FILE', DATA_PATH . "repos" . "_" . strtolower($gitHubOrganization));
-	define('URL', 'https://api.github.com/' . $gitAPICont . '/' . $gitHubOrganization . '/repos?per_page=50'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
+	define('URL', 'https://api.github.com/' . $gitAPICont . '/' . $gitHubOrganization . '/repos?per_page=100'); // Returns detailed information of all repositories, and urls for more detailed informations about. Nice API GitHub! :)
 	if(!file_exists(REPO_FILE) || isset($_GET['searchForUpdates']) || isset($_POST['update']) || filesize(REPO_FILE) == 0 || filesize(REPO_FILE) == 1 || (time() - filemtime(REPO_FILE)) >= 86400)
 	{
 		# Without this $context the file_get_contents function was returning HTTP/1.0 403 Forbidden
@@ -393,12 +402,26 @@ function exec_ogp_module()
 
 	foreach($repos_info_array as $key => $repository)
 	{
+		$isTheme = false;
+		$isModule = false;
+		
 		if(preg_match('/^(OGP-Website|OGP-Agent-Linux|OGP-Agent-Windows)$/',$repository['name']))
 			continue;
+			
+		if(!preg_match('/^(Module-|Theme-).*$/',$repository['name']))
+			continue;
+			
+		if(preg_match('/^(Module-).*$/',$repository['name'])){
+			$isModule = true;
+		}else if(preg_match('/^(Theme-).*$/',$repository['name'])){
+			$isTheme = true;
+		}
 		
 		$REMOTE_REPO_FILE = $gitHubURL . $repository['name'] . '/commits/master.atom';
 		$LOCAL_REPO_FILE = DATA_PATH . $repository['name'] . '.atom';
-		if(!file_exists($LOCAL_REPO_FILE) OR (isset($_GET['searchForUpdates']) and $_GET['searchForUpdates'] == $repository['name']) OR isset($_POST['update']))
+		if(!file_exists($LOCAL_REPO_FILE) 
+			OR (isset($_GET['searchForUpdates']) and $_GET['searchForUpdates'] == $repository['name']) 
+			OR ( isset($_POST['update']) && ( (in_array($m, $_POST["module"]) && $isModule) || (in_array($t, $_POST["theme"]) && $isTheme) ) ) )
 		{
 			$used_file = $REMOTE_REPO_FILE;
 			$contents = file_get_contents($used_file);
