@@ -9,7 +9,6 @@
  <cli_params>
   <cli_param options="sq" cli_string="-savedir" id="HOME_PATH"/>
   <cli_param id="PORT" cli_string="-port" options="s"/>
-  <cli_param id="HOSTNAME" cli_string="-name" options="sq"/>
  </cli_params>
 <max_user_amount>10</max_user_amount>
  <mods>
@@ -20,6 +19,10 @@
   </mod>
  </mods>
 <server_params>
+ <param id="HOSTNAME" key="-name" type="text">
+ <default>Valheim server</default>
+ <caption>Server Name</caption>
+</param>
  <param id="WORLD" key="-world" type="text">
 <default>Dedicated</default>
  <caption>Server World</caption>
