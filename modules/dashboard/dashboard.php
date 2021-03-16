@@ -121,7 +121,7 @@ function exec_ogp_module()
 			$uri = '?m=dashboard&p=dashboard&limit='.$limit_user.'&page=';
 			$OnlineServers .= paginationPages($count_homes[0]['total'], $page_user, $limit_user, $uri, 3, 'dashboardHomes');
 	
-			$OnlineServers .= "<center>" . statistics . ":<br>$stats_servers_online/$stats_servers " . servers . "<br>" . 
+			$OnlineServers .= "<center>" . get_lang("statistics") . ":<br>$stats_servers_online/$stats_servers " . get_lang("servers") . "<br>" . 
 				$refresh->getdiv($refresh->add("home.php?m=dashboard&p=query_ref&show=player_statistics&type=cleared&ip=" .
 				$server_home['ip']."&port=".$server_home['port'])) . "</center>";
 		}
