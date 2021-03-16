@@ -82,7 +82,7 @@
     <file description="Server Configurations">SquadGame/ServerConfig/Server.cfg</file>
     <file description="RCON Configurations">SquadGame/ServerConfig/Rcon.cfg</file>
     <file description="Admin Configurations">SquadGame/ServerConfig/Admins.cfg</file>
-    <file description="Map Rotation Configurations">SquadGame/ServerConfig/MapRotation.cfg</file>
+    <file description="Map Rotation Configurations">SquadGame/ServerConfig/LayerRotation.cfg</file>
     <file description="Server Messages Configurations">SquadGame/ServerConfig/ServerMessages.cfg</file>
   </configuration_files>
 </game_config>
