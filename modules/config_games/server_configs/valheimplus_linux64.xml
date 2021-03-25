@@ -1,0 +1,54 @@
+<game_config>
+ <game_key>valheimplus_linux64</game_key>
+   <protocol>lgsl</protocol>
+  <lgsl_query_name>valheim</lgsl_query_name>
+ <installer>steamcmd</installer>
+ <game_name>Valheim Plus</game_name>
+ <server_exec_name>start_server_bepinex.sh</server_exec_name>
+ <cli_template>%HOSTNAME% %PORT% %HOME_PATH% %WORLD% %PASSWORD% %PUBLIC%</cli_template>
+ <cli_params>
+  <cli_param options="sq" cli_string="-savedir" id="HOME_PATH"/>
+  <cli_param id="PORT" cli_string="-port" options="s"/>
+  <cli_param id="HOSTNAME" cli_string="-name" options="sq"/>
+ </cli_params>
+<max_user_amount>32</max_user_amount>
+ <mods>
+ <mod>
+   <name>none</name>
+   <installer_name>896660</installer_name>
+  <installer_login>anonymous</installer_login>
+  </mod>
+ </mods>
+<server_params>
+ <param id="WORLD" key="-world" type="text">
+<default>Dedicated</default>
+ <caption>Server World</caption>
+ <desc>Save/Load this world</desc>
+ </param>
+ <param id="PASSWORD" key="-password" type="text">
+<default>changeme</default>
+ <caption>Server Password</caption>
+ <desc>Require password to join server</desc>
+ </param>
+ <param id="PUBLIC" key="-public" type="select">
+  <option value="1">Public</option>
+  <option value="0">Private</option>
+  <desc>Public or private server.</desc>
+ </param>
+</server_params>
+<post_install>
+wget "https://github.com/valheimPlus/ValheimPlus/releases/latest/download/UnixServer.zip"
+unzip -o UnixServer.zip -d $PWD
+rm -f UnixServer.zip
+chmod u+x start_server_bepinex.sh
+</post_install>
+<environment_variables>
+export DOORSTOP_ENABLE=TRUE
+export DOORSTOP_INVOKE_DLL_PATH=BepInEx/core/BepInEx.Preloader.dll
+export DOORSTOP_CORLIB_OVERRIDE_PATH=unstripped_corlib
+export LD_LIBRARY_PATH=doorstop_libs
+export LD_PRELOAD=libdoorstop_x64.so:$LD_PRELOAD
+export LD_LIBRARY_PATH=linux64
+export SteamAppId=892970
+</environment_variables>
+</game_config>
