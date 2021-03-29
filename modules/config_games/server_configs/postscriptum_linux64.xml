@@ -61,6 +61,7 @@
     <file description="RCON Configurations">PostScriptum/ServerConfig/Rcon.cfg</file>
     <file description="Admin Configurations">PostScriptum/ServerConfig/Admins.cfg</file>
     <file description="Map Rotation Configurations">PostScriptum/ServerConfig/MapRotation.cfg</file>
+    <file description="Map Vote Configurations">PostScriptum/ServerConfig/MapVoting.cfg</file>
     <file description="Server Messages Configurations">PostScriptum/ServerConfig/ServerMessages.cfg</file>
   </configuration_files>
 </game_config>
