@@ -333,7 +333,16 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 			$panel_email = $panel_settings['panel_email_address'];
 		}
 		
-		$email_addresses = explode( ",", $email_address );	
+		//$email_addresses = explode( ",", $email_address );
+		// Cheap way to parse Bcc addresses as defined in register-exec.php
+		$bcc_email_addresses = explode( "|", $email_address );
+		if (isset($bcc_email_addresses[1])) {
+			$email_addresses = explode( ",", $bcc_email_addresses[1] );
+			$bcc_email_addresses = explode( ",", $bcc_email_addresses[0] );
+		} else {
+			$bcc_email_addresses = 0;
+			$email_addresses = explode( ",", $email_address );
+		}
 				
 		if( $user_to_panel )
 		{
@@ -350,6 +359,15 @@ function mymail($email_address, $subject, $message, $panel_settings, $user_to_pa
 			foreach ( $email_addresses as $address ) 
 			{
 				$mail->AddAddress($address);
+			}
+			// Loop through Bcc addresses, if any, and add them as proper Bcc recipients
+			if ($bcc_email_addresses != 0) 
+			{
+    				foreach ( $bcc_email_addresses as $bcc_address ) 
+    				{
+					if ($bcc_address != "")
+        					$mail->addBCC($bcc_address);
+    				}
 			}
 			$mail->SetFrom($panel_email,$panel_name);
 			$mail->AddReplyTo($panel_email,$panel_name);
