@@ -179,7 +179,9 @@ function exec_ogp_module()
 			if($db->editUser($fields,$user_id))
 			{
 				if(isset($adminEmailList) && !empty($adminEmailList)){
-					$to = $adminEmailList . $users_email;
+					//$to = $adminEmailList . $users_email;
+					// Insert boundry char | to separate admins from users for Bcc recipient parsing in functions.php
+					$to = $adminEmailList . '|' . $users_email;
 				}else{
 					$to = $users_email;
 				}
