@@ -8,6 +8,7 @@
   <cli_template>java %XMS% %XMX% -jar minecraft_server.jar nogui</cli_template>
   <console_log>logs/latest.log</console_log>
   <max_user_amount>250</max_user_amount>
+  <control_protocol>minecraft</control_protocol>
   <mods>
     <mod key="default">
       <name>None</name>
