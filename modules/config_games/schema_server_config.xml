@@ -65,6 +65,7 @@
       <xs:enumeration value="rcon2" /><!-- HL2(source) -->
       <xs:enumeration value="lcon" /><!-- legacy console -->
       <xs:enumeration value="armabe" /><!-- Arma 2 BattlEye -->
+      <xs:enumeration value="minecraft" /><!-- Minecraft -->
       <xs:minLength value="1" />
     </xs:restriction>
   </xs:simpleType>

@@ -92,7 +92,7 @@ if (preg_match("/u/",$server_home['access_rights']))
 
 if($_SESSION['users_role'] == "admin")
 {
-	if ( ( $server_xml->control_protocol and preg_match("/^(rcon|lcon|rcon2|armabe)$/" ,$server_xml->control_protocol) ) OR 
+	if ( ( $server_xml->control_protocol and preg_match("/^(rcon|lcon|rcon2|armabe|minecraft)$/" ,$server_xml->control_protocol) ) OR 
 		 ( $server_xml->gameq_query_name and $server_xml->gameq_query_name == 'minecraft' ) )
 	{
 		$module_buttons[] = "<a class='monitorbutton' href='home.php?m=gamemanager&amp;p=rcon_presets&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."'>
