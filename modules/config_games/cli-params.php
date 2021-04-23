@@ -169,7 +169,7 @@ function exec_ogp_module() {
 	   <option value="rcon">HL/Quake/CoD Support</option>
 	   <option value="rcon2">HL2/Source Support</option>
 	   <option value="armabe">Arma 2 BattlEye Support</option>
-	   <option value="armabe">Minecraft</option>
+	   <option value="minecraft">Minecraft</option>
 	  </select>
 	 </td>
 	</tr>
