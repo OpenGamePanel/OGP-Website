@@ -213,7 +213,7 @@ class OGPRemoteLibrary
 	/// \return 1 On success.
 
 	public function remote_send_rcon_command($home_id, $server_ip,
-		$server_port, $control_protocol, $control_password, $control_type, $rconCommand,&$data)
+		$server_port, $control_protocol, $control_password, $control_type, $rconCommand, $home_path, &$data)
 	{
 		$params_array = $this->encrypt_params($home_id,$server_ip,$server_port,
 			$control_protocol,$control_password,$control_type, $rconCommand);
