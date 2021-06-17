@@ -87,7 +87,7 @@ function exec_ogp_module()
 		if($oldSettings["custom_github_update_branch_name"] != $settings["custom_github_update_branch_name"] || $oldSettings["custom_github_update_usernam"] != $settings["custom_github_update_usernam"]){
 			// Delete any old atom files for extras module
 			$extrasPathData = realpath('modules/extras/') . DIRECTORY_SEPARATOR . "data" . DIRECTORY_SEPARATOR;
-			recursiveDelete($extrasPathData);
+			array_map('unlink', glob($extrasPathData . "*.atom"));
 			
 			// Delete any branch atom for update module
 			$updatesPath = realpath('modules/update/');
