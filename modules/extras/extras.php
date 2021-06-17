@@ -417,7 +417,9 @@ function exec_ogp_module()
 			$isTheme = true;
 		}
 		
-		$REMOTE_REPO_FILE = $gitHubURL . $repository['name'] . '/commits/master.atom';
+		$gitHubBranchName = (!empty($settings['custom_github_update_branch_name']) ? $settings['custom_github_update_branch_name'] : 'master');
+		
+		$REMOTE_REPO_FILE = $gitHubURL . $repository['name'] . '/commits/' . $gitHubBranchName . '.atom';
 		$LOCAL_REPO_FILE = DATA_PATH . $repository['name'] . '.atom';
 		if(!file_exists($LOCAL_REPO_FILE) 
 			OR (isset($_GET['searchForUpdates']) and $_GET['searchForUpdates'] == $repository['name']) 

@@ -50,7 +50,8 @@ function exec_ogp_module()
 	// GitHub URL
 	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict")){
 		$gitHubUsername = $settings["custom_github_update_username"];	
-		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME);
+		$gitHubBranch = $settings["custom_github_update_branch_name"];	
+		$gitHubURL = getOGPGitHubURL($gitHubUsername, $gitHubBranch, REPONAME);
 	}else{
 		$gitHubURL = "https://github.com/OpenGamePanel/";
 	}

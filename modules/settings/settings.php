@@ -66,6 +66,7 @@ function exec_ogp_module()
 			"recaptcha_use_login" => $_REQUEST['recaptcha_use_login'],
 			"login_attempts_before_banned" => $_REQUEST['login_attempts_before_banned'],
 			"custom_github_update_username" => $_REQUEST['custom_github_update_username'],
+			"custom_github_update_branch_name" => $_REQUEST['custom_github_update_branch_name'],
 			"show_server_id_game_monitor" => $_REQUEST['show_server_id_game_monitor'],
 			"default_game_server_home_path_prefix" => $_REQUEST['default_game_server_home_path_prefix'],
 			"use_authorized_hosts" => $_REQUEST['use_authorized_hosts'],
@@ -176,6 +177,7 @@ function exec_ogp_module()
 	$ft->add_field('string','login_ban_time', array_key_exists("login_ban_time", $row) && !empty($row["login_ban_time"]) && is_numeric($row["login_ban_time"]) ? $row["login_ban_time"] : '');
 	
 	$ft->add_field('string','custom_github_update_username',@$row['custom_github_update_username']);
+	$ft->add_field('string','custom_github_update_branch_name',@$row['custom_github_update_branch_name']);
 	
 	$ft->add_field('on_off','show_server_id_game_monitor',@$row['show_server_id_game_monitor']);
 	
