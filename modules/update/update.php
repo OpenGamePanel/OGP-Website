@@ -107,8 +107,7 @@ function exec_ogp_module()
 	if(isset($seed))
 	{
 		/// Checking for changes in the main update files:
-		$main_update_files = array( 
-			
+		$main_update_files = array(
 			'includes/functions.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/includes/functions.php',
 			'includes/helpers.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/includes/helpers.php',
 			'modules/update/update.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/update.php',
