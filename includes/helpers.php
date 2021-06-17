@@ -429,7 +429,7 @@ function runPostUpdateOperations(){
 	}
 }
 
-function getOGPGitHubURL($gitHubUsername, $branch = "master", $repo){
+function getOGPGitHubURL($gitHubUsername, $repo, $branch = "master"){
 	$OGPGitHub = "https://github.com/OpenGamePanel/";
 	$gitHubURL = $OGPGitHub; 
 	if(isset($gitHubUsername) && !empty($gitHubUsername)){
