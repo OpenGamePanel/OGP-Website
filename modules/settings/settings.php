@@ -31,6 +31,9 @@ function exec_ogp_module()
 	{
 		$ssl = (isset($_POST['smtp_secure']) and $_POST['smtp_secure'] == 'ssl') ? 1 : 0;
 		$tls = (isset($_POST['smtp_secure']) and $_POST['smtp_secure'] == 'tls') ? 1 : 0;
+		
+		$oldSettings = $db->getSettings();
+		
 		$settings = array("panel_name" => $_REQUEST['panel_name'],
 			"header_code" => $_REQUEST['header_code'],
 			"maintenance_mode" => $_REQUEST['maintenance_mode'],
@@ -66,6 +69,7 @@ function exec_ogp_module()
 			"recaptcha_use_login" => $_REQUEST['recaptcha_use_login'],
 			"login_attempts_before_banned" => $_REQUEST['login_attempts_before_banned'],
 			"custom_github_update_username" => $_REQUEST['custom_github_update_username'],
+			"custom_github_update_branch_name" => $_REQUEST['custom_github_update_branch_name'],
 			"show_server_id_game_monitor" => $_REQUEST['show_server_id_game_monitor'],
 			"default_game_server_home_path_prefix" => $_REQUEST['default_game_server_home_path_prefix'],
 			"use_authorized_hosts" => $_REQUEST['use_authorized_hosts'],
@@ -78,6 +82,16 @@ function exec_ogp_module()
 		
 		if(array_key_exists("reset_game_server_order", $_REQUEST) && $_REQUEST["reset_game_server_order"] == 1){
 			$db->resetGameServerOrder();
+		}
+		
+		if($oldSettings["custom_github_update_branch_name"] != $settings["custom_github_update_branch_name"] || $oldSettings["custom_github_update_usernam"] != $settings["custom_github_update_usernam"]){
+			// Delete any old atom files for extras module
+			$extrasPathData = realpath('modules/extras/') . DIRECTORY_SEPARATOR . "data" . DIRECTORY_SEPARATOR;
+			array_map('unlink', glob($extrasPathData . "*.atom"));
+			
+			// Delete any branch atom for update module
+			$updatesPath = realpath('modules/update/');
+			array_map('unlink', glob($updatesPath . "*.atom"));
 		}
 		
 		echo "<h2>".get_lang('settings')."</h2>";
@@ -176,6 +190,7 @@ function exec_ogp_module()
 	$ft->add_field('string','login_ban_time', array_key_exists("login_ban_time", $row) && !empty($row["login_ban_time"]) && is_numeric($row["login_ban_time"]) ? $row["login_ban_time"] : '');
 	
 	$ft->add_field('string','custom_github_update_username',@$row['custom_github_update_username']);
+	$ft->add_field('string','custom_github_update_branch_name',@$row['custom_github_update_branch_name']);
 	
 	$ft->add_field('on_off','show_server_id_game_monitor',@$row['show_server_id_game_monitor']);
 	

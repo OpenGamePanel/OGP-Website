@@ -66,16 +66,18 @@ function exec_ogp_module()
 	// GitHub URL
 	if(function_exists("getOGPGitHubURL") && function_exists("getOGPGitHubURLUnstrict") && function_exists("getGitHubOrganization")){
 		$gitHubUsername = $settings["custom_github_update_username"];	
-		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME);
+		$gitHubBranch = (!empty($settings['custom_github_update_branch_name']) ? $settings['custom_github_update_branch_name'] : 'master');
+		$gitHubURL = getOGPGitHubURL($gitHubUsername, REPONAME, $gitHubBranch);
 		$gitHubOrganization = getGitHubOrganization($gitHubURL);
 	}else{
 		$gitHubURL = "https://github.com/OpenGamePanel/";
 	}
 	
+	$gitHubBranchName = (!empty($settings['custom_github_update_branch_name']) ? $settings['custom_github_update_branch_name'] : 'master');
 	
-	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/master.atom');
+	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/' . $gitHubBranchName . '.atom');
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
-	define('RSS_LOCAL_PATH', MODULE_PATH.'master.atom');
+	define('RSS_LOCAL_PATH', MODULE_PATH . $gitHubBranchName . '.atom');
 		
 	if( is_writable(MODULE_PATH) )
 	{
@@ -105,9 +107,14 @@ function exec_ogp_module()
 	if(isset($seed))
 	{
 		/// Checking for changes in the main update files:
-		$main_update_files = array( 'modules/update/update.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/update.php',
-									'modules/update/updating.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/updating.php',
-									'modules/update/unzip.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/unzip.php');
+		$main_update_files = array(
+			'includes/functions.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/includes/functions.php',
+			'includes/helpers.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/includes/helpers.php',
+			'modules/update/update.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/update.php',
+			'modules/update/updating.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/updating.php',
+			'modules/update/unzip.php' => 'https://raw.githubusercontent.com/' . $gitHubOrganization . '/'.REPONAME.'/'.$seed.'/modules/update/unzip.php'
+		);
+		
 		$refresh = False;
 		foreach($main_update_files as $local_path => $remote_url)
 		{
@@ -155,6 +162,7 @@ function exec_ogp_module()
 					$commitsToShow = 5;
 					
 					$gitHubUpdateName = (!empty($settings['custom_github_update_username']) ? $settings['custom_github_update_username'] : 'OpenGamePanel');
+					
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits');
 					curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0');
@@ -175,7 +183,7 @@ function exec_ogp_module()
 								echo '<b>'.str_replace("*", "<br><br>", $v['commit']['message']) .'</b></li><br>';
 								++$commitsStart;
 							}
-							echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits/master" target="_blank">View more commits...</a>';
+							echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName . '" target="_blank">View more commits...</a>';
 						}
 					}
 				}

@@ -429,14 +429,14 @@ function runPostUpdateOperations(){
 	}
 }
 
-function getOGPGitHubURL($gitHubUsername, $repo){
+function getOGPGitHubURL($gitHubUsername, $repo, $branch = "master"){
 	$OGPGitHub = "https://github.com/OpenGamePanel/";
 	$gitHubURL = $OGPGitHub; 
 	if(isset($gitHubUsername) && !empty($gitHubUsername)){
 		$gitHubURL = "https://github.com/" . $gitHubUsername . "/"; 
 	}
 	
-	$paths[] = $gitHubURL . $repo . "/commits/master.atom";
+	$paths[] = $gitHubURL . $repo . "/commits/" . $branch . '.atom';
 	$exists = get_first_existing_file($paths);
 	if($exists !== false){
 		return $gitHubURL;
