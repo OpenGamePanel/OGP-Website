@@ -31,6 +31,9 @@ function exec_ogp_module()
 	{
 		$ssl = (isset($_POST['smtp_secure']) and $_POST['smtp_secure'] == 'ssl') ? 1 : 0;
 		$tls = (isset($_POST['smtp_secure']) and $_POST['smtp_secure'] == 'tls') ? 1 : 0;
+		
+		$oldSettings = $db->getSettings();
+		
 		$settings = array("panel_name" => $_REQUEST['panel_name'],
 			"header_code" => $_REQUEST['header_code'],
 			"maintenance_mode" => $_REQUEST['maintenance_mode'],
@@ -79,6 +82,16 @@ function exec_ogp_module()
 		
 		if(array_key_exists("reset_game_server_order", $_REQUEST) && $_REQUEST["reset_game_server_order"] == 1){
 			$db->resetGameServerOrder();
+		}
+		
+		if($oldSettings["custom_github_update_branch_name"] != $settings["custom_github_update_branch_name"] || $oldSettings["custom_github_update_usernam"] != $settings["custom_github_update_usernam"]){
+			// Delete any old atom files for extras module
+			$extrasPathData = realpath('modules/extras/') . DIRECTORY_SEPARATOR . "data" . DIRECTORY_SEPARATOR;
+			recursiveDelete($extrasPathData);
+			
+			// Delete any branch atom for update module
+			$updatesPath = realpath('modules/update/');
+			array_map('unlink', glob($updatesPath . "*.atom"));
 		}
 		
 		echo "<h2>".get_lang('settings')."</h2>";
