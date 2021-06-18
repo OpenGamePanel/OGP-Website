@@ -49,13 +49,13 @@ define('OGP_LANG_show_addons_for_selected_game', "Pokaż dodatki dla wybranych g
 define('OGP_LANG_linux_games', "Gry Linux:");
 define('OGP_LANG_windows_games', "Gry Windows:");
 define('OGP_LANG_create_addon', "Stwórz Dodatek");
-define('OGP_LANG_addons_db', "Addons Database");
+define('OGP_LANG_addons_db', "Baza danych Dodatki");
 define('OGP_LANG_addon_has_been_created', "Dodatek %s został stworzony.");
 define('OGP_LANG_remove_addon', "Usuń dodatek");
 define('OGP_LANG_fill_the_url_address_to_a_compressed_file', "Proszę wypełnić adresu URL do pakowania pliku.");
 define('OGP_LANG_fill_the_addon_name', "Proszę wypełnić nazwę dodatku.");
 define('OGP_LANG_select_an_addon_type', "Proszę wybrać typ dodatku.");
-define('OGP_LANG_select_a_game_type', "Proszę wybrać typ gry dodatku.");
+define('OGP_LANG_select_a_game_type', "Wybierz tryb gry.");
 define('OGP_LANG_edit_addon', "Edytuj Dodatek");
 define('OGP_LANG_post-script', "Skrypt po instalacji(bash)");
 define('OGP_LANG_replacements', "Zamienniki:");

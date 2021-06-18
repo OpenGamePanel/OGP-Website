@@ -22,23 +22,23 @@
  *
  */
 
-define('OGP_LANG_recover', "Recover a forgotten password");
-define('OGP_LANG_back', "Back");
-define('OGP_LANG_incomplete', "Please go back and complete all the fields in the form.");
-define('OGP_LANG_subject', "Password request");
-define('OGP_LANG_password_message', "Hello,<br><br>Your password has been successfully reseted.<br><br>New Password: %s<br><br>Remember to change your password often.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
-define('OGP_LANG_send', "Your password has been sent! Please check your email!");
-define('OGP_LANG_here', "Here");
-define('OGP_LANG_to_login', "to login");
-define('OGP_LANG_errormail', "Your email address is not correct.");
-define('OGP_LANG_submit', "Submit");
-define('OGP_LANG_click', "Click");
-define('OGP_LANG_mail_settings_missing', "Panel mail settings are not complete so it can not send your password. Contact your OGP admin.");
-define('OGP_LANG_mail_failed', "Failed to send email.");
-define('OGP_LANG_email', "Email");
-define('OGP_LANG_enter_email', "Please enter your email address");
-define('OGP_LANG_webmaster', "Webmaster");
-define('OGP_LANG_confirm_send', "For security reasons we have sent you a confirmation link before you restart your password.<br><b style='color:red;'>Please check your inbox.</b>");
-define('OGP_LANG_confirm_change_subject', "Password reset, confirmation email");
-define('OGP_LANG_confirm_change_password_message', "Hello,<br><br>Please click on the link below to reset your password:<br><br>%s<br><br>Note: If you do not have requested the reset of your password, you can ignore this email.<br><br>Please do not reply to this email!<br><br>______________________________<br>OGP Mailer");
+define('OGP_LANG_recover', "Palauta unohtunut salasana");
+define('OGP_LANG_back', "Takaisin");
+define('OGP_LANG_incomplete', "Palaa takaisin ja täytä kaikki lomakkeen kentät.");
+define('OGP_LANG_subject', "Salasanapyyntö");
+define('OGP_LANG_password_message', "Hei, <br><br>salasanasi on palautettu onnistuneesti. <br><br> Uusi salasana: %s<br><br> Muista vaihtaa salasanasi usein. <br><br>Älä vastaa tähän sähköpostiin! <br><br>______________________________ <br>OGP Mailer");
+define('OGP_LANG_send', "Salasanasi on lähetetty! Ole hyvä ja tarkista sähköpostisi!");
+define('OGP_LANG_here', "Tässä");
+define('OGP_LANG_to_login', "kirjautua sisään");
+define('OGP_LANG_errormail', "Sähköpostiosoitteesi ei ole oikea.");
+define('OGP_LANG_submit', "Lähetä");
+define('OGP_LANG_click', "Klikkaa");
+define('OGP_LANG_mail_settings_missing', "Paneeliasetukset eivät ole täydelliset, joten se ei voi lähettää salasanaasi. Ota yhteyttä OGP-järjestelmänvalvojaasi.");
+define('OGP_LANG_mail_failed', "Sähköpostin lähettäminen epäonnistui.");
+define('OGP_LANG_email', "Sähköposti");
+define('OGP_LANG_enter_email', "Anna sähköpostiosoitteesi");
+define('OGP_LANG_webmaster', "Verkkovastaava");
+define('OGP_LANG_confirm_send', "Turvallisuussyistä olemme lähettäneet sinulle vahvistuslinkin, ennen kuin nollaamme salasanasi.<br><b style='color:red;'>Tarkista postilaatikkosi.</b>");
+define('OGP_LANG_confirm_change_subject', "Salasanan vaihto, vahvistusviesti");
+define('OGP_LANG_confirm_change_password_message', "Hei, <br><br>napsauta alla olevaa linkkiä nollataksesi salasanasi: <br><br>%s<br><br>Huomaa: Jos et ole pyytänyt salasanasi vaihtamista, voit ohittaa tämän sähköpostin.<br><br> Älä vastaa tähän sähköpostiin! <br><br>______________________________ <br>OGP Mailer");
 ?>

@@ -91,6 +91,9 @@ define('OGP_LANG_login_attempts_before_banned', "Número de tentativas de login 
 define('OGP_LANG_login_attempts_before_banned_info', "Se um usuário tentar iniciar sessão com credenciais inválidas mais do que essas determinadas vezes, o usuário será banido temporariamente pelo painel.");
 define('OGP_LANG_custom_github_update_username', "Nome de usuário da atualização do GitHub");
 define('OGP_LANG_custom_github_update_username_info', "Digite seu nome de usuário GitHub SOMENTE para usar seus próprios repositórios bifurcados para atualizar o painel. Isso só deve ser alterado por desenvolvedores que desejam usar seus próprios repositórios para desenvolvimento em vez de verificar possivelmente o código de algum possivel BUG no código principal.");
+define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
+define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
+
 define('OGP_LANG_remote_query', "Consulta remota");
 define('OGP_LANG_remote_query_info', "Use o servidor remoto (agente) para fazer consultas aos servidores do jogo (Only GameQ and LGSL).");
 define('OGP_LANG_check_expiry_by', "Verifique a expiração usando");
