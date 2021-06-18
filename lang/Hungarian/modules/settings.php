@@ -93,7 +93,6 @@ define('OGP_LANG_custom_github_update_username', "GitHub frissítési felhaszná
 define('OGP_LANG_custom_github_update_username_info', "Írd be GITHub felhasználóneved, hogy CSAK az általad létrehozott tárolókból frissíthesd az OGP-t. Ezt csak azok a fejlesztők változtathatják meg, akik saját repóikat szeretnék használni fejlesztéshez, ahelyett, hogy esetleg hibás kódokat ellenőriznének a fő ágban.");
 define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
 define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
-
 define('OGP_LANG_remote_query', "Távoli lekérdezés");
 define('OGP_LANG_remote_query_info', "Használja a távoli kiszolgálót (ügynököt) a játékkiszolgálók lekérdezéséhez (csak a GameQ és az LGSL).");
 define('OGP_LANG_check_expiry_by', "Ellenőrizze a használat lejáratát");

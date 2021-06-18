@@ -93,7 +93,6 @@ define('OGP_LANG_custom_github_update_username', "GitHub update Nutzername");
 define('OGP_LANG_custom_github_update_username_info', "Geben Sie NUR Ihren GitHub-Benutzernamen ein, um Ihre eigenen verzweigten Repositorys zum Aktualisieren von OGP zu verwenden. Dies sollte nur von Entwicklern geändert werden, die ihre eigenen Repos für die Entwicklung verwenden möchten, anstatt möglicherweise fehlerhaften Code im Hauptzweig einzuchecken.");
 define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
 define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
-
 define('OGP_LANG_remote_query', "Abfrage query");
 define('OGP_LANG_remote_query_info', "Verwenden Sie den Remote-Server (Agent), um Abfragen an die Spieleserver (Nur GameQ und LGSL) zu stellen.");
 define('OGP_LANG_check_expiry_by', "Überprüfen Sie den Ablauf");
