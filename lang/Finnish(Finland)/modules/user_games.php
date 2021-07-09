@@ -91,7 +91,7 @@ define('OGP_LANG_ftp_can_not_be_switched_off', "FTP:tä ei voi kytkeä pois pä�
 define('OGP_LANG_invalid_home_id_entered', "Virheellinen kodin id syötetty.");
 define('OGP_LANG_ip_port_already_in_use', "%s:%s on jo käytössä. Valitse toinen.");
 define('OGP_LANG_successfully_assigned_ip_port_to_server_id', "Onnistuneesti määritetty %s:%s kodille, jonka ID on %s.");
-define('OGP_LANG_no_ip_addresses_configured', "Pelipalvelimellasi ei ole määritetty IP-osoitteita. Voit määrittää ne");
+define('OGP_LANG_no_ip_addresses_configured', "Pelipalvelimellasi ei ole määritetty IP-osoitteita. Voit määrittää ne ");
 define('OGP_LANG_server_page', "palvelinsivu");
 define('OGP_LANG_successfully_removed_mod', "Pelimodin poisto onnistui.");
 define('OGP_LANG_warning_agent_offline_defaulting_CPU_count_to_1', "Varoitus - Agentti offline-tilassa, oletusarvoinen suorittimen määrä on 1.");
