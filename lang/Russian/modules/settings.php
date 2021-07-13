@@ -91,6 +91,8 @@ define('OGP_LANG_login_attempts_before_banned', "Количество неуда
 define('OGP_LANG_login_attempts_before_banned_info', "Если пользователь пытается войти в систему с недопустимыми учетными данными больше, чем установлено, пользователь будет временно заблокирован панелью.");
 define('OGP_LANG_custom_github_update_username', "Имя пользователя для обновления с GitHub");
 define('OGP_LANG_custom_github_update_username_info', "Введите свое имя пользователя GitHub ТОЛЬКО для использования ваших собственных разветвленных репозиториев для обновления OGP. Это должно быть изменено только разработчиками, которые хотят использовать свои собственные репозитории для разработки, а не проверять возможный кода ошибки в основной ветке.");
+define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
+define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
 define('OGP_LANG_remote_query', "Удаленный запрос");
 define('OGP_LANG_remote_query_info', "Используйте удаленный сервер (Агент), чтобы делать запросы на игровые серверы (только для GameQ и LGSL).");
 define('OGP_LANG_check_expiry_by', "Проверка срока действия");

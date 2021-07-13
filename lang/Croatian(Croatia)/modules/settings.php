@@ -91,6 +91,8 @@ define('OGP_LANG_login_attempts_before_banned', "Broj neuspjelih pokušaja prija
 define('OGP_LANG_login_attempts_before_banned_info', "Ako se korisnik više puta pokuša prijaviti s nevažećim detaljima za prijavu, Panel će privremeno zabraniti korisnika.");
 define('OGP_LANG_custom_github_update_username', "Korisničko Ime za GitHub ažuriranje");
 define('OGP_LANG_custom_github_update_username_info', "Unesite GitHub korisničko ime SAMO za korištenje vlastitih repozitoriji za ažuriranje OGP-a. To bi trebalo mijenjati samo razvojni programeri koji žele koristiti vlastiti repozitorij za razvoj, umjesto da provjere eventualno pogrešan kod u glavnu granu.");
+define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
+define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
 define('OGP_LANG_remote_query', "Udaljeni upit");
 define('OGP_LANG_remote_query_info', "Upotrijebite udaljeni poslužitelj (agent) za upite na igre (samo GameQ i LGSL).");
 define('OGP_LANG_check_expiry_by', "Provjerite istek");

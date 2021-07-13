@@ -30,7 +30,7 @@ define('OGP_LANG_enter_mysql_root_password', "Add meg a MySQL root jelszavát.")
 define('OGP_LANG_enter_mysql_name', "Add meg a MySQL nevét.");
 define('OGP_LANG_could_not_add_mysql_server', "Nem sikerült hozzáadni a MySQL szervert.");
 define('OGP_LANG_game_server_name_info', "Szerver neve segít a felhasználóknak beazonosítani a szervereiket.");
-define('OGP_LANG_note_mysql_host', "Note: Using a 'Direct connection' the server must accept external connections so the servers can connect remotely, whereas connecting through a remote server it will be used just as a local connection.");
+define('OGP_LANG_note_mysql_host', "Megjegyzés: A „Közvetlen kapcsolat” használatakor a kiszolgálónak el kell fogadnia a külső kapcsolatokat, hogy a kiszolgálók távolról csatlakozhassanak, míg a távoli szerveren keresztül történő csatlakozás csak helyi kapcsolatként fog használni.");
 define('OGP_LANG_direct_connection', "Közvetlen kapcsolat");
 define('OGP_LANG_connection_through_remote_server_named', "Kapcsolat a(z) %s nevű távoli szerveren keresztül");
 define('OGP_LANG_add_mysql_server', "MySQL szerver hozzáadása");
@@ -72,14 +72,14 @@ define('OGP_LANG_sql_delete_info', "<b>Engedélyezi a TÖRLÉS használatát.</b
 define('OGP_LANG_sql_drop_info', "<b>Engedélyezi a TÁBLA TÖRLÉSE használatát.</b>");	
 define('OGP_LANG_sql_index_info', "<b>Engedélyezi az INDEXEK KÉSZÍTÉSÉT és az INDEXEK TÖRLÉSÉT.</b>");	
 define('OGP_LANG_sql_insert_info', "<b>Engedélyezi az ÚJ SOR BEVITELE használatát.</b>");	
-define('OGP_LANG_sql_lock_tables_info', "<b>Enables use of LOCK TABLES on tables for which you have the SELECT privilege.</b>");	
+define('OGP_LANG_sql_lock_tables_info', "<b>Engedélyezed a LOCK TABLES használatát olyan táblákon, amelyekre rendelkezel a SELECT jogosultsággal.</b>");	
 define('OGP_LANG_sql_select_info', "Engedélyezi a KIJELÖLÉS használatát.");
 define('OGP_LANG_sql_update_info', "Engedélyezi a FRISSÍTÉS használatát.");	
 define('OGP_LANG_sql_grant_option_info', "Engedélyezi, hogy jogok kerülhessenek megadásra.");
 define('OGP_LANG_select_game_server', "Válassz játékszervert");
 define('OGP_LANG_invalid_mysql_server_id', "Érvénytelen MySQL szerver ID.");
 define('OGP_LANG_there_is_another_db_named_or_user_named', "Már van egy adatbázis <b>%s</b> néven, vagy egy <b>%s</b> nevű felhasználó.");
-define('OGP_LANG_db_added_for_home_id', "Adatbázis hozzáadva a(z) <b>%s</b>-s ID-hez");
+define('OGP_LANG_db_added_for_home_id', "Adatbázis hozzáadva a(z) <b>%s</b> otthon azonosítóhoz");
 define('OGP_LANG_could_not_remove_db', "A kiválasztott adatbázist nem lehet eltávolítani.");
 define('OGP_LANG_db_removed_successfully_from_mysql_server_named', "Az adatbázis eltávolítva a(z) %s szerverről.");
 define('OGP_LANG_areyousure_remove_mysql_server', "Biztos, hogy el akarod távolítani a(z) <b>%s</b> nevű MySQL szervert?");

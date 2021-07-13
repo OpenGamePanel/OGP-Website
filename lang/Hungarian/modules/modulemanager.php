@@ -52,5 +52,5 @@ define('OGP_LANG_failed_del_db', "Nem sikerült törölni a modult az adatbázis
 define('OGP_LANG_updated_module', "Frissített modul: '%s'.");
 define('OGP_LANG_updating_modules', "Modulok frissítése");
 define('OGP_LANG_updating_finished', "Frissítés befejezve");
-define('OGP_LANG_prereqs_missing', "Prerequisites of %s must be installed on the server before %s can be installed.");
+define('OGP_LANG_prereqs_missing', "A %s előfeltételeit telepíteni kell a kiszolgálóra, mielőtt a %s telepíteni lehet.");
 ?>

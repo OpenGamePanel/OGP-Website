@@ -38,7 +38,7 @@ define('OGP_LANG_level_up', "^Egy szinttel feljebb^");
 define('OGP_LANG_unallowed_char', "Nem megengedett karakterek találhatóak az útvonalban.");
 define('OGP_LANG_button_edit', "[Szerkesztés]");
 define('OGP_LANG_save', "Mentés");
-define('OGP_LANG_home_id_missing', "A szerver azonosító hiányzik.");
+define('OGP_LANG_home_id_missing', "Az otthon azonosító hiányzik.");
 define('OGP_LANG_upload', "Feltöltés");
 define('OGP_LANG_upload_failed', "Feltöltés nem sikerült, a hiba: %s.");
 define('OGP_LANG_can_not_create_upload_folder_path', "Nem lehet létrehozni a(z) %s feltöltési útvonalat");

@@ -91,6 +91,8 @@ define('OGP_LANG_login_attempts_before_banned', "Number of failed login attempts
 define('OGP_LANG_login_attempts_before_banned_info', "If a user tries to login with invalid credentials more than this many times, the user will be banned temporarily by the panel.");
 define('OGP_LANG_custom_github_update_username', "GitHub update username");
 define('OGP_LANG_custom_github_update_username_info', "Enter your GitHub username ONLY to use your own forked repositories to update OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.");
+define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
+define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
 define('OGP_LANG_remote_query', "Remote query");
 define('OGP_LANG_remote_query_info', "Use the remote server (agent) to make queries to the game servers (Only GameQ and LGSL).");
 define('OGP_LANG_check_expiry_by', "Check expiration using");

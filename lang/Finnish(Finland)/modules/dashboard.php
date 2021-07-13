@@ -31,9 +31,9 @@ define('OGP_LANG_any_server_is_online', "Mikä tahansa palvelin on online-tilass
 define('OGP_LANG_current_map', "Nykyinen kartta");
 define('OGP_LANG_server_ip_port', "IP:Portti");
 define('OGP_LANG_statistics', "Statistiikka");
-define('OGP_LANG_servers', "Serverit");
+define('OGP_LANG_servers', "Palvelimet");
 define('OGP_LANG_players', "Pelaajat");
-define('OGP_LANG_server_status', "Serverin tila");
+define('OGP_LANG_server_status', "Palvelimen tila");
 define('OGP_LANG_no_games_to_monitor', "Tällä hetkellä ei ole online-/offline-pelipalvelimia");
 define('OGP_LANG_online_servers', "Online-palvelimet");
 define('OGP_LANG_add_games_in', "Jos haluat lisätä pelin, voit tehdä sen %s");

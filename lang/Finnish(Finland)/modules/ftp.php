@@ -29,7 +29,7 @@ define('OGP_LANG_ftp_account_already_exists', "Tämä FTP-tili on jo olemassa.")
 define('OGP_LANG_full_path', "Kotihakemisto");
 define('OGP_LANG_add_ftp_account', "Lisää FTP-tili");
 define('OGP_LANG_remote_server', "Etäpalvelin");
-define('OGP_LANG_server_name', "Serverin nimi");
+define('OGP_LANG_server_name', "Palvelimen nimi");
 define('OGP_LANG_ftp_account_username_too_long', "FTP-käyttäjänimi on liian pitkä. Kokeile lyhyempää käyttäjänimeä, enintään 20 merkkiä.");
 define('OGP_LANG_ftp_account_password_too_long', "FTP-salasana on liian pitkä. Kokeile lyhyempää salasanaa, enintään 20 merkkiä.");
 ?>
