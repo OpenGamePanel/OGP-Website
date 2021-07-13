@@ -1203,7 +1203,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 		{
 			$challenge_code = isset($lgsl_need['challenge']) ? $lgsl_need['challenge'] : "\x00\x00\x00\x00";
 
-			if ($lgsl_need['s']) { fwrite($lgsl_fp, "\xFF\xFF\xFF\xFF\x54Source Engine Query\x00"); }
+			if     ($lgsl_need['s']) { fwrite($lgsl_fp, "\xFF\xFF\xFF\xFF\x54Source Engine Query\x00" . (isset($lgsl_need['challenge']) ? $challenge_code : "")); }
 			elseif ($lgsl_need['e']) { fwrite($lgsl_fp, "\xFF\xFF\xFF\xFF\x56{$challenge_code}"); }
 			elseif ($lgsl_need['p']) { fwrite($lgsl_fp, "\xFF\xFF\xFF\xFF\x55{$challenge_code}"); }
 		}
@@ -1293,7 +1293,7 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 
 		if ($response_type == "I") // SOURCE INFO ( HALF-LIFE 2 )
 		{
-			lgsl_cut_byte($buffer, 1);
+			$server['e']['netcode']     = ord(lgsl_cut_byte($buffer, 1));
 			$server['s']['name']		= lgsl_cut_string($buffer);
 			$server['s']['map']			= lgsl_cut_string($buffer);
 			$server['s']['game']		= lgsl_cut_string($buffer);
@@ -1307,6 +1307,21 @@ if (!function_exists('lgsl_version')) { // START OF DOUBLE LOAD PROTECTION
 			$server['s']['password']	= ord(lgsl_cut_byte($buffer, 1));
 			$server['e']['anticheat']	= ord(lgsl_cut_byte($buffer, 1));
 			$server['e']['version']		= lgsl_cut_string($buffer);
+			
+			if (ord(lgsl_cut_byte($buffer, 1)) == 177) {
+				lgsl_cut_byte($buffer, 10);
+			}
+			else {
+				lgsl_cut_byte($buffer, 6);
+			}
+			$server['e']['tags']        = lgsl_cut_string($buffer);
+
+			if($server['s']['game'] == 'rust'){
+				preg_match('/cp\d{1,3}/', $server['e']['tags'], $e);
+				$server['s']['players'] = substr($e[0], 2);
+				preg_match('/mp\d{1,3}/', $server['e']['tags'], $e);
+				$server['s']['playersmax'] = substr($e[0], 2);
+			}
 		}
 
 		elseif ($response_type == "m") // HALF-LIFE 1 INFO
