@@ -113,7 +113,7 @@ define('OGP_LANG_lang', "Dil");
 define('OGP_LANG_get_size', "Boyutunu Göster");
 define('OGP_LANG_total_size', "Toplam boyut");
 define('OGP_LANG_lgsl', "LGSL");
-define('OGP_LANG_lgsl_admin', "LGSL Yaönetim");
+define('OGP_LANG_lgsl_admin', "LGSL Yönetim");
 define('OGP_LANG_rcon', "RCON");
 define('OGP_LANG_watch_logger', "Logları Görüntüle");
 define('OGP_LANG_litefm_settings', "LiteFM Ayarları");
