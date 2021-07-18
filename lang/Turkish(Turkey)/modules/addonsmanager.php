@@ -28,7 +28,7 @@ define('OGP_LANG_install_config', "Kurulumları Yükle");
 define('OGP_LANG_game_name', "Oyun Adı");
 define('OGP_LANG_directory', "Klasör Yolu");
 define('OGP_LANG_remote_server', "Uzak Sunucu");
-define('OGP_LANG_select_addon', "Addon ' u Seçin");
+define('OGP_LANG_select_addon', "Eklenti Seçin");
 define('OGP_LANG_install', "Kur");
 define('OGP_LANG_failed_to_start_file_download', "Dosya indirimi başlatılamadı.");
 define('OGP_LANG_no_games_servers_available', "Hesabınızda kullanılamayan oyun sunucusu yok");
@@ -36,7 +36,7 @@ define('OGP_LANG_addon_installed_successfully', "Eklenti başarıyla yüklendi")
 define('OGP_LANG_path', "Yol");
 define('OGP_LANG_wait_while_decompressing', "%s dosyası açıldığında bekleyin");
 define('OGP_LANG_addon_name', "Ekleni Adı");
-define('OGP_LANG_url', "URL");
+define('OGP_LANG_url', "Bağlantı");
 define('OGP_LANG_select_game_type', "Oyun Türünü Seçiniz");
 define('OGP_LANG_plugin', "Eklenti");
 define('OGP_LANG_mappack', "Harita Paketi");
