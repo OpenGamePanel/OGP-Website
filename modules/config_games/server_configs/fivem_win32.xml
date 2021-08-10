@@ -65,20 +65,6 @@
     </field>    
   </custom_fields>
   <post_install>
-BASE="https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/"
-
-wget $BASE -Otmp
-
-# Assuming the version schema isn't changed or the url above isn't moved, this will always work.
-LATEST_VERSION=$(grep -Po '(?&lt;=href=")[^"]*' tmp | tail -1)
-
-wget "${BASE}${LATEST_VERSION}/server.zip"
-wget https://github.com/citizenfx/cfx-server-data/archive/master.zip -Ocfx-server-data.zip
-
-unzip server.zip
-unzip cfx-server-data.zip -d $PWD/server-data
-mv $PWD/server-data/cfx-server-data-master/resources $PWD/resources
-
 cat > $PWD/server.cfg &lt;&lt;END
 # you probably don't want to change these!
 # only change them if you're using a server with multiple network interfaces
@@ -137,13 +123,7 @@ sv_licenseKey superduperkey
 set steam_webApiKey ""
     
 END
-
-rm tmp server.zip cfx-server-data.zip
-rm -rf $PWD/server-data
-echo "@echo off" > run.cmd
-echo "%~dp0\FXServer +set citizen_dir %~dp0\citizen\ %* > CitizenFX.log" >> run.cmd    
   </post_install>
-  
   <configuration_files>
     <file description="Main Config File">server.cfg</file>
   </configuration_files>
