@@ -293,6 +293,8 @@ elseif($server_home['home_id'] == $_POST['home_id'])
 	    $cli_param_data['MAP'] = $_POST['map']; 
  	else 
  	    $cli_param_data['MAP'] = ""; 
+ 	    
+ 	$cli_param_data['MAP'] = clean_server_param_value($cli_param_data['MAP'], $server_xml->cli_allow_chars);
 
 	$ip_port = $_POST['ip_port'];
 	list($ip, $port) = explode(":", $ip_port);
