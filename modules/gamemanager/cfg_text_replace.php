@@ -34,7 +34,7 @@ $last_param = json_decode($db->getLastParam($server_home["home_id"]), True);
 $server_home["max_players"] = isset($cli_param_data['PLAYERS']) ? $cli_param_data['PLAYERS'] : $last_param['players'];
 $server_home["webhost_ip"] = $_SERVER['SERVER_ADDR'];
 $server_home["incremental"] = $db->incrementalNumByHomeId( $server_home["home_id"], $server_home["mod_cfg_id"], $server_home["remote_server_id"] );
-$server_home["map"] = isset($cli_param_data['MAP']) ? $cli_param_data['MAP'] : $last_param['map'];
+$server_home["map"] = clean_server_param_value(isset($cli_param_data['MAP']) ? $cli_param_data['MAP'] : $last_param['map'], $server_xml->cli_allow_chars);
 
 $isWin = preg_match('/CYGWIN/', $remote->what_os());
 

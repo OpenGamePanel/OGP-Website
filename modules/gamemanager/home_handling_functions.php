@@ -104,7 +104,7 @@ function get_start_cmd($remote,$server_xml,$home_info,$mod_id,$ip,$port,$db)
 		$cli_param_data['QUERY_PORT'] = "10011";
 	}
 	
-	$cli_param_data['MAP'] = ($last_param === NULL or !isset($last_param['map'])) ?  "" : $last_param['map'];
+	$cli_param_data['MAP'] = clean_server_param_value(($last_param === NULL or !isset($last_param['map'])) ?  "" : $last_param['map'], $server_xml->cli_allow_chars);
 	$cli_param_data['PLAYERS'] = ($last_param === NULL or !isset($last_param['players'])) ? 
 								 isset($home_info['mods'][$mod_id]['max_players']) ? 
 								 $home_info['mods'][$mod_id]['max_players'] : "1" : $last_param['players'];
