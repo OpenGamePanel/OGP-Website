@@ -505,7 +505,7 @@ function clean_server_param_value($value, $cli_allow_chars) {
 	$repl = array();
 	foreach($escape_chars as $char)
 	{
-		$find[] = preg_quote($char);
+		$find[] = '%'.preg_quote($char).'%';
 		$char = $char == '\\' ? preg_quote('\\\\') : $char;
 		$repl[] = '\\'.$char;
 	}
