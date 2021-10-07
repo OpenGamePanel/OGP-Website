@@ -6,7 +6,7 @@
   <game_name>Wreckfest</game_name>
   <server_exec_name>Wreckfest.exe</server_exec_name>
   <query_port type="subtract">6524</query_port>
-  <cli_template>-s server_config=server_config.cfg</cli_template>
+  <cli_template>-s server_config=server_config.cfg -server_set log=log.txt</cli_template>
   <console_log>log.txt</console_log>
   <max_user_amount>24</max_user_amount>
   <mods>
