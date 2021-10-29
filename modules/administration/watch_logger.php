@@ -100,11 +100,14 @@ function exec_ogp_module() {
 		foreach($logs as $log)
 		{
 			$user = $db->getUserById($log['user_id']);
-			$when = $log['date'];
-			$who = $user['users_login'];
-			$where = $log['ip'];
-			$what = $log['message'];
-			$log_id = $log['log_id'];
+			$when   = htmlspecialchars($log['date']);
+			$who    = htmlspecialchars($user['users_login']);
+			$where  = htmlspecialchars($log['ip']);
+			$what   = htmlspecialchars($log['message']);
+			$log_id = htmlspecialchars($log['log_id']);
+            // htmlspecialchars will prevent html from
+            // being rendered. It will escape html
+            // values.
 			// Template
 			echo "<tr class='maintr'>\n".
 				 "<td class='collapsible'>\n".
@@ -128,8 +131,11 @@ function exec_ogp_module() {
 			$show_values = array( "users_login", "users_lang", "users_role", "users_email", "user_expires");
 			foreach($user as $key => $value)
 			{
-				if( in_array( $key, $show_values ) )
-					echo "<tr><td>".str_replace("_", "", substr($key,5))."</td><td>$value</td></tr>\n";
+				if( in_array( $key, $show_values ) ) {
+                    $keyEscaped = htmlspecialchars($key);
+                    $valueEscaped = htmlspecialchars($value);
+                    echo "<tr><td>".str_replace("_", "", substr($keyEscaped,5))."</td><td>$valueEscaped</td></tr>\n";
+                }
 			}
 			echo "</tr>\n".
 				 "</td>\n".
