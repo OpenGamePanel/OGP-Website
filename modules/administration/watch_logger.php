@@ -132,9 +132,8 @@ function exec_ogp_module() {
 			foreach($user as $key => $value)
 			{
 				if( in_array( $key, $show_values ) ) {
-                    $keyEscaped = htmlspecialchars($key);
                     $valueEscaped = htmlspecialchars($value);
-                    echo "<tr><td>".str_replace("_", "", substr($keyEscaped,5))."</td><td>$valueEscaped</td></tr>\n";
+                    echo "<tr><td>".str_replace("_", "", substr($key,5))."</td><td>$valueEscaped</td></tr>\n";
                 }
 			}
 			echo "</tr>\n".
