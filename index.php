@@ -297,7 +297,7 @@ function ogpHome()
 					if( !$banlist_info )
 						$db->query("INSERT INTO `OGP_DB_PREFIXban_list` (`client_ip`) VALUES('$client_ip');");
 						
-					$db->logger( get_lang("bad_login") . " ( Banned until " . date("r", $banned_until) . " ) [ " . login . ": $_POST[ulogin], " . password . ": ******** ]" );
+					$db->logger( get_lang("bad_login") . " ( Banned until " . date("r", $banned_until) . " ) [ " . login . ": " . sanitizeInputStr($_POST["ulogin"]) . ", " . password . ": ******** ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts', banned_until='$banned_until' WHERE client_ip='$client_ip';");
 					print_failure("Banned until " . date("r",$banned_until));
 				}
@@ -306,7 +306,7 @@ function ogpHome()
 					if( !$banlist_info )
 						$db->query("INSERT INTO `OGP_DB_PREFIXban_list` (`client_ip`) VALUES('$client_ip');");
 					
-					$db->logger( get_lang("bad_login") . " ( $login_attempts ) [ " . get_lang("login") . ": $_POST[ulogin], " . get_lang("password") . ": ******** ]" );
+					$db->logger( get_lang("bad_login") . " ( $login_attempts ) [ " . get_lang("login") . ": " . sanitizeInputStr($_POST["ulogin"]) . ", " . get_lang("password") . ": ******** ]" );
 					$db->query("UPDATE `OGP_DB_PREFIXban_list` SET logging_attempts='$login_attempts' WHERE client_ip='$client_ip';");
 					$view->refresh("index.php",2);
 				}
