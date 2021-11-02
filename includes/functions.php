@@ -847,7 +847,7 @@ function utf8ize($d, $htmlEntities = true) {
 		if($htmlEntities){
 			$d = htmlentities($d);
 		}
-        return utf8_encode($d);
+        return mb_convert_encoding($d, "UTF-8", "UTF-8");
     }
     return $d;
 }

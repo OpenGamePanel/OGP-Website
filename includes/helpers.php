@@ -169,7 +169,7 @@ function get_first_existing_file($paths, $referrer = "", $agent = "")
 				// Reset timeout to old value
 				ini_set('default_socket_timeout', $origSocketTimeout);
 			}
-			if(trim($file_headers[0]) == 'HTTP/1.0 200 OK' || trim($file_headers[0]) == 'HTTP/1.1 200 OK') return $path;
+			if(trim($file_headers[0]) == 'HTTP/1.0 200 OK' || trim($file_headers[0]) == 'HTTP/1.1 200 OK' || trim($file_headers[0]) == 'HTTP/2 200' || trim($file_headers[0]) == 'HTTP/1.1 200' || trim($file_headers[0]) == 'HTTP/1.0 200') return $path;
 		}
 		
         if (file_exists($path)) return $path;
