@@ -91,8 +91,10 @@ define('OGP_LANG_login_attempts_before_banned', "Número de intentos de logueo f
 define('OGP_LANG_login_attempts_before_banned_info', "Si un usuario intenta loguearse con credenciales inválidas más de estas veces, el usuario será baneado temporalmente por el panel.");
 define('OGP_LANG_custom_github_update_username', "Nombre de usuario de GitHub update");
 define('OGP_LANG_custom_github_update_username_info', "Ingrese su nombre de usuario GitHub SOLAMENTE para usar sus propios repositorios bifurcados para actualizar OGP. Esto sólo debe ser cambiado por los desarrolladores que deseen utilizar sus propios repos para el desarrollo en lugar de comprobar el código posiblemente buggy en la rama principal.");
-define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
-define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
+define('OGP_LANG_custom_github_update_branch_name', "Nombre de la rama de GitHub");
+define('OGP_LANG_custom_github_update_branch_name_info', "Introduzca el nombre de la rama que desea utilizar para actualizar OGP. Esto sólo debe ser cambiado por los desarrolladores que deseen utilizar sus propios repos para el desarrollo en lugar de comprobar en el código posiblemente buggy en la rama principal.&nbsp; Deje este campo en blanco para predeterminar a \"maestro\"
+
+");
 define('OGP_LANG_remote_query', "Peticiones remotas");
 define('OGP_LANG_remote_query_info', "Usar el servidor remoto (Agente) para hacer peticiones a los servidores de juegos (Solo GameQ y LGSL).");
 define('OGP_LANG_check_expiry_by', "Comprobar caducidad por");
@@ -158,6 +160,9 @@ define('OGP_LANG_reset_game_server_order', "Restablecer pedidos del servidor de 
 define('OGP_LANG_reset_game_server_order_info', "Restablece los pedidos del servidor de juegos al valor predeterminado de usar la ID del servidor");
 define('OGP_LANG_regex_invalid_file_name_chars', "Nombre de archivo inválido Caracteres Regex");
 define('OGP_LANG_regex_invalid_file_name_chars_info', "Cambie este patrón de expresiones regulares si desea permitir un conjunto diferente de caracteres en los nombres de archivo.");
-define('OGP_LANG_login_ban_time', "Failed Login Ban Time (Seconds)");
-define('OGP_LANG_login_ban_time_info', "Time in seconds that an IP address is banned from attempting to login to the panel after a defined number of failed login attempts.");
+define('OGP_LANG_login_ban_time', "Tiempo de prohibición de inicio de sesión fallido (segundos)
+
+");
+define('OGP_LANG_login_ban_time_info', "Tiempo en segundos que se prohíbe a una dirección IP intentar acceder al panel después de un número definido de intentos fallidos de acceso.
+");
 ?>
