@@ -31,7 +31,7 @@ define('OGP_LANG_no_rights', "Nie masz praw dostępu do tej strony.");
 define('OGP_LANG_welcome', "Witamy");
 define('OGP_LANG_logout', "Wyloguj");
 define('OGP_LANG_logout_message', "Zostałeś wylogowany.");
-define('OGP_LANG_support', "TeamSpeak3 SRCDS.pro");
+define('OGP_LANG_support', "Pomoc");
 define('OGP_LANG_password', "Hasło");
 define('OGP_LANG_login', "Nazwa użytkownika");
 define('OGP_LANG_login_button', "Zaloguj");
