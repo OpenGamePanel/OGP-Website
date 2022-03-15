@@ -41,11 +41,6 @@ use GameQ\Exception\Query as QueryException;
  */
 class GameQ
 {
-    /*
-     * Constants
-     */
-    const PROTOCOLS_DIRECTORY = __DIR__ . '/Protocols';
-
     /* Static Section */
 
     /**
@@ -124,6 +119,12 @@ class GameQ
      */
     public function __construct()
     {
+		
+		 /*
+		 * Constants
+		 */
+		define("PROTOCOLS_DIRECTORY", __DIR__ . '/Protocols');
+		
         // Check for missing utf8_encode function
         if (!function_exists('utf8_encode')) {
             throw new \Exception("PHP's utf8_encode() function is required - "
