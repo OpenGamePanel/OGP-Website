@@ -91,8 +91,8 @@ define('OGP_LANG_login_attempts_before_banned', "Epäonnistuneiden kirjautumisyr
 define('OGP_LANG_login_attempts_before_banned_info', "Jos käyttäjä yrittää kirjautua virheellisillä tunnistetiedoilla tätä useammin kuin monta kertaa, paneli estää käyttäjän väliaikaisesti.");
 define('OGP_LANG_custom_github_update_username', "GitHub päivitä käyttäjänimi");
 define('OGP_LANG_custom_github_update_username_info', "Syötä GITHub-käyttäjänimesi VAIN, jotta voit käyttää omia haaroitettuja arkistojasi OGP:n päivittämiseen. Tätä pitäisi muuttaa vain kehittäjien, jotka haluavat käyttää omia repojaan kehitykseen sen sijaan, että tarkistaisivat mahdollisesti bugista koodia päähaarassa.");
-define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
-define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
+define('OGP_LANG_custom_github_update_branch_name', "GitHub haaran nimi");
+define('OGP_LANG_custom_github_update_branch_name_info', "Anna haaran nimi, jota haluat käyttää OGP:n päivittämiseen. Tätä tulisi muuttaa vain kehittäjien, jotka haluavat käyttää omia repojaan kehittämiseen sen sijaan, että kirjaisivat sisään mahdollisesti bugisen koodin päähaaraan.&nbsp; Jätä tämä kenttä tyhjäksi valitaksesi oletuksena \"master\".");
 define('OGP_LANG_remote_query', "Etäkysely");
 define('OGP_LANG_remote_query_info', "Käytä etäpalvelinta (agentti) kyselyihin pelipalvelimille (Vain GameQ ja LGSL).");
 define('OGP_LANG_check_expiry_by', "Tarkista vanheneminen");
