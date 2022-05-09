@@ -263,14 +263,21 @@ function create_home_selector_game_type($module, $subpage, $server_homes) {
 	{
 		if( !isset($server_home['ip']) or !isset($server_home['mod_id']) )
 			continue;
-		$servers_by_game_name["$server_home[game_name]"] = $server_home['home_cfg_id'];
+		$servers_by_game_name["$server_home[game_name]" . "{SPLIT_STRING_OGP}" . "$server_home[game_key]"] = $server_home['home_cfg_id'];
 	}
 	ksort($servers_by_game_name);
 	
 	foreach( $servers_by_game_name as $game_name => $home_cfg_id )
 	{
+		$pieces = explode("{SPLIT_STRING_OGP}", $game_name);
+				
+		$game_key = $pieces[1];
+		$game_key_parts = explode("_", $game_key);
+		$game_key_os = $game_key_parts[1];
+		$game_name = $pieces[0];
+				
 		$selected = (isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] == $home_cfg_id) ? 'selected="selected"' : "";
-		echo "<option value='". $home_cfg_id . "' $selected >" . $game_name . "</option>\n";
+		echo "<option value='". $home_cfg_id . "' $selected >" . $game_name . " " . $game_key_os . "</option>\n";
 	}
 	echo "</select>\n</form>\n";
 }

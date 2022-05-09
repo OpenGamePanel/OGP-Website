@@ -111,6 +111,7 @@ span.osIcon{
 	display: inline-block;
 	width: 24px;
 	height: 24px;
+	vertical-align: middle;
 }
 
 span.win32{
