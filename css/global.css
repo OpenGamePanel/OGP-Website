@@ -106,3 +106,29 @@ table.hundred{
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
 }
+
+span.osIcon{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+}
+
+span.win32{
+	background: url('../images/os/win32.png') no-repeat center center;
+	background-size: contain;
+}
+
+span.linux32{
+	background: url('../images/os/linux32.png') no-repeat center center;
+	background-size: contain;
+}
+
+span.win64{
+	background: url('../images/os/win64.png') no-repeat center center;
+	background-size: contain;
+}
+
+span.linux64{
+	background: url('../images/os/linux64.png') no-repeat center center;
+	background-size: contain;
+}
