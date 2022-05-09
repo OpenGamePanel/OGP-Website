@@ -88,6 +88,7 @@ function get_map_path($query_name,$mod,$map) {
 	$mod_gt = $mod == "fof" ? "hl2dm" : $mod_gt;
 	$mod_gt = $mod == "insurgency" ? "ins" : $mod_gt;
 	$mod_gt = $mod == "redorchestra2" ? "ro2" : $mod_gt;
+	$mod_gt = $mod == "risingstorm2" ? "ro2" : $mod_gt;
 	$mod_gt = $mod == "killingfloor2" ? "kf2" : $mod_gt;
 	$mod_gt = $query_name == "7dtd" ? "7daystodie" : $mod_gt;
 	$mod_gt = $query_name == "callofduty" ? "cod" : $mod_gt;
