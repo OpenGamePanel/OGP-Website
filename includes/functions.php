@@ -107,7 +107,7 @@ function get_map_path($query_name,$mod,$map) {
 		"protocol/lgsl/maps/$query_name/$map.gif",
 		"protocol/lgsl/maps/$query_name/$map.png",
 		"https://image.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
-		"https//image.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
+		"https://image.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
 		"images/online_big.png"
 	);
 
