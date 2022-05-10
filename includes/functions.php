@@ -100,18 +100,18 @@ function get_map_path($query_name,$mod,$map) {
 	$mod_gt = $query_name == "conanexiles" ? "conan" : $mod_gt;
 
 	$map_paths= array(
-		"https://image.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
-		"https://image.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$mod/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$mod/$map.gif",
 		"protocol/lgsl/maps/$query_name/$mod/$map.png",
 		"protocol/lgsl/maps/$query_name/$map.jpg",
 		"protocol/lgsl/maps/$query_name/$map.gif",
 		"protocol/lgsl/maps/$query_name/$map.png",
+		"https://image.gametracker.com/images/maps/160x120/$mod_gt/$map.jpg",
+		"https://image.gametracker.com/images/maps/160x120/$query_name/$map.jpg",
 		"images/online_big.png"
 	);
 
-	return get_first_existing_file($map_paths, 'http://gametracker.com', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0');
+	return get_first_existing_file($map_paths, 'https://gametracker.com', 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0');
 }
 
 // Thanks adjo (http://opengamepanel.org/forum/viewthread.php?thread_id=5209#post_25073)
