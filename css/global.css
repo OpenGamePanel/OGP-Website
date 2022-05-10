@@ -140,9 +140,7 @@ span.win32::before, span.linux32::before{
 	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
 }
 
-/*
 span.win64::before, span.linux64::before{
 	content: "64";
 	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
 }
-*/
