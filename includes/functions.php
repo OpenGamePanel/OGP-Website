@@ -263,7 +263,7 @@ function create_home_selector_game_type($module, $subpage, $server_homes) {
 	{
 		if( !isset($server_home['ip']) or !isset($server_home['mod_id']) )
 			continue;
-		$servers_by_game_name["$server_home[game_name]" . "{SPLIT_STRING_OGP}" . "$server_home[game_key]"] = $server_home['home_cfg_id'];
+		$servers_by_game_name[$server_home["game_name"] . "{SPLIT_STRING_OGP}" . $server_home["game_key"]] = $server_home['home_cfg_id'];
 	}
 	ksort($servers_by_game_name);
 	

@@ -166,6 +166,7 @@ function ogpHome()
 		if(!empty($server_homes))
 		{
 			$servers_by_game_name = array();
+			$list_of_servers_by_game_name_already_displayed = array();
 			foreach( $server_homes as $server_home )
 			{
 				if(isset($settings['check_expiry_by']) and $settings['check_expiry_by'] == "once_logged_in")
@@ -173,7 +174,13 @@ function ogpHome()
 					if($db->check_expire_date($_SESSION['user_id'], $server_home['home_id']))
 						continue;
 				}
-				$servers_by_game_name["$server_home[game_name]" . "{SPLIT_STRING_OGP}" . "$server_home[game_key]" ][] = $server_home;
+				$servers_by_game_name[$server_home['game_name'] . "{SPLIT_STRING_OGP}" . $server_home['game_key']][] = $server_home;
+				if(array_key_exists($server_home["game_name"], $list_of_servers_by_game_name_already_displayed)){
+					$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] = $list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] + 1;
+				}else{
+					$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] = 1;
+				}
+				
 			}
 			ksort($servers_by_game_name);
 			$game_homes_list = "<ul id='submenu_0' >\n";
@@ -207,7 +214,15 @@ function ogpHome()
 				$icon_path = get_first_existing_file($icon_paths);
 				
 				$game_homes_list .= "<li>\n<a href='?m=gamemanager&p=game_monitor&home_cfg_id=".$server_homes[0]['home_cfg_id'].
-									"'><span data-icon_path='$icon_path'>$game_name</span><span class='osIcon " . $game_key_os . "'></span></a>\n<ul id='submenu_1' >\n";
+									"'><span data-icon_path='$icon_path'>$game_name</span>";
+				
+				if($list_of_servers_by_game_name_already_displayed[$game_name] > 1){
+					$game_homes_list .= "<span class='osIcon " . $game_key_os . "'></span>";
+				}
+				
+				$game_homes_list .= "</a>\n<ul id='submenu_1' >\n";
+				
+				
 				foreach($server_homes as $server_home)
 				{
 					$button_name = htmlentities($server_home['home_name']);
