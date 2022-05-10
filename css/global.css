@@ -165,7 +165,7 @@ li.win64{
 }
 
 li.linux64{
-	background: url('../images/os/linux.png') no-repeat right center;
+	background: url('../images/os/linux64.png') no-repeat right center;
 	background-size: contain;
 }
 
