@@ -259,11 +259,21 @@ function create_home_selector_game_type($module, $subpage, $server_homes) {
 		 "<option>".get_lang('game_type')."</option>\n";
 	
 	$servers_by_game_name = array();
+	$list_of_servers_by_game_name_already_displayed = array();
 	foreach( $server_homes as $server_home )
 	{
 		if( !isset($server_home['ip']) or !isset($server_home['mod_id']) )
 			continue;
 		$servers_by_game_name[$server_home["game_name"] . "{SPLIT_STRING_OGP}" . $server_home["game_key"]] = $server_home['home_cfg_id'];
+		if(array_key_exists($server_home["game_name"], $list_of_servers_by_game_name_already_displayed)){
+			if(array_key_exists($server_home['game_key'], $list_of_servers_by_game_name_already_displayed[$server_home["game_name"]])){
+				$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] = $list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] + 1;
+			}else{
+				$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] = 1;
+			}
+		}else{
+			$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] = array($server_home['game_key'] => 1);
+		}
 	}
 	ksort($servers_by_game_name);
 	
@@ -277,7 +287,11 @@ function create_home_selector_game_type($module, $subpage, $server_homes) {
 		$game_name = $pieces[0];
 				
 		$selected = (isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] == $home_cfg_id) ? 'selected="selected"' : "";
-		echo "<option value='". $home_cfg_id . "' $selected >" . $game_name . " " . $game_key_os . "</option>\n";
+		echo "<option value='". $home_cfg_id . "' $selected >" . $game_name;
+		if(count(array_keys($list_of_servers_by_game_name_already_displayed[$game_name])) > 1){
+			echo " " . $game_key_os;
+		}
+		echo "</option>\n";
 	}
 	echo "</select>\n</form>\n";
 }
