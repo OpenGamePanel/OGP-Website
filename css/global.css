@@ -115,22 +115,33 @@ span.osIcon{
 	padding-left: 20px;
 }
 
+
 span.win32{
-	background: url('../images/os/win32.png') no-repeat center center;
+	background: url('../images/os/windows.png') no-repeat center center;
 	background-size: contain;
 }
 
 span.linux32{
-	background: url('../images/os/linux32.png') no-repeat center center;
+	background: url('../images/os/linux.png') no-repeat center center;
 	background-size: contain;
 }
 
 span.win64{
-	background: url('../images/os/win64.png') no-repeat center center;
+	background: url('../images/os/windows.png') no-repeat center center;
 	background-size: contain;
 }
 
 span.linux64{
-	background: url('../images/os/linux64.png') no-repeat center center;
+	background: url('../images/os/linux.png') no-repeat center center;
 	background-size: contain;
 }
+
+span.win32::before, span.linux32::before{
+	content: "32";
+}
+
+
+span.win64::before, span.linux64::before{
+	content: "64";
+}
+
