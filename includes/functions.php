@@ -289,7 +289,7 @@ function create_home_selector_game_type($module, $subpage, $server_homes) {
 		$selected = (isset($_GET['home_cfg_id']) and $_GET['home_cfg_id'] == $home_cfg_id) ? 'selected="selected"' : "";
 		echo "<option value='". $home_cfg_id . "' $selected >" . $game_name;
 		if(count(array_keys($list_of_servers_by_game_name_already_displayed[$game_name])) > 1){
-			echo " " . $game_key_os;
+			echo " | " . ucfirst($game_key_os);
 		}
 		echo "</option>\n";
 	}
