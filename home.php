@@ -217,12 +217,14 @@ function ogpHome()
 
 				$icon_path = get_first_existing_file($icon_paths);
 				
-				$game_homes_list .= "<li>\n<a href='?m=gamemanager&p=game_monitor&home_cfg_id=".$server_homes[0]['home_cfg_id'].
-									"'><span data-icon_path='$icon_path'>$game_name</span>";
+				$game_homes_list .= "<li";
 				
 				if(count(array_keys($list_of_servers_by_game_name_already_displayed[$game_name])) > 1){
-					$game_homes_list .= "<span class='osIcon " . $game_key_os . "'></span>";
+					$game_homes_list .= " class='osIcon " . $game_key_os . "'";
 				}
+				
+				$game_homes_list .= ">\n<a href='?m=gamemanager&p=game_monitor&home_cfg_id=".$server_homes[0]['home_cfg_id'].
+									"'><span data-icon_path='$icon_path'>$game_name</span>";
 				
 				$game_homes_list .= "</a>\n<ul id='submenu_1' >\n";
 				

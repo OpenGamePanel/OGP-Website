@@ -144,3 +144,37 @@ span.win64::before, span.linux64::before{
 	content: "64";
 	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
 }
+
+li.osIcon{
+	padding-right: 24px;
+}
+
+li.win32{
+	background: url('../images/os/win32.png') no-repeat right center;
+	background-size: contain;
+}
+
+li.linux32{
+	background: url('../images/os/linux32.png') no-repeat center center;
+	background-size: contain;
+}
+
+li.win64{
+	background: url('../images/os/win64.png') no-repeat center center;
+	background-size: contain;
+}
+
+li.linux64{
+	background: url('../images/os/linux.png') no-repeat center center;
+	background-size: contain;
+}
+
+li.win32::before, li.linux32::before{
+	content: "32";
+	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
+}
+
+li.win64::before, li.linux64::before{
+	content: "64";
+	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
+}
