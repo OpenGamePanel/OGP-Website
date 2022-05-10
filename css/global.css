@@ -150,22 +150,22 @@ li.osIcon{
 }
 
 li.win32{
-	background: url('../images/os/win32.png') no-repeat right center;
+	background: url('../images/os/win32.png') no-repeat 97% center;
 	background-size: contain;
 }
 
 li.linux32{
-	background: url('../images/os/linux32.png') no-repeat right center;
+	background: url('../images/os/linux32.png') no-repeat 97% center;
 	background-size: contain;
 }
 
 li.win64{
-	background: url('../images/os/win64.png') no-repeat right center;
+	background: url('../images/os/win64.png') no-repeat 97% center;
 	background-size: contain;
 }
 
 li.linux64{
-	background: url('../images/os/linux64.png') no-repeat right center;
+	background: url('../images/os/linux64.png') no-repeat 97% center;
 	background-size: contain;
 }
 
