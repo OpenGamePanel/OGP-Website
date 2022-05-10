@@ -176,9 +176,13 @@ function ogpHome()
 				}
 				$servers_by_game_name[$server_home['game_name'] . "{SPLIT_STRING_OGP}" . $server_home['game_key']][] = $server_home;
 				if(array_key_exists($server_home["game_name"], $list_of_servers_by_game_name_already_displayed)){
-					$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] = $list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] + 1;
+					if(array_key_exists($server_home['game_key'], $list_of_servers_by_game_name_already_displayed[$server_home["game_name"]])){
+						$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] = $list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] + 1;
+					}else{
+						$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] = 1;
+					}
 				}else{
-					$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] = 1;
+					$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] = array($server_home['game_key'] => 1);
 				}
 				
 			}
@@ -216,7 +220,7 @@ function ogpHome()
 				$game_homes_list .= "<li>\n<a href='?m=gamemanager&p=game_monitor&home_cfg_id=".$server_homes[0]['home_cfg_id'].
 									"'><span data-icon_path='$icon_path'>$game_name</span>";
 				
-				if($list_of_servers_by_game_name_already_displayed[$game_name] > 1){
+				if(count(array_keys($list_of_servers_by_game_name_already_displayed[$game_name])) > 1){
 					$game_homes_list .= "<span class='osIcon " . $game_key_os . "'></span>";
 				}
 				
