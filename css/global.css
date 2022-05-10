@@ -106,3 +106,77 @@ table.hundred{
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
 }
+
+span.osIcon{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+	padding-left: 20px;
+}
+
+span.win32{
+	background: url('../images/os/windows.png') no-repeat center center;
+	background-size: contain;
+}
+
+span.linux32{
+	background: url('../images/os/linux.png') no-repeat center center;
+	background-size: contain;
+}
+
+span.win64{
+	background: url('../images/os/windows.png') no-repeat center center;
+	background-size: contain;
+}
+
+span.linux64{
+	background: url('../images/os/linux.png') no-repeat center center;
+	background-size: contain;
+}
+
+span.win32::before, span.linux32::before{
+	content: "32";
+	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
+}
+
+span.win64::before, span.linux64::before{
+	content: "64";
+	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
+}
+
+li.osIcon{
+	padding-right: 24px;
+}
+
+li.win32{
+	background: url('../images/os/win32.png') no-repeat 97% center;
+	background-size: 24px auto;
+}
+
+li.linux32{
+	background: url('../images/os/linux32.png') no-repeat 97% center;
+	background-size: 24px auto;
+}
+
+li.win64{
+	background: url('../images/os/win64.png') no-repeat 97% center;
+	background-size: 24px auto;
+}
+
+li.linux64{
+	background: url('../images/os/linux64.png') no-repeat 97% center;
+	background-size: 24px auto;
+}
+
+/*
+li.win32::after, li.linux32::after{
+	content: "32";
+	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
+}
+
+li.win64::after, li.linux64::after{
+	content: "64";
+	text-shadow:  0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000, 0 0 0.2em #000;
+}
+*/

@@ -166,6 +166,7 @@ function ogpHome()
 		if(!empty($server_homes))
 		{
 			$servers_by_game_name = array();
+			$list_of_servers_by_game_name_already_displayed = array();
 			foreach( $server_homes as $server_home )
 			{
 				if(isset($settings['check_expiry_by']) and $settings['check_expiry_by'] == "once_logged_in")
@@ -173,13 +174,30 @@ function ogpHome()
 					if($db->check_expire_date($_SESSION['user_id'], $server_home['home_id']))
 						continue;
 				}
-				$servers_by_game_name["$server_home[game_name]"][] = $server_home;
+				$servers_by_game_name[$server_home['game_name'] . "{SPLIT_STRING_OGP}" . $server_home['game_key']][] = $server_home;
+				if(array_key_exists($server_home["game_name"], $list_of_servers_by_game_name_already_displayed)){
+					if(array_key_exists($server_home['game_key'], $list_of_servers_by_game_name_already_displayed[$server_home["game_name"]])){
+						$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] = $list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] + 1;
+					}else{
+						$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]][$server_home['game_key']] = 1;
+					}
+				}else{
+					$list_of_servers_by_game_name_already_displayed[$server_home["game_name"]] = array($server_home['game_key'] => 1);
+				}
+				
 			}
 			ksort($servers_by_game_name);
 			$game_homes_list = "<ul id='submenu_0' >\n";
 			require_once("modules/config_games/server_config_parser.php");
 			foreach( $servers_by_game_name as $game_name => $server_homes )
 			{
+				$pieces = explode("{SPLIT_STRING_OGP}", $game_name);
+				
+				$game_key = $pieces[1];
+				$game_key_parts = explode("_", $game_key);
+				$game_key_os = $game_key_parts[1];
+				$game_name = $pieces[0];
+				
 				$server_xml = read_server_config(SERVER_CONFIG_LOCATION."/".$server_homes[0]['home_cfg_file']);
 				$mod = $server_homes[0]['mod_key'];
 				// If query name does not exist use mod key instead.
@@ -199,8 +217,18 @@ function ogpHome()
 
 				$icon_path = get_first_existing_file($icon_paths);
 				
-				$game_homes_list .= "<li>\n<a href='?m=gamemanager&p=game_monitor&home_cfg_id=".$server_homes[0]['home_cfg_id'].
-									"'><span data-icon_path='$icon_path'>$game_name</span></a>\n<ul id='submenu_1' >\n";
+				$game_homes_list .= "<li";
+				
+				if(count(array_keys($list_of_servers_by_game_name_already_displayed[$game_name])) > 1){
+					$game_homes_list .= " class='osIcon " . $game_key_os . "'";
+				}
+				
+				$game_homes_list .= ">\n<a href='?m=gamemanager&p=game_monitor&home_cfg_id=".$server_homes[0]['home_cfg_id'].
+									"'><span data-icon_path='$icon_path'>$game_name</span>";
+				
+				$game_homes_list .= "</a>\n<ul id='submenu_1' >\n";
+				
+				
 				foreach($server_homes as $server_home)
 				{
 					$button_name = htmlentities($server_home['home_name']);
