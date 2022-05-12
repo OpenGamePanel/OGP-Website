@@ -108,25 +108,25 @@ table.hundred{
 }
 
 li.osIcon{
-	padding-right: 24px;
+	padding-right: 20px;
 }
 
 li.win32{
 	background: url('../images/os/win32.png') no-repeat 97% center;
-	background-size: 24px auto;
+	background-size: 20px auto;
 }
 
 li.linux32{
 	background: url('../images/os/linux32.png') no-repeat 97% center;
-	background-size: 24px auto;
+	background-size: 20px auto;
 }
 
 li.win64{
 	background: url('../images/os/win64.png') no-repeat 97% center;
-	background-size: 24px auto;
+	background-size: 20px auto;
 }
 
 li.linux64{
 	background: url('../images/os/linux64.png') no-repeat 97% center;
-	background-size: 24px auto;
+	background-size: 20px auto;
 }
