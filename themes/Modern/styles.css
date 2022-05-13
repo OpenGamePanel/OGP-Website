@@ -498,19 +498,19 @@ pre {
 /*Prefere having OS icon on hover*/
 li.win32 a:hover{
 	background: #7f7f7f url('../../images/os/win32.png') no-repeat 97% center !important;
-	background-size: 20px auto;
+	background-size: 20px auto !important;
 }
 li.linux32 a:hover{
 	background: #7f7f7f url('../../images/os/linux32.png') no-repeat 97% center !important;
-	background-size: 20px auto;
+	background-size: 20px auto !important;
 }
 li.win64 a:hover{
 	background: #7f7f7f url('../../images/os/win64.png') no-repeat 97% center !important;
-	background-size: 20px auto;
+	background-size: 20px auto !important;
 }
 li.linux64 a:hover{
 	background: #7f7f7f url('../../images/os/linux64.png') no-repeat 97% center !important;
-	background-size: 20px auto;
+	background-size: 20px auto !important;
 }
 /*End Of Menu*/
 
