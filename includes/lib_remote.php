@@ -22,7 +22,7 @@
  *
  */
 
-require_once("Crypt/XXTEA.php");
+require_once(realpath(dirname(__FILE__)) . "/../Crypt/XXTEA.php");
 
 // Screen type for servers
 define("OGP_SCREEN_TYPE_HOME","HOME");
