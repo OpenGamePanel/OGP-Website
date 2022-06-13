@@ -174,7 +174,7 @@ $(document).ready(function() {
 	});
 	
 	var datePickerInput = $("input[name=expiration_date]");
-	if(datePickerInput.length)
+	if(datePickerInput.length > 0)
 	{
 		var now_str = datePickerInput.attr('data-today').split(' '),
 			date = now_str[0].split('/'),
