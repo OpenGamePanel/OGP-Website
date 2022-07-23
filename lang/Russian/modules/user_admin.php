@@ -109,5 +109,5 @@ define('OGP_LANG_enter_valid_username', "Пожалуйста введите д�
 define('OGP_LANG_unexpected_role', "Неизвестная роль пользователя");
 define('OGP_LANG_search', "Поиск");
 define('OGP_LANG_api_token', "API токен");
-define('OGP_LANG_user_receives_emails', "Receive emails");
+define('OGP_LANG_user_receives_emails', "Получать электронные письма");
 ?>

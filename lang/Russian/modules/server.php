@@ -135,5 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Сохранить настройки
 define('OGP_LANG_reset_firewall', "Сбросить Firewall");
 define('OGP_LANG_firewall_settings', "Настройки Firewall");
 define('OGP_LANG_display_public_ip', "Внешний IP-адрес");
-define('OGP_LANG_ips_can_be_internal_external', "Enter usable IP addresses.&nbsp; Public IP addresses and internal LAN IP addresses (for NAT setups) can be used.");
+define('OGP_LANG_ips_can_be_internal_external', "Введите доступные IP-адреса.&nbsp; Можно использовать общедоступные IP-адреса и внутренние IP-адреса LAN (для настроек NAT).");
 ?>

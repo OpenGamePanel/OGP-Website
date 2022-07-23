@@ -188,13 +188,13 @@ define('OGP_LANG_no_online_players', "Нит ни одного игрока onli
 define('OGP_LANG_invalid_game_mod_id', "Не правильный ID Игры или Мода");
 define('OGP_LANG_auto_update_title_popup', "Ссылка для автоматического обновления Steam");
 define('OGP_LANG_auto_update_popup_html', "<p>Используйте приведенную ниже ссылку, чтобы проверить и автоматически обновить игровой сервер через Steam, если необходимо.&nbsp; Вы можете это сделать через планировщик задач-cron или вручную выполнив это. </p>");
-define('OGP_LANG_api_links_popup_html', "<p>Select an action you would like to perform using the OGP API for this game server.&nbsp; Then, use the link below to perform your desired action.&nbsp; You can run your desired action using a cronjob or by making a direct request to it.</p>");
+define('OGP_LANG_api_links_popup_html', "<p>Выберите действие, которое вы хотите выполнить с помощью OGP API для этого игрового сервера.&nbsp; Затем воспользуйтесь ссылкой ниже, чтобы выполнить нужное действие.&nbsp; Вы можете запустить желаемое действие, используя cronjob или сделав прямой запрос к нему.</p>");
 define('OGP_LANG_auto_update_copy_me', "Копировать");
 define('OGP_LANG_auto_update_copy_me_success', "Скопировано!");
 define('OGP_LANG_auto_update_copy_me_fail', "Ошибка копирования. Пожалуйста, скопируйте линк вручную.");
 define('OGP_LANG_get_steam_autoupdate_api_link', "Ссылка на автообновление");
-define('OGP_LANG_show_api_actions', "Show API Actions");
-define('OGP_LANG_api_links', "API Links");
+define('OGP_LANG_show_api_actions', "Показать действия API");
+define('OGP_LANG_api_links', "API ссылки");
 define('OGP_LANG_update_attempt_from_nonmaster_server', "Пользователь %sпопытался обновить home_id %dс сервер,  не являющегося мастером. (Home ID: %d)");
 define('OGP_LANG_attempting_nonmaster_update', "Вы пытаетесь обновить этот сервер с не мастера сервера.");
 define('OGP_LANG_cannot_update_from_own_self', "Обновление с локального сервера не может выполняться на мастер-сервере.");
