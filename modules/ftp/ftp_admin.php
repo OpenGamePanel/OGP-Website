@@ -97,14 +97,16 @@ function exec_ogp_module()
 		$remote = new OGPRemoteLibrary($server_row['agent_ip'],$server_row['agent_port'],$server_row['encryption_key'],$server_row['timeout']);
 		$ftp_login = strip_real_escape_string($_POST['ftp_login']);
 		$settings = "";
+		
 		foreach($_POST as $key => $value)
 		{
-			if ($key != "edit_ftp_user" and $key != "ftp_login" and $key != "remote_server_id")
+			if($key != "edit_ftp_user" and $key != "ftp_login" and $key != "remote_server_id")
 			{
 				$clean_value = strip_real_escape_string($value);
-				$account_settings .= "$key\t$clean_value\n";
+				$account_settings .= $key."\t".$clean_value."\n";
 			}
 		}
+		
 		$remote->ftp_mgr("usermod", $ftp_login, $account_settings );
 	}
 
@@ -112,38 +114,56 @@ function exec_ogp_module()
 	
 	$servers = $db->getRemoteServers();
 
-	if ($servers !== false) {
-		echo "<tr><td colspan='3' >
-			<form method=POST >
-			<table class='center' style='width:100%' ><tr>
-			<td>". get_lang("remote_server") ." <select style='width:250px' name='remote_server_id' >";
+	if($servers !== false)
+	{
+		echo "
+		<tr>
+			<td colspan='3'>
+				<form method=POST >
+					<table class='center' style='width:100%'>
+						<tr>
+							<td>
+								".get_lang("remote_server")." <select style='width:250px' name='remote_server_id'>
+		";
 
-		foreach ( $servers as $server_row )
+		foreach($servers as $server_row)
 		{
 			$display_ip = checkDisplayPublicIP($server_row['display_public_ip'],$server_row['agent_ip']);
-			echo "<option value='" . $server_row['remote_server_id'] . "' >" . $server_row['remote_server_name'] . " (" . $display_ip . ":" . $server_row['agent_port'] . ")</option>";
+			echo "
+								<option value='".$server_row['remote_server_id']."'>".$server_row['remote_server_name']." (".$display_ip.":".$server_row['agent_port'].")</option>
+			";
 		}
-		echo "</select>
-				</td>
-				<td>". get_lang("login") ."<input type=text name='ftp_login' /></td>
-				<td>". get_lang("password") ."<input type=text name='ftp_password' /></td>
-				<td>". get_lang("full_path") ."<input type=text name='full_path' /></td>
-			  </tr>
-			  <tr>
-				<td colspan=4 ><input style='width:100%;' type=submit name='add_ftp_user' value='". get_lang("add_ftp_account") ."' /></td>
-			  </tr>
-			 </table>
-			 </form>
-			 </td></tr>";
-	?>
-	<table id="servermonitor" class="tablesorter" data-sortlist='[[2,0]]'>
-				<thead> 
-				<tr> 
-					<th class="header sorter-false"></th><th><?php print_lang('remote_server'); ?></th><th><?php print_lang('login'); ?></th><th><?php print_lang('server_name'); ?></th><th><?php print_lang('full_path'); ?></th> 
-				</tr> 
-				</thead> 
-				<tbody>
-	<?php		
+		
+		echo "
+								</select>
+							</td>
+							<td>".get_lang("login")."<input type=text name='ftp_login'/></td>
+							<td>".get_lang("password")."<input type=text name='ftp_password'/></td>
+							<td>".get_lang("full_path")."<input type=text name='full_path'/></td>
+						</tr>
+						<tr>
+							<td colspan='4'>
+								<input style='width:100%;' type=submit name='add_ftp_user' value='".get_lang("add_ftp_account")."' />
+							</td>
+						</tr>
+					</table>
+				</form>
+			</td>
+		</tr>
+		
+		<table id='servermonitor' class='tablesorter' data-sortlist='[[2,0]]'>
+			<thead> 
+				<tr>
+					<th class='header sorter-false'></th>
+					<th>".get_lang('remote_server')."</th>
+					<th>".get_lang('login')."</th>
+					<th>".get_lang('server_name')."</th>
+					<th>".get_lang('full_path')."</th> 
+				</tr>
+			</thead> 
+			<tbody>
+		";
+		
 		foreach ( $servers as $server_row )
 		{
 			$display_ip = checkDisplayPublicIP($server_row['display_public_ip'],$server_row['agent_ip']);
@@ -166,12 +186,24 @@ function exec_ogp_module()
 						$home_info = $db->getHomeByFtpLogin($server_row['remote_server_id'], $ftp_login);
 						$expandme = ( ( isset($_POST['ftp_login']) and $ftp_login == strip_real_escape_string($_POST['ftp_login']) ) AND ( isset($_POST['remote_server_id']) and $home_info['remote_server_id'] == $_POST['remote_server_id'] ) ) ? "expandme" : "";
 						$home_name = isset( $home_info['home_name'] ) ? $home_info['home_name'] : $ftp_path;
-						echo "<tr class='maintr $expandme'><td class='collapsible' ></td><td>".$server_row['remote_server_name']." (".$display_ip.")</td><td><b class='failure' >$ftp_login</td><td>" . htmlentities($home_name) . "</td><td>$ftp_path</td></tr>
-							  <tr class='expand-child' ><td colspan='4' >
-							  <form method=POST >
-							  <table>";
+						$output = "
+								<tr class='maintr ".$expandme."'>
+									<td class='collapsible'></td>
+									<td>".$server_row['remote_server_name']." (".$display_ip.")</td>
+									<td><b style='color:red'>".$ftp_login."</b></td>
+									<td>".htmlentities($home_name)."</td>
+									<td>".$ftp_path."</td>
+								</tr>
+								<tr class='expand-child'>
+									<td colspan='5'>
+										<form method='POST'>
+											<table class='center' style='width:100%'>
+												<tr>
+													<td>
+														<table class='center' style='width:100%'>
+						";
 							  
-						$account_details = $remote->ftp_mgr("show",$ftp_login);
+						$account_details = $remote->ftp_mgr("show", $ftp_login);
 						
 						$ftp_account_detail_list = explode("\n",$account_details);
 											
@@ -186,8 +218,11 @@ function exec_ogp_module()
 												   "username_prefix", "password", "sys_userid", "sys_groupid", 
 												   "sys_perm_user", "sys_perm_group", "sys_perm_other", 
 												   "server_id", "parent_domain_id", "uid", "gid" );
-								if( in_array($key, $blacklist) )
+								if(in_array($key, $blacklist))
+								{
 									continue;
+								}
+								
 								if(substr($value, -1) == ')')
 								{
 									$value_parts = explode(" ", $value);
@@ -210,43 +245,62 @@ function exec_ogp_module()
 										}
 									}
 								}
-								if ($key == "Allowed local  IPs" or $key == "ul_ratio" or $key == "ForceSsl" or ( count($ftp_account_detail_list) == 4 and $key == "Directory" ) )
-									echo "</table>\n</td><td>\n<table>\n";
-								if ($key == "Directory" )
-									$value = str_replace( "/./", "", $value );
-								if($key == "Username")
-									$readOnly = true;
-								echo "<tr><td>$key</td><td>
-										  <input type=text name='$key' value='$value' ";
-								
-								if(isset($readOnly) && ($readOnly)){
-									echo "readonly ";
+								if($key == "Allowed local  IPs" or $key == "ul_ratio" or $key == "ForceSsl" or (count($ftp_account_detail_list) == 4 and $key == "Directory"))
+								{
+									$output .= "
+														</table>
+													</td>
+													<td>
+														<table class='center' style='width:100%'>
+									";
 								}
-								if(isset($advert))
-									echo "/>".
-										 "</td><td>$advert</td></tr>\n";
-								else
-									echo "/>".
-										 "</td></tr>\n";
-								unset($readOnly, $key, $value, $advert);
+								
+								if($key == "Directory")
+								{
+									$value = str_replace( "/./", "", $value );
+								}
+								
+								$readOnly = ($key == "Username") ? ' readonly' : '';
+								$showAdvert = (isset($advert)) ? $advert : '';
+								$output .= "
+															<tr>
+																<td>".$key."</td>
+																<td>
+																	<input type=text name='".$key."' value='".$value."'".$readOnly."/>
+																</td>
+																<td>
+																	".$showAdvert."
+																</td>
+															</tr>
+								";
+								
+								unset($key, $value, $advert);
 							}
 						}
-						echo "<tr>
-								<td colspan='2' >
-								 <center>
-								  <input type=hidden name='remote_server_id' value='".$server_row['remote_server_id']."'/>
-								  <input type=hidden name='ftp_login' value=\"" . str_replace('"', '&quot;', $ftp_login) . "\"/>
-								  <input type=submit name='edit_ftp_user' value='". get_lang("change_account_details") ."' />
-								 </center>
-								</td>
-								<td>
-								   <input type='image' name='del_ftp_user' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". get_lang("remove_account") ."</input>
-								</td>
-							  </tr>
-							 </table>
-							 </form>
-							 </td>
-							</tr>";
+						
+						$output .= "
+															<tr>
+																<td colspan='2'>
+																	<center>
+																		<input type=hidden name='remote_server_id' value='".$server_row['remote_server_id']."'/>
+																		<input type=hidden name='ftp_login' value='" . str_replace('"', '&quot;', $ftp_login) . "'/>
+																		<input type=submit name='edit_ftp_user' value='". get_lang("change_account_details") ."' />
+																	</center>
+																</td>
+																<td>
+																	<input type='image' name='del_ftp_user' onsubmit='submit-form();' src='modules/administration/images/remove.gif'>". get_lang("remove_account") ."</input>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</form>
+									</td>
+								</tr>
+						";
+						
+						echo $output;
 					}
 					
 				}
@@ -254,9 +308,12 @@ function exec_ogp_module()
 			
 		}	// end: foreach $servers as $server_row
 
-	} else {
+	}else
+	{
 		echo get_lang('no_remote_servers');
 	}
-	echo "</tbody>";	
-	echo "</table>\n";
+	echo "
+			</tbody>
+		</table>
+	";
 }
