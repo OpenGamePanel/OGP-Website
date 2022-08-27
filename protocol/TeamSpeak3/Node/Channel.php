@@ -580,4 +580,3 @@ class TeamSpeak3_Node_Channel extends TeamSpeak3_Node_Abstract
     return (string) $this["channel_name"];
   }
 }
-
