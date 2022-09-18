@@ -458,6 +458,61 @@ class TeamSpeak3_Node_Host extends TeamSpeak3_Node_Abstract
   }
 
   /**
+   * Returns the number of WebQuery API keys known by the virtual server.
+   *
+   * @return integer
+   */
+  public function apiKeyCount()
+  {
+    return current($this->execute("apikeylist -count", array("duration" => 1))->toList("count"));
+  }
+
+  /**
+   * Returns a list of WebQuery API keys known by the virtual server. By default, the server spits out 25 entries
+   * at once. When no $cldbid is specified, API keys for the invoker are returned. In addition, using '*' as $cldbid
+   * will return all known API keys.
+   *
+   * @param  integer $offset
+   * @param  integer $limit
+   * @param  mixed   $cldbid
+   * @return array
+   */
+  public function apiKeyList($offset = null, $limit = null, $cldbid = null)
+  {
+    return $this->execute("apikeylist -count", array("start" => $offset, "duration" => $limit, "cldbid" => $cldbid))->toAssocArray("id");
+  }
+
+  /**
+   * Creates a new WebQuery API key and returns an assoc array containing its details. Use $lifetime to specify the API
+   * key lifetime in days. Setting $lifetime to 0 means the key will be valid forever. $cldbid defaults to the invoker
+   * database ID.
+   *
+   * @param  string  $scope
+   * @param  integer $lifetime
+   * @param  integer $cldbid
+   * @return array
+   */
+  public function apiKeyCreate($scope = TeamSpeak3::APIKEY_READ, $lifetime = 14, $cldbid = null)
+  {
+    $detail = $this->execute("apikeyadd", array("scope" => $scope, "lifetime" => $lifetime, "cldbid" => $cldbid))->toList();
+
+    TeamSpeak3_Helper_Signal::getInstance()->emit("notifyApikeycreated", $this, $detail["apikey"]);
+
+    return $detail;
+  }
+
+  /**
+   * Deletes an API key specified by $id.
+   *
+   * @param  integer $id
+   * @return void
+   */
+  public function apiKeyDelete($id)
+  {
+    $this->execute("apikeydel", array("id" => $id));
+  }
+
+  /**
    * Returns a list of permissions available on the server instance.
    *
    * @return array
@@ -539,7 +594,7 @@ class TeamSpeak3_Node_Host extends TeamSpeak3_Node_Abstract
       $permtree[$val]["permcatid"]      = $val;
       $permtree[$val]["permcathex"]     = "0x" . dechex($val);
       $permtree[$val]["permcatname"]    = TeamSpeak3_Helper_String::factory(TeamSpeak3_Helper_Convert::permissionCategory($val));
-      $permtree[$val]["permcatparent"]  = $permtree[$val]["permcathex"]{3} == 0 ? 0 : hexdec($permtree[$val]["permcathex"]{2} . 0);
+      $permtree[$val]["permcatparent"]  = $permtree[$val]["permcathex"][3] == 0 ? 0 : hexdec($permtree[$val]["permcathex"][2] . 0);
       $permtree[$val]["permcatchilren"] = 0;
       $permtree[$val]["permcatcount"]   = 0;
 
@@ -846,6 +901,61 @@ class TeamSpeak3_Node_Host extends TeamSpeak3_Node_Abstract
     $this->delStorage("_login_pass");
 
     TeamSpeak3_Helper_Signal::getInstance()->emit("notifyLogout", $this);
+  }
+
+  /**
+   * Returns the number of ServerQuery logins on the selected virtual server.
+   *
+   * @return integer
+   */
+  public function queryCountLogin($pattern = null)
+  {
+    return current($this->execute("queryloginlist -count", array("duration" => 1, "pattern" => $pattern))->toList("count"));
+  }
+
+  /**
+   * Returns a list of ServerQuery logins on the selected virtual server. By default, the server spits out 25 entries
+   * at once.
+   *
+   * @param  integer $offset
+   * @param  integer $limit
+   * @return array
+   */
+  public function queryListLogin($offset = null, $limit = null, $pattern = null)
+  {
+    return $this->execute("queryloginlist -count", array("start" => $offset, "duration" => $limit, "pattern" => $pattern))->toAssocArray("cldbid");
+  }
+
+  /**
+   * Creates a new ServerQuery login, or enables ServerQuery logins for an existing client. When no virtual server is
+   * selected, the command will create global ServerQuery login. Otherwise a ServerQuery login will be added for an
+   * existing client (cldbid must be specified).
+   *
+   * @param  string  $username
+   * @param  integer $cldbid
+   * @return array
+   */
+  public function queryLoginCreate($username, $cldbid = 0)
+  {
+    if($this->serverSelectedId())
+    {
+      return $this->execute("queryloginadd", array("client_login_name" => $username, "cldbid" => $cldbid))->toList();
+    }
+    else
+    {
+      return $this->execute("queryloginadd", array("client_login_name" => $username))->toList();
+    }
+  }
+
+  /**
+   * Deletes an existing ServerQuery login.
+   *
+   * @param  integer $cldbid
+   * @return void
+   */
+  public function queryLoginDelete($cldbid)
+  {
+    $this->execute("querylogindel", array("cldbid" => $cldbid));
   }
 
   /**
