@@ -1163,9 +1163,10 @@ class OGPDatabaseMySQL extends OGPDatabase
 		
 		try {
 			$query = mysqli_query($this->link,$query);
-			if ($query === FALSE) {
+			if ($query === FALSE)
 				throw new Exception(mysqli_error($this->link));
-			}
+			else 
+				++$this->queries_;
 
 		} catch(Exception $e) {
 			return FALSE;
@@ -3896,7 +3897,6 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function checkApiTable()
 	{
-		//echo "<h1>PUTO " . ($this->query('SELECT 1 FROM '.$this->table_prefix.'api_tokens LIMIT 1') ? 'true' : 'false') . "</h1>";
 		if(!$this->query('SELECT 1 FROM '.$this->table_prefix.'api_tokens LIMIT 1'))
 		{
 			$this->query(	"CREATE TABLE IF NOT EXISTS `".$this->table_prefix.'api_tokens'."` (".
