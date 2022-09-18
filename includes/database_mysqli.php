@@ -68,7 +68,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function realEscapeSingle($string){
-		return mysqli_real_escape_string($this->link, $string);
+		return mysqli_real_escape_string($this->link, @(string)$string);
 	}
 
 	private function listQuery($query) {
@@ -1160,15 +1160,22 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return FALSE;
 
 		$query = str_replace( "OGP_DB_PREFIX", $this->table_prefix, $query );
+		
+		try {
+			$query = mysqli_query($this->link,$query);
+			if ($query === FALSE) {
+				throw new Exception(mysqli_error($this->link));
+			}
 
-		++$this->queries_;
-		mysqli_query($this->link,$query);
+		} catch(Exception $e) {
+			return FALSE;
+		}
 
 		if( mysqli_errno($this->link) != 0 )
 		{
 			return FALSE;
 		}
-
+		
 		return TRUE;
 	}
 
@@ -2185,7 +2192,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $this->listQuery($query);
 	}
 	
-	public function getIpPorts_limit($ip_id = 0,$page_dashboardlist,$limit_dashboardlist) {
+	public function getIpPorts_limit($ip_id = 0,$page_dashboardlist = 0,$limit_dashboardlist = 1) {
 		$ip_id = $this->realEscapeSingle($ip_id);
 		$user_request_page = ($page_dashboardlist - 1) * $limit_dashboardlist;
 		
@@ -3566,15 +3573,22 @@ class OGPDatabaseMySQL extends OGPDatabase
 		
 	public function getNextAvailablePort($ip_id,$home_cfg_id){
 		$ranges = $this->getPortsRange($ip_id,$home_cfg_id);
-		$range = $ranges[0];
+		if($ranges === false)
+			$range = array();
+		else
+			$range = $ranges[0];
+		
 		if(empty($range))
 		{
 			$ranges = $this->getPortsRange($ip_id,"0");
-			$range = $ranges[0];
+			if($ranges === false)
+				$range = array();
+			else
+				$range = $ranges[0];
 		}
 		if(empty($range))
 			$range = array('start_port' => '27015','end_port' => '39915', 'port_increment' => '100');
-			
+		
 		$home_used_ports = $this->getIpPorts($ip_id);	
 		$used_ports = array();
 		if(!empty($home_used_ports))
@@ -3882,6 +3896,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function checkApiTable()
 	{
+		//echo "<h1>PUTO " . ($this->query('SELECT 1 FROM '.$this->table_prefix.'api_tokens LIMIT 1') ? 'true' : 'false') . "</h1>";
 		if(!$this->query('SELECT 1 FROM '.$this->table_prefix.'api_tokens LIMIT 1'))
 		{
 			$this->query(	"CREATE TABLE IF NOT EXISTS `".$this->table_prefix.'api_tokens'."` (".

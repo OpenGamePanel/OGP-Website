@@ -343,8 +343,11 @@ function exec_ogp_module() {
 	<table class="center">
 	<?php
 	$group_names = array();
-	foreach($groups as $group)
-		$group_names[$group['group_id']] = $group['group_name'];
+	if(is_array($groups))
+	{
+		foreach($groups as $group)
+			$group_names[$group['group_id']] = $group['group_name'];
+	}
 	
 	if (isset($result) && $result && count($result) > 0)
 	{

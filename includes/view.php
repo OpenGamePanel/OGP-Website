@@ -272,25 +272,25 @@ class OGPView {
 		}
 		else
 		{
-			$page = str_replace("%meta%",$this->meta,$page);
-			$top = str_replace("%logo%",$this->logo,$top);
-			$topbody = str_replace("%bg_wrapper%",$this->bg_wrapper,$topbody);
+			$page = str_replace("%meta%",(string)$this->meta,$page);
+			$top = str_replace("%logo%",(string)$this->logo,$top);
+			$topbody = str_replace("%bg_wrapper%",(string)$this->bg_wrapper,$topbody);
 			if ( !empty($_SESSION['users_theme']) ) 
 				$theme = $_SESSION['users_theme'];
 			else 
 				$theme = @$panel_settings['theme'];
 					
-			$page = str_replace("%bg_wrapper%",$this->bg_wrapper,$page);
-        	$page = str_replace("%title%",$this->title,$page);
-        	$page = str_replace("%header_code%",$this->header_code,$page);
-			$page = str_replace("%charset%",$this->charset,$page);
+			$page = str_replace("%bg_wrapper%",(string)$this->bg_wrapper,$page);
+        	$page = str_replace("%title%",(string)$this->title,$page);
+        	$page = str_replace("%header_code%",(string)$this->header_code,$page);
+			$page = str_replace("%charset%",(string)$this->charset,$page);
         	$page = str_replace("%body%",$buffer,$page);
 			$page = str_replace("%top%",$top,$page);
 			$page = str_replace("%topbody%",$topbody,$page);
 			$page = str_replace("%botbody%",$botbody,$page);
 			$page = str_replace("%bottom%",$bottom,$page);
 			$page = str_replace("%footer%",$footer,$page);
-			$page = str_replace("%notifications%",@$notifications,$page);
+			$page = str_replace("%notifications%",@(string)$notifications,$page);
 		}
 		
 		// Set the content-type header as this is needed by older browsers

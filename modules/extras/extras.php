@@ -59,7 +59,7 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 	}
 		
 	// Set default values for file checkings before installing
-	$not_writable = can_not_update_non_writable_files ." :\n";
+	$not_writable = get_lang('can_not_update_non_writable_files') ." :\n";
 	$filename = "";
 	$overwritten = 0;
 	$not_overwritten = 0;
@@ -146,7 +146,7 @@ function installUpdate($info, $base_dir, $current_blacklist = array())
 					$newResult["extracted_files"][$i]["filename"] = $filename;
 					$webDir = dirname($web_file);
 					@mkdir($webDir, 0775, true);
-					copy($temp_file, $web_file);
+					@copy($temp_file, $web_file);
 					$i++;
 					$new_files .= $filename . "\n";
 					$new++;
@@ -423,7 +423,7 @@ function exec_ogp_module()
 		$LOCAL_REPO_FILE = DATA_PATH . $repository['name'] . '.atom';
 		if(!file_exists($LOCAL_REPO_FILE) 
 			OR (isset($_GET['searchForUpdates']) and $_GET['searchForUpdates'] == $repository['name']) 
-			OR ( isset($_POST['update']) && ( (in_array($m, $_POST["module"]) && $isModule) || (in_array($t, $_POST["theme"]) && $isTheme) ) ) )
+			OR ( isset($_POST['update']) && ( (in_array($m, @(array)$_POST["module"]) && $isModule) || (in_array($t, @(array)$_POST["theme"]) && $isTheme) ) ) )
 		{
 			$used_file = $REMOTE_REPO_FILE;
 			$contents = file_get_contents($used_file);
