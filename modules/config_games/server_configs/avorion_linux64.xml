@@ -32,11 +32,6 @@
    <default></default>
    <desc>steam id(s) of the administrator(s) of the server</desc>
   </param>
-  <param id='INFINITE_RESOURCES' key='--infinite-resources' type='select'>
-   <option value='false'>No</option>
-   <option value='true'>Yes</option>
-   <desc>Should resources be infinite</desc>
-  </param>
   <param id='DIFFICULTY' key='--difficulty' type='select'>
    <option value='-3'>Easyest</option>
    <option value='-2'>Very Easy</option>
