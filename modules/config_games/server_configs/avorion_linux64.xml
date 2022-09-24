@@ -5,7 +5,7 @@
  <installer>steamcmd</installer>
  <game_name>Avorion</game_name>
  <server_exec_name>avorion_ogpstarter.sh</server_exec_name>
- <cli_template>--datapath ./galaxy/ --galaxy-name main %PORT% %QUERY_PORT% %STEAM_PORT% %PLAYERS% %HOSTNAME% %SEED% %ADMIN% %INFINITE_RESOURCES% %DIFFICULTY% %COLLISION_DAMAGE% %SAME_START_SECTOR% %PUBLIC% %LISTED% %USE_STEAM_NETWORKING%</cli_template>
+ <cli_template>--datapath ./galaxy/ --galaxy-name main %PORT% %QUERY_PORT% %STEAM_PORT% %PLAYERS% %HOSTNAME% %SEED% %ADMIN% %DIFFICULTY% %COLLISION_DAMAGE% %SAME_START_SECTOR% %PUBLIC% %LISTED% %USE_STEAM_NETWORKING%</cli_template>
  <cli_params>
   <cli_param id='PORT' cli_string='--port' options='s'/>
   <cli_param id='PLAYERS' cli_string='--max-players' options='s'/>
