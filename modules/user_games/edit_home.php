@@ -140,7 +140,7 @@ function exec_ogp_module()
 					return;
 				}
 				
-				if(strlen($post_ftp_login) > 20){
+				if(strlen($post_ftp_login) > 32){
 					echo json_encode(array('result' => 'failure', 'info' => get_lang("ftp_account_username_too_long")));
 					return;
 				}
@@ -235,7 +235,7 @@ function exec_ogp_module()
 					return;
 				}
 				
-				if(strlen($ftp_password) > 20){
+				if(strlen($ftp_password) > 128){
 					echo json_encode(array('result' => 'failure', 'info' => get_lang("ftp_account_password_too_long")));
 					return;
 				}
@@ -328,7 +328,7 @@ function exec_ogp_module()
 			$login = isset($home_info['ftp_login']) ? $home_info['ftp_login'] : $home_id;
 			
 			$success = true;
-			if(strlen($login) > 20){
+			if(strlen($login) > 32){
 				$result = get_lang("ftp_account_username_too_long");
 				$type = "failure";
 				$success = false;

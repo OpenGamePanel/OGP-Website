@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "Game manager";
 $module_version = "1.33";
-$db_version = 9;
+$db_version = 10;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => 'game_monitor', 'name'=>'Game Monitor', 'group'=>'user' ) );
 $module_access_rights = array('u' => 'allow_updates', 'p' => 'allow_parameter_usage', 'e' => 'allow_extra_params', 'c' => 'allow_custom_fields');
@@ -117,4 +117,12 @@ $install_queries[9] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `home_name` VARCHAR(500);",
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `control_password` VARCHAR(128);",
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `ftp_password` VARCHAR(128);");
+	
+// store non-English characters
+$install_queries[10] = array(
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `home_path` NVARCHAR(500);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `home_name` NVARCHAR(500);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `control_password` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `ftp_login` NVARCHAR(32);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `ftp_password` NVARCHAR(128);");
 ?>
