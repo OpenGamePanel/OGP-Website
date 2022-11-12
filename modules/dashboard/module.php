@@ -38,7 +38,7 @@ $install_queries[0] = array(
   `collapsed` tinyint(4) NOT NULL,
   `title` varchar(100) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."widgets_users",
 "CREATE TABLE IF NOT EXISTS `".OGP_DB_PREFIX."widgets_users` (  
@@ -48,7 +48,7 @@ $install_queries[0] = array(
   `sort_no` int(11) NOT NULL,  
   `collapsed` tinyint(4) NOT NULL,  
   `title` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "INSERT INTO `".OGP_DB_PREFIX."widgets` (`id`, `column_id`, `sort_no`, `collapsed`, `title`) VALUES 
 (1, 1, 1, 0, 'Game Monitor'),  

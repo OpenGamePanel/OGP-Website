@@ -41,5 +41,5 @@ $install_queries[2] = array("DROP TABLE IF EXISTS ".OGP_DB_PREFIX."module_access
 							"`flag` char(1) NOT NULL,".
 							"`description` varchar(64) NOT NULL,".
 							"UNIQUE (`flag`)".
-							") ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+							") ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 ?>

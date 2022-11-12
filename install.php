@@ -441,7 +441,7 @@ function install() {
             `db_version` int(10) NOT NULL default '0',
             PRIMARY KEY  (`id`),
         UNIQUE KEY `folder` (`folder`)
-    ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;");
+    ) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4;");
         $result = $db->query("DROP TABLE IF EXISTS ".$table_prefix."module_menus");
         $result = $db->query("CREATE TABLE IF NOT EXISTS `".$table_prefix."module_menus` (
             `module_id` int(11) NOT NULL COMMENT 'This references to modules.id',
@@ -450,7 +450,7 @@ function install() {
             `menu_name` varchar(128) NOT NULL,
 			`pos` INT UNSIGNED NOT NULL,
             PRIMARY KEY  (`module_id`,`subpage`,`group`)
-        ) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+        ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
         if (!$result) $fail = true;
 
         // Install modules.

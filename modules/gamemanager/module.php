@@ -37,7 +37,7 @@ $install_queries[0] = array(
 	`port` int(11) NOT NULL,
 	`home_id` int(11) NOT NULL,
 	PRIMARY KEY  (`ip_id`,`port`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."server_homes",
 "CREATE TABLE IF NOT EXISTS `".OGP_DB_PREFIX."server_homes` (
@@ -52,7 +52,7 @@ $install_queries[0] = array(
 	`last_param` LONGTEXT NULL,
 	PRIMARY KEY  (`home_id`),
 UNIQUE KEY remote_server_id (remote_server_id,home_path)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."rcon_presets;",
 "CREATE TABLE ".OGP_DB_PREFIX."rcon_presets (
@@ -62,7 +62,7 @@ UNIQUE KEY remote_server_id (remote_server_id,home_path)
 	`home_cfg_id` int(50) NOT NULL,
 	`mod_cfg_id` int(50) NOT NULL,
 	PRIMARY KEY  (`preset_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."game_mods",
 "CREATE TABLE IF NOT EXISTS ".OGP_DB_PREFIX."game_mods (
@@ -90,7 +90,7 @@ $install_queries[2] = array(
   `ip_id` char(3) NOT NULL,
   `port` char(6) NOT NULL,
   `server_status_cache` longtext NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 $install_queries[3] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` ADD `custom_fields` LONGTEXT NULL;");

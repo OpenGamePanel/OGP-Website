@@ -48,6 +48,6 @@ $install_queries[1] = array(
   `user_id` int(11) NOT NULL,  
   `ip` varchar(15) NOT NULL,
   `message` varchar(250) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 ?>
 

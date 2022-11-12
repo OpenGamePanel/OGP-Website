@@ -38,21 +38,21 @@ $install_queries[0] = array(
 		`user_id` int(11) NOT NULL,
 		`access_rights` varchar(63) default NULL,
 		PRIMARY KEY (`user_id`,`home_id`)
-	) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+	) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 	"DROP TABLE IF EXISTS ".OGP_DB_PREFIX."user_group_remote_servers;",
 	"CREATE TABLE ".OGP_DB_PREFIX."user_group_remote_servers (
 		`remote_server_id` int(11) NOT NULL,
 		`group_id` int(11) NOT NULL,
 		`access_rights` varchar(63) default NULL,
 		PRIMARY KEY (`remote_server_id`, `group_id`)
-	)ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+	)ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 	"DROP TABLE IF EXISTS ".OGP_DB_PREFIX."user_group_homes;",
 	"CREATE TABLE ".OGP_DB_PREFIX."user_group_homes (
 		`home_id` int(11) NOT NULL,
 		`group_id` int(11) NOT NULL,
 		`access_rights` varchar(63) default NULL,
 		PRIMARY KEY (`home_id`, `group_id`)
-	)ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+	)ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 $install_queries[1] = array(
 	"DROP TABLE IF EXISTS `".OGP_DB_PREFIX."master_server_homes`;",
@@ -61,7 +61,7 @@ $install_queries[1] = array(
 		`home_cfg_id` int(11) NOT NULL,
 		`remote_server_id` int(11) NOT NULL,
 		PRIMARY KEY (`remote_server_id`, `home_cfg_id`)
-	)ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+	)ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 $install_queries[2] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."user_homes` ADD `user_expiration_date` VARCHAR(21) NOT NULL default 'X';",

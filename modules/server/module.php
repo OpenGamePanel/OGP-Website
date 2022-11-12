@@ -39,7 +39,7 @@ $install_queries[0] = array(
   `remote_server_id` int(11) NOT NULL,
   `ip` varchar(255) NOT NULL,
   PRIMARY KEY (`ip_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 "DROP TABLE IF EXISTS `".OGP_DB_PREFIX."remote_servers`;",
 "CREATE TABLE IF NOT EXISTS `".OGP_DB_PREFIX."remote_servers` (
   `remote_server_id` int(11) NOT NULL auto_increment,
@@ -52,7 +52,7 @@ $install_queries[0] = array(
   `timeout` int(11) NOT NULL,
   PRIMARY KEY  (`remote_server_id`),
   UNIQUE KEY `agent_ip` (`agent_ip`,`agent_port`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='Remote servers and IPs';");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 COMMENT='Remote servers and IPs';");
 
 $install_queries[1] = array(	
 	"ALTER TABLE `".OGP_DB_PREFIX."remote_servers` 
@@ -75,7 +75,7 @@ $install_queries[4] = array(
   `port_increment` smallint(11) unsigned NOT NULL,
   PRIMARY KEY  (`range_id`),
   UNIQUE KEY `ip_id` (`ip_id`,`home_cfg_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='Remote servers and IPs';");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 COMMENT='Remote servers and IPs';");
 
 $install_queries[5] = array(
 	"ALTER TABLE `OGP_DB_PREFIXremote_servers` 

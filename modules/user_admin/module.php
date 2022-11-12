@@ -54,31 +54,31 @@ $install_queries[0] = array(
         `user_expires` varchar(30) NOT NULL default 'X',
         PRIMARY KEY  (`users_login`),
 		UNIQUE KEY `id` (`user_id`)
-    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
     "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."user_groups;",
     "CREATE TABLE ".OGP_DB_PREFIX."user_groups (
         `user_id` int(11) NOT NULL,
         `role_id` int(11) NULL,
         `group_id` int(11) NOT NULL,
         PRIMARY KEY (`user_id`,`group_id`)
-    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
     "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."user_role_info;",
     "CREATE TABLE ".OGP_DB_PREFIX."user_role_info (
         `role_id` int(11) NOT NULL auto_increment,
         `role_name` varchar(100) NULL,
         PRIMARY KEY (`role_id`), UNIQUE KEY (`role_name`)
-    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
     "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."user_group_info;",
     "CREATE TABLE ".OGP_DB_PREFIX."user_group_info (
         `group_id` int(11) NOT NULL auto_increment,
         `group_name` varchar(255), PRIMARY KEY (`group_id`),
         UNIQUE KEY (`group_name`)
-        ) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+        ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 $install_queries[1] = array("ALTER TABLE `".OGP_DB_PREFIX."user_group_info` ADD `main_user_id` int(11) NULL;");
 $install_queries[2] = array("ALTER TABLE `".OGP_DB_PREFIX."users` ADD `users_parent` int(11) NULL;");
 $install_queries[3] = array(
-	"ALTER TABLE `".OGP_DB_PREFIX."users` CHANGE `users_email` `users_email` VARCHAR( 255 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` CHANGE `users_email` `users_email` VARCHAR( 255 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL",
 	"UPDATE ".OGP_DB_PREFIX."users
 	JOIN (
 		SELECT users_email, MIN(user_id) minID

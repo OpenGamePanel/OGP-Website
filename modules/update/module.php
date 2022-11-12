@@ -36,7 +36,7 @@ $install_queries[0] = array();
 $install_queries[1] = array(
     "CREATE TABLE IF NOT EXISTS ".OGP_DB_PREFIX."update_blacklist (
         `file_path` VARCHAR(1000) UNIQUE NOT NULL
-    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 $install_queries[2] = array(
 	"DELETE FROM ".OGP_DB_PREFIX."update_blacklist
 WHERE file_path IN (SELECT * 
@@ -47,4 +47,52 @@ WHERE file_path IN (SELECT *
     "ALTER TABLE ".OGP_DB_PREFIX."update_blacklist MODIFY file_path VARCHAR(1000);",
 	"ALTER TABLE ".OGP_DB_PREFIX."update_blacklist ADD UNIQUE (file_path);"
 );
+/* 
+$install_queries[3] = array(
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_login` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_passwd` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_fname` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_lname` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_email` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_city` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_province` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_country` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` MODIFY COLUMN `users_theme` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."user_group_info` MODIFY COLUMN `group_name` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."ban_list` MODIFY COLUMN `client_ip` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."addons` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."adminExternalLinks` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."api_tokens` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."arrange_ports` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."ban_list` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."config_homes` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."config_mods` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."game_mods` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."home_ip_ports` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."lgsl` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."logger` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."master_server_homes` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."module_access_rights` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."module_menus` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."modules` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."mysql_databases` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."mysql_servers` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."rcon_presets` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."remote_server_ips` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."remote_servers` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."settings` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."status_cache` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."ts3_homes` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."update_blacklist` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."user_group_homes` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."user_group_info` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."user_group_remote_servers` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."user_groups` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."user_homes` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."user_role_info` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."widgets` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;",
+	"ALTER TABLE `".OGP_DB_PREFIX."widgets_users` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;");
 ?>
+ */
