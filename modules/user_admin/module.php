@@ -71,14 +71,14 @@ $install_queries[0] = array(
     "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."user_group_info;",
     "CREATE TABLE ".OGP_DB_PREFIX."user_group_info (
         `group_id` int(11) NOT NULL auto_increment,
-        `group_name` varchar(255), PRIMARY KEY (`group_id`),
+        `group_name` varchar(128), PRIMARY KEY (`group_id`),
         UNIQUE KEY (`group_name`)
         ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 $install_queries[1] = array("ALTER TABLE `".OGP_DB_PREFIX."user_group_info` ADD `main_user_id` int(11) NULL;");
 $install_queries[2] = array("ALTER TABLE `".OGP_DB_PREFIX."users` ADD `users_parent` int(11) NULL;");
 $install_queries[3] = array(
-	"ALTER TABLE `".OGP_DB_PREFIX."users` CHANGE `users_email` `users_email` VARCHAR( 255 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL",
+	"ALTER TABLE `".OGP_DB_PREFIX."users` CHANGE `users_email` `users_email` VARCHAR( 128 ) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL",
 	"UPDATE ".OGP_DB_PREFIX."users
 	JOIN (
 		SELECT users_email, MIN(user_id) minID
