@@ -59,6 +59,7 @@
  *     and one with one param
  */
 
+
 namespace PhpXmlRpc\Polyfill\XmlRpc;
 
 use PhpXmlRpc\Encoder;

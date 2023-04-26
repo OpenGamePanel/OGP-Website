@@ -21,9 +21,13 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once(__DIR__ . "/../Crypt/XXTEA.php");
-require_once(__DIR__ . "/XmlRPC.php");
+require_once(__DIR__ . "/phpxmlrpc/Autoloader.php");
+PhpXmlRpc\Autoloader::register();
+require_once(__DIR__ . "/XmlRPC-bootstrap.php");
 
 use PhpXmlRpc\Polyfill\XmlRpc\XmlRpc as p;
 
