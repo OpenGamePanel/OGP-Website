@@ -23,6 +23,9 @@
  */
 
 require_once(__DIR__ . "/../Crypt/XXTEA.php");
+require_once(__DIR__ . "/XmlRPC.php");
+
+use PhpXmlRpc\Polyfill\XmlRpc\XmlRpc as p;
 
 // Screen type for servers
 define("OGP_SCREEN_TYPE_HOME","HOME");
@@ -64,7 +67,7 @@ class OGPRemoteLibrary
 			)));
 		
 		$status = @file_get_contents("http://".$this->host.":".$this->port."/RPC2", false, $context);
-		return xmlrpc_decode($status);
+		return p::xmlrpc_decode($status);
 	}
 
 	private function encryptParam($param)
@@ -126,7 +129,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam(trim($file));
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("rfile_exists", $args);
+		$request = p::xmlrpc_encode_request("rfile_exists", $args);
 		$status = $this->sendRequest($request);
 		if ( $status === 0 )
 			return 1;
@@ -143,7 +146,7 @@ class OGPRemoteLibrary
 	{
 		$param = "hello";
 		$args = $this->encryptParam($param);
-		$request = xmlrpc_encode_request("quick_chk", $args);
+		$request = p::xmlrpc_encode_request("quick_chk", $args);
 		$status = $this->sendRequest($request);
 		// If 1 is returned then the encryption key did not match.
 		if ( $status === 1 )
@@ -162,7 +165,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($screen_type,$home_id,$home_path,$nb_of_lines,$console_log);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request('get_log',$params_array);
+		$request = p::xmlrpc_encode_request('get_log',$params_array);
 		$response = $this->sendRequest($request);
 		if ( $response === NULL )
 			return 0;
@@ -194,7 +197,7 @@ class OGPRemoteLibrary
 		$params_array = $this->encrypt_params($home_id,$server_ip,$server_port,
 			$control_protocol,$control_password,$control_type,$home_path);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("stop_server", $params_array);
+		$request = p::xmlrpc_encode_request("stop_server", $params_array);
 
 		$status = $this->sendRequest($request);
 
@@ -218,7 +221,7 @@ class OGPRemoteLibrary
 		$params_array = $this->encrypt_params($home_id,$server_ip,$server_port,
 			$control_protocol,$control_password,$control_type, $rconCommand);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("send_rcon_command", $params_array);
+		$request = p::xmlrpc_encode_request("send_rcon_command", $params_array);
 		
 		$response = $this->sendRequest($request);
 		
@@ -252,13 +255,13 @@ class OGPRemoteLibrary
 		$args = trim($args);
 		$args = $this->encryptParam($args);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("readfile", $args);
+		$request = p::xmlrpc_encode_request("readfile", $args);
 		$response = $this->sendRequest($request);
 
 		if ( $response === NULL )
 			return -1;
 
-		if ( is_array($response) && xmlrpc_is_fault($response))
+		if ( is_array($response) && p::xmlrpc_is_fault($response))
 			return -1;
 
 		@list($retval,$data_tmp) = @explode(";",$response);
@@ -281,7 +284,7 @@ class OGPRemoteLibrary
 		$content = base64_encode($content);
 		$params = $this->encrypt_params($writefile,$content);
 		$this->add_enc_chk($params);
-		$request = xmlrpc_encode_request("writefile", $params);
+		$request = p::xmlrpc_encode_request("writefile", $params);
 		$response = $this->sendRequest($request);
 
 		if ( $response === 1 )
@@ -298,7 +301,7 @@ class OGPRemoteLibrary
 		// Must have a parameter even if one is not used.
 		$args = $this->encryptParam("reboot");
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("rebootnow", $args);
+		$request = p::xmlrpc_encode_request("rebootnow", $args);
 		$response = $this->sendRequest($request);
 
 		if ( $response )
@@ -313,7 +316,7 @@ class OGPRemoteLibrary
 	{
 		$params = $this->encrypt_params($home_id,$game_home,$mod,$exec_folder_path,$exec_path,$precmd,$postcmd);
 		$this->add_enc_chk($params);
-		$request = xmlrpc_encode_request("steam", $params);
+		$request = p::xmlrpc_encode_request("steam", $params);
 		$response = $this->sendRequest($request);
 
 		if ( $response === 1 )
@@ -332,7 +335,7 @@ class OGPRemoteLibrary
 	{
 		$params = $this->encrypt_params($home_id,$game_home,$mod,$modname,$betaname,$betapwd,$user,$pass,$guard,$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,$lockFiles,$archBits);
 		$this->add_enc_chk($params);
-		$request = xmlrpc_encode_request("steam_cmd", $params);
+		$request = p::xmlrpc_encode_request("steam_cmd", $params);
 		$response = $this->sendRequest($request);
 
 		if ( $response === 1 )
@@ -349,7 +352,7 @@ class OGPRemoteLibrary
 		$params = $this->encrypt_params($appId, $pureOutput);
 		$this->add_enc_chk($params);
 
-		$request = xmlrpc_encode_request("fetch_steam_version", $params);
+		$request = p::xmlrpc_encode_request("fetch_steam_version", $params);
 		$response = $this->sendRequest($request);
 
 		return $response;
@@ -362,7 +365,7 @@ class OGPRemoteLibrary
 		$params = $this->encrypt_params($game_home, $mod, $pureOutput);
 		$this->add_enc_chk($params);
 
-		$request = xmlrpc_encode_request("installed_steam_version", $params);
+		$request = p::xmlrpc_encode_request("installed_steam_version", $params);
 		$response = $this->sendRequest($request);
 
 		return $response;
@@ -390,7 +393,7 @@ class OGPRemoteLibrary
 						$startup_cmd, $cpu, $nice, $preStart, $envVars, $game_key, $archBits, $console_log);
 
 		$this->add_enc_chk($params);
-		$request = xmlrpc_encode_request("automatic_steam_update", $params);
+		$request = p::xmlrpc_encode_request("automatic_steam_update", $params);
 		$response = $this->sendRequest($request);
 
 		return $response;
@@ -404,7 +407,7 @@ class OGPRemoteLibrary
 	{
 		$params = $this->encrypt_params($home_id,$home_path,$ms_home_id,$ms_home_path,$exec_folder_path,$exec_path,$precmd,$postcmd);
 		$this->add_enc_chk($params);
-		$request = xmlrpc_encode_request("master_server_update", $params);
+		$request = p::xmlrpc_encode_request("master_server_update", $params);
 		$response = $this->sendRequest($request);
 
 		if ( $response === 1 )
@@ -424,7 +427,7 @@ class OGPRemoteLibrary
 	{
 		$params = $this->encrypt_params($game_home, $mod);
 		$this->add_enc_chk($params);
-		$request = xmlrpc_encode_request("game_update_active", $params);
+		$request = p::xmlrpc_encode_request("game_update_active", $params);
 		if(!$response = $this->sendRequest($request) )
 			return -1;
 		else if ( $response === 1 )
@@ -443,13 +446,13 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($url,$dest,$filename,$action,$post_script);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("start_file_download",$params_array);
+		$request = p::xmlrpc_encode_request("start_file_download",$params_array);
 		$response = $this->sendRequest($request);
 
 		if( !$response )
 			return -1;
 
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return -3;
 
 		return $response;
@@ -459,7 +462,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($pid);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("is_file_download_in_progress", $args);
+		$request = p::xmlrpc_encode_request("is_file_download_in_progress", $args);
 		return $this->sendRequest($request);
 	}
 
@@ -467,7 +470,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($file_location,$destination);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("uncompress_file",$params_array);
+		$request = p::xmlrpc_encode_request("uncompress_file",$params_array);
 		return $this->sendRequest($request);
 	}
 
@@ -478,7 +481,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($home_id,$home_path,$url,$exec_folder_path,$exec_path,$precmd,$postcmd,$filesToLock);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("start_rsync_install",$params_array);
+		$request = p::xmlrpc_encode_request("start_rsync_install",$params_array);
 		$response = $this->sendRequest($request);
 
 		if ( $response === 1 )
@@ -493,13 +496,13 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($home);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("rsync_progress",$args);
+		$request = p::xmlrpc_encode_request("rsync_progress",$args);
 		$response = $this->sendRequest($request);
 
 		if( !$response )
 			return -1;
 
-		#if (is_array($response) && xmlrpc_is_fault($response))
+		#if (is_array($response) && p::xmlrpc_is_fault($response))
 		 # return -3;
 
 		return $response;
@@ -512,10 +515,10 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($args);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("dirlist",$args);
+		$request = p::xmlrpc_encode_request("dirlist",$args);
 		if( !$response = $this->sendRequest($request))
 			return -1;
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return -3;
 		if( $response < 0 )
 			return -2;
@@ -531,11 +534,11 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($args);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("dirlistfm", $args);
+		$request = p::xmlrpc_encode_request("dirlistfm", $args);
 		$response = $this->sendRequest($request);
 		if ( $response === NULL )
 			return -1;
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return -3;
 		if( $response < 0 )
 			return -2;
@@ -554,7 +557,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("cpu_count", $args);
+		$request = p::xmlrpc_encode_request("cpu_count", $args);
 		$status = $this->sendRequest($request);
 		if ( empty($status) )
 		{
@@ -567,7 +570,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($home_id, $nice);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("renice_process",$params_array);
+		$request = p::xmlrpc_encode_request("renice_process",$params_array);
 		return $this->sendRequest($response);
 	}
 
@@ -582,12 +585,12 @@ class OGPRemoteLibrary
 		$params_array = $this->encrypt_params($home_id, $game_home, $game_binary,
 			$run_dir, $startup_cmd, $server_port, $server_ip, $cpu, $nice, $preStart, $envVars, $game_key, $console_log);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("universal_start", $params_array);
+		$request = p::xmlrpc_encode_request("universal_start", $params_array);
 		$response = $this->sendRequest($request);
 		if($response === NULL)
 			return -1;
 
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return -2;
 
 		return $response;
@@ -597,12 +600,12 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($game_home, $filesToLockUnlock, $action);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("lock_additional_files", $params_array);
+		$request = p::xmlrpc_encode_request("lock_additional_files", $params_array);
 		$response = $this->sendRequest($request);
 		if($response === NULL)
 			return -1;
 
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return -2;
 
 		return $response;
@@ -613,7 +616,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("what_os", $args);
+		$request = p::xmlrpc_encode_request("what_os", $args);
 		$status = $this->sendRequest($request);
 		return "$status";
 	}
@@ -626,7 +629,7 @@ class OGPRemoteLibrary
 		$args = "chk";
 		$args = $this->encryptParam($args);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("discover_ips", $args);
+		$request = p::xmlrpc_encode_request("discover_ips", $args);
 		$status = $this->sendRequest($request);
 
 		if ( $status == 0 )
@@ -643,7 +646,7 @@ class OGPRemoteLibrary
 	{
 		$params = $this->encrypt_params($screen_type,$home_id);
 		$this->add_enc_chk($params);
-		$request = xmlrpc_encode_request("is_screen_running", $params);
+		$request = p::xmlrpc_encode_request("is_screen_running", $params);
 		$status = $this->sendRequest($request);
 		if ( $status === 1 )
 			return 1;
@@ -657,7 +660,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encrypt_params("mon_stats");
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("mon_stats", $args);
+		$request = p::xmlrpc_encode_request("mon_stats", $args);
 		$response = $this->sendRequest($request);
 
 		@list($retval,$data_tmp) = @explode(";",$response);
@@ -685,7 +688,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($source_home, $dest_home, $owner);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("clone_home", $params_array);
+		$request = p::xmlrpc_encode_request("clone_home", $params_array);
 		$status = $this->sendRequest($request);
 
 		// Copy was successful.
@@ -708,7 +711,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($game_home_del);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("remove_home", $args);
+		$request = p::xmlrpc_encode_request("remove_home", $args);
 		$status = $this->sendRequest($request);
 
 		// Delete was successful.
@@ -730,7 +733,7 @@ class OGPRemoteLibrary
 			$control_protocol,$control_password,$control_type,
 			$home_path,$server_exe,$run_dir,$cmd,$cpu,$nice,$preStart,$envVars, $game_key, $console_log);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("restart_server", $params_array);
+		$request = p::xmlrpc_encode_request("restart_server", $params_array);
 
 		$status = $this->sendRequest($request);
 
@@ -752,7 +755,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($command);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("sudo_exec", $args);
+		$request = p::xmlrpc_encode_request("sudo_exec", $args);
 
 		$status = $this->sendRequest($request);
 
@@ -776,7 +779,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($command);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("exec", $args);
+		$request = p::xmlrpc_encode_request("exec", $args);
 		$response = $this->sendRequest($request);
 
 		@list($retval,$data_tmp) = @explode(";",$response);
@@ -798,7 +801,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($action, $path);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("secure_path", $params_array);
+		$request = p::xmlrpc_encode_request("secure_path", $params_array);
 
 		$status = $this->sendRequest($request);
 
@@ -821,7 +824,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($path);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("get_chattr", $args);
+		$request = p::xmlrpc_encode_request("get_chattr", $args);
 		$status = $this->sendRequest($request);
 
 		@list($retval,$data_tmp) = @explode(";",$status);
@@ -843,7 +846,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($action, $login, $password, $home_path);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("ftp_mgr", $params_array);
+		$request = p::xmlrpc_encode_request("ftp_mgr", $params_array);
 		$status = $this->sendRequest($request);
 		@list($retval,$data_tmp) = @explode(";",$status);
 
@@ -867,7 +870,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($files,$destination,$archive_name,$archive_type);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("compress_files",$params_array);
+		$request = p::xmlrpc_encode_request("compress_files",$params_array);
 		return $this->sendRequest($request);
 	}
 	
@@ -875,7 +878,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("stop_fastdl",$args);
+		$request = p::xmlrpc_encode_request("stop_fastdl",$args);
 		return $this->sendRequest($request);
 	}
 	
@@ -883,7 +886,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("start_fastdl",$args);
+		$request = p::xmlrpc_encode_request("start_fastdl",$args);
 		return $this->sendRequest($request);
 	}
 	
@@ -891,7 +894,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("restart_fastdl",$args);
+		$request = p::xmlrpc_encode_request("restart_fastdl",$args);
 		return $this->sendRequest($request);
 	}
 	
@@ -899,7 +902,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("fastdl_status",$args);
+		$request = p::xmlrpc_encode_request("fastdl_status",$args);
 		$response = $this->sendRequest($request);
 		if($response === -1 or $response === 0)
 			return -1;
@@ -910,7 +913,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("fastdl_get_aliases",$args);
+		$request = p::xmlrpc_encode_request("fastdl_get_aliases",$args);
 		$response = $this->sendRequest($request);
 		if(!is_array($response) or count($response) == 0)
 			return -1;
@@ -921,7 +924,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($alias,$home,$match_file_extension,$match_client_ip);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("fastdl_add_alias",$params_array);
+		$request = p::xmlrpc_encode_request("fastdl_add_alias",$params_array);
 		return $this->sendRequest($request);
 	}
 	
@@ -939,7 +942,7 @@ class OGPRemoteLibrary
 			$params_array = array(0 => $this->encryptParam($aliases));
 
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("fastdl_del_alias",$params_array);
+		$request = p::xmlrpc_encode_request("fastdl_del_alias",$params_array);
 		return $this->sendRequest($request);
 	}
 	
@@ -947,7 +950,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("fastdl_get_info",$args);
+		$request = p::xmlrpc_encode_request("fastdl_get_info",$args);
 		$response = $this->sendRequest($request);
 		if($response === -1 or $response == 0)
 			return -1;
@@ -958,7 +961,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($fd_address, $fd_port, $listing, $autostart_on_agent_startup);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("fastdl_create_config",$params_array);
+		$request = p::xmlrpc_encode_request("fastdl_create_config",$params_array);
 		return $this->sendRequest($request);
 	}
 	
@@ -966,7 +969,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam('restart');
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("agent_restart", $args);
+		$request = p::xmlrpc_encode_request("agent_restart", $args);
 		$response = $this->sendRequest($request);
 		if($response === -1)
 			return -1;
@@ -977,7 +980,7 @@ class OGPRemoteLibrary
 	{
 		$args = NULL;
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("scheduler_list_tasks", $args);
+		$request = p::xmlrpc_encode_request("scheduler_list_tasks", $args);
 		$response = $this->sendRequest($request);
 		if($response === -1 or $response == 0)
 			return -1;
@@ -998,7 +1001,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($id);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("scheduler_del_task",$args);
+		$request = p::xmlrpc_encode_request("scheduler_del_task",$args);
 		return $this->sendRequest($request);
 	}
 	
@@ -1006,7 +1009,7 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($job);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("scheduler_add_task",$args);
+		$request = p::xmlrpc_encode_request("scheduler_add_task",$args);
 		return $this->sendRequest($request);
 	}
 	
@@ -1014,7 +1017,7 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($job_id, $job);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("scheduler_edit_task",$params_array);
+		$request = p::xmlrpc_encode_request("scheduler_edit_task",$params_array);
 		return $this->sendRequest($request);
 	}
 	
@@ -1022,13 +1025,13 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($file, $offset);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("get_file_part",$params_array);
+		$request = p::xmlrpc_encode_request("get_file_part",$params_array);
 		$response = $this->sendRequest($request);
 		
 		if ( $response === NULL )
 			return -1;
 
-		if ( is_array($response) && xmlrpc_is_fault($response))
+		if ( is_array($response) && p::xmlrpc_is_fault($response))
 			return -1;
 		
 		if ( $response === -1 )
@@ -1043,10 +1046,10 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($action, $arguments);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("shell_action", $params_array);
+		$request = p::xmlrpc_encode_request("shell_action", $params_array);
 		$response = $this->sendRequest($request);
 		
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return NULL;
 		
 		$data = NULL;
@@ -1078,13 +1081,13 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam($home_id);
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("stop_update", $args);
+		$request = p::xmlrpc_encode_request("stop_update", $args);
 		$response = $this->sendRequest($request);
 		
 		if ($response === NULL)
 			return -1;
 		
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return -1;
 		
 		if ($response === 1)
@@ -1097,9 +1100,9 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($protocol, $game_type, $ip, $c_port, $q_port, $s_port);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("remote_query", $params_array);
+		$request = p::xmlrpc_encode_request("remote_query", $params_array);
 		$response = $this->sendRequest($request);
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return NULL;
 		if ($response === -1 or $response === 0)
 			return NULL;
@@ -1110,13 +1113,13 @@ class OGPRemoteLibrary
 	{
 		$params_array = $this->encrypt_params($home_id, $sgc);
 		$this->add_enc_chk($params_array);
-		$request = xmlrpc_encode_request("send_steam_guard_code", $params_array);
+		$request = p::xmlrpc_encode_request("send_steam_guard_code", $params_array);
 		$response = $this->sendRequest($request);
 		
 		if ($response === NULL)
 			return -1;
 		
-		if (is_array($response) && xmlrpc_is_fault($response))
+		if (is_array($response) && p::xmlrpc_is_fault($response))
 			return -1;
 		
 		if ($response === 1)
@@ -1147,14 +1150,14 @@ class OGPRemoteLibrary
 										$anonymous_login, $user, $pass,
 										$download_method, $url_list, $filename_list);
 		$this->add_enc_chk($params);
-		$request = xmlrpc_encode_request("steam_workshop", $params);
+		$request = p::xmlrpc_encode_request("steam_workshop", $params);
 		$response = $this->sendRequest($request);
 		
 		// Connection Error
 		if ($response === NULL)
 			return -3;
 		// Subroutine Failure
-		if(is_array($response) && xmlrpc_is_fault($response))
+		if(is_array($response) && p::xmlrpc_is_fault($response))
 			return -2;
 		// Error unmet condition
 		if ($response === -1)
@@ -1170,14 +1173,14 @@ class OGPRemoteLibrary
 	{
 		$args = $this->encryptParam("mods_info");
 		$this->add_enc_chk($args);
-		$request = xmlrpc_encode_request("get_workshop_mods_info", $args);
+		$request = p::xmlrpc_encode_request("get_workshop_mods_info", $args);
 		$response = $this->sendRequest($request);
 		$data = array();
 		// Offline
 		if ($response === NULL)
 			return -3;
 		// Failure
-		if(is_array($response) && xmlrpc_is_fault($response))
+		if(is_array($response) && p::xmlrpc_is_fault($response))
 			return -2;
 		// mods directory does not exists
 		if($response === -1)

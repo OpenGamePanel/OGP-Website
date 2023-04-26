@@ -235,7 +235,6 @@ function install() {
 
         /* TODO: how to check if pear is enabled or not? */
         $properties_to_check = array(
-            array( "name" => "PHP XML-RPC module", "type" => "f", "value" => "xmlrpc_server_create" ),
             array( "name" => "PHP Curl module", "type" => "f", "value" => "curl_init" ),
             array( "name" => "PHP XML Reader", "type" => "c", "value" => "XMLReader" ),
 			array( "name" => "PHP JSON Extension", "type" => "f", "value" => "json_decode" ),
