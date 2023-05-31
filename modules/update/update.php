@@ -71,6 +71,7 @@ function exec_ogp_module()
 		$gitHubOrganization = getGitHubOrganization($gitHubURL);
 	}else{
 		$gitHubURL = "https://github.com/OpenGamePanel/";
+		$gitHubOrganization = "OpenGamePanel";
 	}
 	
 	$gitHubBranchName = (!empty($settings['custom_github_update_branch_name']) ? $settings['custom_github_update_branch_name'] : 'master');
@@ -187,18 +188,27 @@ function exec_ogp_module()
 					
 					if ($data) {
 						$json = json_decode($data, true);
-						
-						if (!empty($json[0]['commit'])) {
-							echo '<ul>';
-							foreach ($json as $k=>$v) {
-								if ($commitsStart >= $commitsToShow) {
-									break;
+						if(is_array($json)){
+							if (!empty($json[0]['commit'])) {
+								echo '<ul>';
+								foreach ($json as $k=>$v) {
+									if ($commitsStart >= $commitsToShow) {
+										break;
+									}
+									echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v['sha'],0,7).'...</a><br>';
+									echo '<b>'.str_replace("*", "<br><br>", $v['commit']['message']) .'</b></li><br>';
+									++$commitsStart;
 								}
+								echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName . '" target="_blank">View more commits...</a>';
+							}
+						}else{
+							if (!empty($json['commit'])) {
+								echo '<ul>';
+								$v = $json;
 								echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v['sha'],0,7).'...</a><br>';
 								echo '<b>'.str_replace("*", "<br><br>", $v['commit']['message']) .'</b></li><br>';
-								++$commitsStart;
+								echo '</ul>';
 							}
-							echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName . '" target="_blank">View more commits...</a>';
 						}
 					}
 				}
