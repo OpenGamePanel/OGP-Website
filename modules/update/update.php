@@ -179,8 +179,15 @@ function exec_ogp_module()
 					$commitsStart = 0;
 					$commitsToShow = 5;
 					
+					
+					if($gitHubBranchName != "master"){
+						$commitsUrl = 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName;
+					}else{
+						$commitsUrl = 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits';
+					}
+					
 					$ch = curl_init();
-					curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName);
+					curl_setopt($ch, CURLOPT_URL, $commitsUrl);
 					curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0');
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
