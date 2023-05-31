@@ -46,6 +46,12 @@ function check_file($local_path, $remote_url)
 	}
 }
 
+function urlProperEncode($string) {
+    $entities = array('%21', '%2A', '%27', '%28', '%29', '%3B', '%3A', '%40', '%26', '%3D', '%2B', '%24', '%2C', '%2F', '%3F', '%25', '%23', '%5B', '%5D');
+    $replacements = array('!', '*', "'", "(", ")", ";", ":", "@", "&", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]");
+    return str_replace($entities, $replacements, urlencode($string));
+}
+
 function exec_ogp_module()
 {
 	global $db, $settings;
@@ -73,7 +79,7 @@ function exec_ogp_module()
 		$gitHubURL = "https://github.com/OpenGamePanel/";
 	}
 	
-	$gitHubBranchName = (!empty($settings['custom_github_update_branch_name']) ? $settings['custom_github_update_branch_name'] : 'master');
+	$gitHubBranchName = urlProperEncode(!empty($settings['custom_github_update_branch_name']) ? $settings['custom_github_update_branch_name'] : 'master');
 	
 	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/' . $gitHubBranchName . '.atom');
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
