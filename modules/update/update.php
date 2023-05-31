@@ -83,7 +83,7 @@ function exec_ogp_module()
 	{
 		if( ! file_put_contents(RSS_LOCAL_PATH, file_get_contents(RSS_REMOTE_PATH)))
 		{
-			print_failure('Unable to download : ' . RSS_REMOTE_PATH);
+			print_failure('Unable to download: ' . RSS_REMOTE_PATH . '<br>Check your Administration --> Panel Settings --> Github username and branch settings.&nbsp; These settings should have no value (be blank) unless you\'re a developer and know how to use these settings!');
 		}	
 	}
 	
@@ -163,8 +163,14 @@ function exec_ogp_module()
 					
 					$gitHubUpdateName = (!empty($settings['custom_github_update_username']) ? $settings['custom_github_update_username'] : 'OpenGamePanel');
 					
+					if($gitHubBranchName != "master"){
+						$commitsUrl = 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName;
+					}else{
+						$commitsUrl = 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits';
+					}
+					
 					$ch = curl_init();
-					curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits');
+					curl_setopt($ch, CURLOPT_URL, $commitsUrl);
 					curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0');
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -172,18 +178,27 @@ function exec_ogp_module()
 					
 					if ($data) {
 						$json = json_decode($data, true);
-						
-						if (!empty($json[0]['commit'])) {
-							echo '<ul>';
-							foreach ($json as $k=>$v) {
-								if ($commitsStart >= $commitsToShow) {
-									break;
+						if(array_key_exists("0", $json)){
+							if (!empty($json[0]['commit'])) {
+								echo '<ul>';
+								foreach ($json as $k=>$v) {
+									if ($commitsStart >= $commitsToShow) {
+										break;
+									}
+									echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v['sha'],0,7).'...</a><br>';
+									echo '<b>'.str_replace("*", "<br><br>", $v['commit']['message']) .'</b></li><br>';
+									++$commitsStart;
 								}
+								echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits' . '" target="_blank">View more commits...</a>';
+							}
+						}else{
+							if (!empty($json['commit'])) {
+								echo '<ul>';
+								$v = $json;
 								echo '<li>'.substr($v['commit']['author']['date'],0,10).' - '.$v['commit']['author']['name'] .'</a> committed <a href="'.$v['html_url'].'" target="_blank">'.substr($v['sha'],0,7).'...</a><br>';
 								echo '<b>'.str_replace("*", "<br><br>", $v['commit']['message']) .'</b></li><br>';
-								++$commitsStart;
+								echo '</ul>';
 							}
-							echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName . '" target="_blank">View more commits...</a>';
 						}
 					}
 				}
