@@ -75,7 +75,24 @@ function exec_ogp_module()
 	
 	$gitHubBranchName = (!empty($settings['custom_github_update_branch_name']) ? $settings['custom_github_update_branch_name'] : 'master');
 	
-	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/' . $gitHubBranchName . '.atom');
+	// Custom github administration panel settings final validation
+	$atomPath = $gitHubURL . REPONAME . '/commits/' . $gitHubBranchName . '.atom';
+	
+	$gitHubUpdateName = (!empty($settings['custom_github_update_username']) ? $settings['custom_github_update_username'] : 'OpenGamePanel');
+	
+	$paths[] = $atomPath;
+	$paths[] = $gitHubURL . REPONAME . '/commits/master.atom';
+	$exists = get_first_existing_file($paths);
+	if($exists !== false){
+		if($exists !== $atomPath){
+			// User provided invalid settings, so reset to ones that work
+			$atomPath = $exists;
+			$gitHubBranchName = 'master';
+			$gitHubUpdateName = 'OpenGamePanel';
+		}
+	}
+	
+	define('RSS_REMOTE_PATH', $atomPath);
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
 	define('RSS_LOCAL_PATH', MODULE_PATH . $gitHubBranchName . '.atom');
 		
@@ -160,8 +177,6 @@ function exec_ogp_module()
 					
 					$commitsStart = 0;
 					$commitsToShow = 5;
-					
-					$gitHubUpdateName = (!empty($settings['custom_github_update_username']) ? $settings['custom_github_update_username'] : 'OpenGamePanel');
 					
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits');
