@@ -188,7 +188,7 @@ function exec_ogp_module()
 					
 					if ($data) {
 						$json = json_decode($data, true);
-						if(is_array($json)){
+						if(array_key_exists("0", $json)){
 							if (!empty($json[0]['commit'])) {
 								echo '<ul>';
 								foreach ($json as $k=>$v) {
