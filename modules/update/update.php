@@ -206,7 +206,7 @@ function exec_ogp_module()
 									echo '<b>'.str_replace("*", "<br><br>", $v['commit']['message']) .'</b></li><br>';
 									++$commitsStart;
 								}
-								echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName . '" target="_blank">View more commits...</a>';
+								echo '</ul><a href="https://github.com/'.$gitHubUpdateName.'/'.REPONAME.'/commits' . '" target="_blank">View more commits...</a>';
 							}
 						}else{
 							if (!empty($json['commit'])) {
