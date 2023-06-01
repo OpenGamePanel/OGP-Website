@@ -24,6 +24,7 @@
 
 // Globals
 $OGPLangPre = "OGP_LANG_";
+define('OGP_GITHUB_MAIN_URL', 'https://github.com/OpenGamePanel/');
 
 // Ignore any request with unwanted values at 'm' or 'p'
 if( isset($_REQUEST['m']) and !preg_match("/^([a-z]|[0-9]|_|-)+$/i", $_REQUEST['m']) )
@@ -430,7 +431,7 @@ function runPostUpdateOperations(){
 }
 
 function getOGPGitHubURL($gitHubUsername, $repo, $branch = "master"){
-	$OGPGitHub = "https://github.com/OpenGamePanel/";
+	$OGPGitHub = OGP_GITHUB_MAIN_URL;
 	$gitHubURL = $OGPGitHub; 
 	if(isset($gitHubUsername) && !empty($gitHubUsername)){
 		$gitHubURL = "https://github.com/" . $gitHubUsername . "/"; 
@@ -446,7 +447,7 @@ function getOGPGitHubURL($gitHubUsername, $repo, $branch = "master"){
 }
 
 function getOGPGitHubURLUnstrict($gitHubUsername){
-	$OGPGitHub = "https://github.com/OpenGamePanel/";
+	$OGPGitHub = OGP_GITHUB_MAIN_URL;
 	$gitHubURL = $OGPGitHub; 
 	if(isset($gitHubUsername) && !empty($gitHubUsername)){
 		$gitHubURL = "https://github.com/" . $gitHubUsername . "/"; 

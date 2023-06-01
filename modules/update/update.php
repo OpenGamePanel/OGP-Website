@@ -73,7 +73,7 @@ function exec_ogp_module()
 		$gitHubURL = "https://github.com/OpenGamePanel/";
 	}
 	
-	$gitHubBranchName = urlencode(!empty($settings['custom_github_update_branch_name']) ? $settings['custom_github_update_branch_name'] : 'master');
+	$gitHubBranchName = urlencode(!empty($settings['custom_github_update_branch_name']) && $gitHubURL != OGP_GITHUB_MAIN_URL ? $settings['custom_github_update_branch_name'] : 'master');
 	
 	define('RSS_REMOTE_PATH', $gitHubURL . REPONAME . '/commits/' . $gitHubBranchName . '.atom');
 	define('MODULE_PATH', 'modules/'.$_GET['m'].'/');
