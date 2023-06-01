@@ -457,7 +457,9 @@ function getOGPGitHubURLUnstrict($gitHubUsername){
 	
 	$exists = get_first_existing_file($paths);
 	if($exists !== false){
-		return "https://github.com/" . $gitHubUsername . "/";
+		if(isset($gitHubUsername) && !empty($gitHubUsername)){
+			return "https://github.com/" . $gitHubUsername . "/";
+		}
 	}
 	
 	return $OGPGitHub;
