@@ -161,7 +161,7 @@ function exec_ogp_module()
 					$commitsStart = 0;
 					$commitsToShow = 5;
 					
-					$gitHubUpdateName = (!empty($settings['custom_github_update_username']) ? $settings['custom_github_update_username'] : 'OpenGamePanel');
+					$gitHubUpdateName = (!empty($settings['custom_github_update_username']) && $gitHubURL != OGP_GITHUB_MAIN_URL ? $settings['custom_github_update_username'] : 'OpenGamePanel');
 					
 					if($gitHubBranchName != "master"){
 						$commitsUrl = 'https://api.github.com/repos/'.$gitHubUpdateName.'/'.REPONAME.'/commits/' . $gitHubBranchName;
