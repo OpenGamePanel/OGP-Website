@@ -450,7 +450,7 @@ function getOGPGitHubURLUnstrict($gitHubUsername){
 	$OGPGitHub = OGP_GITHUB_MAIN_URL;
 	$gitHubURL = $OGPGitHub; 
 	if(isset($gitHubUsername) && !empty($gitHubUsername)){
-		$gitHubURL = "https://github.com/" . $gitHubUsername . "/"; 
+		$gitHubURL = "https://github.com/" . $gitHubUsername . "/" . 'OGP-Website'; 
 	}
 	
 	$paths[] = $gitHubURL;
