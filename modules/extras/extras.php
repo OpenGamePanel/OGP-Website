@@ -442,7 +442,7 @@ function exec_ogp_module()
 			}
 		}
 		
-		if( ! $contents && !isset($_GET["type"]) )
+		if( (!$contents || strtolower($contents) == "not found") && !isset($_GET["type"]) )
 		{
 			print_failure('Unable to get contents from: ' . $used_file . '<br>Check your Administration --> Panel Settings --> Github username and branch settings.&nbsp; These settings should have no value (be blank) unless you\'re a developer and know how to use these settings!');
 			continue;
