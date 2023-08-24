@@ -148,5 +148,5 @@ define('OGP_LANG_reset_game_server_order_info', "Remettre l&apos;ordre des serve
 define('OGP_LANG_regex_invalid_file_name_chars', "Regex pour les Caractères de Noms de Fichiers Invalides");
 define('OGP_LANG_regex_invalid_file_name_chars_info', "Modifier ce modèle d&apos;expression régulière si vous souhaitez autoriser un autre jeu de caractères dans les noms de fichiers.");
 define('OGP_LANG_login_ban_time', "Durée du Blocage après Échec d'Identification (secondes)");
-define('OGP_LANG_login_ban_time_info', "Temps en secondes qu'une adresse IP est bloquée lors de l'authentification au Panel après un nombre d'essais échoués définis.");
+define('OGP_LANG_login_ban_time_info', "Temps en secondes qu'une adresse IP est bloquée lors de l'authentification au Panel après le nombre d'essais échoués définis.");
 ?>
