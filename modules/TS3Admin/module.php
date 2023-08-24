@@ -39,7 +39,7 @@ $install_queries[0] = array(
   `vserver_id` int(50) NOT NULL,
   `user_id` int(50) NOT NULL,
   PRIMARY KEY (`ts3_id`),
-UNIQUE KEY user_id (user_id,vserver_id)) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+UNIQUE KEY user_id (user_id,vserver_id)) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 $install_queries[1] = array(
 "ALTER TABLE `".OGP_DB_PREFIX."ts3_homes` DROP INDEX `user_id` ,
  ADD UNIQUE `rserver_id` ( `rserver_id` , `vserver_id` , `user_id` );");

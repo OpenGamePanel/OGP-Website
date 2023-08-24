@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "Game manager";
 $module_version = "1.33";
-$db_version = 9;
+$db_version = 10;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => 'game_monitor', 'name'=>'Game Monitor', 'group'=>'user' ) );
 $module_access_rights = array('u' => 'allow_updates', 'p' => 'allow_parameter_usage', 'e' => 'allow_extra_params', 'c' => 'allow_custom_fields');
@@ -37,22 +37,22 @@ $install_queries[0] = array(
 	`port` int(11) NOT NULL,
 	`home_id` int(11) NOT NULL,
 	PRIMARY KEY  (`ip_id`,`port`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."server_homes",
 "CREATE TABLE IF NOT EXISTS `".OGP_DB_PREFIX."server_homes` (
 	`home_id` int(50) NOT NULL auto_increment,
 	`remote_server_id` int(11) NOT NULL,
 	`user_id_main` int(11) NOT NULL,
-	`home_path` varchar(500) NOT NULL,
+	`home_path` varchar(128) NOT NULL,
 	`home_cfg_id` int(50) NOT NULL,
-	`home_name` varchar(500) NOT NULL,
+	`home_name` varchar(128) NOT NULL,
 	`control_password` VARCHAR( 128 ) NULL,
 	`ftp_password` VARCHAR( 128 ) NULL,
 	`last_param` LONGTEXT NULL,
 	PRIMARY KEY  (`home_id`),
 UNIQUE KEY remote_server_id (remote_server_id,home_path)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."rcon_presets;",
 "CREATE TABLE ".OGP_DB_PREFIX."rcon_presets (
@@ -62,7 +62,7 @@ UNIQUE KEY remote_server_id (remote_server_id,home_path)
 	`home_cfg_id` int(50) NOT NULL,
 	`mod_cfg_id` int(50) NOT NULL,
 	PRIMARY KEY  (`preset_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."game_mods",
 "CREATE TABLE IF NOT EXISTS ".OGP_DB_PREFIX."game_mods (
@@ -90,7 +90,7 @@ $install_queries[2] = array(
   `ip_id` char(3) NOT NULL,
   `port` char(6) NOT NULL,
   `server_status_cache` longtext NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 $install_queries[3] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` ADD `custom_fields` LONGTEXT NULL;");
@@ -117,4 +117,12 @@ $install_queries[9] = array(
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `home_name` VARCHAR(500);",
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `control_password` VARCHAR(128);",
 	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `ftp_password` VARCHAR(128);");
+	
+// store non-English characters
+$install_queries[10] = array(
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `home_path` NVARCHAR(500);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `home_name` NVARCHAR(500);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `control_password` NVARCHAR(128);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `ftp_login` NVARCHAR(32);",
+	"ALTER TABLE `".OGP_DB_PREFIX."server_homes` MODIFY COLUMN `ftp_password` NVARCHAR(128);");
 ?>

@@ -46,6 +46,9 @@ function lang_str($ogp_lang){
 			return "en";
 	}
 }
+
+$settings = $_SESSION['settings'];
+
 $panel_email_address = $settings['panel_email_address'];
 $panel_language = $settings['panel_language'];
 
@@ -70,8 +73,8 @@ if(function_exists("startSession")){
 	session_start();
 }
 
-$net2ftp_settings["default_language"] = ($_SESSION['users_lang'] != "" and $_SESSION['users_lang'] != "-") ? lang_str($_SESSION['users_lang']) : 
-										($panel_language != "-") ? lang_str($panel_language): "en";
+$net2ftp_settings["default_language"] = (($_SESSION['users_lang'] != "" and $_SESSION['users_lang'] != "-") ? lang_str($_SESSION['users_lang']) : 
+										($panel_language != "-")) ? lang_str($panel_language): "en";
 $net2ftp_settings["default_skin"]     = "blue";
 // Enter the address of your help pages, support forum or ticket system
 // This will add a link in the footer; leave empty if you don't have this
@@ -79,8 +82,8 @@ $net2ftp_settings["help_text"] = "";
 $net2ftp_settings["help_link"] = "";
 
 // PHP error reporting
-//$net2ftp_settings["error_reporting"] = "NONE";
-$net2ftp_settings["error_reporting"] = "standard";
+$net2ftp_settings["error_reporting"] = "NONE";
+//$net2ftp_settings["error_reporting"] = "standard";
 //$net2ftp_settings["error_reporting"] = "ALL";
 
 // Fix transparent PNG images in IE

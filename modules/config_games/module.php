@@ -45,7 +45,7 @@ $install_queries[0] = array(
   `home_cfg_file` varchar(64) NULL,
   PRIMARY KEY  (`home_cfg_id`),
   UNIQUE KEY `game_key` (`game_key`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."config_mods;",
 "CREATE TABLE IF NOT EXISTS `".OGP_DB_PREFIX."config_mods` (
@@ -57,6 +57,6 @@ $install_queries[0] = array(
   `def_postcmd` TEXT,
   PRIMARY KEY  (`mod_cfg_id`),
   UNIQUE KEY `home_cfg_id` (`home_cfg_id`,`mod_key`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 ?>

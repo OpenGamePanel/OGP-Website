@@ -622,7 +622,7 @@ function getClientIPAddress(){
 		$ip = $_SERVER['HTTP_X_REAL_IP'];
 	}
 	
-	if(filter_var($ip, FILTER_VALIDATE_IP)){
+	if(filter_var(@(string)$ip, FILTER_VALIDATE_IP)){
 		return $ip;
 	}
 		

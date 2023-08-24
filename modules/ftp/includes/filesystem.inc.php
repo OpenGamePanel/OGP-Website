@@ -48,7 +48,7 @@ function ftp_openconnection() {
 
 // Set up basic connection
 	$ftp_connect = "ftp_connect";
-	if ($net2ftp_globals["sslconnect"] == "yes" && function_exists("ftp_ssl_connect")) { $ftp_connect = "ftp_ssl_connect"; }
+	if (array_key_exists("sslconnect", $net2ftp_globals) && $net2ftp_globals["sslconnect"] == "yes" && function_exists("ftp_ssl_connect")) { $ftp_connect = "ftp_ssl_connect"; }
 
 	$conn_id = $ftp_connect($net2ftp_globals["ftpserver"], $net2ftp_globals["ftpserverport"]);
 	if ($conn_id == false) {

@@ -51,7 +51,7 @@ if($num_of_servers < $numberservers_to_skip_query)
 		$players = $results['server']['gq_numplayers'];
 		$playersmax = $results['server']['gq_maxplayers'];
 		$name = $results['server']['gq_hostname'];
-		$map  = preg_replace("/[^a-z0-9_]/", "_", strtolower($results['server']['gq_mapname']));
+		$map  = preg_replace("/[^a-z0-9_]/", "_", strtolower(@(string)$results['server']['gq_mapname']));
 		
 		//----------+ patches for voice servers (ts2, ts3, ventrilo)
 		if(!$map)$map = $results['server']['gq_type'];

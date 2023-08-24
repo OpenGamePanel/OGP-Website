@@ -40,7 +40,7 @@ $install_queries[0] = array(
 	`mysql_root_passwd` VARCHAR( 32 ) NULL,
 	`privilegies_str` LONGTEXT NULL,
 	PRIMARY KEY  (`mysql_server_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 
 "DROP TABLE IF EXISTS ".OGP_DB_PREFIX."mysql_databases",
 "CREATE TABLE IF NOT EXISTS `".OGP_DB_PREFIX."mysql_databases` (
@@ -54,6 +54,6 @@ $install_queries[0] = array(
 	PRIMARY KEY  (`db_id`),
 	UNIQUE KEY (`mysql_server_id`,`db_name`),
 	UNIQUE KEY (`mysql_server_id`,`db_user`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 ?>

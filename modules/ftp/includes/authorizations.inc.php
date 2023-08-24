@@ -47,11 +47,11 @@ function encryptPassword($password) {
 //	else {
 		$password_encrypted = "";
 		$encryption_string = sha1($net2ftp_settings["encryption_string"]);
-		if ($encryption_string % 2 == 1) { // we need even number of characters
-			$encryption_string .= $encryption_string{0};
+		if (strlen($encryption_string) % 2 == 1) { // we need even number of characters
+			$encryption_string .= $encryption_string[0];
 		}
 		for ($i=0; $i < strlen($password); $i++) { // encrypts one character - two bytes at once
-			$password_encrypted .= sprintf("%02X", hexdec(substr($encryption_string, 2*$i % strlen($encryption_string), 2)) ^ ord($password{$i}));
+			$password_encrypted .= sprintf("%02X", hexdec(substr($encryption_string, 2*$i % strlen($encryption_string), 2)) ^ ord($password[$i]));
 		}
 		return $password_encrypted;
 //	}
@@ -101,8 +101,8 @@ function decryptPassword($password_encrypted) {
 //	else {
 		$password = "";
 		$encryption_string = sha1($net2ftp_settings["encryption_string"]);
-		if ($encryption_string % 2 == 1) { // we need even number of characters
-			$encryption_string .= $encryption_string{0};
+		if (strlen($encryption_string) % 2 == 1) { // we need even number of characters
+			$encryption_string .= $encryption_string[0];
 		}
 		for ($i=0; $i < strlen($password_encrypted); $i += 2) { // decrypts two bytes - one character at once
 			$password .= chr(hexdec(substr($encryption_string, $i % strlen($encryption_string), 2)) ^ hexdec(substr($password_encrypted, $i, 2)));

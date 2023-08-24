@@ -858,7 +858,7 @@ function ftp2http($directory, $list_files, $htmltags) {
 
 // Calculate all the URLs on the Browse screen
 		for ($i=1; $i<=sizeof($list_files); $i++) {
-			$URL = "http://" . $net2ftp_globals["ftpserver"]. $directory . "/" . $list_files[$i][$encoding];
+			$URL = "http://" . $net2ftp_globals["ftpserver"]. $directory . "/" . @(string)$list_files[$i][$encoding];
 			if ($htmltags == "no") { $list_links[$i] = $URL; }
 			else                   { $list_links[$i] = "<a href=\"" . $URL . "\" target=\"_blank\" title=\"" . __("Execute %1\$s in a new window", $list_files[$i][$encoding]) . "\">" . $list_files[$i][$encoding] . "</a>"; }
 		} // end for

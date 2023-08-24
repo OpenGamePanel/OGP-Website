@@ -35,8 +35,8 @@ $install_queries = array();
 $install_queries[0] = array();
 $install_queries[1] = array(
     "CREATE TABLE IF NOT EXISTS ".OGP_DB_PREFIX."update_blacklist (
-        `file_path` VARCHAR(1000) UNIQUE NOT NULL
-    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+        `file_path` VARCHAR(128) UNIQUE NOT NULL
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 $install_queries[2] = array(
 	"DELETE FROM ".OGP_DB_PREFIX."update_blacklist
 WHERE file_path IN (SELECT * 
@@ -44,7 +44,7 @@ WHERE file_path IN (SELECT *
                    GROUP BY file_path HAVING (COUNT(*) > 1)
                   ) AS A
             );",
-    "ALTER TABLE ".OGP_DB_PREFIX."update_blacklist MODIFY file_path VARCHAR(1000);",
+    "ALTER TABLE ".OGP_DB_PREFIX."update_blacklist MODIFY file_path VARCHAR(128);",
 	"ALTER TABLE ".OGP_DB_PREFIX."update_blacklist ADD UNIQUE (file_path);"
 );
 ?>

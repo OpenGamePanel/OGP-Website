@@ -18,7 +18,7 @@
     
     David 
 */
-error_reporting(E_ERROR);
+error_reporting(E_ALL);
 
 if(file_exists("includes/helpers.php")){
 	require_once("includes/helpers.php");

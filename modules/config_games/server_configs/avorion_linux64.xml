@@ -5,7 +5,7 @@
  <installer>steamcmd</installer>
  <game_name>Avorion</game_name>
  <server_exec_name>avorion_ogpstarter.sh</server_exec_name>
- <cli_template>--datapath ./galaxy/ --galaxy-name main %PORT% %QUERY_PORT% %STEAM_PORT% %PLAYERS% %HOSTNAME% %SEED% %ADMIN% %INFINITE_RESOURCES% %DIFFICULTY% %COLLISION_DAMAGE% %SAME_START_SECTOR% %PUBLIC% %LISTED% %USE_STEAM_NETWORKING%</cli_template>
+ <cli_template>--datapath ./galaxy/ --galaxy-name main %PORT% %QUERY_PORT% %STEAM_PORT% %PLAYERS% %HOSTNAME% %SEED% %ADMIN% %DIFFICULTY% %COLLISION_DAMAGE% %SAME_START_SECTOR% %PUBLIC% %LISTED% %USE_STEAM_NETWORKING%</cli_template>
  <cli_params>
   <cli_param id='PORT' cli_string='--port' options='s'/>
   <cli_param id='PLAYERS' cli_string='--max-players' options='s'/>
@@ -31,11 +31,6 @@
   <param id='ADMIN' key='--admin' type='text'>
    <default></default>
    <desc>steam id(s) of the administrator(s) of the server</desc>
-  </param>
-  <param id='INFINITE_RESOURCES' key='--infinite-resources' type='select'>
-   <option value='false'>No</option>
-   <option value='true'>Yes</option>
-   <desc>Should resources be infinite</desc>
   </param>
   <param id='DIFFICULTY' key='--difficulty' type='select'>
    <option value='-3'>Easyest</option>

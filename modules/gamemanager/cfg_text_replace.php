@@ -33,7 +33,8 @@ $server_home["true"] = "";
 $last_param = json_decode($db->getLastParam($server_home["home_id"]), True);		
 $server_home["max_players"] = isset($cli_param_data['PLAYERS']) ? $cli_param_data['PLAYERS'] : $last_param['players'];
 $server_home["webhost_ip"] = $_SERVER['SERVER_ADDR'];
-$server_home["incremental"] = $db->incrementalNumByHomeId( $server_home["home_id"], $server_home["mod_cfg_id"], $server_home["remote_server_id"] );
+if (array_key_exists("mod_cfg_id", $server_home))
+	$server_home["incremental"] = $db->incrementalNumByHomeId( $server_home["home_id"], $server_home["mod_cfg_id"], $server_home["remote_server_id"] );
 $server_home["map"] = clean_server_param_value(isset($cli_param_data['MAP']) ? $cli_param_data['MAP'] : $last_param['map'], $server_xml->cli_allow_chars);
 
 $isWin = preg_match('/CYGWIN/', $remote->what_os());
@@ -91,7 +92,7 @@ if($fields)
 		{			
 			if ($key == "default_value")
 			{
-				if (array_key_exists((string)$array['key'], $custom_fields))
+				if (array_key_exists((string)$array['key'], (array)$custom_fields))
 					$replacements[$replace_id]['info_param'] = strip_real_escape_string((string)$custom_fields[(string)$array['key']]);
 				else
 					$replacements[$replace_id]['info_param'] = (string)$value;

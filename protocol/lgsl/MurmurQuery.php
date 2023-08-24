@@ -339,6 +339,8 @@
 
 	private function _parse_channels($channels)
 	{
+		if(array_key_exists('x_gtmurmur_error', $channels))
+			return;
 		// We'll have to deal with the root channel separately
 		if(array_key_exists('root', $channels))
 		{

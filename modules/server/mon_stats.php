@@ -24,7 +24,7 @@
 
 require_once('includes/lib_remote.php');
 function pretty_text_ttf($im, $fontsize, $angle, $x, $y, $color, $font, $string, $outline = false) {
-	$black  = imagecolorallocate($bgImg, 0, 0, 0);
+	$black  = imagecolorallocate($im, 0, 0, 0);
 
 	// Black outline
 	if($outline){

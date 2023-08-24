@@ -119,7 +119,7 @@ function net2ftp_skin_printCSS() {
 	elseif ($net2ftp_globals["cookie_skin"] != "") { $currentskin = $net2ftp_globals["cookie_skin"]; }
 	else                                           { $currentskin = "shinra"; }
 
-	echo $skinArray[$currentskin]["css"];
+	echo @(string)$skinArray[$currentskin]["css"];
 
 } // End function net2ftp_skin_printCSS
 
@@ -146,7 +146,7 @@ function net2ftp_skin_printJavascript() {
 	elseif ($net2ftp_globals["cookie_skin"] != "") { $currentskin = $net2ftp_globals["cookie_skin"]; }
 	else                                           { $currentskin = "shinra"; }
 
-	echo $skinArray[$currentskin]["javascript"];
+	echo @(string)$skinArray[$currentskin]["javascript"];
 
 } // End function net2ftp_skin_printJavascript
 

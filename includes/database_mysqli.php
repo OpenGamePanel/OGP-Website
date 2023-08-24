@@ -68,7 +68,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function realEscapeSingle($string){
-		return mysqli_real_escape_string($this->link, $string);
+		return mysqli_real_escape_string($this->link, @(string)$string);
 	}
 
 	private function listQuery($query) {
@@ -1160,15 +1160,23 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( !$this->link ) return FALSE;
 
 		$query = str_replace( "OGP_DB_PREFIX", $this->table_prefix, $query );
+		
+		try {
+			$query = mysqli_query($this->link,$query);
+			if ($query === FALSE)
+				throw new Exception(mysqli_error($this->link));
+			else 
+				++$this->queries_;
 
-		++$this->queries_;
-		mysqli_query($this->link,$query);
+		} catch(Exception $e) {
+			return FALSE;
+		}
 
 		if( mysqli_errno($this->link) != 0 )
 		{
 			return FALSE;
 		}
-
+		
 		return TRUE;
 	}
 
@@ -2185,7 +2193,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $this->listQuery($query);
 	}
 	
-	public function getIpPorts_limit($ip_id = 0,$page_dashboardlist,$limit_dashboardlist) {
+	public function getIpPorts_limit($ip_id = 0,$page_dashboardlist = 0,$limit_dashboardlist = 1) {
 		$ip_id = $this->realEscapeSingle($ip_id);
 		$user_request_page = ($page_dashboardlist - 1) * $limit_dashboardlist;
 		
@@ -2439,7 +2447,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function addGameHome($rserver_id,$user_id_main,$home_cfg_id,$game_path,$server_name,$control_password,$ftp_password,$skipId = false){
 		$query = sprintf("INSERT INTO `%sserver_homes`
 			( `home_id`, `remote_server_id`, `user_id_main`, `home_cfg_id`, `home_path`, `home_name`,`control_password`,`ftp_password`)
-			VALUES(NULL, '%d', '%d', '%d', '%s', '%s', '%s', '%s')",
+			VALUES(NULL, '%d', '%d', '%d', N'%s', N'%s', N'%s', N'%s')",
 				$this->table_prefix,
 				$this->realEscapeSingle($rserver_id),
 				$this->realEscapeSingle($user_id_main),
@@ -2762,7 +2770,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 
 	public function changeHomePath($home_id,$path) {
-		$query = sprintf("UPDATE `%sserver_homes` SET `home_path` = '%s' WHERE `home_id` = %d",
+		$query = sprintf("UPDATE `%sserver_homes` SET `home_path` = N'%s' WHERE `home_id` = %d",
 			$this->table_prefix,
 			$this->realEscapeSingle($path),
 			$this->realEscapeSingle($home_id));
@@ -2786,7 +2794,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function changeFtpLogin($home_id,$ftp_login) {
-		$query = sprintf("UPDATE `%sserver_homes` SET `ftp_login` = '%s' WHERE `home_id` = %d",
+		$query = sprintf("UPDATE `%sserver_homes` SET `ftp_login` = N'%s' WHERE `home_id` = %d",
 			$this->table_prefix,
 			$this->realEscapeSingle($ftp_login),
 			$this->realEscapeSingle($home_id));
@@ -2798,7 +2806,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function changeFtpPassword($home_id,$password) {
-		$query = sprintf("UPDATE `%sserver_homes` SET `ftp_password` = '%s' WHERE `home_id` = %d",
+		$query = sprintf("UPDATE `%sserver_homes` SET `ftp_password` = N'%s' WHERE `home_id` = %d",
 			$this->table_prefix,
 			$this->realEscapeSingle($password),
 			$this->realEscapeSingle($home_id));
@@ -2952,7 +2960,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function changeHomeName($home_id, $name) {
 		$home_id = $this->realEscapeSingle($home_id);
 		$name = $this->realEscapeSingle($name);
-		$query = "UPDATE `".$this->table_prefix."server_homes` SET `home_name` = '$name'
+		$query = "UPDATE `".$this->table_prefix."server_homes` SET `home_name` = N'$name'
 			WHERE `home_id` = $home_id";
 
 		++$this->queries_;
@@ -2966,7 +2974,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	{
 		$home_id = $this->realEscapeSingle($home_id);
 		$control_password = $this->realEscapeSingle($control_password);
-		$query = "UPDATE `".$this->table_prefix."server_homes` SET `control_password` = '$control_password'
+		$query = "UPDATE `".$this->table_prefix."server_homes` SET `control_password` = N'$control_password'
 			WHERE `home_id` = $home_id";
 
 		++$this->queries_;
@@ -3566,15 +3574,22 @@ class OGPDatabaseMySQL extends OGPDatabase
 		
 	public function getNextAvailablePort($ip_id,$home_cfg_id){
 		$ranges = $this->getPortsRange($ip_id,$home_cfg_id);
-		$range = $ranges[0];
+		if($ranges === false)
+			$range = array();
+		else
+			$range = $ranges[0];
+		
 		if(empty($range))
 		{
 			$ranges = $this->getPortsRange($ip_id,"0");
-			$range = $ranges[0];
+			if($ranges === false)
+				$range = array();
+			else
+				$range = $ranges[0];
 		}
 		if(empty($range))
 			$range = array('start_port' => '27015','end_port' => '39915', 'port_increment' => '100');
-			
+		
 		$home_used_ports = $this->getIpPorts($ip_id);	
 		$used_ports = array();
 		if(!empty($home_used_ports))

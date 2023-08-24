@@ -37,22 +37,22 @@ $install_queries[0] = array(
 "CREATE TABLE IF NOT EXISTS `".OGP_DB_PREFIX."remote_server_ips` (
   `ip_id` int(11) NOT NULL AUTO_INCREMENT,
   `remote_server_id` int(11) NOT NULL,
-  `ip` varchar(255) NOT NULL,
+  `ip` varchar(128) NOT NULL,
   PRIMARY KEY (`ip_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;",
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;",
 "DROP TABLE IF EXISTS `".OGP_DB_PREFIX."remote_servers`;",
 "CREATE TABLE IF NOT EXISTS `".OGP_DB_PREFIX."remote_servers` (
   `remote_server_id` int(11) NOT NULL auto_increment,
   `remote_server_name` varchar(100) NOT NULL,
   `ogp_user` varchar(100) NOT NULL,
-  `agent_ip` varchar(255) NOT NULL,
+  `agent_ip` varchar(128) NOT NULL,
   `agent_port` int(11) NOT NULL,
   `ftp_port` int(11) NOT NULL,
   `encryption_key` varchar(50) NOT NULL,
   `timeout` int(11) NOT NULL,
   PRIMARY KEY  (`remote_server_id`),
   UNIQUE KEY `agent_ip` (`agent_ip`,`agent_port`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='Remote servers and IPs';");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 COMMENT='Remote servers and IPs';");
 
 $install_queries[1] = array(	
 	"ALTER TABLE `".OGP_DB_PREFIX."remote_servers` 
@@ -62,7 +62,7 @@ $install_queries[2] = array(
 	 ADD `ufw_status` CHAR(8);");
 $install_queries[3] = array(
 	"ALTER TABLE `OGP_DB_PREFIXremote_servers` 
-	 ADD `ftp_ip` varchar(255) NOT NULL;");
+	 ADD `ftp_ip` varchar(128) NOT NULL;");
 	 
 $install_queries[4] = array(
 "DROP TABLE IF EXISTS `".OGP_DB_PREFIX."arrange_ports`;",
@@ -75,7 +75,7 @@ $install_queries[4] = array(
   `port_increment` smallint(11) unsigned NOT NULL,
   PRIMARY KEY  (`range_id`),
   UNIQUE KEY `ip_id` (`ip_id`,`home_cfg_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COMMENT='Remote servers and IPs';");
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 COMMENT='Remote servers and IPs';");
 
 $install_queries[5] = array(
 	"ALTER TABLE `OGP_DB_PREFIXremote_servers` 
@@ -89,6 +89,6 @@ $install_queries[6] = array(
 
 $install_queries[7] = array(
         "ALTER TABLE `OGP_DB_PREFIXremote_servers`
-        MODIFY `display_public_ip` varchar(255) NOT NULL;");
+        MODIFY `display_public_ip` varchar(128) NOT NULL;");
 
 ?>

@@ -64,7 +64,7 @@ foreach($user_homes as $ftp_info)
 			<tr>
 			  <td colspan="3">
 				<form id="LoginForm" action="<?php echo $net2ftp_globals["action_url"]; ?>" method="post" onsubmit="return CheckInput(this);">
-				<input type="hidden" name="language" value="<?php echo $_POST['language']; ?>">
+				<input type="hidden" name="language" value="<?php echo @(string)$_POST['language']; ?>">
 				<input type="hidden" name="ftpserverport" value="<?php echo $ftp_info['ftp_port']; ?>">
 				<input type="hidden" name="ftpserver" value="<?php echo $ftp_ip; ?>">
 				<input type="hidden" name="username" value="<?php echo $ftp_login; ?>" autocorrect="off" autocapitalize="off" style="width: 80%;" />

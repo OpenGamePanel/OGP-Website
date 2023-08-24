@@ -575,7 +575,7 @@ function exec_ogp_module()
 		// Dialog translation && info
 		$user = $db->getUserById($_SESSION['user_id']);
 		echo "<div id='dialog' ".
-			 "data-folder=\"" . clean_path("/".str_replace('"', "&quot;", @$_SESSION['fm_cwd_'.$home_id])) . "\" " .
+			 "data-folder=\"" . clean_path("/".str_replace('"', "&quot;", @(string)$_SESSION['fm_cwd_'.$home_id])) . "\" " .
 			 "data-select_at_least_one_item='" . get_lang("select_at_least_one_item") . "' " .
 			 "data-ask_delete='" . get_lang("delete_item") . "' " .
 			 "data-ask_rename='" . get_lang("rename_item") . "' " .

@@ -114,7 +114,7 @@ function exec_ogp_module()
 	}
 	
 	function getLastLines($string, $n = 1) {
-		$lines = explode("\n", $string);
+		$lines = explode("\n", (string)$string);
 		$lines = array_slice($lines, -$n);
 		return implode("\n", $lines);
 	}

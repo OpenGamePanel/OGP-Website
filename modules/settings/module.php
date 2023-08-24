@@ -39,7 +39,7 @@ $install_queries[0] = array(
         `setting` varchar(63) NOT NULL,
         `value` varchar(255) NOT NULL,
         PRIMARY KEY  (`setting`)
-    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;");
+    ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
 $install_queries[1] = array(
     "ALTER TABLE `".OGP_DB_PREFIX."settings` CHANGE `value` `value` VARCHAR( 1024 ) NOT NULL;");

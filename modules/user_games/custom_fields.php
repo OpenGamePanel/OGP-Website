@@ -125,7 +125,7 @@ function exec_ogp_module()
 		$updatedSettings = array();
 		foreach($server_xml->custom_fields->field as $field)
 		{
-			if (array_key_exists((string)$field['key'], $custom_fields)){
+			if (array_key_exists((string)$field['key'], (array)$custom_fields)){
 				$origValue = (string)$custom_fields[(string)$field['key']];
 			}else{
 				$origValue = "";
