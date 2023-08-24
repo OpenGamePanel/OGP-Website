@@ -67,7 +67,7 @@ function exec_ogp_module() {
 	$db_array["0"] = get_lang('select_db');
 	foreach ( $home_dbs as $home_db )
 	{
-		$db_array["$home_db[db_id]"] = $home_db['db_name'];
+		$db_array[$home_db['db_id']] = $home_db['db_name'];
 	}
 		
 	$ft = new FormTable();

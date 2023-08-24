@@ -3666,7 +3666,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 											 "disable";
 		$firewall_settings['default_allowed'] = isset($firewall_settings['default_allowed']) ?
 													  $firewall_settings['default_allowed'] :
-													  "$agent_ip:$remote_server[agent_port],$ftp_ip:$remote_server[ftp_port],22,25,80";
+													  "$agent_ip:" . $remote_server['agent_port'] . ",$ftp_ip:" . $remote_server['ftp_port'] . ",22,25,80";
 		$firewall_settings['allow_port_command'] = isset($firewall_settings['allow_port_command']) ?
 														 $firewall_settings['allow_port_command'] :
 														 "ufw allow %PORT%";

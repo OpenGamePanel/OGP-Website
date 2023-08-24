@@ -114,7 +114,7 @@ function exec_ogp_module()
 			 "<td><b>". get_lang("nice_level") ."</b></td><td></td>".
 			 "</tr>\n";
 		foreach ( $enabled_mods as $enabled_rows ) {
-			echo "<tr id='mod_cfg_id_$enabled_rows[mod_cfg_id]'>".
+			echo "<tr id='mod_cfg_id_" . $enabled_rows['mod_cfg_id'] . "'>".
 				 "<td><a href='?m=user_games&amp;p=edit&amp;mod_id=".$enabled_rows['mod_id'].
 				 "&amp;home_id=$home_id&amp;submit=delete_mod'>[ ". get_lang("remove_mod") ." ]</a><br>".
 				 "<a href='?m=user_games&p=install_cmds&home_id=$home_id&mod_id=".$enabled_rows['mod_id'].
