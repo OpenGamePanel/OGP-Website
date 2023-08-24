@@ -70,7 +70,7 @@ function exec_ogp_module() {
 	
 	foreach($server_homes as $server_home)
 	{
-		$homes_array["$server_home[home_id]"] = "(ID ".$server_home['home_id'].") ".$server_home['home_name'];
+		$homes_array[$server_home['home_id']] = "(ID ".$server_home['home_id'].") ".$server_home['home_name'];
 	}
 	
     if ( $mysql_server === FALSE )
@@ -571,7 +571,7 @@ function exec_ogp_module() {
 			foreach ( $mysql_server_dbs as $mysql_db )
 			{
 				$home_info = $db->getGameHomeWithoutMods($mysql_db['home_id']);
-				$db_array["$mysql_db[db_id]"] = $mysql_db['db_name']." (".$home_info['home_name'].")";
+				$db_array[$mysql_db['db_id']] = $mysql_db['db_name']." (".$home_info['home_name'].")";
 			}
 			
 			$ft = new FormTable();

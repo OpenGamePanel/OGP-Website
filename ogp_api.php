@@ -862,7 +862,7 @@ function api_user_admin()
 			if ($db->unassignHomeFrom("user",$account['user_id'],$game_home['home_id']) === TRUE)
 			{
 				$status = "200";
-				$message = "Home id#$game_home[home_id] has been unnassigned from $email successfully.";
+				$message = "Home id#" . $game_home['home_id'] . " has been unnassigned from $email successfully.";
 			}
 			else
 			{
@@ -1375,7 +1375,7 @@ function api_gamemanager()
 				
 				$remote->masterServerUpdate($home_id,$home_info['home_path'],$ms_home_id,$ms_info['home_path'],$exec_folder_path,$exec_path,$preInstallCMD,$postInstallCMD);
 				$status = "200";
-				$message = "Installation from master server ($home_info[home_name]) started";
+				$message = "Installation from master server (" . $home_info['home_name'] . ") started";
 			}
 			else
 			{

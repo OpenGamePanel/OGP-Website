@@ -255,7 +255,7 @@ function exec_ogp_module() {
             <tr><td align='right'><?php print_lang('game_name'); ?>: </td><td align='left'><?php  echo $home_info['game_name']; ?></td></tr>
             <tr><td align='right'><?php print_lang('directory'); ?>: </td><td align='left'><?php  echo $home_info['home_path']; ?></td></tr>
             <tr><td align='right'><?php print_lang('remote_server'); ?>: </td>
-            <td align='left'><?php  echo "$home_info[remote_server_name] ($home_info[agent_ip]:$home_info[agent_port])"; ?></td></tr>
+            <td align='left'><?php  echo $home_info['remote_server_name'] . " (" . $home_info['agent_ip'] . ":" . $home_info['agent_port'] . ")"; ?></td></tr>
             <tr><td align='right'><?php print_lang('select_addon'); ?>: </td>
             <td align='left'>
 			<select name="addon_id">

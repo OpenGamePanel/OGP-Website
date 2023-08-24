@@ -604,7 +604,7 @@ function exec_ogp_module()
 			if ( $db->updateExpirationDate($home_id, $_POST['expiration_date'], 'server') === TRUE )
 			{
 				echo json_encode(array('result' => 'success', 'info' => get_lang('expiration_date_changed')));
-				$db->logger( get_lang('expiration_date_changed') ." [ HOME ID:$home_id NEW DATE:$_POST[expiration_date] ]");
+				$db->logger( get_lang('expiration_date_changed') ." [ HOME ID:$home_id NEW DATE:" . $_POST['expiration_date'] ." ]");
 			}
 			else
 				echo json_encode(array('result' => 'failure', 'info' => get_lang('expiration_date_could_not_be_changed')));

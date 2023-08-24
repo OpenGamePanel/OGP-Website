@@ -30,7 +30,7 @@ function exec_ogp_module()
 	{
 		foreach($expired_servers as $expired_server)
 		{
-			$db->logger(date('d/m/Y H:i:s', $expired_server['server_expiration_date'])." : SERVER EXPIRED: HOME ID:$expired_server[home_id] ($expired_server[home_name])");
+			$db->logger(date('d/m/Y H:i:s', $expired_server['server_expiration_date'])." : SERVER EXPIRED: HOME ID:" . $expired_server['home_id'] . " (" . $expired_server['home_name'] . ")");
 			$db->check_expire_date(0, $expired_server['home_id'], array('server'));
 		}
 	}
@@ -40,7 +40,7 @@ function exec_ogp_module()
 	{
 		foreach($expired_users as $expired_user)
 		{
-			$db->logger(date('d/m/Y H:i:s', $expired_user['user_expiration_date'])." : USER ASSIGNATION EXPIRED : HOME ID:$expired_user[home_id] TO USER ID:$expired_user[user_id]");
+			$db->logger(date('d/m/Y H:i:s', $expired_user['user_expiration_date'])." : USER ASSIGNATION EXPIRED : HOME ID:" . $expired_user['home_id'] . " TO USER ID:" . $expired_user['user_id']);
 			$db->check_expire_date($expired_user['user_id'], $expired_user['home_id'], array('user'));
 		}
 	}
@@ -55,7 +55,7 @@ function exec_ogp_module()
 	{
 		foreach($expired_groups as $expired_group)
 		{
-			$db->logger(date('d/m/Y H:i:s', $expired_group['user_group_expiration_date'])." : GROUP ASSIGNATION EXPIRED : HOME ID:$expired_group[home_id] TO GROUP ID:$expired_group[group_id]");
+			$db->logger(date('d/m/Y H:i:s', $expired_group['user_group_expiration_date'])." : GROUP ASSIGNATION EXPIRED : HOME ID:" . $expired_group['home_id'] . " TO GROUP ID:" . $expired_group['group_id']);
 			$db->check_expire_date($expired_group['user_id'], $expired_group['home_id'], array('user_group'));
 		}
 	}

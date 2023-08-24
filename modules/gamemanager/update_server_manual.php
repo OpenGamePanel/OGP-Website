@@ -67,7 +67,7 @@ function exec_ogp_module() {
 	$pid = isset($_REQUEST['pid']) ? $_REQUEST['pid'] : -1;
 	$filename = isset($_REQUEST['filename']) ? $_REQUEST['filename'] : "";
 
-	echo "<h2>". get_lang("install_update_manual") ." $home_info[home_name]</h2>";
+	echo "<h2>". get_lang("install_update_manual") ." " . $home_info['home_name'] . "</h2>";
 
 	if ( !empty($state) )
 	{
@@ -139,10 +139,10 @@ function exec_ogp_module() {
 			<input type='hidden' name='home_id' value='$home_id' />
 			<input type='hidden' name='mod_id' value='$mod_id' />
 			<input type='hidden' name='state' value='start' />
-			<tr><td align='right'>". get_lang("game_name") .":</td><td align='left'>$home_info[game_name]</td></tr>
-			<tr><td align='right'>". get_lang("dest_dir") .":</td><td align='left'>$home_info[home_path]</td></tr>
+			<tr><td align='right'>". get_lang("game_name") .":</td><td align='left'>" . $home_info['game_name'] . "</td></tr>
+			<tr><td align='right'>". get_lang("dest_dir") .":</td><td align='left'>" . $home_info['home_path'] . "</td></tr>
 			<tr><td align='right'>". get_lang("remote_server") .":</td>
-			<td align='left'>$home_info[remote_server_name] ($home_info[agent_ip]:$home_info[agent_port])</td></tr>
+			<td align='left'>" . $home_info['remote_server_name'] . " (" . $home_info['agent_ip'] . ":" . $home_info['agent_port'] . ")</td></tr>
 			<tr><td align='right'>". get_lang("file_url") .":</td>
 			<td align='left'><input type='text' id='url' name='url' value='' onChange='setFilename(this.value)' size='50' /></td></tr>
 			<tr><td colspan='2' class='info'>". get_lang("file_url_info") ."</td></tr>

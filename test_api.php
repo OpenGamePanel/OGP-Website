@@ -35,11 +35,11 @@ if(isset($_POST['function']))
 <form method='<?php echo $_POST['method']; ?>' action="ogp_api.php<?php echo $get_req; ?>" target="_blank">
 <?php
 if($_POST['method'] == 'GET')
-	echo "<input type=hidden name='$_POST[function]'>";
+	echo "<input type=hidden name='" . $_POST['function'] . "'>";
 ?>
 <table>
 <?php
-$inputs = $functions["$_POST[function]"];
+$inputs = $functions[$_POST['function']];
 foreach($inputs as $input => $mandatory)
 {
 	$is_mandatory = $mandatory?"":" (optional)";
