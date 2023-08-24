@@ -585,7 +585,7 @@ function exec_ogp_module()
 		$installed_str = $on_disk ? $installed ? "<a class='uninstall' style='color:blue;' data-module-folder='$folder' data-module-id='".
 												 $installed_modules_by_folder[$folder]."' href='#uninstall_$folder' >".get_lang("uninstall")."</a>" : 
 												 "<a class='install' style='color:blue;' data-module-folder='$folder' href='#install_$folder' >".get_lang("install")."</a> - ".
-												 "<a class='remove' style='color:red;' data-module-folder='$module[title]' data-remove-mode='modules' href='#remove_$folder' >".get_lang("remove")."</a>" : 
+												 "<a class='remove' style='color:red;' data-module-folder='" . $module['title'] . "' data-remove-mode='modules' href='#remove_$folder' >".get_lang("remove")."</a>" : 
 												 "<b style='color:red;' >".get_lang("not_installed")."</b>";
 		$uptodate = FALSE;
 		if($on_disk)
@@ -625,7 +625,7 @@ function exec_ogp_module()
 		$on_disk = file_exists($install_nfo);
 		$is_old = $on_disk && (strtotime('+1 hour', filemtime($local_repo_file)) <= time());
 		$installed_str = $on_disk ? "<b style='color:green;' >".get_lang("installed")."</b> - ".
-									"<a class='remove' style='color:red;' data-module-folder='$theme[title]' data-remove-mode='themes' href='#remove_$folder' >".get_lang("remove")."</a>": 
+									"<a class='remove' style='color:red;' data-module-folder='" . $theme['title'] . "' data-remove-mode='themes' href='#remove_$folder' >".get_lang("remove")."</a>": 
 									"<b style='color:red;' >".get_lang("not_installed")."</b>";
 		$uptodate = FALSE;
 		if($on_disk)

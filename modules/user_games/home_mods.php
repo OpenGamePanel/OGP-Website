@@ -134,7 +134,7 @@ function exec_ogp_module()
 				 echo create_drop_box_from_array(array_merge(range(-19,19)),
 				 'nice',$enabled_rows['nice']).
 				 "</td><td>\n".
-				 "<button class='set_options' id='$enabled_rows[mod_cfg_id]' >". get_lang("set_options") ."</button>\n".
+				 "<button class='set_options' id='" . $enabled_rows['mod_cfg_id'] . "' >". get_lang("set_options") ."</button>\n".
 				 "</td></tr>\n";
 
 		}

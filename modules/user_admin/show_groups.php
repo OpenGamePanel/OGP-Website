@@ -113,10 +113,10 @@ function exec_ogp_module() {
 					": <select name=\"user_to_add\">";
 				foreach ($available_users as $user_row )
 				{
-					echo "<option value=\"$user_row[user_id]\">" . htmlentities($user_row[users_login]) . "</option>";
+					echo "<option value=\"$user_row[user_id]\">" . htmlentities($user_row['users_login']) . "</option>";
 				}
 				echo "</select>\n";
-				echo "<input type='hidden' name='group_id' value='$row[group_id]' />";
+				echo "<input type='hidden' name='group_id' value='" . $row['group_id'] . "' />";
 				echo "<input type='submit' name='add_user_to_group' value='".get_lang('add_user')."' />";
 				echo "</form>\n";
 			}else{
@@ -140,7 +140,7 @@ function exec_ogp_module() {
                 $user_info = $db->getUserById($user_id['user_id']);
                 echo "<li><a href='?m=user_admin&amp;p=del_from_group&amp;group_id=".
                     $row['group_id']."&amp;user_id=".$user_id['user_id']."'>[".get_lang('remove_from_group').
-                    "]</a> $user_info[users_login]</li>";
+                    "]</a> " . $user_info['users_login'] . "</li>";
             }
             echo "</ul>";
         }

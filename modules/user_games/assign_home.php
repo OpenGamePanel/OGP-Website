@@ -288,10 +288,10 @@ function exec_ogp_module()
 			$access_rights = empty($row['access_rights']) ? "-" : $row['access_rights'];
 			$type = $id_type == "group" ? "user_group_expiration_date" : "user_expiration_date";
 			$expiration = $row[$type] == "X" ? "X" : date('d/m/Y H:i:s', $row[$type]);
-			echo "<tr><td><input type=checkbox class='change_access_rights' data-home_id='$row[home_id]' >$row[home_id]</td>
+			echo "<tr><td><input type=checkbox class='change_access_rights' data-home_id='" . $row['home_id'] . "' >" . $row['home_id'] . "</td>
 				<td>".$row['agent_ip']." (Agent)</td>
-				<td>$row[game_name]</td>
-				<td>$row[home_path]</td>
+				<td>" . $row['game_name'] . "</td>
+				<td>" . $row['home_path'] . "</td>
 				<td>" . htmlentities($row["home_name"]) . "</td>
 				<td>$access_rights</td>
 				<td>$expiration</td>

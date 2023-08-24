@@ -375,7 +375,7 @@ function ogpHome()
 			// Custom Tabs
 			if( isset($settings['custom_tab']) && $settings['custom_tab'] == "1" && isset($settings['custom_tab_name']) && $settings['custom_tab_name'] != "" )
 			{
-				echo "<li><a href='$settings[custom_tab_link]' target='$settings[custom_tab_target_blank]'><span class='customtab'>$settings[custom_tab_name]</span></a>";
+				echo "<li><a href='" . $settings['custom_tab_link'] . "' target='" . $settings['custom_tab_target_blank'] . "'><span class='customtab'>" . $settings['custom_tab_name'] . "</span></a>";
 
 				if( isset($settings['custom_tab_sub']) && $settings['custom_tab_sub'] == "1" )
 				{

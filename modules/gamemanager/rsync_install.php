@@ -186,7 +186,7 @@ function exec_ogp_module() {
 	elseif( preg_match("/linux/", $server_xml->game_key) )
 		$os = "linux";
 		
-	echo "<h2>Update $home_info[home_name]</h2>";
+	echo "<h2>Update " . $home_info['home_name'] . "</h2>";
 	
 	$screenRunningForHome = $remote->is_screen_running(OGP_SCREEN_TYPE_HOME,$home_id);
 	if ($screenRunningForHome === 1)
@@ -374,10 +374,10 @@ function exec_ogp_module() {
 				 <input type='hidden' name='mod_id' value='$mod_id' />
 				 <input type='hidden' name='lgslname' value='$lgslname' />
 				 <input type='hidden' name='state' value='start' />
-				 <tr><td align='right'>Game name:</td><td align='left'>$home_info[game_name]</td></tr>
-				 <tr><td align='right'>Directory:</td><td align='left'>$home_info[home_path]</td></tr>
+				 <tr><td align='right'>Game name:</td><td align='left'>" . $home_info['game_name'] . "</td></tr>
+				 <tr><td align='right'>Directory:</td><td align='left'>" . $home_info['home_path'] . "</td></tr>
 				 <tr><td align='right'>Remoteserver:</td>
-				 <td align='left'>$home_info[remote_server_name] ($home_info[agent_ip]:$home_info[agent_port])</td></tr>
+				 <td align='left'>" . $home_info['remote_server_name'] . " (" . $home_info['agent_ip'] . ":" . $home_info['agent_port'] . ")</td></tr>
 				 <tr><td align='right'>Rsync Server:</td>
 				 <td align='left'>".create_drop_box_from_array_rsync($rsync_sites,"url_id")."<br>";
 			if( $master_server_home_id != FALSE AND $master_server_home_id != $home_id )
@@ -398,10 +398,10 @@ function exec_ogp_module() {
 				 <input type='hidden' name='mod_id' value='$mod_id' />
 				 <input type='hidden' name='lgslname' value='$lgslname' />
 				 <input type='hidden' name='state' value='start' />
-				 <tr><td align='right'>Game name:</td><td align='left'>$home_info[game_name]</td></tr>
-				 <tr><td align='right'>Master Server Name:</td><td align='left'>$ms_home_info[home_name]</td></tr>
-				 <tr><td align='right'>Master Server Directory:</td><td align='left'>$ms_home_info[home_path]</td></tr>
-				 <tr><td align='right'>Local Directory:</td><td align='left'>$home_info[home_path]</td></tr>".
+				 <tr><td align='right'>Game name:</td><td align='left'>" . $home_info['game_name'] . "</td></tr>
+				 <tr><td align='right'>Master Server Name:</td><td align='left'>" . $ms_home_info['home_name'] . "</td></tr>
+				 <tr><td align='right'>Master Server Directory:</td><td align='left'>" . $ms_home_info['home_path'] . "</td></tr>
+				 <tr><td align='right'>Local Directory:</td><td align='left'>" . $home_info['home_path'] . "</td></tr>".
 				 "<input type='hidden' name='master_server_home_id' value='$master_server_home_id' />".
 				 "</td></tr></table><p><input type='submit' name='update' value='". get_lang("update_from_local_master_server") ."' /></p>
 				 </form>";

@@ -210,7 +210,7 @@ function create_home_selector_address($module, $subpage, $server_homes, $extra_i
 	{
 		foreach($extra_inputs as $input)
 		{
-			echo "<input type='$input[type]' name='$input[name]' value='$input[value]' />\n";
+			echo "<input type='" . $input['type'] . "' name='" . $input['name'] . "' value='" . $input['value'] . "' />\n";
 		}
 	}
 	echo "<select onchange=\"this.form.submit();\" name='home_id-mod_id-ip-port'>\n";

@@ -199,7 +199,7 @@ function exec_ogp_module() {
 
 		if ( $isAdmin )
 		{
-			echo "<p><a href='?m=user_games&amp;p=assign&amp;user_id=$_SESSION[user_id]'>".
+			echo "<p><a href='?m=user_games&amp;p=assign&amp;user_id=" . $_SESSION['user_id'] . "'>".
 				 get_lang("assign_game_homes") ."</a></p>";
 		}
 		return;

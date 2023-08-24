@@ -455,7 +455,7 @@ function get_monitor_buttons($server_home, $server_xml)
 	$buttons = array();
 	foreach($db->getInstalledModules() as $installed_module)
 	{
-		$buttons_file = "modules/$installed_module[folder]/monitor_buttons.php";
+		$buttons_file = "modules/" . $installed_module['folder'] . "/monitor_buttons.php";
 		if(file_exists($buttons_file))
 		{
 			require($buttons_file);

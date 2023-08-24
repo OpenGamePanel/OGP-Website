@@ -30,7 +30,7 @@ function exec_ogp_module()
 	{
 		foreach($expired_servers as $expired_server)
 		{
-			$db->logger(date('d/m/Y H:i:s', $expired_server['server_expiration_date'])." : SERVER EXPIRED: HOME ID:$expired_server[home_id] ($expired_server[home_name])");
+			$db->logger(date('d/m/Y H:i:s', $expired_server['server_expiration_date'])." : SERVER EXPIRED: HOME ID:" . $expired_server['home_id'] . " (" . $expired_server['home_name'] . ")");
 			$db->check_expire_date(0, $expired_server['home_id'], array('server'));
 		}
 	}

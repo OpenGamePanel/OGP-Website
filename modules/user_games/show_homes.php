@@ -84,15 +84,15 @@ function exec_ogp_module()
 
 		$os_arch = preg_match('/win/',$row['game_key']) ? "(Windows" : "(Linux";
 		$os_arch .= preg_match('/(win|linux)64/',$row['game_key']) ? " 64bit)" : ")";
-		echo "<tr class='tr".($i++%2)."'><td class='tdh'>$row[home_id]</td><td>".$display_ip."</td>".
-			 "<td class='tdh'>$row[game_name] $os_arch</td><td>$row[home_path]<br><div class='size' id='".$row["home_id"].
+		echo "<tr class='tr".($i++%2)."'><td class='tdh'>" . $row['home_id'] . "</td><td>".$display_ip."</td>".
+			 "<td class='tdh'>" . $row['game_name'] . $os_arch . "</td><td>" . $row['home_path'] . "<br><div class='size' id='".$row["home_id"].
 			 "' style='cursor:pointer;' >[".get_lang('get_size')."]</div></td><td class='tdh'>";
 		echo empty($row['home_name']) ? get_lang('not_available') : htmlentities($row['home_name']);
 		$expiration_date = $row['server_expiration_date'] == "X" ? "X" : date('d/m/Y H:i:s', $row['server_expiration_date']);
 		echo "</td><td>".$expiration_date."</td><td>
-			<a href='?m=user_games&amp;p=del&amp;home_id=$row[home_id]'>[".get_lang('delete')."]</a>
-			<a href='?m=user_games&amp;p=edit&amp;home_id=$row[home_id]'>[".get_lang('edit')."]</a>
-			<a href='?m=user_games&amp;p=clone&amp;home_id=$row[home_id]'>[".get_lang('clone')."]</a>
+			<a href='?m=user_games&amp;p=del&amp;home_id=" . $row['home_id'] . "'>[".get_lang('delete')."]</a>
+			<a href='?m=user_games&amp;p=edit&amp;home_id=" . $row['home_id'] . "'>[".get_lang('edit')."]</a>
+			<a href='?m=user_games&amp;p=clone&amp;home_id=" . $row['home_id'] . "'>[".get_lang('clone')."]</a>
 			</td></tr>";
 	}
 	
