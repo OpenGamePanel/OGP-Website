@@ -196,6 +196,30 @@ function create_home_selector($module, $subpage, $server_homes) {
 }
 
 function create_home_selector_address($module, $subpage, $server_homes, $extra_inputs = FALSE, $method = "GET") {
+	$home_name = array();
+	$home_id = array();
+	$mod_id = array();
+	$ip = array();
+	$port = array();
+	foreach ($server_homes as $key => $row) {
+		if( !isset($row['ip']) or !isset($row['mod_id']) )
+		{
+			unset($server_homes[$key]);
+			continue;
+		}
+		$home_name[$key] = $row['home_name'];
+		$home_id[$key] = $row['home_id'];
+		$mod_id[$key] = $row['home_id'];
+		$ip[$key] = $row['ip'];
+		$port[$key] = $row['port'];
+	}
+	
+	# Make sure it has at least one server with ip and mod.
+	if (empty($home_name))
+	{
+		return;
+	}
+	
 	if( isset($_GET['home_id-mod_id-ip-port']) and $_GET['home_id-mod_id-ip-port'] != "" )
 	{
 		list($get_home_id,
@@ -215,18 +239,6 @@ function create_home_selector_address($module, $subpage, $server_homes, $extra_i
 	}
 	echo "<select onchange=\"this.form.submit();\" name='home_id-mod_id-ip-port'>\n";
 	echo "<option></option>\n";
-	foreach ($server_homes as $key => $row) {
-		if( !isset($row['ip']) or !isset($row['mod_id']) )
-		{
-			unset($server_homes[$key]);
-			continue;
-		}
-		$home_name[$key] = $row['home_name'];
-		$home_id[$key] = $row['home_id'];
-		$mod_id[$key] = $row['home_id'];
-		$ip[$key] = $row['ip'];
-		$port[$key] = $row['port'];
-	}
 	array_multisort($home_name, $ip, $port, $mod_id, 
 					$home_id, SORT_DESC, $server_homes);
 	foreach ( $server_homes as $server_home )
