@@ -306,6 +306,14 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $this->listQuery($query);
 	}
 	
+	public function getGroupByName($group) {
+		$query = sprintf("SELECT *
+			FROM %suser_group_info WHERE group_name = '%s'",
+			$this->table_prefix,
+			$this->realEscapeSingle($group));
+		return $this->listQuery($query);
+	}
+	
 	public function get_group_count($search_field){
 		$search_field = $this->realEscapeSingle($search_field);
 		
@@ -3723,7 +3731,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$ed = $dateTime->getTimestamp();
 			}
 			$type = $type != "group" ? $type : "user_group";
-			$query = sprintf("UPDATE `%s${type}_homes` SET `${type}_expiration_date` = '%s' WHERE `home_id` = %d",
+			$query = sprintf("UPDATE `%s" . $type . "_homes` SET `" . $type . "_expiration_date` = '%s' WHERE `home_id` = %d",
 				$this->table_prefix,
 				$ed,
 				$this->realEscapeSingle($home_id));

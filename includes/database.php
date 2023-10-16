@@ -83,6 +83,8 @@ abstract class OGPDatabase {
     abstract public function getUserList_limit($page_user,$limit_user,$search_field);
 
     abstract public function getGroupList();
+    
+    abstract public function getGroupByName($group);
 
     abstract public function getUsersGroups($user_id);
     

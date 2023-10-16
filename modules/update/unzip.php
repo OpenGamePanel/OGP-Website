@@ -29,18 +29,18 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = ''
 
 	if(!file_exists($extract_path))
 	{
-		return "Destination path (${extract_path}) does not exists.\n";
+		return "Destination path (" . $extract_path . ") does not exists.\n";
 	}
 
 	if(!is_writable($extract_path))
 	{
-		return "Can't extract to ${extract_path}, not writable.\n";
+		return "Can't extract to " . $extract_path . ", not writable.\n";
 	}
 
 	if($zipFile == '' or $extract_path == '')
 		return "Invalid arguments.\n";
 	if( ! file_exists( $zipFile ) )
-		return "Unable to read ${zipFile}.\n";
+		return "Unable to read " . $zipFile . ".\n";
 	$remove_path = addcslashes($remove_path,"/");
 
 	$zip = new ZipArchive; 
@@ -91,7 +91,7 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = ''
 							{
 								if(!mkdir($tmp, 0777))
 								{
-									return "Unable to write folder ${tmp}.\n";
+									return "Unable to write folder " . $tmp . ".\n";
 								}
 							}
 						}
@@ -114,7 +114,7 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = ''
 						}
 						else
 						{
-							return "Unable to write file ${completeName}.\n";
+							return "Unable to write file " . $completeName . ".\n";
 						}
 					}
 				}
@@ -123,7 +123,7 @@ function extractZip( $zipFile, $extract_path, $remove_path = '', $blacklist = ''
 		}
 		return array('ignored_files' => $ignored_files, 'extracted_files' => $extracted_files);
 	}
-	return "${zipFile} is corrupt.\n";
+	return $zipFile . " is corrupt.\n";
 }
 
 function extractZipGitUpdateFile( $zipFile, $extract_path)
@@ -131,18 +131,18 @@ function extractZipGitUpdateFile( $zipFile, $extract_path)
 
 	if(!file_exists($extract_path))
 	{
-		return "Destination path (${extract_path}) does not exists.\n";
+		return "Destination path (" . $extract_path . ") does not exists.\n";
 	}
 
 	if(!is_writable($extract_path))
 	{
-		return "Can't extract to ${extract_path}, not writable.\n";
+		return "Can't extract to " . $extract_path . ", not writable.\n";
 	}
 
 	if($zipFile == '' or $extract_path == '')
 		return "Invalid arguments.\n";
 	if( ! file_exists( $zipFile ) )
-		return "Unable to read ${zipFile}.\n";
+		return "Unable to read " . $zipFile . ".\n";
 
 	$zip = new ZipArchive; 
 	if ($zip)
@@ -177,6 +177,6 @@ function extractZipGitUpdateFile( $zipFile, $extract_path)
 		
 		return array('ignored_files' => $ignored_files, 'extracted_files' => $extracted_files);
 	}
-	return "${zipFile} is corrupt.\n";
+	return $zipFile . " is corrupt.\n";
 }
 ?>

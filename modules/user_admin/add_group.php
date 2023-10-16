@@ -30,17 +30,25 @@ function exec_ogp_module()
     if( isset($_POST['add_group']) )
     {
         $group = sanitizeInputStr($_POST['group_name']);
+        $groupWithSameName = $db->getGroupByName($group);
 
         if (empty($group))
         {
             print_failure(get_lang('group_name_empty'));
             return;
         }
-
+		
+		if ($groupWithSameName !== false && is_array($groupWithSameName) && count($groupWithSameName) > 0)
+        {
+            print_failure(get_lang_f("failed_to_add_group_exists_already",$group));
+            $view->refresh("?m=user_admin&amp;p=show_groups", 5);
+            return;
+        }
+		
         if ( !$db->addGroup($group,$_SESSION['user_id']) )
         {
             print_failure(get_lang_f("failed_to_add_group",$group));
-            $view->refresh("?m=user_admin&amp;p=show_groups");
+            $view->refresh("?m=user_admin&amp;p=show_groups", 5);
             return;
         }
 
