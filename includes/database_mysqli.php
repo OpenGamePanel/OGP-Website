@@ -308,7 +308,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	
 	public function getGroupByName($group) {
 		$query = sprintf("SELECT *
-			FROM %suser_group_info WHERE group_name = %s",
+			FROM %suser_group_info WHERE group_name = '%s'",
 			$this->table_prefix,
 			$this->realEscapeSingle($group));
 		return $this->listQuery($query);
