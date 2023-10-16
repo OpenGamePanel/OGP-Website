@@ -3183,7 +3183,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	}
 	
 	public function saveServerStatusCache($ip_id,$port,$status) {
-		$query = sprintf("SELECT * FROM `%sstatus_cache` WHERE `ip_id` = %s AND `port` = %s;",
+		$query = sprintf("SELECT * FROM `%sstatus_cache` WHERE `ip_id` = '%s' AND `port` = '%s';",
 			$this->table_prefix,
 			$this->realEscapeSingle($ip_id),
 			$this->realEscapeSingle($port));
@@ -3193,7 +3193,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 		
 		if ( mysqli_num_rows($result) > 0 )
 		{
-			$query = sprintf("DELETE FROM `%sstatus_cache` WHERE `ip_id` = %s AND `port` = %s;",
+			$query = sprintf("DELETE FROM `%sstatus_cache` WHERE `ip_id` = '%s' AND `port` = '%s';",
 				$this->table_prefix,
 				$this->realEscapeSingle($ip_id),
 				$this->realEscapeSingle($port));
@@ -3220,7 +3220,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function getServerStatusCache($ip_id,$port) {
 		if ( !$this->link ) return FALSE;
 
-		$query = sprintf("SELECT * FROM `%sstatus_cache` WHERE `ip_id` = %s AND `port` = %s;",
+		$query = sprintf("SELECT * FROM `%sstatus_cache` WHERE `ip_id` = '%s' AND `port` = '%s';",
 			$this->table_prefix,
 			$this->realEscapeSingle($ip_id),
 			$this->realEscapeSingle($port));
@@ -3243,7 +3243,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 	public function delServerStatusCache($ip_id,$port) {
 		if ( !$this->link ) return FALSE;
 
-		$query = sprintf("DELETE FROM `%sstatus_cache` WHERE `ip_id` = %s AND `port` = %s;",
+		$query = sprintf("DELETE FROM `%sstatus_cache` WHERE `ip_id` = '%s' AND `port` = '%s';",
 			$this->table_prefix,
 			$this->realEscapeSingle($ip_id),
 			$this->realEscapeSingle($port));
