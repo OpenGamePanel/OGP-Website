@@ -104,7 +104,7 @@ function exec_ogp_module() {
 		$totalmbytes = round($totalsize / 1024, 2);
 		$pct = $pct > 100 ? 100 : $pct;
 		echo '<div class="dragbox bloc rounded" style="background-color:#dce9f2;" >
-				<h4>'. get_lang("update_in_progress") ." ${mbytes}MB/${totalmbytes}MB</h4>
+				<h4>'. get_lang("update_in_progress") ." " . $mbytes . "MB/" . $totalmbytes . "MB</h4>
 			  <div style='background-color:#dce9f2;' >
 			  ";
 		$bar = '';

@@ -214,7 +214,7 @@ function exec_ogp_module()
 			{
 				$remote->shell_action('remove_recursive', $files);
 				$files = str_replace('" "','"<br>"',$files);
-				$db->logger( get_lang("remove") . ": ${files}" );
+				$db->logger( get_lang("remove") . ": " . $files );
 			}
 		}
 	}
@@ -349,7 +349,7 @@ function exec_ogp_module()
 		if($items != '')
 		{
 			$retval = $remote->compress_files($items,$path,$archive_name,$archive_type);
-			$archive = clean_path( "${path}/${archive_name}.${archive_type}" );
+			$archive = clean_path( $path . "/" . $archive_name . "." . $archive_type );
 			if( $retval == 0 )
 			{
 				do{

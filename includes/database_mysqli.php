@@ -3731,7 +3731,7 @@ class OGPDatabaseMySQL extends OGPDatabase
 				$ed = $dateTime->getTimestamp();
 			}
 			$type = $type != "group" ? $type : "user_group";
-			$query = sprintf("UPDATE `%s${type}_homes` SET `${type}_expiration_date` = '%s' WHERE `home_id` = %d",
+			$query = sprintf("UPDATE `%s" . $type . "_homes` SET `" . $type . "_expiration_date` = '%s' WHERE `home_id` = %d",
 				$this->table_prefix,
 				$ed,
 				$this->realEscapeSingle($home_id));

@@ -133,9 +133,9 @@ class OGPView {
 			{
 				$global_js_file = 'js/' . MODULES . "{$m['folder']}_global.js";
 				if(is_readable($path . $global_js_file)) // Priority to the theme's js
-					$javascript .= "<script type=\"text/javascript\" src=\"${path}${global_js_file}\"></script>\n";
+					$javascript .= "<script type=\"text/javascript\" src=\"" . $path . $global_js_file . "\"></script>\n";
 				elseif(is_readable($global_js_file))
-					$javascript .= "<script type=\"text/javascript\" src=\"${global_js_file}\"></script>\n";
+					$javascript .= "<script type=\"text/javascript\" src=\"" . $global_js_file . "\"></script>\n";
 			}
 		}
 		
@@ -144,15 +144,15 @@ class OGPView {
 		{
 			$subpage = (isset($_GET['p']) and !empty($_GET['p']))?$_GET['p']:$_GET['m'];
 			$fc = array(
-				$path . MODULES . "{$_GET['m']}/${subpage}.css",
-				$path . MODULES . "{$_GET['m']}/{$_GET['m']}.css",
-				MODULES . "{$_GET['m']}/${subpage}.css",
-				MODULES . "{$_GET['m']}/{$_GET['m']}.css"
+				$path . MODULES . $_GET['m'] . "/" . $subpage . ".css",
+				$path . MODULES . $_GET['m'] . "/" . $_GET['m'] . ".css",
+				MODULES . $_GET['m'] . "/" . $subpage . ".css",
+				MODULES . $_GET['m'] . "/" . $_GET['m'] . ".css"
 			);
 			
 			foreach($fc as $file_check){
 				if(is_readable($file_check)){
-					$stylesheet .= "<link rel=\"stylesheet\" href=\"${file_check}\">\n";
+					$stylesheet .= "<link rel=\"stylesheet\" href=\"" . $file_check . "\">\n";
 					break;
 				}
 			}
@@ -164,7 +164,7 @@ class OGPView {
 			
 			foreach($fc as $file_check){
 				if(is_readable($file_check)){
-					$javascript .= "<script type=\"text/javascript\" src=\"${file_check}\"></script>\n";
+					$javascript .= "<script type=\"text/javascript\" src=\"" . $file_check . "\"></script>\n";
 					break;
 				}
 			}
