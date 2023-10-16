@@ -306,6 +306,14 @@ class OGPDatabaseMySQL extends OGPDatabase
 		return $this->listQuery($query);
 	}
 	
+	public function getGroupByName($group) {
+		$query = sprintf("SELECT *
+			FROM %suser_group_info WHERE group_name = %s",
+			$this->table_prefix,
+			$this->realEscapeSingle($group));
+		return $this->listQuery($query);
+	}
+	
 	public function get_group_count($search_field){
 		$search_field = $this->realEscapeSingle($search_field);
 		
