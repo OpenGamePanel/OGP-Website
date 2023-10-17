@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "Otthonok hozzárendelése");
 define('OGP_LANG_successfully_added_group', "Sikeresen hozzáadta a(z) %s csoportot.");
 define('OGP_LANG_group_name_empty', "A csoport neve nem lehet üres.");
 define('OGP_LANG_failed_to_add_group', "Nem sikerült hozzáadni a(z) %s csoportot.");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "Nem sikerült hozzáadni %s felhasználót a csoporthoz, mert %s felhasználó már a csoport tagja.");
 define('OGP_LANG_successfully_added_to_group', ">Sikeresen hozzáadta %s-t a(z) %s csoporthoz.");
 define('OGP_LANG_could_not_add_server_to_group', "Nem sikerült hozzáadni a szervert a(z) %s csoporthoz, mert már hozzátartozik.");

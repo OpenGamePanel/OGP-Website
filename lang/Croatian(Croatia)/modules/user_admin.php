@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "Dodijeliti Server");
 define('OGP_LANG_successfully_added_group', "Grupa %s uspješno dodana.");
 define('OGP_LANG_group_name_empty', "Naziv grupe ne smije biti prazno.");
 define('OGP_LANG_failed_to_add_group', "Dodavanje grupe %s nije uspjelo.");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "Nije bilo moguće dodati korisnika %s u grupi %s, već se nalazi u toj grupi.");
 define('OGP_LANG_successfully_added_to_group', "> %s Uspješno dodan u grupi <em>%s</em>.");
 define('OGP_LANG_could_not_add_server_to_group', "Nije moguće dodati server u grupi %s, već se nalazi u toj grupi.");

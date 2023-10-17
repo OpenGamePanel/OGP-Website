@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "Assign Homes");
 define('OGP_LANG_successfully_added_group', "Successfully added group %s.");
 define('OGP_LANG_group_name_empty', "Group name can not be empty.");
 define('OGP_LANG_failed_to_add_group', "Failed to add group %s.");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "Could not add user %s to group %s, because already belongs.");
 define('OGP_LANG_successfully_added_to_group', ">Successfully added %s to group <em>%s</em>.");
 define('OGP_LANG_could_not_add_server_to_group', "Could not add server to group %s, because already belongs.");

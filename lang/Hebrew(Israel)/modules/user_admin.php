@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "הקצה בתים");
 define('OGP_LANG_successfully_added_group', "קבוצת %s הוספה בהצלחה.");
 define('OGP_LANG_group_name_empty', "שם הקבוצה אינו יכול להיות ריק.");
 define('OGP_LANG_failed_to_add_group', "נכשל בהוספת קבוצה %s.");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "לא יכול להוסיף משתמש %s לקבוצת %s, מכיוון שהוא כבר שייך");
 define('OGP_LANG_successfully_added_to_group', ">%sהוסף בהצלחה אל קבוצת <em>%s</em>.");
 define('OGP_LANG_could_not_add_server_to_group', "לא יכול להוסיף שרת לקבוצת %s, מכיוון שכבר שייך.");

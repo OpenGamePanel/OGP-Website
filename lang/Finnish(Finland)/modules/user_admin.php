@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "Määritä kodit");
 define('OGP_LANG_successfully_added_group', "Ryhmän %s lisääminen onnistui.");
 define('OGP_LANG_group_name_empty', "Ryhmän nimi ei voi olla tyhjä.");
 define('OGP_LANG_failed_to_add_group', "Ryhmän %s lisääminen epäonnistui.");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "Käyttäjää %s ei voitu lisätä ryhmään %s, koska se kuuluu jo.");
 define('OGP_LANG_successfully_added_to_group', "> %s Lisättiin onnistuneesti ryhmään <em>%s</em>.");
 define('OGP_LANG_could_not_add_server_to_group', "Palvelinta ei voitu lisätä ryhmään %s, koska se jo kuuluu.");

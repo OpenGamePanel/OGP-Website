@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "Tilfæj Hjem");
 define('OGP_LANG_successfully_added_group', "Tilføjet successfuldt gruppe %s.");
 define('OGP_LANG_group_name_empty', "Gruppe navn kan ikke være tomt.");
 define('OGP_LANG_failed_to_add_group', "Fejlet I at tilføje gruppe %s.");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "Kunne ikke tilføje brugere %s til gruppe %s, fordi den allerede tilhører.");
 define('OGP_LANG_successfully_added_to_group', ">Tilføjet succesfuldt %s til gruppe <em>%s</em>.");
 define('OGP_LANG_could_not_add_server_to_group', "Kunne ikke tilføje server til gruppe %s, fordi det allerede tilhører.");

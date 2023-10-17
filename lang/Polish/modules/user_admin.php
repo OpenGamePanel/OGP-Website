@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "Przypisz usługi");
 define('OGP_LANG_successfully_added_group', "Pomyślnie dodana grupa");
 define('OGP_LANG_group_name_empty', "Grupa pusta");
 define('OGP_LANG_failed_to_add_group', "Nie udało się dodać grupy");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "Nie można dodać użytkownika do grupy");
 define('OGP_LANG_successfully_added_to_group', "Został dodany do grupy");
 define('OGP_LANG_could_not_add_server_to_group', "Nie udało się dodać serwera do grupy");

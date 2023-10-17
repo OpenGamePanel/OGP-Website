@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "Привязать сервер");
 define('OGP_LANG_successfully_added_group', "Группа была добавлена успешно %s.");
 define('OGP_LANG_group_name_empty', "Имя группы не может быть пустым.");
 define('OGP_LANG_failed_to_add_group', "Не удалось добавить группу %s.");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "Не удалось добавить пользователя %s в группу %s, потому что он уже в этой группе.");
 define('OGP_LANG_successfully_added_to_group', ">Успешно добавлено %sв группу <em>%s</em>.");
 define('OGP_LANG_could_not_add_server_to_group', "Не удалось добавить сервер в группу %s, потому что он уже в этой группе.");

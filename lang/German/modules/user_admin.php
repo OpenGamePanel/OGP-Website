@@ -92,6 +92,7 @@ define('OGP_LANG_assign_homes', "Homes zuweisen");
 define('OGP_LANG_successfully_added_group', "Erfolgreich zur Gruppe %s hinzugefügt.");
 define('OGP_LANG_group_name_empty', "Der Gruppen Name darf nicht leer sein.");
 define('OGP_LANG_failed_to_add_group', "Fehler beim hinzufügen der Gruppe %s");
+define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
 define('OGP_LANG_could_not_add_user_to_group', "Der User %s konnte nicht zur Gruppe %s hinzugefügt werden weil er schon dazu gehört.");
 define('OGP_LANG_successfully_added_to_group', "%s erfolgreich zur Gruppe %shinzugefügt.");
 define('OGP_LANG_could_not_add_server_to_group', "Der Server konnten nicht zur Gruppe %s hinzugefügt werden weil er schon dazu gehört.");
