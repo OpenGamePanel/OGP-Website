@@ -92,7 +92,7 @@ define('OGP_LANG_assign_homes', "Assigner un Serveur");
 define('OGP_LANG_successfully_added_group', "Groupe %s ajouté avec succès.");
 define('OGP_LANG_group_name_empty', "Le nom du Groupe ne peut être vide.");
 define('OGP_LANG_failed_to_add_group', "Impossible d'ajouter le Groupe %s.");
-define('OGP_LANG_failed_to_add_group_exists_already', "Le groupe ayant le nom %sexiste déjà. Veuillez choisir un nom de groupe différent.");
+define('OGP_LANG_failed_to_add_group_exists_already', "Le groupe ayant le nom %s existe déjà. Veuillez choisir un nom de groupe différent.");
 define('OGP_LANG_could_not_add_user_to_group', "Impossible d'ajouter l'Utilisateur %s au Groupe %s car il y est déjà.");
 define('OGP_LANG_successfully_added_to_group', "Utilisateur %s ajouté au Groupe <em>%s</em> avec succès.");
 define('OGP_LANG_could_not_add_server_to_group', "Impossible d'ajouter le Serveur au Groupe %s car il y est déjà.");
