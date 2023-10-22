@@ -181,7 +181,7 @@ class OGPRemoteLibrary
 			$lines = explode('\n',$data_tmp);
 			foreach ($lines as $line)
 			{
-				$data .= base64_decode($line)."\n";
+				$data .= base64_decode($line);
 			}
 		}
 
