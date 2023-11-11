@@ -40,7 +40,7 @@ define('OGP_LANG_successfull', "Registro completado");
 define('OGP_LANG_click_here', "Click aquí");
 define('OGP_LANG_to_login', "para entrar");
 define('OGP_LANG_registered_on', "Registrado el: %s");
-define('OGP_LANG_register_message', "Hola,<br>Tu cuenta ha sido creada.<br><br>Usuario: %s<br>Contraseña: %s<br>Puedes cambiar la contraseña desde tu cuenta.<br>Gracias!<br>El administrador.<br>Esto es un mensaje automático, por favor no respondas!");
+define('OGP_LANG_register_message', "Hola,<br><br>Tu cuenta ha sido creada y ahora puedes <a href='%s' target='_blank'>entrar</a>.<br><br>Usuario: %s<br><br>Recuerda cambiar la contraseña desde tu cuenta. <br><br>Esto es un mensaje automático, por favor no respondas!");
 define('OGP_LANG_err_captcha', "Captcha no coincide.");
 define('OGP_LANG_err_login_name', "Nombre de usuario vacío o en uso.");
 define('OGP_LANG_err_first_name', "Introduzca su nombre.");

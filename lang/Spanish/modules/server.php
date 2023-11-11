@@ -135,5 +135,5 @@ define('OGP_LANG_save_firewall_settings', "Guardar configuración del cortafuego
 define('OGP_LANG_reset_firewall', "Restablecer cortafuegos");
 define('OGP_LANG_firewall_settings', "Configuración del cortafuegos");
 define('OGP_LANG_display_public_ip', "Mostrar IP Público");
-define('OGP_LANG_ips_can_be_internal_external', "Introduzca las direcciones IP utilizables.&nbsp; Se pueden usar direcciones IP públicas y direcciones IP de LAN internas (para configuraciones NAT).");
+define('OGP_LANG_ips_can_be_internal_external', "Introduzca las direcciones IP utilizables.&nbsp; Se pueden usar direcciones IP públicas y direcciones IP de LAN internas (para configuraciones con NAT).");
 ?>
