@@ -18,47 +18,33 @@
 
 namespace GameQ\Protocols;
 
-use GameQ\Buffer;
-
 /**
- * Class Rust
+ * Class Postscriptum
  *
  * @package GameQ\Protocols
  * @author  Austin Bischoff <austin@codebeard.com>
  */
-class Rust extends Source
+class Postscriptum extends Source
 {
-
     /**
      * String name of this protocol class
      *
      * @type string
      */
-    protected $name = 'rust';
+    protected $name = 'postscriptum';
 
     /**
      * Longer string name of this protocol class
      *
      * @type string
      */
-    protected $name_long = "Rust";
-    
+    protected $name_long = "Post Scriptum";
+
     /**
-     * Overload so we can get max players from mp of keywords and num players from cp keyword
+     * query_port = client_port + 10
+     * 64092 = 64090 + 10
      *
-     * @param Buffer $buffer
+     * @type int
      */
-    protected function processDetails(Buffer $buffer)
-    {
-        $results = parent::processDetails($buffer);
-
-        if ($results['keywords']) {
-            //get max players from mp of keywords and num players from cp keyword
-            preg_match_all('/(mp|cp)([\d]+)/', $results['keywords'], $matches);
-            $results['max_players'] = intval($matches[2][0]);
-            $results['num_players'] = intval($matches[2][1]);
-        }
-
-        return $results;
-    }
+    protected $port_diff = 10;
 }

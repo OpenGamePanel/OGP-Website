@@ -19,12 +19,11 @@
 namespace GameQ\Protocols;
 
 /**
- * Class PixARK
+ * Hidden & Dangerous 2 Protocol Class
  *
- * @package GameQ\Protocols
- * @author  Austin Bischoff <austin@codebeard.com>
+ * @author Wilson Jesus <>
  */
-class Pixark extends Arkse
+class Had2 extends Gamespy2
 {
 
     /**
@@ -32,19 +31,45 @@ class Pixark extends Arkse
      *
      * @type string
      */
-    protected $name = 'pixark';
+    protected $name = 'had2';
 
     /**
      * Longer string name of this protocol class
      *
      * @type string
      */
-    protected $name_long = "PixARK";
+    protected $name_long = "Hidden & Dangerous 2";
 
     /**
-     * Query port = client_port + 1
+     * The difference between the client port and query port
      *
      * @type int
      */
-    protected $port_diff = 1;
+    protected $port_diff = 3;
+
+    /**
+     * Normalize settings for this protocol
+     *
+     * @type array
+     */
+    protected $normalize = [
+        // General
+        'general' => [
+            // target       => source
+            'dedicated'  => 'isdedicated',
+            'gametype'   => 'gametype',
+            'hostname'   => 'hostname',
+            'mapname'    => 'mapname',
+            'maxplayers' => 'maxplayers',
+            'numplayers' => 'numplayers',
+            'password'   => 'password',
+        ],
+        // Individual
+        'player'  => [
+            'name'  => 'player',
+            'score' => 'score',
+            'deaths' => 'deaths',
+            'ping' => 'ping',
+        ],
+    ];
 }

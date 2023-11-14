@@ -18,47 +18,26 @@
 
 namespace GameQ\Protocols;
 
-use GameQ\Buffer;
-
 /**
- * Class Rust
+ * Class Modiverse
  *
  * @package GameQ\Protocols
- * @author  Austin Bischoff <austin@codebeard.com>
+ * @author Austin Bischoff <austin@codebeard.com>
+ * @author Jesse Lukas <eranio@g-one.org>
  */
-class Rust extends Source
+class Modiverse extends Source
 {
-
     /**
      * String name of this protocol class
      *
      * @type string
      */
-    protected $name = 'rust';
+    protected $name = 'modiverse';
 
     /**
      * Longer string name of this protocol class
      *
      * @type string
      */
-    protected $name_long = "Rust";
-    
-    /**
-     * Overload so we can get max players from mp of keywords and num players from cp keyword
-     *
-     * @param Buffer $buffer
-     */
-    protected function processDetails(Buffer $buffer)
-    {
-        $results = parent::processDetails($buffer);
-
-        if ($results['keywords']) {
-            //get max players from mp of keywords and num players from cp keyword
-            preg_match_all('/(mp|cp)([\d]+)/', $results['keywords'], $matches);
-            $results['max_players'] = intval($matches[2][0]);
-            $results['num_players'] = intval($matches[2][1]);
-        }
-
-        return $results;
-    }
+    protected $name_long = "Modiverse";
 }
