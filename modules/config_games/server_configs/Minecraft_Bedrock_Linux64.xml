@@ -1,0 +1,93 @@
+<game_config>
+  <game_key>minecraft_bedrock_linux64</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>minecraftbe</gameq_query_name>
+  <game_name>Minecraft Bedrock</game_name>
+  <server_exec_name>bedrock_server</server_exec_name>
+  <max_user_amount>250</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="max_players">
+      <default>max-players=.*</default>
+      <var>max-players=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="home_name">
+      <default>server-name=.*</default>
+      <var>server-name=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="ip">
+      <default>server-ip=.*</default>
+      <var>server-ip=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="port">
+      <default>server-port=.*</default>
+      <var>server-port=</var>
+      <filepath>server.properties</filepath>
+    </text>
+    <text key="enablelog">
+      <default>content-log-file-enabled=.*</default>
+      <var>content-log-file-enabled=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+  </replace_texts>
+  <custom_fields>
+    <field key="Game Mode" type="select">
+      <option value="survival">Survival</option>
+      <option value="creative">Creative</option>
+      <option value="adventure">Adventure</option>
+      <default>gamemode=.*</default>
+      <default_value>survival</default_value>
+      <var>gamemode=</var>
+      <filepath>server.properties</filepath>
+      <desc>Sets the game mode for new players.</desc>
+    </field>
+    <field key="Difficulty" type="select">
+      <option value="peaceful">Peaceful</option>
+      <option value="easy">Easy</option>
+      <option value="normal">Normal</option>
+      <option value="hard">Hard</option>
+      <default>difficulty=.*</default>
+      <default_value>easy</default_value>
+      <var>difficulty=</var>
+      <filepath>server.properties</filepath>
+      <desc>Sets the difficulty of the world.</desc>
+    </field>
+    <field key="Level Seed" type="text">
+      <default>level-seed=.*</default>
+      <default_value></default_value>
+      <var>level-seed=</var>
+      <filepath>server.properties</filepath>
+      <desc>Use to randomize the world. Allowed values: Any text</desc>
+    </field>
+    <field key="Allow Cheats" type="select">
+      <option value="true">True</option>
+      <option value="false">False</option>
+      <default>allow-cheats=.*</default>
+      <default_value>false</default_value>
+      <var>allow-cheats=</var>
+      <filepath>server.properties</filepath>
+      <desc>If true then cheats like commands can be used.</desc>
+    </field>
+    <field key="Online Mode" type="select">
+      <option value="true">True</option>
+      <option value="false">False</option>
+      <default>online-mode=.*</default>
+      <default_value>true</default_value>
+      <var>online-mode=</var>
+      <filepath>server.properties</filepath>
+      <desc>If true then all connected players must be authenticated to Xbox Live.
+Clients connecting to remote (non-LAN) servers will always require Xbox Live authentication regardless of this setting.
+If the server accepts connections from the Internet, then it's highly recommended to enable online-mode.</desc>
+    </field>
+  </custom_fields>
+  <environment_variables>
+    export LD_LIBRARY_PATH=.
+  </environment_variables>
+</game_config>
