@@ -92,7 +92,7 @@ define('OGP_LANG_assign_homes', "Atribuir diretórios");
 define('OGP_LANG_successfully_added_group', "Grupo adicionado com sucesso %s.");
 define('OGP_LANG_group_name_empty', "O nome do grupo não pode estar vazio.");
 define('OGP_LANG_failed_to_add_group', "Falha ao adicionar grupo %s.");
-define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
+define('OGP_LANG_failed_to_add_group_exists_already', "O grupo com o nome %s já existe. Tente um nome de grupo diferente.");
 define('OGP_LANG_could_not_add_user_to_group', "Não foi possível adicionar usuário %s ao grupo %s, porque já pertence.");
 define('OGP_LANG_successfully_added_to_group', ">Adicionado com sucesso %s ao grupo <em>%s</em>.");
 define('OGP_LANG_could_not_add_server_to_group', "Não foi possível adicionar servidor ao grupo %s, porque já pertence.");

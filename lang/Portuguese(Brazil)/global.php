@@ -140,5 +140,5 @@ define('OGP_LANG_mysql_admin', "MySQL Admin");
 define('OGP_LANG_copied', "Copiado!");
 define('OGP_LANG_ticket_settings', "Configurações de Ticket");
 define('OGP_LANG_form', "Cadastrar");
-define('OGP_LANG_timed_out', "Operation timed out (but may still successfully complete).");
+define('OGP_LANG_timed_out', "A operação expirou (mas ainda pode ser concluída com êxito).");
 ?>

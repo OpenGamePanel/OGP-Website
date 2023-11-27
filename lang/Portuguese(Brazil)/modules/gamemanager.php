@@ -22,16 +22,16 @@
  *
  */
 
-define('OGP_LANG_no_games_to_monitor', "Você não possui nenhum jogo configurado que possa ser exibido.");
-define('OGP_LANG_status', "Estado");
+define('OGP_LANG_no_games_to_monitor', "Você não tem nenhum jogo configurado que possa ser monitorado.");
+define('OGP_LANG_status', "Status");
 define('OGP_LANG_fail_no_mods', "Não há mods habilitados para este jogo! Você precisa pedir ao seu administrador do painel para adicionar mod(s) para o jogo atribuído para você.");
 define('OGP_LANG_no_game_homes_assigned', "Você não tem nenhum servidor atribuído à sua conta.");
-define('OGP_LANG_select_game_home_to_configure', "Escolha um servidor que deseja configurar");
+define('OGP_LANG_select_game_home_to_configure', "Selecione um servidor de jogo que você deseja configurar");
 define('OGP_LANG_file_manager', "Gerenciador de Arquivos");
 define('OGP_LANG_configure_mods', "Configurar mods");
-define('OGP_LANG_install_update_steam', "Instalar/Atualizar através do Steam");
+define('OGP_LANG_install_update_steam', "Instalar/atualizar via Steam");
 define('OGP_LANG_install_update_manual', "Instalar/Atualizar manualmente");
-define('OGP_LANG_assign_game_homes', "Associar servidores");
+define('OGP_LANG_assign_game_homes', "Atribuir servidores de jogos");
 define('OGP_LANG_user', "Usuário");
 define('OGP_LANG_group', "Grupo");
 define('OGP_LANG_start', "Iniciar");
@@ -49,7 +49,7 @@ define('OGP_LANG_map', "Mapa");
 define('OGP_LANG_starting_server', "Iniciando servidor, favor aguardar...");
 define('OGP_LANG_starting_server_settings', "Iniciando servidor com a seguinte configuração");
 define('OGP_LANG_startup_params', "Parâmetros de inicialização");
-define('OGP_LANG_startup_cpu', "CPU em que o servidor está executando");
+define('OGP_LANG_startup_cpu', "CPU em que o servidor está sendo executado");
 define('OGP_LANG_startup_nice', "Valor da prioridade nice do servidor");
 define('OGP_LANG_game_home', "Caminho raiz");
 define('OGP_LANG_server_started', "Servidor iniciado com sucesso.");
@@ -67,8 +67,8 @@ define('OGP_LANG_ip_port_pair_not_owned', "IP:PORT não é dono deste par.");
 define('OGP_LANG_unsuitable_maxplayers_value_maximum_reachable_number_of_slots_has_been_set', "Máximo valor máximo dos jogadores, o número máximo alcançável de slots foi definido.");
 define('OGP_LANG_server_running_not_responding', "O servidor está em execução mas não está respondendo, <br>pode haver algum tipo de problema e talvez você queira");
 define('OGP_LANG_update_started', "Atualização iniciada, aguarde...");
-define('OGP_LANG_failed_to_start_steam_update', "Falha ao iniciar o Steam. Verifique o log do agente para mais detalhes.");
-define('OGP_LANG_failed_to_start_rsync_update', "Falha ao iniciar o Rsync. Verifique o log do agente para mais detalhes.");
+define('OGP_LANG_failed_to_start_steam_update', "Falha ao iniciar a atualização do Steam. Consulte o registro do agente.");
+define('OGP_LANG_failed_to_start_rsync_update', "Falha ao iniciar a atualização do Rsync. Consulte o registro do agente.");
 define('OGP_LANG_update_completed', "Atualização concluída com sucesso.");
 define('OGP_LANG_update_in_progress', "Atualização em andamento, aguarde...");
 define('OGP_LANG_refresh_steam_status', "Atualize o status do Steam");
@@ -146,7 +146,7 @@ define('OGP_LANG_update_from_selected_rsync_server', "Atualização do servidor 
 define('OGP_LANG_execute_selected_server_operations', "Execute as operações selecionadas do servidor ");
 define('OGP_LANG_execute_operations', "Execute operações");
 define('OGP_LANG_account_expiration', "Vencimento da conta");
-define('OGP_LANG_mysql_databases', "Bases de dados MySQL");
+define('OGP_LANG_mysql_databases', "Banco de dados MySQL");
 define('OGP_LANG_failed_querying_server', "* Falha ao consultar o servidor");
 define('OGP_LANG_query_protocol_not_supported', "* Não há protocolo de consulta nopainel que possa ser suportado neste servidor.");
 define('OGP_LANG_queries_disabled_by_setting_disable_queries_after', "Consultas desativadas por configuração: Desativar consultas após: %s, desde que você tem %s servidores.<br>");
@@ -154,9 +154,9 @@ define('OGP_LANG_presets_for_game_and_mod', "Predefinições RCON para %s e mod 
 define('OGP_LANG_name', "Nome");
 define('OGP_LANG_command', "RCON&nbsp;Comando");
 define('OGP_LANG_add_preset', "Adicionar predefinição");
-define('OGP_LANG_edit_presets', "Editar presets");
-define('OGP_LANG_del_preset', "Apagar");
-define('OGP_LANG_change_preset', "Mudar");
+define('OGP_LANG_edit_presets', "Editar predefinições");
+define('OGP_LANG_del_preset', "Excluir");
+define('OGP_LANG_change_preset', "Alterar");
 define('OGP_LANG_send_command', "Enviar comando");
 define('OGP_LANG_starting_copy_with_master_server_named', "Iniciando a cópia com o Master Server chamado '%s'...");
 define('OGP_LANG_starting_sync_with', "Iniciar sincronização com %s...");
