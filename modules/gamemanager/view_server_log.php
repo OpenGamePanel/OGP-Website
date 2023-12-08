@@ -161,7 +161,9 @@ function exec_ogp_module()
 				echo "<table class='center' ><tr><td>$intSel</td><td>$control</td></tr></table>";
 				if(	($server_xml->control_protocol and preg_match("/^r?l?con2?$/", $server_xml->control_protocol)) OR
 					($server_xml->gameq_query_name and $server_xml->gameq_query_name == "minecraft") OR 
-					($server_xml->lgsl_query_name  and $server_xml->lgsl_query_name == "7dtd") )
+					($server_xml->lgsl_query_name  and $server_xml->lgsl_query_name == "7dtd") OR
+					($server_xml->gameq_query_name == 'minecraftforge') OR
+					($server_xml->gameq_query_name == 'minecraftbe') )
 					require('modules/gamemanager/rcon.php');
 			}
 			else

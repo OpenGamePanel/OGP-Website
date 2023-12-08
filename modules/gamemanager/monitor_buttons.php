@@ -93,12 +93,18 @@ if (preg_match("/u/",$server_home['access_rights']))
 if($_SESSION['users_role'] == "admin")
 {
 	if ( ( $server_xml->control_protocol and preg_match("/^(rcon|lcon|rcon2|armabe)$/" ,$server_xml->control_protocol) ) OR 
-		 ( $server_xml->gameq_query_name and $server_xml->gameq_query_name == 'minecraft' ) )
+		 ( $server_xml->gameq_query_name and $server_xml->gameq_query_name == 'minecraft' ) OR 
+		 ( $server_xml->gameq_query_name and $server_xml->gameq_query_name == 'forge' ) )
 	{
 		$module_buttons[] = "<a class='monitorbutton' href='home.php?m=gamemanager&amp;p=rcon_presets&amp;home_id=".$server_home['home_id']."&amp;mod_id=".$server_home['mod_id']."'>
 			<img src='" . check_theme_image("images/rcon_preset.png") . "' title='".get_lang("rcon_presets")."'>
 			<span>".get_lang("rcon_presets")."</span>
 		</a>";
 	}
+}
+if ($server_xml->gameq_query_name == 'forge'){
+Echo "Forge "; 
+
+
 }
 ?>

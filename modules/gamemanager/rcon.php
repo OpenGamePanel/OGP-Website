@@ -27,7 +27,7 @@
 
 function send_command($command, $remote, $server_xml, $home_info, $home_id, $ip, $port )
 {
-	if( $server_xml->gameq_query_name and $server_xml->gameq_query_name == "minecraft" )
+	if( $server_xml->gameq_query_name and $server_xml->gameq_query_name == "minecraft" or $server_xml->gameq_query_name == 'minecraftforge' or $server_xml->gameq_query_name == 'minecraftbe' )
 	{
 		include_once("MinecraftRcon.class.php");
 		$server_properties_file = clean_path($home_info['home_path']."/server.properties");

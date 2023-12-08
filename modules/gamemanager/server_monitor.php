@@ -131,7 +131,7 @@ function get_sync_name($server_xml)
 	elseif( $server_xml->gameq_query_name )
 	{
 		$sync_name = $server_xml->gameq_query_name;
-		if($sync_name == "minecraft")
+		if($sync_name == "minecraft" or $sync_name == "minecraftforge" or $sync_name == "minecraftbe" )
 		{
 			if($server_xml->game_name == "Bukkit")
 				$sync_name = "bukkit";
