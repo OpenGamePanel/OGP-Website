@@ -1,0 +1,23 @@
+<game_config><game_key>minecraft_bedrock_linux64</game_key><protocol>gameq</protocol>
+	<gameq_query_name>minecraftbe</gameq_query_name>
+	<game_name>Minecraft Bedrock Edition</game_name>
+	<server_exec_name>bedrock_server_symbols.debug</server_exec_name>
+	<cli_template>%GAME_TYPE% %IP% %PORT% %QUERY_PORT% %MAP% %PLAYERS% %HOSTNAME% %PID_FILE%</cli_template>
+	<cli_params>  
+	 <cli_param id='GAME_TYPE' cli_string='' options='s'/>
+	 <cli_param id='IP' cli_string='' options='s'/>
+	 <cli_param id='PORT' cli_string='' options='s'/>
+	 <cli_param id='QUERY_PORT' cli_string='' options='s'/>
+	 <cli_param id='MAP' cli_string='' options='s'/>
+	 <cli_param id='PLAYERS' cli_string='' options='s'/>
+	 <cli_param id='HOSTNAME' cli_string='' options='s'/>
+	 <cli_param id='PID_FILE' cli_string='' options='s' />
+	</cli_params><control_protocol>minecraft</control_protocol>
+<mods>
+	 <mod key='MinecraftBedrock'>
+	   <name>none</name>
+	   <installer_name>MinecraftBedrock</installer_name>
+	 </mod>
+</mods>
+</game_config>
+	
