@@ -1,0 +1,139 @@
+<game_config>
+	<game_key>counter_strike_source2_linux64</game_key>
+	<protocol>gameq</protocol>
+        <gameq_query_name>cs2</gameq_query_name>
+	<game_name>Counter-Strike Source 2</game_name>
+	<server_exec_name>cs2</server_exec_name>
+	<cli_template>-dedicated +map %MAP% %IP% %PORT% %PLAYERS% %GAMETYPE% %GAMEMODE% %HOSTNAME% %CONTROL_PASSWORD% %PID_FILE%</cli_template>
+	<cli_params>  
+	 <cli_param id='GAME_TYPE' cli_string='' options='s'/>
+	 <cli_param id='IP' cli_string='' options='s'/>
+	 <cli_param id='PORT' cli_string='' options='s'/>
+	 <cli_param id='QUERY_PORT' cli_string='' options='s'/>
+	 <cli_param id='MAP' cli_string='' options='s'/>
+	 <cli_param id='PLAYERS' cli_string='' options='s'/>
+	 <cli_param id='HOSTNAME' cli_string='' options='s'/>
+	 <cli_param id='PID_FILE' cli_string='' options='s' />
+	 <cli_param id="CONTROL_PASSWORD" cli_string="+rcon_password " options="q" />
+	</cli_params>
+	<maps_location>game/csgo/maps/</maps_location>
+	
+	<map_list>game/csgo/maps/maplist.txt</map_list>
+	<console_log>game/csgo/console.log</console_log>
+	<exe_location>game/bin/linuxsteamrt64/</exe_location>
+	<max_user_amount>64</max_user_amount>
+
+    <control_protocol>rcon2</control_protocol>
+
+	<mods>
+	 <mod key='counter_strike_source2'>
+	  <name>none</name>
+	  <installer_name>counter_strike_source2</installer_name>
+	 </mod>
+	</mods>
+  <replace_texts>
+    <text key="max_players">
+      <default>maxplayers.*</default>
+      <var>maxplayers\"</var>
+      <filepath>csgo/gamemodes_server.txt</filepath>
+      <options>sq</options>
+    </text>
+    <text key="control_password">
+      <default>rcon_password.*</default>
+      <var>rcon_password</var>
+      <filepath>csgo/cfg/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="home_name">
+      <default>hostname.*</default>
+      <var>hostname</var>
+      <filepath>game/csgo/cfg/server.cfg</filepath>
+      <options>sq</options>
+    </text>
+    <text key="italy">
+      <default>cs_italy</default>
+      <var>cs_italy</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+    <text key="office">
+      <default>cs_office</default>
+      <var>cs_office</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+    <text key="ancient">
+      <default>de_ancient</default>
+      <var>de_ancient</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+    <text key="anubis">
+      <default>de_anubis</default>
+      <var>de_anubis</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+     <text key="dust2">
+      <default>de_dust2</default>
+      <var>de_dust2</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+    <text key="inferno">
+      <default>de_inferno</default>
+      <var>de_inferno</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+    <text key="mirage">
+      <default>de_mirage</default>
+      <var>de_mirage</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+    <text key="nuke">
+      <default>de_nuke</default>
+      <var>de_nuke</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+    <text key="overpass">
+      <default>de_overpass</default>
+      <var>de_overpass</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+	
+    <text key="vertigo">
+      <default>de_vertigo</default>
+      <var>de_vertigo</var>
+      <filepath>game/csgo/maps/maplist.txt</filepath>
+    </text>
+  </replace_texts>
+  
+   <server_params>
+    <param id="GAMEMODE" key="+game_mode " type="select">
+     <option value="0">Mode 0</option>
+     <option value="1">Mode 1</option>
+     <option value="2">Mode 2</option>
+     <option value="3">Mode 3</option>
+     <caption>Game Mode</caption>
+     <desc>Visit the VALVe Developer Community website and search Game Modes for CS:GO for more information.</desc>
+   </param>
+   <param id="GAMETYPE" key="+game_type " type="select">
+     <option value="0">Classic</option>
+     <option value="1">Gun Game</option>
+     <option value="2">Training</option>
+     <option value="3">Custom</option>
+     <option value="4">Cooperative</option>
+     <option value="5">Skirmish</option>
+     <option value="6">Free For All</option>
+     <caption>Game Type</caption>
+     <desc></desc>
+   </param>
+  </server_params>
+  <list_players_command>status</list_players_command>
+  <configuration_files>
+  <file description="The main config file">game/csgo/cfg/server.cfg</file>
+  </configuration_files>
+</game_config>
