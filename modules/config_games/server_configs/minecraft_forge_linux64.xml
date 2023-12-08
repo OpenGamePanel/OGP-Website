@@ -1,400 +1,410 @@
-<game_config>
-  <game_key>minecraft_linux64</game_key>
-  <protocol>gameq</protocol>
-  <gameq_query_name>minecraft</gameq_query_name>
-  <game_name>Minecraft Forge Mods</game_name>
-  <server_exec_name>ServerStart.sh</server_exec_name>
-  <query_port type="add">1</query_port>
-  <cli_template>java %XMS% %XMX% -jar forge-1.19.2-43.3.0-server nogui</cli_template>
-  <console_log>logs/latest.log</console_log>
-  <max_user_amount>250</max_user_amount>
-  <control_protocol>minecraft</control_protocol>
-  <mods>
-    <mod key="default">
-      <name>None</name>
-    </mod>
-  </mods>
-  <replace_texts> 
-    <text key="versaoArgument">
-      <default>#Minecraft server properties</default>
-      <var>#Minecraft server properties</var>
-      <filepath>server.properties</filepath>
-    </text>
-  
-    <text key="flight">
-      <default>allow-flight=.*</default>
-      <var>allow-flight=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="nether">
-      <default>allow-nether=.*</default>
-      <var>allow-nether=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="broadcastconsole">
-      <default>broadcast-console-to-ops=.*</default>
-      <var>broadcast-console-to-ops=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="broadcastrcon">
-      <default>broadcast-rcon-to-ops=.*</default>
-      <var>broadcast-rcon-to-ops=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	
-	<text key="adifficulty">
-      <default>difficulty=.*</default>
-      <var>difficulty=easy</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="commandblock">
-      <default>enable-command-block=.*</default>
-      <var>enable-command-block=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="jmxmonitoring">
-      <default>enable-jmx-monitoring=.*</default>
-      <var>enable-jmx-monitoring=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="true">
-      <default>enable-query=.*</default>
-      <var>enable-query=true</var>
-      <filepath>server.properties</filepath>
-    </text>		
-	
-    <text key="status">
-      <default>enable-status=.*</default>
-      <var>enable-status=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="enforcesecure">
-      <default>enforce-secure-profile=.*</default>
-      <var>enforce-secure-profile=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="enforcewhitelist">
-      <default>enforce-whitelist=.*</default>
-      <var>enforce-whitelist=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="rangepercentage">
-      <default>entity-broadcast-range-percentage=.*</default>
-      <var>entity-broadcast-range-percentage=100</var>
-      <filepath>server.properties</filepath>
-    </text>	
-		
-    <text key="forcegamemode">
-      <default>force-gamemode=.*</default>
-      <var>force-gamemode=false</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="functionpermission">
-      <default>function-permission-level=.*</default>
-      <var>function-permission-level=2</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="gamemode">
-      <default>gamemode=.*</default>
-      <var>gamemode=survival</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="generatestructures">
-      <default>generate-structures=.*</default>
-      <var>generate-structures=true</var>
-      <filepath>server.properties</filepath>
-    </text>	
-	
-	
-	<text key="generatorsettings">
-      <default>generator-settings=.*</default>
-      <var>generator-settings={}</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="hardcore">
-      <default>hardcore=.*</default>
-      <var>hardcore=false</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="hideplayers">
-      <default>hide-online-players=.*</default>
-      <var>hide-online-players=false</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="levelname">
-      <default>level-name=.*</default>
-      <var>level-name=world</var>
-      <filepath>server.properties</filepath>
-    </text>	
-	
-	
-	<text key="levelseed">
-      <default>level-seed=.*</default>
-      <var>level-seed=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="leveltype">
-      <default>level-type=.*</default>
-      <var>level-type=minecraft\:normal</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="chainedneighbor">
-      <default>max-chained-neighbor-updates=.*</default>
-      <var>max-chained-neighbor-updates=1000000</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="max_players">
-      <default>max-players=.*</default>
-      <var>max-players=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	
-	<text key="maxticktime">
-      <default>max-tick-time=.*</default>
-      <var>max-tick-time=60000</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="maxworldsize">
-      <default>max-world-size=.*</default>
-      <var>max-world-size=29999984</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="home_name">
-      <default>motd=.*</default>
-      <var>motd=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="permissionlevel">
-      <default>op-permission-level=.*</default>
-      <var>op-permission-level=4</var>
-      <filepath>server.properties</filepath>
-    </text>
-		
-	<text key="playeridletimeout">
-      <default>player-idle-timeout=.*</default>
-      <var>player-idle-timeout=0</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="preventproxyconnections">
-      <default>prevent-proxy-connections=.*</default>
-      <var>prevent-proxy-connections=false</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="previewschat">
-      <default>previews-chat=.*</default>
-      <var>previews-chat=false</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="pvps">
-      <default>pvp=.*</default>
-      <var>pvp=true</var>
-      <filepath>server.properties</filepath>
-    </text>	
-	
-	<text key="query_port">
-      <default>query.port=.*</default>
-      <var>query.port=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="ratelimit">
-      <default>rate-limit=.*</default>
-      <var>rate-limit=0</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="control_password">
-      <default>rcon.password=.*</default>
-      <var>rcon.password=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="requireresourcepack">
-      <default>require-resource-pack=.*</default>
-      <var>require-resource-pack=false</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	
-	<text key="resourcepack">
-      <default>resource-pack=.*</default>
-      <var>resource-pack=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="resourcepackprompt">
-      <default>resource-pack-prompt=.*</default>
-      <var>resource-pack-prompt=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="resourcepacksha1">
-      <default>resource-pack-sha1=.*</default>
-      <var>resource-pack-sha1=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="ip">
-      <default>server-ip=.*</default>
-      <var>server-ip=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="port">
-      <default>server-port=.*</default>
-      <var>server-port=</var>
-      <filepath>server.properties</filepath>
-    </text>		
-	
-	
-	<text key="simulationdistance">
-      <default>simulation-distance=.*</default>
-      <var>simulation-distance=10</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="snooperenabled">
-      <default>snooper-enabled=.*</default>
-      <var>snooper-enabled=true</var>
-      <filepath>server.properties</filepath>
-    </text>	
-	
-	
-	<text key="spawnanimals">
-      <default>spawn-animals=.*</default>
-      <var>spawn-animals=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="spawnmonsters">
-      <default>spawn-monsters=.*</default>
-      <var>spawn-monsters=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="spawnnpcs">
-      <default>spawn-npcs=.*</default>
-      <var>spawn-npcs=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="spawnprotection">
-      <default>spawn-protection=.*</default>
-      <var>spawn-protection=16</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	
-	<text key="syncchunkwrites">
-      <default>sync-chunk-writes=.*</default>
-      <var>sync-chunk-writes=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="resourcepackprompt">
-      <default>resource-pack-prompt=.*</default>
-      <var>resource-pack-prompt=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-    <text key="textfilteringconfig">
-      <default>text-filtering-config=.*</default>
-      <var>text-filtering-config=</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="usenativetransport">
-      <default>use-native-transport=.*</default>
-      <var>use-native-transport=true</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="viewdistance">
-      <default>view-distance=.*</default>
-      <var>view-distance=10</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="whitelist">
-      <default>white-list=.*</default>
-      <var>white-list=false</var>
-      <filepath>server.properties</filepath>
-    </text>
-	
-	<text key="onlinemode">
-      <default>online-mode=.*</default>
-      <var>online-mode=false</var>
-      <filepath>server.properties</filepath>
-    </text>
-
-  </replace_texts>
-  <server_params>
-  <param key="-Xms" type="text" id="XMS">
-      <default>5G</default>
-      <options>ns</options>
-      <access>admin</access>
-      <desc>Initial memory size for Java can be specified.</desc>
-    </param>
-    <param key="-Xmx" type="text" id="XMX">
-      <default>5G</default>
-      <options>ns</options>
-      <access>admin</access>
-      <desc>Maximum memory size for Java can be specified.</desc>
-    </param>
-  </server_params>
-  <custom_fields>
-    <field key="EULA" type="select">
-      <option value="false">False</option>
-      <option value="true">True</option>
-      <default>eula=.*</default>
-      <default_value>True</default_value>
-      <var>eula=</var>
-      <filepath>eula.txt</filepath>
-      <desc>Agreeing to the Minecraft End User License Agreement (EULA). Can be viewed &lt;a href=https://account.mojang.com/documents/minecraft_eula target=_blank&gt;here&lt;/a&gt;.</desc>
-    </field>
-    <field key="RCON Enabled" type="select">
-      <option value="true">Yes</option>
-      <option value="false">No</option>
-      <default>enable-rcon=.*</default>
-      <default_value>true</default_value>
-      <var>enable-rcon=</var>
-      <filepath>server.properties</filepath>
-      <desc>Enables remote access to the server console.</desc>
-    </field>
-    <field key="RCON Port" type="text">
-      <default>rcon.port=.*</default>
-      <default_value>25575</default_value>
-      <var>rcon.port=</var>
-      <filepath>server.properties</filepath>
-      <access>admin</access>
-      <desc>Sets the port to RCON.</desc>
-    </field>
-
-  </custom_fields>
-</game_config>
+<game_config>
+  <game_key>minecraft_linux64</game_key>
+  <protocol>gameq</protocol>
+  <gameq_query_name>minecraftforge</gameq_query_name>
+  <game_name>Minecraft Forge Mods</game_name>
+  <server_exec_name>ServerStart.sh</server_exec_name>
+  <query_port type="add">1</query_port>
+  <cli_template>%GAME_TYPE% %IP% %PORT% %QUERY_PORT% %MAP% %PLAYERS% %HOSTNAME% %PID_FILE%</cli_template>
+  <cli_params>  
+	 <cli_param id='GAME_TYPE' cli_string='' options='s'/>
+	 <cli_param id='IP' cli_string='' options='s'/>
+	 <cli_param id='PORT' cli_string='' options='s'/>
+	 <cli_param id='QUERY_PORT' cli_string='' options='s'/>
+	 <cli_param id='MAP' cli_string='' options='s'/>
+	 <cli_param id='PLAYERS' cli_string='' options='s'/>
+	 <cli_param id='HOSTNAME' cli_string='' options='s'/>
+	 <cli_param id='PID_FILE' cli_string='' options='s' />
+	</cli_params>
+  <max_user_amount>250</max_user_amount>
+  <control_protocol>minecraft</control_protocol>  
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts> 
+    <text key="versaoArgument">
+      <default>#Minecraft server properties</default>
+      <var>#Minecraft server properties</var>
+      <filepath>server.properties</filepath>
+    </text>
+  
+    <text key="flight">
+      <default>allow-flight=.*</default>
+      <var>allow-flight=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="nether">
+      <default>allow-nether=.*</default>
+      <var>allow-nether=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="broadcastconsole">
+      <default>broadcast-console-to-ops=.*</default>
+      <var>broadcast-console-to-ops=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="broadcastrcon">
+      <default>broadcast-rcon-to-ops=.*</default>
+      <var>broadcast-rcon-to-ops=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	
+	<text key="adifficulty">
+      <default>difficulty=.*</default>
+      <var>difficulty=easy</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="commandblock">
+      <default>enable-command-block=.*</default>
+      <var>enable-command-block=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="jmxmonitoring">
+      <default>enable-jmx-monitoring=.*</default>
+      <var>enable-jmx-monitoring=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="true">
+      <default>enable-query=.*</default>
+      <var>enable-query=true</var>
+      <filepath>server.properties</filepath>
+    </text>		
+	
+    <text key="status">
+      <default>enable-status=.*</default>
+      <var>enable-status=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="enforcesecure">
+      <default>enforce-secure-profile=.*</default>
+      <var>enforce-secure-profile=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="enforcewhitelist">
+      <default>enforce-whitelist=.*</default>
+      <var>enforce-whitelist=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="rangepercentage">
+      <default>entity-broadcast-range-percentage=.*</default>
+      <var>entity-broadcast-range-percentage=100</var>
+      <filepath>server.properties</filepath>
+    </text>	
+		
+    <text key="forcegamemode">
+      <default>force-gamemode=.*</default>
+      <var>force-gamemode=false</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="functionpermission">
+      <default>function-permission-level=.*</default>
+      <var>function-permission-level=2</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="gamemode">
+      <default>gamemode=.*</default>
+      <var>gamemode=survival</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="generatestructures">
+      <default>generate-structures=.*</default>
+      <var>generate-structures=true</var>
+      <filepath>server.properties</filepath>
+    </text>	
+	
+	
+	<text key="generatorsettings">
+      <default>generator-settings=.*</default>
+      <var>generator-settings={}</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="hardcore">
+      <default>hardcore=.*</default>
+      <var>hardcore=false</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="hideplayers">
+      <default>hide-online-players=.*</default>
+      <var>hide-online-players=false</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="levelname">
+      <default>level-name=.*</default>
+      <var>level-name=world</var>
+      <filepath>server.properties</filepath>
+    </text>	
+	
+	
+	<text key="levelseed">
+      <default>level-seed=.*</default>
+      <var>level-seed=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="leveltype">
+      <default>level-type=.*</default>
+      <var>level-type=minecraft\:normal</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="chainedneighbor">
+      <default>max-chained-neighbor-updates=.*</default>
+      <var>max-chained-neighbor-updates=1000000</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="max_players">
+      <default>max-players=.*</default>
+      <var>max-players=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	
+	<text key="maxticktime">
+      <default>max-tick-time=.*</default>
+      <var>max-tick-time=60000</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="maxworldsize">
+      <default>max-world-size=.*</default>
+      <var>max-world-size=29999984</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="home_name">
+      <default>motd=.*</default>
+      <var>motd=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="permissionlevel">
+      <default>op-permission-level=.*</default>
+      <var>op-permission-level=4</var>
+      <filepath>server.properties</filepath>
+    </text>
+		
+	<text key="playeridletimeout">
+      <default>player-idle-timeout=.*</default>
+      <var>player-idle-timeout=0</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="preventproxyconnections">
+      <default>prevent-proxy-connections=.*</default>
+      <var>prevent-proxy-connections=false</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="previewschat">
+      <default>previews-chat=.*</default>
+      <var>previews-chat=false</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="pvps">
+      <default>pvp=.*</default>
+      <var>pvp=true</var>
+      <filepath>server.properties</filepath>
+    </text>	
+	
+	<text key="query_port">
+      <default>query.port=.*</default>
+      <var>query.port=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="ratelimit">
+      <default>rate-limit=.*</default>
+      <var>rate-limit=0</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="control_password">
+      <default>rcon.password=.*</default>
+      <var>rcon.password=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="requireresourcepack">
+      <default>require-resource-pack=.*</default>
+      <var>require-resource-pack=false</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	
+	<text key="resourcepack">
+      <default>resource-pack=.*</default>
+      <var>resource-pack=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="resourcepackprompt">
+      <default>resource-pack-prompt=.*</default>
+      <var>resource-pack-prompt=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="resourcepacksha1">
+      <default>resource-pack-sha1=.*</default>
+      <var>resource-pack-sha1=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="ip">
+      <default>server-ip=.*</default>
+      <var>server-ip=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="port">
+      <default>server-port=.*</default>
+      <var>server-port=</var>
+      <filepath>server.properties</filepath>
+    </text>		
+	
+	
+	<text key="simulationdistance">
+      <default>simulation-distance=.*</default>
+      <var>simulation-distance=10</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="snooperenabled">
+      <default>snooper-enabled=.*</default>
+      <var>snooper-enabled=true</var>
+      <filepath>server.properties</filepath>
+    </text>	
+	
+	
+	<text key="spawnanimals">
+      <default>spawn-animals=.*</default>
+      <var>spawn-animals=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="spawnmonsters">
+      <default>spawn-monsters=.*</default>
+      <var>spawn-monsters=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="spawnnpcs">
+      <default>spawn-npcs=.*</default>
+      <var>spawn-npcs=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="spawnprotection">
+      <default>spawn-protection=.*</default>
+      <var>spawn-protection=16</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	
+	<text key="syncchunkwrites">
+      <default>sync-chunk-writes=.*</default>
+      <var>sync-chunk-writes=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="resourcepackprompt">
+      <default>resource-pack-prompt=.*</default>
+      <var>resource-pack-prompt=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+    <text key="textfilteringconfig">
+      <default>text-filtering-config=.*</default>
+      <var>text-filtering-config=</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="usenativetransport">
+      <default>use-native-transport=.*</default>
+      <var>use-native-transport=true</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="viewdistance">
+      <default>view-distance=.*</default>
+      <var>view-distance=10</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="whitelist">
+      <default>white-list=.*</default>
+      <var>white-list=false</var>
+      <filepath>server.properties</filepath>
+    </text>
+	
+	<text key="onlinemode">
+      <default>online-mode=.*</default>
+      <var>online-mode=false</var>
+      <filepath>server.properties</filepath>
+    </text>
+
+  </replace_texts>
+  <server_params>
+  <param key="-Xms" type="text" id="XMS">
+      <default>5G</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>Initial memory size for Java can be specified.</desc>
+    </param>
+    <param key="-Xmx" type="text" id="XMX">
+      <default>5G</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>Maximum memory size for Java can be specified.</desc>
+    </param>
+  </server_params>
+  <custom_fields>
+    <field key="EULA" type="select">
+      <option value="false">False</option>
+      <option value="true">True</option>
+      <default>eula=.*</default>
+      <default_value>True</default_value>
+      <var>eula=</var>
+      <filepath>eula.txt</filepath>
+      <desc>Agreeing to the Minecraft End User License Agreement (EULA). Can be viewed &lt;a href=https://account.mojang.com/documents/minecraft_eula target=_blank&gt;here&lt;/a&gt;.</desc>
+    </field>
+    <field key="RCON Enabled" type="select">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+      <default>enable-rcon=.*</default>
+      <default_value>true</default_value>
+      <var>enable-rcon=</var>
+      <filepath>server.properties</filepath>
+      <desc>Enables remote access to the server console.</desc>
+    </field>
+    <field key="RCON Port" type="text">
+      <default>rcon.port=.*</default>
+      <default_value>25575</default_value>
+      <var>rcon.port=</var>
+      <filepath>server.properties</filepath>
+      <access>admin</access>
+      <desc>Sets the port to RCON.</desc>
+    </field>
+
+  </custom_fields>
+</game_config>
+
