@@ -1488,7 +1488,7 @@ function api_addonsmanager()
 	
 	if($request[0] == "list")
 	{
-		$addons_rows = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXaddons");
+		$addons_rows = $db->resultQuery("SELECT addon_id, name, url, path, addon_type FROM OGP_DB_PREFIXaddons");
 		$status = "200";
 		$message = $addons_rows;
 	}
