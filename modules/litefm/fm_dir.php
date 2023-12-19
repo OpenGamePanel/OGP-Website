@@ -485,6 +485,11 @@ function exec_ogp_module()
 					$dirlist['files'] = array_orderby($dirlist['files'], 'filename', SORT_ASC);
 					foreach($dirlist['files'] as $file)
 					{
+						$startUpFile = "OGP_HOME_" . $home_id . "_startup_scr.sh";
+						if($file['filename'] == $startUpFile){
+							continue;
+						}
+						
 						$file['filename'] = removeInvalidFileNameCharacters($file['filename']);
 						
 						if( $os == "linux" )
