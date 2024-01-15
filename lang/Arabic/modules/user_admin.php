@@ -92,7 +92,7 @@ define('OGP_LANG_assign_homes', "تعيين منازل");
 define('OGP_LANG_successfully_added_group', "تمت إضافة المجموعة بنجاح %s.");
 define('OGP_LANG_group_name_empty', "لا يمكن أن يكون اسم المجموعة فارغًا.");
 define('OGP_LANG_failed_to_add_group', "فشل في إضافة مجموعة %s.");
-define('OGP_LANG_failed_to_add_group_exists_already', "Group with the name of %s already exists. Please try a different group name.");
+define('OGP_LANG_failed_to_add_group_exists_already', "المجموعى بالاسم %s موجودة بالفعل. يرجى تجربة اسم مجموعة مختلف.");
 define('OGP_LANG_could_not_add_user_to_group', "تعذرت إضافة المستخدم %s إلى مجموعة %s، لأنها تنتمي بالفعل.");
 define('OGP_LANG_successfully_added_to_group', "> تمت اضافة %s إلى مجموعة <em>%s</em> بنجاح.");
 define('OGP_LANG_could_not_add_server_to_group', "تعذر إضافة الخادم إلى مجموعة %s، لأنه ينتمي بالفعل.");
