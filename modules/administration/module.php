@@ -46,7 +46,7 @@ $install_queries[1] = array(
   `log_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,  
   `date` varchar(20) NOT NULL,
   `user_id` int(11) NOT NULL,  
-  `ip` varchar(15) NOT NULL,
+  `ip` varchar(45) NOT NULL,
   `message` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 ?>
