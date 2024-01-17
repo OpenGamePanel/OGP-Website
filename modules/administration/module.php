@@ -50,7 +50,7 @@ $install_queries[1] = array(
   `message` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
 
-$install_queries[2] = array("ALTER TABLE ".OGP_DB_PREFIX."logger MODIFY ip VARCHAR(45);");
+$install_queries[2] = array("ALTER TABLE ".OGP_DB_PREFIX."logger MODIFY `ip` VARCHAR(45);");
 
 ?>
 

@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "TS3Admin";
 $module_version = "0.2";
-$db_version = 2;
+$db_version = 3;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => '', 'name'=>'ts3admin', 'group'=>'user' ) );
 $install_queries = array();
@@ -45,5 +45,8 @@ $install_queries[1] = array(
  ADD UNIQUE `rserver_id` ( `rserver_id` , `vserver_id` , `user_id` );");
 $install_queries[2] = array(
 "ALTER TABLE `".OGP_DB_PREFIX."ts3_homes` ADD `port` int(11) DEFAULT '10011'"
+);
+$install_queries[3] = array(
+"ALTER TABLE `".OGP_DB_PREFIX."ts3_homes` MODIFY `ip` varchar(45);"
 );
 ?>
