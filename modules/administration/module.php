@@ -25,7 +25,7 @@
 // Module general information
 $module_title = "Administration";
 $module_version = "1.1";
-$db_version = 1;
+$db_version = 2;
 $module_required = TRUE;
 $module_menus = array( array( 'subpage' => 'watch_logger', 'name'=>'Watch Logger', 'group'=>'admin' ) );
 $install_queries = array();
@@ -49,5 +49,8 @@ $install_queries[1] = array(
   `ip` varchar(15) NOT NULL,
   `message` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;");
+
+$install_queries[2] = array("ALTER TABLE ".OGP_DB_PREFIX."logger MODIFY `ip` VARCHAR(45);");
+
 ?>
 
