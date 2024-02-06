@@ -13,7 +13,7 @@
     <cli_param id="HOSTNAME" cli_string="+set sv_hostname" options="sq" />
   </cli_params>
   <maps_location>q3ut4</maps_location>
-  <map_list>/q3ut4/mapcycle.txt</map_list>
+  <map_list>/q3ut4/mapcycle_example.txt</map_list>
   <max_user_amount>32</max_user_amount>
   <control_protocol>rcon</control_protocol>
   <control_protocol_type>old</control_protocol_type>
