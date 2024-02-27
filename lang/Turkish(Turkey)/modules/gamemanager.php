@@ -22,7 +22,7 @@
  *
  */
 
-define('OGP_LANG_no_games_to_monitor', "Size Gösterilecek Henüz Bir Oyun Sunucusu Verilmedi.");
+define('OGP_LANG_no_games_to_monitor', "İzlenebilecek herhangi bir sunucu bulunmamaktadır.");
 define('OGP_LANG_status', "Durum");
 define('OGP_LANG_fail_no_mods', "Bu oyun için etkin mod yok! OGP yöneticinizden size atanan oyuna mod (modlar) eklemesini istemeniz gerekir.");
 define('OGP_LANG_no_game_homes_assigned', "Hesabınıza Verilmiş Henüz Bir Sunucu Bulunmuyor");
