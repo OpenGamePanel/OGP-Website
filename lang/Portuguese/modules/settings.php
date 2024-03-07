@@ -91,7 +91,7 @@ define('OGP_LANG_login_attempts_before_banned', "Número de tentativas de login 
 define('OGP_LANG_login_attempts_before_banned_info', "Se um usuário tentar iniciar sessão com credenciais inválidas mais do que essas determinadas vezes, o usuário será banido temporariamente pelo painel.");
 define('OGP_LANG_custom_github_update_username', "Nome de usuário da atualização do GitHub");
 define('OGP_LANG_custom_github_update_username_info', "Digite seu nome de usuário GitHub SOMENTE para usar seus próprios repositórios bifurcados para atualizar o painel. Isso só deve ser alterado por desenvolvedores que desejam usar seus próprios repositórios para desenvolvimento em vez de verificar possivelmente o código de algum possivel BUG no código principal.");
-define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
+define('OGP_LANG_custom_github_update_branch_name', "Nome da ramificação no GitHub");
 define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
 define('OGP_LANG_remote_query', "Consulta remota");
 define('OGP_LANG_remote_query_info', "Use o servidor remoto (agente) para fazer consultas aos servidores do jogo (Only GameQ and LGSL).");
@@ -134,7 +134,7 @@ define('OGP_LANG_default_game_server_home_path_prefix', "Prefixo do directório 
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Digite um prefixo de caminho para onde você deseja que as casas do servidor do jogo sejam criadas por padrão. Você pode usar \"{USERNAME}\" no caminho que será substituído pelo nome de usuário Do seu Painel, o servidor do jogo está sendo atribuído a.  Você pode usar \"{GAMEKEY}\" no caminho que será substituído por um nome de minúscula.  Você pode usar \"{SKIPID}\" em qualquer lugar no caminho para pular anexando o ID inicial ao caminho.  Exemplo: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} irá se tornar /ogp/games/username/arkse/.  Exemplo2:  /ogp/games ira se tornar /ogp/games/2 onde 2 é a identificação dos servidores do jogo.");
 define('OGP_LANG_use_authorized_hosts', "Limitar a API de hosts autorizados definidos");
 define('OGP_LANG_use_authorized_hosts_info', "Ative esta configuração para permitir somente chamadas de API de endereços IP predefinidos e aprovados.&nbsp; Os endereços aprovados podem ser definidos nesta página quando a configuração estiver ativada.&nbsp; Se essa configuração estiver desabilitada, um usuário usando uma chave válida terá acesso à API de qualquer endereço IP.&nbsp; Os usuários que usam uma chave válida poderão usar a API para gerenciar qualquer servidor de jogo que eles tenham permissão para administrar.");
-define('OGP_LANG_allow_setting_cpu_affinity', "Allow Setting CPU Core Assignment for Game Servers");
+define('OGP_LANG_allow_setting_cpu_affinity', "Permitir a configuração Atribuição de Núcleos da CPU para Servidores de Jogos");
 define('OGP_LANG_allow_setting_cpu_affinity_info', "If enabled, the admin creating a game home will be shown CPU affinity (core assignment) options for the game server.");
 define('OGP_LANG_setup_api_authorized_hosts', "Define o API das hosts autorizadas");
 define('OGP_LANG_autohorized_hosts', "Hosts Autorizadas");
