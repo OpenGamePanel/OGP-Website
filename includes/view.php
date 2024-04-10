@@ -26,36 +26,36 @@ define("DEFAULT_REFRESH_TIME","2");
 
 class OGPView {
 
-    private $meta;
-    private $title;
+	private $meta;
+	private $title;
+	private $refreshTime;
+	private $refreshUrl;
+	private $header_code;
 
-    private $refreshTime;
-    private $refreshUrl;
-
-    function __construct() {
-        ob_start();
+	function __construct() {
+		ob_start();
 		$this->logo = "home.php?m=dashboard&p=dashboard";
 		$this->bg_wrapper = "";
-        $this->title = "Open Game Panel";
+		$this->title = "Open Game Panel";
 		$this->charset = "utf-8";
-        $this->refreshTime = DEFAULT_REFRESH_TIME;
-    }
+		$this->refreshTime = DEFAULT_REFRESH_TIME;
+	}
 
-    function __destruct() {
+	function __destruct() {
 
-    }
+	}
 
 	function menu(){}
 	
-    function printView($cleared = false, $dataType = "html") {
-        global $db, $OGPLangPre;
+	function printView($cleared = false, $dataType = "html") {
+		global $db, $OGPLangPre;
 
-        if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
-            $panel_settings = $db->getSettings();
-        }
-        
-        // Our global CSS goes first so that themes can override
-        $this->header_code = '<link rel="stylesheet" href="css/global.css">' . "\n";
+		if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
+			$panel_settings = $db->getSettings();
+		}
+		
+		// Our global CSS goes first so that themes can override
+		$this->header_code = '<link rel="stylesheet" href="css/global.css">' . "\n";
 		if(function_exists("getThemePath")){
 			$path = getThemePath();
 		}else{
@@ -69,26 +69,26 @@ class OGPView {
 		@$botbody = file_get_contents($path.'botbody.html');
 		
 		if ( isset($panel_settings['logo_link']) &&
-            !empty($panel_settings['logo_link']))
-            $this->logo = $panel_settings['logo_link'];
+			!empty($panel_settings['logo_link']))
+			$this->logo = $panel_settings['logo_link'];
 		
 		if ( isset($panel_settings['bg_wrapper']) &&
-            !empty($panel_settings['bg_wrapper']))
-            $this->bg_wrapper = $panel_settings['bg_wrapper'];
+			!empty($panel_settings['bg_wrapper']))
+			$this->bg_wrapper = $panel_settings['bg_wrapper'];
 		
 		if ( isset($panel_settings['time_zone']) &&
-            !empty($panel_settings['time_zone']))
-        {
-            $this->time_zone = $panel_settings['time_zone'];
+			!empty($panel_settings['time_zone']))
+		{
+			$this->time_zone = $panel_settings['time_zone'];
 			ini_set('date.timezone', $panel_settings['time_zone']);
-        }
+		}
 		
 		if ( isset($panel_settings['panel_name']) &&
-            !empty($panel_settings['panel_name']))
+			!empty($panel_settings['panel_name']))
 			$this->title = $panel_settings['panel_name'];
 		
 		if ( isset($panel_settings['header_code']) &&
-            !empty($panel_settings['header_code']))  
+			!empty($panel_settings['header_code']))  
 			$this->header_code .= $panel_settings['header_code']."\n";
 				
 		$module_name = isset($_GET['m']) ? get_lang($_GET['m']) : "";
@@ -172,15 +172,15 @@ class OGPView {
 		
 		$this->header_code .= $stylesheet.$javascript;
 		
-        $buffer = ob_get_contents();
-        ob_end_clean();
+		$buffer = ob_get_contents();
+		ob_end_clean();
 		
 		if ( !empty($this->refreshUrl) )
-        {
-            if ( $panel_settings['page_auto_refresh'] == "1" )
-            {		
-                $topbody .= "<div id='refresh-manual'>";
-                if($this->refreshUrl != "{CURRENT_PAGE}"){                
+		{
+			if ( $panel_settings['page_auto_refresh'] == "1" )
+			{		
+				$topbody .= "<div id='refresh-manual'>";
+				if($this->refreshUrl != "{CURRENT_PAGE}"){				
 					$topbody .= "<a href='".$this->refreshUrl."' class='redirectLink'>".get_lang('redirecting_in')." ".$this->refreshTime."s.</a>";
 				}else{
 					$url =  "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";
@@ -194,10 +194,10 @@ class OGPView {
 					$this->meta .= "url=".$this->refreshUrl;
 				}
 				$this->meta .= "' />";
-            }
-            else
-            {
-                $topbody .= "<div id='refresh-manual'>";
+			}
+			else
+			{
+				$topbody .= "<div id='refresh-manual'>";
 				 
 				if($this->refreshUrl != "{CURRENT_PAGE}"){
 					$topbody .= "<a href='" . $this->refreshUrl . "'>".get_lang('refresh_page')."</a>";
@@ -207,23 +207,23 @@ class OGPView {
 					$topbody .= "<a href='" . $escaped_url . "'>".get_lang('refresh_page')."</a>";
 				}
 				 $topbody .= "</div>";
-            }
-        }
+			}
+		}
 				
-        $footer = "";
+		$footer = "";
 
-        if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
-            $footer .= "<div class=\"footer center\">";
-            $footer .= get_lang_f('cur_theme', !empty($_SESSION['users_theme']) ? $_SESSION['users_theme'] : @$panel_settings['theme']) . " - " . $db->getNbOfQueries()." ".get_lang('queries_executed');
-            $footer .= "<br />".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved')." - <span class='versionInfo'>".get_lang('show_version')."</span><br /><div class='inline-block OGPVersionArea'><span class='version hide'>" . get_lang('version') . ":</span>&nbsp; <span class='hide versionNumber'>".@$panel_settings['ogp_version']."</span> <span class='copyVersionResult' lang='" . get_lang('copied') . "'></span></div></div>";
-        }
-        else
-        {
-            $footer .= "<div class='footer center'>".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved').".</div>";
-        }
-        
-        // Add our magnific popup holder to the page (hidden element):
-        $footer .= '<div class="mangificWrapper hide"><div class="white-popup"><div class="magnificTitle"></div><div class="magnificSubTitle"></div><div class="magnificContentsDiv"></div><button title="Close (Esc)" type="button" class="mfp-close">&times;</button></div></div>';
+		if ( is_object($db) && array_key_exists( "OGPDatabase", class_parents($db) ) ) {
+			$footer .= "<div class=\"footer center\">";
+			$footer .= get_lang_f('cur_theme', !empty($_SESSION['users_theme']) ? $_SESSION['users_theme'] : @$panel_settings['theme']) . " - " . $db->getNbOfQueries()." ".get_lang('queries_executed');
+			$footer .= "<br />".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved')." - <span class='versionInfo'>".get_lang('show_version')."</span><br /><div class='inline-block OGPVersionArea'><span class='version hide'>" . get_lang('version') . ":</span>&nbsp; <span class='hide versionNumber'>".@$panel_settings['ogp_version']."</span> <span class='copyVersionResult' lang='" . get_lang('copied') . "'></span></div></div>";
+		}
+		else
+		{
+			$footer .= "<div class='footer center'>".get_lang('copyright')." &copy; <a href=\"http://www.opengamepanel.org\">Open Game Panel</a> " . date("Y") . " - ".get_lang('all_rights_reserved').".</div>";
+		}
+		
+		// Add our magnific popup holder to the page (hidden element):
+		$footer .= '<div class="mangificWrapper hide"><div class="white-popup"><div class="magnificTitle"></div><div class="magnificSubTitle"></div><div class="magnificContentsDiv"></div><button title="Close (Esc)" type="button" class="mfp-close">&times;</button></div></div>';
 		
 		if (!isset($_GET['action']))
 		{
@@ -281,10 +281,10 @@ class OGPView {
 				$theme = @$panel_settings['theme'];
 					
 			$page = str_replace("%bg_wrapper%",(string)$this->bg_wrapper,$page);
-        	$page = str_replace("%title%",(string)$this->title,$page);
-        	$page = str_replace("%header_code%",(string)$this->header_code,$page);
+			$page = str_replace("%title%",(string)$this->title,$page);
+			$page = str_replace("%header_code%",(string)$this->header_code,$page);
 			$page = str_replace("%charset%",(string)$this->charset,$page);
-        	$page = str_replace("%body%",$buffer,$page);
+			$page = str_replace("%body%",$buffer,$page);
 			$page = str_replace("%top%",$top,$page);
 			$page = str_replace("%topbody%",$topbody,$page);
 			$page = str_replace("%botbody%",$botbody,$page);
@@ -294,40 +294,40 @@ class OGPView {
 		}
 		
 		// Set the content-type header as this is needed by older browsers
-        if($dataType == "html"){
+		if($dataType == "html"){
 			header("Content-type: text/html; charset=" . $this->charset);
 		}else if($dataType == "json"){
 			header("Content-type: application/json; charset=" . $this->charset);
 		}
 		
 		// Print everything for the template.
-        print $page;
-    }
+		print $page;
+	}
 
-    function refresh($url,$time = "")
-    {
-        if ( !empty($time) || $time === 0 )
-            $this->refreshTime = $time;
-        $this->refreshUrl = $url;
-    }
+	function refresh($url,$time = "")
+	{
+		if ( !empty($time) || $time === 0 )
+			$this->refreshTime = $time;
+		$this->refreshUrl = $url;
+	}
 
-    function setTitle($title)
-    {
-        $this->title = $title;
-    }
+	function setTitle($title)
+	{
+		$this->title = $title;
+	}
 	
 	function setCharset($charset)
-    {
-        $this->charset = $charset;
+	{
+		$this->charset = $charset;
 		ini_set('default_charset', $charset);
-    }
+	}
 	
 	function setTimeZone($time_zone)
-    {
+	{
 		$time_zone = (!isset($time_zone) or $time_zone == "") ? "America/Chicago" : $time_zone;
 		$this->time_zone = $time_zone;
 		ini_set('date.timezone', $time_zone);
 		$_SESSION['time_zone'] = $time_zone;
-    }
+	}
 }
 ?>
