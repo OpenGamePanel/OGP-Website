@@ -64,6 +64,8 @@ class OGPDatabaseMySQL extends OGPDatabase
 		if ( $this->link === FALSE )
 			return -11;
 
+		mysqli_set_charset($this->link, "utf8mb4");
+
 		return TRUE;
 	}
 	
