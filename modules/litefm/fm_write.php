@@ -57,8 +57,6 @@ function exec_ogp_module()
 
 	if ( isset($_REQUEST['save_file']) )
 	{
-		$_REQUEST['file_content'] = strip_real_escape_string($_REQUEST['file_content']);
-
 		$remote = new OGPRemoteLibrary($home_cfg['agent_ip'], $home_cfg['agent_port'], $home_cfg['encryption_key'], $home_cfg['timeout']);
 		$file_info = $remote->remote_writefile($home_cfg['home_path']."/".$_SESSION['fm_cwd_'.$home_id], $_REQUEST['file_content']);
 		if ( $file_info === 1 )
