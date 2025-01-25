@@ -37,13 +37,17 @@ function curPageURL() {
 	return $pageURL;
 }
 
-if(isset($_GET['file']))
+if(isset($_GET['file'])) // Don't allow remote URLs
 {
-	$file = urldecode($_GET['file']);
-	include($file);
-	$constants = get_defined_constants(true);
-	echo base64_encode(serialize($constants['user']));
-	exit();
+	if(!filter_var($_GET['file'], FILTER_VALIDATE_URL)){
+		$file = urldecode($_GET['file']);
+		include($file);
+		$constants = get_defined_constants(true);
+		echo base64_encode(serialize($constants['user']));
+		exit();
+	}else{
+		exit();
+	}
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -206,7 +210,7 @@ foreach ($locale_files as $lang_name)
 		$contents = file_get_contents("$current_url?file=$file");
 		$compare_lang = unserialize(base64_decode($contents));
 		if(!is_array($compare_lang))
-			echo "Errors where found at $file";
+			die("Errors where found at $file");
 		$extra_lang_vars = @array_diff_key($compare_lang,$lang[$glf]);
 		$missing_lang_vars = @array_diff_key($lang[$glf],$compare_lang);
 		if(isset($extra_lang_vars['']))
