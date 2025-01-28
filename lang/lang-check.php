@@ -29,10 +29,16 @@ require_once("includes/config.inc.php");
 require_once("includes/lang.php");
 require_once("includes/functions.php");
 
+define("CONFIG_FILE", __dir__ . "/../includes/config.inc.php");
+
+require_once CONFIG_FILE;
+// Connect to the database server and select database.
+$db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
+
 startSession();
 
 if(!isset($_SESSION['user_id']) || !$db->isAdmin($_SESSION['user_id'])){
-	die("You must be logged in and an admin user to use this page");
+	die("You must be logged in and an admin user to use this page!");
 }
 
 function curPageURL() {
@@ -271,4 +277,3 @@ foreach ($locale_files as $lang_name)
 }
 ?>
 </html>
-
