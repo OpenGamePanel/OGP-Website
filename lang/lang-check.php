@@ -21,10 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
- 
-if(!isset($_SESSION['user_id']) || !$db->isAdmin($_SESSION['user_id'])){
-	die("You must be logged in and an admin user to use this page");
-}
 
 error_reporting(E_ERROR);
 chdir("..");
@@ -32,6 +28,13 @@ require_once("includes/helpers.php");
 require_once("includes/config.inc.php");
 require_once("includes/lang.php");
 require_once("includes/functions.php");
+
+startSession();
+
+if(!isset($_SESSION['user_id']) || !$db->isAdmin($_SESSION['user_id'])){
+	die("You must be logged in and an admin user to use this page");
+}
+
 function curPageURL() {
 	$pageURL = ( isset($_SERVER['HTTPS']) and  get_true_boolean($_SERVER['HTTPS']) ) ? "https://" : "http://";
 	if ($_SERVER["SERVER_PORT"] != "80")
