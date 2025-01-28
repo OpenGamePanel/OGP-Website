@@ -21,6 +21,10 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
+ 
+if(!isset($_SESSION['user_id']) || !$db->isAdmin($_SESSION['user_id'])){
+	die("You must be logged in and an admin user to use this page");
+}
 
 error_reporting(E_ERROR);
 chdir("..");
