@@ -91,8 +91,8 @@ function exec_ogp_module() {
 					$s = ( isset($_SERVER['HTTPS']) and  get_true_boolean($_SERVER['HTTPS']) ) ? "s" : "";
 					
 					$serverName = $_SERVER["SERVER_NAME"];
-					if($serverName == "_"){
-						$serverName = "localhost";
+					if(empty($serverName) || $serverName == "_"){
+						$serverName = $_SERVER['HTTP_HOST'];
 					}
 					
 					$recover_link = '<a href="http'.$s.'://'.$serverName.$_SERVER['REQUEST_URI']."&user_id=".$user_id.'&ch_pass_uid='.$ch_pass_uid.
