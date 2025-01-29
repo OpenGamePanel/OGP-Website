@@ -89,8 +89,14 @@ function exec_ogp_module() {
 					$ch_pass_uid = $user_info['users_passwd'];
 					$subject = get_lang('confirm_change_subject');
 					$s = ( isset($_SERVER['HTTPS']) and  get_true_boolean($_SERVER['HTTPS']) ) ? "s" : "";
-					$recover_link = '<a href="http'.$s.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']."&user_id=".$user_id.'&ch_pass_uid='.$ch_pass_uid.
-									'" >http'.$s.'://'.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']."&user_id=".$user_id.'&ch_pass_uid='.$ch_pass_uid.'</a>';
+					
+					$serverName = $_SERVER["SERVER_NAME"];
+					if($serverName == "_"){
+						$serverName = "localhost";
+					}
+					
+					$recover_link = '<a href="http'.$s.'://'.$serverName.$_SERVER['REQUEST_URI']."&user_id=".$user_id.'&ch_pass_uid='.$ch_pass_uid.
+									'" >http'.$s.'://'.$serverName.$_SERVER['REQUEST_URI']."&user_id=".$user_id.'&ch_pass_uid='.$ch_pass_uid.'</a>';
 					$message = get_lang_f('confirm_change_password_message',$recover_link);
 
 					if (mymail($email_address, $subject, $message, $settings) == TRUE)
