@@ -35,33 +35,59 @@ require_once CONFIG_FILE;
 // Connect to the database server and select database.
 $db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
 
+function curPageURL() {
+	$pageURL = ( isset($_SERVER['HTTPS']) and  get_true_boolean($_SERVER['HTTPS']) ) ? "https://" : "http://";
+	$serverName = $_SERVER["SERVER_NAME"];
+	if($serverName == "_"){
+		$serverName = "localhost";
+	}
+	if ($_SERVER["SERVER_PORT"] != "80")
+		$pageURL .= $serverName.":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+	else
+		$pageURL .= $serverName.$_SERVER["REQUEST_URI"];
+	return $pageURL;
+}
+
+if(isset($_GET['file']) && isset($_GET['apiKey']) && isset($_GET['userId'])) // Don't allow remote URLs
+{
+	// Check API key
+	$isAdminUser = $db->isAdmin($_GET['userId']);
+	$apiKey = $db->getApiToken($_GET['userId']);
+	if($isAdminUser){
+		if($apiKey == $_GET['apiKey']){
+			if(!filter_var($_GET['file'], FILTER_VALIDATE_URL)){
+				$file = urldecode($_GET['file']);
+				if(file_exists(__dir__ . "/" . $file)){
+					include(__dir__ . "/" . $file);
+					$constants = get_defined_constants(true);
+					echo base64_encode(serialize($constants['user']));
+					exit();
+				}else{
+					echo "FILE DOESNT EXIST " . $file;
+					exit();
+				}
+			}else{
+				echo "FILE IS URL - NOT ALLOWED";
+				exit();
+			}
+		}else{
+			echo "NO MATCH";
+			exit();
+		}
+	}else{
+		echo "NOT ADMIN";
+		exit();
+	}
+}
+
 startSession();
 
 if(!isset($_SESSION['user_id']) || !$db->isAdmin($_SESSION['user_id'])){
 	die("You must be logged in and an admin user to use this page!");
+}else{
+	$apiKey = $db->getApiToken($_SESSION['user_id']);
 }
 
-function curPageURL() {
-	$pageURL = ( isset($_SERVER['HTTPS']) and  get_true_boolean($_SERVER['HTTPS']) ) ? "https://" : "http://";
-	if ($_SERVER["SERVER_PORT"] != "80")
-		$pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-	else
-		$pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-	return $pageURL;
-}
-
-if(isset($_GET['file'])) // Don't allow remote URLs
-{
-	if(!filter_var($_GET['file'], FILTER_VALIDATE_URL)){
-		$file = urldecode($_GET['file']);
-		include($file);
-		$constants = get_defined_constants(true);
-		echo base64_encode(serialize($constants['user']));
-		exit();
-	}else{
-		exit();
-	}
-}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -152,8 +178,6 @@ foreach ($locale_files as $lang_name)
 }
 echo "</ul>";
 
-startSession();
-
 if ( isset($_SESSION['users_login']) )
 {
 	$userInfo = $db->getUser($_SESSION['users_login']);
@@ -195,7 +219,7 @@ $current_url = curPageURL();
 foreach ($global_comparison_lang_files as $glf)
 {
 	$file = $COMPARISON_LANG."/".$glf;
-	$contents = file_get_contents($current_url.'?file='.$file);
+	$contents = file_get_contents($current_url.'?file='.$file . '&apiKey=' . $apiKey . "&userId=" . $_SESSION['user_id']);
 	$lang[$glf] = unserialize(base64_decode($contents));
 }
 
@@ -220,7 +244,7 @@ foreach ($locale_files as $lang_name)
 		}
 		
 		$compare_lang = array();
-		$contents = file_get_contents("$current_url?file=$file");
+		$contents = file_get_contents($current_url . "?file=" . $file . "&apiKey=" . $apiKey . "&userId=" . $_SESSION['user_id']);
 		$compare_lang = unserialize(base64_decode($contents));
 		if(!is_array($compare_lang))
 			die("Errors where found at $file");
