@@ -157,8 +157,8 @@ function exec_ogp_module()
 			$s = ( isset($_SERVER['HTTPS']) and  get_true_boolean($_SERVER['HTTPS']) ) ? "s" : "";
 			$p = (isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] != "80") ? ":".$_SERVER['SERVER_PORT'] : "";
 			$serverName = $_SERVER["SERVER_NAME"];
-			if($serverName == "_"){
-				$serverName = "localhost";
+			if(empty($serverName) || $serverName == "_"){
+				$serverName = $_SERVER['HTTP_HOST'];
 			}
 			$url = 'http'.$s.'://'.$serverName.$p.$_SERVER['SCRIPT_NAME'];
 			// loop all files

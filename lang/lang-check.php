@@ -38,8 +38,8 @@ $db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name,
 function curPageURL() {
 	$pageURL = ( isset($_SERVER['HTTPS']) and  get_true_boolean($_SERVER['HTTPS']) ) ? "https://" : "http://";
 	$serverName = $_SERVER["SERVER_NAME"];
-	if($serverName == "_"){
-		$serverName = "localhost";
+	if(empty($serverName) || $serverName == "_"){
+		$serverName = $_SERVER['HTTP_HOST'];
 	}
 	if ($_SERVER["SERVER_PORT"] != "80")
 		$pageURL .= $serverName.":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
@@ -48,34 +48,39 @@ function curPageURL() {
 	return $pageURL;
 }
 
-if(isset($_GET['file']) && isset($_GET['apiKey']) && isset($_GET['userId'])) // Don't allow remote URLs
+if(isset($_GET['file'])) // Don't allow remote URLs
 {
-	// Check API key
-	$isAdminUser = $db->isAdmin($_GET['userId']);
-	$apiKey = $db->getApiToken($_GET['userId']);
-	if($isAdminUser){
-		if($apiKey == $_GET['apiKey']){
-			if(!filter_var($_GET['file'], FILTER_VALIDATE_URL)){
-				$file = urldecode($_GET['file']);
-				if(file_exists(__dir__ . "/" . $file)){
-					include(__dir__ . "/" . $file);
-					$constants = get_defined_constants(true);
-					echo base64_encode(serialize($constants['user']));
-					exit();
+	if(isset($_GET['apiKey']) && isset($_GET['userId'])){
+		// Check API key
+		$isAdminUser = $db->isAdmin($_GET['userId']);
+		$apiKey = $db->getApiToken($_GET['userId']);
+		if($isAdminUser){
+			if($apiKey == $_GET['apiKey']){
+				if(!filter_var($_GET['file'], FILTER_VALIDATE_URL)){
+					$file = urldecode($_GET['file']);
+					if(file_exists(__dir__ . "/" . $file)){
+						include(__dir__ . "/" . $file);
+						$constants = get_defined_constants(true);
+						echo base64_encode(serialize($constants['user']));
+						exit();
+					}else{
+						echo "FILE DOESNT EXIST " . $file;
+						exit();
+					}
 				}else{
-					echo "FILE DOESNT EXIST " . $file;
+					echo "FILE IS URL - NOT ALLOWED";
 					exit();
 				}
 			}else{
-				echo "FILE IS URL - NOT ALLOWED";
+				echo "NO MATCH";
 				exit();
 			}
 		}else{
-			echo "NO MATCH";
+			echo "NOT ADMIN";
 			exit();
 		}
 	}else{
-		echo "NOT ADMIN";
+		echo "INVALID INPUTS";
 		exit();
 	}
 }
