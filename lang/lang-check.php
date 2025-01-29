@@ -29,6 +29,12 @@ require_once("includes/config.inc.php");
 require_once("includes/lang.php");
 require_once("includes/functions.php");
 
+define("CONFIG_FILE", __dir__ . "/../includes/config.inc.php");
+
+require_once CONFIG_FILE;
+// Connect to the database server and select database.
+$db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
+
 function curPageURL() {
 	$pageURL = ( isset($_SERVER['HTTPS']) and  get_true_boolean($_SERVER['HTTPS']) ) ? "https://" : "http://";
 	$serverName = $_SERVER["SERVER_NAME"];
@@ -42,35 +48,37 @@ function curPageURL() {
 	return $pageURL;
 }
 
-if(isset($_GET['file']) && isset($_GET['apiKey']) && isset($_GET['userid'])) // Don't allow remote URLs
+if(isset($_GET['file']) && isset($_GET['apiKey']) && isset($_GET['userId'])) // Don't allow remote URLs
 {
 	// Check API key
-	$apiKey = $db->getApiToken($_GET['userid']);
-	
-	if($apiKey == $_GET['apiKey']){
-		if(!filter_var($_GET['file'], FILTER_VALIDATE_URL)){
-			$file = urldecode($_GET['file']);
-			if(file_exists($file)){
-				include($file);
-				$constants = get_defined_constants(true);
-				echo base64_encode(serialize($constants['user']));
-				exit();
+	$isAdminUser = $db->isAdmin($_GET['userId']);
+	$apiKey = $db->getApiToken($_GET['userId']);
+	if($isAdminUser){
+		if($apiKey == $_GET['apiKey']){
+			if(!filter_var($_GET['file'], FILTER_VALIDATE_URL)){
+				$file = urldecode($_GET['file']);
+				if(file_exists(__dir__ . "/" . $file)){
+					include(__dir__ . "/" . $file);
+					$constants = get_defined_constants(true);
+					echo base64_encode(serialize($constants['user']));
+					exit();
+				}else{
+					echo "FILE DOESNT EXIST " . $file;
+					exit();
+				}
 			}else{
+				echo "FILE IS URL - NOT ALLOWED";
 				exit();
 			}
 		}else{
+			echo "NO MATCH";
 			exit();
 		}
 	}else{
+		echo "NOT ADMIN";
 		exit();
 	}
 }
-
-define("CONFIG_FILE", __dir__ . "/../includes/config.inc.php");
-
-require_once CONFIG_FILE;
-// Connect to the database server and select database.
-$db = createDatabaseConnection($db_type, $db_host, $db_user, $db_pass, $db_name, $table_prefix);
 
 startSession();
 
