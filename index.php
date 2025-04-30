@@ -253,7 +253,7 @@ function ogpHome()
 			$userInfo = $db->getUser($_POST['ulogin']);
 			
 			// If result matched $myusername and $mypassword, table row must be 1 row
-			if( isset($userInfo['users_passwd']) && md5($_POST['upassword']) == $userInfo['users_passwd'])
+			if( isset($userInfo['users_passwd']) && md5($_POST['upassword']) === $userInfo['users_passwd'])
 			{
 				// Handle recaptcha if enabled
 				// But admins don't have to do this :)
