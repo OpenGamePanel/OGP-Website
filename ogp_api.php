@@ -228,7 +228,7 @@ function api_token()
 		
 		$userInfo = $db->getUser($user);
 		
-		if(isset($userInfo['users_passwd']) && md5($password) == $userInfo['users_passwd'])
+		if(isset($userInfo['users_passwd']) && md5($password) === $userInfo['users_passwd'])
 		{
 			$token = bin2hex(openssl_random_pseudo_bytes(32));
 			$old_token = $db->currentApiToken($userInfo['user_id']);
