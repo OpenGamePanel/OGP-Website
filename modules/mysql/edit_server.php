@@ -139,11 +139,19 @@ function exec_ogp_module() {
 				{
 					if( function_exists('mysqli_connect') )
 					{
-						@$link = mysqli_connect($mysql_db['mysql_ip'], $mysql_db['db_user'], $mysql_db['db_passwd'], $mysql_db['db_name'], $mysql_db['mysql_port']);
+						try{
+							@$link = mysqli_connect($mysql_db['mysql_ip'], $mysql_db['db_user'], $mysql_db['db_passwd'], $mysql_db['db_name'], $mysql_db['mysql_port']);
+						}catch(Exception $e) {
+							$link = false;
+						}
 						
 						if ( $link === FALSE )
 						{
-							@$link = mysqli_connect($mysql_db['mysql_ip'], 'root', $mysql_db['mysql_root_passwd'], "", $mysql_db['mysql_port']);
+							try{
+								@$link = mysqli_connect($mysql_db['mysql_ip'], 'root', $mysql_db['mysql_root_passwd'], "", $mysql_db['mysql_port']);
+							}catch(Exception $e) {
+								$link = false;
+							}
 
 							if ( $link !== FALSE )
 							{
