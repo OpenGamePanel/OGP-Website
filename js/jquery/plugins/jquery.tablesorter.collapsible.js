@@ -37,7 +37,7 @@
 						$trc = $tr.next(), 
 						bIsCollapsed = $self.hasClass(settings.classExpand);
 						
-					var otherTds = $tr.find('td');
+					var otherTds = $tr.find('td.collapsible');
 					
 					// change the css class
 					$self[bIsCollapsed ? "removeClass" : "addClass"](settings.classExpand)[!bIsCollapsed ? "removeClass" : "addClass"](settings.classCollapse);
