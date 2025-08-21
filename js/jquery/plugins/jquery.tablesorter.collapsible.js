@@ -36,6 +36,9 @@
 						$tr = $self.parent(), 
 						$trc = $tr.next(), 
 						bIsCollapsed = $self.hasClass(settings.classExpand);
+						
+					var otherTds = $tr.find('td.collapsible');
+					
 					// change the css class
 					$self[bIsCollapsed ? "removeClass" : "addClass"](settings.classExpand)[!bIsCollapsed ? "removeClass" : "addClass"](settings.classCollapse);
 					while( $trc.hasClass(settings.classChildRow) ){
@@ -44,6 +47,12 @@
 						// get the next row
 						$trc = $trc.next();
 					}
+					
+					$(otherTds).each(function(e){
+						if(!$(this).is($self)){
+							$(this)[bIsCollapsed ? "removeClass" : "addClass"](settings.classExpand)[!bIsCollapsed ? "removeClass" : "addClass"](settings.classCollapse);
+						}
+					}); 
 					return false;
 				});
 			
