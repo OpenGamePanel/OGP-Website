@@ -16,6 +16,10 @@ function wireClicks(){
 	$(".serverIdToggle").click(function(e){
 		showHideServerIDShow($(this));
 	});
+	
+	if($('.maintr').length == 1){
+		$('.maintr td:first').trigger('click');
+	}
 }
 
 function showHideServerIDShow(linkElem){

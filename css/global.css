@@ -130,3 +130,7 @@ li.linux64{
 	background: url('../images/os/linux64.png') no-repeat 97% center;
 	background-size: 20px auto;
 }
+
+td.collapsible{
+	cursor: pointer;
+}
