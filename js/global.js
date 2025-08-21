@@ -18,7 +18,9 @@ function wireClicks(){
 	});
 	
 	if($('.maintr').length == 1){
-		$('.maintr td:first').trigger('click');
+		setTimeout(function(){ 
+			$('.maintr td:first').trigger('click');
+		}, 2000);
 	}
 }
 
