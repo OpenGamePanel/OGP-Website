@@ -134,3 +134,15 @@ li.linux64{
 td.collapsible{
 	cursor: pointer;
 }
+
+.collapsible.collapsed {
+	padding: 10px;
+	background: url('../images/tablesorter_expand.png') no-repeat center center;
+	cursor: pointer;
+}
+
+.collapsible.expanded {
+	padding: 10px;
+	background: url('../images/tablesorter_collapse.png') no-repeat center center;
+	cursor: pointer;
+}
