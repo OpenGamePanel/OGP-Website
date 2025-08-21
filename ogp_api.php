@@ -1212,7 +1212,10 @@ function api_gamemanager()
 				$postInstallCMD = "";
 				if(isset($server_xml->post_install))
 					$postInstallCMD .= $server_xml->post_install;
-				$postInstallCMD .= "\n{OGP_LOCK_FILE} " . $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name;
+				
+				if($os == 'linux'){
+					$postInstallCMD .= "\n{OGP_LOCK_FILE} " . $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name;
+				}
 				
 				$remote->steam_cmd($home_info['home_id'],$home_info['home_path'],$installer_name,$modname,
 								   $betaname,$betapwd,$login,$pass,$settings['steam_guard'],
@@ -1320,7 +1323,10 @@ function api_gamemanager()
 				$postInstallCMD = "";
 				if(isset($server_xml->post_install))
 					$postInstallCMD .= $server_xml->post_install;
-				$postInstallCMD .= "\n{OGP_LOCK_FILE} " . $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name;
+					
+				if($os == 'linux'){
+					$postInstallCMD .= "\n{OGP_LOCK_FILE} " . $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name;
+				}
 				
 				$remote->start_rsync_install($home_id,$home_info['home_path'],"$full_url",$exec_folder_path,$exec_path,$preInstallCMD,$postInstallCMD);
 				$status = "200";
@@ -1343,7 +1349,13 @@ function api_gamemanager()
 				$postInstallCMD = "";
 				if(isset($server_xml->post_install))
 					$postInstallCMD .= $server_xml->post_install;
-				$postInstallCMD .= "\n{OGP_LOCK_FILE} " . $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name;
+					
+				preg_match("/(win|linux)(32|64)?$/", $server_xml->game_key, $matches);
+				$os = strtolower($matches[1]) == 'linux'? 'linux':'windows';
+				if($os == 'linux'){
+					$postInstallCMD .= "\n{OGP_LOCK_FILE} " . $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name;
+				}
+				
 				$remote->start_file_download($manual_url,$home_info['home_path'],$filename,"uncompress",$postInstallCMD);
 				$status = "200";
 				$message = "Manual installation started";
@@ -1371,7 +1383,12 @@ function api_gamemanager()
 				$postInstallCMD = "";
 				if(isset($server_xml->post_install))
 					$postInstallCMD .= $server_xml->post_install;
-				$postInstallCMD .= "\n{OGP_LOCK_FILE} " . $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name;
+					
+				preg_match("/(win|linux)(32|64)?$/", $server_xml->game_key, $matches);
+				$os = strtolower($matches[1]) == 'linux'? 'linux':'windows';
+				if($os == 'linux'){
+					$postInstallCMD .= "\n{OGP_LOCK_FILE} " . $home_info['home_path'] . "/" . ($server_xml->exe_location ? $server_xml->exe_location . "/" : "") . $server_xml->server_exec_name;
+				}
 				
 				$remote->masterServerUpdate($home_id,$home_info['home_path'],$ms_home_id,$ms_info['home_path'],$exec_folder_path,$exec_path,$preInstallCMD,$postInstallCMD);
 				$status = "200";
