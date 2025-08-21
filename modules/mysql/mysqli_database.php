@@ -189,12 +189,17 @@ class MySQLModuleDatabase extends OGPDatabaseMySQL
                 mysqli_real_escape_string($this->link,$db_name),
 				mysqli_real_escape_string($this->link,$enabled));
         ++$this->queries_;
-        mysqli_query($this->link,$query);
+        
+        try {
+			mysqli_query($this->link,$query);
 
-        if( mysqli_errno($this->link) != 0 )
-        {
-            return false;
-        }
+			if( mysqli_errno($this->link) != 0 )
+			{
+				return false;
+			}
+		} catch(Exception $e) {
+			return false;
+		}
 
         return mysqli_insert_id($this->link);
 	}
@@ -237,10 +242,15 @@ class MySQLModuleDatabase extends OGPDatabaseMySQL
                 mysqli_real_escape_string($this->link,$db_id) );
 
         ++$this->queries_;
-        mysqli_query($this->link,$query);
+        
+        try {
+			mysqli_query($this->link,$query);
 
-        if( mysqli_errno($this->link) != 0 )
-            return FALSE;
+			if( mysqli_errno($this->link) != 0 )
+				return FALSE;
+		} catch(Exception $e) {
+			return false;
+		}      
 
         return true;
     }

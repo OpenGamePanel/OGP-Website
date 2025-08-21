@@ -139,11 +139,19 @@ function exec_ogp_module() {
 				{
 					if( function_exists('mysqli_connect') )
 					{
-						@$link = mysqli_connect($mysql_db['mysql_ip'], $mysql_db['db_user'], $mysql_db['db_passwd'], $mysql_db['db_name'], $mysql_db['mysql_port']);
+						try{
+							@$link = mysqli_connect($mysql_db['mysql_ip'], $mysql_db['db_user'], $mysql_db['db_passwd'], $mysql_db['db_name'], $mysql_db['mysql_port']);
+						}catch(Exception $e) {
+							$link = false;
+						}
 						
 						if ( $link === FALSE )
 						{
-							@$link = mysqli_connect($mysql_db['mysql_ip'], 'root', $mysql_db['mysql_root_passwd'], "", $mysql_db['mysql_port']);
+							try{
+								@$link = mysqli_connect($mysql_db['mysql_ip'], 'root', $mysql_db['mysql_root_passwd'], "", $mysql_db['mysql_port']);
+							}catch(Exception $e) {
+								$link = false;
+							}
 
 							if ( $link !== FALSE )
 							{
@@ -223,9 +231,13 @@ function exec_ogp_module() {
 									 "DROP USER '".$mysql_db['db_user']."'@'%';");
 					foreach( $queries as $query )
 					{
-						@$return = mysqli_query($link, $query);
-						if(!$return)
+						try{
+							@$return = mysqli_query($link, $query);
+							if(!$return)
+								break;
+						}catch(Exception $e) {
 							break;
+						}
 					}
 					mysqli_close($link);
 					$modDb->connect($db_host,$db_user,$db_pass,$db_name,$table_prefix);
@@ -241,9 +253,13 @@ function exec_ogp_module() {
 									 "DROP USER '".$mysql_db['db_user']."'@'%';");
 					foreach( $queries as $query )
 					{
-						@$return = mysql_query($query);
-						if(!$return)
+						try{
+							@$return = mysql_query($query);
+							if(!$return)
+								break;
+						}catch(Exception $e) {
 							break;
+						}
 					}
 					mysql_close($link);
 					$modDb->connect($db_host,$db_user,$db_pass,$db_name,$table_prefix);
