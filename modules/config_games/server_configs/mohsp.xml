@@ -5,11 +5,12 @@
   <game_name>Medal Of Honor: Spearhead</game_name>
   <server_exec_name>spearhead_lnxded</server_exec_name>
   <query_port type="add">97</query_port>
-  <cli_template>+set dedicated 1 +set sv_maxrate 20000 +set net_noipx 1 +exec server.cfg %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_template>+set dedicated 1 +set sv_maxrate 20000 +set net_noipx 1 %QUERY_PORT% +exec server.cfg %IP% %PORT% %PLAYERS%</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="+set net_ip" options="s" />
     <cli_param id="PORT" cli_string="+set net_port" options="s" />
     <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+    <cli_param id="QUERY_PORT" cli_string="+set net_gamespy_port" options="s" />
   </cli_params>
   <max_user_amount>64</max_user_amount>
   <mods>

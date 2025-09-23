@@ -1018,12 +1018,16 @@ function getRemoteContent($url, $timeout = 5, $referrer = ""){
 
 function getQueryPortOverridesForGame($protocol, $ip, $port, $defaultQueryPort){
 	$q_port = $defaultQueryPort;
+	// Removed since mohaaservers.tk isn't the master server anymore for mohaa
+	// Also, the query port is now defined in the XML, so it will always be plus 97 to the host port
+	/*
 	if(strpos($protocol, 'mohaa') !== false){
 		$realQPort = getRemoteContent("http://mohaaservers.tk/get_query_port_fast.php?ip=" . $ip . ":" . $port);
 		if($realQPort != -1 && is_numeric($realQPort)){
 			$q_port = $realQPort;
 		}
 	}
+	*/
 	return $q_port;
 }
 
