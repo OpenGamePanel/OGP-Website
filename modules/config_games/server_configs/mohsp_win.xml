@@ -5,7 +5,7 @@
   <game_name>Medal Of Honor: Spearhead (Windows)</game_name>
   <server_exec_name>moh_spearhead_server.exe</server_exec_name>
   <query_port type="add">97</query_port>
-  <cli_template>+set dedicated 1 +set net_noipx 1 +exec server.cfg %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_template>+set dedicated 1 +set net_noipx 1 +set net_gamespy_port %QUERY_PORT% +exec server.cfg %IP% %PORT% %PLAYERS%</cli_template>
   <cli_params>
     <cli_param id="IP" cli_string="+set net_ip" options="s" />
     <cli_param id="PORT" cli_string="+set net_port" options="s" />
