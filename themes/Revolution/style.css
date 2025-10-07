@@ -559,7 +559,7 @@ table.tablesorter tbody td {
 	color: #3D3D3D;
 	padding: 4px;
 	background-color: #FFF;
-	vertical-align: top;
+	vertical-align: middle;
 	border: 1px solid grey;
 }
 table.tablesorter tbody tr.odd td {
@@ -578,7 +578,7 @@ table.tablesorter tfoot td {
 	color: #3D3D3D;
 	padding: 4px;
 	background-color: #FFF;
-	vertical-align: top;
+	vertical-align: middle;
 	border: 1px solid grey;
 }
 .hidden{
