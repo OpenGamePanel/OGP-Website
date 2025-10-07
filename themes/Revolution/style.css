@@ -559,9 +559,14 @@ table.tablesorter tbody td {
 	color: #3D3D3D;
 	padding: 4px;
 	background-color: #FFF;
-	vertical-align: middle;
+	vertical-align: top;
 	border: 1px solid grey;
 }
+
+table.tablesorter tbody tr.tablesorter-hasChildRow td{
+	vertical-align: middle;
+}
+
 table.tablesorter tbody tr.odd td {
 	background-color:#F0F0F6;
 }
@@ -578,7 +583,7 @@ table.tablesorter tfoot td {
 	color: #3D3D3D;
 	padding: 4px;
 	background-color: #FFF;
-	vertical-align: middle;
+	vertical-align: top;
 	border: 1px solid grey;
 }
 .hidden{
