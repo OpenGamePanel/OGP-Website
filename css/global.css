@@ -136,20 +136,20 @@ td.collapsible{
 	background-color: transparent !important;
 }
 
-.collapsible.collapsed {
-	padding: 10px;
+.collapsible.collapsed:first-child {
+	padding-left: 16px;
 }
 
-.collapsible.expanded {
-	padding: 10px;
+.collapsible.expanded:first-child {
+	padding-left: 16px;
 }
 
 tr:has(> .collapsible.expanded) {
-	background: url('../images/tablesorter_collapse.png') no-repeat 0% 0% !important;
+	background: url('../images/tablesorter_collapse.png') no-repeat 0% 50% !important;
 	cursor: pointer;
 }
 
 tr:has(> .collapsible.collapsed) {
-	background: url('../images/tablesorter_expand.png') no-repeat 0% 0%;
+	background: url('../images/tablesorter_expand.png') no-repeat 0% 50%;
 	cursor: pointer;
 }
