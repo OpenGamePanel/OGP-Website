@@ -138,10 +138,12 @@ td.collapsible{
 
 .collapsible.collapsed:first-child {
 	padding-left: 16px;
+	padding-right: 16px;
 }
 
 .collapsible.expanded:first-child {
 	padding-left: 16px;
+	padding-right: 16px;
 }
 
 tr:has(> .collapsible.expanded) {
