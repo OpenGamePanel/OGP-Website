@@ -1,0 +1,46 @@
+<game_config>
+  <game_key>bf1942_linux32</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>bf1942</lgsl_query_name>
+  <game_name>Battlefield 1942</game_name>
+  <server_exec_name>bf1942_lnxded</server_exec_name>
+  <query_port type="add">8433</query_port>
+  <cli_template>+dedicated 1 %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+ip" options="s" />
+    <cli_param id="PORT" cli_string="+port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+maxplayers" options="s" />
+  </cli_params>
+  <max_user_amount>128</max_user_amount>
+  <mods>
+    <mod key="1">
+      <name>Default</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="port">
+      <default>game.serverPort.*</default>
+      <var>game.serverPort</var>
+      <filepath>mods/bf1942/settings/serversettings.con</filepath>
+      <options>s</options>
+    </text>
+    <text key="query_port">
+      <default>game.gameSpyPort.*</default>
+      <var>game.gameSpyPort</var>
+      <filepath>mods/bf1942/settings/serversettings.con</filepath>
+      <options>s</options>
+    </text>
+    <text key="ip">
+      <default>game.serverIP.*</default>
+      <var>game.serverIP</var>
+      <filepath>mods/bf1942/settings/serversettings.con</filepath>
+      <options>s</options>
+    </text>
+    <text key="home_name">
+      <default>game.serverName.*</default>
+      <var>game.serverName</var>
+      <filepath>mods/bf1942/settings/serversettings.con</filepath>
+      <options>sq</options>
+    </text>
+  </replace_texts>
+</game_config>
