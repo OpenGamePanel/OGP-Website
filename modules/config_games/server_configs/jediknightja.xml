@@ -12,6 +12,8 @@
     <cli_param id="GAME_TYPE" cli_string="+set fs_game" options="s" />
   </cli_params>
   <max_user_amount>32</max_user_amount>
+  <control_protocol>rcon</control_protocol>
+  <control_protocol_type>old</control_protocol_type>
   <mods>
     <mod key="base">
       <name>BaseJK3</name>
