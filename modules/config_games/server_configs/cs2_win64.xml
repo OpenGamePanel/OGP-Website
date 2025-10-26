@@ -26,6 +26,10 @@
     </mod>
   </mods>
   <server_params>
+		<param key="+sv_setsteamaccount" type="text">
+			<caption>Steam Account Login Token</caption>
+			<desc>Manage your steam tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
+		</param>
     <param id="GAMEMODE" key="+game_mode " type="select">
      <option value="0">Mode 0</option>
      <option value="1">Mode 1</option>
@@ -45,6 +49,14 @@
      <caption>Game Type</caption>
      <desc></desc>
    </param>
+		<param key="+host_workshop_collection" type="text">
+		  <caption>Workshop Collection</caption>
+		  <desc>Set the collection id http://steamcommunity.com/workshop/browse/?appid=730&amp;amp;section=collections ( Add the api key as a single line into the file webapi_authkey.txt under the mod directory csgo. http://steamcommunity.com/dev/apikey )</desc>
+		</param>
+		  <param key="+host_workshop_map" type="text">
+		  <caption>Workshop Map</caption>
+		  <desc>Set the map id http://steamcommunity.com/workshop/browse/?appid=730 ( Add the api key as a single line into the file webapi_authkey.txt under the mod directory csgo. http://steamcommunity.com/dev/apikey )</desc>
+		</param>
   </server_params>
   <list_players_command>status</list_players_command>
   <player_info_regex>#\#\s*(\d+)\s*\d*\s+\"(.+)\".+#</player_info_regex>
