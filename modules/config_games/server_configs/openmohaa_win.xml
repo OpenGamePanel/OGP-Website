@@ -13,6 +13,11 @@
     <cli_param id="QUERY_PORT" cli_string="+set net_gamespy_port" options="s" />
   </cli_params>
   <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="openmohaa">
+      <name>None</name>
+    </mod>
+  </mods>
   <server_params>
      <param id="GAMESERVTYPE" key="+set com_target_game" type="select">
       <option value="0">Allied Assault</option>
