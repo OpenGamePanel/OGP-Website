@@ -2,7 +2,7 @@
   <game_key>openmohaa_linux32</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>mohaa</lgsl_query_name>
-  <game_name>Medal Of Honor (OpenMOHAA)</game_name>
+  <game_name>Medal Of Honor: OpenMOHAA</game_name>
   <server_exec_name>omohaaded</server_exec_name>
   <query_port type="add">97</query_port>
   <cli_template>+set dedicated 1 +set sv_maxrate 20000 %GAMESERVTYPE% +set net_noipx 1 %QUERY_PORT% +exec server_opm.cfg %IP% %PORT% %PLAYERS%</cli_template>
