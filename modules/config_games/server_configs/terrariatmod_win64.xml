@@ -1,0 +1,42 @@
+<game_config>
+	<game_key>terrariatmod_win64</game_key>
+	<protocol>gameq</protocol>
+	<gameq_query_name>terraria</gameq_query_name>
+	<installer>steamcmd</installer>
+	<game_name>Terraria tModLoader</game_name>
+	<server_exec_name>start-tModLoaderServer.bat</server_exec_name>
+	<cli_template>%IP% %PORT% %PLAYERS% %CONTROL_PASSWORD% -nosteam -world%HOME_PATH%\Save\Worlds\%HOSTNAME%.wld %AUTOCREATE% -worldname %HOSTNAME% %SEED% -secure -worldpath%HOME_PATH%\Save\Worlds\ -banlist%HOME_PATH%\banlist.txt -savedirectory%HOME_PATH%\Save</cli_template>
+	<cli_params>
+		<cli_param id="IP" cli_string="-ip" options="s" />
+		<cli_param id="PORT" cli_string="-port" options="s" />
+		<cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
+		<cli_param id="CONTROL_PASSWORD" cli_string="-password" options="s" />
+		<cli_param id="HOME_PATH" cli_string="" options="s" />
+		<cli_param id="HOSTNAME" cli_string="" />
+	</cli_params>
+	<console_log>tModLoader-Logs/server.log</console_log>
+	<max_user_amount>8</max_user_amount>
+	<mods>
+		<mod key="default">
+			<name>None</name>
+			<installer_name>1281930</installer_name>
+		</mod>
+	</mods>
+	<server_params>
+		<param key="-autocreate" type="select" id="AUTOCREATE">
+			<option value="1">Small</option>
+			<option value="2">Medium</option>
+			<option value="3">Large</option>
+			<options>s</options>
+			<desc>The size of the world to be created.</desc>
+		</param>
+			<param key="-seed" type="text" id="SEED">
+			<default>MyAwesomeSeed</default>
+			<options>s</options>
+			<desc>Seed used to generate your world</desc>
+		</param>
+	</server_params>
+	<configuration_files>
+		<file description="Server Configurations">serverconfig.txt</file>
+	</configuration_files>
+</game_config>
