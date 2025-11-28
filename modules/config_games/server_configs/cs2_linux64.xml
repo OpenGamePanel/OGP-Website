@@ -1,0 +1,89 @@
+<game_config>
+	<game_key>cs2_linux64</game_key>
+	<protocol>lgsl</protocol>
+	<lgsl_query_name>source</lgsl_query_name>
+	<installer>steamcmd</installer>
+	<game_name>Counter Strike 2</game_name>
+	<server_exec_name>cs2</server_exec_name>
+	<cli_template>-dedicated -condebug -trusted +sv_logfile 1 %MAP% %IP% %PORT% %PLAYERS% %GAMETYPE% %GAMEMODE% %HOSTNAME% %CONTROL_PASSWORD%</cli_template>
+	<cli_params>
+		<cli_param id="MAP" cli_string="+map" options="s" />
+		<cli_param id="IP" cli_string="-ip" options="s" />
+		<cli_param id="PORT" cli_string="-port" options="s" />
+		<cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
+		<cli_param id="HOSTNAME" cli_string="+hostname " options="q" />
+		<cli_param id="CONTROL_PASSWORD" cli_string="+rcon_password " options="q" />
+	</cli_params>
+	<map_list>game/csgo/maps/maplist.txt</map_list>
+	<console_log>game/csgo/console.log</console_log>
+	<exe_location>game/bin/linuxsteamrt64</exe_location>
+	<max_user_amount>64</max_user_amount>
+	<control_protocol>rcon2</control_protocol>
+	<mods>
+		<mod key="cs2">
+			<name>none</name>
+			<installer_name>730</installer_name>
+		</mod>
+	</mods>
+	<server_params>
+		<param key="+sv_setsteamaccount" type="text">
+			<caption>Steam Account Login Token</caption>
+			<desc>Manage your steam tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
+		</param>
+		<param id="GAMEMODE" key="+game_mode " type="select">
+			<option value="0">Mode 0</option>
+			<option value="1">Mode 1</option>
+			<option value="2">Mode 2</option>
+			<option value="3">Mode 3</option>
+			<caption>Game Mode</caption>
+			<desc>Visit the VALVe Developer Community website and search Game Modes for CS:GO for more information.</desc>
+		</param>
+		<param id="GAMETYPE" key="+game_type " type="select">
+			<option value="0">Casual/Competitive/Wingman/Weapons Expert</option>
+			<option value="1">Arms Race/Demolition/Deathmatch</option>
+			<option value="2">Training</option>
+			<option value="3">Custom</option>
+			<option value="4">Guardian/Co-op Strike</option>
+			<option value="5">War Games</option>
+			<option value="6">Danger Zone</option>
+			<caption>Game Type</caption>
+			<desc></desc>
+		</param>
+		<param key="+host_workshop_collection" type="text">
+			<caption>Workshop Collection</caption>
+			<desc>Set the collection id http://steamcommunity.com/workshop/browse/?appid=730&amp;amp;section=collections ( Add the api key as a single line into the file webapi_authkey.txt under the mod directory csgo. http://steamcommunity.com/dev/apikey )</desc>
+		</param>
+		<param key="+host_workshop_map" type="text">
+			<caption>Workshop Map</caption>
+			<desc>Set the map id http://steamcommunity.com/workshop/browse/?appid=730 ( Add the api key as a single line into the file webapi_authkey.txt under the mod directory csgo. http://steamcommunity.com/dev/apikey )</desc>
+		</param>
+	</server_params>
+	<list_players_command>status</list_players_command>
+	<player_info_regex>#\#\s*(\d+)\s*\d*\s+\"(.+)\".+#</player_info_regex>
+	<player_info>
+		<index key="1">userid</index>
+		<index key="2">Name</index>
+	</player_info>
+	<post_install>
+		homedir=$(pwd)
+		echo "_____________________________"
+		echo "Generating maplist.txt"
+		echo "_____________________________"
+		rm $homedir/game/csgo/maps/maplist.txt
+		maps=$(ls -a $homedir/game/csgo/maps/*.vpk | cut -d "." -f 1)
+		for map in $maps; do
+			basemap=$(basename $map)
+			echo $basemap
+			echo $basemap >> $homedir/game/csgo/maps/maplist.txt
+		done
+		echo "_____________________________"
+		echo "Maplist generated"
+		echo "_____________________________"
+	</post_install>
+	<environment_variables>
+		export LD_LIBRARY_PATH="{OGP_STEAM_CMD_DIR}/linux64:{OGP_HOME_DIR}/game/bin/linuxsteamrt64/"
+	</environment_variables>
+	<configuration_files>
+		<file description="The main config file">game/csgo/cfg/server.cfg</file>
+	</configuration_files>
+</game_config>
