@@ -65,26 +65,6 @@
 	</player_info>
 	<post_install>
 		homedir=$(pwd)
-		if [ -f "$homedir/Tools/steamcmd/linux64/steamclient.so" ]
-			then
-				echo "_____________________________"
-				echo "SteamCMD found. OK!"
-			else
-				echo "_____________________________"
-				echo "SteamCMD not found."
-				echo "_____________________________"
-				echo "Installing SteamCMD!"
-				echo "_____________________________"
-				mkdir -p $homedir/Tools/steamcmd
-				wget -O $homedir/Tools/steamcmd/steamcmd_linux.tar.gz https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
-				tar -xf $homedir/Tools/steamcmd/steamcmd_linux.tar.gz -C $homedir/Tools/steamcmd
-		fi
-		echo "_____________________________"
-		echo "Starting SteamCMD to update the steamclient.so file"
-		echo "_____________________________"
-		$homedir/Tools/steamcmd/steamcmd.sh +login anonymous +quit
-		echo "_____________________________"
-		echo "SteamCMD update finished"
 		echo "_____________________________"
 		echo "Generating maplist.txt"
 		echo "_____________________________"
@@ -100,7 +80,7 @@
 		echo "_____________________________"
 	</post_install>
 	<environment_variables>
-		export LD_LIBRARY_PATH="{OGP_HOME_DIR}/Tools/steamcmd/linux64/:{OGP_HOME_DIR}/game/bin/linuxsteamrt64"
+		export LD_LIBRARY_PATH="{OGP_STEAM_CMD_DIR}/linux64:{OGP_HOME_DIR}/game/bin/linuxsteamrt64/"
 	</environment_variables>
 	<configuration_files>
 	<file description="The main config file">game/csgo/cfg/server.cfg</file>
