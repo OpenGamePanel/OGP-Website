@@ -66,7 +66,7 @@
       <default>sv_maxrate.*</default>
       <default_value>0</default_value>
       <var>sv_maxrate</var>
-      <filepath>cstrike/server.cfg</filepath>
+      <filepath>valve/server.cfg</filepath>
       <options>s</options>
       <desc>Max bandwidth rate allowed on server ( bytes per second ), 0 == unlimited.</desc>
     </field>
@@ -74,7 +74,7 @@
       <default>sv_minrate.*</default>
       <default_value>0</default_value>
       <var>sv_minrate</var>
-      <filepath>cstrike/server.cfg</filepath>
+      <filepath>valve/server.cfg</filepath>
       <options>s</options>
       <desc>Min bandwidth rate allowed on server ( bytes per second ), 0 == unlimited.</desc>
     </field>
@@ -82,7 +82,7 @@
       <default>sv_maxupdaterate.*</default>
       <default_value>30</default_value>
       <var>sv_maxupdaterate</var>
-      <filepath>cstrike/server.cfg</filepath>
+      <filepath>valve/server.cfg</filepath>
       <options>s</options>
       <desc>Maximum updates per second that the server will allow.</desc>
     </field>
@@ -90,7 +90,7 @@
       <default>sv_minupdaterate.*</default>
       <default_value>10</default_value>
       <var>sv_minupdaterate</var>
-      <filepath>cstrike/server.cfg</filepath>
+      <filepath>valve/server.cfg</filepath>
       <options>s</options>
       <desc>Minimum updates per second that the server will allow.</desc>
     </field>
