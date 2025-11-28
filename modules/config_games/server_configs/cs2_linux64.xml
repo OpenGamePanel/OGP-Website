@@ -1,4 +1,4 @@
-	<game_config>
+<game_config>
 	<game_key>cs2_linux64</game_key>
 	<protocol>lgsl</protocol>
 	<lgsl_query_name>source</lgsl_query_name>
@@ -15,6 +15,7 @@
 		<cli_param id="CONTROL_PASSWORD" cli_string="+rcon_password " options="q" />
 	</cli_params>
 	<map_list>game/csgo/maps/maplist.txt</map_list>
+	<console_log>game/csgo/console.log</console_log>
 	<exe_location>game/bin/linuxsteamrt64</exe_location>
 	<max_user_amount>64</max_user_amount>
 	<control_protocol>rcon2</control_protocol>
@@ -49,12 +50,12 @@
 			<desc></desc>
 		</param>
 		<param key="+host_workshop_collection" type="text">
-		  <caption>Workshop Collection</caption>
-		  <desc>Set the collection id http://steamcommunity.com/workshop/browse/?appid=730&amp;amp;section=collections ( Add the api key as a single line into the file webapi_authkey.txt under the mod directory csgo. http://steamcommunity.com/dev/apikey )</desc>
+			<caption>Workshop Collection</caption>
+			<desc>Set the collection id http://steamcommunity.com/workshop/browse/?appid=730&amp;amp;section=collections ( Add the api key as a single line into the file webapi_authkey.txt under the mod directory csgo. http://steamcommunity.com/dev/apikey )</desc>
 		</param>
-		  <param key="+host_workshop_map" type="text">
-		  <caption>Workshop Map</caption>
-		  <desc>Set the map id http://steamcommunity.com/workshop/browse/?appid=730 ( Add the api key as a single line into the file webapi_authkey.txt under the mod directory csgo. http://steamcommunity.com/dev/apikey )</desc>
+		<param key="+host_workshop_map" type="text">
+			<caption>Workshop Map</caption>
+			<desc>Set the map id http://steamcommunity.com/workshop/browse/?appid=730 ( Add the api key as a single line into the file webapi_authkey.txt under the mod directory csgo. http://steamcommunity.com/dev/apikey )</desc>
 		</param>
 	</server_params>
 	<list_players_command>status</list_players_command>
@@ -83,6 +84,6 @@
 		export LD_LIBRARY_PATH="{OGP_STEAM_CMD_DIR}/linux64:{OGP_HOME_DIR}/game/bin/linuxsteamrt64/"
 	</environment_variables>
 	<configuration_files>
-	<file description="The main config file">game/csgo/cfg/server.cfg</file>
+		<file description="The main config file">game/csgo/cfg/server.cfg</file>
 	</configuration_files>
-	</game_config>
+</game_config>
