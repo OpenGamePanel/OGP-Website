@@ -1,0 +1,30 @@
+<game_config>
+  <game_key>openmohaa_win64</game_key>
+  <protocol>lgsl</protocol>
+  <lgsl_query_name>mohaa</lgsl_query_name>
+  <game_name>Medal Of Honor: OpenMOHAA x64</game_name>
+  <server_exec_name>omohaaded.exe</server_exec_name>
+  <query_port type="add">97</query_port>
+  <cli_template>+set dedicated 1 +set sv_maxrate 20000 +set net_noipx 1 %QUERY_PORT% +exec server_opm.cfg %IP% %PORT% %PLAYERS%</cli_template>
+  <cli_params>
+    <cli_param id="IP" cli_string="+set net_ip" options="s" />
+    <cli_param id="PORT" cli_string="+set net_port" options="s" />
+    <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
+    <cli_param id="QUERY_PORT" cli_string="+set net_gamespy_port" options="s" />
+  </cli_params>
+  <max_user_amount>64</max_user_amount>
+  <mods>
+    <mod key="openmohaa">
+      <name>None</name>
+    </mod>
+  </mods>
+  <server_params>
+     <param id="GAMESERVTYPE" key="+set com_target_game" type="select">
+      <option value="0">Allied Assault</option>
+      <option value="1">Spearhead</option>
+      <option value="2">Breakthrough</option>
+      <caption>Game Server Type</caption>
+      <desc>Select a Game Server Type.</desc>
+    </param>
+  </server_params>
+</game_config>
