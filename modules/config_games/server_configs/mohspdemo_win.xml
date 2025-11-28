@@ -12,6 +12,7 @@
     <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
     <cli_param id="QUERY_PORT" cli_string="+set net_gamespy_port" options="s" />
   </cli_params>
+  <console_log>demota/qconsole.log</console_log>
   <max_user_amount>64</max_user_amount>
   <mods>
     <mod key="1">

@@ -2,7 +2,7 @@
   <game_key>mohbr_win32</game_key>
   <protocol>lgsl</protocol>
   <lgsl_query_name>mohaa</lgsl_query_name>
-  <game_name>Medal Of Honor: Breakthrough (Windows)</game_name>
+  <game_name>Medal Of Honor: Breakthrough</game_name>
   <server_exec_name>moh_Breakthrough_server.exe</server_exec_name>
   <query_port type="add">97</query_port>
   <cli_template>+set dedicated 1 +set net_noipx 1 %QUERY_PORT% +exec server.cfg %IP% %PORT% %PLAYERS%</cli_template>
@@ -12,6 +12,7 @@
     <cli_param id="PLAYERS" cli_string="+set sv_maxclients" options="s" />
     <cli_param id="QUERY_PORT" cli_string="+set net_gamespy_port" options="s" />
   </cli_params>
+  <console_log>maintt/qconsole.log</console_log>
   <max_user_amount>64</max_user_amount>
   <mods>
     <mod key="1">
