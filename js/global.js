@@ -19,7 +19,9 @@ function wireClicks(){
 	
 	if($('.maintr').length == 1){
 		setTimeout(function(){ 
-			$('.maintr td:first').trigger('click');
+			if(!$('.expand-child td:first').is(":visible")){
+				$('.maintr td:first').trigger('click');
+			}
 		}, 2000);
 	}
 }
