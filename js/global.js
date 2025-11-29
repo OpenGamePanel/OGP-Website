@@ -17,7 +17,7 @@ function wireClicks(){
 		showHideServerIDShow($(this));
 	});
 	
-	if($('.maintr').length == 1){
+	if($('.maintr').length == 1 && !$('.expand-child td:first').is(":visible")){
 		setTimeout(function(){ 
 			$('.maintr td:first').trigger('click');
 		}, 2000);
