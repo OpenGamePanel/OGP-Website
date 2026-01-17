@@ -15,7 +15,6 @@
 		<cli_param id="CONTROL_PASSWORD" cli_string="+rcon_password " options="q" />
 	</cli_params>
 	<map_list>game/csgo/maps/maplist.txt</map_list>
-	<console_log>game/csgo/console.log</console_log>
 	<exe_location>game/bin/linuxsteamrt64</exe_location>
 	<max_user_amount>64</max_user_amount>
 	<control_protocol>rcon2</control_protocol>
@@ -86,4 +85,5 @@
 	<configuration_files>
 		<file description="The main config file">game/csgo/cfg/server.cfg</file>
 	</configuration_files>
+
 </game_config>
