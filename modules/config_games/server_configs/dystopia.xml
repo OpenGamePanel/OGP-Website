@@ -11,7 +11,6 @@
     <cli_param id="IP" cli_string="-ip" options="s" />
     <cli_param id="PORT" cli_string="-port" options="s" />
     <cli_param id="PLAYERS" cli_string="-maxplayers" options="s" />
-    <cli_param id="GAME_TYPE" cli_string="-game" options="s" />
   </cli_params>
   <reserve_ports>
     <port type="add" id="CLIENT_PORT" cli_string="+clientport ">5090</port>
