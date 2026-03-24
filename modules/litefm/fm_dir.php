@@ -210,6 +210,10 @@ function exec_ogp_module()
 				if(isset($_SESSION['fm_files_'.$home_id][$item]))
 				{
 					$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
+					if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
+						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+						continue;
+					}
 					$files .= $item_path.";";
 				}
 			}
@@ -232,6 +236,10 @@ function exec_ogp_module()
 				if(isset($_SESSION['fm_files_'.$home_id][$item]))
 				{
 					$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
+					if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
+						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+						continue;
+					}
 					$new_item = removeInvalidFileNameCharacters(stripslashes($_POST['values'][$i]));
 					$new_item_path = clean_path( $path . "/" . $new_item );
 					if ($item_path != $new_item_path)
@@ -257,6 +265,10 @@ function exec_ogp_module()
 					if(isset($_SESSION['fm_files_'.$home_id][$item]))
 					{
 						$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
+						if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
+							print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+							continue;
+						}
 						$destination = clean_path($destination . "/.");
 						$remote->shell_action('move', "$item_path;$destination");
 						$db->logger( get_lang("move") . ": $item_path " . get_lang("to") . " $destination" );
@@ -279,6 +291,10 @@ function exec_ogp_module()
 					if(isset($_SESSION['fm_files_'.$home_id][$item]))
 					{
 						$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
+						if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
+							print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+							continue;
+						}
 						$destination = clean_path($destination . "/.");
 						$remote->shell_action('copy', "$item_path;$destination");
 						$db->logger( get_lang("copy") . ": $item_path " . get_lang("to") . " $destination" );
@@ -297,6 +313,10 @@ function exec_ogp_module()
 			if(isset($_SESSION['fm_files_'.$home_id][$item]))
 			{
 				$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
+				if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
+					print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+					continue;
+				}
 				$files_w_path .= $item_path.'<br>';
 				$items .= $_SESSION['fm_files_'.$home_id][$item].'\n';
 			}
@@ -319,6 +339,10 @@ function exec_ogp_module()
 				if(isset($_SESSION['fm_files_'.$home_id][$item]))
 				{
 					$file_location = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
+					if(preg_match("/\/\.\.\/|\||;/", $file_location)) {
+						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+						continue;
+					}
 					$remote->uncompress_file($file_location, $destination);
 					$db->logger( get_lang("uncompress") . ": $file_location " . to . " $destination." );
 				}
@@ -347,6 +371,10 @@ function exec_ogp_module()
 			if(isset($_SESSION['fm_files_'.$home_id][$item]))
 			{
 				$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
+				if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
+					print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+					continue;
+				}
 				$items .= $_SESSION['fm_files_'.$home_id][$item].'\n';
 			}
 		}
@@ -385,6 +413,10 @@ function exec_ogp_module()
 	{
 		if(isset($_SESSION['fm_files_'.$home_id][$_POST['item']]))
 		{
+			if(preg_match("/\/\.\.\/|\||;/", $_SESSION['fm_files_'.$home_id][$_POST['item']])) {
+				print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$_POST['item']]));
+				return;
+			}
 			if($_POST['set_attr'] == '+i' or $_POST['set_attr'] == '-i')
 			{
 				$type = $_POST['set_attr'] == '+i' ? get_lang("chattr_locked") : get_lang("chattr_unlocked");

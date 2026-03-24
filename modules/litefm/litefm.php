@@ -54,7 +54,7 @@ function litefm_check($home_id)
 {
 	if (isset($_GET['item']) and !isset($_GET['upload']) and !isset( $_POST['delete'] ) and !isset( $_POST['create_folder'] ) and !isset( $_POST['secureButton'] ) and !isset( $_POST['delete_check'] ) and !isset( $_POST['secure_check'] ))
     {
-		$fileName = !empty($_POST['name']) ? urldecode($_POST['name']) : urldecode($_GET['name']);
+		$fileName = !empty($_POST['name']) ? $_POST['name'] : (isset($_GET['name']) ? $_GET['name'] : '');
 		if(isset($_GET['type'])){
 			$type = $_GET['type'];
 		}else{
