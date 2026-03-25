@@ -38,10 +38,10 @@ function path_check()
 	if (isset($_GET['path']) and !isset( $_POST['save_to_blacklist'] ))
     {
         $path = $_GET['path'];
-        // Make sure nobody tries to get outside thier game server by referencing the .. directory
-        if(preg_match("/\.\.|\||;/", $path))
+        // Validate the path for dangerous characters and traversal attempts
+        if(!validate_path($path))
         {
-            print_failure(get_lang("unallowed_char"));
+            print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($path));
             $_SESSION['fm_cwd'] = NULL;
             return FALSE;
         }
