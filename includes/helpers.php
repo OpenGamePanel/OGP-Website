@@ -495,4 +495,34 @@ function getOGPLangConstantsJSON(){
 	
 	return false;
 }
+
+/**
+ * Validates a file path for security before passing to RPC/Shell.
+ *
+ * @param string $path The full path to validate.
+ * @return bool True if safe, False if it contains dangerous characters or traversal.
+ */
+function validate_path($path) {
+    // 1. Block any instance of ".." (Parent Directory Traversal)
+    if (strpos($path, '..') !== false) {
+        return false;
+    }
+
+    // 2. Block "." if it is the entire filename or a standalone path segment
+    // This prevents operations on the "current directory" itself.
+    $parts = explode('/', $path);
+    foreach ($parts as $part) {
+        if ($part === '.') {
+            return false;
+        }
+    }
+
+    // 3. Strict Whitelist: Allow only alphanumeric, underscores, dots (within names), hyphens, and slashes.
+    // This blocks ; | & ` $ \n and other shell/perl injection characters.
+    if (preg_match('/[^a-zA-Z0-9._\-\/]/', $path)) {
+        return false;
+    }
+
+    return true;
+}
 ?>

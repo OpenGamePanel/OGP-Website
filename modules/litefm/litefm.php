@@ -66,10 +66,10 @@ function litefm_check($home_id)
 			
 		$path = $_SESSION['fm_files_'.$home_id][$_GET['item']];
 		if($path == $fileName){
-			// Make sure nobody tries to get outside thier game server by referencing the .. directory
-			if(preg_match("/\/\.\.\/|\||;/", $path))
+			// Validate the path for dangerous characters and traversal attempts
+			if(!validate_path($path))
 			{
-				print_failure(get_lang("unallowed_char"));
+				print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($path));
 				$_SESSION['fm_cwd_'.$home_id] = NULL;
 				return FALSE;
 			}

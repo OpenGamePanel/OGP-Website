@@ -209,6 +209,10 @@ function exec_ogp_module()
 			{
 				if(isset($_SESSION['fm_files_'.$home_id][$item]))
 				{
+					if(!validate_path($_SESSION['fm_files_'.$home_id][$item])){
+						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+						continue;
+					}
 					$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 					if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
 						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
@@ -235,6 +239,10 @@ function exec_ogp_module()
 			{
 				if(isset($_SESSION['fm_files_'.$home_id][$item]))
 				{
+					if(!validate_path($_SESSION['fm_files_'.$home_id][$item])){
+						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+						continue;
+					}
 					$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 					if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
 						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
@@ -264,6 +272,10 @@ function exec_ogp_module()
 				{
 					if(isset($_SESSION['fm_files_'.$home_id][$item]))
 					{
+						if(!validate_path($_SESSION['fm_files_'.$home_id][$item])){
+							print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+							continue;
+						}
 						$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 						if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
 							print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
@@ -290,6 +302,10 @@ function exec_ogp_module()
 				{
 					if(isset($_SESSION['fm_files_'.$home_id][$item]))
 					{
+						if(!validate_path($_SESSION['fm_files_'.$home_id][$item])){
+							print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+							continue;
+						}
 						$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 						if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
 							print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
@@ -312,6 +328,10 @@ function exec_ogp_module()
 		{
 			if(isset($_SESSION['fm_files_'.$home_id][$item]))
 			{
+				if(!validate_path($_SESSION['fm_files_'.$home_id][$item])){
+					print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+					continue;
+				}
 				$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 				if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
 					print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
@@ -338,6 +358,10 @@ function exec_ogp_module()
 			{
 				if(isset($_SESSION['fm_files_'.$home_id][$item]))
 				{
+					if(!validate_path($_SESSION['fm_files_'.$home_id][$item])){
+						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+						continue;
+					}
 					$file_location = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 					if(preg_match("/\/\.\.\/|\||;/", $file_location)) {
 						print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
@@ -370,6 +394,10 @@ function exec_ogp_module()
 		{
 			if(isset($_SESSION['fm_files_'.$home_id][$item]))
 			{
+				if(!validate_path($_SESSION['fm_files_'.$home_id][$item])){
+					print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
+					continue;
+				}
 				$item_path = clean_path( $path . "/" . $_SESSION['fm_files_'.$home_id][$item] );
 				if(preg_match("/\/\.\.\/|\||;/", $item_path)) {
 					print_failure(get_lang("unallowed_char") . " : " . htmlspecialchars($_SESSION['fm_files_'.$home_id][$item]));
