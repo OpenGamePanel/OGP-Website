@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<game_config>
+  <game_key>hytale_win64</game_key>
+  <!-- Query Protocol: Requires 'HytaleONE Query Plugin' on server and 'hytaleone' GameQ protocol on OGP -->
+  <!-- https://github.com/HytaleOne/hytale-one-query-plugin/releases -->
+  <!-- https://github.com/Austinb/GameQ/pull/763 -->
+  <!-- <protocol>gameq</protocol> -->
+  <!-- <gameq_query_name>hytaleone</gameq_query_name> -->
+  <game_name>Hytale</game_name>
+  <server_exec_name>HytaleServer.jar</server_exec_name>
+  <!-- Background: Wait up to 30s for log file, then link latest -->
+  <cli_template>cmd /c start /b powershell -Command "$x=0; while ($x -lt 30) { if (Test-Path logs\*.log) { Start-Sleep 1; New-Item -ItemType SymbolicLink -Path logs\latest.log -Target (Get-ChildItem logs\*.log | Sort-Object LastWriteTime -Descending | Select-Object -First 1).FullName -Force; break }; Start-Sleep 1; $x++ }" &amp; java %XMS% %XMX% -XX:AOTCache=HytaleServer.aot -jar HytaleServer.jar --assets %ASSETS_PATH% %PORT%</cli_template>
+  <cli_params>
+    <cli_param id="PORT" cli_string="--bind" options="s" />
+  </cli_params>
+  <console_log>logs/latest.log</console_log>
+  <max_user_amount>100</max_user_amount>
+  <mods>
+    <mod key="default">
+      <name>None</name>
+    </mod>
+  </mods>
+  <replace_texts>
+    <text key="home_name">
+      <default>"ServerName"\s*:\s*".*?"</default>
+      <var>"ServerName": </var>
+      <filepath>config.json</filepath>
+      <options>q</options>
+    </text>
+    <text key="max_players">
+      <default>"MaxPlayers"\s*:\s*\d+</default>
+      <var>"MaxPlayers": </var>
+      <filepath>config.json</filepath>
+    </text>
+  </replace_texts>
+  <server_params>
+    <param key="-Xms" type="text" id="XMS">
+      <default>1024M</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>Initial memory size for Java.</desc>
+    </param>
+    <param key="-Xmx" type="text" id="XMX">
+      <default>4096M</default>
+      <options>ns</options>
+      <access>admin</access>
+      <desc>Maximum memory size for Java.</desc>
+    </param>
+    <param type="text" id="ASSETS_PATH">
+        <default>Assets.zip</default>
+        <options>ns</options>
+        <access>admin</access>
+        <desc>Path to Assets.zip relative to server executable</desc>
+    </param>
+    <param key="--backup" type="checkbox_key_value">
+        <desc>Enable automatic backups</desc>
+    </param>
+    <param key="--backup-dir" type="text">
+        <default>backups</default>
+        <options>ns</options>
+        <access>admin</access>
+        <desc>Backup directory path</desc>
+    </param>
+    <param key="--backup-frequency" type="text">
+        <default>30</default>
+        <options>ns</options>
+        <access>admin</access>
+        <desc>Backup interval in minutes</desc>
+    </param>
+  </server_params>
+</game_config>
