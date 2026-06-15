@@ -91,8 +91,8 @@ define('OGP_LANG_login_attempts_before_banned', "Broj neuspjelih pokušaja prija
 define('OGP_LANG_login_attempts_before_banned_info', "Ako se korisnik više puta pokuša prijaviti s nevažećim detaljima za prijavu, Panel će privremeno zabraniti korisnika.");
 define('OGP_LANG_custom_github_update_username', "Korisničko Ime za GitHub ažuriranje");
 define('OGP_LANG_custom_github_update_username_info', "Unesite GitHub korisničko ime SAMO za korištenje vlastitih repozitoriji za ažuriranje OGP-a. To bi trebalo mijenjati samo razvojni programeri koji žele koristiti vlastiti repozitorij za razvoj, umjesto da provjere eventualno pogrešan kod u glavnu granu.");
-define('OGP_LANG_custom_github_update_branch_name', "GitHub branch name");
-define('OGP_LANG_custom_github_update_branch_name_info', "Enter the branch name you want to use for updating OGP. This should only be changed by developers who wish to use their own repos for development rather than checking in possibly buggy code into the main branch.&nbsp; Leave this field blank to default to \"master\"");
+define('OGP_LANG_custom_github_update_branch_name', "Naziv GitHub grane");
+define('OGP_LANG_custom_github_update_branch_name_info', "Unesite naziv grane koju želite koristiti za ažuriranje OGP-a. Ovo bi trebali mijenjati samo programeri koji žele koristiti vlastite repozitorije za razvoj, umjesto da testiraju potencijalno nestabilan ili nedovršen kod iz glavne grane. Ostavite ovo polje prazno kako bi se koristila zadana grana „master”");
 define('OGP_LANG_remote_query', "Udaljeni upit");
 define('OGP_LANG_remote_query_info', "Upotrijebite udaljeni poslužitelj (agent) za upite na igre (samo GameQ i LGSL).");
 define('OGP_LANG_check_expiry_by', "Provjerite istek");
@@ -134,8 +134,8 @@ define('OGP_LANG_default_game_server_home_path_prefix', "Zadani prefiks Home dir
 define('OGP_LANG_default_game_server_home_path_prefix_info', "Unesite prefiks putanja za mjesto na kojem želite da Home direktoriji servera budu izrađeni prema zadanim postavkama. Možete upotrebljavati \"{USERNAME}\" na putu koji će biti zamijenjen korisničkim imenom OGP-a kojem se dodjeljuje server. Možete koristiti \"{GAMEKEY}\" na putu koji će biti zamijenjen imenom sa malim slovima. Možete upotrebljavati \"{SKIPID}\" bilo gdje na putu da preskočite dodavanje Home ID-a na putnju. Primjer: /ogp/games/{USERNAME}/{GAMEKEY}{SKIPID} će postati /ogp/games/username/arkse/. Primjer 2: /ogp/games će postati /ogp/games/1 gdje je 1 ID servera.");
 define('OGP_LANG_use_authorized_hosts', "Ograničite API na Definirane ovlaštene hostove");
 define('OGP_LANG_use_authorized_hosts_info', "Omogućite ovu postavku da biste dozvolili samo API pozive s unaprijed definiranih i odobrenih IP adresa.&nbsp; Odobrene adrese možete postaviti na ovoj stranici nakon što je postavka omogućena.&nbsp; Ako je ova postavka onemogućena, korisnik koji koristi važeći ključ imat će pristup API-ju s bilo koje IP adrese.&nbsp; Korisnici koji koriste valjani ključ moći će koristiti API za upravljanje bilo kojim poslužiteljem za igre koje imaju dozvole za administriranje.");
-define('OGP_LANG_allow_setting_cpu_affinity', "Allow Setting CPU Core Assignment for Game Servers");
-define('OGP_LANG_allow_setting_cpu_affinity_info', "If enabled, the admin creating a game home will be shown CPU affinity (core assignment) options for the game server.");
+define('OGP_LANG_allow_setting_cpu_affinity', "Dopusti dodjelu CPU jezgri igraćim serverima");
+define('OGP_LANG_allow_setting_cpu_affinity_info', "Ako je omogućeno, administratoru koji stvara game home bit će prikazane opcije za CPU afinitet (dodjelu procesorskih jezgri) za server igrice");
 define('OGP_LANG_setup_api_authorized_hosts', "Postavke API za autorizaciju poslužitelja");
 define('OGP_LANG_autohorized_hosts', "Ovlašteni poslužitelji");
 define('OGP_LANG_add', "Dodati");
@@ -145,8 +145,8 @@ define('OGP_LANG_trusted_host_or_proxy_addresses_or_cidr', "Pouzdani Poslužitel
 define('OGP_LANG_trusted_forwarded_ip_addresses_or_cidr', "Pouzdani prosljeđeni IP-ovi (IPv4/IPv6 Addresses or CIDR)");
 define('OGP_LANG_reset_game_server_order', "Resetiranje redoslijeda poslužitelja igara");
 define('OGP_LANG_reset_game_server_order_info', "Poništava naredbu redoslijeda igara na zadane postavke ID poslužitelja");
-define('OGP_LANG_regex_invalid_file_name_chars', "Invalid File Name Characters Regex");
-define('OGP_LANG_regex_invalid_file_name_chars_info', "Change this regex pattern if you want to allow a different set of characters in file names.");
-define('OGP_LANG_login_ban_time', "Failed Login Ban Time (Seconds)");
-define('OGP_LANG_login_ban_time_info', "Time in seconds that an IP address is banned from attempting to login to the panel after a defined number of failed login attempts.");
+define('OGP_LANG_regex_invalid_file_name_chars', "Regex za nedopuštene znakove u nazivu datoteke");
+define('OGP_LANG_regex_invalid_file_name_chars_info', "Promijenite ovaj regex uzorak ako želite dopustiti drugačiji skup znakova u nazivima datoteka.");
+define('OGP_LANG_login_ban_time', "Vrijeme zabrane nakon neuspjele prijave (sekunde)");
+define('OGP_LANG_login_ban_time_info', "Vrijeme u sekundama tijekom kojeg je IP adresa blokirana za pokušaje prijave na panel nakon određenog broja neuspješnih prijava.");
 ?>

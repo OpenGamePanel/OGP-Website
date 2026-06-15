@@ -140,5 +140,6 @@ define('OGP_LANG_mysql_admin', "Postavke MySQL-a");
 define('OGP_LANG_copied', "Kopirano!");
 define('OGP_LANG_ticket_settings', "Postavke Korisničke Podrške");
 define('OGP_LANG_form', "Registracija");
-define('OGP_LANG_timed_out', "Operation timed out (but may still successfully complete).");
+define('OGP_LANG_timed_out', "Operacija je istekla
+(ali se još uvijek može uspješno dovršiti).");
 ?>
