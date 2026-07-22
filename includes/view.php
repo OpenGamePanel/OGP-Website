@@ -31,6 +31,10 @@ class OGPView {
 	private $refreshTime;
 	private $refreshUrl;
 	private $header_code;
+	public $logo;
+	public $bg_wrapper;
+	public $charset;
+	public $time_zone;
 
 	function __construct() {
 		ob_start();
