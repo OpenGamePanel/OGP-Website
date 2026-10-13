@@ -643,14 +643,17 @@ function getClientIPAddress(){
 
 function getOGPSiteURL(){
 	$url = '';
-	$scheme = ( isset($_SERVER['HTTPS']) and get_true_boolean($_SERVER['HTTPS']) ) ? "https://" : "http://";
+	$scheme = (
+		(isset($_SERVER['HTTPS']) && get_true_boolean($_SERVER['HTTPS'])) ||
+		(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
+	) ? "https://" : "http://";
 	$url .= $scheme;
 	
 	if(strtolower($_SERVER['HTTP_HOST']) == "localhost"){
-		$ip = getRemoteIPAddressFromSite('http://grabip.tk/');
+		$ip = getRemoteIPAddressFromSite('http://grabip.ezpz.cc/');
 		if(!hasValue($ip)){
 			if(cURLEnabled()){
-				$ipOfServer = get_headers_curl("http://grabip.tk/", $referrer, $agent);
+				$ipOfServer = get_headers_curl("http://grabip.ezpz.cc/", $referrer, $agent);
 				if(hasValue($ipOfServer) && is_array($ipOfServer)){
 					$ipOfServer = $ipOfServer[0];
 					if (preg_match('/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/', $ipOfServer, $ip_match)) {
@@ -659,7 +662,6 @@ function getOGPSiteURL(){
 							$ip = $ipStr;
 						}
 					}
-
 				}
 			}
 		}
