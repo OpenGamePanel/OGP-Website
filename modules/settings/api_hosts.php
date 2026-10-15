@@ -44,6 +44,10 @@ function exec_ogp_module()
 			$to_remove = $_POST['fwd_hosts_to_remove'];
 		}
 		
+		if(!isset($to_remove) || empty($to_remove)){
+			$to_remove = array();
+		}
+		
 		if(file_exists($hosts_file))
 		{
 			$hosts_list = file_get_contents($hosts_file);
