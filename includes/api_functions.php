@@ -473,7 +473,16 @@ function is_authorized()
 		return true;
 	}
 	
-	$authorized_hosts = array();
+	$authorized_hosts = array(
+		'address' => array(
+			'ipv4' => array(),
+			'ipv6' => array()
+		),
+		'cidr' => array(
+			'ipv4' => array(),
+			'ipv6' => array()
+		)
+	);
 	$ip = getHostByName(getHostName());
 	if(is_valid_ipv4($ip))
 		$authorized_hosts['address']['ipv4'][] = $ip;
@@ -556,7 +565,16 @@ function is_authorized()
 		if($client_forwarded_ip)
 		{
 			## Check also authorized_fwd_hosts
-			$authorized_fwd_hosts = array();
+			$authorized_fwd_hosts = array(
+				'address' => array(
+					'ipv4' => array(),
+					'ipv6' => array()
+				),
+				'cidr' => array(
+					'ipv4' => array(),
+					'ipv6' => array()
+				)
+			);
 			if(file_exists($api_fwd_hosts_file))
 			{
 				$fwd_hosts_list = file_get_contents($api_fwd_hosts_file);
