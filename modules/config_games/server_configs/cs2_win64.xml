@@ -26,7 +26,7 @@
 		</mod>
 	</mods>
 	<server_params>
-		<param key="+sv_setsteamaccount" type="text">
+		<param key="+sv_setsteamaccount" type="password">
 			<caption>Steam Account Login Token</caption>
 			<desc>Manage your steam tokens &lt;a href=https://steamcommunity.com/dev/managegameservers target=_blank&gt;here&lt;/a&gt;</desc>
 		</param>
